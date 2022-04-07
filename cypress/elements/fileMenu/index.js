@@ -1,4 +1,4 @@
-import { clickMenuBarFileButton } from '../menuBar'
+import { clickMenuBarFileButton } from '../menuBar.js'
 
 const deleteModalEl = 'file-menu-delete-modal'
 const fileMenuContainerEl = 'file-menu-container'
@@ -23,7 +23,7 @@ export const closeFileMenuWithEsc = () =>
     cy.getBySel(fileMenuToggleEl).type('{esc}', { force: true })
 // use force as the element that's being typed into is hidden
 
-export const clickFileMenuButton = buttonName =>
+export const clickFileMenuButton = (buttonName) =>
     cy.getBySel(fileMenuContainerEl).contains(buttonName).click()
 
 export const createNewAO = () => {
@@ -48,8 +48,12 @@ export const expectFileMenuButtonToBeDisabled = (buttonName, inverse) =>
         .invoke('attr', 'class')
         .should(inverse ? 'not.contain' : 'contain', 'disabled')
 
-export const expectFileMenuButtonToBeEnabled = buttonName =>
+export const expectFileMenuButtonToBeEnabled = (buttonName) =>
     expectFileMenuButtonToBeDisabled(buttonName, true)
 
-export { saveNewAO, saveExistingAO, saveAOAs } from './save'
-export { openAOByName, openRandomAO, openRandomAOCreatedByOthers } from './open'
+export { saveNewAO, saveExistingAO, saveAOAs } from './save.js'
+export {
+    openAOByName,
+    openRandomAO,
+    openRandomAOCreatedByOthers,
+} from './open.js'

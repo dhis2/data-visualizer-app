@@ -4,11 +4,11 @@ import PropTypes from 'prop-types'
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
-import { acSetChart } from '../../actions/chart'
-import { tSetCurrentFromUi } from '../../actions/current'
-import { acSetLoadError, acSetPluginLoading } from '../../actions/loader'
-import { acAddMetadata } from '../../actions/metadata'
-import { acSetUiItems, acAddParentGraphMap } from '../../actions/ui'
+import { acSetChart } from '../../actions/chart.js'
+import { tSetCurrentFromUi } from '../../actions/current.js'
+import { acSetLoadError, acSetPluginLoading } from '../../actions/loader.js'
+import { acAddMetadata } from '../../actions/metadata.js'
+import { acSetUiItems, acAddParentGraphMap } from '../../actions/ui.js'
 import {
     AssignedCategoriesDataElementsError,
     GenericServerError,
@@ -18,18 +18,22 @@ import {
     NoDataOrDataElementGroupSetError,
     CombinationDEGSRRError,
     NoOrgUnitResponseError,
-} from '../../modules/error'
-import { removeLastPathSegment } from '../../modules/orgUnit'
-import { sGetCurrent } from '../../reducers/current'
-import { sGetLoadError, sGetIsPluginLoading } from '../../reducers/loader'
-import { sGetSettingsDisplayNameProperty } from '../../reducers/settings'
-import { sGetUiRightSidebarOpen, sGetUiInterpretation } from '../../reducers/ui'
-import { sGetVisualization } from '../../reducers/visualization'
-import LoadingMask from '../../widgets/LoadingMask'
-import StartScreen from './StartScreen'
-import styles from './styles/Visualization.style'
+    NoDataError,
+} from '../../modules/error.js'
+import { removeLastPathSegment } from '../../modules/orgUnit.js'
+import { sGetCurrent } from '../../reducers/current.js'
+import { sGetLoadError, sGetIsPluginLoading } from '../../reducers/loader.js'
+import { sGetSettingsDisplayNameProperty } from '../../reducers/settings.js'
+import {
+    sGetUiRightSidebarOpen,
+    sGetUiInterpretation,
+} from '../../reducers/ui.js'
+import { sGetVisualization } from '../../reducers/visualization.js'
+import LoadingMask from '../../widgets/LoadingMask.js'
+import StartScreen from './StartScreen.js'
+import styles from './styles/Visualization.style.js'
 
-export class Visualization extends Component {
+export class UnconnectedVisualization extends Component {
     constructor(props) {
         super(props)
 
@@ -38,7 +42,7 @@ export class Visualization extends Component {
         }
     }
 
-    onError = response => {
+    onError = (response) => {
         let error
         if (response) {
             switch (response.details?.errorCode) {
@@ -60,9 +64,18 @@ export class Visualization extends Component {
                     error = new CombinationDEGSRRError()
                     break
                 case 'E7124':
-                    error = new NoOrgUnitResponseError()
+                    {
+                        if (response?.message?.includes('`dx`')) {
+                            error = new NoDataError(
+                                this.props.visualization.type
+                            )
+                        } else if (response?.message?.includes('`ou`')) {
+                            error = new NoOrgUnitResponseError()
+                        } else {
+                            error = new GenericServerError()
+                        }
+                    }
                     break
-
                 default:
                     error = response
             }
@@ -73,11 +86,11 @@ export class Visualization extends Component {
         this.props.setLoadError(error)
     }
 
-    onChartGenerated = svg => this.props.setChart(svg)
+    onChartGenerated = (svg) => this.props.setChart(svg)
 
-    onResponsesReceived = responses => {
+    onResponsesReceived = (responses) => {
         const forMetadata = {}
-        responses.forEach(response => {
+        responses.forEach((response) => {
             Object.entries(response.metaData.items).forEach(([id, item]) => {
                 forMetadata[id] = {
                     id,
@@ -91,13 +104,13 @@ export class Visualization extends Component {
         this.props.addMetadata(forMetadata)
 
         if (
-            !responses.some(response => response.rows && response.rows.length)
+            !responses.some((response) => response.rows && response.rows.length)
         ) {
             throw new EmptyResponseError()
         }
     }
 
-    onDrill = drillData => {
+    onDrill = (drillData) => {
         if (drillData?.ou) {
             const ou = drillData.ou
 
@@ -193,7 +206,7 @@ export class Visualization extends Component {
     }
 }
 
-Visualization.propTypes = {
+UnconnectedVisualization.propTypes = {
     addMetadata: PropTypes.func,
     addParentGraphMap: PropTypes.func,
     error: PropTypes.object,
@@ -217,7 +230,7 @@ export const visualizationSelector = createSelector(
 
 export const visFiltersSelector = createSelector(
     [sGetUiInterpretation],
-    interpretation =>
+    (interpretation) =>
         interpretation.created
             ? { relativePeriodDate: interpretation.created }
             : {}
@@ -225,12 +238,12 @@ export const visFiltersSelector = createSelector(
 
 export const userSettingsSelector = createSelector(
     [sGetSettingsDisplayNameProperty],
-    displayProperty => ({
+    (displayProperty) => ({
         displayProperty,
     })
 )
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     visualization: visualizationSelector(state),
     visFilters: visFiltersSelector(state),
     rightSidebarOpen: sGetUiRightSidebarOpen(state),
@@ -239,15 +252,18 @@ const mapStateToProps = state => ({
     userSettings: userSettingsSelector(state),
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
     onLoadingComplete: () => dispatch(acSetPluginLoading(false)),
-    addMetadata: metadata => dispatch(acAddMetadata(metadata)),
-    addParentGraphMap: parentGraphMap =>
+    addMetadata: (metadata) => dispatch(acAddMetadata(metadata)),
+    addParentGraphMap: (parentGraphMap) =>
         dispatch(acAddParentGraphMap(parentGraphMap)),
-    setChart: chart => dispatch(acSetChart(chart)),
-    setLoadError: error => dispatch(acSetLoadError(error)),
-    setUiItems: data => dispatch(acSetUiItems(data)),
+    setChart: (chart) => dispatch(acSetChart(chart)),
+    setLoadError: (error) => dispatch(acSetLoadError(error)),
+    setUiItems: (data) => dispatch(acSetUiItems(data)),
     setCurrent: () => dispatch(tSetCurrentFromUi()),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Visualization)
+export const Visualization = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(UnconnectedVisualization)

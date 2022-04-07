@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2021-11-16T13:39:36.158Z\n"
-"PO-Revision-Date: 2021-11-16T13:39:36.158Z\n"
+"POT-Creation-Date: 2022-04-06T05:26:25.625Z\n"
+"PO-Revision-Date: 2022-04-06T05:26:25.625Z\n"
 
 msgid "All items"
 msgstr "All items"
@@ -414,8 +414,14 @@ msgstr "Number"
 msgid "Fix column headers to top of table"
 msgstr "Fix column headers to top of table"
 
+msgid "There aren’t any column headers because Columns is empty."
+msgstr "There aren’t any column headers because Columns is empty."
+
 msgid "Fix row headers to left of table"
 msgstr "Fix row headers to left of table"
+
+msgid "There aren’t any row headers because Rows is empty."
+msgstr "There aren’t any row headers because Rows is empty."
 
 msgid "Font size"
 msgstr "Font size"
@@ -1018,6 +1024,69 @@ msgstr "Series"
 
 msgid "Style"
 msgstr "Style"
+
+msgid "View data and indicators in a manipulatable table."
+msgstr "View data and indicators in a manipulatable table."
+
+msgid "Compare sizes of related elements vertically. Recommend period as filter."
+msgstr "Compare sizes of related elements vertically. Recommend period as filter."
+
+msgid ""
+"Compare parts of a whole against related elements vertically. Recommend "
+"data or org. unit as series."
+msgstr ""
+"Compare parts of a whole against related elements vertically. Recommend "
+"data or org. unit as series."
+
+msgid "Compare sizes of related elements horizontally. Recommend period as filter."
+msgstr "Compare sizes of related elements horizontally. Recommend period as filter."
+
+msgid ""
+"Compare parts of a whole against related elements horizontally. Recommend "
+"data or org. unit as series."
+msgstr ""
+"Compare parts of a whole against related elements horizontally. Recommend "
+"data or org. unit as series."
+
+msgid "Track or compare changes over time. Recommend period as category."
+msgstr "Track or compare changes over time. Recommend period as category."
+
+msgid ""
+"Track or compare parts of a whole over time. Recommend data as series and "
+"period as category."
+msgstr ""
+"Track or compare parts of a whole over time. Recommend data as series and "
+"period as category."
+
+msgid ""
+"Compare parts of a whole at a single point in time. Recommend period as "
+"filter."
+msgstr ""
+"Compare parts of a whole at a single point in time. Recommend period as "
+"filter."
+
+msgid "Compare several items against multiple variables."
+msgstr "Compare several items against multiple variables."
+
+msgid ""
+"Compare a percentage indicator against a 100% scale. Recommend period as "
+"filter."
+msgstr ""
+"Compare a percentage indicator against a 100% scale. Recommend period as "
+"filter."
+
+msgid "Compare changes over time between multiple time periods."
+msgstr "Compare changes over time between multiple time periods."
+
+msgid "Display a single value. Recommend relative period to show latest data."
+msgstr "Display a single value. Recommend relative period to show latest data."
+
+msgid ""
+"View the relationship between two data items at a place or time. "
+"Recommended for finding outliers."
+msgstr ""
+"View the relationship between two data items at a place or time. "
+"Recommended for finding outliers."
 
 msgid "Weeks per year"
 msgstr "Weeks per year"

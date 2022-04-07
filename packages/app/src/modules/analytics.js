@@ -1,4 +1,4 @@
-export const computeGenericPeriodNames = responses => {
+export const computeGenericPeriodNames = (responses) => {
     const xAxisRes = responses.reduce((out, res) => {
         if (out.metaData) {
             if (

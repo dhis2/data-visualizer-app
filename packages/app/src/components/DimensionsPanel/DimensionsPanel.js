@@ -12,12 +12,12 @@ import {
     acSetUiActiveModalDialog,
     acAddUiLayoutDimensions,
     acRemoveUiLayoutDimensions,
-} from '../../actions/ui'
-import { ITEM_ATTRIBUTE_VERTICAL } from '../../modules/ui'
-import * as fromReducers from '../../reducers'
-import DialogManager from './Dialogs/DialogManager'
-import DndDimensionsPanel from './DndDimensionsPanel'
-import { styles } from './styles/DimensionsPanel.style'
+} from '../../actions/ui.js'
+import { ITEM_ATTRIBUTE_VERTICAL } from '../../modules/ui.js'
+import * as fromReducers from '../../reducers/index.js'
+import DialogManager from './Dialogs/DialogManager.js'
+import DndDimensionsPanel from './DndDimensionsPanel.js'
+import { styles } from './styles/DimensionsPanel.style.js'
 
 export const Dimensions = ({
     assignedCategoriesItemHandler,
@@ -48,7 +48,7 @@ export const Dimensions = ({
         toggleMenu()
     }
 
-    const openDimensionModal = id =>
+    const openDimensionModal = (id) =>
         onDimensionClick(
             ui.type === VIS_TYPE_SCATTER && id === DIMENSION_ID_DATA
                 ? ITEM_ATTRIBUTE_VERTICAL
@@ -75,7 +75,7 @@ export const Dimensions = ({
                             isAssignedCategoriesInLayout={
                                 layoutHasAssignedCategories
                             }
-                            assignedCategoriesItemHandler={destination =>
+                            assignedCategoriesItemHandler={(destination) =>
                                 assignedCategoriesItemHandler(
                                     layoutHasAssignedCategories,
                                     destination
@@ -105,18 +105,18 @@ Dimensions.propTypes = {
     onDimensionClick: PropTypes.func,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     ui: fromReducers.fromUi.sGetUi(state),
     dimensions: fromReducers.fromDimensions.sGetDimensions(state),
     layout: fromReducers.fromUi.sGetUiLayout(state),
     itemsByDimension: fromReducers.fromUi.sGetUiItems(state),
     layoutHasAssignedCategories:
         fromReducers.fromUi.sLayoutHasAssignedCategories(state),
-    getCurrentAxisId: dimensionId =>
+    getCurrentAxisId: (dimensionId) =>
         fromReducers.fromUi.sGetAxisIdByDimensionId(state, dimensionId),
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
     axisItemHandler: ({
         dimensionId,
         axisId,
@@ -134,7 +134,7 @@ const mapDispatchToProps = dispatch => ({
             dispatch(acSetUiActiveModalDialog(dimensionId))
         }
     },
-    removeItemHandler: dimensionId => {
+    removeItemHandler: (dimensionId) => {
         dispatch(acRemoveUiLayoutDimensions(dimensionId))
     },
     assignedCategoriesItemHandler: (layoutHasAssignedCategories, axisId) => {
@@ -146,7 +146,7 @@ const mapDispatchToProps = dispatch => ({
                   })
         )
     },
-    onDimensionClick: id => dispatch(acSetUiActiveModalDialog(id)),
+    onDimensionClick: (id) => dispatch(acSetUiActiveModalDialog(id)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dimensions)

@@ -3,19 +3,19 @@ import {
     expectAOTitleToNotBeDirty,
     expectVisualizationToBeVisible,
     expectVisualizationToNotBeVisible,
-} from '../elements/chart'
-import { replacePeriodItems } from '../elements/common'
+} from '../elements/chart.js'
+import { replacePeriodItems } from '../elements/common.js'
 import {
     confirmLeave,
     expectConfirmLeaveModalToBeVisible,
-} from '../elements/confirmLeaveModal'
-import { createNewAO, openAOByName } from '../elements/fileMenu'
+} from '../elements/confirmLeaveModal.js'
+import { createNewAO, openAOByName } from '../elements/fileMenu/index.js'
 import {
     expectStartScreenToBeVisible,
     goToStartPage,
-} from '../elements/startScreen'
-import { TEST_AOS } from '../utils/data'
-import { getRandomArrayItem } from '../utils/random'
+} from '../elements/startScreen.js'
+import { TEST_AOS } from '../utils/data.js'
+import { getRandomArrayItem } from '../utils/random.js'
 
 describe('confirm leave modal', () => {
     const TEST_AO = getRandomArrayItem(TEST_AOS)

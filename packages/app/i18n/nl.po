@@ -1,20 +1,20 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2020
-# phil_dhis2, 2020
+# Cherise Beek <cherise.beek@gmail.com>, 2021
+# Yury Rogachev <yury@dhis2.org>, 2021
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-04-06T05:26:25.625Z\n"
+"POT-Creation-Date: 2021-11-16T13:39:36.158Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: phil_dhis2, 2020\n"
-"Language-Team: Khmer (https://www.transifex.com/hisp-uio/teams/100509/km/)\n"
+"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
+"Language-Team: Dutch (https://www.transifex.com/hisp-uio/teams/100509/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: km\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: nl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "All items"
 msgstr ""
@@ -106,13 +106,13 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr "​លេខ​សម្គាល់"
+msgstr ""
 
 msgid "Code"
 msgstr ""
 
 msgid "Name"
-msgstr "ឈ្មោះ"
+msgstr ""
 
 msgid "Download"
 msgstr ""
@@ -151,10 +151,10 @@ msgid "Hide"
 msgstr ""
 
 msgid "Interpretations"
-msgstr "កន្លែងសន្ទនារ"
+msgstr ""
 
 msgid "All"
-msgstr "ទាំងអស់"
+msgstr ""
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
@@ -225,7 +225,7 @@ msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
 msgid "Update"
-msgstr "ធ្វើ​បច្ចុប្បន្នភាព"
+msgstr "Bijwerken"
 
 msgid "Getting started"
 msgstr ""
@@ -254,16 +254,16 @@ msgid "By data element"
 msgstr ""
 
 msgid "Count"
-msgstr "ផលរាប់"
+msgstr ""
 
 msgid "Average"
-msgstr "ផលមធ្យម"
+msgstr ""
 
 msgid "Average (sum in org unit hierarchy)"
 msgstr ""
 
 msgid "Sum"
-msgstr "ផល​បូក"
+msgstr ""
 
 msgid "Last value"
 msgstr ""
@@ -272,10 +272,10 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr ""
 
 msgid "Min"
-msgstr "អប្បបរមា"
+msgstr "Min"
 
 msgid "Max"
-msgstr "អតិបរមា"
+msgstr "Max"
 
 msgid "Standard deviation"
 msgstr ""
@@ -322,7 +322,7 @@ msgid "Auto generated from axis items"
 msgstr ""
 
 msgid "None"
-msgstr "គ្មាន"
+msgstr ""
 
 msgid "Custom"
 msgstr ""
@@ -343,7 +343,7 @@ msgid "Columns totals"
 msgstr ""
 
 msgid "Default"
-msgstr "​លំនាំដើម"
+msgstr ""
 
 msgid "Bright"
 msgstr ""
@@ -403,7 +403,7 @@ msgid "Extreme line % detection"
 msgstr ""
 
 msgid "Number"
-msgstr "តួរលេខ"
+msgstr ""
 
 msgid "Fix column headers to top of table"
 msgstr ""
@@ -511,7 +511,7 @@ msgid "Display the value of percentages of the total"
 msgstr ""
 
 msgid "Value"
-msgstr "តម្លៃ"
+msgstr ""
 
 msgid "Percentage of row"
 msgstr ""
@@ -554,10 +554,10 @@ msgid "Outlier detection method"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr "ផ្នែក​នៃ​អង្គការ"
+msgstr ""
 
 msgid "Parent organisation unit"
-msgstr "Parent organisation unit"
+msgstr ""
 
 msgid "Reporting period"
 msgstr ""
@@ -569,7 +569,7 @@ msgid "Include regression"
 msgstr ""
 
 msgid "Title"
-msgstr "ចំណងជើង"
+msgstr ""
 
 msgid "Trend line"
 msgstr ""
@@ -975,7 +975,7 @@ msgid "Axes"
 msgstr ""
 
 msgid "Data"
-msgstr "Data"
+msgstr ""
 
 msgid "Limit values"
 msgstr ""
@@ -993,59 +993,6 @@ msgid "Series"
 msgstr ""
 
 msgid "Style"
-msgstr "​រចនាបទ"
-
-msgid "View data and indicators in a manipulatable table."
-msgstr ""
-
-msgid ""
-"Compare sizes of related elements vertically. Recommend period as filter."
-msgstr ""
-
-msgid ""
-"Compare parts of a whole against related elements vertically. Recommend data"
-" or org. unit as series."
-msgstr ""
-
-msgid ""
-"Compare sizes of related elements horizontally. Recommend period as filter."
-msgstr ""
-
-msgid ""
-"Compare parts of a whole against related elements horizontally. Recommend "
-"data or org. unit as series."
-msgstr ""
-
-msgid "Track or compare changes over time. Recommend period as category."
-msgstr ""
-
-msgid ""
-"Track or compare parts of a whole over time. Recommend data as series and "
-"period as category."
-msgstr ""
-
-msgid ""
-"Compare parts of a whole at a single point in time. Recommend period as "
-"filter."
-msgstr ""
-
-msgid "Compare several items against multiple variables."
-msgstr ""
-
-msgid ""
-"Compare a percentage indicator against a 100% scale. Recommend period as "
-"filter."
-msgstr ""
-
-msgid "Compare changes over time between multiple time periods."
-msgstr ""
-
-msgid "Display a single value. Recommend relative period to show latest data."
-msgstr ""
-
-msgid ""
-"View the relationship between two data items at a place or time. Recommended"
-" for finding outliers."
 msgstr ""
 
 msgid "Weeks per year"

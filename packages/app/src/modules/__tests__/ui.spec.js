@@ -1,4 +1,4 @@
-import { getParentGraphMapFromVisualization, mergeUiMaps } from '../ui'
+import { getParentGraphMapFromVisualization, mergeUiMaps } from '../ui.js'
 
 describe('ui', () => {
     let mockCurrent

@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-key */
 import i18n from '@dhis2/d2-i18n'
 import React from 'react'
-import MeasureCriteria from '../../../components/VisualizationOptions/Options/MeasureCriteria'
+import MeasureCriteria from '../../../components/VisualizationOptions/Options/MeasureCriteria.js'
 
 export default () => ({
     key: 'limitValues-tab',

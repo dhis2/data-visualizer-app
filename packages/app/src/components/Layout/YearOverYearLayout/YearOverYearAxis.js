@@ -8,11 +8,11 @@ import { connect } from 'react-redux'
 import {
     sGetUiYearOverYearSeries,
     sGetUiYearOverYearCategory,
-} from '../../../reducers/ui'
-import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style'
-import YearOverYearAxisStyles from './styles/YearOverYearAxis.style'
+} from '../../../reducers/ui.js'
+import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style.js'
+import YearOverYearAxisStyles from './styles/YearOverYearAxis.style.js'
 
-const YearOverYearAxis = props => (
+const YearOverYearAxis = (props) => (
     <div
         id={props.axisId}
         data-test={`${props.axisId}-axis`}
@@ -39,7 +39,7 @@ YearOverYearAxis.propTypes = {
     style: PropTypes.object,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     yearOverYearSeries: sGetUiYearOverYearSeries(state),
     yearOverYearCategory: sGetUiYearOverYearCategory(state),
 })

@@ -6,8 +6,8 @@ import {
     OPTION_BASE_LINE_TITLE,
     OPTION_BASE_LINE_TITLE_FONT_STYLE,
     OPTION_BASE_LINE_VALUE,
-} from '../../../modules/options'
-import RegressionLine from './RegressionLine'
+} from '../../../modules/options.js'
+import RegressionLine from './RegressionLine.js'
 
 export const BaseLine = ({ disabled, axisId, isVertical }) => (
     <RegressionLine
@@ -28,5 +28,3 @@ BaseLine.propTypes = {
     disabled: PropTypes.bool,
     isVertical: PropTypes.bool,
 }
-
-export default BaseLine

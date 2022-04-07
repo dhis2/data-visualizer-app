@@ -16,17 +16,17 @@ import {
     acSetUiActiveModalDialog,
     acSetUiItemAttributes,
     acRemoveUiItemAttributes,
-} from '../../../actions/ui'
-import HorizontalIcon from '../../../assets/HorizontalIcon'
-import VerticalIcon from '../../../assets/VerticalIcon'
+} from '../../../actions/ui.js'
+import HorizontalIcon from '../../../assets/HorizontalIcon.js'
+import VerticalIcon from '../../../assets/VerticalIcon.js'
 import {
     ITEM_ATTRIBUTE_HORIZONTAL,
     ITEM_ATTRIBUTE_VERTICAL,
-} from '../../../modules/ui'
-import { sGetUiLayout, sGetUiItemsByAttribute } from '../../../reducers/ui'
-import IconButton from '../../IconButton/IconButton'
-import Chip from '../Chip'
-import styles from './styles/ScatterAxis.style'
+} from '../../../modules/ui.js'
+import { sGetUiLayout, sGetUiItemsByAttribute } from '../../../reducers/ui.js'
+import IconButton from '../../IconButton/IconButton.js'
+import Chip from '../Chip.js'
+import styles from './styles/ScatterAxis.style.js'
 
 const Axis = ({
     label,
@@ -81,10 +81,9 @@ const Axis = ({
                     ariaOwns={dialogIsOpen ? `menu-for-${itemAttribute}` : null}
                     ariaHaspopup={true}
                     onClick={toggleMenu}
-                    style={styles.icon}
                     dataTest={`layout-chip-menu-button-${itemAttribute}`}
                 >
-                    <IconMore16 color="var(--colors-grey700)" />
+                    <IconMore16 />
                 </IconButton>
             </div>
             {dialogIsOpen && (
@@ -134,7 +133,7 @@ const Axis = ({
         ) : (
             <HorizontalIcon />
         )
-
+    console.log('ScatterBrain')
     return (
         <div
             id={label}
@@ -169,13 +168,14 @@ Axis.propTypes = {
     style: PropTypes.object,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     layout: sGetUiLayout(state),
-    getItemsByAttribute: attribute => sGetUiItemsByAttribute(state, attribute),
+    getItemsByAttribute: (attribute) =>
+        sGetUiItemsByAttribute(state, attribute),
 })
 
-const mapDispatchToProps = dispatch => ({
-    getOpenHandler: dialogId => () =>
+const mapDispatchToProps = (dispatch) => ({
+    getOpenHandler: (dialogId) => () =>
         dispatch(acSetUiActiveModalDialog(dialogId)),
     setItemAttributes: (dimensionId, itemIds, attribute) =>
         dispatch(acSetUiItemAttributes({ dimensionId, itemIds, attribute })),

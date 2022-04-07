@@ -5,14 +5,14 @@ import {
     VIS_TYPE_YEAR_OVER_YEAR_LINE,
     VIS_TYPE_COLUMN,
 } from '@dhis2/analytics'
-import { getOptionsFromUi } from '../../modules/current'
-import options from '../../modules/options'
+import { getOptionsFromUi } from '../../modules/current.js'
+import options from '../../modules/options.js'
 import reducer, {
     DEFAULT_CURRENT,
     SET_CURRENT,
     SET_CURRENT_FROM_UI,
     CLEAR_CURRENT,
-} from '../current'
+} from '../current.js'
 
 describe('reducer: current', () => {
     it('should return the default state', () => {

@@ -1,20 +1,25 @@
-import { FileMenu } from '@dhis2/analytics'
+import {
+    FileMenu,
+    VIS_TYPE_GROUP_ALL,
+    VIS_TYPE_GROUP_CHARTS,
+} from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
-import * as fromActions from '../../actions'
-import { getErrorVariantByStatusCode } from '../../modules/error'
-import history from '../../modules/history'
-import { sGetCurrent } from '../../reducers/current'
-import DownloadMenu from '../DownloadMenu/DownloadMenu'
-import InterpretationsButton from '../Interpretations/InterpretationsButton'
-import UpdateButton from '../UpdateButton/UpdateButton'
-import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer'
-import VisualizationOptionsManager from '../VisualizationOptions/VisualizationOptionsManager'
+import * as fromActions from '../../actions/index.js'
+import { getErrorVariantByStatusCode } from '../../modules/error.js'
+import history from '../../modules/history.js'
+import { visTypes } from '../../modules/visualization.js'
+import { sGetCurrent } from '../../reducers/current.js'
+import { DownloadMenu } from '../DownloadMenu/DownloadMenu.js'
+import { InterpretationsButton } from '../Interpretations/InterpretationsButton.js'
+import UpdateButton from '../UpdateButton/UpdateButton.js'
+import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer.js'
+import VisualizationOptionsManager from '../VisualizationOptions/VisualizationOptionsManager.js'
 import styles from './styles/MenuBar.module.css'
 
-const onOpen = id => {
+const onOpen = (id) => {
     const path = `/${id}`
     if (history.location.pathname === path) {
         history.replace({ pathname: path, state: { isOpening: true } })
@@ -29,16 +34,26 @@ const onNew = () => {
         history.push('/')
     }
 }
-const getOnRename = props => details => props.onRenameVisualization(details)
-const getOnSave = props => details => props.onSaveVisualization(details, false)
-const getOnSaveAs = props => details => props.onSaveVisualization(details, true)
-const getOnDelete = props => () => props.onDeleteVisualization()
-const getOnError = props => error => props.onError(error)
+const getOnRename = (props) => (details) => props.onRenameVisualization(details)
+const getOnSave = (props) => (details) =>
+    props.onSaveVisualization(details, false)
+const getOnSaveAs = (props) => (details) =>
+    props.onSaveVisualization(details, true)
+const getOnDelete = (props) => () => props.onDeleteVisualization()
+const getOnError = (props) => (error) => props.onError(error)
 
-export const MenuBar = ({ dataTest, ...props }, context) => (
+const filterVisTypes = [
+    { type: VIS_TYPE_GROUP_ALL },
+    { type: VIS_TYPE_GROUP_CHARTS, insertDivider: true },
+    ...visTypes.map((visType) => ({
+        type: visType,
+    })),
+]
+
+const UnconnectedMenuBar = ({ dataTest, ...props }, context) => (
     <div className={styles.menuBar} data-test={dataTest}>
         <UpdateVisualizationContainer
-            renderComponent={handler => (
+            renderComponent={(handler) => (
                 <UpdateButton
                     className={styles.updateButton}
                     small
@@ -48,9 +63,11 @@ export const MenuBar = ({ dataTest, ...props }, context) => (
             )}
         />
         <FileMenu
-            d2={context.d2}
+            currentUser={context.d2.currentUser}
             fileType={props.apiObjectName}
             fileObject={props.current}
+            filterVisTypes={filterVisTypes}
+            defaultFilterVisType={VIS_TYPE_GROUP_ALL}
             onOpen={onOpen}
             onNew={onNew}
             onRename={getOnRename(props)}
@@ -66,27 +83,27 @@ export const MenuBar = ({ dataTest, ...props }, context) => (
     </div>
 )
 
-MenuBar.propTypes = {
+UnconnectedMenuBar.propTypes = {
     apiObjectName: PropTypes.string,
     current: PropTypes.object,
     dataTest: PropTypes.string,
 }
 
-MenuBar.contextTypes = {
+UnconnectedMenuBar.contextTypes = {
     d2: PropTypes.object,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     current: sGetCurrent(state),
 })
 
-const mapDispatchToProps = dispatch => ({
-    onRenameVisualization: details =>
+const mapDispatchToProps = (dispatch) => ({
+    onRenameVisualization: (details) =>
         dispatch(fromActions.tDoRenameVisualization(details)),
     onSaveVisualization: (details = {}, copy) =>
         dispatch(fromActions.tDoSaveVisualization(details, copy)),
     onDeleteVisualization: () => dispatch(fromActions.tDoDeleteVisualization()),
-    onError: error => {
+    onError: (error) => {
         const message =
             error.errorCode === 'E4030'
                 ? i18n.t(
@@ -104,4 +121,7 @@ const mapDispatchToProps = dispatch => ({
     },
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(MenuBar)
+export const MenuBar = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(UnconnectedMenuBar)

@@ -5,8 +5,12 @@ import {
     STATE_UNSAVED,
     STATE_SAVED,
     STATE_DIRTY,
-} from '../../../modules/visualization'
-import { TitleBar, getTitleUnsaved, getTitleDirty } from '../TitleBar'
+} from '../../../modules/visualization.js'
+import {
+    UnconnectedTitleBar as TitleBar,
+    getTitleUnsaved,
+    getTitleDirty,
+} from '../TitleBar.js'
 
 describe('TitleBar component', () => {
     let props

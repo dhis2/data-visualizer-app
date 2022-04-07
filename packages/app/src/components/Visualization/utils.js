@@ -3,9 +3,9 @@ export const matchVisualizationWithType = (
     visualizationsWithType
 ) => {
     const result = []
-    visualizations.forEach(visualization => {
+    visualizations.forEach((visualization) => {
         const type = visualizationsWithType.find(
-            visWithType => visWithType.id === visualization.id
+            (visWithType) => visWithType.id === visualization.id
         )?.type
         if (type) {
             result.push({

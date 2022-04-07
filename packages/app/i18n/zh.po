@@ -2,15 +2,15 @@
 # Translators:
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
-# 晓东 林 <13981924470@126.com>, 2020
-# easylin <lin_xd@126.com>, 2021
+# 晓东 林 <13981924470@126.com>, 2021
+# easylin <lin_xd@126.com>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-08-12T10:01:59.854Z\n"
+"POT-Creation-Date: 2022-04-06T05:26:25.625Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2021\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2022\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -412,8 +412,14 @@ msgstr "数字"
 msgid "Fix column headers to top of table"
 msgstr "将列标题固定到表格顶部"
 
+msgid "There aren’t any column headers because Columns is empty."
+msgstr "没有任何列标题，因为 列是空的。"
+
 msgid "Fix row headers to left of table"
 msgstr "将行标题固定到表格的左侧"
+
+msgid "There aren’t any row headers because Rows is empty."
+msgstr "没有任何行标题，因为 行是空的。"
 
 msgid "Font size"
 msgstr "字体大小"
@@ -905,14 +911,14 @@ msgstr "去年"
 msgid "Last 5 years"
 msgstr "最近5年"
 
-msgid "User org unit"
-msgstr "当前用户机构"
+msgid "User organisation unit"
+msgstr "用户所在机构"
 
-msgid "User org unit children"
-msgstr "用户下属机构"
+msgid "User sub-units"
+msgstr "我的下属机构"
 
-msgid "User org unit grand children"
-msgstr "用户下下级机构"
+msgid "User sub-x2-units"
+msgstr "该用户2级下属机构"
 
 msgid "Table title"
 msgstr "表标题"
@@ -923,7 +929,7 @@ msgstr "参数"
 msgid ""
 "These options only apply to legacy tables like standard reports. Options set"
 " here will have no effect on tables made in Data Visualizer."
-msgstr "这些选项仅适用于传统表格(如标准报表)。此处设置的选项将对在Data 可视化应用中创建的表无效。"
+msgstr "这些选项仅适用于标准报告等旧表。此处设置的选项不会影响在 Data Visualizer（数据可视化应用） 中制作的表格。"
 
 msgid "Applies to standard reports only"
 msgstr "仅适用于标准报表"
@@ -994,6 +1000,59 @@ msgstr "系列"
 
 msgid "Style"
 msgstr "风格"
+
+msgid "View data and indicators in a manipulatable table."
+msgstr "在可操作的表格中查看数据和指标。"
+
+msgid ""
+"Compare sizes of related elements vertically. Recommend period as filter."
+msgstr ""
+
+msgid ""
+"Compare parts of a whole against related elements vertically. Recommend data"
+" or org. unit as series."
+msgstr "垂直比较整个部分和相关元素。推荐数据或组织机构为系列。"
+
+msgid ""
+"Compare sizes of related elements horizontally. Recommend period as filter."
+msgstr ""
+
+msgid ""
+"Compare parts of a whole against related elements horizontally. Recommend "
+"data or org. unit as series."
+msgstr "水平比较整个部分和相关元素。推荐数据或组织机构为系列。"
+
+msgid "Track or compare changes over time. Recommend period as category."
+msgstr "跟踪或比较随时间的变化规律。推荐时期为分类。"
+
+msgid ""
+"Track or compare parts of a whole over time. Recommend data as series and "
+"period as category."
+msgstr ""
+
+msgid ""
+"Compare parts of a whole at a single point in time. Recommend period as "
+"filter."
+msgstr "在单个时间点比较整个的一部分。推荐时段为过滤条件。"
+
+msgid "Compare several items against multiple variables."
+msgstr "将多个变量与多个条目进行比较。"
+
+msgid ""
+"Compare a percentage indicator against a 100% scale. Recommend period as "
+"filter."
+msgstr ""
+
+msgid "Compare changes over time between multiple time periods."
+msgstr "比较多个时间段之间随时间的变化。"
+
+msgid "Display a single value. Recommend relative period to show latest data."
+msgstr "显示单个值。推荐相对时期以显示最新数据。"
+
+msgid ""
+"View the relationship between two data items at a place or time. Recommended"
+" for finding outliers."
+msgstr "查看某个地点或时间的两个数据项之间的关系。推荐用于发现异常值。"
 
 msgid "Weeks per year"
 msgstr "每年的周"

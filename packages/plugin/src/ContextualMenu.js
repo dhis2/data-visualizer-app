@@ -4,18 +4,19 @@ import i18n from '@dhis2/d2-i18n'
 import { Divider, FlyoutMenu, MenuItem, Popper } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState, useCallback } from 'react'
-import ArrowDownwardIcon from './assets/ArrowDownwardIcon'
-import ArrowUpwardIcon from './assets/ArrowUpwardIcon'
+import ArrowDownwardIcon from './assets/ArrowDownwardIcon.js'
+import ArrowUpwardIcon from './assets/ArrowUpwardIcon.js'
 
 const ContextualMenu = ({ config, ouLevels, onClick, reference, dataTest }) => {
     const engine = useDataEngine()
     const [ouData, setOuData] = useState(undefined)
     const [subLevelData, setSubLevelData] = useState(undefined)
 
-    const lookupLevel = levelId => ouLevels.find(item => item.level === levelId)
+    const lookupLevel = (levelId) =>
+        ouLevels.find((item) => item.level === levelId)
 
     const doFetchOuData = useCallback(
-        async ouId => {
+        async (ouId) => {
             const orgUnit = await apiFetchOrganisationUnit(engine, ouId)
 
             return orgUnit

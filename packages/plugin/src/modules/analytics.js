@@ -12,10 +12,10 @@ export const computeYoYMatrix = (responses, relativePeriodTypeUsed) => {
 
         const periodKeyAxisIndexMatrix = periodGroups
             .shift()
-            .map(periodId => [periodId])
+            .map((periodId) => [periodId])
 
-        periodGroups.forEach(periodGroup => {
-            periodGroup.forEach(periodId => {
+        periodGroups.forEach((periodGroup) => {
+            periodGroup.forEach((periodId) => {
                 const matchGroups = periodId.match(/(\d{4})(\d{2})(\d{2})/)
 
                 const month = matchGroups[2]
@@ -23,7 +23,7 @@ export const computeYoYMatrix = (responses, relativePeriodTypeUsed) => {
 
                 // find same month/day in 1st "serie"
                 const xAxisIndexForPeriod = periodKeyAxisIndexMatrix.findIndex(
-                    periodKeys => periodKeys[0].substr(4) === `${month}${day}`
+                    (periodKeys) => periodKeys[0].substr(4) === `${month}${day}`
                 )
 
                 if (xAxisIndexForPeriod !== -1) {
@@ -32,8 +32,8 @@ export const computeYoYMatrix = (responses, relativePeriodTypeUsed) => {
                     // February 29 special case
                     // find index for february 28
                     const indexForFeb28 = periodKeyAxisIndexMatrix.findIndex(
-                        periodKeys =>
-                            periodKeys.findIndex(periodKey =>
+                        (periodKeys) =>
+                            periodKeys.findIndex((periodKey) =>
                                 /0228$/.test(periodKey)
                             ) !== -1
                     )
@@ -57,23 +57,23 @@ export const computeYoYMatrix = (responses, relativePeriodTypeUsed) => {
 
         const periodKeyAxisIndexMatrix = periodGroups
             .shift()
-            .map(periodId => [periodId])
+            .map((periodId) => [periodId])
 
-        periodGroups.forEach(periodGroup => {
-            periodGroup.forEach(periodId => {
+        periodGroups.forEach((periodGroup) => {
+            periodGroup.forEach((periodId) => {
                 const [year, week] = periodId.split('W')
 
                 // find week number in 1st "serie"
                 const xAxisIndexForPeriod = periodKeyAxisIndexMatrix.findIndex(
-                    periodKeys => periodKeys[0].split('W')[1] === week
+                    (periodKeys) => periodKeys[0].split('W')[1] === week
                 )
 
                 if (xAxisIndexForPeriod !== -1) {
                     periodKeyAxisIndexMatrix[xAxisIndexForPeriod].push(periodId)
                 } else if (week === '1') {
                     const indexForW2 = periodKeyAxisIndexMatrix.findIndex(
-                        periodKeys =>
-                            periodKeys.findIndex(periodKey =>
+                        (periodKeys) =>
+                            periodKeys.findIndex((periodKey) =>
                                 /W2$/.test(periodKey)
                             ) !== -1
                     )
@@ -87,9 +87,9 @@ export const computeYoYMatrix = (responses, relativePeriodTypeUsed) => {
                     // find the right spot considering also the year
                     const indexForPrevWeekInYear =
                         periodKeyAxisIndexMatrix.findIndex(
-                            periodKeys =>
+                            (periodKeys) =>
                                 periodKeys.findIndex(
-                                    periodKey =>
+                                    (periodKey) =>
                                         periodKey === `${year}W${week - 1}`
                                 ) !== -1
                         )
@@ -129,12 +129,12 @@ export const computeGenericPeriodNamesFromMatrix = (
             return (
                 periodKeyAxisIndexMatrix
                     // remove year, return "Wnn"
-                    .map(periodKeys => periodKeys[0].substr(4))
+                    .map((periodKeys) => periodKeys[0].substr(4))
                     .flat()
             )
         case DAILY:
             return periodKeyAxisIndexMatrix
-                .map(periodKeys =>
+                .map((periodKeys) =>
                     // remove year, return "dd-mm"
                     periodKeys[0].substr(4).replace(/(\d{2})(\d{2})/, '$2-$1')
                 )
@@ -142,7 +142,7 @@ export const computeGenericPeriodNamesFromMatrix = (
     }
 }
 
-export const computeGenericPeriodNames = responses => {
+export const computeGenericPeriodNames = (responses) => {
     const xAxisRes = responses.reduce((out, res) => {
         if (out.metaData) {
             if (
@@ -172,17 +172,17 @@ export const computeGenericPeriodNames = responses => {
     }, [])
 }
 
-export const getRelativePeriodTypeUsed = periodItems => {
+export const getRelativePeriodTypeUsed = (periodItems) => {
     if (
         getRelativePeriodsOptionsById(WEEKLY)
             .getPeriods()
-            .find(period => period.id === periodItems[0].id)
+            .find((period) => period.id === periodItems[0].id)
     ) {
         return WEEKLY
     } else if (
         getRelativePeriodsOptionsById(DAILY)
             .getPeriods()
-            .find(period => period.id === periodItems[0].id)
+            .find((period) => period.id === periodItems[0].id)
     ) {
         return DAILY
     }

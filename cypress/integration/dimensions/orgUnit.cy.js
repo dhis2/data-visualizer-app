@@ -4,7 +4,7 @@ import {
     DIMENSION_ID_ORGUNIT,
     AXIS_ID_COLUMNS,
 } from '@dhis2/analytics'
-import { expectVisualizationToBeVisible } from '../../elements/chart'
+import { expectVisualizationToBeVisible } from '../../elements/chart.js'
 import {
     clickDimensionModalHideButton,
     clickDimensionModalUpdateButton,
@@ -21,18 +21,18 @@ import {
     expectOrgUnitTreeToBeDisabled,
     expectOrgUnitTreeToBeEnabled,
     deselectUserOrgUnit,
-} from '../../elements/dimensionModal'
+} from '../../elements/dimensionModal/index.js'
 import {
     clickContextMenuMove,
     expectDimensionToHaveItemAmount,
     openContextMenu,
     openDimension,
-} from '../../elements/layout'
-import { clickMenuBarUpdateButton } from '../../elements/menuBar'
-import { goToStartPage } from '../../elements/startScreen'
-import { TEST_DATA_ELEMENTS } from '../../utils/data'
-import { getRandomArrayItem } from '../../utils/random'
-import { expectWindowConfigSeriesToHaveLength } from '../../utils/window'
+} from '../../elements/layout.js'
+import { clickMenuBarUpdateButton } from '../../elements/menuBar.js'
+import { goToStartPage } from '../../elements/startScreen.js'
+import { TEST_DATA_ELEMENTS } from '../../utils/data.js'
+import { getRandomArrayItem } from '../../utils/random.js'
+import { expectWindowConfigSeriesToHaveLength } from '../../utils/window.js'
 
 const TEST_DATA_ELEMENT_NAME = getRandomArrayItem(TEST_DATA_ELEMENTS).name
 
@@ -47,28 +47,6 @@ describe(`Org unit dimension`, () => {
         openContextMenu(DIMENSION_ID_ORGUNIT)
         clickContextMenuMove(DIMENSION_ID_ORGUNIT, AXIS_ID_COLUMNS)
         clickMenuBarUpdateButton()
-        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
-        expectWindowConfigSeriesToHaveLength(1)
-        expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
-    })
-    const TEST_LEVEL = 'District'
-    it(`selects a level - ${TEST_LEVEL}`, () => {
-        openDimension(DIMENSION_ID_ORGUNIT)
-        expectOrgUnitDimensionModalToBeVisible()
-        expectOrgUnitDimensionToNotBeLoading()
-        expectOrgUnitTreeToBeDisabled()
-        toggleOrgUnitLevel(TEST_LEVEL)
-        clickDimensionModalUpdateButton()
-        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
-        expectWindowConfigSeriesToHaveLength(13) // number of districts in Sierra Leone
-        expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 2)
-    })
-    it(`deselects ${TEST_LEVEL}`, () => {
-        openDimension(DIMENSION_ID_ORGUNIT)
-        expectOrgUnitDimensionModalToBeVisible()
-        expectOrgUnitDimensionToNotBeLoading()
-        toggleOrgUnitLevel(TEST_LEVEL)
-        clickDimensionModalUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
         expectWindowConfigSeriesToHaveLength(1)
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
@@ -112,6 +90,28 @@ describe(`Org unit dimension`, () => {
         expectOrgUnitItemToBeSelected(TEST_CHIEFDOM)
         deselectOrgUnitTreeItem(TEST_DISTRICT_1)
         deselectOrgUnitTreeItem(TEST_CHIEFDOM)
+        clickDimensionModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+        expectWindowConfigSeriesToHaveLength(1)
+        expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
+    })
+    const TEST_LEVEL = 'District'
+    it(`selects a level - ${TEST_LEVEL}`, () => {
+        openDimension(DIMENSION_ID_ORGUNIT)
+        expectOrgUnitDimensionModalToBeVisible()
+        expectOrgUnitDimensionToNotBeLoading()
+        expectOrgUnitTreeToBeEnabled()
+        toggleOrgUnitLevel(TEST_LEVEL)
+        clickDimensionModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+        expectWindowConfigSeriesToHaveLength(13) // number of districts in Sierra Leone
+        expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 2)
+    })
+    it(`deselects ${TEST_LEVEL}`, () => {
+        openDimension(DIMENSION_ID_ORGUNIT)
+        expectOrgUnitDimensionModalToBeVisible()
+        expectOrgUnitDimensionToNotBeLoading()
+        toggleOrgUnitLevel(TEST_LEVEL)
         clickDimensionModalUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
         expectWindowConfigSeriesToHaveLength(1)

@@ -16,7 +16,7 @@ const SinglePeriodSelector = ({ options, selected, onChange, dataTest }) => (
         dense
         dataTest={dataTest}
     >
-        {options.map(option => (
+        {options.map((option) => (
             <SingleSelectOption
                 key={option.id}
                 value={option.id}
@@ -42,7 +42,7 @@ const MultiPeriodSelector = ({ options, selected, onChange, dataTest }) => (
         dense
         dataTest={dataTest}
     >
-        {options.map(option => (
+        {options.map((option) => (
             <MultiSelectOption
                 key={option.id}
                 value={option.id}

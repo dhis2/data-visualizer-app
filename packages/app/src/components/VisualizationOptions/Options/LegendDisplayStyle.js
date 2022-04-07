@@ -4,8 +4,8 @@ import {
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import React from 'react'
-import { OPTION_LEGEND_DISPLAY_STYLE } from '../../../modules/options'
-import RadioBaseOption from './RadioBaseOption'
+import { OPTION_LEGEND_DISPLAY_STYLE } from '../../../modules/options.js'
+import RadioBaseOption from './RadioBaseOption.js'
 
 const LegendDisplayStyle = () => (
     <RadioBaseOption

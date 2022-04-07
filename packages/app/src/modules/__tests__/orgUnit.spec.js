@@ -1,4 +1,4 @@
-import { removeLastPathSegment, getOuPath } from '../orgUnit'
+import { removeLastPathSegment, getOuPath } from '../orgUnit.js'
 
 describe('removeLastPathSegment', () => {
     it('handles a root path', () => {

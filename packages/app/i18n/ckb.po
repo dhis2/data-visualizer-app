@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-08-12T10:01:59.854Z\n"
+"POT-Creation-Date: 2022-04-06T05:26:25.625Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Asos <aso.rezaiy@gmail.com>, 2020\n"
 "Language-Team: Central Kurdish (https://www.transifex.com/hisp-uio/teams/100509/ckb/)\n"
@@ -409,7 +409,13 @@ msgstr ""
 msgid "Fix column headers to top of table"
 msgstr ""
 
+msgid "There aren’t any column headers because Columns is empty."
+msgstr ""
+
 msgid "Fix row headers to left of table"
+msgstr ""
+
+msgid "There aren’t any row headers because Rows is empty."
 msgstr ""
 
 msgid "Font size"
@@ -900,13 +906,13 @@ msgstr ""
 msgid "Last 5 years"
 msgstr ""
 
-msgid "User org unit"
+msgid "User organisation unit"
 msgstr ""
 
-msgid "User org unit children"
+msgid "User sub-units"
 msgstr ""
 
-msgid "User org unit grand children"
+msgid "User sub-x2-units"
 msgstr ""
 
 msgid "Table title"
@@ -988,6 +994,59 @@ msgid "Series"
 msgstr ""
 
 msgid "Style"
+msgstr ""
+
+msgid "View data and indicators in a manipulatable table."
+msgstr ""
+
+msgid ""
+"Compare sizes of related elements vertically. Recommend period as filter."
+msgstr ""
+
+msgid ""
+"Compare parts of a whole against related elements vertically. Recommend data"
+" or org. unit as series."
+msgstr ""
+
+msgid ""
+"Compare sizes of related elements horizontally. Recommend period as filter."
+msgstr ""
+
+msgid ""
+"Compare parts of a whole against related elements horizontally. Recommend "
+"data or org. unit as series."
+msgstr ""
+
+msgid "Track or compare changes over time. Recommend period as category."
+msgstr ""
+
+msgid ""
+"Track or compare parts of a whole over time. Recommend data as series and "
+"period as category."
+msgstr ""
+
+msgid ""
+"Compare parts of a whole at a single point in time. Recommend period as "
+"filter."
+msgstr ""
+
+msgid "Compare several items against multiple variables."
+msgstr ""
+
+msgid ""
+"Compare a percentage indicator against a 100% scale. Recommend period as "
+"filter."
+msgstr ""
+
+msgid "Compare changes over time between multiple time periods."
+msgstr ""
+
+msgid "Display a single value. Recommend relative period to show latest data."
+msgstr ""
+
+msgid ""
+"View the relationship between two data items at a place or time. Recommended"
+" for finding outliers."
 msgstr ""
 
 msgid "Weeks per year"

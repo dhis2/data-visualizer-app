@@ -1,15 +1,15 @@
 # 
 # Translators:
 # phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
-# Mai Nguyen <thanhmai.jica@gmail.com>, 2020
+# Viktor Varland <viktor@dhis2.org>, 2021
+# Mai Nguyen <thanhmai.jica@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-08-12T10:01:59.854Z\n"
+"POT-Creation-Date: 2022-04-06T05:26:25.625Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2020\n"
+"Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2022\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -423,7 +423,13 @@ msgstr "Số"
 msgid "Fix column headers to top of table"
 msgstr ""
 
+msgid "There aren’t any column headers because Columns is empty."
+msgstr ""
+
 msgid "Fix row headers to left of table"
+msgstr ""
+
+msgid "There aren’t any row headers because Rows is empty."
 msgstr ""
 
 msgid "Font size"
@@ -936,14 +942,14 @@ msgstr "Năm ngoái"
 msgid "Last 5 years"
 msgstr "Trong 5 năm vừa qua"
 
-msgid "User org unit"
-msgstr "Đơn vị của người dùng"
+msgid "User organisation unit"
+msgstr "Đơn vị người dùng"
 
-msgid "User org unit children"
-msgstr "Đơn vị con của người dùng"
+msgid "User sub-units"
+msgstr "Đơn-vị-con người dùng"
 
-msgid "User org unit grand children"
-msgstr "Đơn vị cháu của người dùng"
+msgid "User sub-x2-units"
+msgstr "Đơn-vị-con-x2 người dùng"
 
 msgid "Table title"
 msgstr "Tiêu đề bảng"
@@ -1025,6 +1031,79 @@ msgstr "Chuỗi Dữ Liệu"
 
 msgid "Style"
 msgstr "Kiểu dáng"
+
+msgid "View data and indicators in a manipulatable table."
+msgstr "Xem dữ liệu và chỉ số trong một bảng."
+
+msgid ""
+"Compare sizes of related elements vertically. Recommend period as filter."
+msgstr ""
+"So sánh kích thước của các yếu tố liên quan theo chiều dọc. Đề xuất khoảng "
+"thời gian làm bộ lọc."
+
+msgid ""
+"Compare parts of a whole against related elements vertically. Recommend data"
+" or org. unit as series."
+msgstr ""
+"So sánh các phần của tổng thể với các phần tử liên quan theo chiều dọc. Đề "
+"xuất dữ liệu hoặc đơn vị làm chiều phân loại."
+
+msgid ""
+"Compare sizes of related elements horizontally. Recommend period as filter."
+msgstr ""
+"So sánh kích thước của các yếu tố liên quan theo chiều ngang. Đề xuất khoảng"
+" thời gian làm bộ lọc."
+
+msgid ""
+"Compare parts of a whole against related elements horizontally. Recommend "
+"data or org. unit as series."
+msgstr ""
+"So sánh các phần của tổng thể với các phần tử liên quan theo chiều ngang. Đề"
+" xuất dữ liệu hoặc đơn vị làm chiều phân loại."
+
+msgid "Track or compare changes over time. Recommend period as category."
+msgstr ""
+"Theo dõi hoặc so sánh các thay đổi theo thời gian. Đề xuất khoảng thời gian "
+"dưới dạng danh mục."
+
+msgid ""
+"Track or compare parts of a whole over time. Recommend data as series and "
+"period as category."
+msgstr ""
+"Theo dõi hoặc so sánh các phần của tổng thể theo thời gian. Đề xuất dữ liệu "
+"dưới dạng chuỗi và khoảng thời gian dưới dạng phân loại."
+
+msgid ""
+"Compare parts of a whole at a single point in time. Recommend period as "
+"filter."
+msgstr ""
+"So sánh các phần của tổng thể tại một thời điểm. Đề xuất khoảng thời gian "
+"làm bộ lọc."
+
+msgid "Compare several items against multiple variables."
+msgstr "So sánh một số mục với nhiều biến."
+
+msgid ""
+"Compare a percentage indicator against a 100% scale. Recommend period as "
+"filter."
+msgstr ""
+"So sánh chỉ số phần trăm với thang điểm 100%. Đề xuất khoảng thời gian làm "
+"bộ lọc."
+
+msgid "Compare changes over time between multiple time periods."
+msgstr "So sánh các thay đổi theo thời gian giữa nhiều khoảng thời gian."
+
+msgid "Display a single value. Recommend relative period to show latest data."
+msgstr ""
+"Hiển thị một giá trị duy nhất. Đề xuất thời điểm liên quan để hiển thị dữ "
+"liệu mới nhất."
+
+msgid ""
+"View the relationship between two data items at a place or time. Recommended"
+" for finding outliers."
+msgstr ""
+"Xem mối quan hệ giữa hai mục dữ liệu tại một địa điểm hoặc thời gian. Đề "
+"xuất để tìm ra những điểm khác biệt."
 
 msgid "Weeks per year"
 msgstr "Hàng tuần mỗi năm"

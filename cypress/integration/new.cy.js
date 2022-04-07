@@ -13,36 +13,38 @@ import {
     expectVisualizationToBeVisible,
     expectVisualizationToNotBeVisible,
     expectChartToContainDimensionItem,
-} from '../elements/chart'
+} from '../elements/chart.js'
 import {
     selectDataElements,
     selectIndicators,
     clickDimensionModalUpdateButton,
     switchDataTab,
-} from '../elements/dimensionModal'
-import { openDimension } from '../elements/dimensionsPanel'
-import { createNewAO } from '../elements/fileMenu'
-import { expectDimensionOnAxisToHaveLockIcon } from '../elements/layout'
-import { goToStartPage } from '../elements/startScreen'
+} from '../elements/dimensionModal/index.js'
+import { openDimension } from '../elements/dimensionsPanel.js'
+import { createNewAO } from '../elements/fileMenu/index.js'
+import { expectDimensionOnAxisToHaveLockIcon } from '../elements/layout.js'
+import { goToStartPage } from '../elements/startScreen.js'
 import {
     changeVisType,
     expectVisTypeToBeDefault,
     expectVisTypeToBeValue,
-} from '../elements/visualizationTypeSelector'
-import { TEST_DATA_ELEMENTS, TEST_INDICATORS } from '../utils/data'
-import { expectStoreCurrentToBeEmpty } from '../utils/store'
+} from '../elements/visualizationTypeSelector.js'
+import { TEST_DATA_ELEMENTS, TEST_INDICATORS, visTypes } from '../utils/data.js'
+import { expectStoreCurrentToBeEmpty } from '../utils/store.js'
 
 const TEST_AXIS_ID = AXIS_ID_COLUMNS
 const TEST_DATA_ELEMENT_NAMES = TEST_DATA_ELEMENTS.slice(2, 4).map(
-    item => item.name
+    (item) => item.name
 )
-const TEST_INDICATOR_NAMES = TEST_INDICATORS.slice(1, 3).map(item => item.name)
+const TEST_INDICATOR_NAMES = TEST_INDICATORS.slice(1, 3).map(
+    (item) => item.name
+)
 
 describe('creating a new AO', () => {
     it('navigates to the start page', () => {
         goToStartPage()
     })
-    Object.keys(visTypeDisplayNames).forEach(visType => {
+    visTypes.forEach((visType) => {
         const visTypeName = visTypeDisplayNames[visType]
         describe(visTypeName, () => {
             it('creates a new AO', () => {
@@ -83,7 +85,7 @@ describe('creating a new AO', () => {
                     : expectAOTitleToBeUnsaved() */
 
                 if (visType !== VIS_TYPE_SCATTER) {
-                    TEST_DATA_ELEMENT_NAMES.forEach(item =>
+                    TEST_DATA_ELEMENT_NAMES.forEach((item) =>
                         expectChartToContainDimensionItem(visType, item)
                     )
                 }

@@ -1,4 +1,4 @@
-import reducer, { SET_DIMENSIONS, DEFAULT_DIMENSIONS } from '../dimensions'
+import reducer, { SET_DIMENSIONS, DEFAULT_DIMENSIONS } from '../dimensions.js'
 
 describe('reducer: dimensions', () => {
     const dimensionsToSet = {

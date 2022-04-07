@@ -2,11 +2,11 @@ import * as analytics from '@dhis2/analytics'
 import { mount } from 'enzyme'
 import React from 'react'
 import { act } from 'react-dom/test-utils'
-import * as api from '../api/analytics'
-import ChartPlugin from '../ChartPlugin'
-import * as moduleAnalytics from '../modules/analytics'
-import * as options from '../modules/options'
-import { VisualizationPlugin } from '../VisualizationPlugin'
+import * as api from '../api/analytics.js'
+import ChartPlugin from '../ChartPlugin.js'
+import * as moduleAnalytics from '../modules/analytics.js'
+import * as options from '../modules/options.js'
+import { VisualizationPlugin } from '../VisualizationPlugin.js'
 
 jest.mock('../ChartPlugin', () => jest.fn(() => null))
 jest.mock('../PivotPlugin', () => jest.fn(() => null))
@@ -95,7 +95,7 @@ class MockYoYAnalyticsResponse {
     }
 }
 
-const isYearOverYearMockResponse = visType => {
+const isYearOverYearMockResponse = (visType) => {
     return visType === analytics.VIS_TYPE_YEAR_OVER_YEAR_LINE
 }
 
@@ -113,7 +113,7 @@ describe('VisualizationPlugin', () => {
         onResponsesReceived: jest.fn(),
         onError: jest.fn(),
     }
-    const canvas = async props => {
+    const canvas = async (props) => {
         const combinedProps = {
             ...defaultProps,
             ...props,
@@ -122,7 +122,7 @@ describe('VisualizationPlugin', () => {
 
         await act(async () => {
             plugin = mount(<VisualizationPlugin {...combinedProps} />)
-            await new Promise(resolve => {
+            await new Promise((resolve) => {
                 setTimeout(resolve)
             })
         })

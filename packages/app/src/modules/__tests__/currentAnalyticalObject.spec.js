@@ -5,7 +5,7 @@ import {
     getPathForOrgUnit,
     prepareCurrentAnalyticalObject,
     removeUnnecessaryAttributesFromAnalyticalObject,
-} from '../currentAnalyticalObject'
+} from '../currentAnalyticalObject.js'
 
 describe('currentAnalyticalObject', () => {
     let mockCurrent
@@ -150,14 +150,14 @@ describe('currentAnalyticalObject', () => {
     })
 
     describe('appendDimensionItemNamesToAnalyticalObject', () => {
-        const testDimensionItemNamesAreUndefined = dimension => {
-            dimension.items.forEach(item => {
+        const testDimensionItemNamesAreUndefined = (dimension) => {
+            dimension.items.forEach((item) => {
                 expect(item.name).toBeUndefined()
             })
         }
 
-        const testDimensionItemNamesAreNotUndefined = dimension => {
-            dimension.items.forEach(item => {
+        const testDimensionItemNamesAreNotUndefined = (dimension) => {
+            dimension.items.forEach((item) => {
                 expect(item.name).not.toBeUndefined()
                 expect(item.name).toEqual(mockMetadata[item.id].name)
             })
@@ -206,11 +206,11 @@ describe('currentAnalyticalObject', () => {
                 removeUnnecessaryAttributesFromAnalyticalObject(unprocessed)
             const keysToRemove = ['id', 'name', 'displayName']
 
-            keysToRemove.forEach(key => {
+            keysToRemove.forEach((key) => {
                 expect(unprocessed[key]).not.toBeUndefined()
             })
 
-            keysToRemove.forEach(key => {
+            keysToRemove.forEach((key) => {
                 expect(processed[key]).toBeUndefined()
             })
         })

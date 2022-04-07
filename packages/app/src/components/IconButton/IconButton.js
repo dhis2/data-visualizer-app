@@ -10,7 +10,6 @@ const IconButton = ({
     onBlur,
     onClick,
     onFocus,
-    style,
     ariaOwns,
     ariaHaspopup,
 }) => (
@@ -22,7 +21,6 @@ const IconButton = ({
         onBlur={onBlur}
         onClick={onClick}
         onFocus={onFocus}
-        style={style}
         aria-owns={ariaOwns}
         aria-haspopup={ariaHaspopup}
     >
@@ -37,7 +35,6 @@ IconButton.propTypes = {
     dataTest: PropTypes.string,
     disabled: PropTypes.bool,
     name: PropTypes.string,
-    style: PropTypes.object,
     onBlur: PropTypes.func,
     onClick: PropTypes.func,
     onFocus: PropTypes.func,

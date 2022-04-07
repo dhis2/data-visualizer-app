@@ -1,7 +1,7 @@
 import reducer, {
     DEFAULT_RECOMMENDED_IDS,
     SET_RECOMMENDED_IDS,
-} from '../recommendedIds'
+} from '../recommendedIds.js'
 
 describe('reducer: recommendedIds', () => {
     const ids = ['abc', 'bcd']

@@ -9,10 +9,9 @@ import { connect } from 'react-redux'
 import {
     acAddUiLayoutDimensions,
     acRemoveUiLayoutDimensions,
-} from '../../actions/ui'
-import * as fromReducers from '../../reducers'
-import IconButton from '../IconButton/IconButton'
-import { styles } from './styles/Menu.style'
+} from '../../actions/ui.js'
+import * as fromReducers from '../../reducers/index.js'
+import IconButton from '../IconButton/IconButton.js'
 
 const ChipMenu = ({
     assignedCategoriesItemHandler,
@@ -39,10 +38,9 @@ const ChipMenu = ({
                     ariaOwns={menuIsOpen ? getMenuId() : null}
                     ariaHaspopup={true}
                     onClick={toggleMenu}
-                    style={styles.icon}
                     dataTest={`layout-chip-menu-button-${dimensionId}`}
                 >
-                    <IconMore16 color="var(--colors-grey700)" />
+                    <IconMore16 />
                 </IconButton>
             </div>
             {/* TODO: Fix bug with the first menu item getting selected when the menu is opened */}
@@ -57,7 +55,7 @@ const ChipMenu = ({
                             isAssignedCategoriesInLayout={
                                 layoutHasAssignedCategories
                             }
-                            assignedCategoriesItemHandler={destination =>
+                            assignedCategoriesItemHandler={(destination) =>
                                 assignedCategoriesItemHandler(
                                     layoutHasAssignedCategories,
                                     destination
@@ -87,18 +85,18 @@ ChipMenu.propTypes = {
     visType: PropTypes.string,
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
         layoutHasAssignedCategories:
             fromReducers.fromUi.sLayoutHasAssignedCategories(state),
     }
 }
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
     axisItemHandler: ({ dimensionId, axisId }) => {
         dispatch(acAddUiLayoutDimensions({ [dimensionId]: { axisId } }))
     },
-    removeItemHandler: dimensionId => {
+    removeItemHandler: (dimensionId) => {
         dispatch(acRemoveUiLayoutDimensions(dimensionId))
     },
     assignedCategoriesItemHandler: (layoutHasAssignedCategories, axisId) => {

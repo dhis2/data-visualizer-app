@@ -1,14 +1,14 @@
 # 
 # Translators:
 # Caroline Hesthagen Holen <caroline@devotta.no>, 2020
-# Karoline Tufte Lien <karoline@dhis2.org>, 2021
+# Karoline Tufte Lien <karoline@dhis2.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-08-12T10:01:59.854Z\n"
+"POT-Creation-Date: 2022-04-06T05:26:25.625Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2021\n"
+"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2022\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "All items"
-msgstr ""
+msgstr "Alle elementer"
 
 msgid "Rename successful"
 msgstr "Navneendring vellykket"
@@ -423,7 +423,13 @@ msgstr "Nummer"
 msgid "Fix column headers to top of table"
 msgstr ""
 
+msgid "There aren’t any column headers because Columns is empty."
+msgstr ""
+
 msgid "Fix row headers to left of table"
+msgstr ""
+
+msgid "There aren’t any row headers because Rows is empty."
 msgstr ""
 
 msgid "Font size"
@@ -935,14 +941,14 @@ msgstr "I fjor"
 msgid "Last 5 years"
 msgstr "Siste 5 år"
 
-msgid "User org unit"
-msgstr "Brukers org enhet"
+msgid "User organisation unit"
+msgstr "Brukerorganisasjonsenhet"
 
-msgid "User org unit children"
-msgstr "Bruker underordnet org enhet"
+msgid "User sub-units"
+msgstr "Underenheter"
 
-msgid "User org unit grand children"
-msgstr "Bruker under-underordnet org enhet"
+msgid "User sub-x2-units"
+msgstr "Under-x2-enheter"
 
 msgid "Table title"
 msgstr "Tabelltittel"
@@ -1028,6 +1034,62 @@ msgstr "Serie"
 
 msgid "Style"
 msgstr "Stil"
+
+msgid "View data and indicators in a manipulatable table."
+msgstr "Vis data og indikatorer i en manipulerbar tabell."
+
+msgid ""
+"Compare sizes of related elements vertically. Recommend period as filter."
+msgstr ""
+
+msgid ""
+"Compare parts of a whole against related elements vertically. Recommend data"
+" or org. unit as series."
+msgstr ""
+
+msgid ""
+"Compare sizes of related elements horizontally. Recommend period as filter."
+msgstr ""
+
+msgid ""
+"Compare parts of a whole against related elements horizontally. Recommend "
+"data or org. unit as series."
+msgstr ""
+
+msgid "Track or compare changes over time. Recommend period as category."
+msgstr ""
+
+msgid ""
+"Track or compare parts of a whole over time. Recommend data as series and "
+"period as category."
+msgstr ""
+
+msgid ""
+"Compare parts of a whole at a single point in time. Recommend period as "
+"filter."
+msgstr ""
+
+msgid "Compare several items against multiple variables."
+msgstr "Sammenlign flere elementer mot flere variabler."
+
+msgid ""
+"Compare a percentage indicator against a 100% scale. Recommend period as "
+"filter."
+msgstr ""
+
+msgid "Compare changes over time between multiple time periods."
+msgstr "Sammenlign endringer over tid mellom flere tidsperioder."
+
+msgid "Display a single value. Recommend relative period to show latest data."
+msgstr ""
+"Vis en enkelt verdi. Anbefal relativ periode for å vise de nyeste dataene."
+
+msgid ""
+"View the relationship between two data items at a place or time. Recommended"
+" for finding outliers."
+msgstr ""
+"Se forholdet mellom to datapunkter på et sted eller tidspunkt. Anbefalt for "
+"å finne avvikere."
 
 msgid "Weeks per year"
 msgstr "Uker per år"

@@ -1,4 +1,4 @@
-import { matchVisualizationWithType } from '../utils'
+import { matchVisualizationWithType } from '../utils.js'
 
 let visualizations
 

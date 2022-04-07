@@ -1,7 +1,7 @@
 import InterpretationsComponent from '@dhis2/d2-ui-interpretations'
 import { shallow } from 'enzyme'
 import React from 'react'
-import { Interpretations } from '../Interpretations'
+import { UnconnectedInterpretations as Interpretations } from '../Interpretations.js'
 
 describe('Interpretations component', () => {
     let props

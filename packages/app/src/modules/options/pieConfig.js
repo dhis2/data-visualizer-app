@@ -1,14 +1,14 @@
 /* eslint-disable react/jsx-key */
 import React from 'react'
-import SkipRounding from '../../components/VisualizationOptions/Options/SkipRounding'
-import getAdvancedSection from './sections/advanced'
-import getColorSetSection from './sections/colorSet'
-import getDisplayTemplate from './sections/templates/display'
-import getTitlesSection from './sections/titles'
-import getDataTab from './tabs/data'
-import getLimitValuesTab from './tabs/limitValues'
-import getSeriesTab from './tabs/series'
-import getStyleTab from './tabs/style'
+import SkipRounding from '../../components/VisualizationOptions/Options/SkipRounding.js'
+import getAdvancedSection from './sections/advanced.js'
+import getColorSetSection from './sections/colorSet.js'
+import getDisplayTemplate from './sections/templates/display.js'
+import getTitlesSection from './sections/titles.js'
+import getDataTab from './tabs/data.js'
+import getLimitValuesTab from './tabs/limitValues.js'
+import getSeriesTab from './tabs/series.js'
+import getStyleTab from './tabs/style.js'
 
 export default () => [
     getDataTab([

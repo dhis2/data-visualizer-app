@@ -1,27 +1,28 @@
-import { visTypeDisplayNames, visTypeDescriptions } from '@dhis2/analytics'
+import { visTypeDisplayNames } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import { Divider, Popper, Layer } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState, createRef } from 'react'
 import { connect } from 'react-redux'
-import { acSetUi, acClearSeriesType } from '../../actions/ui'
+import { acSetUi, acClearSeriesType } from '../../actions/ui.js'
 import {
     apiSaveAOInUserDataStore,
     CURRENT_AO_KEY,
-} from '../../api/userDataStore'
-import ArrowDown from '../../assets/ArrowDown'
-import { prepareCurrentAnalyticalObject } from '../../modules/currentAnalyticalObject'
-import { getAdaptedUiByType } from '../../modules/ui'
-import { sGetCurrent } from '../../reducers/current'
-import { sGetMetadata } from '../../reducers/metadata'
-import { sGetUi, sGetUiType } from '../../reducers/ui'
-import ListItemIcon from './ListItemIcon'
+} from '../../api/userDataStore.js'
+import ArrowDown from '../../assets/ArrowDown.js'
+import { prepareCurrentAnalyticalObject } from '../../modules/currentAnalyticalObject.js'
+import { getAdaptedUiByType } from '../../modules/ui.js'
+import { visTypes, visTypeDescriptions } from '../../modules/visualization.js'
+import { sGetCurrent } from '../../reducers/current.js'
+import { sGetMetadata } from '../../reducers/metadata.js'
+import { sGetUi, sGetUiType } from '../../reducers/ui.js'
+import ListItemIcon from './ListItemIcon.js'
 import styles from './styles/VisualizationTypeSelector.module.css'
-import VisualizationTypeListItem from './VisualizationTypeListItem'
+import VisualizationTypeListItem from './VisualizationTypeListItem.js'
 
 export const MAPS_APP_URL = 'dhis-web-maps'
 
-export const VisualizationTypeSelector = (
+const UnconnectedVisualizationTypeSelector = (
     { visualizationType, ui, setUi, onItemClick, current, metadata },
     context
 ) => {
@@ -31,13 +32,13 @@ export const VisualizationTypeSelector = (
 
     const toggleList = () => setListIsOpen(!listIsOpen)
 
-    const handleListItemClick = type => () => {
+    const handleListItemClick = (type) => () => {
         setUi(getAdaptedUiByType({ ...ui, type }))
         onItemClick()
         toggleList()
     }
 
-    const handleOpenAsMapClick = async event => {
+    const handleOpenAsMapClick = async (event) => {
         if (!current) {
             event.stopPropagation()
             return
@@ -54,20 +55,18 @@ export const VisualizationTypeSelector = (
         window.location.href = `${baseUrl}/${MAPS_APP_URL}?${CURRENT_AO_KEY}=true`
     }
 
-    const getVisTypes = () => Object.keys(visTypeDisplayNames)
-
     const VisTypesList = (
         <div data-test="visualization-type-selector-card">
             <div className={styles.listContainer}>
                 <div className={styles.listSection}>
-                    {getVisTypes().map(type => (
+                    {visTypes.map((visType) => (
                         <VisualizationTypeListItem
-                            key={type}
-                            iconType={type}
-                            label={visTypeDisplayNames[type]}
-                            description={visTypeDescriptions[type]}
-                            isSelected={type === visualizationType}
-                            onClick={handleListItemClick(type)}
+                            key={visType}
+                            iconType={visType}
+                            label={visTypeDisplayNames[visType]}
+                            description={visTypeDescriptions[visType]}
+                            isSelected={visType === visualizationType}
+                            onClick={handleListItemClick(visType)}
                         />
                     ))}
                 </div>
@@ -119,7 +118,7 @@ export const VisualizationTypeSelector = (
     )
 }
 
-VisualizationTypeSelector.propTypes = {
+UnconnectedVisualizationTypeSelector.propTypes = {
     current: PropTypes.object,
     metadata: PropTypes.object,
     setUi: PropTypes.func,
@@ -128,23 +127,23 @@ VisualizationTypeSelector.propTypes = {
     onItemClick: PropTypes.func,
 }
 
-VisualizationTypeSelector.contextTypes = {
+UnconnectedVisualizationTypeSelector.contextTypes = {
     baseUrl: PropTypes.string,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     visualizationType: sGetUiType(state),
     current: sGetCurrent(state),
     metadata: sGetMetadata(state),
     ui: sGetUi(state),
 })
 
-const mapDispatchToProps = dispatch => ({
-    setUi: ui => dispatch(acSetUi(ui)),
+const mapDispatchToProps = (dispatch) => ({
+    setUi: (ui) => dispatch(acSetUi(ui)),
     onItemClick: () => dispatch(acClearSeriesType()),
 })
 
-export default connect(
+export const VisualizationTypeSelector = connect(
     mapStateToProps,
     mapDispatchToProps
-)(VisualizationTypeSelector)
+)(UnconnectedVisualizationTypeSelector)

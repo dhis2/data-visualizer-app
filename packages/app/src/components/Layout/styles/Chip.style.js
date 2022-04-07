@@ -1,5 +1,5 @@
 import { colors } from '@dhis2/ui'
-import * as layoutStyle from './style'
+import * as layoutStyle from './style.js'
 
 const baseChip = {
     padding: layoutStyle.CHIP_PADDING,

@@ -19,15 +19,15 @@ import {
     apiDownloadImage,
     apiDownloadData,
     apiDownloadTable,
-} from '../../api/analytics'
-import { sGetChart } from '../../reducers/chart'
-import { sGetCurrent } from '../../reducers/current'
+} from '../../api/analytics.js'
+import { sGetChart } from '../../reducers/chart.js'
+import { sGetCurrent } from '../../reducers/current.js'
 import {
     sGetUiType,
     sGetUiLayout,
     sGetUiInterpretation,
-} from '../../reducers/ui'
-import MenuButton from '../MenuButton/MenuButton'
+} from '../../reducers/ui.js'
+import MenuButton from '../MenuButton/MenuButton.js'
 
 const DenseMenuItem = ({ Icon, children, ...rest }) => (
     <MenuItem dense icon={Icon && <Icon color={colors.grey600} />} {...rest}>
@@ -40,7 +40,7 @@ DenseMenuItem.propTypes = {
     children: PropTypes.array,
 }
 
-export const DownloadMenu = ({
+const UnconnectedDownloadMenu = ({
     current,
     rows,
     columns,
@@ -52,7 +52,7 @@ export const DownloadMenu = ({
     const { baseUrl } = useConfig()
     const [menuIsOpen, setMenuIsOpen] = useState(false)
 
-    const onKeyDown = e => {
+    const onKeyDown = (e) => {
         if (e?.keyCode === 27) {
             setMenuIsOpen(false)
         }
@@ -60,7 +60,7 @@ export const DownloadMenu = ({
 
     const toggleMenu = () => setMenuIsOpen(!menuIsOpen)
 
-    const downloadImage = format => async () => {
+    const downloadImage = (format) => async () => {
         const formData = new URLSearchParams()
 
         formData.append('filename', current.name)
@@ -97,7 +97,7 @@ export const DownloadMenu = ({
         window.open(url, format.match(/(xls|csv)/) ? '_top' : '_blank')
     }
 
-    const downloadTable = format => async () => {
+    const downloadTable = (format) => async () => {
         const url = await apiDownloadTable({
             baseUrl,
             dataEngine,
@@ -146,7 +146,7 @@ export const DownloadMenu = ({
             />,
         ])
 
-    const plainDataSourceSubLevel = format =>
+    const plainDataSourceSubLevel = (format) =>
         React.Children.toArray([
             <MenuSectionHeader label={i18n.t('Metadata ID scheme')} />,
             <DenseMenuItem
@@ -241,10 +241,10 @@ export const DownloadMenu = ({
 
 const relativePeriodDateSelector = createSelector(
     [sGetUiInterpretation],
-    interpretation => interpretation.created || undefined
+    (interpretation) => interpretation.created || undefined
 )
 
-DownloadMenu.propTypes = {
+UnconnectedDownloadMenu.propTypes = {
     chart: PropTypes.string,
     columns: PropTypes.array,
     current: PropTypes.object,
@@ -253,7 +253,7 @@ DownloadMenu.propTypes = {
     visType: PropTypes.string,
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     current: sGetCurrent(state),
     relativePeriodDate: relativePeriodDateSelector(state),
     rows: sGetUiLayout(state).rows,
@@ -262,4 +262,4 @@ const mapStateToProps = state => ({
     visType: sGetUiType(state),
 })
 
-export default connect(mapStateToProps)(DownloadMenu)
+export const DownloadMenu = connect(mapStateToProps)(UnconnectedDownloadMenu)
