@@ -1,3 +1,10 @@
+## [37.9.16](https://github.com/dhis2/data-visualizer-app/compare/v37.9.15...v37.9.16) (2022-04-07)
+
+
+### Bug Fixes
+
+* backport fix for DHIS2-13015 (37.x) ([#2029](https://github.com/dhis2/data-visualizer-app/issues/2029)) ([e050e94](https://github.com/dhis2/data-visualizer-app/commit/e050e94bb3dd628ff07baf5826fec273ce425e41))
+
 ## [37.9.15](https://github.com/dhis2/data-visualizer-app/compare/v37.9.14...v37.9.15) (2022-03-25)
 
 
