@@ -35,7 +35,7 @@ const getTitleText = (titleState, visualization) => {
             return getTitleUnsaved()
         case STATE_SAVED:
         case STATE_DIRTY:
-            return visualization.name
+            return visualization.displayName
         default:
             return ''
     }
