@@ -1,14 +1,15 @@
 # 
 # Translators:
-# Cherise Beek <cherise.beek@gmail.com>, 2021
-# Yury Rogachev <yury@dhis2.org>, 2021
+# Yury Rogachev <yury@dhis2.org>, 2022
+# Cherise Beek <cherise.beek@gmail.com>, 2022
+# Rica Zamora Duchateau, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-11-16T13:39:36.158Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
+"PO-Revision-Date: 2022-04-20 10:06+0000\n"
+"Last-Translator: Rica Zamora Duchateau, 2022\n"
 "Language-Team: Dutch (https://www.transifex.com/hisp-uio/teams/100509/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -109,13 +110,13 @@ msgid "ID"
 msgstr ""
 
 msgid "Code"
-msgstr ""
+msgstr "Code"
 
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 msgid "Download"
-msgstr ""
+msgstr "Download"
 
 msgid "Plain data source"
 msgstr ""
@@ -151,7 +152,7 @@ msgid "Hide"
 msgstr ""
 
 msgid "Interpretations"
-msgstr ""
+msgstr "Interpretaties"
 
 msgid "All"
 msgstr ""
@@ -196,7 +197,7 @@ msgid "Levels"
 msgstr ""
 
 msgid "Groups"
-msgstr ""
+msgstr "Groepen"
 
 msgid "And 1 other..."
 msgstr ""
@@ -222,7 +223,7 @@ msgid "Edited"
 msgstr ""
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
+msgstr "Interpretatie van {{interpretatieDatum}} aan het bezichtigen"
 
 msgid "Update"
 msgstr "Bijwerken"
@@ -245,7 +246,7 @@ msgid "Your most viewed charts and tables"
 msgstr ""
 
 msgid "Aggregation type"
-msgstr ""
+msgstr "Aggregatietype"
 
 msgid "Overrides aggregation type for all data values."
 msgstr ""
@@ -299,7 +300,7 @@ msgid "Auto"
 msgstr ""
 
 msgid "Labels"
-msgstr ""
+msgstr "Labels"
 
 msgid "Axis range"
 msgstr ""
@@ -313,7 +314,7 @@ msgid ""
 msgstr ""
 
 msgid "Steps"
-msgstr ""
+msgstr "Stappen"
 
 msgid "Axis title"
 msgstr ""
@@ -322,7 +323,7 @@ msgid "Auto generated from axis items"
 msgstr ""
 
 msgid "None"
-msgstr ""
+msgstr "Geen"
 
 msgid "Custom"
 msgstr ""
@@ -478,7 +479,7 @@ msgid "Legend changes text color"
 msgstr ""
 
 msgid "Legend"
-msgstr ""
+msgstr "Legenda"
 
 msgid "Select from legends"
 msgstr ""
@@ -511,7 +512,7 @@ msgid "Display the value of percentages of the total"
 msgstr ""
 
 msgid "Value"
-msgstr ""
+msgstr "Waarde"
 
 msgid "Percentage of row"
 msgstr ""
@@ -554,7 +555,7 @@ msgid "Outlier detection method"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr ""
+msgstr "Organisatieëenheid"
 
 msgid "Parent organisation unit"
 msgstr ""
@@ -590,7 +591,7 @@ msgid "Row totals"
 msgstr ""
 
 msgid "Data item"
-msgstr ""
+msgstr "Gegevensitem"
 
 msgid "Visualization type"
 msgstr ""
@@ -657,7 +658,7 @@ msgid "Target line"
 msgstr ""
 
 msgid "Size"
-msgstr ""
+msgstr "Grootte"
 
 msgid "Position"
 msgstr ""
@@ -666,7 +667,7 @@ msgid "Top limit"
 msgstr ""
 
 msgid "Options"
-msgstr ""
+msgstr "Opties"
 
 msgid "Open as Map"
 msgstr ""
@@ -798,7 +799,7 @@ msgid "The level or group selections didn't return any organization units."
 msgstr ""
 
 msgid "Something went wrong"
-msgstr ""
+msgstr "Er is iets fout gegaan."
 
 msgid "or"
 msgstr ""
@@ -960,7 +961,7 @@ msgid "Lines"
 msgstr ""
 
 msgid "Totals"
-msgstr ""
+msgstr "Totalen"
 
 msgid "Vertical (y) axis {{axisId}}"
 msgstr ""
@@ -975,7 +976,7 @@ msgid "Axes"
 msgstr ""
 
 msgid "Data"
-msgstr ""
+msgstr "Gegevens"
 
 msgid "Limit values"
 msgstr ""
@@ -993,7 +994,7 @@ msgid "Series"
 msgstr ""
 
 msgid "Style"
-msgstr ""
+msgstr "Stijl"
 
 msgid "Weeks per year"
 msgstr ""
