@@ -1,13 +1,13 @@
 # 
 # Translators:
-# Ibatov <ibatovk@who.int>, 2021
+# Ibatov <ibatovk@who.int>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-11-16T13:39:36.158Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
+"PO-Revision-Date: 2022-04-20 10:06+0000\n"
+"Last-Translator: Ibatov <ibatovk@who.int>, 2022\n"
 "Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -282,7 +282,7 @@ msgid "Last value"
 msgstr "Охирги қиймат"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr "Охирги қиймат (ташкилий бирликлар иерархияси ўртача қиймати)"
+msgstr "Охирги қиймат (ташкилий бўлим иерархияси ўртача қиймати)"
 
 msgid "Min"
 msgstr "Минимум"
@@ -297,7 +297,7 @@ msgid "Variance"
 msgstr "Номувофиқлик"
 
 msgid "Data approved at level"
-msgstr "Маълумотлар тасдиқланган даража"
+msgstr "Маълумотлар тасдиқланган поғона"
 
 msgid "Select from predefined levels"
 msgstr "олдиндан белгиланган даражалардан танланг"
@@ -312,7 +312,7 @@ msgid "Auto"
 msgstr "Авто"
 
 msgid "Labels"
-msgstr "Ёрлиқлар"
+msgstr "Ёрлиқ/Белгилар"
 
 msgid "Axis range"
 msgstr "Ўқлар диапазони"
@@ -433,7 +433,7 @@ msgid "There aren’t any row headers because Rows is empty."
 msgstr ""
 
 msgid "Font size"
-msgstr "Шрифт ўлчами"
+msgstr "Шрифт ҳажми"
 
 msgid "Large"
 msgstr "Катта"
@@ -523,10 +523,10 @@ msgid "No space between bars/columns"
 msgstr "Барлар/устунлар орасида бўш жой йўқ"
 
 msgid "Number type"
-msgstr "Рақам тури "
+msgstr "Рақам тури"
 
 msgid "Display the value of percentages of the total"
-msgstr "Жамидан фоизлар қийматини кўрсатиш"
+msgstr "Жамидан фоизлар қийматини экранда кўрсатиш"
 
 msgid "Value"
 msgstr "Қиймат"
@@ -657,7 +657,7 @@ msgid "Dimension labels"
 msgstr "Ўлчам қийматлари"
 
 msgid "Display organisation unit hierarchy"
-msgstr "Ташкилий бўлим иерархиясини намойиш қилиш"
+msgstr "Ташкилий бўлим иерархиясини экранда кўрсатиш"
 
 msgid "Show legend key"
 msgstr "Калит таърифни кўрсатинг"
@@ -684,7 +684,7 @@ msgid "Target line"
 msgstr "Мақсад чегара чизиғи"
 
 msgid "Size"
-msgstr "Ўлчам"
+msgstr "Ўлчам/Ҳажм"
 
 msgid "Position"
 msgstr "Лавозими"
@@ -857,7 +857,7 @@ msgid "or"
 msgstr "ёки"
 
 msgid "Today"
-msgstr "бугун"
+msgstr "Бугун"
 
 msgid "Yesterday"
 msgstr "Кеча"
@@ -899,13 +899,13 @@ msgid "Last 3 months"
 msgstr "Охирги 3 ой"
 
 msgid "Last 6 months"
-msgstr "Охирги 6 ой"
+msgstr "Охирги ярим йиллик"
 
 msgid "Last 12 months"
 msgstr "Охирги 12 ой"
 
 msgid "Months this year"
-msgstr "Ойлар айни йилда"
+msgstr "Ойлар ушбу йилда"
 
 msgid "This bimonth"
 msgstr "Ушбу жуфт ойлик"
@@ -935,10 +935,10 @@ msgid "This six-month"
 msgstr "Ушбу ярим йиллик"
 
 msgid "Last six-month"
-msgstr "Охирги 6 ой"
+msgstr "Охирги ярим йиллик"
 
 msgid "Last 2 six-months"
-msgstr "Охирги 2 та 6 ойлик"
+msgstr "Охирги 2 та ярим йиллик"
 
 msgid "This financial year"
 msgstr "Ушбу молиявий йил"

@@ -1,15 +1,15 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2020
-# KRG HIS <antonia.bezenchek@informa.pro>, 2020
-# Asos <aso.rezaiy@gmail.com>, 2020
+# KRG HIS <antonia.bezenchek@informa.pro>, 2022
+# Asos <aso.rezaiy@gmail.com>, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-11-16T13:39:36.158Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Asos <aso.rezaiy@gmail.com>, 2020\n"
+"PO-Revision-Date: 2022-04-20 10:06+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2022\n"
 "Language-Team: Central Kurdish (https://www.transifex.com/hisp-uio/teams/100509/ckb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -149,7 +149,7 @@ msgid "Raw data SQL"
 msgstr ""
 
 msgid "Hide"
-msgstr "شاردنةوة"
+msgstr "شاردنەوە"
 
 msgid "Interpretations"
 msgstr ""
@@ -226,7 +226,7 @@ msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
 msgid "Update"
-msgstr "نويَ كردنةوة"
+msgstr "نوێ کردنەوە"
 
 msgid "Getting started"
 msgstr ""
@@ -823,7 +823,7 @@ msgid "This week"
 msgstr "ئەم هەفتەیە"
 
 msgid "Last week"
-msgstr "هەفتەی پێشووتر"
+msgstr "هەفتەی ڕابردوو"
 
 msgid "Last 4 weeks"
 msgstr ""
@@ -844,7 +844,7 @@ msgid "Last month"
 msgstr "مانگی ڕابردوو"
 
 msgid "Last 3 months"
-msgstr "سێ مانگ پێشووتر"
+msgstr "٣ مانگ پێشووتر"
 
 msgid "Last 6 months"
 msgstr ""

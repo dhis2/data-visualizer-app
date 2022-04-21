@@ -1,19 +1,19 @@
 # 
 # Translators:
-# ericbp <ericbarredap@gmail.com>, 2020
-# phil_dhis2, 2020
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
-# Pablo Pajuelo Cabezas <ppajuelo@quadram.mobi>, 2020
-# Prabhjot Singh, 2021
-# Viktor Varland <viktor@dhis2.org>, 2021
-# Janeth Cruz, 2021
+# Pablo Pajuelo Cabezas <ppajuelo@quadram.mobi>, 2022
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2022
+# Prabhjot Singh, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
+# ericbp <ericbarredap@gmail.com>, 2022
+# phil_dhis2, 2022
+# Janeth Cruz, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-11-16T13:39:36.158Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Janeth Cruz, 2021\n"
+"PO-Revision-Date: 2022-04-20 10:06+0000\n"
+"Last-Translator: Janeth Cruz, 2022\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -265,7 +265,7 @@ msgid "Average"
 msgstr "Promedio"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr "Media (suma en las unidades organizativas de la jerarquía)"
+msgstr "Media (suma en la jerarquía de unidades organizativas)"
 
 msgid "Sum"
 msgstr "Suma"
@@ -923,7 +923,7 @@ msgid "Table title"
 msgstr "Título de la tabla"
 
 msgid "Parameters"
-msgstr "Parámetros"
+msgstr "Parámetros"
 
 msgid ""
 "These options only apply to legacy tables like standard reports. Options set"
@@ -992,7 +992,7 @@ msgid "Limit minimum/maximum values"
 msgstr ""
 
 msgid "Outliers"
-msgstr ""
+msgstr "Valores atípicos"
 
 msgid "Series"
 msgstr ""

@@ -1,17 +1,19 @@
 # 
 # Translators:
-# Farida Sibuea <farida_sibuea@yahoo.com>, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
-# Yusuf Setiawan <mohammadyusufsetiawan@gmail.com>, 2021
-# Untoro Dwi Raharjo <untoro.dwi.raharjo@mail.ugm.ac.id>, 2021
-# Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2021
+# phil_dhis2, 2022
+# Yusuf Setiawan <mohammadyusufsetiawan@gmail.com>, 2022
+# Farida Sibuea <farida_sibuea@yahoo.com>, 2022
+# Guardian Sanjaya <gysanjaya@ugm.ac.id>, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
+# Untoro Dwi Raharjo <untoro.dwi.raharjo@mail.ugm.ac.id>, 2022
+# Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-11-16T13:39:36.158Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2021\n"
+"PO-Revision-Date: 2022-04-20 10:06+0000\n"
+"Last-Translator: Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2022\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,10 +28,10 @@ msgid "Rename successful"
 msgstr "Penamaan ulang berhasil"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr "Visualisasi {{visualizationType}} tanpa judul, {{date}}"
+msgstr ""
 
 msgid "\"{{deletedObject}}\" successfully deleted."
-msgstr "\"{{deletedObject}}\" berhasil dihapus."
+msgstr ""
 
 msgid "You have unsaved changes."
 msgstr "Anda memiliki pesan belum disimpan"
@@ -75,10 +77,10 @@ msgstr ""
 " pertama yang akan digunakan dan disimpan."
 
 msgid "Vertical"
-msgstr "Vertikal"
+msgstr ""
 
 msgid "Horizontal"
-msgstr "Horisontal"
+msgstr ""
 
 msgid "Main dimensions"
 msgstr "Dimensi utama"
@@ -93,7 +95,7 @@ msgid "Filter dimensions"
 msgstr "Filter dimensi"
 
 msgid "Graphics"
-msgstr "Grafik"
+msgstr "Grafis"
 
 msgid "Image (.png)"
 msgstr "Gambar (.png)"
@@ -129,7 +131,7 @@ msgid "Download"
 msgstr "Unduh"
 
 msgid "Plain data source"
-msgstr "Sumber data asli"
+msgstr "Sumber data mentah"
 
 msgid "JSON"
 msgstr "JSON"
@@ -144,7 +146,7 @@ msgid "CSV"
 msgstr "CSV"
 
 msgid "Advanced"
-msgstr "Lebih Lanjut"
+msgstr "Lanjut"
 
 msgid "Data value set"
 msgstr "Set nilai data"
@@ -153,10 +155,10 @@ msgid "Other formats"
 msgstr "Format lain"
 
 msgid "JRXML"
-msgstr "JRXML"
+msgstr ""
 
 msgid "Raw data SQL"
-msgstr "SQL data mentah"
+msgstr ""
 
 msgid "Hide"
 msgstr "Sembunyikan"
@@ -177,19 +179,19 @@ msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} dikunci sebagai {{axisName}} untuk {{visTypeName}}"
 
 msgid "Not available for Scatter"
-msgstr "Tidak tersedia untuk Scatter"
+msgstr ""
 
 msgid "Add Assigned Categories"
-msgstr "Tambahkan Kategori yang Ditugaskan"
+msgstr ""
 
 msgid "Swap with {{axisName}} axis"
 msgstr "Tukar dengan aksis {{axisName}}"
 
 msgid "vertical"
-msgstr "vertikal"
+msgstr ""
 
 msgid "horizontal"
-msgstr "horisontal"
+msgstr ""
 
 msgid "None selected"
 msgstr "Tidak ada yang terpilih"
@@ -207,7 +209,7 @@ msgid "Levels"
 msgstr "Level"
 
 msgid "Groups"
-msgstr "banyak grup"
+msgstr "Banyak grup"
 
 msgid "And 1 other..."
 msgstr "Dan 1 lainnya..."
@@ -216,17 +218,15 @@ msgid "And {{numberOfItems}} others..."
 msgstr "Dan {{numberOfItems}} lainnya..."
 
 msgid "Select a period"
-msgstr "Pilih periode"
+msgstr ""
 
 msgid "Select years"
-msgstr "Pilih tahun"
+msgstr ""
 
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
 msgstr ""
-"Visualisasi ini tidak dapat dihapus karena digunakan pada satu atau beberapa"
-" dasbor"
 
 msgid "Unsaved visualization"
 msgstr "Visualisasi belum disimpan"
@@ -263,7 +263,7 @@ msgid "Aggregation type"
 msgstr "Tipe agregasi"
 
 msgid "Overrides aggregation type for all data values."
-msgstr "Mengganti jenis agregasi untuk semua nilai data."
+msgstr ""
 
 msgid "By data element"
 msgstr "Berdasarkan data elemen"
@@ -272,10 +272,10 @@ msgid "Count"
 msgstr "Hitung"
 
 msgid "Average"
-msgstr "Rerata"
+msgstr "Rata-rata"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr "Rerata (jumlah dalam hirarki org unit)"
+msgstr "Rerata (jumlah dalam hirarki unit organisasi)"
 
 msgid "Sum"
 msgstr "Jumlah"
@@ -284,19 +284,19 @@ msgid "Last value"
 msgstr "Nilai terakhir"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr "Nilai terakhir (rerata dalam hirarki org unit)"
+msgstr "Nilai terakhir (jumlah dalam hirarki unit organisasi)"
 
 msgid "Min"
-msgstr "Min"
+msgstr "Minimal"
 
 msgid "Max"
-msgstr "Maks"
+msgstr "Maksimal"
 
 msgid "Standard deviation"
 msgstr "Standar deviasi"
 
 msgid "Variance"
-msgstr "Varians"
+msgstr "Varian"
 
 msgid "Data approved at level"
 msgstr "Data disetujui di tingkat"
@@ -333,7 +333,7 @@ msgid "Steps"
 msgstr "langkah"
 
 msgid "Axis title"
-msgstr "Judul sumbu X"
+msgstr "Judul aksis"
 
 msgid "Auto generated from axis items"
 msgstr ""
@@ -348,7 +348,7 @@ msgid "Add a title"
 msgstr "Tambahkan judul"
 
 msgid "Reset style to default"
-msgstr "Setel ulang gaya ke default"
+msgstr ""
 
 msgid "Base line"
 msgstr "Baseline"
@@ -363,19 +363,19 @@ msgid "Default"
 msgstr "Default"
 
 msgid "Bright"
-msgstr "Terang"
+msgstr ""
 
 msgid "Dark"
-msgstr "Gelap"
+msgstr ""
 
 msgid "Gray"
-msgstr "Abu-abu"
+msgstr ""
 
 msgid "Color blind"
-msgstr "Buta warna"
+msgstr ""
 
 msgid "Patterns"
-msgstr "Pola"
+msgstr ""
 
 msgid "Event data"
 msgstr "Data even"
@@ -411,14 +411,14 @@ msgid "Compact"
 msgstr "Padat"
 
 msgid "Extreme lines"
-msgstr "Garis ekstrim"
+msgstr ""
 
 msgid "Calculated as a percent, usually 1%, of the total values along an axis"
 msgstr ""
 "Dihitung sebagai persen, biasanya 1%, dari nilai total sepanjang aksis"
 
 msgid "Extreme line % detection"
-msgstr "Deteksi % garis ekstrim"
+msgstr ""
 
 msgid "Number"
 msgstr "Angka"
@@ -436,7 +436,7 @@ msgid "There aren’t any row headers because Rows is empty."
 msgstr ""
 
 msgid "Font size"
-msgstr "Ukuran font"
+msgstr "Ukuran huruf"
 
 msgid "Large"
 msgstr "Besar"
@@ -448,34 +448,34 @@ msgid "Hide empty columns"
 msgstr "Sembunyikan kolom kosong"
 
 msgid "Hide empty categories"
-msgstr "Sembunyikan kategori yang kosong"
+msgstr "Sembunyikan kategori kosong"
 
 msgid "Before first"
-msgstr "Sebelum yang pertama"
+msgstr "Sebelum pertama"
 
 msgid "After last"
 msgstr "Setelah terakhir"
 
 msgid "Before first and after last"
-msgstr "Sebelum yang pertama dan sesudah yang terakhir"
+msgstr "Sebelum pertama dan setelah terakhir"
 
 msgid "Hide empty rows"
 msgstr "Sembunyikan baris kosong"
 
 msgid "Table subtitle"
-msgstr "Subjudul tabel"
+msgstr ""
 
 msgid "Chart subtitle"
 msgstr "Subjudul grafik"
 
 msgid "Auto generated"
-msgstr "Dibuat otomatis"
+msgstr ""
 
 msgid "Chart title"
-msgstr "Judul grafik"
+msgstr "Sembunyikan item kategori yang kosong"
 
 msgid "Use legend for chart colors"
-msgstr "Gunakan legenda untuk warna bagan"
+msgstr ""
 
 msgid "Legend style"
 msgstr "Gaya legenda"
@@ -484,16 +484,16 @@ msgid "Legend type"
 msgstr "Tipe legenda"
 
 msgid "Use pre-defined legend per data item"
-msgstr "Gunakan legenda yang telah ditentukan sebelumnya per item data"
+msgstr ""
 
 msgid "Select a single legend for the entire visualization"
-msgstr "Pilih satu legenda untuk seluruh visualisasi"
+msgstr ""
 
 msgid "Legend changes background color"
-msgstr "Legenda mengubah warna latar belakang"
+msgstr ""
 
 msgid "Legend changes text color"
-msgstr "Legenda mengubah warna teks"
+msgstr ""
 
 msgid "Legend"
 msgstr "Legenda"
@@ -509,9 +509,6 @@ msgid ""
 "visualization, all values outside of the minimum/maximum range will not be "
 "displayed"
 msgstr ""
-"Anda dapat mengatur nilai minimum atau maksimum. Ini akan berlaku untuk "
-"seluruh visualisasi, semua nilai di luar rentang minimum/maksimum tidak akan"
-" ditampilkan"
 
 msgid "Minimum data value"
 msgstr "Nilai Miinimum"
@@ -520,7 +517,7 @@ msgid "Maximum data value"
 msgstr "Nilai maximum"
 
 msgid "Clear min/max limits"
-msgstr "Hapus batas min/maks"
+msgstr ""
 
 msgid "No space between bars/columns"
 msgstr "Tanpa spasi diantara bar/kolom"
@@ -529,7 +526,7 @@ msgid "Number type"
 msgstr "Tipe nomor"
 
 msgid "Display the value of percentages of the total"
-msgstr "Tampilkan nilai persentase dari total"
+msgstr ""
 
 msgid "Value"
 msgstr "Nilai"
@@ -545,22 +542,17 @@ msgid ""
 "different data. Check the documentation for help to choose the right outlier"
 " detection method"
 msgstr ""
-"Setiap metode deteksi mengidentifikasi outlier dengan cara yang berbeda dan "
-"sesuai dengan data yang berbeda. Periksa dokumentasi untuk bantuan dalam "
-"memilih metode deteksi outlier yang tepat"
 
 msgid "Threshold factor"
-msgstr "Faktor ambang batas"
+msgstr ""
 
 msgid ""
 "A high value is more sensitive so fewer data items will be identified as "
 "outliers"
 msgstr ""
-"Nilai tinggi lebih sensitif sehingga lebih sedikit item data yang akan "
-"diidentifikasi sebagai outlier"
 
 msgid "Interquartile Range (IQR)"
-msgstr "Rentang Interkuartil (IQR)"
+msgstr ""
 
 msgid "Z-score / Standard score"
 msgstr "Z-score / Skor standar"
@@ -569,17 +561,15 @@ msgid "Modified Z-score"
 msgstr "Z-score yang dimodifikasi"
 
 msgid "Outlier analysis"
-msgstr "Analisis outlier"
+msgstr ""
 
 msgid ""
 "Outlier analysis detects and highlights data items that are markedly "
 "different from the rest of the data"
 msgstr ""
-"Analisis outlier mendeteksi dan menyoroti item data yang sangat berbeda dari"
-" data lainnya"
 
 msgid "Outlier detection method"
-msgstr "Metode deteksi outlier"
+msgstr ""
 
 msgid "Organisation unit"
 msgstr "Unit organisasi"
@@ -591,7 +581,7 @@ msgid "Reporting period"
 msgstr "Periode pelaporan"
 
 msgid "Stacked values add up to 100%"
-msgstr "Nilai bertumpuk bertambah hingga 100%"
+msgstr ""
 
 msgid "Include regression"
 msgstr "Masukkan regresi"
@@ -612,41 +602,39 @@ msgid "Loess"
 msgstr "Loess"
 
 msgid "Row sub-totals"
-msgstr "Sub-total baris"
+msgstr ""
 
 msgid "Row totals"
-msgstr "Total baris"
+msgstr ""
 
 msgid "Data item"
-msgstr "barang data"
+msgstr "Data item"
 
 msgid "Visualization type"
-msgstr "Jenis visualisasi"
+msgstr ""
 
 msgid "Axis {{axisId}}"
 msgstr "Aksis {{axisId}}"
 
 msgid "Series is empty"
-msgstr "Seri kosong"
+msgstr ""
 
 msgid "Options for selected items will be available here"
-msgstr "Pilihan untuk item yang dipilih akan tersedia di sini"
+msgstr ""
 
 msgid "No Series options"
-msgstr "Tidak ada opsi Seri"
+msgstr ""
 
 msgid "There aren't any Series options for this visualization type"
-msgstr "Tidak ada opsi Seri untuk jenis visualisasi ini"
+msgstr ""
 
 msgid "Series options unavailable"
-msgstr "Opsi seri tidak tersedia"
+msgstr ""
 
 msgid ""
 "Series options are not available when using relative selections for periods,"
 " org units or categories"
 msgstr ""
-"Opsi seri tidak tersedia saat menggunakan pilihan relatif untuk periode, "
-"unit organisasi, atau kategori"
 
 msgid ""
 "Series options are not available when a series item has an \"All items\" "
@@ -654,16 +642,16 @@ msgid ""
 msgstr ""
 
 msgid "Value labels"
-msgstr "Label nilai"
+msgstr ""
 
 msgid "Dimension labels"
-msgstr "Label dimensi"
+msgstr ""
 
 msgid "Display organisation unit hierarchy"
-msgstr "Tampilkan hierarki unit organisasi"
+msgstr ""
 
 msgid "Show legend key"
-msgstr "Tampilkan kunci legenda"
+msgstr ""
 
 msgid "Show series key"
 msgstr ""
@@ -672,7 +660,7 @@ msgid "Skip rounding"
 msgstr "Jangan bulatkan"
 
 msgid "Custom sort order"
-msgstr "Urutan pengurutan khusus"
+msgstr ""
 
 msgid "Low to high"
 msgstr "Rendah ke tinggi"
@@ -681,16 +669,16 @@ msgid "High to low"
 msgstr "Tinggi ke rendah"
 
 msgid "Add a subtitle"
-msgstr "Tambahkan subtitle"
+msgstr ""
 
 msgid "Target line"
 msgstr "Garis sasaran"
 
 msgid "Size"
-msgstr "Ukuran"
+msgstr ""
 
 msgid "Position"
-msgstr "Posisi"
+msgstr ""
 
 msgid "Top limit"
 msgstr "Batas atas"
@@ -704,8 +692,6 @@ msgstr "Buka sebagai Peta"
 msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
 msgstr ""
-"Plot data secara visual pada peta dunia. Elemen data menggunakan lapisan "
-"peta terpisah."
 
 msgid "Reporting rate"
 msgstr "Tingkat pelaporan"
@@ -723,30 +709,26 @@ msgid "Expected reports"
 msgstr "Laporan yang diharapkan"
 
 msgid "No data available"
-msgstr "Tidak ada data yang tersedia"
+msgstr ""
 
 msgid ""
 "The selected dimensions didn’t return any data. There may be no data, or you"
 " may not have access to it."
 msgstr ""
-"Dimensi yang dipilih tidak mengembalikan data apa pun. Mungkin tidak ada "
-"data, atau Anda mungkin tidak memiliki akses ke sana."
 
 msgid "{{axisName}} is empty"
-msgstr "{{axisName}} kosong"
+msgstr ""
 
 msgid "Add at least one item to {{axisName}}."
-msgstr "Tambahkan setidaknya satu item ke {{axisName}}."
+msgstr ""
 
 msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
-msgstr "{{columnsAxisName}} dan {{rowsAxisName}} kosong"
+msgstr ""
 
 msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
 " {{visualizationType}}."
 msgstr ""
-"Tambahkan setidaknya satu item ke {{columnsAxisName}} atau {{rowsAxisName}} "
-"untuk membuat {{visualizationType}}."
 
 msgid "No period selected"
 msgstr "Tidak ada periode yang dipilih"
@@ -754,26 +736,24 @@ msgstr "Tidak ada periode yang dipilih"
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
 msgstr ""
-"{{visualizationType}} harus memiliki setidaknya satu periode yang dipilih di"
-" {{axes}}."
 
 msgid "Add organisation units to {{axisName}}."
-msgstr "Tambahkan unit organisasi ke {{axisName}}."
+msgstr ""
 
 msgid "Vertical is empty"
-msgstr "Vertikal kosong"
+msgstr ""
 
 msgid "Add a data item to the vertical axis."
-msgstr "Tambahkan item data ke sumbu vertikal."
+msgstr ""
 
 msgid "Horizontal is empty"
-msgstr "Horisontal kosong"
+msgstr ""
 
 msgid "Add a data item to the horizontal axis."
-msgstr "Tambahkan item data ke sumbu horizontal."
+msgstr ""
 
 msgid "Axes data items are the same"
-msgstr "Item data sumbu adalah sama"
+msgstr ""
 
 msgid ""
 "The horizontal and vertical axes have the same data item. Scatter chart axes"
@@ -789,22 +769,17 @@ msgid ""
 "{{visualizationType}} must have at least one data item or data element group"
 " set item in {{axes}}."
 msgstr ""
-"{{visualizationType}} harus memiliki setidaknya satu item data atau item "
-"kumpulan elemen data di {{axes}}."
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
 msgstr ""
-"{{visualizationType}} harus memiliki setidaknya satu item data di {{axes}}."
 
 msgid "There's a problem with the layout"
-msgstr "Ada masalah dengan tata letak"
+msgstr ""
 
 msgid ""
 "A single indicator must be the only data item when using indicators as Data "
 "in Filter."
 msgstr ""
-"Indikator tunggal harus menjadi satu-satunya item data saat menggunakan "
-"indikator sebagai Data dalam Filter."
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
 msgstr ""
@@ -812,10 +787,10 @@ msgstr ""
 "sama."
 
 msgid "There is a problem with this {{visualizationType}} visualization."
-msgstr "Ada masalah dengan visualisasi {{visualizationType}} ini."
+msgstr ""
 
 msgid "There was a problem getting the data from the server."
-msgstr "Terjadi masalah saat mengambil data dari server."
+msgstr ""
 
 msgid "Assigned Categories can only be used with data elements"
 msgstr "Kategori yang ditetapkan hanya dapat digunakan dengan elemen data"
@@ -835,20 +810,18 @@ msgstr ""
 "ditetapkan."
 
 msgid "Visualization not found"
-msgstr "Visualisasi tidak ditemukan"
+msgstr ""
 
 msgid ""
 "The visualization you are trying to view could not be found, the ID could be"
 " incorrect or it could have been deleted."
 msgstr ""
-"Visualisasi yang Anda coba lihat tidak dapat ditemukan, ID mungkin salah "
-"atau mungkin telah dihapus."
 
 msgid "No organization units found"
-msgstr "Tidak ada unit organisasi yang ditemukan"
+msgstr ""
 
 msgid "The level or group selections didn't return any organization units."
-msgstr "Pilihan tingkat atau grup tidak menampilkan unit organisasi apa pun."
+msgstr ""
 
 msgid "Something went wrong"
 msgstr "Terjadi kesalahan"
@@ -887,7 +860,7 @@ msgid "Last 52 weeks"
 msgstr "52 minggu terakhir"
 
 msgid "Weeks this year"
-msgstr "Minggu dalam tahun ini"
+msgstr "Mingguan tahun ini"
 
 msgid "This month"
 msgstr "Bulan ini"
@@ -896,16 +869,16 @@ msgid "Last month"
 msgstr "Bulan lalu"
 
 msgid "Last 3 months"
-msgstr "3 bulan lalu"
+msgstr "3 bulan terakhir"
 
 msgid "Last 6 months"
-msgstr "6 bulan lalu"
+msgstr "6 bulan terakhir"
 
 msgid "Last 12 months"
-msgstr "12 bulan lalu"
+msgstr "12 bulan terakhir"
 
 msgid "Months this year"
-msgstr "Bulan dalam tahun ini"
+msgstr "Bulanan tahun ini"
 
 msgid "This bimonth"
 msgstr "Dwiwulan ini"
@@ -926,28 +899,28 @@ msgid "Last quarter"
 msgstr "Triwulan yang lalu"
 
 msgid "Last 4 quarters"
-msgstr "4 triwulan yang lalu"
+msgstr "4 triwulan terakhir"
 
 msgid "Quarters this year"
-msgstr "Triwulan dalam tahun ini"
+msgstr "Triwulanan tahun ini"
 
 msgid "This six-month"
-msgstr "Semester ini"
+msgstr "6 bulan ini"
 
 msgid "Last six-month"
-msgstr "Semester yang lalu"
+msgstr "Semester lalu"
 
 msgid "Last 2 six-months"
-msgstr "2 semester yang lalu"
+msgstr "2 semester terakhir"
 
 msgid "This financial year"
-msgstr "Tahun fiskal ini"
+msgstr "Anggaran tahun ini"
 
 msgid "Last financial year"
-msgstr "Tahun fiskal lalu"
+msgstr "Anggaran tahun lalu"
 
 msgid "Last 5 financial years"
-msgstr "5 tahun fiskal yang lalu"
+msgstr "5 tahun finansial terakhir"
 
 msgid "This year"
 msgstr "Tahun ini"
@@ -977,18 +950,15 @@ msgid ""
 "These options only apply to legacy tables like standard reports. Options set"
 " here will have no effect on tables made in Data Visualizer."
 msgstr ""
-"Opsi ini hanya berlaku untuk tabel lawas seperti laporan standar. Opsi yang "
-"ditetapkan di sini tidak akan berpengaruh pada tabel yang dibuat di "
-"Visualizer Data."
 
 msgid "Applies to standard reports only"
-msgstr "Hanya berlaku untuk laporan standar"
+msgstr ""
 
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr "Garis dasar dan target tersedia di tab aksis untuk bagan sebar"
 
 msgid "Color set"
-msgstr "Set warna"
+msgstr ""
 
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr "Set warna belum didukung saat menggunakan banyak aksis"
@@ -1001,13 +971,13 @@ msgid "Chart style"
 msgstr "Tipe grafik"
 
 msgid "Display"
-msgstr "Tampilan"
+msgstr ""
 
 msgid "Empty data"
-msgstr "Data kosong"
+msgstr ""
 
 msgid "Horizontal (x) axis {{axisId}}"
-msgstr "Sumbu horizontal (x) {{axisId}}"
+msgstr ""
 
 msgid "Horizontal (x) axis"
 msgstr "sumbu X"
@@ -1019,7 +989,7 @@ msgid "Totals"
 msgstr "Total"
 
 msgid "Vertical (y) axis {{axisId}}"
-msgstr "Sumbu vertikal (y) {{axisId}}"
+msgstr ""
 
 msgid "Vertical (y) axis"
 msgstr "Sumbu Y"
@@ -1028,7 +998,7 @@ msgid "Titles"
 msgstr "Judul"
 
 msgid "Axes"
-msgstr "Sumbu"
+msgstr "Aksis"
 
 msgid "Data"
 msgstr "Data"
@@ -1037,13 +1007,13 @@ msgid "Limit values"
 msgstr "batas nilai"
 
 msgid "Limit number of values"
-msgstr "Batasi jumlah nilai"
+msgstr ""
 
 msgid "Limit minimum/maximum values"
-msgstr "Batasi nilai minimum/maksimum"
+msgstr ""
 
 msgid "Outliers"
-msgstr "Pencilan"
+msgstr "Outliers"
 
 msgid "Series"
 msgstr "Seri"

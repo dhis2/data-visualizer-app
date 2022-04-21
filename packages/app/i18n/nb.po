@@ -1,13 +1,13 @@
 # 
 # Translators:
-# Caroline Hesthagen Holen <caroline@devotta.no>, 2020
+# Caroline Hesthagen Holen <caroline@devotta.no>, 2022
 # Karoline Tufte Lien <karoline@dhis2.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-11-16T13:39:36.158Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"PO-Revision-Date: 2022-04-20 10:06+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2022\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
 "MIME-Version: 1.0\n"
@@ -686,7 +686,7 @@ msgid "Top limit"
 msgstr "Toppgrense"
 
 msgid "Options"
-msgstr "Alternativer"
+msgstr "Alternativ"
 
 msgid "Open as Map"
 msgstr "Åpne som kart"
@@ -870,7 +870,7 @@ msgid "Last 52 weeks"
 msgstr "Siste 52 uker"
 
 msgid "Weeks this year"
-msgstr "Uker i år"
+msgstr "Uker inneværende år"
 
 msgid "This month"
 msgstr "Denne måneden"
@@ -888,7 +888,7 @@ msgid "Last 12 months"
 msgstr "Siste 12 måneder"
 
 msgid "Months this year"
-msgstr "Måneder inneværende år"
+msgstr "Måneder i år"
 
 msgid "This bimonth"
 msgstr "Denne tomåned"
@@ -912,7 +912,7 @@ msgid "Last 4 quarters"
 msgstr "Siste 4 kvartaler"
 
 msgid "Quarters this year"
-msgstr "Kvartaler inneværende år"
+msgstr "Kvartaler i år"
 
 msgid "This six-month"
 msgstr "Dette halvåret"
@@ -921,7 +921,7 @@ msgid "Last six-month"
 msgstr "Siste halvår"
 
 msgid "Last 2 six-months"
-msgstr "Siste to halvår"
+msgstr "Siste 2 halvår"
 
 msgid "This financial year"
 msgstr "Dette regnskapsåret"
@@ -936,7 +936,7 @@ msgid "This year"
 msgstr "Dette året"
 
 msgid "Last year"
-msgstr "I fjor"
+msgstr "Forrige år"
 
 msgid "Last 5 years"
 msgstr "Siste 5 år"
@@ -954,7 +954,7 @@ msgid "Table title"
 msgstr "Tabelltittel"
 
 msgid "Parameters"
-msgstr "Parametere"
+msgstr "Parametre"
 
 msgid ""
 "These options only apply to legacy tables like standard reports. Options set"
