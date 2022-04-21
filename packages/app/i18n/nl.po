@@ -2,13 +2,14 @@
 # Translators:
 # Cherise Beek <cherise.beek@gmail.com>, 2021
 # Yury Rogachev <yury@dhis2.org>, 2021
+# Rica Zamora Duchateau, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-25T09:27:28.489Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
+"Last-Translator: Rica Zamora Duchateau, 2022\n"
 "Language-Team: Dutch (https://www.transifex.com/hisp-uio/teams/100509/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -43,7 +44,7 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Annuleer"
 
 msgid "Update"
 msgstr "Bijwerken"
@@ -60,7 +61,7 @@ msgid "Remove"
 msgstr ""
 
 msgid "Download"
-msgstr ""
+msgstr "Download"
 
 msgid "Graphics"
 msgstr ""
@@ -84,10 +85,10 @@ msgid "ID"
 msgstr ""
 
 msgid "Code"
-msgstr ""
+msgstr "Code"
 
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 msgid "Data value set"
 msgstr ""
@@ -111,22 +112,24 @@ msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
 
 msgid "Something went wrong"
-msgstr ""
+msgstr "Er is iets fout gegaan."
 
 msgid "Refresh to try again"
-msgstr ""
+msgstr "Ververs om opnieuw te proberen"
 
 msgid "Hide technical details"
-msgstr ""
+msgstr "Verberg technische details"
 
 msgid "Show technical details"
-msgstr ""
+msgstr "Toon technische details"
 
 msgid "The following information may be requested by technical support."
 msgstr ""
+"De volgende information kan aangevraagd worden bij de technische "
+"ondersteuning."
 
 msgid "Interpretations"
-msgstr ""
+msgstr "Interpretaties"
 
 msgid "{{total}} of 1 selected"
 msgstr ""
@@ -141,7 +144,7 @@ msgid "Category"
 msgstr ""
 
 msgid "Filter"
-msgstr ""
+msgstr "Filter"
 
 msgid "None selected"
 msgstr ""
@@ -162,7 +165,7 @@ msgid "Edited"
 msgstr ""
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
+msgstr "Interpretatie van {{interpretatieDatum}} aan het bezichtigen"
 
 msgid "Error validating layout"
 msgstr ""
@@ -177,7 +180,7 @@ msgid "Error generating chart, please try again"
 msgstr ""
 
 msgid "Aggregation type"
-msgstr ""
+msgstr "Aggregatietype"
 
 msgid "By data element"
 msgstr ""
@@ -234,7 +237,7 @@ msgid "Hide empty categories"
 msgstr ""
 
 msgid "None"
-msgstr ""
+msgstr "Geen"
 
 msgid "Before first"
 msgstr ""
@@ -326,16 +329,16 @@ msgid "Chart title"
 msgstr ""
 
 msgid "Data"
-msgstr ""
+msgstr "Gegevens"
 
 msgid "Axis & legend"
 msgstr ""
 
 msgid "Style"
-msgstr ""
+msgstr "Stijl"
 
 msgid "Options"
-msgstr ""
+msgstr "Opties"
 
 msgid "Chart options"
 msgstr ""
