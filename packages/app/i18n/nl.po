@@ -2,13 +2,14 @@
 # Translators:
 # Cherise Beek <cherise.beek@gmail.com>, 2021
 # Yury Rogachev <yury@dhis2.org>, 2021
+# Rica Zamora Duchateau, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-04-23T09:26:03.770Z\n"
 "PO-Revision-Date: 2020-12-22 22:14+0000\n"
-"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
+"Last-Translator: Rica Zamora Duchateau, 2022\n"
 "Language-Team: Dutch (https://www.transifex.com/hisp-uio/teams/100509/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -95,13 +96,13 @@ msgid "ID"
 msgstr ""
 
 msgid "Code"
-msgstr ""
+msgstr "Code"
 
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 msgid "Download"
-msgstr ""
+msgstr "Download"
 
 msgid "Plain data source"
 msgstr ""
@@ -137,7 +138,7 @@ msgid "Hide"
 msgstr ""
 
 msgid "Interpretations"
-msgstr ""
+msgstr "Interpretaties"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
@@ -161,7 +162,7 @@ msgid "Levels"
 msgstr ""
 
 msgid "Groups"
-msgstr ""
+msgstr "Groepen"
 
 msgid "And 1 other..."
 msgstr ""
@@ -187,7 +188,7 @@ msgid "Edited"
 msgstr ""
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
+msgstr "Interpretatie van {{interpretatieDatum}} aan het bezichtigen"
 
 msgid "Update"
 msgstr "Bijwerken"
@@ -210,7 +211,7 @@ msgid "Your most viewed charts and tables"
 msgstr ""
 
 msgid "Aggregation type"
-msgstr ""
+msgstr "Aggregatietype"
 
 msgid "Overrides aggregation type for all data values."
 msgstr ""
@@ -267,7 +268,7 @@ msgid "Base line"
 msgstr ""
 
 msgid "Value"
-msgstr ""
+msgstr "Waarde"
 
 msgid "Title"
 msgstr ""
@@ -279,7 +280,7 @@ msgid "Number"
 msgstr ""
 
 msgid "Labels"
-msgstr ""
+msgstr "Labels"
 
 msgid "Column sub-totals"
 msgstr ""
@@ -321,7 +322,7 @@ msgid "Digit group separator"
 msgstr ""
 
 msgid "None"
-msgstr ""
+msgstr "Geen"
 
 msgid "Space"
 msgstr ""
@@ -417,7 +418,7 @@ msgid "Legend changes text color"
 msgstr ""
 
 msgid "Legend"
-msgstr ""
+msgstr "Legenda"
 
 msgid "Select from legends"
 msgstr ""
@@ -455,7 +456,7 @@ msgid "Percentage of column"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr ""
+msgstr "Organisatieëenheid"
 
 msgid "Parent organisation unit"
 msgstr ""
@@ -478,7 +479,7 @@ msgid ""
 msgstr ""
 
 msgid "Steps"
-msgstr ""
+msgstr "Stappen"
 
 msgid "Include regression"
 msgstr ""
@@ -502,7 +503,7 @@ msgid "Row totals"
 msgstr ""
 
 msgid "Data item"
-msgstr ""
+msgstr "Gegevensitem"
 
 msgid "Visualization type"
 msgstr ""
@@ -561,7 +562,7 @@ msgid "Target line title"
 msgstr ""
 
 msgid "Size"
-msgstr ""
+msgstr "Grootte"
 
 msgid "Position"
 msgstr ""
@@ -570,7 +571,7 @@ msgid "Top limit"
 msgstr ""
 
 msgid "Options"
-msgstr ""
+msgstr "Opties"
 
 msgid "Open as Map"
 msgstr ""
@@ -679,7 +680,7 @@ msgid "The level or group selections didn't return any organization units."
 msgstr ""
 
 msgid "Something went wrong"
-msgstr ""
+msgstr "Er is iets fout gegaan."
 
 msgid "or"
 msgstr ""
@@ -796,7 +797,7 @@ msgid "User org unit grand children"
 msgstr ""
 
 msgid "Data"
-msgstr ""
+msgstr "Gegevens"
 
 msgid "Display"
 msgstr ""
@@ -811,7 +812,7 @@ msgid "Series"
 msgstr ""
 
 msgid "Style"
-msgstr ""
+msgstr "Stijl"
 
 msgid "Chart style"
 msgstr ""
@@ -826,7 +827,7 @@ msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Totals"
-msgstr ""
+msgstr "Totalen"
 
 msgid "Empty data"
 msgstr ""
