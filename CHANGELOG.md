@@ -1,3 +1,10 @@
+## [37.9.18](https://github.com/dhis2/data-visualizer-app/compare/v37.9.17...v37.9.18) (2022-04-22)
+
+
+### Bug Fixes
+
+* correct typo with display name property (DHIS2-10174) ([#2043](https://github.com/dhis2/data-visualizer-app/issues/2043)) ([#2045](https://github.com/dhis2/data-visualizer-app/issues/2045)) ([98f9dd0](https://github.com/dhis2/data-visualizer-app/commit/98f9dd0df41c8b8e891900cede49d5a618f56b86))
+
 ## [37.9.17](https://github.com/dhis2/data-visualizer-app/compare/v37.9.16...v37.9.17) (2022-04-22)
 
 
