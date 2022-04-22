@@ -24,7 +24,7 @@ const UserSettingsProvider = ({ children }) => {
             setSettings({
                 ...userSettings,
                 displayProperty: userSettings.keyAnalysisDisplayProperty,
-                displayPropertyName:
+                displayNameProperty:
                     userSettings.keyAnalysisDisplayProperty === 'name'
                         ? 'displayName'
                         : 'displayShortName',
