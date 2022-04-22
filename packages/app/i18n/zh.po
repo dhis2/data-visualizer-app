@@ -1006,7 +1006,7 @@ msgstr "在可操作的表格中查看数据和指标。"
 
 msgid ""
 "Compare sizes of related elements vertically. Recommend period as filter."
-msgstr ""
+msgstr "垂直比较相关元素的大小。推荐时间段作为过滤器。"
 
 msgid ""
 "Compare parts of a whole against related elements vertically. Recommend data"
@@ -1015,7 +1015,7 @@ msgstr "垂直比较整个部分和相关元素。推荐数据或组织机构为
 
 msgid ""
 "Compare sizes of related elements horizontally. Recommend period as filter."
-msgstr ""
+msgstr "水平比较相关元素的大小。推荐时间段作为过滤器。"
 
 msgid ""
 "Compare parts of a whole against related elements horizontally. Recommend "
@@ -1028,7 +1028,7 @@ msgstr "跟踪或比较随时间的变化规律。推荐时期为分类。"
 msgid ""
 "Track or compare parts of a whole over time. Recommend data as series and "
 "period as category."
-msgstr ""
+msgstr "随着时间的推移跟踪或比较整体的各个部分。推荐数据为系列，时段为分类别。"
 
 msgid ""
 "Compare parts of a whole at a single point in time. Recommend period as "
@@ -1041,7 +1041,7 @@ msgstr "将多个变量与多个条目进行比较。"
 msgid ""
 "Compare a percentage indicator against a 100% scale. Recommend period as "
 "filter."
-msgstr ""
+msgstr "将百分比指标与 100% 比例进行比较。推荐时间段作为过滤器。"
 
 msgid "Compare changes over time between multiple time periods."
 msgstr "比较多个时间段之间随时间的变化。"
