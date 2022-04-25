@@ -1,3 +1,4 @@
+import { DIMENSION_ID_ORGUNIT, DIMENSION_ID_DATA } from '@dhis2/analytics'
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
@@ -28,6 +29,7 @@ import {
     NoDataOrDataElementGroupSetError,
     CombinationDEGSRRError,
     NoOrgUnitResponseError,
+    NoDataError,
 } from '../../modules/error'
 import LoadingMask from '../../widgets/LoadingMask'
 import { sGetSettingsDisplayNameProperty } from '../../reducers/settings'
@@ -63,9 +65,26 @@ export class Visualization extends Component {
                     error = new CombinationDEGSRRError()
                     break
                 case 'E7124':
-                    error = new NoOrgUnitResponseError()
+                    {
+                        if (
+                            response?.message?.includes(
+                                `\`${DIMENSION_ID_DATA}\``
+                            )
+                        ) {
+                            error = new NoDataError(
+                                this.props.visualization.type
+                            )
+                        } else if (
+                            response?.message?.includes(
+                                `\`${DIMENSION_ID_ORGUNIT}\``
+                            )
+                        ) {
+                            error = new NoOrgUnitResponseError()
+                        } else {
+                            error = new GenericServerError()
+                        }
+                    }
                     break
-
                 default:
                     error = response
             }
