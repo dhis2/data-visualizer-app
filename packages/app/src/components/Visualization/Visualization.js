@@ -1,3 +1,4 @@
+import { DIMENSION_ID_ORGUNIT, DIMENSION_ID_DATA } from '@dhis2/analytics'
 import VisualizationPlugin from '@dhis2/data-visualizer-plugin'
 import debounce from 'lodash-es/debounce'
 import PropTypes from 'prop-types'
@@ -18,6 +19,7 @@ import {
     NoDataOrDataElementGroupSetError,
     CombinationDEGSRRError,
     NoOrgUnitResponseError,
+    NoDataError,
 } from '../../modules/error'
 import { removeLastPathSegment } from '../../modules/orgUnit'
 import { sGetCurrent } from '../../reducers/current'
@@ -60,9 +62,26 @@ export class Visualization extends Component {
                     error = new CombinationDEGSRRError()
                     break
                 case 'E7124':
-                    error = new NoOrgUnitResponseError()
+                    {
+                        if (
+                            response?.message?.includes(
+                                `\`${DIMENSION_ID_DATA}\``
+                            )
+                        ) {
+                            error = new NoDataError(
+                                this.props.visualization.type
+                            )
+                        } else if (
+                            response?.message?.includes(
+                                `\`${DIMENSION_ID_ORGUNIT}\``
+                            )
+                        ) {
+                            error = new NoOrgUnitResponseError()
+                        } else {
+                            error = new GenericServerError()
+                        }
+                    }
                     break
-
                 default:
                     error = response
             }
