@@ -1,6 +1,6 @@
 {
     "name": "@dhis2/data-visualizer-plugin",
-    "version": "36.1.9",
+    "version": "36.1.10",
     "description": "DHIS2 Data Visualizer plugin",
     "main": "./build/cjs/index.js",
     "module": "./build/es/index.js",

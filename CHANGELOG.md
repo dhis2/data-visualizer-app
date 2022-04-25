@@ -1,3 +1,10 @@
+## [36.1.10](https://github.com/dhis2/data-visualizer-app/compare/v36.1.9...v36.1.10) (2022-04-25)
+
+
+### Bug Fixes
+
+* adapt error message to specific dimension (DHIS2-12915) v36 ([#2013](https://github.com/dhis2/data-visualizer-app/issues/2013)) ([66c178c](https://github.com/dhis2/data-visualizer-app/commit/66c178cfa3c2627f536ab82c85ec1f79cb0db44f))
+
 ## [36.1.9](https://github.com/dhis2/data-visualizer-app/compare/v36.1.8...v36.1.9) (2021-10-07)
 
 
