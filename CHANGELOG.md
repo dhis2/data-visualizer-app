@@ -1,3 +1,31 @@
+## [37.9.18](https://github.com/dhis2/data-visualizer-app/compare/v37.9.17...v37.9.18) (2022-04-22)
+
+
+### Bug Fixes
+
+* correct typo with display name property (DHIS2-10174) ([#2043](https://github.com/dhis2/data-visualizer-app/issues/2043)) ([#2045](https://github.com/dhis2/data-visualizer-app/issues/2045)) ([98f9dd0](https://github.com/dhis2/data-visualizer-app/commit/98f9dd0df41c8b8e891900cede49d5a618f56b86))
+
+## [37.9.17](https://github.com/dhis2/data-visualizer-app/compare/v37.9.16...v37.9.17) (2022-04-22)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (37.x) ([565069c](https://github.com/dhis2/data-visualizer-app/commit/565069cab62efd46aa72860955650687342a4467))
+
+## [37.9.16](https://github.com/dhis2/data-visualizer-app/compare/v37.9.15...v37.9.16) (2022-04-07)
+
+
+### Bug Fixes
+
+* backport fix for DHIS2-13015 (37.x) ([#2029](https://github.com/dhis2/data-visualizer-app/issues/2029)) ([e050e94](https://github.com/dhis2/data-visualizer-app/commit/e050e94bb3dd628ff07baf5826fec273ce425e41))
+
+## [37.9.15](https://github.com/dhis2/data-visualizer-app/compare/v37.9.14...v37.9.15) (2022-03-25)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (37.x) ([36de471](https://github.com/dhis2/data-visualizer-app/commit/36de471054e2f4f150c364fb497d1c8698161eee))
+
 ## [37.9.14](https://github.com/dhis2/data-visualizer-app/compare/v37.9.13...v37.9.14) (2022-03-06)
 
 
