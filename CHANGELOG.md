@@ -1,3 +1,10 @@
+## [39.0.5](https://github.com/dhis2/data-visualizer-app/compare/v39.0.4...v39.0.5) (2022-04-26)
+
+
+### Bug Fixes
+
+* bump d2-ui-interpretation dependency for DHIS2-12617 ([#2046](https://github.com/dhis2/data-visualizer-app/issues/2046)) ([b466fe6](https://github.com/dhis2/data-visualizer-app/commit/b466fe62b49ed6dcee482515be8ce8052435cc97))
+
 ## [39.0.4](https://github.com/dhis2/data-visualizer-app/compare/v39.0.3...v39.0.4) (2022-04-22)
 
 
