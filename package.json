@@ -12,7 +12,7 @@
         "concurrently": "^6.2.0",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.5",
-        "eslint-plugin-react-hooks": "^4.2.0",
+        "eslint-plugin-react-hooks": "^4.5.0",
         "jest-enzyme": "^7.1.2",
         "loglevel": "^1.7.1"
     },
