@@ -6,7 +6,7 @@
     font-size: 14px;
     font-weight: 400;
     text-transform: none;
-    padding: 6px 8px;
+    padding: 6px var(--spacers-dp12);
     border-radius: 3px;
     color: var(--colors-grey900);
     box-sizing: border-box;
