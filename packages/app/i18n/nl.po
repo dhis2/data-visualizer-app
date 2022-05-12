@@ -18,13 +18,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Rename successful"
-msgstr ""
+msgstr "Hernoeming geslaagd"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr ""
 
 msgid "\"{{what}}\" successfully deleted."
-msgstr ""
+msgstr "\"{{what}}\" met succes verwijderd."
 
 msgid "You have unsaved changes."
 msgstr ""
@@ -44,18 +44,20 @@ msgid "Yes, leave"
 msgstr ""
 
 msgid "Axis 1"
-msgstr ""
+msgstr "As 1"
 
 msgid "Axis 2"
-msgstr ""
+msgstr "As 2"
 
 msgid "Manage axes"
-msgstr ""
+msgstr "Beheer assen"
 
 msgid ""
 "A chart can have two axes. Each axis will have its own scale. Set the axis "
 "for each data selection below."
 msgstr ""
+"Een grafiek kan over twee assen beschikken. Elke as heeft een eigen schaal. "
+"Stel de as in voor elke onderstaande gegevensselectie."
 
 msgid "Cancel"
 msgstr "Annuleer"
@@ -89,13 +91,13 @@ msgid "Filter dimensions"
 msgstr ""
 
 msgid "Graphics"
-msgstr ""
+msgstr "Afbeeldingen"
 
 msgid "Image (.png)"
-msgstr ""
+msgstr "Afbeelding (.png)"
 
 msgid "PDF (.pdf)"
-msgstr ""
+msgstr "PDF (.pdf)"
 
 msgid "Table layout"
 msgstr ""
@@ -116,10 +118,10 @@ msgid "Plain data source"
 msgstr ""
 
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 msgid "Excel"
 msgstr ""
@@ -128,13 +130,13 @@ msgid "CSV"
 msgstr ""
 
 msgid "Advanced"
-msgstr ""
+msgstr "Geavanceerd"
 
 msgid "Metadata ID scheme"
-msgstr ""
+msgstr "Schema van metadata-id"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Code"
 msgstr "Code"
@@ -143,19 +145,19 @@ msgid "Name"
 msgstr "Naam"
 
 msgid "Data value set"
-msgstr ""
+msgstr "Gegevenswaardereeks"
 
 msgid "Other formats"
-msgstr ""
+msgstr "Andere formaten"
 
 msgid "JRXML"
-msgstr ""
+msgstr "JRXML"
 
 msgid "Raw data SQL"
 msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
+msgstr "Een fout is opgetreden in de toepassing DHIS2 Visualiseerder."
 
 msgid "Refresh to try again"
 msgstr "Ververs om opnieuw te proberen"
@@ -172,7 +174,7 @@ msgstr ""
 "ondersteuning."
 
 msgid "Hide"
-msgstr ""
+msgstr "Verbergen"
 
 msgid "Interpretations"
 msgstr "Interpretaties"
@@ -187,7 +189,7 @@ msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
 
 msgid "None selected"
-msgstr ""
+msgstr "Geen geselecteerd"
 
 msgid "Only '{{- name}}' in use"
 msgstr ""
@@ -202,16 +204,16 @@ msgid "Groups"
 msgstr "Groepen"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "En 1 andere..."
 
 msgid "And {{numberOfItems}} others..."
-msgstr ""
+msgstr "En {{numberOfItems}} anderen..."
 
 msgid "Unsaved visualization"
 msgstr ""
 
 msgid "Edited"
-msgstr ""
+msgstr "Bewerkt"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "Interpretatie van {{interpretatieDatum}} aan het bezichtigen"
@@ -240,25 +242,25 @@ msgid "Overrides aggregation type for all data values."
 msgstr ""
 
 msgid "By data element"
-msgstr ""
+msgstr "Volgens gegevenselement"
 
 msgid "Count"
-msgstr ""
+msgstr "Tel"
 
 msgid "Average"
-msgstr ""
+msgstr "Gemiddelde"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr ""
+msgstr "Gemiddlede (som in organisatieëenheidshierarchie)"
 
 msgid "Sum"
-msgstr ""
+msgstr "Som"
 
 msgid "Last value"
-msgstr ""
+msgstr "Laatste waarde"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr ""
+msgstr "Laatste waarde (gemiddelde in organisatieëenheidshierarchie)"
 
 msgid "Min"
 msgstr "Min"
@@ -267,10 +269,10 @@ msgid "Max"
 msgstr "Max"
 
 msgid "Standard deviation"
-msgstr ""
+msgstr "Standaarddeviatie"
 
 msgid "Variance"
-msgstr ""
+msgstr "Variantie"
 
 msgid "Data approved at level"
 msgstr ""
@@ -288,7 +290,7 @@ msgid "Values outside of the range will not be displayed"
 msgstr ""
 
 msgid "Base line"
-msgstr ""
+msgstr "Basislijn"
 
 msgid "Value"
 msgstr "Waarde"
@@ -297,7 +299,7 @@ msgid "Title"
 msgstr ""
 
 msgid "Base line title"
-msgstr ""
+msgstr "Basislijnstitel"
 
 msgid "Number"
 msgstr ""
@@ -363,19 +365,19 @@ msgid "Hide empty columns"
 msgstr ""
 
 msgid "Hide empty categories"
-msgstr ""
+msgstr "Verberg lege waarden"
 
 msgid "Before first"
-msgstr ""
+msgstr "Voor eerste"
 
 msgid "After last"
 msgstr ""
 
 msgid "Before first and after last"
-msgstr ""
+msgstr "Voor eerste en na laatste"
 
 msgid "All"
-msgstr ""
+msgstr "Alle"
 
 msgid "Hide empty rows"
 msgstr ""
@@ -387,7 +389,7 @@ msgid "Table subtitle"
 msgstr ""
 
 msgid "Chart subtitle"
-msgstr ""
+msgstr "Grafieksondertitel"
 
 msgid "Auto generated"
 msgstr ""
@@ -399,7 +401,7 @@ msgid "Table title"
 msgstr ""
 
 msgid "Chart title"
-msgstr ""
+msgstr "Grafiektitel"
 
 msgid "Display legend"
 msgstr ""
@@ -476,7 +478,7 @@ msgid "Decimals"
 msgstr ""
 
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
@@ -490,16 +492,16 @@ msgid "Include regression"
 msgstr ""
 
 msgid "Trend line"
-msgstr ""
+msgstr "Trendlijn"
 
 msgid "Linear"
-msgstr ""
+msgstr "Lineair"
 
 msgid "Polynomial"
-msgstr ""
+msgstr "Polynomiaal"
 
 msgid "Loess"
-msgstr ""
+msgstr "Löss"
 
 msgid "Row sub-totals"
 msgstr ""
@@ -523,19 +525,19 @@ msgid "Custom sort order"
 msgstr ""
 
 msgid "Low to high"
-msgstr ""
+msgstr "Laag naar hoog"
 
 msgid "High to low"
-msgstr ""
+msgstr "Hoog naar laag"
 
 msgid "Add a subtitle"
 msgstr ""
 
 msgid "Target line"
-msgstr ""
+msgstr "Doellijn"
 
 msgid "Target line title"
-msgstr ""
+msgstr "Doellijntitel"
 
 msgid "Top limit"
 msgstr ""
@@ -544,7 +546,7 @@ msgid "Options"
 msgstr "Opties"
 
 msgid "Open as Map"
-msgstr ""
+msgstr "Open als Kaart"
 
 msgid "Reporting rate"
 msgstr ""
@@ -638,10 +640,10 @@ msgid "or"
 msgstr ""
 
 msgid "Today"
-msgstr ""
+msgstr "Vandaag"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Gisteren"
 
 msgid "Last 3 days"
 msgstr ""
