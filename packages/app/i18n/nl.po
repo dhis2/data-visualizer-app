@@ -21,7 +21,7 @@ msgid "All items"
 msgstr ""
 
 msgid "Rename successful"
-msgstr ""
+msgstr "Hernoeming geslaagd"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr ""
@@ -83,13 +83,13 @@ msgid "Filter dimensions"
 msgstr ""
 
 msgid "Graphics"
-msgstr ""
+msgstr "Afbeeldingen"
 
 msgid "Image (.png)"
-msgstr ""
+msgstr "Afbeelding (.png)"
 
 msgid "PDF (.pdf)"
-msgstr ""
+msgstr "PDF (.pdf)"
 
 msgid "Table layout"
 msgstr ""
@@ -104,10 +104,10 @@ msgid "HTML (.html)"
 msgstr ""
 
 msgid "Metadata ID scheme"
-msgstr ""
+msgstr "Schema van metadata-id"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Code"
 msgstr "Code"
@@ -122,10 +122,10 @@ msgid "Plain data source"
 msgstr ""
 
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 msgid "Excel"
 msgstr ""
@@ -134,28 +134,28 @@ msgid "CSV"
 msgstr ""
 
 msgid "Advanced"
-msgstr ""
+msgstr "Geavanceerd"
 
 msgid "Data value set"
-msgstr ""
+msgstr "Gegevenswaardereeks"
 
 msgid "Other formats"
-msgstr ""
+msgstr "Andere formaten"
 
 msgid "JRXML"
-msgstr ""
+msgstr "JRXML"
 
 msgid "Raw data SQL"
 msgstr ""
 
 msgid "Hide"
-msgstr ""
+msgstr "Verbergen"
 
 msgid "Interpretations"
 msgstr "Interpretaties"
 
 msgid "All"
-msgstr ""
+msgstr "Alle"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
@@ -182,7 +182,7 @@ msgid "horizontal"
 msgstr ""
 
 msgid "None selected"
-msgstr ""
+msgstr "Geen geselecteerd"
 
 msgid "Only '{{- name}}' in use"
 msgstr ""
@@ -200,10 +200,10 @@ msgid "Groups"
 msgstr "Groepen"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "En 1 andere..."
 
 msgid "And {{numberOfItems}} others..."
-msgstr ""
+msgstr "En {{numberOfItems}} anderen..."
 
 msgid "Select a period"
 msgstr ""
@@ -220,7 +220,7 @@ msgid "Unsaved visualization"
 msgstr ""
 
 msgid "Edited"
-msgstr ""
+msgstr "Bewerkt"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "Interpretatie van {{interpretatieDatum}} aan het bezichtigen"
@@ -252,25 +252,25 @@ msgid "Overrides aggregation type for all data values."
 msgstr ""
 
 msgid "By data element"
-msgstr ""
+msgstr "Volgens gegevenselement"
 
 msgid "Count"
-msgstr ""
+msgstr "Tel"
 
 msgid "Average"
-msgstr ""
+msgstr "Gemiddelde"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr ""
+msgstr "Gemiddlede (som in organisatieëenheidshierarchie)"
 
 msgid "Sum"
-msgstr ""
+msgstr "Som"
 
 msgid "Last value"
-msgstr ""
+msgstr "Laatste waarde"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr ""
+msgstr "Laatste waarde (gemiddelde in organisatieëenheidshierarchie)"
 
 msgid "Min"
 msgstr "Min"
@@ -279,10 +279,10 @@ msgid "Max"
 msgstr "Max"
 
 msgid "Standard deviation"
-msgstr ""
+msgstr "Standaarddeviatie"
 
 msgid "Variance"
-msgstr ""
+msgstr "Variantie"
 
 msgid "Data approved at level"
 msgstr ""
@@ -297,7 +297,7 @@ msgid "Decimals"
 msgstr ""
 
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 msgid "Labels"
 msgstr "Labels"
@@ -335,7 +335,7 @@ msgid "Reset style to default"
 msgstr ""
 
 msgid "Base line"
-msgstr ""
+msgstr "Basislijn"
 
 msgid "Column sub-totals"
 msgstr ""
@@ -431,16 +431,16 @@ msgid "Hide empty columns"
 msgstr ""
 
 msgid "Hide empty categories"
-msgstr ""
+msgstr "Verberg lege waarden"
 
 msgid "Before first"
-msgstr ""
+msgstr "Voor eerste"
 
 msgid "After last"
 msgstr ""
 
 msgid "Before first and after last"
-msgstr ""
+msgstr "Voor eerste en na laatste"
 
 msgid "Hide empty rows"
 msgstr ""
@@ -449,13 +449,13 @@ msgid "Table subtitle"
 msgstr ""
 
 msgid "Chart subtitle"
-msgstr ""
+msgstr "Grafieksondertitel"
 
 msgid "Auto generated"
 msgstr ""
 
 msgid "Chart title"
-msgstr ""
+msgstr "Grafiektitel"
 
 msgid "Use legend for chart colors"
 msgstr ""
@@ -573,16 +573,16 @@ msgid "Title"
 msgstr ""
 
 msgid "Trend line"
-msgstr ""
+msgstr "Trendlijn"
 
 msgid "Linear"
-msgstr ""
+msgstr "Lineair"
 
 msgid "Polynomial"
-msgstr ""
+msgstr "Polynomiaal"
 
 msgid "Loess"
-msgstr ""
+msgstr "Löss"
 
 msgid "Row sub-totals"
 msgstr ""
@@ -646,16 +646,16 @@ msgid "Custom sort order"
 msgstr ""
 
 msgid "Low to high"
-msgstr ""
+msgstr "Laag naar hoog"
 
 msgid "High to low"
-msgstr ""
+msgstr "Hoog naar laag"
 
 msgid "Add a subtitle"
 msgstr ""
 
 msgid "Target line"
-msgstr ""
+msgstr "Doellijn"
 
 msgid "Size"
 msgstr "Grootte"
@@ -670,7 +670,7 @@ msgid "Options"
 msgstr "Opties"
 
 msgid "Open as Map"
-msgstr ""
+msgstr "Open als Kaart"
 
 msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
@@ -805,10 +805,10 @@ msgid "or"
 msgstr ""
 
 msgid "Today"
-msgstr ""
+msgstr "Vandaag"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Gisteren"
 
 msgid "Last 3 days"
 msgstr ""
@@ -991,7 +991,7 @@ msgid "Outliers"
 msgstr ""
 
 msgid "Series"
-msgstr ""
+msgstr "Reeks"
 
 msgid "Style"
 msgstr "Stijl"
