@@ -1,3 +1,10 @@
+## [39.0.6](https://github.com/dhis2/data-visualizer-app/compare/v39.0.5...v39.0.6) (2022-05-12)
+
+
+### Bug Fixes
+
+* remove min-width from MenuBar buttons TECH-1145 ([#2049](https://github.com/dhis2/data-visualizer-app/issues/2049)) ([dd9b145](https://github.com/dhis2/data-visualizer-app/commit/dd9b145dbc8dedd5d75429668f7c286ac60ae6dc))
+
 ## [39.0.5](https://github.com/dhis2/data-visualizer-app/compare/v39.0.4...v39.0.5) (2022-04-26)
 
 
