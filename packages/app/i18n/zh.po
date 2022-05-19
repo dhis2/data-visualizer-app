@@ -1,16 +1,16 @@
 # 
 # Translators:
 # phil_dhis2, 2022
-# easylin <lin_xd@126.com>, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
 # 晓东 林 <13981924470@126.com>, 2022
+# easylin <lin_xd@126.com>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-11-16T13:39:36.158Z\n"
 "PO-Revision-Date: 2022-04-20 10:06+0000\n"
-"Last-Translator: 晓东 林 <13981924470@126.com>, 2022\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2022\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -335,7 +335,7 @@ msgid "Add a title"
 msgstr "添加标题"
 
 msgid "Reset style to default"
-msgstr ""
+msgstr "将样式重置为默认值"
 
 msgid "Base line"
 msgstr "基线"
@@ -398,13 +398,13 @@ msgid "Compact"
 msgstr "紧凑"
 
 msgid "Extreme lines"
-msgstr ""
+msgstr "极线"
 
 msgid "Calculated as a percent, usually 1%, of the total values along an axis"
-msgstr ""
+msgstr "计算为沿轴的总值的百分比，通常为 1%"
 
 msgid "Extreme line % detection"
-msgstr ""
+msgstr "极线百分比检测"
 
 msgid "Number"
 msgstr "数据"
@@ -530,32 +530,32 @@ msgid ""
 msgstr "每种检测方法都以不同的方式识别异常值，不通啊的方法适合不同的数据。查看文档以获取帮助以选择正确的离群值检测方法"
 
 msgid "Threshold factor"
-msgstr ""
+msgstr "阈值因子"
 
 msgid ""
 "A high value is more sensitive so fewer data items will be identified as "
 "outliers"
-msgstr ""
+msgstr "高值更敏感，因此更少的数据项将被识别为异常值"
 
 msgid "Interquartile Range (IQR)"
-msgstr ""
+msgstr "四分位距 (IQR)"
 
 msgid "Z-score / Standard score"
-msgstr ""
+msgstr "Z分数/标准分数"
 
 msgid "Modified Z-score"
 msgstr "修正 Z 分数"
 
 msgid "Outlier analysis"
-msgstr ""
+msgstr "异常值分析"
 
 msgid ""
 "Outlier analysis detects and highlights data items that are markedly "
 "different from the rest of the data"
-msgstr ""
+msgstr "异常值分析检测并突出显示与其余数据明显不同的数据项"
 
 msgid "Outlier detection method"
-msgstr ""
+msgstr "异常值检测方法"
 
 msgid "Organisation unit"
 msgstr "机构"
@@ -935,7 +935,7 @@ msgid "Applies to standard reports only"
 msgstr "仅适用于标准报表"
 
 msgid "Base and target lines are available on the Axes tab for scatter charts"
-msgstr ""
+msgstr "基准线和目标线在散点图的轴选项卡上可用"
 
 msgid "Color set"
 msgstr "颜色集"
@@ -945,7 +945,7 @@ msgstr "使用多轴时尚不支持颜色设置"
 
 msgid ""
 "Base and target lines are available on the Axes tab for multi-axis charts"
-msgstr ""
+msgstr "多轴图表的轴选项卡上提供了基准线和目标线"
 
 msgid "Chart style"
 msgstr "图表风格"
@@ -957,7 +957,7 @@ msgid "Empty data"
 msgstr "空数据"
 
 msgid "Horizontal (x) axis {{axisId}}"
-msgstr ""
+msgstr "水平 (x) 轴 {{axisId}}"
 
 msgid "Horizontal (x) axis"
 msgstr "水平轴（X）"
@@ -969,7 +969,7 @@ msgid "Totals"
 msgstr "总共"
 
 msgid "Vertical (y) axis {{axisId}}"
-msgstr ""
+msgstr "垂直 (y) 轴 {{axisId}}"
 
 msgid "Vertical (y) axis"
 msgstr "垂轴（Y）"
