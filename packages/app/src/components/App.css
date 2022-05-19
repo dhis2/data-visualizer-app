@@ -71,6 +71,10 @@ body {
 
 /* Main center */
 
+.main-center {
+    overflow: hidden;
+}
+
 .main-center-canvas {
     display: flex;
     justify-content: center;

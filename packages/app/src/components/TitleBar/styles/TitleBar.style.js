@@ -6,12 +6,13 @@ export default {
         justifyContent: 'center',
     },
     cell: {
-        display: 'flex',
-        alignItems: 'center',
         background: colors.white,
         padding: '6px',
         borderRadius: '5px',
         margin: '4px',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        maxWidth: '100%',
     },
     title: {
         fontSize: '14px',
