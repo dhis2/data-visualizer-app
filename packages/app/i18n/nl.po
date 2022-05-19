@@ -18,96 +18,105 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "All items"
-msgstr ""
+msgstr "Alle items"
 
 msgid "Rename successful"
-msgstr ""
+msgstr "Hernoeming geslaagd"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr ""
+msgstr "Ongetitelde {{visualizationType}} visualisatie, {{date}}"
 
 msgid "\"{{deletedObject}}\" successfully deleted."
-msgstr ""
+msgstr "\"{{deletedObject}}\" met succes verwijderd"
 
 msgid "You have unsaved changes."
-msgstr ""
+msgstr "U heeft niet opgeslagen veranderingen."
 
 msgid "Discard unsaved changes?"
-msgstr ""
+msgstr "Niet opgeslaagde veranderingen verwerpen?"
 
 msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
 "be lost."
 msgstr ""
+"Bent u zeker dat u deze visualisatie wil verlaten? Niet opgeslagen "
+"veranderingen worden verworpen."
 
 msgid "No, cancel"
-msgstr ""
+msgstr "Nee, annuleer"
 
 msgid "Yes, leave"
-msgstr ""
+msgstr "Ja, verlaat"
 
 msgid "Add to {{axisName}}"
-msgstr ""
+msgstr "Voeg toe aan {{axisName}}"
 
 msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
 "first item will be used and saved."
 msgstr ""
+"'{{visualizationType}}' is bedoeld om een enkel gegevensitem te tonen. "
+"Alleen het eerste item wordt gebruikt en opgeslagen."
 
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
+"'{{visualizationType}}' is bedoeld om het maximum {{maxNumber}} aantal items"
+" te tonen. Alleen de eerste {{maxNumber}} items worden gebruikt en "
+"opgeslagen."
 
 msgid ""
 "'Scatter' is intended to show a single data item per axis. Only the first "
 "item will be used and saved."
 msgstr ""
+"'Spreiding' is bedoeld om een enkel gegevensitem per as te tonen. Alleen het"
+" eerste item wordt gebruikt en opgeslagen."
 
 msgid "Vertical"
-msgstr ""
+msgstr "Verticaal"
 
 msgid "Horizontal"
-msgstr ""
+msgstr "Horizontaal"
 
 msgid "Main dimensions"
-msgstr ""
+msgstr "Hoofddimensies"
 
 msgid "Other dimensions"
-msgstr ""
+msgstr "Andere dimensies"
 
 msgid "Your dimensions"
-msgstr ""
+msgstr "Uw dimensies"
 
 msgid "Filter dimensions"
-msgstr ""
+msgstr "Filter dimensies"
 
 msgid "Graphics"
-msgstr ""
+msgstr "Afbeeldingen"
 
 msgid "Image (.png)"
-msgstr ""
+msgstr "Afbeelding (.png)"
 
 msgid "PDF (.pdf)"
-msgstr ""
+msgstr "PDF (.pdf)"
 
 msgid "Table layout"
-msgstr ""
+msgstr "Tabel-lay-out"
 
 msgid "Excel (.xls)"
-msgstr ""
+msgstr "Excel (.xls)"
 
 msgid "CSV (.csv)"
-msgstr ""
+msgstr "CSV (.csv)"
 
 msgid "HTML (.html)"
-msgstr ""
+msgstr "HTML (.html)"
 
 msgid "Metadata ID scheme"
-msgstr ""
+msgstr "Schema van metadata-id"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Code"
 msgstr "Code"
@@ -119,70 +128,71 @@ msgid "Download"
 msgstr "Download"
 
 msgid "Plain data source"
-msgstr ""
+msgstr "Gewone gegevensbron"
 
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 msgid "Excel"
-msgstr ""
+msgstr "Excel"
 
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 msgid "Advanced"
-msgstr ""
+msgstr "Geavanceerd"
 
 msgid "Data value set"
-msgstr ""
+msgstr "Gegevenswaardereeks"
 
 msgid "Other formats"
-msgstr ""
+msgstr "Andere formaten"
 
 msgid "JRXML"
-msgstr ""
+msgstr "JRXML"
 
 msgid "Raw data SQL"
-msgstr ""
+msgstr "Ruwe data SQL"
 
 msgid "Hide"
-msgstr ""
+msgstr "Verbergen"
 
 msgid "Interpretations"
 msgstr "Interpretaties"
 
 msgid "All"
-msgstr ""
+msgstr "Alle"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr ""
+msgstr "{{total}} van {{axisMaxNumberOfItems}} geselecteerd"
 
 msgid "{{total}} selected"
-msgstr ""
+msgstr "{{total}} geselecteerd"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
+"{{dimensionName}} is vergrendeld aan {{axisName}} voor {{visTypeName}}"
 
 msgid "Not available for Scatter"
-msgstr ""
+msgstr "Niet beschikbaar voor Spreiding"
 
 msgid "Add Assigned Categories"
-msgstr ""
+msgstr "Voeg Toegewezen Categorieën toe"
 
 msgid "Swap with {{axisName}} axis"
-msgstr ""
+msgstr "Wissel met {{axisName}}-as"
 
 msgid "vertical"
-msgstr ""
+msgstr "verticaal"
 
 msgid "horizontal"
-msgstr ""
+msgstr "horizontaal"
 
 msgid "None selected"
-msgstr ""
+msgstr "Geen geselecteerd"
 
 msgid "Only '{{- name}}' in use"
 msgstr ""
@@ -200,10 +210,10 @@ msgid "Groups"
 msgstr "Groepen"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "En 1 andere..."
 
 msgid "And {{numberOfItems}} others..."
-msgstr ""
+msgstr "En {{numberOfItems}} anderen..."
 
 msgid "Select a period"
 msgstr ""
@@ -220,7 +230,7 @@ msgid "Unsaved visualization"
 msgstr ""
 
 msgid "Edited"
-msgstr ""
+msgstr "Bewerkt"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "Interpretatie van {{interpretatieDatum}} aan het bezichtigen"
@@ -252,25 +262,25 @@ msgid "Overrides aggregation type for all data values."
 msgstr ""
 
 msgid "By data element"
-msgstr ""
+msgstr "Volgens gegevenselement"
 
 msgid "Count"
-msgstr ""
+msgstr "Tel"
 
 msgid "Average"
-msgstr ""
+msgstr "Gemiddelde"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr ""
+msgstr "Gemiddlede (som in organisatieëenheidshierarchie)"
 
 msgid "Sum"
-msgstr ""
+msgstr "Som"
 
 msgid "Last value"
-msgstr ""
+msgstr "Laatste waarde"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr ""
+msgstr "Laatste waarde (gemiddelde in organisatieëenheidshierarchie)"
 
 msgid "Min"
 msgstr "Min"
@@ -279,10 +289,10 @@ msgid "Max"
 msgstr "Max"
 
 msgid "Standard deviation"
-msgstr ""
+msgstr "Standaarddeviatie"
 
 msgid "Variance"
-msgstr ""
+msgstr "Variantie"
 
 msgid "Data approved at level"
 msgstr ""
@@ -297,7 +307,7 @@ msgid "Decimals"
 msgstr ""
 
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 msgid "Labels"
 msgstr "Labels"
@@ -335,7 +345,7 @@ msgid "Reset style to default"
 msgstr ""
 
 msgid "Base line"
-msgstr ""
+msgstr "Basislijn"
 
 msgid "Column sub-totals"
 msgstr ""
@@ -431,16 +441,16 @@ msgid "Hide empty columns"
 msgstr ""
 
 msgid "Hide empty categories"
-msgstr ""
+msgstr "Verberg lege waarden"
 
 msgid "Before first"
-msgstr ""
+msgstr "Voor eerste"
 
 msgid "After last"
 msgstr ""
 
 msgid "Before first and after last"
-msgstr ""
+msgstr "Voor eerste en na laatste"
 
 msgid "Hide empty rows"
 msgstr ""
@@ -449,13 +459,13 @@ msgid "Table subtitle"
 msgstr ""
 
 msgid "Chart subtitle"
-msgstr ""
+msgstr "Grafieksondertitel"
 
 msgid "Auto generated"
 msgstr ""
 
 msgid "Chart title"
-msgstr ""
+msgstr "Grafiektitel"
 
 msgid "Use legend for chart colors"
 msgstr ""
@@ -573,16 +583,16 @@ msgid "Title"
 msgstr ""
 
 msgid "Trend line"
-msgstr ""
+msgstr "Trendlijn"
 
 msgid "Linear"
-msgstr ""
+msgstr "Lineair"
 
 msgid "Polynomial"
-msgstr ""
+msgstr "Polynomiaal"
 
 msgid "Loess"
-msgstr ""
+msgstr "Löss"
 
 msgid "Row sub-totals"
 msgstr ""
@@ -634,7 +644,7 @@ msgid "Display organisation unit hierarchy"
 msgstr ""
 
 msgid "Show legend key"
-msgstr ""
+msgstr "Toon legendasleutel"
 
 msgid "Show series key"
 msgstr ""
@@ -646,16 +656,16 @@ msgid "Custom sort order"
 msgstr ""
 
 msgid "Low to high"
-msgstr ""
+msgstr "Laag naar hoog"
 
 msgid "High to low"
-msgstr ""
+msgstr "Hoog naar laag"
 
 msgid "Add a subtitle"
 msgstr ""
 
 msgid "Target line"
-msgstr ""
+msgstr "Doellijn"
 
 msgid "Size"
 msgstr "Grootte"
@@ -670,7 +680,7 @@ msgid "Options"
 msgstr "Opties"
 
 msgid "Open as Map"
-msgstr ""
+msgstr "Open als Kaart"
 
 msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
@@ -805,106 +815,106 @@ msgid "or"
 msgstr ""
 
 msgid "Today"
-msgstr ""
+msgstr "Vandaag"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Gisteren"
 
 msgid "Last 3 days"
-msgstr ""
+msgstr "Laatste 3 dagen"
 
 msgid "Last 7 days"
-msgstr ""
+msgstr "Laatste 7 dagen"
 
 msgid "Last 14 days"
-msgstr ""
+msgstr "Laatste 14 dagen"
 
 msgid "This week"
-msgstr ""
+msgstr "Deze week"
 
 msgid "Last week"
-msgstr ""
+msgstr "Laatste week"
 
 msgid "Last 4 weeks"
-msgstr ""
+msgstr "Laatste 4 weken"
 
 msgid "Last 12 weeks"
-msgstr ""
+msgstr "Laatste 12 weken"
 
 msgid "Last 52 weeks"
-msgstr ""
+msgstr "Laatste 52 weken"
 
 msgid "Weeks this year"
-msgstr ""
+msgstr "Weken dit jaar"
 
 msgid "This month"
-msgstr ""
+msgstr "Deze maand"
 
 msgid "Last month"
-msgstr ""
+msgstr "Laatste maand"
 
 msgid "Last 3 months"
-msgstr ""
+msgstr "Laatste 3 maanden"
 
 msgid "Last 6 months"
-msgstr ""
+msgstr "Laatste 6 maanden"
 
 msgid "Last 12 months"
-msgstr ""
+msgstr "Laatste 12 maanden"
 
 msgid "Months this year"
-msgstr ""
+msgstr "Maanden dit jaar"
 
 msgid "This bimonth"
-msgstr ""
+msgstr "Deze twee maanden"
 
 msgid "Last bimonth"
-msgstr ""
+msgstr "Laatste twee maanden"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "Laatste 6 twee maanden"
 
 msgid "Bimonths this year"
-msgstr ""
+msgstr "Twee maanden dit jaar"
 
 msgid "This quarter"
-msgstr ""
+msgstr "Dit kwartier"
 
 msgid "Last quarter"
-msgstr ""
+msgstr "Laatste kwartier"
 
 msgid "Last 4 quarters"
-msgstr ""
+msgstr "Laatste 4 kwartieren"
 
 msgid "Quarters this year"
-msgstr ""
+msgstr "Kwartieren dit jaar"
 
 msgid "This six-month"
-msgstr ""
+msgstr "Dit halfjaar"
 
 msgid "Last six-month"
-msgstr ""
+msgstr "Laatste halfjaar"
 
 msgid "Last 2 six-months"
-msgstr ""
+msgstr "Laatste 2 halfjaren"
 
 msgid "This financial year"
-msgstr ""
+msgstr "Dit financieel jaar"
 
 msgid "Last financial year"
-msgstr ""
+msgstr "Laatste financieel jaar"
 
 msgid "Last 5 financial years"
-msgstr ""
+msgstr "Laatste 5 financiële jaren"
 
 msgid "This year"
-msgstr ""
+msgstr "Dit jaar"
 
 msgid "Last year"
-msgstr ""
+msgstr "Laatste jaar"
 
 msgid "Last 5 years"
-msgstr ""
+msgstr "Laatste 5 jaren"
 
 msgid "User organisation unit"
 msgstr ""
@@ -991,7 +1001,7 @@ msgid "Outliers"
 msgstr ""
 
 msgid "Series"
-msgstr ""
+msgstr "Reeks"
 
 msgid "Style"
 msgstr "Stijl"
