@@ -2164,10 +2164,10 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^23.10.0":
-  version "23.10.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-23.10.0.tgz#830b41a8b5b669e35bda532f68bfe28c2f770802"
-  integrity sha512-0gFnfcqQ7NhFmiLWvhBKL5hkOewRv+mjTXYgX6Q6XnOfVxSi/0k6Ky6Lyo7t/MoABXI7ORrZAfYuyzWvtSur/Q==
+"@dhis2/analytics@^23.10.1":
+  version "23.10.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-23.10.1.tgz#13b17375371fcf971c722638d41dc37978297143"
+  integrity sha512-kHEPoc2rRD2wySPhPxyleJ+83YWzp8Kfa1f3EVJdmSYCNeYdJKoT3QT2graF3x3B+qY1vdtXDYYEPgUNSTEjtQ==
   dependencies:
     classnames "^2.3.1"
     d2-utilizr "^0.2.16"
