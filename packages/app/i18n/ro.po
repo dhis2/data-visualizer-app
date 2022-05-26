@@ -1,19 +1,19 @@
 # 
 # Translators:
-# SubhamJena <subhamjena8465@gmail.com>, 2022
+# Valeriu Plesca <vplesca@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-04-23T09:26:03.770Z\n"
 "PO-Revision-Date: 2020-12-22 22:14+0000\n"
-"Last-Translator: SubhamJena <subhamjena8465@gmail.com>, 2022\n"
-"Language-Team: Odia (https://www.transifex.com/hisp-uio/teams/100509/or/)\n"
+"Last-Translator: Valeriu Plesca <vplesca@gmail.com>, 2022\n"
+"Language-Team: Romanian (https://www.transifex.com/hisp-uio/teams/100509/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: or\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -36,7 +36,7 @@ msgid ""
 msgstr ""
 
 msgid "No, cancel"
-msgstr ""
+msgstr "Nu, anulare"
 
 msgid "Yes, leave"
 msgstr ""
@@ -189,7 +189,7 @@ msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
 msgid "Update"
-msgstr ""
+msgstr "Actualizare"
 
 msgid "Getting started"
 msgstr ""
@@ -236,10 +236,10 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr ""
 
 msgid "Min"
-msgstr ""
+msgstr "Min"
 
 msgid "Max"
-msgstr ""
+msgstr "Max"
 
 msgid "Standard deviation"
 msgstr ""
@@ -371,7 +371,7 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr "ସବୁ"
+msgstr ""
 
 msgid "Hide empty rows"
 msgstr ""
@@ -454,7 +454,7 @@ msgid "Percentage of column"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr ""
+msgstr "Unitate organizațională"
 
 msgid "Parent organisation unit"
 msgstr ""
@@ -684,10 +684,10 @@ msgid "or"
 msgstr ""
 
 msgid "Today"
-msgstr "ଆଜି"
+msgstr "Astăzi"
 
 msgid "Yesterday"
-msgstr "ଗତକାଲି"
+msgstr ""
 
 msgid "Last 3 days"
 msgstr ""
@@ -699,10 +699,10 @@ msgid "Last 14 days"
 msgstr ""
 
 msgid "This week"
-msgstr "ଚଳିତ ସପ୍ତାହ"
+msgstr "Săptămâna aceasta"
 
 msgid "Last week"
-msgstr "ଗତ ସପ୍ତାହ"
+msgstr "Săptămâna trecută"
 
 msgid "Last 4 weeks"
 msgstr ""
@@ -717,13 +717,13 @@ msgid "Weeks this year"
 msgstr ""
 
 msgid "This month"
-msgstr "ଚଳିତ ମାସ"
+msgstr "Luna aceasta"
 
 msgid "Last month"
-msgstr "ଗତ ମାସ"
+msgstr "Luna trecută"
 
 msgid "Last 3 months"
-msgstr ""
+msgstr "Ultimele 3 luni"
 
 msgid "Last 6 months"
 msgstr ""
