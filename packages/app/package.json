@@ -20,7 +20,7 @@
         "@dhis2/d2-ui-interpretations": "^7.3.4",
         "@dhis2/data-visualizer-plugin": "39.0.11",
         "@dhis2/ui": "^7.7.3",
-        "d2": "^31.9.1",
+        "d2": "^31.10.2",
         "history": "^4.7.2",
         "lodash-es": "^4.17.21",
         "prop-types": "^15",
