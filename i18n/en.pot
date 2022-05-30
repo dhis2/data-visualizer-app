@@ -150,6 +150,9 @@ msgstr "HTML (.html)"
 msgid "Download"
 msgstr "Download"
 
+msgid "Download data from this date"
+msgstr "Download data from this date"
+
 msgid "Hide"
 msgstr "Hide"
 
