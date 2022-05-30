@@ -147,6 +147,9 @@ msgstr "JRXML"
 msgid "Raw data SQL"
 msgstr "Raw data SQL"
 
+msgid "Download data from this date"
+msgstr "Download data from this date"
+
 msgid "Hide"
 msgstr "Hide"
 
