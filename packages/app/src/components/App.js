@@ -147,7 +147,7 @@ export class UnconnectedApp extends Component {
 
         this.loadVisualization(this.props.location)
 
-        this.unlisten = history.listen((location) => {
+        this.unlisten = history.listen(({ location }) => {
             const isSaving = location.state?.isSaving
             const isOpening = location.state?.isOpening
             const isResetting = location.state?.isResetting
@@ -280,7 +280,7 @@ export class UnconnectedApp extends Component {
                                             locationToConfirm: null,
                                         })
 
-                                        history.goBack()
+                                        history.back()
                                     }}
                                     dataTest={
                                         'confirm-leave-modal-option-cancel'

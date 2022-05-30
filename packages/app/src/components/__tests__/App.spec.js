@@ -135,10 +135,12 @@ describe('App', () => {
             app()
 
             setTimeout(() => {
-                history.replace({
-                    pathname: '/fluttershy',
-                    state: { isOpening: true },
-                })
+                history.replace(
+                    {
+                        pathname: '/fluttershy',
+                    },
+                    { isOpening: true }
+                )
                 expect(props.setVisualization).toBeCalledTimes(2)
 
                 done()
@@ -151,10 +153,12 @@ describe('App', () => {
             app()
 
             setTimeout(() => {
-                history.replace({
-                    pathname: '/fluttershy',
-                    state: { isSaving: true },
-                })
+                history.replace(
+                    {
+                        pathname: '/fluttershy',
+                    },
+                    { isSaving: true }
+                )
                 expect(props.setVisualization).toBeCalledTimes(2)
 
                 done()
