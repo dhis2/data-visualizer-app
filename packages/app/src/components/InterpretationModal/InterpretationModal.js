@@ -27,7 +27,7 @@ const InterpretationModal = ({ onInterpretationUpdate }, context) => {
             interpretationId={interpretationId}
             isVisualizationLoading={isVisualizationLoading}
             onClose={removeInterpretationQueryParams}
-            onResponseReceived={() => setIsVisualizationLoading(false)}
+            onResponsesReceived={() => setIsVisualizationLoading(false)}
             visualization={visualization}
             downloadMenuComponent={ModalDownloadDropdown}
             pluginComponent={VisualizationPlugin}
