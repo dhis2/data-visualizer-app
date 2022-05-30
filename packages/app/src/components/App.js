@@ -23,10 +23,11 @@ import { getParentGraphMapFromVisualization } from '../modules/ui.js'
 import { STATE_DIRTY, getVisualizationState } from '../modules/visualization.js'
 import * as fromReducers from '../reducers/index.js'
 import { sGetVisualization } from '../reducers/visualization.js'
+import { default as DetailsPanel } from './DetailsPanel/DetailsPanel.js'
 import DimensionsPanel from './DimensionsPanel/DimensionsPanel.js'
 import DndContext from './DndContext.js'
-import { Interpretations } from './Interpretations/Interpretations.js'
 import Layout from './Layout/Layout.js'
+import { InterpretationModal } from './InterpretationModal/index.js'
 import { MenuBar } from './MenuBar/MenuBar.js'
 import { TitleBar } from './TitleBar/TitleBar.js'
 import { Visualization } from './Visualization/Visualization.js'
@@ -39,6 +40,10 @@ export class UnconnectedApp extends Component {
     unlisten = null
 
     apiObjectName = 'visualization'
+
+    interpretationsUnitRef = React.createRef()
+
+    onInterpretationUpdate = () => this.interpretationsUnitRef.current.refresh()
 
     state = {
         previousLocation: null,
@@ -151,6 +156,13 @@ export class UnconnectedApp extends Component {
             const isSaving = location.state?.isSaving
             const isOpening = location.state?.isOpening
             const isResetting = location.state?.isResetting
+            const isModalOpening = location.state?.isModalOpening
+            const isModalClosing = location.state?.isModalClosing
+            const isValidLocationChange =
+                this.state.previousLocation !== location.pathname &&
+                !isModalOpening &&
+                !isModalClosing
+
             const { interpretationId } = this.parseLocation(location)
 
             if (
@@ -248,14 +260,22 @@ export class UnconnectedApp extends Component {
                                     {this.state.initialLoadIsComplete && (
                                         <Visualization />
                                     )}
+                                    {this.props.current && (
+                                        <InterpretationModal
+                                            onInterpretationUpdate={
+                                                this.onInterpretationUpdate
+                                            }
+                                        />
+                                    )}
                                 </div>
                             </div>
                         </DndContext>
                         {this.props.ui.rightSidebarOpen && this.props.current && (
                             <div className="main-right">
-                                <Interpretations
-                                    type={this.apiObjectName}
-                                    id={this.props.current.id}
+                                <DetailsPanel
+                                    interpretationsUnitRef={
+                                        this.interpretationsUnitRef
+                                    }
                                 />
                             </div>
                         )}

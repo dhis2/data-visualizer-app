@@ -54,6 +54,9 @@ body {
 }
 
 /* Main */
+.section-main {
+    overflow: hidden;
+}
 
 .main-left {
     min-width: 260px;
