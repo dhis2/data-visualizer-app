@@ -1,19 +1,19 @@
 # 
 # Translators:
-# SubhamJena <subhamjena8465@gmail.com>, 2022
+# Valeriu Plesca <vplesca@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-08-12T10:01:59.854Z\n"
 "PO-Revision-Date: 2021-09-03 23:49+0000\n"
-"Last-Translator: SubhamJena <subhamjena8465@gmail.com>, 2022\n"
-"Language-Team: Odia (https://www.transifex.com/hisp-uio/teams/100509/or/)\n"
+"Last-Translator: Valeriu Plesca <vplesca@gmail.com>, 2022\n"
+"Language-Team: Romanian (https://www.transifex.com/hisp-uio/teams/100509/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: or\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
 msgid "All items"
 msgstr ""
@@ -39,7 +39,7 @@ msgid ""
 msgstr ""
 
 msgid "No, cancel"
-msgstr ""
+msgstr "Nu, anulare"
 
 msgid "Yes, leave"
 msgstr ""
@@ -153,7 +153,7 @@ msgid "Interpretations"
 msgstr ""
 
 msgid "All"
-msgstr "ସବୁ"
+msgstr ""
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
@@ -195,7 +195,7 @@ msgid "Levels"
 msgstr ""
 
 msgid "Groups"
-msgstr ""
+msgstr "Grupuri"
 
 msgid "And 1 other..."
 msgstr ""
@@ -224,7 +224,7 @@ msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
 msgid "Update"
-msgstr ""
+msgstr "Actualizare"
 
 msgid "Getting started"
 msgstr ""
@@ -271,10 +271,10 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr ""
 
 msgid "Min"
-msgstr ""
+msgstr "Min"
 
 msgid "Max"
-msgstr ""
+msgstr "Max"
 
 msgid "Standard deviation"
 msgstr ""
@@ -547,10 +547,10 @@ msgid "Outlier detection method"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr ""
+msgstr "Unitate organizațională"
 
 msgid "Parent organisation unit"
-msgstr ""
+msgstr "Organizația părinte"
 
 msgid "Reporting period"
 msgstr ""
@@ -638,10 +638,10 @@ msgid "Custom sort order"
 msgstr ""
 
 msgid "Low to high"
-msgstr ""
+msgstr "De la mic spre mare"
 
 msgid "High to low"
-msgstr ""
+msgstr "De la mare spre mic"
 
 msgid "Add a subtitle"
 msgstr ""
@@ -656,7 +656,7 @@ msgid "Position"
 msgstr ""
 
 msgid "Top limit"
-msgstr ""
+msgstr "Limită superioară"
 
 msgid "Options"
 msgstr ""
@@ -797,55 +797,55 @@ msgid "or"
 msgstr ""
 
 msgid "Today"
-msgstr "ଆଜି"
+msgstr "Astăzi"
 
 msgid "Yesterday"
-msgstr "ଗତକାଲି"
+msgstr "Ieri"
 
 msgid "Last 3 days"
-msgstr ""
+msgstr "Ultimele 3 zile"
 
 msgid "Last 7 days"
-msgstr ""
+msgstr "Ultimele 7 zile"
 
 msgid "Last 14 days"
-msgstr ""
+msgstr "Ultimele 14 zile"
 
 msgid "This week"
-msgstr "ଚଳିତ ସପ୍ତାହ"
+msgstr "Săptămâna aceasta"
 
 msgid "Last week"
-msgstr "ଗତ ସପ୍ତାହ"
+msgstr "Săptămâna trecută"
 
 msgid "Last 4 weeks"
-msgstr ""
+msgstr "Ultimele 4 săptămâni"
 
 msgid "Last 12 weeks"
 msgstr ""
 
 msgid "Last 52 weeks"
-msgstr ""
+msgstr "Ultimele 52 de săptămâni"
 
 msgid "Weeks this year"
-msgstr ""
+msgstr "Săptămâni în anul curent"
 
 msgid "This month"
-msgstr "ଚଳିତ ମାସ"
+msgstr "Luna aceasta"
 
 msgid "Last month"
-msgstr "ଗତ ମାସ"
+msgstr "Luna trecută"
 
 msgid "Last 3 months"
-msgstr ""
+msgstr "Ultimele 3 luni"
 
 msgid "Last 6 months"
-msgstr ""
+msgstr "Ultimele 6 luni"
 
 msgid "Last 12 months"
-msgstr ""
+msgstr "Ultimele 12 luni"
 
 msgid "Months this year"
-msgstr ""
+msgstr "Luni în anul curent"
 
 msgid "This bimonth"
 msgstr ""
@@ -863,40 +863,40 @@ msgid "This quarter"
 msgstr ""
 
 msgid "Last quarter"
-msgstr ""
+msgstr "Ultimul trimestru"
 
 msgid "Last 4 quarters"
-msgstr ""
+msgstr "Ultimele 4 trimestre"
 
 msgid "Quarters this year"
-msgstr ""
+msgstr "Trimestre în anul curent"
 
 msgid "This six-month"
 msgstr ""
 
 msgid "Last six-month"
-msgstr ""
+msgstr "Ultimele șase luni"
 
 msgid "Last 2 six-months"
-msgstr ""
+msgstr "Ultimele 2 șase luni"
 
 msgid "This financial year"
 msgstr ""
 
 msgid "Last financial year"
-msgstr ""
+msgstr "Ultimul an financiar"
 
 msgid "Last 5 financial years"
-msgstr ""
+msgstr "Ultimii 5 ani financiari"
 
 msgid "This year"
 msgstr ""
 
 msgid "Last year"
-msgstr ""
+msgstr "Anul trecut"
 
 msgid "Last 5 years"
-msgstr ""
+msgstr "Ultimii 5 ani"
 
 msgid "User org unit"
 msgstr ""
