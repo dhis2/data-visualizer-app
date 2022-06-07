@@ -5,6 +5,7 @@ import {
     DIMENSION_ID_PERIOD,
     DAILY,
     WEEKLY,
+    WEEKS_THIS_YEAR,
 } from '@dhis2/analytics'
 import { getRelativePeriodTypeUsed } from '../modules/analytics'
 
@@ -56,7 +57,10 @@ export const apiFetchAnalyticsForYearOverYear = async (
     const periodItems = layoutGetDimensionItems(visualization, periodId)
 
     // relative week period in use
-    if (getRelativePeriodTypeUsed(periodItems) === WEEKLY) {
+    if (
+        getRelativePeriodTypeUsed(periodItems) === WEEKLY &&
+        !periodItems[0].id === WEEKS_THIS_YEAR
+    ) {
         const relativeWeeksData = await prepareRequestsForRelativeWeeks({
             analyticsEngine,
             visualization,
