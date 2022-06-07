@@ -1,3 +1,10 @@
+# [38.3.0](https://github.com/dhis2/data-visualizer-app/compare/v38.2.15...v38.3.0) (2022-06-07)
+
+
+### Features
+
+* add basic and extended color sets ([#2098](https://github.com/dhis2/data-visualizer-app/issues/2098)) ([213edb2](https://github.com/dhis2/data-visualizer-app/commit/213edb2f91fb7580be2d95e76aa7ddeccb822256))
+
 ## [38.2.15](https://github.com/dhis2/data-visualizer-app/compare/v38.2.14...v38.2.15) (2022-06-07)
 
 
