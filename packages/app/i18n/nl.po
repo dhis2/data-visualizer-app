@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-11-16T13:39:36.158Z\n"
+"POT-Creation-Date: 2022-06-07T08:24:31.117Z\n"
 "PO-Revision-Date: 2022-04-20 10:06+0000\n"
 "Last-Translator: Rica Zamora Duchateau, 2022\n"
 "Language-Team: Dutch (https://www.transifex.com/hisp-uio/teams/100509/nl/)\n"
@@ -354,6 +354,12 @@ msgid "Columns totals"
 msgstr ""
 
 msgid "Default"
+msgstr ""
+
+msgid "Basic"
+msgstr ""
+
+msgid "Extended"
 msgstr ""
 
 msgid "Bright"
