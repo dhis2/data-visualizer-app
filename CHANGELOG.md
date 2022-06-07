@@ -1,3 +1,10 @@
+## [38.2.15](https://github.com/dhis2/data-visualizer-app/compare/v38.2.14...v38.2.15) (2022-06-07)
+
+
+### Bug Fixes
+
+* use normal handling when WEEKS_THIS_YEAR is used in YoY DHIS2-12580 (38.x) ([#2077](https://github.com/dhis2/data-visualizer-app/issues/2077)) ([6c9cb8e](https://github.com/dhis2/data-visualizer-app/commit/6c9cb8e2153d286ff72dcc601ecaaca862acf695))
+
 ## [38.2.14](https://github.com/dhis2/data-visualizer-app/compare/v38.2.13...v38.2.14) (2022-05-31)
 
 
