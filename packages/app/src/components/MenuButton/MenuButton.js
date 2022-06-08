@@ -1,28 +1,25 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { forwardRef } from 'react'
 import styles from './styles/MenuButton.module.css'
 
-const MenuButton = ({
-    children,
-    dataTest,
-    disabled,
-    name,
-    onBlur,
-    onClick,
-    onFocus,
-}) => (
-    <button
-        className={styles.menuButton}
-        data-test={dataTest}
-        disabled={disabled}
-        name={name}
-        onBlur={onBlur}
-        onClick={onClick}
-        onFocus={onFocus}
-    >
-        {children}
-    </button>
+const MenuButton = forwardRef(
+    ({ children, dataTest, disabled, name, onBlur, onClick, onFocus }, ref) => (
+        <button
+            ref={ref}
+            className={styles.menuButton}
+            data-test={dataTest}
+            disabled={disabled}
+            name={name}
+            onBlur={onBlur}
+            onClick={onClick}
+            onFocus={onFocus}
+        >
+            {children}
+        </button>
+    )
 )
+
+MenuButton.displayName = 'MenuButton'
 
 MenuButton.propTypes = {
     children: PropTypes.node,

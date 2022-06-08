@@ -12,7 +12,7 @@ import { getErrorVariantByStatusCode } from '../../modules/error.js'
 import history from '../../modules/history.js'
 import { visTypes } from '../../modules/visualization.js'
 import { sGetCurrent } from '../../reducers/current.js'
-import { DownloadMenu } from '../DownloadMenu/DownloadMenu.js'
+import { ToolbarDownloadDropdown } from '../DownloadMenu/ToolbarDownloadDropdown.js'
 import { InterpretationsButton } from '../Interpretations/InterpretationsButton.js'
 import UpdateButton from '../UpdateButton/UpdateButton.js'
 import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer.js'
@@ -77,7 +77,9 @@ const UnconnectedMenuBar = ({ dataTest, ...props }, context) => (
             onError={getOnError(props)}
         />
         <VisualizationOptionsManager />
-        <DownloadMenu />
+
+        <ToolbarDownloadDropdown />
+
         <div className={styles.grow} />
         <InterpretationsButton />
     </div>
