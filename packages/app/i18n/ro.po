@@ -538,13 +538,13 @@ msgid "Parent organisation unit"
 msgstr "Organizația părinte"
 
 msgid "Reporting period"
-msgstr ""
+msgstr "Perioadă de raportare"
 
 msgid "Stacked values add up to 100%"
 msgstr ""
 
 msgid "Include regression"
-msgstr ""
+msgstr "Includere regresia"
 
 msgid "Title"
 msgstr ""
@@ -795,7 +795,7 @@ msgid "Last 4 weeks"
 msgstr "Ultimele 4 săptămâni"
 
 msgid "Last 12 weeks"
-msgstr ""
+msgstr "Ultimele 12 săptămâni"
 
 msgid "Last 52 weeks"
 msgstr "Ultimele 52 de săptămâni"
@@ -920,7 +920,7 @@ msgid "Chart style"
 msgstr ""
 
 msgid "Display"
-msgstr ""
+msgstr "Afişare"
 
 msgid "Empty data"
 msgstr ""
