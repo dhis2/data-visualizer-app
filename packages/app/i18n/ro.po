@@ -39,7 +39,7 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Anulare"
 
 msgid "Update"
 msgstr "Actualizare"
@@ -359,7 +359,7 @@ msgid "Period"
 msgstr ""
 
 msgid "Organisation Unit"
-msgstr ""
+msgstr "Unitate Organizațională"
 
 msgid "Add to series"
 msgstr ""
@@ -435,7 +435,7 @@ msgid "Last 4 weeks"
 msgstr "Ultimele 4 săptămâni"
 
 msgid "Last 12 weeks"
-msgstr ""
+msgstr "Ultimele 12 săptămâni"
 
 msgid "Last 52 weeks"
 msgstr "Ultimele 52 de săptămâni"
