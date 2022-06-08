@@ -81,6 +81,36 @@ msgstr "Your dimensions"
 msgid "Filter dimensions"
 msgstr "Filter dimensions"
 
+msgid "Data value set"
+msgstr "Data value set"
+
+msgid "JSON"
+msgstr "JSON"
+
+msgid "XML"
+msgstr "XML"
+
+msgid "Other formats"
+msgstr "Other formats"
+
+msgid "JRXML"
+msgstr "JRXML"
+
+msgid "Raw data SQL"
+msgstr "Raw data SQL"
+
+msgid "Plain data source"
+msgstr "Plain data source"
+
+msgid "Microsoft Excel"
+msgstr "Microsoft Excel"
+
+msgid "CSV"
+msgstr "CSV"
+
+msgid "Advanced"
+msgstr "Advanced"
+
 msgid "Graphics"
 msgstr "Graphics"
 
@@ -90,17 +120,8 @@ msgstr "Image (.png)"
 msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
-msgid "Table layout"
-msgstr "Table layout"
-
-msgid "Excel (.xls)"
-msgstr "Excel (.xls)"
-
-msgid "CSV (.csv)"
-msgstr "CSV (.csv)"
-
-msgid "HTML (.html)"
-msgstr "HTML (.html)"
+msgid "Download data from this date"
+msgstr "Download data from this date"
 
 msgid "Metadata ID scheme"
 msgstr "Metadata ID scheme"
@@ -114,41 +135,20 @@ msgstr "Code"
 msgid "Name"
 msgstr "Name"
 
+msgid "Table layout"
+msgstr "Table layout"
+
+msgid "Excel (.xls)"
+msgstr "Excel (.xls)"
+
+msgid "CSV (.csv)"
+msgstr "CSV (.csv)"
+
+msgid "HTML (.html)"
+msgstr "HTML (.html)"
+
 msgid "Download"
 msgstr "Download"
-
-msgid "Plain data source"
-msgstr "Plain data source"
-
-msgid "JSON"
-msgstr "JSON"
-
-msgid "XML"
-msgstr "XML"
-
-msgid "Excel"
-msgstr "Excel"
-
-msgid "CSV"
-msgstr "CSV"
-
-msgid "Advanced"
-msgstr "Advanced"
-
-msgid "Data value set"
-msgstr "Data value set"
-
-msgid "Other formats"
-msgstr "Other formats"
-
-msgid "JRXML"
-msgstr "JRXML"
-
-msgid "Raw data SQL"
-msgstr "Raw data SQL"
-
-msgid "Download data from this date"
-msgstr "Download data from this date"
 
 msgid "Hide"
 msgstr "Hide"
