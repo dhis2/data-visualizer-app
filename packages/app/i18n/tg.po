@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-08-12T10:01:59.854Z\n"
+"POT-Creation-Date: 2022-06-07T08:29:46.003Z\n"
 "PO-Revision-Date: 2021-09-03 23:49+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2021\n"
 "Language-Team: Tajik (https://www.transifex.com/hisp-uio/teams/100509/tg/)\n"
@@ -343,6 +343,12 @@ msgid "Columns totals"
 msgstr ""
 
 msgid "Default"
+msgstr ""
+
+msgid "Basic"
+msgstr ""
+
+msgid "Extended"
 msgstr ""
 
 msgid "Bright"

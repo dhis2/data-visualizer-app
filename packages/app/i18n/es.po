@@ -11,7 +11,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-08-12T10:01:59.854Z\n"
+"POT-Creation-Date: 2022-06-07T08:29:46.003Z\n"
 "PO-Revision-Date: 2021-09-03 23:49+0000\n"
 "Last-Translator: Janeth Cruz, 2022\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
@@ -349,6 +349,12 @@ msgstr ""
 
 msgid "Default"
 msgstr "Predeterminado"
+
+msgid "Basic"
+msgstr ""
+
+msgid "Extended"
+msgstr ""
 
 msgid "Bright"
 msgstr ""
