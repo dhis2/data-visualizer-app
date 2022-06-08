@@ -7,8 +7,14 @@ import styles from './ModalDownloadDropdown.module.css'
 import { useDownloadMenu } from './useDownloadMenu.js'
 
 const ModalDownloadDropdown = ({ relativePeriodDate }) => {
-    const { isOpen, toggleOpen, disabled, downloadData, downloadImage } =
-        useDownloadMenu(relativePeriodDate)
+    const {
+        isOpen,
+        toggleOpen,
+        disabled,
+        downloadData,
+        downloadImage,
+        visType,
+    } = useDownloadMenu(relativePeriodDate)
 
     return (
         <div className={styles.container}>
@@ -17,6 +23,7 @@ const ModalDownloadDropdown = ({ relativePeriodDate }) => {
                     <DownloadMenu
                         downloadData={downloadData}
                         downloadImage={downloadImage}
+                        visType={visType}
                     />
                 }
                 disabled={disabled}
