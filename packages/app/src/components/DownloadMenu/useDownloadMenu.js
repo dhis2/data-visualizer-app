@@ -64,19 +64,17 @@ const useDownloadMenu = (relativePeriodDate) => {
     const analyticsEngine = Analytics.getAnalytics(dataEngine)
     const [isOpen, setIsOpen] = useState(false)
 
-    let blob = null
+    const openDownloadedFileInBlankTab = useCallback((blob) => {
+        const url = URL.createObjectURL(blob)
+        window.open(url, '_blank')
+    }, [])
 
     const [getPng] = useDataMutation(downloadPngMutation, {
-        onComplete: (res) => {
-            console.log('res', res)
-            blob = res // XXX
-        },
+        onComplete: openDownloadedFileInBlankTab,
     })
 
     const [getPdf] = useDataMutation(downloadPdfMutation, {
-        onComplete: (res) => {
-            blob = res
-        },
+        onComplete: openDownloadedFileInBlankTab,
     })
 
     const downloadImage = useCallback(
@@ -97,12 +95,9 @@ const useDownloadMenu = (relativePeriodDate) => {
                 ? getPng({ formData })
                 : getPdf({ formData })
 
-            const url = URL.createObjectURL(blob)
-
-            window.open(url, '_blank')
             setIsOpen(false)
         },
-        [blob, chart, getPdf, getPng, visualization]
+        [chart, getPdf, getPng, visualization]
     )
 
     const downloadData = useCallback(
