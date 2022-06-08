@@ -1,3 +1,4 @@
+import { apiFetchOrganisationUnitLevels } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import {
     CssVariables,
@@ -26,8 +27,8 @@ import { sGetVisualization } from '../reducers/visualization.js'
 import { default as DetailsPanel } from './DetailsPanel/DetailsPanel.js'
 import DimensionsPanel from './DimensionsPanel/DimensionsPanel.js'
 import DndContext from './DndContext.js'
-import Layout from './Layout/Layout.js'
 import { InterpretationModal } from './InterpretationModal/index.js'
+import Layout from './Layout/Layout.js'
 import { MenuBar } from './MenuBar/MenuBar.js'
 import { TitleBar } from './TitleBar/TitleBar.js'
 import { Visualization } from './Visualization/Visualization.js'
@@ -49,6 +50,16 @@ export class UnconnectedApp extends Component {
         previousLocation: null,
         initialLoadIsComplete: false,
         locationToConfirm: false,
+
+        ouLevels: null,
+    }
+
+    fetchOuLevels = async () => {
+        const ouLevels = await apiFetchOrganisationUnitLevels(
+            this.props.dataEngine
+        )
+
+        this.setState({ ouLevels: ouLevels })
     }
 
     /**
@@ -112,7 +123,7 @@ export class UnconnectedApp extends Component {
                 await this.props.setVisualization({
                     id,
                     interpretationId,
-                    ouLevels: this.props.ouLevels,
+                    ouLevels: this.state.ouLevels,
                 })
             }
 
@@ -134,6 +145,8 @@ export class UnconnectedApp extends Component {
         this.props.setUser(d2.currentUser)
         this.props.loadUserAuthority(APPROVAL_LEVEL_OPTION_AUTH)
         this.props.setDimensions()
+
+        this.fetchOuLevels()
 
         const rootOrgUnits = this.props.settings.rootOrganisationUnits
 
@@ -158,11 +171,11 @@ export class UnconnectedApp extends Component {
             const isResetting = location.state?.isResetting
             const isModalOpening = location.state?.isModalOpening
             const isModalClosing = location.state?.isModalClosing
-            const isValidLocationChange =
+/*            const isValidLocationChange =
                 this.state.previousLocation !== location.pathname &&
                 !isModalOpening &&
                 !isModalClosing
-
+*/
             const { interpretationId } = this.parseLocation(location)
 
             if (
@@ -389,7 +402,6 @@ UnconnectedApp.propTypes = {
     interpretation: PropTypes.object,
     loadUserAuthority: PropTypes.func,
     location: PropTypes.object,
-    ouLevels: PropTypes.array,
     setCurrentFromUi: PropTypes.func,
     setDimensions: PropTypes.func,
     setUiFromVisualization: PropTypes.func,
