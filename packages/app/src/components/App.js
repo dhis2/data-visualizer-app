@@ -169,9 +169,10 @@ export class UnconnectedApp extends Component {
             const isSaving = location.state?.isSaving
             const isOpening = location.state?.isOpening
             const isResetting = location.state?.isResetting
+            /*
             const isModalOpening = location.state?.isModalOpening
             const isModalClosing = location.state?.isModalClosing
-/*            const isValidLocationChange =
+            const isValidLocationChange =
                 this.state.previousLocation !== location.pathname &&
                 !isModalOpening &&
                 !isModalClosing
