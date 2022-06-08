@@ -680,6 +680,8 @@ export const sGetUi = (state) => state.ui
 export const sGetUiType = (state) => sGetUi(state).type
 export const sGetUiOptions = (state) => sGetUi(state).options
 export const sGetUiLayout = (state) => sGetUi(state).layout
+export const sGetUiLayoutRows = (state) => sGetUi(state).layout.rows
+export const sGetUiLayoutColumns = (state) => sGetUi(state).layout.columns
 export const sGetUiItems = (state) => sGetUi(state).itemsByDimension
 export const sGetUiYearOverYearSeries = (state) =>
     sGetUi(state).yearOverYearSeries

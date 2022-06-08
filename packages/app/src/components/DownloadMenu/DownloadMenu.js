@@ -1,265 +1,55 @@
 import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
-import { useConfig, useDataEngine } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
-import {
-    FlyoutMenu,
-    Layer,
-    MenuSectionHeader,
-    MenuItem,
-    Popper,
-    IconImage24,
-    IconFileDocument24,
-    colors,
-} from '@dhis2/ui'
+import { FlyoutMenu, MenuSectionHeader } from '@dhis2/ui'
 import PropTypes from 'prop-types'
-import React, { useState, createRef } from 'react'
-import { connect } from 'react-redux'
-import { createSelector } from 'reselect'
+import React from 'react'
+import { AdvancedSubMenu } from './AdvancedSubMenu.js'
 import {
-    apiDownloadImage,
-    apiDownloadData,
-    apiDownloadTable,
-} from '../../api/analytics.js'
-import { sGetChart } from '../../reducers/chart.js'
-import { sGetCurrent } from '../../reducers/current.js'
-import {
-    sGetUiType,
-    sGetUiLayout,
-    sGetUiInterpretation,
-} from '../../reducers/ui.js'
-import MenuButton from '../MenuButton/MenuButton.js'
+    FILE_FORMAT_CSV,
+    FILE_FORMAT_XLS,
+    FILE_FORMAT_JSON,
+    FILE_FORMAT_XML,
+} from './constants.js'
+import { GraphicsMenu } from './GraphicsMenu.js'
+import { PlainDataSourceSubMenu } from './PlainDataSourceSubMenu.js'
+import { TableMenu } from './TableMenu.js'
 
-const DenseMenuItem = ({ Icon, children, ...rest }) => (
-    <MenuItem dense icon={Icon && <Icon color={colors.grey600} />} {...rest}>
-        {children}
-    </MenuItem>
+const DownloadMenu = ({ visType, downloadData, downloadImage }) => (
+    <FlyoutMenu>
+        {visType === VIS_TYPE_PIVOT_TABLE ? (
+            <TableMenu download={downloadData} />
+        ) : (
+            <GraphicsMenu download={downloadImage} />
+        )}
+        <MenuSectionHeader label={i18n.t('Plain data source')} />
+        <PlainDataSourceSubMenu
+            download={downloadData}
+            label={i18n.t('JSON')}
+            format={FILE_FORMAT_JSON}
+        />
+        <PlainDataSourceSubMenu
+            download={downloadData}
+            label={i18n.t('XML')}
+            format={FILE_FORMAT_XML}
+        />
+        <PlainDataSourceSubMenu
+            download={downloadData}
+            label={i18n.t('Microsoft Excel')}
+            format={FILE_FORMAT_XLS}
+        />
+        <PlainDataSourceSubMenu
+            download={downloadData}
+            label={i18n.t('CSV')}
+            format={FILE_FORMAT_CSV}
+        />
+        <AdvancedSubMenu download={downloadData} label={i18n.t('Advanced')} />
+    </FlyoutMenu>
 )
 
-DenseMenuItem.propTypes = {
-    Icon: PropTypes.elementType,
-    children: PropTypes.array,
+DownloadMenu.propTypes = {
+    downloadData: PropTypes.func.isRequired,
+    downloadImage: PropTypes.func.isRequired,
+    visType: PropTypes.string.isRequired,
 }
 
-const UnconnectedDownloadMenu = ({
-    current,
-    rows,
-    columns,
-    chart,
-    relativePeriodDate,
-    visType,
-}) => {
-    const dataEngine = useDataEngine()
-    const { baseUrl } = useConfig()
-    const [menuIsOpen, setMenuIsOpen] = useState(false)
-
-    const onKeyDown = (e) => {
-        if (e?.keyCode === 27) {
-            setMenuIsOpen(false)
-        }
-    }
-
-    const toggleMenu = () => setMenuIsOpen(!menuIsOpen)
-
-    const downloadImage = (format) => async () => {
-        const formData = new URLSearchParams()
-
-        formData.append('filename', current.name)
-
-        if (chart) {
-            formData.append('svg', chart)
-        }
-
-        const blob = await apiDownloadImage({
-            baseUrl,
-            type: format,
-            formData,
-        })
-        const url = URL.createObjectURL(blob)
-
-        toggleMenu()
-
-        window.open(url, '_blank')
-    }
-
-    const downloadData = (format, idScheme, path) => async () => {
-        const url = await apiDownloadData({
-            baseUrl,
-            dataEngine,
-            visualization: current,
-            format,
-            options: { relativePeriodDate },
-            idScheme,
-            path,
-        })
-
-        toggleMenu()
-
-        window.open(url, format.match(/(xls|csv)/) ? '_top' : '_blank')
-    }
-
-    const downloadTable = (format) => async () => {
-        const url = await apiDownloadTable({
-            baseUrl,
-            dataEngine,
-            visualization: current,
-            format,
-            options: { relativePeriodDate },
-            rows,
-            columns,
-        })
-
-        toggleMenu()
-
-        window.open(url, format === 'html' ? '_blank' : '_top')
-    }
-
-    /* eslint-disable react/jsx-key */
-    const graphicsMenuSection = () =>
-        React.Children.toArray([
-            <MenuSectionHeader label={i18n.t('Graphics')} />,
-            <DenseMenuItem
-                Icon={IconImage24}
-                label={i18n.t('Image (.png)')}
-                onClick={downloadImage('png')}
-            />,
-            <DenseMenuItem
-                Icon={IconFileDocument24}
-                label={i18n.t('PDF (.pdf)')}
-                onClick={downloadImage('pdf')}
-            />,
-        ])
-
-    const tableMenuSection = () =>
-        React.Children.toArray([
-            <MenuSectionHeader label={i18n.t('Table layout')} />,
-            <DenseMenuItem
-                label={i18n.t('Excel (.xls)')}
-                onClick={downloadTable('xls')}
-            />,
-            <DenseMenuItem
-                label={i18n.t('CSV (.csv)')}
-                onClick={downloadTable('csv')}
-            />,
-            <DenseMenuItem
-                label={i18n.t('HTML (.html)')}
-                onClick={downloadTable('html')}
-            />,
-        ])
-
-    const plainDataSourceSubLevel = (format) =>
-        React.Children.toArray([
-            <MenuSectionHeader label={i18n.t('Metadata ID scheme')} />,
-            <DenseMenuItem
-                label={i18n.t('ID')}
-                onClick={downloadData(format, 'UID')}
-            />,
-            <DenseMenuItem
-                label={i18n.t('Code')}
-                onClick={downloadData(format, 'CODE')}
-            />,
-            <DenseMenuItem
-                label={i18n.t('Name')}
-                onClick={downloadData(format, 'NAME')}
-            />,
-        ])
-    /* eslint-enable react/jsx-key */
-
-    const buttonRef = createRef()
-
-    return (
-        <div onKeyDown={onKeyDown}>
-            <div ref={buttonRef}>
-                <MenuButton onClick={toggleMenu} disabled={!current}>
-                    {i18n.t('Download')}
-                </MenuButton>
-            </div>
-            {menuIsOpen && (
-                <Layer onClick={toggleMenu}>
-                    <Popper reference={buttonRef} placement="bottom-start">
-                        <FlyoutMenu>
-                            {visType === VIS_TYPE_PIVOT_TABLE
-                                ? tableMenuSection()
-                                : graphicsMenuSection()}
-                            <MenuSectionHeader
-                                label={i18n.t('Plain data source')}
-                            />
-                            <DenseMenuItem label={i18n.t('JSON')}>
-                                {plainDataSourceSubLevel('json')}
-                            </DenseMenuItem>
-                            <DenseMenuItem label={i18n.t('XML')}>
-                                {plainDataSourceSubLevel('xml')}
-                            </DenseMenuItem>
-                            <DenseMenuItem label={i18n.t('Excel')}>
-                                {plainDataSourceSubLevel('xls')}
-                            </DenseMenuItem>
-                            <DenseMenuItem label={i18n.t('CSV')}>
-                                {plainDataSourceSubLevel('csv')}
-                            </DenseMenuItem>
-                            <DenseMenuItem label={i18n.t('Advanced')}>
-                                <MenuSectionHeader
-                                    label={i18n.t('Data value set')}
-                                />
-                                <DenseMenuItem
-                                    label={i18n.t('JSON')}
-                                    onClick={downloadData(
-                                        'json',
-                                        null,
-                                        'dataValueSet'
-                                    )}
-                                />
-                                <DenseMenuItem
-                                    label={i18n.t('XML')}
-                                    onClick={downloadData(
-                                        'xml',
-                                        null,
-                                        'dataValueSet'
-                                    )}
-                                />
-                                <MenuSectionHeader
-                                    label={i18n.t('Other formats')}
-                                />
-                                <DenseMenuItem
-                                    label={i18n.t('JRXML')}
-                                    onClick={downloadData('jrxml')}
-                                />
-                                <DenseMenuItem
-                                    label={i18n.t('Raw data SQL')}
-                                    onClick={downloadData(
-                                        'sql',
-                                        null,
-                                        'debug/sql'
-                                    )}
-                                />
-                            </DenseMenuItem>
-                        </FlyoutMenu>
-                    </Popper>
-                </Layer>
-            )}
-        </div>
-    )
-}
-
-const relativePeriodDateSelector = createSelector(
-    [sGetUiInterpretation],
-    (interpretation) => interpretation.created || undefined
-)
-
-UnconnectedDownloadMenu.propTypes = {
-    chart: PropTypes.string,
-    columns: PropTypes.array,
-    current: PropTypes.object,
-    relativePeriodDate: PropTypes.string,
-    rows: PropTypes.array,
-    visType: PropTypes.string,
-}
-
-const mapStateToProps = (state) => ({
-    current: sGetCurrent(state),
-    relativePeriodDate: relativePeriodDateSelector(state),
-    rows: sGetUiLayout(state).rows,
-    columns: sGetUiLayout(state).columns,
-    chart: sGetChart(state),
-    visType: sGetUiType(state),
-})
-
-export const DownloadMenu = connect(mapStateToProps)(UnconnectedDownloadMenu)
+export { DownloadMenu }
