@@ -30,5 +30,5 @@
     "workspaces": [
         "packages/*"
     ],
-    "version": "34.6.87"
+    "version": "34.6.88"
 }
