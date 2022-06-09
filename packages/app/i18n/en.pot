@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2022-04-06T05:26:25.625Z\n"
-"PO-Revision-Date: 2022-04-06T05:26:25.625Z\n"
+"POT-Creation-Date: 2022-06-02T12:25:50.102Z\n"
+"PO-Revision-Date: 2022-06-02T12:25:50.102Z\n"
 
 msgid "All items"
 msgstr "All items"
@@ -350,6 +350,12 @@ msgstr "Columns totals"
 
 msgid "Default"
 msgstr "Default"
+
+msgid "Basic"
+msgstr "Basic"
+
+msgid "Extended"
+msgstr "Extended"
 
 msgid "Bright"
 msgstr "Bright"
