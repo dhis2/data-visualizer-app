@@ -4,11 +4,7 @@ import React from 'react'
 import { GenericServerError } from '../../../modules/error.js'
 import LoadingMask from '../../../widgets/LoadingMask.js'
 import StartScreen from '../StartScreen.js'
-import {
-    UnconnectedVisualization as Visualization,
-    visualizationSelector,
-    visFiltersSelector,
-} from '../Visualization.js'
+import { UnconnectedVisualization as Visualization } from '../Visualization.js'
 
 jest.mock(
     '@dhis2/data-visualizer-plugin',
@@ -32,7 +28,6 @@ describe('Visualization', () => {
         beforeEach(() => {
             props = {
                 visualization: {},
-                visFilters: null,
                 error: null,
                 rightSidebarOpen: false,
                 addMetadata: jest.fn(),
@@ -97,54 +92,6 @@ describe('Visualization', () => {
             const updatedId = wrapper.find(VisualizationPlugin).prop('id')
 
             expect(initialId).not.toEqual(updatedId)
-        })
-    })
-
-    describe('reselectors', () => {
-        const state = {
-            current: 'current',
-            visualization: 'vis',
-            ui: {
-                interpretation: {},
-            },
-        }
-
-        describe('visualizationSelector', () => {
-            it('equals the visualization if interpretation selected', () => {
-                const newState = Object.assign({}, state, {
-                    ui: { interpretation: { id: 'rainbow dash' } },
-                })
-
-                const selector = visualizationSelector(newState)
-                expect(selector).toEqual('vis')
-            })
-
-            it('equals the current if no interpretation selected', () => {
-                const selector = visualizationSelector(state)
-                expect(selector).toEqual('current')
-            })
-        })
-
-        describe('visFiltersSelector', () => {
-            it('equals object with interpretation date if interpretation selected', () => {
-                const created = 'the near future'
-                const newState = Object.assign({}, state, {
-                    ui: {
-                        interpretation: {
-                            created,
-                        },
-                    },
-                })
-                const selector = visFiltersSelector(newState)
-                expect(selector).toEqual({
-                    relativePeriodDate: created,
-                })
-            })
-
-            it('equals empty object if no interpretation selected', () => {
-                const selector = visFiltersSelector(state)
-                expect(selector).toEqual({})
-            })
         })
     })
 })

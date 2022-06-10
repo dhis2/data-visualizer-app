@@ -98,7 +98,7 @@ export class UnconnectedApp extends Component {
             // /currentAnalyticalObject
             // /${id}/
             // /${id}/interpretation/${interpretationId}
-            const { id, interpretationId } = this.parseLocation(location)
+            const { id } = this.parseLocation(location)
 
             const urlContainsCurrentAOKey = id === CURRENT_AO_KEY
 
@@ -122,17 +122,11 @@ export class UnconnectedApp extends Component {
             if (!urlContainsCurrentAOKey && this.refetch(location)) {
                 await this.props.setVisualization({
                     id,
-                    interpretationId,
                     ouLevels: this.state.ouLevels,
                 })
             }
-
-            if (!interpretationId) {
-                this.props.clearInterpretation()
-            }
         } else {
             this.props.clearAll()
-            this.props.clearInterpretation()
         }
         this.setState({ initialLoadIsComplete: true })
         this.setState({ previousLocation: location.pathname })
@@ -177,8 +171,6 @@ export class UnconnectedApp extends Component {
                 !isModalOpening &&
                 !isModalClosing
 */
-            const { interpretationId } = this.parseLocation(location)
-
             if (
                 // currently editing
                 getVisualizationState(
@@ -187,8 +179,6 @@ export class UnconnectedApp extends Component {
                 ) === STATE_DIRTY &&
                 // wanting to navigate elsewhere
                 this.state.previousLocation !== location.pathname &&
-                // currently *not* viewing an interpretation
-                !(this.props.interpretation.id || interpretationId) &&
                 // not saving
                 !isSaving
             ) {
@@ -354,7 +344,6 @@ export class UnconnectedApp extends Component {
 const mapStateToProps = (state) => ({
     settings: fromReducers.fromSettings.sGetSettings(state),
     current: fromReducers.fromCurrent.sGetCurrent(state),
-    interpretation: fromReducers.fromUi.sGetUiInterpretation(state),
     ui: fromReducers.fromUi.sGetUi(state),
     visualization: sGetVisualization(state),
     snackbar: fromReducers.fromSnackbar.sGetSnackbar(state),
@@ -373,7 +362,6 @@ const mapDispatchToProps = {
     setDimensions: fromActions.fromDimensions.tSetDimensions,
     addMetadata: fromActions.fromMetadata.acAddMetadata,
     setVisualization: fromActions.tDoLoadVisualization,
-    clearInterpretation: fromActions.fromUi.acClearUiInterpretation,
     clearAll: fromActions.clearAll,
 }
 
@@ -395,12 +383,10 @@ UnconnectedApp.propTypes = {
     baseUrl: PropTypes.string,
     clearAll: PropTypes.func,
     clearCurrent: PropTypes.func,
-    clearInterpretation: PropTypes.func,
     clearVisualization: PropTypes.func,
     current: PropTypes.object,
     d2: PropTypes.object,
     dataEngine: PropTypes.object,
-    interpretation: PropTypes.object,
     loadUserAuthority: PropTypes.func,
     location: PropTypes.object,
     setCurrentFromUi: PropTypes.func,

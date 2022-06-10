@@ -69,7 +69,6 @@ describe('App', () => {
             setDimensions: jest.fn(),
             addMetadata: jest.fn(),
             setVisualization: jest.fn(),
-            clearInterpretation: jest.fn(),
         }
         shallowApp = undefined
 

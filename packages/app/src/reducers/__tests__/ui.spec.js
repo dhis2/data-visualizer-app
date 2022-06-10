@@ -398,34 +398,6 @@ describe('reducer: ui', () => {
         expect(actualState).toEqual(expectedState)
     })
 
-    it(`${ui.SET_UI_INTERPRETATION} sets the interpretation value`, () => {
-        const interpretation = { id: 'abc123', created: 'eons ago' }
-        const actualState = reducer(ui.DEFAULT_UI, {
-            type: ui.SET_UI_INTERPRETATION,
-            value: interpretation,
-        })
-
-        const expectedState = {
-            ...ui.DEFAULT_UI,
-            interpretation,
-        }
-
-        expect(actualState).toEqual(expectedState)
-    })
-
-    it(`${ui.CLEAR_UI_INTERPRETATION} clears the interpretation value`, () => {
-        const state = {
-            ...ui.DEFAULT_UI,
-            interpretation: { id: 'abc123', created: 'eons ago' },
-        }
-
-        const actualState = reducer(state, {
-            type: ui.CLEAR_UI_INTERPRETATION,
-        })
-
-        expect(actualState).toEqual(ui.DEFAULT_UI)
-    })
-
     describe('itemByDimension', () => {
         it(`${ui.SET_UI_ITEMS} sets items by dimension`, () => {
             const startingState = {

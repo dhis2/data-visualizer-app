@@ -16,7 +16,6 @@ import {
     SET_UI_FROM_VISUALIZATION,
     CLEAR_UI,
     SET_UI_RIGHT_SIDEBAR_OPEN,
-    SET_UI_INTERPRETATION,
 } from '../../reducers/ui.js'
 import {
     SET_VISUALIZATION,
@@ -110,10 +109,6 @@ describe('index', () => {
                     value: true,
                 },
                 {
-                    type: SET_UI_INTERPRETATION,
-                    value: interpretation,
-                },
-                {
                     type: SET_UI_RIGHT_SIDEBAR_OPEN,
                 },
                 {
@@ -135,7 +130,6 @@ describe('index', () => {
                     fromActions.tDoLoadVisualization({
                         type: 'test',
                         id: 1,
-                        interpretationId: 1,
                         ouLevels: [],
                     })
                 )
