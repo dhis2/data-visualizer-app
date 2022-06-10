@@ -1,3 +1,10 @@
+## [39.1.1](https://github.com/dhis2/data-visualizer-app/compare/v39.1.0...v39.1.1) (2022-06-10)
+
+
+### Bug Fixes
+
+* add border to legend key (DHIS2-75) ([#2096](https://github.com/dhis2/data-visualizer-app/issues/2096)) ([d458e4c](https://github.com/dhis2/data-visualizer-app/commit/d458e4c5660fb6d03af8aba8ee7509a2eb70567e))
+
 # [39.1.0](https://github.com/dhis2/data-visualizer-app/compare/v39.0.12...v39.1.0) (2022-06-01)
 
 
