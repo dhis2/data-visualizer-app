@@ -13,10 +13,10 @@ import history from '../../modules/history.js'
 import { visTypes } from '../../modules/visualization.js'
 import { sGetCurrent } from '../../reducers/current.js'
 import { ToolbarDownloadDropdown } from '../DownloadMenu/ToolbarDownloadDropdown.js'
-import { InterpretationsButton } from '../Interpretations/InterpretationsButton.js'
 import UpdateButton from '../UpdateButton/UpdateButton.js'
 import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer.js'
 import VisualizationOptionsManager from '../VisualizationOptions/VisualizationOptionsManager.js'
+import { InterpretationsButton } from './InterpretationsButton.js'
 import styles from './styles/MenuBar.module.css'
 
 const onOpen = (id) => {
