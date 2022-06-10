@@ -13,6 +13,7 @@
     top: 0;
     bottom: 0;
     overflow: auto;
+    border: 1px solid var(--colors-grey400);
 }
 .buttonMargin {
     margin-top: 34px;
