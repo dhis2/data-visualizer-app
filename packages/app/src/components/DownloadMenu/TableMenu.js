@@ -9,23 +9,25 @@ import {
     FILE_FORMAT_HTML_CSS,
 } from './constants.js'
 
-/* eslint-disable react/jsx-key */
 export const TableMenu = ({ download }) =>
     React.Children.toArray([
         <MenuSectionHeader label={i18n.t('Table layout')} hideDivider={true} />,
         <MenuItem
+            key="xls"
             label={i18n.t('Excel (.xls)')}
             onClick={() =>
                 download({ type: DOWNLOAD_TYPE_TABLE, format: FILE_FORMAT_XLS })
             }
         />,
         <MenuItem
+            key="csv"
             label={i18n.t('CSV (.csv)')}
             onClick={() =>
                 download({ type: DOWNLOAD_TYPE_TABLE, format: FILE_FORMAT_CSV })
             }
         />,
         <MenuItem
+            key="html"
             label={i18n.t('HTML (.html)')}
             onClick={() =>
                 download({
