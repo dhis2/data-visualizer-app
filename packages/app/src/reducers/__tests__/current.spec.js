@@ -6,7 +6,7 @@ import {
     VIS_TYPE_COLUMN,
 } from '@dhis2/analytics'
 import { getOptionsFromUi } from '../../modules/current.js'
-import options from '../../modules/options.js'
+import { default as options } from '../../modules/options.js'
 import reducer, {
     DEFAULT_CURRENT,
     SET_CURRENT,

@@ -70,7 +70,7 @@ import {
 import HideButton from '../../HideButton/HideButton.js'
 import UpdateButton from '../../UpdateButton/UpdateButton.js'
 import UpdateVisualizationContainer from '../../UpdateButton/UpdateVisualizationContainer.js'
-import AddToLayoutButton from './AddToLayoutButton/AddToLayoutButton.js'
+import { default as AddToLayoutButton } from './AddToLayoutButton/AddToLayoutButton.js'
 import styles from './styles/DialogManager.module.css'
 
 const isScatterAttribute = (dialogId) =>

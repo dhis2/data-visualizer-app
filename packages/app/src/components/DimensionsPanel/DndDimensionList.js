@@ -13,7 +13,7 @@ import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
 import { SOURCE_DIMENSIONS } from '../../modules/layout.js'
 import * as fromReducers from '../../reducers/index.js'
-import DndDimensionItem from './DndDimensionItem.js'
+import { default as DndDimensionItem } from './DndDimensionItem.js'
 import styles from './styles/DndDimensionList.module.css'
 
 export class DndDimensionList extends Component {
