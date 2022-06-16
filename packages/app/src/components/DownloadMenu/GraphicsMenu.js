@@ -12,7 +12,11 @@ import { FILE_FORMAT_PDF, FILE_FORMAT_PNG } from './constants.js'
 
 export const GraphicsMenu = ({ download }) =>
     React.Children.toArray([
-        <MenuSectionHeader label={i18n.t('Graphics')} hideDivider />,
+        <MenuSectionHeader
+            key="graphics-header"
+            label={i18n.t('Graphics')}
+            hideDivider
+        />,
         <MenuItem
             key="png"
             icon={<IconImage24 color={colors.grey600} />}

@@ -11,7 +11,11 @@ import {
 
 export const TableMenu = ({ download }) =>
     React.Children.toArray([
-        <MenuSectionHeader label={i18n.t('Table layout')} hideDivider />,
+        <MenuSectionHeader
+            key="table-header"
+            label={i18n.t('Table layout')}
+            hideDivider
+        />,
         <MenuItem
             key="xls"
             label={i18n.t('Excel (.xls)')}
