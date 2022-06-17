@@ -9,6 +9,13 @@ source_file = packages/app/i18n/en.pot
 source_lang = en
 type = PO
 
+[app-data-visualizer.plugin-en-pot]
+file_filter = packages/plugin/i18n/<lang>.po
+minimum_perc = 0
+source_file = packages/plugin/i18n/en.pot
+source_lang = en
+type = PO
+
 [app-data-visualizer.i18n_module_en-properties]
 file_filter = packages/app/public/i18n_old/i18n_module_<lang>.properties
 minimum_perc = 0
