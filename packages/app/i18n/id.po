@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-04-06T05:26:25.625Z\n"
+"POT-Creation-Date: 2022-06-02T12:25:50.102Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2021\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -361,6 +361,12 @@ msgstr "Total kolom"
 
 msgid "Default"
 msgstr "Default"
+
+msgid "Basic"
+msgstr ""
+
+msgid "Extended"
+msgstr ""
 
 msgid "Bright"
 msgstr "Terang"
