@@ -1,3 +1,10 @@
+## [38.3.2](https://github.com/dhis2/data-visualizer-app/compare/v38.3.1...v38.3.2) (2022-06-21)
+
+
+### Bug Fixes
+
+* bump d2-ui-interpretations dep for DHIS2-12617 (38.x) ([#2113](https://github.com/dhis2/data-visualizer-app/issues/2113)) ([2fabaf4](https://github.com/dhis2/data-visualizer-app/commit/2fabaf4763887dcfd6d02fe41c753f9bef0fc2fd))
+
 ## [38.3.1](https://github.com/dhis2/data-visualizer-app/compare/v38.3.0...v38.3.1) (2022-06-17)
 
 
