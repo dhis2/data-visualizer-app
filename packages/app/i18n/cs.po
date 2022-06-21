@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-03-03T10:40:06.300Z\n"
+"POT-Creation-Date: 2021-04-23T09:26:03.770Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: trendspotter <jirka.p@volny.cz>, 2021\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -150,21 +150,6 @@ msgstr "JRXML"
 
 msgid "Raw data SQL"
 msgstr "Nezpracovaná data SQL"
-
-msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr "V aplikaci DHIS2 Data Visualizer došlo k chybě."
-
-msgid "Refresh to try again"
-msgstr "Obnovte akci a zkuste to znovu"
-
-msgid "Hide technical details"
-msgstr "Skrýt technické podrobnosti"
-
-msgid "Show technical details"
-msgstr "Zobrazit technické podrobnosti"
-
-msgid "The following information may be requested by technical support."
-msgstr "Následující informace mohou být požadovány technickou podporou."
 
 msgid "Hide"
 msgstr "Skrýt"
@@ -816,6 +801,12 @@ msgid ""
 msgstr ""
 "Vizualizaci, kterou se pokoušíte zobrazit, nelze najít, ID může být "
 "nesprávné nebo může být odstraněno."
+
+msgid "No organization units found"
+msgstr "Nebyly nalezeny žádné organizační jednotky"
+
+msgid "The level or group selections didn't return any organization units."
+msgstr "Výběr úrovní nebo skupin nevrátil žádné organizační jednotky."
 
 msgid "Something went wrong"
 msgstr "Něco se pokazilo"

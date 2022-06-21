@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2021-03-03T10:40:06.300Z\n"
+"POT-Creation-Date: 2021-04-23T09:26:03.770Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Ibatov <ibatovk@who.int>, 2021\n"
 "Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
@@ -151,21 +151,6 @@ msgstr "JRXML"
 
 msgid "Raw data SQL"
 msgstr "Хом маълумотлар SQL"
-
-msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr "DHIS2 Маълумотлар Визуализатор дастурида хатолик юз берди."
-
-msgid "Refresh to try again"
-msgstr "Ыайтиб уриниб кщрин учун аввал янгиланг"
-
-msgid "Hide technical details"
-msgstr "Техник деталларни беркитиш"
-
-msgid "Show technical details"
-msgstr "Техник деталларни кўрсатиш"
-
-msgid "The following information may be requested by technical support."
-msgstr "Қуйидаги ахборот техник ёрдамчилар томонидан сўралиши мумкин"
 
 msgid "Hide"
 msgstr "Беркитиш"
@@ -826,6 +811,12 @@ msgid ""
 msgstr ""
 "Сиз кўрмоқчи бўлган визуализация топилмади, идентификатор нотўғри ёки "
 "ўчирилган бўлиши мумкин."
+
+msgid "No organization units found"
+msgstr "Ташкилий бўлим топилмади"
+
+msgid "The level or group selections didn't return any organization units."
+msgstr "Босқич ёки гуруҳ танлаш ҳеч қандай ташкилий бўлимни олиб чиқмади."
 
 msgid "Something went wrong"
 msgstr "Нимадир нотўғри бажарилди"
