@@ -361,7 +361,7 @@ msgid "Basic"
 msgstr "Základní"
 
 msgid "Extended"
-msgstr ""
+msgstr "Rozšířené"
 
 msgid "Bright"
 msgstr "Světlá"
