@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2022-06-02T12:25:50.102Z\n"
-"PO-Revision-Date: 2022-06-02T12:25:50.102Z\n"
+"POT-Creation-Date: 2022-06-17T07:32:29.449Z\n"
+"PO-Revision-Date: 2022-06-17T07:32:29.449Z\n"
 
 msgid "All items"
 msgstr "All items"
@@ -153,9 +153,6 @@ msgstr "Download"
 msgid "Hide"
 msgstr "Hide"
 
-msgid "Interpretations"
-msgstr "Interpretations"
-
 msgid "All"
 msgstr "All"
 
@@ -213,6 +210,9 @@ msgstr "Select a period"
 msgid "Select years"
 msgstr "Select years"
 
+msgid "Interpretations"
+msgstr "Interpretations"
+
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
@@ -225,9 +225,6 @@ msgstr "Unsaved visualization"
 
 msgid "Edited"
 msgstr "Edited"
-
-msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr "Viewing interpretation from {{interpretationDate}}"
 
 msgid "Update"
 msgstr "Update"
