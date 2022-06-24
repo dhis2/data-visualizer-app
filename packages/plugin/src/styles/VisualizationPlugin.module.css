@@ -1,6 +1,13 @@
 .container {
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+
+.chartWrapper {
     flex-grow: 1;
 }
+
 .legendKey {
     margin: 0 8px;
     width: 180px;

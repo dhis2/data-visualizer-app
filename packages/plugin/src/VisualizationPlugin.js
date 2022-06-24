@@ -313,8 +313,8 @@ export const VisualizationPlugin = ({
     }
 
     return (
-        <>
-            <div className={styles.container}>
+        <div className={styles.container}>
+            <div className={styles.chartWrapper}>
                 {!fetchResult.visualization.type ||
                 fetchResult.visualization.type === VIS_TYPE_PIVOT_TABLE ? (
                     <PivotPlugin
@@ -363,7 +363,7 @@ export const VisualizationPlugin = ({
                     />
                 </Layer>
             )}
-        </>
+        </div>
     )
 }
 
