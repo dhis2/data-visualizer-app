@@ -9,13 +9,8 @@ import {
     ID_SCHEME_NAME,
 } from './constants.js'
 
-export const PlainDataSourceSubMenu = ({
-    download,
-    format,
-    label,
-    ...menuItemProps
-}) => (
-    <MenuItem label={label} {...menuItemProps}>
+export const PlainDataSourceSubMenu = ({ download, format, label }) => (
+    <MenuItem label={label}>
         <MenuSectionHeader label={i18n.t('Metadata ID scheme')} />
         <MenuItem
             label={i18n.t('ID')}

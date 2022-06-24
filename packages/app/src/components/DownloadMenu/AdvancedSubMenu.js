@@ -10,8 +10,8 @@ import {
     FILE_FORMAT_SQL,
 } from './constants.js'
 
-export const AdvancedSubMenu = ({ download, label, ...menuItemProps }) => (
-    <MenuItem label={label} {...menuItemProps}>
+export const AdvancedSubMenu = ({ download, label }) => (
+    <MenuItem label={label}>
         <MenuSectionHeader label={i18n.t('Data value set')} />
         <MenuItem
             label={i18n.t('JSON')}
