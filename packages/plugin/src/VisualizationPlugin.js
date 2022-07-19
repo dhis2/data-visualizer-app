@@ -328,7 +328,7 @@ export const VisualizationPlugin = ({
                             onDrill ? onToggleContextualMenu : undefined
                         }
                         id={id}
-                        style={transformedStyle}
+                        style={{...transformedStyle, height: '100%'}}
                     />
                 ) : (
                     <ChartPlugin
