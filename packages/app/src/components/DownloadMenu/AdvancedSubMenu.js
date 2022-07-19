@@ -57,6 +57,6 @@ export const AdvancedSubMenu = ({ onDownload, label, ...menuItemProps }) => (
 )
 
 AdvancedSubMenu.propTypes = {
-    onDownload: PropTypes.func.isRequired,
     label: PropTypes.string.isRequired,
+    onDownload: PropTypes.func.isRequired,
 }

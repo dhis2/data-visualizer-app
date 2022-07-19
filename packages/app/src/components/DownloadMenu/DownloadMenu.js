@@ -42,14 +42,17 @@ const DownloadMenu = ({ visType, onDownloadData, onDownloadImage }) => (
             label={i18n.t('CSV')}
             format={FILE_FORMAT_CSV}
         />
-        <AdvancedSubMenu onDownload={onDownloadData} label={i18n.t('Advanced')} />
+        <AdvancedSubMenu
+            onDownload={onDownloadData}
+            label={i18n.t('Advanced')}
+        />
     </FlyoutMenu>
 )
 
 DownloadMenu.propTypes = {
+    visType: PropTypes.string.isRequired,
     onDownloadData: PropTypes.func.isRequired,
     onDownloadImage: PropTypes.func.isRequired,
-    visType: PropTypes.string.isRequired,
 }
 
 export { DownloadMenu }

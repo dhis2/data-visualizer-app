@@ -51,7 +51,7 @@ export const PlainDataSourceSubMenu = ({
 )
 
 PlainDataSourceSubMenu.propTypes = {
-    onDownload: PropTypes.func.isRequired,
     format: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
+    onDownload: PropTypes.func.isRequired,
 }

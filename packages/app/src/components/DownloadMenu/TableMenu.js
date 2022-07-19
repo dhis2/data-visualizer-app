@@ -20,14 +20,20 @@ export const TableMenu = ({ onDownload }) =>
             key="xls"
             label={i18n.t('Excel (.xls)')}
             onClick={() =>
-                onDownload({ type: DOWNLOAD_TYPE_TABLE, format: FILE_FORMAT_XLS })
+                onDownload({
+                    type: DOWNLOAD_TYPE_TABLE,
+                    format: FILE_FORMAT_XLS,
+                })
             }
         />,
         <MenuItem
             key="csv"
             label={i18n.t('CSV (.csv)')}
             onClick={() =>
-                onDownload({ type: DOWNLOAD_TYPE_TABLE, format: FILE_FORMAT_CSV })
+                onDownload({
+                    type: DOWNLOAD_TYPE_TABLE,
+                    format: FILE_FORMAT_CSV,
+                })
             }
         />,
         <MenuItem
