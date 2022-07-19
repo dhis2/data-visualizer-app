@@ -11,8 +11,8 @@ const ModalDownloadDropdown = ({ relativePeriodDate }) => {
         isOpen,
         toggleOpen,
         disabled,
-        downloadData,
-        downloadImage,
+        doDownloadData,
+        doDownloadImage,
         visType,
     } = useDownloadMenu(relativePeriodDate)
 
@@ -21,8 +21,8 @@ const ModalDownloadDropdown = ({ relativePeriodDate }) => {
             <DropdownButton
                 component={
                     <DownloadMenu
-                        downloadData={downloadData}
-                        downloadImage={downloadImage}
+                        onDownloadData={doDownloadData}
+                        onDownloadImage={doDownloadImage}
                         visType={visType}
                     />
                 }

@@ -9,7 +9,7 @@ import {
     FILE_FORMAT_HTML_CSS,
 } from './constants.js'
 
-export const TableMenu = ({ download }) =>
+export const TableMenu = ({ onDownload }) =>
     React.Children.toArray([
         <MenuSectionHeader
             key="table-header"
@@ -20,21 +20,21 @@ export const TableMenu = ({ download }) =>
             key="xls"
             label={i18n.t('Excel (.xls)')}
             onClick={() =>
-                download({ type: DOWNLOAD_TYPE_TABLE, format: FILE_FORMAT_XLS })
+                onDownload({ type: DOWNLOAD_TYPE_TABLE, format: FILE_FORMAT_XLS })
             }
         />,
         <MenuItem
             key="csv"
             label={i18n.t('CSV (.csv)')}
             onClick={() =>
-                download({ type: DOWNLOAD_TYPE_TABLE, format: FILE_FORMAT_CSV })
+                onDownload({ type: DOWNLOAD_TYPE_TABLE, format: FILE_FORMAT_CSV })
             }
         />,
         <MenuItem
             key="html"
             label={i18n.t('HTML (.html)')}
             onClick={() =>
-                download({
+                onDownload({
                     type: DOWNLOAD_TYPE_TABLE,
                     format: FILE_FORMAT_HTML_CSS,
                 })
@@ -43,5 +43,5 @@ export const TableMenu = ({ download }) =>
     ])
 
 TableMenu.propTypes = {
-    download: PropTypes.func.isRequired,
+    onDownload: PropTypes.func.isRequired,
 }

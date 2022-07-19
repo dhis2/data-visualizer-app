@@ -10,7 +10,7 @@ import {
 } from './constants.js'
 
 export const PlainDataSourceSubMenu = ({
-    download,
+    onDownload,
     format,
     label,
     ...menuItemProps
@@ -20,7 +20,7 @@ export const PlainDataSourceSubMenu = ({
         <MenuItem
             label={i18n.t('ID')}
             onClick={() =>
-                download({
+                onDownload({
                     type: DOWNLOAD_TYPE_PLAIN,
                     format,
                     idScheme: ID_SCHEME_UID,
@@ -30,7 +30,7 @@ export const PlainDataSourceSubMenu = ({
         <MenuItem
             label={i18n.t('Code')}
             onClick={() =>
-                download({
+                onDownload({
                     type: DOWNLOAD_TYPE_PLAIN,
                     format,
                     idScheme: ID_SCHEME_CODE,
@@ -40,7 +40,7 @@ export const PlainDataSourceSubMenu = ({
         <MenuItem
             label={i18n.t('Name')}
             onClick={() =>
-                download({
+                onDownload({
                     type: DOWNLOAD_TYPE_PLAIN,
                     format,
                     idScheme: ID_SCHEME_NAME,
@@ -51,7 +51,7 @@ export const PlainDataSourceSubMenu = ({
 )
 
 PlainDataSourceSubMenu.propTypes = {
-    download: PropTypes.func.isRequired,
+    onDownload: PropTypes.func.isRequired,
     format: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
 }

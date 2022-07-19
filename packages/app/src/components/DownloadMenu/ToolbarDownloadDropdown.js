@@ -11,8 +11,8 @@ const ToolbarDownloadDropdown = () => {
         isOpen,
         toggleOpen,
         disabled,
-        downloadData,
-        downloadImage,
+        doDownloadData,
+        doDownloadImage,
         visType,
     } = useDownloadMenu()
 
@@ -29,8 +29,8 @@ const ToolbarDownloadDropdown = () => {
                 <Layer onClick={toggleOpen}>
                     <Popper reference={buttonRef} placement="bottom-start">
                         <DownloadMenu
-                            downloadData={downloadData}
-                            downloadImage={downloadImage}
+                            onDownloadData={doDownloadData}
+                            onDownloadImage={doDownloadImage}
                             visType={visType}
                         />
                     </Popper>

@@ -77,7 +77,7 @@ const useDownloadMenu = (relativePeriodDate) => {
         onComplete: openDownloadedFileInBlankTab,
     })
 
-    const downloadImage = useCallback(
+    const doDownloadImage = useCallback(
         ({ format }) => {
             if (!visualization) {
                 return false
@@ -100,7 +100,7 @@ const useDownloadMenu = (relativePeriodDate) => {
         [chart, getPdf, getPng, visualization]
     )
 
-    const downloadData = useCallback(
+    const doDownloadData = useCallback(
         ({ type, format, idScheme, path }) => {
             if (!visualization) {
                 return false
@@ -193,8 +193,8 @@ const useDownloadMenu = (relativePeriodDate) => {
         isOpen,
         toggleOpen: () => setIsOpen(!isOpen),
         disabled: !visualization,
-        downloadData,
-        downloadImage,
+        doDownloadData,
+        doDownloadImage,
         visType,
     }
 }

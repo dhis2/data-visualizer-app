@@ -14,41 +14,41 @@ import { GraphicsMenu } from './GraphicsMenu.js'
 import { PlainDataSourceSubMenu } from './PlainDataSourceSubMenu.js'
 import { TableMenu } from './TableMenu.js'
 
-const DownloadMenu = ({ visType, downloadData, downloadImage }) => (
+const DownloadMenu = ({ visType, onDownloadData, onDownloadImage }) => (
     <FlyoutMenu>
         {visType === VIS_TYPE_PIVOT_TABLE ? (
-            <TableMenu download={downloadData} />
+            <TableMenu onDownload={onDownloadData} />
         ) : (
-            <GraphicsMenu download={downloadImage} />
+            <GraphicsMenu onDownload={onDownloadImage} />
         )}
         <MenuSectionHeader label={i18n.t('Plain data source')} />
         <PlainDataSourceSubMenu
-            download={downloadData}
+            onDownload={onDownloadData}
             label={i18n.t('JSON')}
             format={FILE_FORMAT_JSON}
         />
         <PlainDataSourceSubMenu
-            download={downloadData}
+            onDownload={onDownloadData}
             label={i18n.t('XML')}
             format={FILE_FORMAT_XML}
         />
         <PlainDataSourceSubMenu
-            download={downloadData}
+            onDownload={onDownloadData}
             label={i18n.t('Microsoft Excel')}
             format={FILE_FORMAT_XLS}
         />
         <PlainDataSourceSubMenu
-            download={downloadData}
+            onDownload={onDownloadData}
             label={i18n.t('CSV')}
             format={FILE_FORMAT_CSV}
         />
-        <AdvancedSubMenu download={downloadData} label={i18n.t('Advanced')} />
+        <AdvancedSubMenu onDownload={onDownloadData} label={i18n.t('Advanced')} />
     </FlyoutMenu>
 )
 
 DownloadMenu.propTypes = {
-    downloadData: PropTypes.func.isRequired,
-    downloadImage: PropTypes.func.isRequired,
+    onDownloadData: PropTypes.func.isRequired,
+    onDownloadImage: PropTypes.func.isRequired,
     visType: PropTypes.string.isRequired,
 }
 

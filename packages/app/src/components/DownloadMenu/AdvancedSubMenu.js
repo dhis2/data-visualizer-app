@@ -10,13 +10,13 @@ import {
     FILE_FORMAT_SQL,
 } from './constants.js'
 
-export const AdvancedSubMenu = ({ download, label, ...menuItemProps }) => (
+export const AdvancedSubMenu = ({ onDownload, label, ...menuItemProps }) => (
     <MenuItem label={label} {...menuItemProps}>
         <MenuSectionHeader label={i18n.t('Data value set')} />
         <MenuItem
             label={i18n.t('JSON')}
             onClick={() =>
-                download({
+                onDownload({
                     type: DOWNLOAD_TYPE_PLAIN,
                     format: FILE_FORMAT_JSON,
                     path: 'dataValueSet',
@@ -26,7 +26,7 @@ export const AdvancedSubMenu = ({ download, label, ...menuItemProps }) => (
         <MenuItem
             label={i18n.t('XML')}
             onClick={() =>
-                download({
+                onDownload({
                     type: DOWNLOAD_TYPE_PLAIN,
                     format: FILE_FORMAT_XML,
                     path: 'dataValueSet',
@@ -37,7 +37,7 @@ export const AdvancedSubMenu = ({ download, label, ...menuItemProps }) => (
         <MenuItem
             label={i18n.t('JRXML')}
             onClick={() =>
-                download({
+                onDownload({
                     type: DOWNLOAD_TYPE_PLAIN,
                     format: FILE_FORMAT_JRXML,
                 })
@@ -46,7 +46,7 @@ export const AdvancedSubMenu = ({ download, label, ...menuItemProps }) => (
         <MenuItem
             label={i18n.t('Raw data SQL')}
             onClick={() =>
-                download({
+                onDownload({
                     type: DOWNLOAD_TYPE_PLAIN,
                     format: FILE_FORMAT_SQL,
                     path: 'debug/sql',
@@ -57,6 +57,6 @@ export const AdvancedSubMenu = ({ download, label, ...menuItemProps }) => (
 )
 
 AdvancedSubMenu.propTypes = {
-    download: PropTypes.func.isRequired,
+    onDownload: PropTypes.func.isRequired,
     label: PropTypes.string.isRequired,
 }
