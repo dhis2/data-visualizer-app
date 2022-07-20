@@ -328,7 +328,8 @@ export const VisualizationPlugin = ({
                             onDrill ? onToggleContextualMenu : undefined
                         }
                         id={id}
-                        style={{...transformedStyle, height: '100%'}}
+                        // force height otherwise the PivotTable container sets 0 as height hiding the table content
+                        style={{ ...transformedStyle, height: '100%' }}
                     />
                 ) : (
                     <ChartPlugin
