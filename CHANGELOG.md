@@ -1,3 +1,10 @@
+# [39.2.0](https://github.com/dhis2/data-visualizer-app/compare/v39.1.5...v39.2.0) (2022-07-20)
+
+
+### Features
+
+* use About and Interpretations components from analytics ([#2103](https://github.com/dhis2/data-visualizer-app/issues/2103)) ([4bbe760](https://github.com/dhis2/data-visualizer-app/commit/4bbe76078f5b2fd6b02aee007beb042cff6238a3))
+
 ## [39.1.5](https://github.com/dhis2/data-visualizer-app/compare/v39.1.4...v39.1.5) (2022-06-28)
 
 
