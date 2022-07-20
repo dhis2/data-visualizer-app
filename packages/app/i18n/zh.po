@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-06-02T12:25:50.102Z\n"
+"POT-Creation-Date: 2022-06-17T07:32:29.449Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2022\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -85,6 +85,36 @@ msgstr "你的维度"
 msgid "Filter dimensions"
 msgstr "过滤器维度"
 
+msgid "Data value set"
+msgstr "数据值集"
+
+msgid "JSON"
+msgstr "JSON"
+
+msgid "XML"
+msgstr "XML"
+
+msgid "Other formats"
+msgstr "其它格式"
+
+msgid "JRXML"
+msgstr "JRXML"
+
+msgid "Raw data SQL"
+msgstr "原生数据SQL"
+
+msgid "Plain data source"
+msgstr "普通数据源"
+
+msgid "Microsoft Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr "CSV"
+
+msgid "Advanced"
+msgstr "高级"
+
 msgid "Graphics"
 msgstr "图形"
 
@@ -94,17 +124,8 @@ msgstr "图像（.png）"
 msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
-msgid "Table layout"
-msgstr "表布局"
-
-msgid "Excel (.xls)"
-msgstr "Excel (.xls)"
-
-msgid "CSV (.csv)"
-msgstr "CSV (.csv)"
-
-msgid "HTML (.html)"
-msgstr "HTML (.html)"
+msgid "Download data from this date"
+msgstr ""
 
 msgid "Metadata ID scheme"
 msgstr "元数据ID方案"
@@ -118,44 +139,23 @@ msgstr "代码"
 msgid "Name"
 msgstr "名称"
 
+msgid "Table layout"
+msgstr "表布局"
+
+msgid "Excel (.xls)"
+msgstr "Excel (.xls)"
+
+msgid "CSV (.csv)"
+msgstr "CSV (.csv)"
+
+msgid "HTML (.html)"
+msgstr "HTML (.html)"
+
 msgid "Download"
 msgstr "下载"
 
-msgid "Plain data source"
-msgstr "普通数据源"
-
-msgid "JSON"
-msgstr "JSON"
-
-msgid "XML"
-msgstr "XML"
-
-msgid "Excel"
-msgstr "Excel"
-
-msgid "CSV"
-msgstr "CSV"
-
-msgid "Advanced"
-msgstr "高级"
-
-msgid "Data value set"
-msgstr "数据值集"
-
-msgid "Other formats"
-msgstr "其它格式"
-
-msgid "JRXML"
-msgstr "JRXML"
-
-msgid "Raw data SQL"
-msgstr "原生数据SQL"
-
 msgid "Hide"
 msgstr "隐藏"
-
-msgid "Interpretations"
-msgstr "注释"
 
 msgid "All"
 msgstr "全部"
@@ -214,6 +214,9 @@ msgstr "选择期间"
 msgid "Select years"
 msgstr "选择年份"
 
+msgid "Interpretations"
+msgstr "注释"
+
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
@@ -224,9 +227,6 @@ msgstr "没有保存可视化"
 
 msgid "Edited"
 msgstr "编辑"
-
-msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr "查看自{{interpretationDate}}的注释"
 
 msgid "Update"
 msgstr "更新"

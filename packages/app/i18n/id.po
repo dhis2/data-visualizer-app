@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-06-02T12:25:50.102Z\n"
+"POT-Creation-Date: 2022-06-17T07:32:29.449Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2021\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
@@ -92,6 +92,36 @@ msgstr "Dimensi Anda"
 msgid "Filter dimensions"
 msgstr "Filter dimensi"
 
+msgid "Data value set"
+msgstr "Set nilai data"
+
+msgid "JSON"
+msgstr "JSON"
+
+msgid "XML"
+msgstr "XML"
+
+msgid "Other formats"
+msgstr "Format lain"
+
+msgid "JRXML"
+msgstr "JRXML"
+
+msgid "Raw data SQL"
+msgstr "SQL data mentah"
+
+msgid "Plain data source"
+msgstr "Sumber data asli"
+
+msgid "Microsoft Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr "CSV"
+
+msgid "Advanced"
+msgstr "Lebih Lanjut"
+
 msgid "Graphics"
 msgstr "Grafik"
 
@@ -101,17 +131,8 @@ msgstr "Gambar (.png)"
 msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
-msgid "Table layout"
-msgstr "Tata letak tabel"
-
-msgid "Excel (.xls)"
-msgstr "Excel (.xls)"
-
-msgid "CSV (.csv)"
-msgstr "CSV (.csv)"
-
-msgid "HTML (.html)"
-msgstr "HTML (.html)"
+msgid "Download data from this date"
+msgstr ""
 
 msgid "Metadata ID scheme"
 msgstr "Skema ID metadata"
@@ -125,44 +146,23 @@ msgstr "Kode"
 msgid "Name"
 msgstr "Nama"
 
+msgid "Table layout"
+msgstr "Tata letak tabel"
+
+msgid "Excel (.xls)"
+msgstr "Excel (.xls)"
+
+msgid "CSV (.csv)"
+msgstr "CSV (.csv)"
+
+msgid "HTML (.html)"
+msgstr "HTML (.html)"
+
 msgid "Download"
 msgstr "Unduh"
 
-msgid "Plain data source"
-msgstr "Sumber data asli"
-
-msgid "JSON"
-msgstr "JSON"
-
-msgid "XML"
-msgstr "XML"
-
-msgid "Excel"
-msgstr "Excel"
-
-msgid "CSV"
-msgstr "CSV"
-
-msgid "Advanced"
-msgstr "Lebih Lanjut"
-
-msgid "Data value set"
-msgstr "Set nilai data"
-
-msgid "Other formats"
-msgstr "Format lain"
-
-msgid "JRXML"
-msgstr "JRXML"
-
-msgid "Raw data SQL"
-msgstr "SQL data mentah"
-
 msgid "Hide"
 msgstr "Sembunyikan"
-
-msgid "Interpretations"
-msgstr "Interpretasi"
 
 msgid "All"
 msgstr "Semua"
@@ -221,6 +221,9 @@ msgstr "Pilih periode"
 msgid "Select years"
 msgstr "Pilih tahun"
 
+msgid "Interpretations"
+msgstr "Interpretasi"
+
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
@@ -233,9 +236,6 @@ msgstr "Visualisasi belum disimpan"
 
 msgid "Edited"
 msgstr "Diedit"
-
-msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr "Melihat interpretasi dari {{interpretationDate}}"
 
 msgid "Update"
 msgstr "Perbarui"

@@ -11,7 +11,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-06-02T12:25:50.102Z\n"
+"POT-Creation-Date: 2022-06-17T07:32:29.449Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Janeth Cruz, 2022\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
@@ -86,6 +86,36 @@ msgstr ""
 msgid "Filter dimensions"
 msgstr ""
 
+msgid "Data value set"
+msgstr "Valor de los datos"
+
+msgid "JSON"
+msgstr "JSON"
+
+msgid "XML"
+msgstr "XML"
+
+msgid "Other formats"
+msgstr "Otros formatos"
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
+msgstr ""
+
+msgid "Plain data source"
+msgstr "Fuente de datos sin formato"
+
+msgid "Microsoft Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr "CSV"
+
+msgid "Advanced"
+msgstr "Avanzado"
+
 msgid "Graphics"
 msgstr "Gráficos"
 
@@ -95,16 +125,7 @@ msgstr ""
 msgid "PDF (.pdf)"
 msgstr ""
 
-msgid "Table layout"
-msgstr "Disposición de la tabla"
-
-msgid "Excel (.xls)"
-msgstr ""
-
-msgid "CSV (.csv)"
-msgstr ""
-
-msgid "HTML (.html)"
+msgid "Download data from this date"
 msgstr ""
 
 msgid "Metadata ID scheme"
@@ -119,44 +140,23 @@ msgstr "Código"
 msgid "Name"
 msgstr "Nombre"
 
+msgid "Table layout"
+msgstr "Disposición de la tabla"
+
+msgid "Excel (.xls)"
+msgstr ""
+
+msgid "CSV (.csv)"
+msgstr ""
+
+msgid "HTML (.html)"
+msgstr ""
+
 msgid "Download"
 msgstr "Descargar"
 
-msgid "Plain data source"
-msgstr "Fuente de datos sin formato"
-
-msgid "JSON"
-msgstr "JSON"
-
-msgid "XML"
-msgstr "XML"
-
-msgid "Excel"
-msgstr ""
-
-msgid "CSV"
-msgstr "CSV"
-
-msgid "Advanced"
-msgstr "Avanzado"
-
-msgid "Data value set"
-msgstr "Valor de los datos"
-
-msgid "Other formats"
-msgstr "Otros formatos"
-
-msgid "JRXML"
-msgstr ""
-
-msgid "Raw data SQL"
-msgstr ""
-
 msgid "Hide"
 msgstr "Ocultar"
-
-msgid "Interpretations"
-msgstr "Interpretaciones"
 
 msgid "All"
 msgstr "Todos"
@@ -215,6 +215,9 @@ msgstr ""
 msgid "Select years"
 msgstr ""
 
+msgid "Interpretations"
+msgstr "Interpretaciones"
+
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
@@ -224,9 +227,6 @@ msgid "Unsaved visualization"
 msgstr ""
 
 msgid "Edited"
-msgstr ""
-
-msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
 msgid "Update"

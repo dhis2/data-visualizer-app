@@ -14,7 +14,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-06-02T12:25:50.102Z\n"
+"POT-Creation-Date: 2022-06-17T07:32:29.449Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Yayra Gomado <ygomado@hispwca.org>, 2022\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
@@ -98,6 +98,36 @@ msgstr "Vos dimensions"
 msgid "Filter dimensions"
 msgstr "Filtrer les dimensions"
 
+msgid "Data value set"
+msgstr "Ensemble de valeurs de données"
+
+msgid "JSON"
+msgstr "JSON"
+
+msgid "XML"
+msgstr "XML"
+
+msgid "Other formats"
+msgstr "Autres formats"
+
+msgid "JRXML"
+msgstr "JRXML"
+
+msgid "Raw data SQL"
+msgstr "Données brutes SQL"
+
+msgid "Plain data source"
+msgstr "Sourc de données brutes"
+
+msgid "Microsoft Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr "CSV"
+
+msgid "Advanced"
+msgstr "Avancé"
+
 msgid "Graphics"
 msgstr "Graphisme"
 
@@ -107,17 +137,8 @@ msgstr "Image (.png)"
 msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
-msgid "Table layout"
-msgstr "Disposition du tableau"
-
-msgid "Excel (.xls)"
-msgstr "Excel (.xls)"
-
-msgid "CSV (.csv)"
-msgstr "CSV (.csv)"
-
-msgid "HTML (.html)"
-msgstr "HTML (.html)"
+msgid "Download data from this date"
+msgstr ""
 
 msgid "Metadata ID scheme"
 msgstr "Schéma ID des métadata"
@@ -131,44 +152,23 @@ msgstr "Code"
 msgid "Name"
 msgstr "Nom"
 
+msgid "Table layout"
+msgstr "Disposition du tableau"
+
+msgid "Excel (.xls)"
+msgstr "Excel (.xls)"
+
+msgid "CSV (.csv)"
+msgstr "CSV (.csv)"
+
+msgid "HTML (.html)"
+msgstr "HTML (.html)"
+
 msgid "Download"
 msgstr "Télécharger"
 
-msgid "Plain data source"
-msgstr "Sourc de données brutes"
-
-msgid "JSON"
-msgstr "JSON"
-
-msgid "XML"
-msgstr "XML"
-
-msgid "Excel"
-msgstr "Excel"
-
-msgid "CSV"
-msgstr "CSV"
-
-msgid "Advanced"
-msgstr "Avancé"
-
-msgid "Data value set"
-msgstr "Ensemble de valeurs de données"
-
-msgid "Other formats"
-msgstr "Autres formats"
-
-msgid "JRXML"
-msgstr "JRXML"
-
-msgid "Raw data SQL"
-msgstr "Données brutes SQL"
-
 msgid "Hide"
 msgstr "Masquer"
-
-msgid "Interpretations"
-msgstr "interprétations"
 
 msgid "All"
 msgstr "Tout"
@@ -228,6 +228,9 @@ msgstr "Sélectionner une période"
 msgid "Select years"
 msgstr "Sélectionner des années"
 
+msgid "Interpretations"
+msgstr "interprétations"
+
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
@@ -240,9 +243,6 @@ msgstr "Visualisation non enregistrée"
 
 msgid "Edited"
 msgstr "Modifié"
-
-msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr "Affichage de l'interprétation de {{interpretationDate}}"
 
 msgid "Update"
 msgstr "Mettre à jour"

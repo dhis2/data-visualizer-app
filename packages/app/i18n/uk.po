@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-06-02T12:25:50.102Z\n"
+"POT-Creation-Date: 2022-06-17T07:32:29.449Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Wanda <wanda@frontlineaids.org>, 2021\n"
 "Language-Team: Ukrainian (https://www.transifex.com/hisp-uio/teams/100509/uk/)\n"
@@ -83,6 +83,36 @@ msgstr ""
 msgid "Filter dimensions"
 msgstr ""
 
+msgid "Data value set"
+msgstr "Набір значення даних"
+
+msgid "JSON"
+msgstr "JSON"
+
+msgid "XML"
+msgstr "XML"
+
+msgid "Other formats"
+msgstr "Інші формати"
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
+msgstr ""
+
+msgid "Plain data source"
+msgstr "Джерело простих даних"
+
+msgid "Microsoft Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr "CSV"
+
+msgid "Advanced"
+msgstr "Розширені"
+
 msgid "Graphics"
 msgstr "Графіка"
 
@@ -92,16 +122,7 @@ msgstr ""
 msgid "PDF (.pdf)"
 msgstr ""
 
-msgid "Table layout"
-msgstr "Макет таблиці"
-
-msgid "Excel (.xls)"
-msgstr ""
-
-msgid "CSV (.csv)"
-msgstr ""
-
-msgid "HTML (.html)"
+msgid "Download data from this date"
 msgstr ""
 
 msgid "Metadata ID scheme"
@@ -116,44 +137,23 @@ msgstr "Код"
 msgid "Name"
 msgstr "Ім'я"
 
+msgid "Table layout"
+msgstr "Макет таблиці"
+
+msgid "Excel (.xls)"
+msgstr ""
+
+msgid "CSV (.csv)"
+msgstr ""
+
+msgid "HTML (.html)"
+msgstr ""
+
 msgid "Download"
 msgstr "Завантажити"
 
-msgid "Plain data source"
-msgstr "Джерело простих даних"
-
-msgid "JSON"
-msgstr "JSON"
-
-msgid "XML"
-msgstr "XML"
-
-msgid "Excel"
-msgstr ""
-
-msgid "CSV"
-msgstr "CSV"
-
-msgid "Advanced"
-msgstr "Розширені"
-
-msgid "Data value set"
-msgstr "Набір значення даних"
-
-msgid "Other formats"
-msgstr "Інші формати"
-
-msgid "JRXML"
-msgstr ""
-
-msgid "Raw data SQL"
-msgstr ""
-
 msgid "Hide"
 msgstr "Сховати"
-
-msgid "Interpretations"
-msgstr "Інтерпретації"
 
 msgid "All"
 msgstr "Всі"
@@ -212,6 +212,9 @@ msgstr ""
 msgid "Select years"
 msgstr ""
 
+msgid "Interpretations"
+msgstr "Інтерпретації"
+
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
@@ -221,9 +224,6 @@ msgid "Unsaved visualization"
 msgstr ""
 
 msgid "Edited"
-msgstr ""
-
-msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
 msgid "Update"
