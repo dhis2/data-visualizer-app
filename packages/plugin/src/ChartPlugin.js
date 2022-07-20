@@ -49,6 +49,7 @@ const ChartPlugin = ({
             canvasRef,
             visualization,
             onChartGenerated,
+            onToggleContextualMenu,
             responses,
             extraOptions,
             legendSets,

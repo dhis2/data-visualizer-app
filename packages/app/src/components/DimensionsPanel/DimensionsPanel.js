@@ -15,8 +15,8 @@ import {
 } from '../../actions/ui.js'
 import { ITEM_ATTRIBUTE_VERTICAL } from '../../modules/ui.js'
 import * as fromReducers from '../../reducers/index.js'
-import DialogManager from './Dialogs/DialogManager.js'
-import DndDimensionsPanel from './DndDimensionsPanel.js'
+import { default as DialogManager } from './Dialogs/DialogManager.js'
+import { default as DndDimensionsPanel } from './DndDimensionsPanel.js'
 import { styles } from './styles/DimensionsPanel.style.js'
 
 export const Dimensions = ({

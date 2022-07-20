@@ -12,12 +12,7 @@ import {
 } from '../../reducers/loader.js'
 import * as selectors from '../../reducers/settings.js'
 import { RECEIVED_SNACKBAR_MESSAGE } from '../../reducers/snackbar.js'
-import {
-    SET_UI_FROM_VISUALIZATION,
-    CLEAR_UI,
-    SET_UI_RIGHT_SIDEBAR_OPEN,
-    SET_UI_INTERPRETATION,
-} from '../../reducers/ui.js'
+import { SET_UI_FROM_VISUALIZATION, CLEAR_UI } from '../../reducers/ui.js'
 import {
     SET_VISUALIZATION,
     CLEAR_VISUALIZATION,
@@ -110,13 +105,6 @@ describe('index', () => {
                     value: true,
                 },
                 {
-                    type: SET_UI_INTERPRETATION,
-                    value: interpretation,
-                },
-                {
-                    type: SET_UI_RIGHT_SIDEBAR_OPEN,
-                },
-                {
                     type: SET_VISUALIZATION,
                     value: vis,
                 },
@@ -135,7 +123,6 @@ describe('index', () => {
                     fromActions.tDoLoadVisualization({
                         type: 'test',
                         id: 1,
-                        interpretationId: 1,
                         ouLevels: [],
                     })
                 )

@@ -13,15 +13,14 @@
         "redux-mock-store": "^1.5.4"
     },
     "dependencies": {
-        "@dhis2/analytics": "^23.11.1",
-        "@dhis2/app-runtime": "^3.2.0",
+        "@dhis2/analytics": "^23.12.5",
+        "@dhis2/app-runtime": "^3.4.4",
         "@dhis2/app-runtime-adapter-d2": "^1.1.0",
         "@dhis2/d2-i18n": "^1.1.0",
-        "@dhis2/d2-ui-interpretations": "^7.3.4",
         "@dhis2/data-visualizer-plugin": "39.1.5",
         "@dhis2/ui": "^7.7.3",
         "d2": "^31.9.1",
-        "history": "^4.7.2",
+        "history": "^5.3.0",
         "lodash-es": "^4.17.21",
         "prop-types": "^15",
         "raf": "3.4.1",

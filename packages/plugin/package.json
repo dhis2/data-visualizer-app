@@ -14,8 +14,8 @@
         "access": "public"
     },
     "dependencies": {
-        "@dhis2/analytics": "^23.11.1",
-        "@dhis2/app-runtime": "^3.2.0",
+        "@dhis2/analytics": "^23.12.5",
+        "@dhis2/app-runtime": "^3.4.4",
         "@dhis2/d2-i18n": "^1.1.0",
         "@dhis2/ui": "^7.7.3",
         "lodash-es": "^4.17.21",

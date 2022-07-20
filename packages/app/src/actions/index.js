@@ -80,7 +80,7 @@ const adaptAxisItems = (axis) =>
 // visualization, current, ui
 
 export const tDoLoadVisualization =
-    ({ id, interpretationId, ouLevels }) =>
+    ({ id, ouLevels }) =>
     async (dispatch, getState, engine) => {
         const onSuccess = async (response) => {
             dispatch(fromLoader.acSetPluginLoading(true))
@@ -92,17 +92,6 @@ export const tDoLoadVisualization =
             visualization.columns = adaptAxisItems(visualization.columns)
             visualization.rows = adaptAxisItems(visualization.rows)
             visualization.filters = adaptAxisItems(visualization.filters)
-
-            if (interpretationId) {
-                const interpretation = visualization.interpretations.find(
-                    (i) => i.id === interpretationId
-                )
-
-                if (interpretation) {
-                    dispatch(fromUi.acSetUiInterpretation(interpretation))
-                    dispatch(fromUi.acSetUiRightSidebarOpen())
-                }
-            }
 
             apiPostDataStatistics(engine, visualization.id)
 

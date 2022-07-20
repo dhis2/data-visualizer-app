@@ -12,24 +12,24 @@ import { getErrorVariantByStatusCode } from '../../modules/error.js'
 import history from '../../modules/history.js'
 import { visTypes } from '../../modules/visualization.js'
 import { sGetCurrent } from '../../reducers/current.js'
-import { DownloadMenu } from '../DownloadMenu/DownloadMenu.js'
-import { InterpretationsButton } from '../Interpretations/InterpretationsButton.js'
+import { ToolbarDownloadDropdown } from '../DownloadMenu/ToolbarDownloadDropdown.js'
 import UpdateButton from '../UpdateButton/UpdateButton.js'
 import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer.js'
 import VisualizationOptionsManager from '../VisualizationOptions/VisualizationOptionsManager.js'
+import { InterpretationsButton } from './InterpretationsButton.js'
 import styles from './styles/MenuBar.module.css'
 
 const onOpen = (id) => {
     const path = `/${id}`
     if (history.location.pathname === path) {
-        history.replace({ pathname: path, state: { isOpening: true } })
+        history.replace({ pathname: path }, { isOpening: true })
     } else {
         history.push(path)
     }
 }
 const onNew = () => {
     if (history.location.pathname === '/') {
-        history.replace({ pathname: '/', state: { isResetting: true } })
+        history.replace({ pathname: '/' }, { isResetting: true })
     } else {
         history.push('/')
     }
@@ -77,7 +77,9 @@ const UnconnectedMenuBar = ({ dataTest, ...props }, context) => (
             onError={getOnError(props)}
         />
         <VisualizationOptionsManager />
-        <DownloadMenu />
+
+        <ToolbarDownloadDropdown />
+
         <div className={styles.grow} />
         <InterpretationsButton />
     </div>

@@ -76,8 +76,6 @@ export const REMOVE_UI_ITEM_ATTRIBUTES = 'REMOVE_UI_ITEM_ATTRIBUTES'
 export const CLEAR_UI = 'CLEAR_UI'
 export const TOGGLE_UI_RIGHT_SIDEBAR_OPEN = 'TOGGLE_UI_RIGHT_SIDEBAR_OPEN'
 export const SET_UI_RIGHT_SIDEBAR_OPEN = 'SET_UI_RIGHT_SIDEBAR_OPEN'
-export const SET_UI_INTERPRETATION = 'SET_UI_INTERPRETATION'
-export const CLEAR_UI_INTERPRETATION = 'CLEAR_UI_INTERPRETATION'
 export const CLEAR_SERIES_TYPE = 'CLEAR_SERIES_TYPE'
 export const UPDATE_UI_SERIES_ITEM = 'UPDATE_UI_SERIES_ITEM'
 
@@ -99,7 +97,6 @@ export const DEFAULT_UI = {
     parentGraphMap: {},
     activeModalDialog: null,
     rightSidebarOpen: false,
-    interpretation: {},
     outlierAnalysis: null,
 }
 
@@ -623,16 +620,6 @@ export default (state = DEFAULT_UI, action) => {
                 ...state,
                 rightSidebarOpen: true,
             }
-        case SET_UI_INTERPRETATION:
-            return {
-                ...state,
-                interpretation: action.value,
-            }
-        case CLEAR_UI_INTERPRETATION:
-            return {
-                ...state,
-                interpretation: DEFAULT_UI.interpretation,
-            }
         case CLEAR_SERIES_TYPE:
             return {
                 ...state,
@@ -680,6 +667,8 @@ export const sGetUi = (state) => state.ui
 export const sGetUiType = (state) => sGetUi(state).type
 export const sGetUiOptions = (state) => sGetUi(state).options
 export const sGetUiLayout = (state) => sGetUi(state).layout
+export const sGetUiLayoutRows = (state) => sGetUi(state).layout.rows
+export const sGetUiLayoutColumns = (state) => sGetUi(state).layout.columns
 export const sGetUiItems = (state) => sGetUi(state).itemsByDimension
 export const sGetUiYearOverYearSeries = (state) =>
     sGetUi(state).yearOverYearSeries
@@ -693,7 +682,6 @@ export const sGetUiParentGraphMap = (state) => sGetUi(state).parentGraphMap
 export const sGetUiActiveModalDialog = (state) =>
     sGetUi(state).activeModalDialog
 export const sGetUiRightSidebarOpen = (state) => sGetUi(state).rightSidebarOpen
-export const sGetUiInterpretation = (state) => sGetUi(state).interpretation
 export const sGetAxes = (state) => sGetUi(state).axes
 
 // Selectors level 2

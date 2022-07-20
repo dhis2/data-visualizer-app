@@ -17,8 +17,6 @@ import {
     REMOVE_UI_ITEM_ATTRIBUTES,
     TOGGLE_UI_RIGHT_SIDEBAR_OPEN,
     SET_UI_RIGHT_SIDEBAR_OPEN,
-    SET_UI_INTERPRETATION,
-    CLEAR_UI_INTERPRETATION,
     CLEAR_SERIES_TYPE,
     UPDATE_UI_SERIES_ITEM,
     SET_UI_OPTION,
@@ -126,15 +124,6 @@ export const acToggleUiRightSidebarOpen = () => ({
 
 export const acSetUiRightSidebarOpen = () => ({
     type: SET_UI_RIGHT_SIDEBAR_OPEN,
-})
-
-export const acSetUiInterpretation = (value) => ({
-    type: SET_UI_INTERPRETATION,
-    value,
-})
-
-export const acClearUiInterpretation = () => ({
-    type: CLEAR_UI_INTERPRETATION,
 })
 
 export const acClearSeriesType = () => ({
