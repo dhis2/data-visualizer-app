@@ -8,6 +8,6 @@ export const acSetVisualization = (visualization) => ({
     value: visualization,
 })
 
-export const acClear = () => ({
+export const acClearVisualization = () => ({
     type: CLEAR_VISUALIZATION,
 })
