@@ -1,21 +1,81 @@
-import { useConfig, useDataEngine } from '@dhis2/app-runtime'
-import { D2Shim } from '@dhis2/app-runtime-adapter-d2'
+import { CachedDataQueryProvider } from '@dhis2/analytics'
+import { useDataEngine } from '@dhis2/app-runtime'
 import { DataStoreProvider } from '@dhis2/app-service-datastore'
 import React from 'react'
 import { Provider as ReduxProvider } from 'react-redux'
 import thunk from 'redux-thunk'
-import { App } from './components/App.js'
-import UserSettingsProvider, {
-    UserSettingsCtx,
-} from './components/UserSettingsProvider.js'
+import App from './components/App.js'
 import configureStore from './configureStore.js'
 import metadataMiddleware from './middleware/metadata.js'
 import { USER_DATASTORE_NAMESPACE } from './modules/currentAnalyticalObject.js'
-import history from './modules/history.js'
+import { systemSettingsKeys } from './modules/systemSettings.js'
+import {
+    userSettingsKeys,
+    USER_SETTINGS_DISPLAY_PROPERTY,
+    DERIVED_USER_SETTINGS_DISPLAY_NAME_PROPERTY,
+} from './modules/userSettings.js'
 import './locales/index.js'
 
+const query = {
+    currentUser: {
+        resource: 'me',
+        params: {
+            fields: 'id,username,displayName~rename(name)',
+        },
+    },
+    userSettings: {
+        resource: 'userSettings',
+        params: {
+            key: userSettingsKeys,
+        },
+    },
+    systemSettings: {
+        resource: 'systemSettings',
+        params: {
+            key: systemSettingsKeys,
+        },
+    },
+    rootOrgUnits: {
+        resource: 'organisationUnits',
+        params: {
+            fields: 'id,displayName,name',
+            userDataViewFallback: true,
+            paging: false,
+        },
+    },
+    orgUnitLevels: {
+        resource: 'organisationUnitLevels',
+        // TODO how to handle passing params like this?
+        params: ({ displayNameProp = 'displayName' } = {}) => ({
+            fields: `id,level,${displayNameProp}~rename(displayName),name`,
+            paging: false,
+        }),
+    },
+}
+
+const providerDataTransformation = ({
+    currentUser,
+    userSettings,
+    systemSettings,
+    rootOrgUnits,
+    orgUnitLevels,
+}) => {
+    return {
+        currentUser,
+        userSettings: {
+            ...userSettings,
+            [DERIVED_USER_SETTINGS_DISPLAY_NAME_PROPERTY]:
+                userSettings[USER_SETTINGS_DISPLAY_PROPERTY] === 'name'
+                    ? 'displayName'
+                    : 'displayShortName',
+        },
+        systemSettings,
+        rootOrgUnits: rootOrgUnits.organisationUnits,
+        orgUnitLevels: orgUnitLevels.organisationUnitLevels,
+    }
+}
+
 const AppWrapper = () => {
-    const { baseUrl } = useConfig()
     const engine = useDataEngine()
     const store = configureStore([
         thunk.withExtraArgument(engine),
@@ -26,44 +86,15 @@ const AppWrapper = () => {
         window.store = store
     }
 
-    const schemas = ['visualization', 'organisationUnit', 'userGroup']
-    const d2Config = {
-        schemas,
-    }
-
     return (
         <ReduxProvider store={store}>
             <DataStoreProvider namespace={USER_DATASTORE_NAMESPACE}>
-                <UserSettingsProvider>
-                    <UserSettingsCtx.Consumer>
-                        {({ userSettings }) => {
-                            return userSettings?.uiLocale ? (
-                                <D2Shim
-                                    d2Config={d2Config}
-                                    i18nRoot="./i18n_old"
-                                    locale={userSettings.uiLocale}
-                                >
-                                    {({ d2 }) => {
-                                        if (!d2) {
-                                            // TODO: Handle errors in d2 initialization
-                                            return null
-                                        } else {
-                                            return (
-                                                <App
-                                                    d2={d2}
-                                                    location={history.location}
-                                                    baseUrl={baseUrl}
-                                                    dataEngine={engine}
-                                                    userSettings={userSettings}
-                                                />
-                                            )
-                                        }
-                                    }}
-                                </D2Shim>
-                            ) : null
-                        }}
-                    </UserSettingsCtx.Consumer>
-                </UserSettingsProvider>
+                <CachedDataQueryProvider
+                    query={query}
+                    dataTransformation={providerDataTransformation}
+                >
+                    <App />
+                </CachedDataQueryProvider>
             </DataStoreProvider>
         </ReduxProvider>
     )
