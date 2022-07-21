@@ -1,5 +1,6 @@
 import {
     FileMenu,
+    useCachedDataQuery,
     VIS_TYPE_GROUP_ALL,
     VIS_TYPE_GROUP_CHARTS,
 } from '@dhis2/analytics'
@@ -50,49 +51,49 @@ const filterVisTypes = [
     })),
 ]
 
-const UnconnectedMenuBar = ({ dataTest, ...props }, context) => (
-    <div className={styles.menuBar} data-test={dataTest}>
-        <UpdateVisualizationContainer
-            renderComponent={(handler) => (
-                <UpdateButton
-                    className={styles.updateButton}
-                    small
-                    onClick={handler}
-                    dataTest={`${dataTest}-update-button`}
-                />
-            )}
-        />
-        <FileMenu
-            currentUser={context.d2.currentUser}
-            fileType={props.apiObjectName}
-            fileObject={props.current}
-            filterVisTypes={filterVisTypes}
-            defaultFilterVisType={VIS_TYPE_GROUP_ALL}
-            onOpen={onOpen}
-            onNew={onNew}
-            onRename={getOnRename(props)}
-            onSave={getOnSave(props)}
-            onSaveAs={getOnSaveAs(props)}
-            onDelete={getOnDelete(props)}
-            onError={getOnError(props)}
-        />
-        <VisualizationOptionsManager />
+const UnconnectedMenuBar = ({ dataTest, ...props }) => {
+    const { currentUser} = useCachedDataQuery()
 
-        <ToolbarDownloadDropdown />
+    return (
+        <div className={styles.menuBar} data-test={dataTest}>
+            <UpdateVisualizationContainer
+                renderComponent={(handler) => (
+                    <UpdateButton
+                        className={styles.updateButton}
+                        small
+                        onClick={handler}
+                        dataTest={`${dataTest}-update-button`}
+                    />
+                )}
+            />
+            <FileMenu
+                currentUser={currentUser}
+                fileType={props.apiObjectName}
+                fileObject={props.current}
+                filterVisTypes={filterVisTypes}
+                defaultFilterVisType={VIS_TYPE_GROUP_ALL}
+                onOpen={onOpen}
+                onNew={onNew}
+                onRename={getOnRename(props)}
+                onSave={getOnSave(props)}
+                onSaveAs={getOnSaveAs(props)}
+                onDelete={getOnDelete(props)}
+                onError={getOnError(props)}
+            />
+            <VisualizationOptionsManager />
 
-        <div className={styles.grow} />
-        <InterpretationsButton />
-    </div>
-)
+            <ToolbarDownloadDropdown />
+
+            <div className={styles.grow} />
+            <InterpretationsButton />
+        </div>
+    )
+}
 
 UnconnectedMenuBar.propTypes = {
     apiObjectName: PropTypes.string,
     current: PropTypes.object,
     dataTest: PropTypes.string,
-}
-
-UnconnectedMenuBar.contextTypes = {
-    d2: PropTypes.object,
 }
 
 const mapStateToProps = (state) => ({

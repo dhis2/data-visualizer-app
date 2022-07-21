@@ -120,7 +120,7 @@ export class DialogManager extends Component {
 
     fetchRecommended = debounce(async () => {
         const ids = await apiFetchRecommendedIds(
-            this.context.dataEngine,
+            this.props.dataEngine,
             this.props.dxIds,
             this.props.ouIds
         )
@@ -462,12 +462,9 @@ export class DialogManager extends Component {
     }
 }
 
-DialogManager.contextTypes = {
-    dataEngine: PropTypes.object,
-}
-
 DialogManager.propTypes = {
     changeDialog: PropTypes.func.isRequired,
+    dataEngine: PropTypes.object.isRequired,
     dimensionIdsInLayout: PropTypes.array.isRequired,
     ouIds: PropTypes.array.isRequired,
     setRecommendedIds: PropTypes.func.isRequired,

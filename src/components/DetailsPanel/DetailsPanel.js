@@ -1,4 +1,8 @@
-import { AboutAOUnit, InterpretationsUnit } from '@dhis2/analytics'
+import {
+    AboutAOUnit,
+    InterpretationsUnit,
+    useCachedDataQuery,
+} from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 import { stringify } from 'query-string'
 import React from 'react'
@@ -18,30 +22,27 @@ const navigateToOpenModal = (interpretationId, initialFocus) => {
     )
 }
 
-const DetailsPanel = (
-    { interpretationsUnitRef, visualization, disabled },
-    context
-) => (
-    <div className={classes.panel}>
-        <AboutAOUnit type="visualization" id={visualization.id} />
-        <InterpretationsUnit
-            ref={interpretationsUnitRef}
-            type="visualization"
-            id={visualization.id}
-            currentUser={context.d2.currentUser}
-            onInterpretationClick={(interpretationId) =>
-                navigateToOpenModal(interpretationId)
-            }
-            onReplyIconClick={(interpretationId) =>
-                navigateToOpenModal(interpretationId, true)
-            }
-            disabled={disabled}
-        />
-    </div>
-)
+const DetailsPanel = ({ interpretationsUnitRef, visualization, disabled }) => {
+    const { currentUser } = useCachedDataQuery()
 
-DetailsPanel.contextTypes = {
-    d2: PropTypes.object,
+    return (
+        <div className={classes.panel}>
+            <AboutAOUnit type="visualizations" id={visualization.id} />
+            <InterpretationsUnit
+                ref={interpretationsUnitRef}
+                type="visualization"
+                id={visualization.id}
+                currentUser={currentUser}
+                onInterpretationClick={(interpretationId) =>
+                    navigateToOpenModal(interpretationId)
+                }
+                onReplyIconClick={(interpretationId) =>
+                    navigateToOpenModal(interpretationId, true)
+                }
+                disabled={disabled}
+            />
+        </div>
+    )
 }
 
 DetailsPanel.propTypes = {

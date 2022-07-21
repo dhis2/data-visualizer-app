@@ -1,3 +1,4 @@
+import { useDataEngine } from '@dhis2/app-runtime'
 import {
     DimensionMenu,
     DIMENSION_ID_ASSIGNED_CATEGORIES,
@@ -29,6 +30,7 @@ export const Dimensions = ({
     ui,
     onDimensionClick,
 }) => {
+    const dataEngine = useDataEngine()
     const [menuIsOpen, setMenuIsOpen] = useState(false)
     const [dimensionId, setDimensionId] = useState(null)
     const [ref, setRef] = useState()
@@ -89,7 +91,7 @@ export const Dimensions = ({
                     </Popper>
                 </Layer>
             )}
-            <DialogManager />
+            <DialogManager dataEngine={dataEngine} />
         </div>
     )
 }
