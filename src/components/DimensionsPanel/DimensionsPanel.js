@@ -1,10 +1,11 @@
-import { useDataEngine } from '@dhis2/app-runtime'
 import {
     DimensionMenu,
     DIMENSION_ID_ASSIGNED_CATEGORIES,
     DIMENSION_ID_DATA,
     VIS_TYPE_SCATTER,
+    useCachedDataQuery,
 } from '@dhis2/analytics'
+import { useDataEngine } from '@dhis2/app-runtime'
 import { Layer, Popper } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
@@ -15,6 +16,7 @@ import {
     acRemoveUiLayoutDimensions,
 } from '../../actions/ui.js'
 import { ITEM_ATTRIBUTE_VERTICAL } from '../../modules/ui.js'
+import { DERIVED_USER_SETTINGS_DISPLAY_NAME_PROPERTY } from '../../modules/userSettings.js'
 import * as fromReducers from '../../reducers/index.js'
 import { default as DialogManager } from './Dialogs/DialogManager.js'
 import { default as DndDimensionsPanel } from './DndDimensionsPanel.js'
@@ -34,6 +36,8 @@ export const Dimensions = ({
     const [menuIsOpen, setMenuIsOpen] = useState(false)
     const [dimensionId, setDimensionId] = useState(null)
     const [ref, setRef] = useState()
+
+    const { rootOrgUnits, systemSettings, userSettings } = useCachedDataQuery()
 
     const toggleMenu = () => {
         if (menuIsOpen) {
@@ -91,7 +95,14 @@ export const Dimensions = ({
                     </Popper>
                 </Layer>
             )}
-            <DialogManager dataEngine={dataEngine} />
+            <DialogManager
+                dataEngine={dataEngine}
+                settings={systemSettings}
+                displayNameProperty={
+                    userSettings[DERIVED_USER_SETTINGS_DISPLAY_NAME_PROPERTY]
+                }
+                rootOrgUnits={rootOrgUnits}
+            />
         </div>
     )
 }
@@ -112,8 +123,9 @@ const mapStateToProps = (state) => ({
     dimensions: fromReducers.fromDimensions.sGetDimensions(state),
     layout: fromReducers.fromUi.sGetUiLayout(state),
     itemsByDimension: fromReducers.fromUi.sGetUiItems(state),
-    layoutHasAssignedCategories:
-        fromReducers.fromUi.sLayoutHasAssignedCategories(state),
+    layoutHasAssignedCategories: fromReducers.fromUi.sLayoutHasAssignedCategories(
+        state
+    ),
     getCurrentAxisId: (dimensionId) =>
         fromReducers.fromUi.sGetAxisIdByDimensionId(state, dimensionId),
 })

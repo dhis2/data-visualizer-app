@@ -53,11 +53,6 @@ import {
 import { sGetDimensions } from '../../../reducers/dimensions.js'
 import { sGetMetadata } from '../../../reducers/metadata.js'
 import {
-    sGetRootOrgUnits,
-    sGetSettings,
-    sGetSettingsDisplayNameProperty,
-} from '../../../reducers/settings.js'
-import {
     sGetUiItems,
     sGetUiItemsByDimension,
     sGetUiActiveModalDialog,
@@ -279,15 +274,17 @@ export class DialogManager extends Component {
                         ? i18n.t(
                               `'{{visualizationType}}' is intended to show a single data item. Only the first item will be used and saved.`,
                               {
-                                  visualizationType:
-                                      getDisplayNameByVisType(visType),
+                                  visualizationType: getDisplayNameByVisType(
+                                      visType
+                                  ),
                               }
                           )
                         : i18n.t(
                               `'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of items. Only the first {{maxNumber}} items will be used and saved.`,
                               {
-                                  visualiationType:
-                                      getDisplayNameByVisType(visType),
+                                  visualiationType: getDisplayNameByVisType(
+                                      visType
+                                  ),
                                   maxNumber: axisMaxNumberOfItems,
                               }
                           )
@@ -493,16 +490,13 @@ DialogManager.defaultProps = {
 }
 
 const mapStateToProps = (state) => ({
-    displayNameProperty: sGetSettingsDisplayNameProperty(state),
     dialogId: sGetUiActiveModalDialog(state),
     dimensions: sGetDimensions(state),
     metadata: sGetMetadata(state),
     parentGraphMap: sGetUiParentGraphMap(state),
     dxIds: sGetUiItemsByDimension(state, DIMENSION_ID_DATA),
     ouIds: sGetUiItemsByDimension(state, DIMENSION_ID_ORGUNIT),
-    rootOrgUnits: sGetRootOrgUnits(state),
     selectedItems: sGetUiItems(state),
-    settings: sGetSettings(state),
     type: sGetUiType(state),
     getAxisIdByDimensionId: (dimensionId) =>
         sGetAxisIdByDimensionId(state, dimensionId),
