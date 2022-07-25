@@ -16,8 +16,9 @@ import { acClearCurrent, acSetCurrentFromUi } from '../actions/current.js'
 import { tSetDimensions } from '../actions/dimensions.js'
 import { clearAll, tDoLoadVisualization } from '../actions/index.js'
 import { acAddMetadata } from '../actions/metadata.js'
+import { acAddSettings } from '../actions/settings.js'
 import { acAddParentGraphMap, acSetUiFromVisualization } from '../actions/ui.js'
-import { tLoadUserAuthority } from '../actions/user.js'
+import { acReceivedUser, tLoadUserAuthority } from '../actions/user.js'
 import { acClearVisualization } from '../actions/visualization.js'
 import { Snackbar } from '../components/Snackbar/Snackbar.js'
 import { USER_DATASTORE_CURRENT_AO_KEY } from '../modules/currentAnalyticalObject.js'
@@ -54,7 +55,7 @@ const App = () => {
     const ui = useSelector(sGetUi)
     const visualization = useSelector(sGetVisualization)
 
-    const { rootOrgUnits, orgUnitLevels } = useCachedDataQuery()
+    const { currentUser, orgUnitLevels, rootOrgUnits, userSettings } = useCachedDataQuery()
 
     const interpretationsUnitRef = useRef()
     const onInterpretationUpdate = () => {
@@ -132,7 +133,10 @@ const App = () => {
     }
 
     useEffect(() => {
+        dispatch(acAddSettings(userSettings))
+        dispatch(tLoadUserAuthority('ALL'))
         dispatch(tLoadUserAuthority(APPROVAL_LEVEL_OPTION_AUTH))
+        dispatch(acReceivedUser(currentUser))
         dispatch(tSetDimensions())
 
         const metaData = { ...defaultMetadata() }
