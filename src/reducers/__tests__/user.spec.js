@@ -25,7 +25,6 @@ describe('reducer: user', () => {
         const expectedState = {
             id,
             username,
-            isSuperuser: true,
         }
 
         const actualState = reducer(DEFAULT_USER, action)

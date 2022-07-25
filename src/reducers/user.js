@@ -4,7 +4,6 @@ export const SET_USER_AUTHORITY = 'SET_USER_AUTHORITY'
 export const DEFAULT_USER = {
     id: '',
     username: '',
-    isSuperuser: false,
     authorities: {},
 }
 
@@ -31,7 +30,6 @@ function formatUserObject(userObject) {
     return {
         id: userObject.id,
         username: userObject.username,
-        isSuperuser: userObject.authorities.includes('ALL'),
     }
 }
 
@@ -41,5 +39,5 @@ export const sGetUser = (state) => state.user
 
 export const sGetUserId = (state) => sGetUser(state).id
 export const sGetUsername = (state) => sGetUser(state).username
-export const sGetIsSuperuser = (state) => sGetUser(state).isSuperuser
+export const sGetIsSuperuser = (state) => sGetUser(state).authorities.has('ALL')
 export const sGetUserAuthorities = (state) => sGetUser(state).authorities
