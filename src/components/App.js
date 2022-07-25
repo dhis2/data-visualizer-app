@@ -158,14 +158,13 @@ const App = () => {
             const isSaving = location.state?.isSaving
             const isOpening = location.state?.isOpening
             const isResetting = location.state?.isResetting
-            /*
             const isModalOpening = location.state?.isModalOpening
             const isModalClosing = location.state?.isModalClosing
             const isValidLocationChange =
                 previousLocation !== location.pathname &&
                 !isModalOpening &&
                 !isModalClosing
-*/
+
             if (
                 // currently editing
                 getVisualizationState(visualization, current) === STATE_DIRTY &&
@@ -180,7 +179,7 @@ const App = () => {
                     isSaving ||
                     isOpening ||
                     isResetting ||
-                    previousLocation !== location.pathname
+                    isValidLocationChange
                 ) {
                     loadVisualization(location)
                 }
