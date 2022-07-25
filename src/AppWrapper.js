@@ -20,7 +20,7 @@ const query = {
     currentUser: {
         resource: 'me',
         params: {
-            fields: 'id,username,displayName~rename(name),authorities',
+            fields: 'id,username,displayName~rename(name)',
         },
     },
     userSettings: {
