@@ -2,12 +2,11 @@ import { shallow } from 'enzyme'
 import React from 'react'
 import { getStubContext } from '../../../config/testsContext.js'
 import * as actions from '../../actions/index.js'
-import { CURRENT_AO_KEY } from '../../api/userDataStore.js'
-import * as userDataStore from '../../api/userDataStore.js'
+import { USER_DATASTORE_CURRENT_AO_KEY } from '../../modules/currentAnalyticalObject.js'
 import history from '../../modules/history.js'
 import * as ui from '../../modules/ui.js'
 import { DEFAULT_CURRENT } from '../../reducers/current.js'
-import { UnconnectedApp as App } from '../App.js'
+import App from '../App.js'
 import { Snackbar } from '../Snackbar/Snackbar.js'
 
 jest.mock('@dhis2/analytics', () => ({
@@ -78,7 +77,6 @@ describe('App', () => {
         /* eslint-disable no-import-assign, import/namespace */
         props.setVisualization = jest.fn()
         actions.clearVisualization = jest.fn()
-        userDataStore.apiFetchAOFromUserDataStore = jest.fn()
         ui.getParentGraphMapFromVisualization = jest.fn()
         /* esling-enable no-import-assign, import/namespace */
     })
@@ -168,15 +166,11 @@ describe('App', () => {
         })
 
         it('loads AO from user data store if id equals to "currentAnalyticalObject"', (done) => {
-            props.location.pathname = '/' + CURRENT_AO_KEY
+            props.location.pathname = '/' + USER_DATASTORE_CURRENT_AO_KEY
 
             app()
 
             setTimeout(() => {
-                expect(
-                    userDataStore.apiFetchAOFromUserDataStore
-                ).toBeCalledTimes(1)
-
                 expect(props.addParentGraphMap).toBeCalledTimes(1)
                 expect(props.clearVisualization).toBeCalledTimes(1)
                 expect(props.clearCurrent).toBeCalledTimes(1)
