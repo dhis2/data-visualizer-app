@@ -12,7 +12,11 @@ import {
 } from '@dhis2/ui'
 import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { acClearCurrent, acSetCurrentFromUi } from '../actions/current.js'
+import {
+    acClearCurrent,
+    acSetCurrentFromUi,
+    tSetCurrentFromUi,
+} from '../actions/current.js'
 import { tSetDimensions } from '../actions/dimensions.js'
 import { clearAll, tDoLoadVisualization } from '../actions/index.js'
 import { acAddMetadata } from '../actions/metadata.js'
@@ -43,19 +47,20 @@ import './App.css'
 import './scrollbar.css'
 
 const App = () => {
+    const [currentAO] = useSetting(USER_DATASTORE_CURRENT_AO_KEY)
+
     const [previousLocation, setPreviousLocation] = useState()
     const [initialLoadIsComplete, setInitialLoadIsComplete] = useState(false)
     const [locationToConfirm, setLocationToConfirm] = useState()
 
     const dispatch = useDispatch()
 
-    const [currentAO] = useSetting(USER_DATASTORE_CURRENT_AO_KEY)
-
     const current = useSelector(sGetCurrent)
     const ui = useSelector(sGetUi)
     const visualization = useSelector(sGetVisualization)
 
-    const { currentUser, orgUnitLevels, rootOrgUnits, userSettings } = useCachedDataQuery()
+    const { currentUser, orgUnitLevels, rootOrgUnits, userSettings } =
+        useCachedDataQuery()
 
     const interpretationsUnitRef = useRef()
     const onInterpretationUpdate = () => {
@@ -90,7 +95,7 @@ const App = () => {
         return false
     }
 
-    const loadVisualization = async (location) => {
+    const loadVisualization = (location) => {
         if (location.pathname.length > 1) {
             // /currentAnalyticalObject
             // /${id}/
@@ -113,11 +118,11 @@ const App = () => {
                 dispatch(acClearCurrent())
 
                 dispatch(acSetUiFromVisualization(currentAO))
-                dispatch(acSetCurrentFromUi(ui))
+                dispatch(tSetCurrentFromUi())
             }
 
             if (!urlContainsCurrentAOKey && isRefetchNeeded(location)) {
-                await dispatch(
+                dispatch(
                     tDoLoadVisualization({
                         id,
                         ouLevels: orgUnitLevels,
