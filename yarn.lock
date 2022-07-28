@@ -5746,9 +5746,9 @@ d2-utilizr@^0.2.16:
     lodash.isstring "^4.0.1"
 
 d2@^31.9.1:
-  version "31.9.1"
-  resolved "https://registry.yarnpkg.com/d2/-/d2-31.9.1.tgz#5b0b8a520dd04a01593698e63156779cbf7f5f88"
-  integrity sha512-dnaDo4reXNt0ySQ6RBUo3EbnixTPs8TrTObYG4HA4ghXF6Xvvru9whUtiR1cRsqD/qlKXxEaUe5CFLw6l+SvyQ==
+  version "31.10.2"
+  resolved "https://registry.yarnpkg.com/d2/-/d2-31.10.2.tgz#93023171a703ad37dedf273b07e9643155e42466"
+  integrity sha512-kW/2DKv567foH9JNEBtebfOW6gdmHzNd5dsvA7m8aVK0IZAXYd++lKKqmTUPzpjSRHuM7oUAnTw29/a5JIdfWQ==
   dependencies:
     isomorphic-fetch "^2.2.1"
 
@@ -8620,7 +8620,7 @@ is-shared-array-buffer@^1.0.2:
 is-stream@^1.0.1, is-stream@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/is-stream/-/is-stream-1.1.0.tgz#12d4a3dd4e68e0b79ceb8dbc84173ae80d91ca44"
-  integrity sha1-EtSj3U5o4Lec6428hBc66A2RykQ=
+  integrity sha512-uQPm8kcs47jx38atAcWTVxyltQYoPT68y9aWYdV6yWXSyW8mzSat0TL6CiWdZeCdF3KrAvpVtnHbTv4RN+rqdQ==
 
 is-stream@^2.0.0:
   version "2.0.0"
@@ -8724,7 +8724,7 @@ isobject@^3.0.0, isobject@^3.0.1:
 isomorphic-fetch@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/isomorphic-fetch/-/isomorphic-fetch-2.2.1.tgz#611ae1acf14f5e81f729507472819fe9733558a9"
-  integrity sha1-YRrhrPFPXoH3KVB0coGf6XM1WKk=
+  integrity sha512-9c4TNAKYXM5PRyVcwUZrF3W09nQ+sO7+jydgs4ZGW9dhsLG2VOlISJABombdQqQRXCwuYG3sYV/puGf5rp0qmA==
   dependencies:
     node-fetch "^1.0.1"
     whatwg-fetch ">=0.10.0"
