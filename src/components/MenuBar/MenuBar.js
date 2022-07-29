@@ -52,7 +52,7 @@ const filterVisTypes = [
 ]
 
 const UnconnectedMenuBar = ({ dataTest, ...props }) => {
-    const { currentUser} = useCachedDataQuery()
+    const { currentUser } = useCachedDataQuery()
 
     return (
         <div className={styles.menuBar} data-test={dataTest}>

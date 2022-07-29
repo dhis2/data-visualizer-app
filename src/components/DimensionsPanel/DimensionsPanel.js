@@ -123,9 +123,8 @@ const mapStateToProps = (state) => ({
     dimensions: fromReducers.fromDimensions.sGetDimensions(state),
     layout: fromReducers.fromUi.sGetUiLayout(state),
     itemsByDimension: fromReducers.fromUi.sGetUiItems(state),
-    layoutHasAssignedCategories: fromReducers.fromUi.sLayoutHasAssignedCategories(
-        state
-    ),
+    layoutHasAssignedCategories:
+        fromReducers.fromUi.sLayoutHasAssignedCategories(state),
     getCurrentAxisId: (dimensionId) =>
         fromReducers.fromUi.sGetAxisIdByDimensionId(state, dimensionId),
 })

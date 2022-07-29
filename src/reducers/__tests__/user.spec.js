@@ -16,9 +16,7 @@ describe('reducer: user', () => {
             value: {
                 id,
                 username,
-                authorities: [
-                    'ALL'
-                ],
+                authorities: ['ALL'],
             },
         }
 

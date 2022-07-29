@@ -274,17 +274,15 @@ export class DialogManager extends Component {
                         ? i18n.t(
                               `'{{visualizationType}}' is intended to show a single data item. Only the first item will be used and saved.`,
                               {
-                                  visualizationType: getDisplayNameByVisType(
-                                      visType
-                                  ),
+                                  visualizationType:
+                                      getDisplayNameByVisType(visType),
                               }
                           )
                         : i18n.t(
                               `'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of items. Only the first {{maxNumber}} items will be used and saved.`,
                               {
-                                  visualiationType: getDisplayNameByVisType(
-                                      visType
-                                  ),
+                                  visualiationType:
+                                      getDisplayNameByVisType(visType),
                                   maxNumber: axisMaxNumberOfItems,
                               }
                           )

@@ -1,4 +1,7 @@
-import { InterpretationModal as AnalyticsInterpretationModal, useCachedDataQuery } from '@dhis2/analytics'
+import {
+    InterpretationModal as AnalyticsInterpretationModal,
+    useCachedDataQuery,
+} from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
