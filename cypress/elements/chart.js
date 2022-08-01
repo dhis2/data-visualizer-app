@@ -15,8 +15,7 @@ const chartContainerEl = '.highcharts-container'
 const highchartsLegendEl = '.highcharts-legend'
 const highchartsTitleEl = '.highcharts-title'
 const highchartsSubtitleEl = '.highcharts-subtitle'
-const highchartsSeriesKeyItemEl = '.data-test-series-key-item' // Note: Highcharts strips out 'data-test' and similar attributes, hence 'class="data-test-..." was used instead
-const highchartsSeriesKeyItemBulletEl = '.data-test-series-key-item-bullet'
+const highchartsSeriesKeyItemEl = '.highcharts-legend-item' // Note: Highcharts strips out 'data-test' and similar attributes, hence 'class="data-test-..." was used instead
 const highchartsChartItemEl = '.highcharts-series'
 const unsavedVisualizationTitleText = 'Unsaved visualization'
 const AOTitleEl = 'AO-title'
@@ -110,13 +109,6 @@ export const expectAOTitleToNotBeDirty = () =>
 
 export const expectSeriesKeyToHaveSeriesKeyItems = (itemAmount) =>
     cy.get(highchartsSeriesKeyItemEl).should('have.length', itemAmount)
-
-export const expectSeriesKeyItemToHaveBullets = (itemIndex, bulletAmount) =>
-    cy
-        .get(highchartsSeriesKeyItemEl)
-        .eq(itemIndex)
-        .find(highchartsSeriesKeyItemBulletEl)
-        .should('have.length', bulletAmount)
 
 export const clickChartItem = (index) =>
     cy.get(highchartsChartItemEl).children().eq(index).click()
