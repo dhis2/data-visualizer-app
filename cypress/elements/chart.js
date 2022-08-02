@@ -15,7 +15,7 @@ const chartContainerEl = '.highcharts-container'
 const highchartsLegendEl = '.highcharts-legend'
 const highchartsTitleEl = '.highcharts-title'
 const highchartsSubtitleEl = '.highcharts-subtitle'
-const highchartsSeriesKeyItemEl = '.highcharts-legend-item' // Note: Highcharts strips out 'data-test' and similar attributes, hence 'class="data-test-..." was used instead
+const highchartsSeriesKeyItemEl = '.highcharts-legend-item'
 const highchartsChartItemEl = '.highcharts-series'
 const unsavedVisualizationTitleText = 'Unsaved visualization'
 const AOTitleEl = 'AO-title'
