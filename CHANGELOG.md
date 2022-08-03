@@ -1,3 +1,10 @@
+## [39.2.1](https://github.com/dhis2/data-visualizer-app/compare/v39.2.0...v39.2.1) (2022-08-03)
+
+
+### Bug Fixes
+
+* bump Analytics to latest + Cypress changes + update history impl (DHIS2-12719) ([#2126](https://github.com/dhis2/data-visualizer-app/issues/2126)) ([d9791c3](https://github.com/dhis2/data-visualizer-app/commit/d9791c3fce15b32e1b9bb3dd3478c207332d0f61))
+
 # [39.2.0](https://github.com/dhis2/data-visualizer-app/compare/v39.1.5...v39.2.0) (2022-07-20)
 
 
