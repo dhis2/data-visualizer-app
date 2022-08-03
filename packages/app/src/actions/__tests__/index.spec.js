@@ -363,10 +363,10 @@ describe('index', () => {
                         expectedVis
                     )
                     expect(history.default.replace).toHaveBeenCalled()
-                    expect(history.default.replace).toHaveBeenCalledWith({
-                        pathname: `/${uid}`,
-                        state: { isSaving: true },
-                    })
+                    expect(history.default.replace).toHaveBeenCalledWith(
+                        { pathname: `/${uid}` },
+                        { isSaving: true }
+                    )
                 })
         })
 
@@ -388,10 +388,10 @@ describe('index', () => {
                         expectedVis
                     )
                     expect(history.default.push).toHaveBeenCalled()
-                    expect(history.default.push).toHaveBeenCalledWith({
-                        pathname: `/${uid}`,
-                        state: { isSaving: true },
-                    })
+                    expect(history.default.push).toHaveBeenCalledWith(
+                        { pathname: `/${uid}` },
+                        { isSaving: true }
+                    )
                 })
         })
     })
