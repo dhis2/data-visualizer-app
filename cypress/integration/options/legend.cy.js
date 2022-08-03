@@ -12,7 +12,6 @@ import {
 } from '@dhis2/analytics'
 import {
     expectChartTitleToBeVisible,
-    expectSeriesKeyItemToHaveBullets,
     expectSeriesKeyToHaveSeriesKeyItems,
     expectVisualizationToBeVisible,
 } from '../../elements/chart.js'
@@ -57,6 +56,7 @@ import {
     expectLegedKeyItemAmountToBe,
     OPTIONS_TAB_SERIES,
     setItemToType,
+    clickOptionsModalHideButton,
 } from '../../elements/optionsModal/index.js'
 import { goToStartPage } from '../../elements/startScreen.js'
 import { changeVisType } from '../../elements/visualizationTypeSelector.js'
@@ -75,12 +75,10 @@ const TEST_ITEMS = [
     {
         name: 'ANC 1 Coverage',
         legendSet: 'ANC Coverage',
-        legends: 7,
     },
     {
         name: 'Diarrhoea <5 y incidence rate (%)',
         legendSet: 'Diarrhoea',
-        legends: 6,
     },
 ]
 
@@ -565,14 +563,13 @@ describe('Options - Legend', () => {
         it('legend options are not available', () => {
             clickMenuBarOptionsButton()
             expectOptionsTabToBeHidden(OPTIONS_TAB_LEGEND)
+            clickOptionsModalHideButton()
         })
         it('legend key is hidden', () => {
             expectLegendKeyToBeHidden()
         })
-        it(`series key displays the correct amount of bullets (1 each)`, () => {
+        it(`series key displays the correct amount of items`, () => {
             expectSeriesKeyToHaveSeriesKeyItems(2)
-            expectSeriesKeyItemToHaveBullets(0, 1)
-            expectSeriesKeyItemToHaveBullets(1, 1)
         })
     })
     describe('Non-legend set type displays correctly: Line', () => {
@@ -596,10 +593,8 @@ describe('Options - Legend', () => {
         it('legend key is hidden', () => {
             expectLegendKeyToBeHidden()
         })
-        it(`series key displays the correct amount of bullets (1 each)`, () => {
+        it(`series key displays the correct amount of items`, () => {
             expectSeriesKeyToHaveSeriesKeyItems(2)
-            expectSeriesKeyItemToHaveBullets(0, 1)
-            expectSeriesKeyItemToHaveBullets(1, 1)
         })
     })
     describe('The chart series key displaying legend colors', () => {
@@ -610,10 +605,8 @@ describe('Options - Legend', () => {
             clickDimensionModalUpdateButton()
             expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
         })
-        it(`series key items displays the correct amount of bullets (1 each)`, () => {
+        it(`series key displays the correct amount of items`, () => {
             expectSeriesKeyToHaveSeriesKeyItems(2)
-            expectSeriesKeyItemToHaveBullets(0, 1)
-            expectSeriesKeyItemToHaveBullets(1, 1)
         })
         it('enables legend', () => {
             clickMenuBarOptionsButton()
@@ -624,11 +617,6 @@ describe('Options - Legend', () => {
             clickOptionsModalUpdateButton()
             expectChartTitleToBeVisible()
         })
-        it(`series key items displays the correct amount of bullets (first: ${TEST_ITEMS[0].legends}, second: ${TEST_ITEMS[1].legends})`, () => {
-            expectSeriesKeyToHaveSeriesKeyItems(2)
-            expectSeriesKeyItemToHaveBullets(0, TEST_ITEMS[0].legends)
-            expectSeriesKeyItemToHaveBullets(1, TEST_ITEMS[1].legends)
-        })
         it(`changes legend display strategy to fixed (${TEST_ITEMS[1].legendSet})`, () => {
             clickMenuBarOptionsButton()
             clickOptionsTab(OPTIONS_TAB_LEGEND)
@@ -638,11 +626,6 @@ describe('Options - Legend', () => {
             changeFixedLegendSet(TEST_ITEMS[1].legendSet)
             clickOptionsModalUpdateButton()
             expectChartTitleToBeVisible()
-        })
-        it(`series key displays the correct amount of bullets (${TEST_ITEMS[1].legends} each)`, () => {
-            expectSeriesKeyToHaveSeriesKeyItems(2)
-            expectSeriesKeyItemToHaveBullets(0, TEST_ITEMS[1].legends)
-            expectSeriesKeyItemToHaveBullets(1, TEST_ITEMS[1].legends)
         })
     })
     describe('When data is not on series, legend is only applied when strategy fixed is used', () => {
@@ -679,9 +662,8 @@ describe('Options - Legend', () => {
             expectLegendKeyToBeVisible()
             expectLegedKeyItemAmountToBe(1)
         })
-        it(`series key items displays the correct amount of bullets (${TEST_ITEM.legends})`, () => {
+        it(`series key displays the correct amount of items`, () => {
             expectSeriesKeyToHaveSeriesKeyItems(1)
-            expectSeriesKeyItemToHaveBullets(0, TEST_ITEMS[0].legends)
         })
         it('moves period dimension to series axis', () => {
             openContextMenu(DIMENSION_ID_PERIOD)
@@ -695,11 +677,6 @@ describe('Options - Legend', () => {
         })
         it('legend key is hidden', () => {
             expectLegendKeyToBeHidden()
-        })
-        it('series key displays the correct amount of bullets (1 each)', () => {
-            for (let i = 0; i < 3; i++) {
-                expectSeriesKeyItemToHaveBullets(i, 1)
-            }
         })
         it(`changes legend display strategy to fixed (${TEST_ITEMS[1].legendSet})`, () => {
             clickMenuBarOptionsButton()
@@ -720,11 +697,8 @@ describe('Options - Legend', () => {
             expectLegendKeyToBeVisible()
             expectLegedKeyItemAmountToBe(1)
         })
-        it(`series key items displays the correct amount of bullets (${TEST_ITEMS[1].legends})`, () => {
+        it(`series key displays the correct amount of items`, () => {
             expectSeriesKeyToHaveSeriesKeyItems(3)
-            for (let i = 0; i < 3; i++) {
-                expectSeriesKeyItemToHaveBullets(i, TEST_ITEMS[1].legends)
-            }
         })
     })
     describe('Legend is not applied to column-as-line items', () => {
@@ -770,10 +744,8 @@ describe('Options - Legend', () => {
         it('legend key is hidden', () => {
             expectLegendKeyToBeHidden()
         })
-        it(`series key displays the correct amount of bullets (1 each)`, () => {
+        it(`series key displays the correct amount of items`, () => {
             expectSeriesKeyToHaveSeriesKeyItems(2)
-            expectSeriesKeyItemToHaveBullets(0, 1)
-            expectSeriesKeyItemToHaveBullets(1, 1)
         })
         it(`changes first item (${TEST_ITEMS[0].name}) to type ${VIS_TYPE_COLUMN}`, () => {
             clickMenuBarOptionsButton()
@@ -794,10 +766,8 @@ describe('Options - Legend', () => {
             expectLegendKeyToBeVisible()
             expectLegedKeyItemAmountToBe(1)
         })
-        it(`series key items displays the correct amount of bullets (first: ${TEST_ITEMS[1].legends}, second: 1)`, () => {
+        it(`series key displays the correct amount of items`, () => {
             expectSeriesKeyToHaveSeriesKeyItems(2)
-            expectSeriesKeyItemToHaveBullets(0, TEST_ITEMS[0].legends)
-            expectSeriesKeyItemToHaveBullets(1, 1)
         })
         const TEST_ITEM = {
             name: 'ANC 2 Coverage',
@@ -828,11 +798,8 @@ describe('Options - Legend', () => {
             expectWindowConfigSeriesItemToNotHaveLegendSet(TEST_ITEMS[1].name)
             expectWindowConfigSeriesItemToNotHaveLegendSet(TEST_ITEM.name)
         })
-        it(`series key items displays the correct amount of bullets (first: ${TEST_ITEMS[1].legends}, second: 1, third: 1)`, () => {
+        it(`series key displays the correct amount of items`, () => {
             expectSeriesKeyToHaveSeriesKeyItems(3)
-            expectSeriesKeyItemToHaveBullets(0, TEST_ITEMS[0].legends)
-            expectSeriesKeyItemToHaveBullets(1, 1)
-            expectSeriesKeyItemToHaveBullets(2, 1)
         })
     })
 })

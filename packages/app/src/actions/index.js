@@ -189,15 +189,15 @@ export const tDoSaveVisualization =
         const onSuccess = (res) => {
             if (res.status === 'OK' && res.response.uid) {
                 if (copy) {
-                    history.push({
-                        pathname: `/${res.response.uid}`,
-                        state: { isSaving: true },
-                    }) // Save as
+                    history.push(
+                        { pathname: `/${res.response.uid}` },
+                        { isSaving: true }
+                    ) // Save as
                 } else {
-                    history.replace({
-                        pathname: `/${res.response.uid}`,
-                        state: { isSaving: true },
-                    }) // Save
+                    history.replace(
+                        { pathname: `/${res.response.uid}` },
+                        { isSaving: true }
+                    ) // Save
                 }
             }
         }
