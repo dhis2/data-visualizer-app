@@ -191,12 +191,12 @@ export const tDoSaveVisualization =
                 if (copy) {
                     history.push(
                         { pathname: `/${res.response.uid}` },
-                        { isSaving: true },
+                        { isSaving: true }
                     ) // Save as
                 } else {
                     history.replace(
                         { pathname: `/${res.response.uid}` },
-                        { isSaving: true },
+                        { isSaving: true }
                     ) // Save
                 }
             }
