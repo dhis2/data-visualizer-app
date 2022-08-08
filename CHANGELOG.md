@@ -1,3 +1,10 @@
+## [39.2.2](https://github.com/dhis2/data-visualizer-app/compare/v39.2.1...v39.2.2) (2022-08-08)
+
+
+### Bug Fixes
+
+* avoid encoding of visualization name in snackbar ([#2128](https://github.com/dhis2/data-visualizer-app/issues/2128)) ([d26faa9](https://github.com/dhis2/data-visualizer-app/commit/d26faa97049133ce67bdadb5278c1adda2d0ffe3))
+
 ## [39.2.1](https://github.com/dhis2/data-visualizer-app/compare/v39.2.0...v39.2.1) (2022-08-03)
 
 
