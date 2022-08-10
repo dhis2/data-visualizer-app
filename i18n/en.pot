@@ -150,9 +150,6 @@ msgstr "HTML (.html)"
 msgid "Download"
 msgstr "Download"
 
-msgid "Download"
-msgstr "Download"
-
 msgid "Hide"
 msgstr "Hide"
 
