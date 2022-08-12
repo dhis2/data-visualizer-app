@@ -1,3 +1,10 @@
+## [38.3.4](https://github.com/dhis2/data-visualizer-app/compare/v38.3.3...v38.3.4) (2022-08-12)
+
+
+### Bug Fixes
+
+* bump @dhis2/analytics for tokens search support 38.x ([#2129](https://github.com/dhis2/data-visualizer-app/issues/2129)) ([b4d6de9](https://github.com/dhis2/data-visualizer-app/commit/b4d6de997416c1edf2996a9fefb0b8a7c73f27ac))
+
 ## [38.3.3](https://github.com/dhis2/data-visualizer-app/compare/v38.3.2...v38.3.3) (2022-06-22)
 
 
