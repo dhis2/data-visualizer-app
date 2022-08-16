@@ -140,7 +140,7 @@ export class UnconnectedApp extends Component {
         this.props.loadUserAuthority(APPROVAL_LEVEL_OPTION_AUTH)
         this.props.setDimensions()
 
-        this.fetchOuLevels()
+        await this.fetchOuLevels()
 
         const rootOrgUnits = this.props.settings.rootOrganisationUnits
 
