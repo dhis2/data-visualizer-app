@@ -3,11 +3,20 @@ import React from 'react'
 import { Dimensions } from '../DimensionsPanel.js'
 import { DndDimensionsPanel } from '../DndDimensionsPanel.js'
 
+jest.mock('@dhis2/analytics', () => ({
+    ...jest.requireActual('@dhis2/analytics'),
+    useCachedDataQuery: jest.fn(() => ({
+        userSettings: {
+            keyAnalysisDisplayProperty: 'name'
+        }
+    }))
+}))
+
 describe('Dimensions component ', () => {
     let shallowDimensions
     let props
     const dimensionsComponent = () => {
-        if (!shallowDimensions) {
+       if (!shallowDimensions) {
             shallowDimensions = shallow(<Dimensions {...props} />)
         }
         return shallowDimensions
