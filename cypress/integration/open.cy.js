@@ -52,12 +52,12 @@ describe('opening a saved AO', () => {
 describe('opening the currentAnalyticalObject', () => {
     it('loads an AO from the userDataStore when navigating to currentAnalyticalObject', () => {
         cy.intercept('**/userDataStore/analytics/settings', {
-            fixture: 'currentAnalyticalObject.json'
-        });
+            fixture: 'currentAnalyticalObject.json',
+        })
 
         const ao = currentAnalyticalObjectFixture.currentAnalyticalObject
 
-        cy.visit('/#/currentAnalyticalObject', EXTENDED_TIMEOUT);
+        cy.visit('/#/currentAnalyticalObject', EXTENDED_TIMEOUT)
 
         expectVisualizationToBeVisible(ao.type)
         expectAOTitleToBeUnsaved()
