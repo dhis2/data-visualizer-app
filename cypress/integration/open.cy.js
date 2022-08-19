@@ -3,6 +3,7 @@ import {
     expectAOTitleToBeDirty,
     expectAOTitleToBeValue,
     expectAOTitleToNotBeDirty,
+    expectAOTitleToBeUnsaved,
     expectVisualizationToBeVisible,
 } from '../elements/chart.js'
 import { replacePeriodItems } from '../elements/common.js'
@@ -10,6 +11,8 @@ import { confirmLeave } from '../elements/confirmLeaveModal.js'
 import { createNewAO, openAOByName } from '../elements/fileMenu/index.js'
 import { expectRouteToBeAOId, expectRouteToBeEmpty } from '../elements/route.js'
 import { goToStartPage } from '../elements/startScreen.js'
+import currentAnalyticalObjectFixture from '../fixtures/currentAnalyticalObject.json'
+import { EXTENDED_TIMEOUT } from '../support/util.js'
 import { TEST_AOS } from '../utils/data.js'
 
 describe('opening a saved AO', () => {
@@ -43,5 +46,20 @@ describe('opening a saved AO', () => {
                 expectRouteToBeEmpty()
             })
         })
+    })
+})
+
+describe('opening the currentAnalyticalObject', () => {
+    it('loads an AO from the userDataStore when navigating to currentAnalyticalObject', () => {
+        cy.intercept('**/userDataStore/analytics/settings', {
+            fixture: 'currentAnalyticalObject.json'
+        });
+
+        const ao = currentAnalyticalObjectFixture.currentAnalyticalObject
+
+        cy.visit('/#/currentAnalyticalObject', EXTENDED_TIMEOUT);
+
+        expectVisualizationToBeVisible(ao.type)
+        expectAOTitleToBeUnsaved()
     })
 })
