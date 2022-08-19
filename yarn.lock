@@ -2174,10 +2174,10 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^21.8.0":
-  version "21.8.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-21.8.0.tgz#6e9f15be623f17cfd6f42bffb6ef26bdb6d5f09a"
-  integrity sha512-ZYyf/7o1ANtEv6rokqnF3XklhwNS/9vDqxMsAi1UHE6xO+Ri38RYkuHSzeRsc2f9CoO6InjVz94hbjm3SBf+/g==
+"@dhis2/analytics@^21.8.1":
+  version "21.8.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-21.8.1.tgz#2e04e80cb2f80336c80a6a1605c295702e1f8d65"
+  integrity sha512-UXkCmZEWhwMaJgx5kJVP7dCr8evbTuyQaPi9jZGvbPeClX+2dg98ewyaVQ3AVdAc+DXdY93uG9nWAygrGXVuBA==
   dependencies:
     "@dhis2/d2-ui-translation-dialog" "^7.3.1"
     classnames "^2.3.1"
@@ -2378,10 +2378,10 @@
     i18next "^10.3"
     moment "^2.24.0"
 
-"@dhis2/d2-ui-core@7.3.3":
-  version "7.3.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.3.3.tgz#305dd9d4a1fe65672ace305c530230dfe7f89030"
-  integrity sha512-/LFTo83ym7Nwirj+Ecq5OO/Fpy8OrANOUQQGRqpwdW24h0Qm77WTZRPmpaNMg/c3eMhMBVtQbcwKlqE+hDSGOQ==
+"@dhis2/d2-ui-core@7.4.0":
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.4.0.tgz#796afffbca4cf7f76a500d979e53c01abe8ebcb2"
+  integrity sha512-lVk3q2PV3Xb0RoeCcK/UgR2zqymj3SUix4qQXm+5HLZww6UtP8sTj+QcEEuVbPBqHPHaXnSOsKgtoD02QJfm4A==
   dependencies:
     babel-runtime "^6.26.0"
     d2 "~31.7"
@@ -2389,25 +2389,14 @@
     material-ui "^0.20.0"
     rxjs "^5.5.7"
 
-"@dhis2/d2-ui-core@7.3.4":
-  version "7.3.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-core/-/d2-ui-core-7.3.4.tgz#88fe3aca89999e4bec11124dcfc2963f54b1e24a"
-  integrity sha512-SYhr9iioZQ475ru92d1l8NXPWlsEcPv0XqADDGSV0vJol9gE45axanmODjGhdqeigMzc4MeFgPKgJ2RFwonqJQ==
+"@dhis2/d2-ui-interpretations@^7.3.4":
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-interpretations/-/d2-ui-interpretations-7.4.0.tgz#c712a26886137009c32ab56e9b6d9e06ac90c424"
+  integrity sha512-54LYUNwwCd3L8HYlg8gv1URjbfM1FPVSJoUieeyhtdidpTFUPPoc9Ud4kgrq+Y2QJe/mgh8Dx0RYyqoNLrRmtw==
   dependencies:
-    babel-runtime "^6.26.0"
-    d2 "~31.7"
-    lodash "^4.17.10"
-    material-ui "^0.20.0"
-    rxjs "^5.5.7"
-
-"@dhis2/d2-ui-interpretations@7.3.4":
-  version "7.3.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-interpretations/-/d2-ui-interpretations-7.3.4.tgz#24ce2bd351d272870617f0ad09437663e42e3080"
-  integrity sha512-B0vJgzr6xd/jMisfWF+xNHQOJ3FuL0Qk3ZEuZKZmOuiSfzEoAJRFoukbVa5iyiAvIp6RNVthMXdmiX67lMtzuA==
-  dependencies:
-    "@dhis2/d2-ui-mentions-wrapper" "7.3.4"
-    "@dhis2/d2-ui-rich-text" "7.3.4"
-    "@dhis2/d2-ui-sharing-dialog" "7.3.4"
+    "@dhis2/d2-ui-mentions-wrapper" "7.4.0"
+    "@dhis2/d2-ui-rich-text" "7.4.0"
+    "@dhis2/d2-ui-sharing-dialog" "7.4.0"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
@@ -2417,30 +2406,30 @@
     prop-types "^15.5.10"
     react-portal "^4.1.5"
 
-"@dhis2/d2-ui-mentions-wrapper@7.3.4":
-  version "7.3.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-7.3.4.tgz#99620622cfc66db3e79b366974fdba51520b29c1"
-  integrity sha512-KClFsPRW0Qd7BRF3cWbuhThVwrv8z7XHmK2xDuxvtTvwkNYjAX0sEaLWJTKLYZDnFLdU7LP54d2uyDDFxFFs2A==
+"@dhis2/d2-ui-mentions-wrapper@7.4.0":
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-mentions-wrapper/-/d2-ui-mentions-wrapper-7.4.0.tgz#5cd2334aa70c877885fa7b9cdfb4a1165d5423c5"
+  integrity sha512-QPAxLoGa1FC6AlouvxE7ORLku8VdwRNnPkm4TeNBwmIDoHjg+c5EQ+Sc07NJykSt1f3l/LG+sAQxfFTfRAS6Sg==
   dependencies:
     "@material-ui/core" "^3.3.1"
     lodash "^4.17.10"
     prop-types "^15.6.2"
 
-"@dhis2/d2-ui-rich-text@7.3.4":
-  version "7.3.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-7.3.4.tgz#95038f1811a56e57021ffec67ab460113976cc63"
-  integrity sha512-xGTzw2fsR7OW2vY65zRhBT6cSJLQlxc1wAgjQPSn2m6bD1r4KHnh4BdNzSQx9rQgqlENoiINIEgaD/3zAmitrA==
+"@dhis2/d2-ui-rich-text@7.4.0":
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-rich-text/-/d2-ui-rich-text-7.4.0.tgz#e1fb6eff7309ea80a6af3bee2a247c9f93ea721d"
+  integrity sha512-q8woPPyYHiqQfNtujuCQH8eq7zRcN0140XqrKHw1DXF/fnqmrcVDTNZkPSaWMuUsdPhcgTHcnuEySP0MRAXv6g==
   dependencies:
     babel-runtime "^6.26.0"
     markdown-it "^8.4.2"
     prop-types "^15.6.2"
 
-"@dhis2/d2-ui-sharing-dialog@7.3.4":
-  version "7.3.4"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-7.3.4.tgz#456d13e76a964a6fcba423d54ef96fc668054da6"
-  integrity sha512-6TYKo1HzfoxjnSgG2OBdKON1VGPS9Nn6Ym8gPJBbskZoGtj7muGF20iVFqxt/VdhrnvSIwE9xOVbJ73s6UU5sg==
+"@dhis2/d2-ui-sharing-dialog@7.4.0":
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-sharing-dialog/-/d2-ui-sharing-dialog-7.4.0.tgz#1910f96bbfb4c706b1fedc677e8a28e62599dc73"
+  integrity sha512-5ebCQ7WxhD6y0gyPeOUiFb4XiKPJI4gZfRFmcuNLphu57TkcWj6HxWF3cDv+DYM0BS8c9Pq2iSCThay5nPFYDA==
   dependencies:
-    "@dhis2/d2-ui-core" "7.3.4"
+    "@dhis2/d2-ui-core" "7.4.0"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
@@ -2450,11 +2439,11 @@
     rxjs "^5.5.7"
 
 "@dhis2/d2-ui-translation-dialog@^7.3.1":
-  version "7.3.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-translation-dialog/-/d2-ui-translation-dialog-7.3.3.tgz#913e6ec74d031601845e7c0a461c08d13367bba6"
-  integrity sha512-3n5RjguEm4ua802TXnOTO00tzl88IY64lstPe1cpMbhbuwHW/JUdBMdDuBMmlyg6PkKm0JD9kIsvcGH7cUawPw==
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/d2-ui-translation-dialog/-/d2-ui-translation-dialog-7.4.0.tgz#5d4ef941f416df6c723adc5b5916a83202ed0e60"
+  integrity sha512-bd1ZIkcL8T4LdYPYPpMXptUKW8skWForSS9xCi1H3CdPm5jGpcVaxbxNE7b3+9mJsTahERcDOzRztkcqFXfiVA==
   dependencies:
-    "@dhis2/d2-ui-core" "7.3.3"
+    "@dhis2/d2-ui-core" "7.4.0"
     "@material-ui/core" "^3.3.1"
     "@material-ui/icons" "^3.0.1"
     babel-runtime "^6.26.0"
@@ -5063,7 +5052,7 @@ babel-plugin-react-require@^3.1.3:
 babel-plugin-syntax-jsx@^6.18.0:
   version "6.18.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-syntax-jsx/-/babel-plugin-syntax-jsx-6.18.0.tgz#0af32a9a6e13ca7a3fd5069e62d7b0f58d0d8946"
-  integrity sha1-CvMqmm4Tyno/1QaeYtew9Y0NiUY=
+  integrity sha512-qrPaCSo9c8RHNRHIotaufGbuOBN8rtdC4QrrFFc43vyWCCz7Kl7GL1PGaXtMGQZUXrkCjNEgxDfmAuAabr/rlw==
 
 babel-plugin-syntax-object-rest-spread@^6.8.0:
   version "6.13.0"
@@ -13322,7 +13311,7 @@ node-releases@^1.1.61, node-releases@^1.1.75:
 nopt@~1.0.10:
   version "1.0.10"
   resolved "https://registry.yarnpkg.com/nopt/-/nopt-1.0.10.tgz#6ddd21bd2a31417b92727dd585f8a6f37608ebee"
-  integrity sha1-bd0hvSoxQXuScn3Vhfim83YI6+4=
+  integrity sha512-NWmpvLSqUrgrAC9HCuxEvb+PSloHpqVu+FqcO4eeF2h5qYRhA7ev6KvelyQAKtegUbC6RypJnlEOhd8vloNKYg==
   dependencies:
     abbrev "1"
 
@@ -16749,7 +16738,7 @@ source-map@0.6.1, source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.0, sourc
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
 
-source-map@0.7.3, source-map@^0.7.2, source-map@^0.7.3, source-map@~0.7.2:
+source-map@0.7.3, source-map@^0.7.3, source-map@~0.7.2:
   version "0.7.3"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.7.3.tgz#5302f8169031735226544092e64981f751750383"
   integrity sha512-CkCj6giN3S+n9qrYiBTX5gystlENnRW5jZeNLHpe6aue+SrHcG5VYwujhW9s4dY31mEGsxBDrHR6oI69fTXsaQ==
@@ -16758,6 +16747,11 @@ source-map@^0.5.0, source-map@^0.5.6, source-map@^0.5.7, source-map@~0.5.3:
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
   integrity sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
+
+source-map@^0.7.2:
+  version "0.7.4"
+  resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.7.4.tgz#a9bbe705c9d8846f4e08ff6765acf0f1b0898656"
+  integrity sha512-l3BikUxvPOcn5E74dZiq5BGsTb5yEwhaTSzccU6t4sDOH8NWJCstKO5QT2CvtFoK6F0saL7p9xHAqHOlCPJygA==
 
 source-map@^0.8.0-beta.0:
   version "0.8.0-beta.0"
