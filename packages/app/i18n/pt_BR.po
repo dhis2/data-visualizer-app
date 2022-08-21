@@ -92,16 +92,16 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr ""
+msgstr "Id"
 
 msgid "Code"
-msgstr ""
+msgstr "Código"
 
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 msgid "Download"
-msgstr ""
+msgstr "Baixar"
 
 msgid "Plain data source"
 msgstr ""
@@ -176,7 +176,7 @@ msgid "Levels"
 msgstr ""
 
 msgid "Groups"
-msgstr ""
+msgstr "Grupos"
 
 msgid "And 1 other..."
 msgstr ""
@@ -237,13 +237,13 @@ msgid "Count"
 msgstr "Contagem"
 
 msgid "Average"
-msgstr ""
+msgstr "Média"
 
 msgid "Average (sum in org unit hierarchy)"
 msgstr ""
 
 msgid "Sum"
-msgstr ""
+msgstr "Soma"
 
 msgid "Last value"
 msgstr ""
@@ -252,10 +252,10 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr ""
 
 msgid "Min"
-msgstr ""
+msgstr "Min"
 
 msgid "Max"
-msgstr ""
+msgstr "Máx"
 
 msgid "Standard deviation"
 msgstr ""
@@ -282,16 +282,16 @@ msgid "Base line"
 msgstr ""
 
 msgid "Value"
-msgstr ""
+msgstr "Valor"
 
 msgid "Title"
-msgstr ""
+msgstr "Título"
 
 msgid "Base line title"
 msgstr ""
 
 msgid "Number"
-msgstr ""
+msgstr "Número"
 
 msgid "Labels"
 msgstr ""
@@ -327,7 +327,7 @@ msgid "Only include completed events"
 msgstr ""
 
 msgid "Include cumulative"
-msgstr ""
+msgstr "Incluir cumulativa"
 
 msgid "Cumulative values"
 msgstr ""
@@ -336,7 +336,7 @@ msgid "Digit group separator"
 msgstr ""
 
 msgid "None"
-msgstr ""
+msgstr "Nenhum"
 
 msgid "Space"
 msgstr ""
@@ -348,13 +348,13 @@ msgid "Display density"
 msgstr ""
 
 msgid "Comfortable"
-msgstr ""
+msgstr "Confortável"
 
 msgid "Normal"
-msgstr ""
+msgstr "Normal"
 
 msgid "Compact"
-msgstr ""
+msgstr "Compacto"
 
 msgid "Axis title"
 msgstr ""
@@ -387,7 +387,7 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr ""
+msgstr "Tudo"
 
 msgid "Hide empty rows"
 msgstr ""
@@ -432,7 +432,7 @@ msgid "Legend changes text color"
 msgstr ""
 
 msgid "Legend"
-msgstr ""
+msgstr "Legenda"
 
 msgid "Select from legends"
 msgstr ""
@@ -470,13 +470,13 @@ msgid "Percentage of column"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr ""
+msgstr "Unidade organizacional"
 
 msgid "Parent organisation unit"
-msgstr ""
+msgstr "Unidade organizacional parente"
 
 msgid "Reporting period"
-msgstr ""
+msgstr "Período de relatório"
 
 msgid "Stacked values add up to 100%"
 msgstr ""
@@ -496,10 +496,10 @@ msgid "Steps"
 msgstr ""
 
 msgid "Include regression"
-msgstr ""
+msgstr "Incluir regressão"
 
 msgid "Trend line"
-msgstr ""
+msgstr "Linha de tendência"
 
 msgid "Linear"
 msgstr ""
@@ -561,10 +561,10 @@ msgid "Custom sort order"
 msgstr ""
 
 msgid "Low to high"
-msgstr ""
+msgstr "Baixo a alto"
 
 msgid "High to low"
-msgstr ""
+msgstr "Alto a baixo"
 
 msgid "Add a subtitle"
 msgstr ""
@@ -585,7 +585,7 @@ msgid "Top limit"
 msgstr "Limite superior"
 
 msgid "Options"
-msgstr ""
+msgstr "Opções"
 
 msgid "Open as Map"
 msgstr ""
@@ -691,10 +691,10 @@ msgid "Something went wrong"
 msgstr ""
 
 msgid "or"
-msgstr ""
+msgstr "ou"
 
 msgid "Today"
-msgstr ""
+msgstr "Hoje"
 
 msgid "Yesterday"
 msgstr "Ontém"
@@ -703,7 +703,7 @@ msgid "Last 3 days"
 msgstr ""
 
 msgid "Last 7 days"
-msgstr ""
+msgstr "Últimos 7 dias"
 
 msgid "Last 14 days"
 msgstr ""
@@ -712,13 +712,13 @@ msgid "This week"
 msgstr ""
 
 msgid "Last week"
-msgstr ""
+msgstr "Última semana"
 
 msgid "Last 4 weeks"
-msgstr ""
+msgstr "Últimas 4 semanas"
 
 msgid "Last 12 weeks"
-msgstr ""
+msgstr "Últimoas 12 semanas"
 
 msgid "Last 52 weeks"
 msgstr ""
@@ -730,19 +730,19 @@ msgid "This month"
 msgstr ""
 
 msgid "Last month"
-msgstr ""
+msgstr "Mês passado"
 
 msgid "Last 3 months"
-msgstr ""
+msgstr "Últimos 3 meses"
 
 msgid "Last 6 months"
 msgstr "Últimos 6 meses"
 
 msgid "Last 12 months"
-msgstr ""
+msgstr "Últimos 12 meses"
 
 msgid "Months this year"
-msgstr ""
+msgstr "Meses deste ano"
 
 msgid "This bimonth"
 msgstr ""
@@ -760,22 +760,22 @@ msgid "This quarter"
 msgstr ""
 
 msgid "Last quarter"
-msgstr ""
+msgstr "Último trimestre"
 
 msgid "Last 4 quarters"
-msgstr ""
+msgstr "Últimos 4 trimestresÚltimo 4 trimestre"
 
 msgid "Quarters this year"
-msgstr ""
+msgstr "Trimestres deste ano"
 
 msgid "This six-month"
 msgstr ""
 
 msgid "Last six-month"
-msgstr ""
+msgstr "Últimos 6 meses"
 
 msgid "Last 2 six-months"
-msgstr ""
+msgstr "Último 2 seis-meses"
 
 msgid "This financial year"
 msgstr ""
@@ -784,7 +784,7 @@ msgid "Last financial year"
 msgstr "último ano financeiro"
 
 msgid "Last 5 financial years"
-msgstr ""
+msgstr "Últimos 5 anos financeiros"
 
 msgid "This year"
 msgstr "Este ano"
@@ -793,7 +793,7 @@ msgid "Last year"
 msgstr "Ano passado"
 
 msgid "Last 5 years"
-msgstr ""
+msgstr "Últimos 5 anos"
 
 msgid "User org unit"
 msgstr ""
@@ -805,10 +805,10 @@ msgid "User org unit grand children"
 msgstr ""
 
 msgid "Data"
-msgstr ""
+msgstr "Dados"
 
 msgid "Display"
-msgstr ""
+msgstr "Exibir"
 
 msgid "Axes"
 msgstr ""
@@ -817,10 +817,10 @@ msgid "Horizontal (x) axis"
 msgstr ""
 
 msgid "Series"
-msgstr ""
+msgstr "Série"
 
 msgid "Style"
-msgstr ""
+msgstr "Estilo"
 
 msgid "Chart style"
 msgstr ""
@@ -835,7 +835,7 @@ msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Totals"
-msgstr ""
+msgstr "Totais"
 
 msgid "Empty data"
 msgstr ""
@@ -853,7 +853,7 @@ msgid "Limit minimum/maximum values"
 msgstr ""
 
 msgid "Parameters"
-msgstr ""
+msgstr "Paâmetros"
 
 msgid "Color set"
 msgstr ""

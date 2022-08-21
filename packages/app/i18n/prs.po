@@ -28,7 +28,7 @@ msgid "You have unsaved changes."
 msgstr ""
 
 msgid "Discard unsaved changes?"
-msgstr ""
+msgstr "صرف نظر از تغیرات ثبت نشده؟"
 
 msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
@@ -67,7 +67,7 @@ msgid "Filter dimensions"
 msgstr ""
 
 msgid "Graphics"
-msgstr ""
+msgstr "اطلاعات گرافیکی"
 
 msgid "Image (.png)"
 msgstr ""
@@ -76,7 +76,7 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Table layout"
-msgstr ""
+msgstr "طرح جدول"
 
 msgid "Excel (.xls)"
 msgstr ""
@@ -91,40 +91,40 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr ""
+msgstr "آی دی"
 
 msgid "Code"
-msgstr ""
+msgstr "کوډ یا شفر"
 
 msgid "Name"
-msgstr ""
+msgstr "نام"
 
 msgid "Download"
-msgstr ""
+msgstr "دانلود"
 
 msgid "Plain data source"
-msgstr ""
+msgstr "منبع دیتا ساده"
 
 msgid "JSON"
-msgstr ""
+msgstr "نشانه گذاری شی جاوااسکریپت"
 
 msgid "XML"
-msgstr ""
+msgstr "اکس‌ام‌ال"
 
 msgid "Excel"
 msgstr ""
 
 msgid "CSV"
-msgstr ""
+msgstr "مقادیر جداشده با کامه"
 
 msgid "Advanced"
-msgstr ""
+msgstr "پیشرفته"
 
 msgid "Data value set"
 msgstr "سیت ارزش دیتا"
 
 msgid "Other formats"
-msgstr ""
+msgstr "فارمت های دیگر"
 
 msgid "JRXML"
 msgstr ""
@@ -148,7 +148,7 @@ msgid "The following information may be requested by technical support."
 msgstr ""
 
 msgid "Hide"
-msgstr ""
+msgstr "مخفی کردن"
 
 msgid "Interpretations"
 msgstr "تفسیر ها"
@@ -175,7 +175,7 @@ msgid "Levels"
 msgstr ""
 
 msgid "Groups"
-msgstr ""
+msgstr "ګروپونه"
 
 msgid "And 1 other..."
 msgstr ""
@@ -204,7 +204,7 @@ msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
 msgid "Update"
-msgstr ""
+msgstr "تجدید"
 
 msgid "Getting started"
 msgstr ""
@@ -224,7 +224,7 @@ msgid "Your most viewed charts and tables"
 msgstr ""
 
 msgid "Aggregation type"
-msgstr ""
+msgstr "نوع تجمع"
 
 msgid "Overrides aggregation type for all data values."
 msgstr ""
@@ -236,13 +236,13 @@ msgid "Count"
 msgstr "تعداد"
 
 msgid "Average"
-msgstr ""
+msgstr "اوسط"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr ""
+msgstr "اوسط ( مجموع در ساختار واحد سازمان)"
 
 msgid "Sum"
-msgstr ""
+msgstr "جمع"
 
 msgid "Last value"
 msgstr ""
@@ -251,19 +251,19 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr ""
 
 msgid "Min"
-msgstr ""
+msgstr "کوچکتر"
 
 msgid "Max"
-msgstr ""
+msgstr "بزرگتر"
 
 msgid "Standard deviation"
-msgstr ""
+msgstr "معیاري انحراف"
 
 msgid "Variance"
-msgstr ""
+msgstr "مغییرات"
 
 msgid "Data approved at level"
-msgstr ""
+msgstr "په سطحه کې د مالوماتو (ډاټا) منظورول"
 
 msgid "Select from predefined levels"
 msgstr ""
@@ -281,19 +281,19 @@ msgid "Base line"
 msgstr ""
 
 msgid "Value"
-msgstr ""
+msgstr "مقدار"
 
 msgid "Title"
-msgstr ""
+msgstr "عنوان"
 
 msgid "Base line title"
 msgstr ""
 
 msgid "Number"
-msgstr ""
+msgstr "نمبر"
 
 msgid "Labels"
-msgstr ""
+msgstr "برچسپ"
 
 msgid "Column sub-totals"
 msgstr ""
@@ -302,7 +302,7 @@ msgid "Columns totals"
 msgstr ""
 
 msgid "Default"
-msgstr ""
+msgstr "پیش‌فرض"
 
 msgid "Bright"
 msgstr ""
@@ -326,7 +326,7 @@ msgid "Only include completed events"
 msgstr ""
 
 msgid "Include cumulative"
-msgstr ""
+msgstr "شامل تجمعی"
 
 msgid "Cumulative values"
 msgstr ""
@@ -335,25 +335,25 @@ msgid "Digit group separator"
 msgstr "واحد سازی گروپ ارقام"
 
 msgid "None"
-msgstr ""
+msgstr "هیچ‌کدام"
 
 msgid "Space"
 msgstr "فاصله"
 
 msgid "Comma"
-msgstr ""
+msgstr "کامه"
 
 msgid "Display density"
-msgstr ""
+msgstr "نمایش تراکم ها"
 
 msgid "Comfortable"
-msgstr ""
+msgstr "راحت"
 
 msgid "Normal"
-msgstr ""
+msgstr "عادی"
 
 msgid "Compact"
-msgstr ""
+msgstr "متراکم"
 
 msgid "Axis title"
 msgstr ""
@@ -362,13 +362,13 @@ msgid "Add a title"
 msgstr ""
 
 msgid "Font size"
-msgstr ""
+msgstr "سایز خط"
 
 msgid "Large"
 msgstr "بزرگ"
 
 msgid "Small"
-msgstr ""
+msgstr "کوچک"
 
 msgid "Hide empty columns"
 msgstr ""
@@ -377,19 +377,19 @@ msgid "Hide empty categories"
 msgstr "د تشو موضوعاتو د کټګوریو پټول"
 
 msgid "Before first"
-msgstr ""
+msgstr "پیش از اول"
 
 msgid "After last"
-msgstr ""
+msgstr "بعد از آخر"
 
 msgid "Before first and after last"
-msgstr ""
+msgstr "پیش از اول و بعد از آخر"
 
 msgid "All"
-msgstr ""
+msgstr "همه"
 
 msgid "Hide empty rows"
-msgstr ""
+msgstr "پنهان کردن ردیف های خالی"
 
 msgid "Show legend key"
 msgstr ""
@@ -407,7 +407,7 @@ msgid "Custom"
 msgstr "مروج"
 
 msgid "Chart title"
-msgstr ""
+msgstr "د چارټ عنوان"
 
 msgid "Display legend"
 msgstr ""
@@ -431,7 +431,7 @@ msgid "Legend changes text color"
 msgstr ""
 
 msgid "Legend"
-msgstr ""
+msgstr "داستان"
 
 msgid "Select from legends"
 msgstr ""
@@ -469,13 +469,13 @@ msgid "Percentage of column"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr ""
+msgstr "واحد سازمان"
 
 msgid "Parent organisation unit"
-msgstr ""
+msgstr "سطح بالا واحد سازمان"
 
 msgid "Reporting period"
-msgstr ""
+msgstr "دوره راپور دهی"
 
 msgid "Stacked values add up to 100%"
 msgstr ""
@@ -492,13 +492,13 @@ msgid ""
 msgstr ""
 
 msgid "Steps"
-msgstr ""
+msgstr "مرحله"
 
 msgid "Include regression"
-msgstr ""
+msgstr "شامل کردن برگشت"
 
 msgid "Trend line"
-msgstr ""
+msgstr "د محاسبې کرښې ښکاره کړئ"
 
 msgid "Linear"
 msgstr "د کرښې چارټ"
@@ -560,10 +560,10 @@ msgid "Custom sort order"
 msgstr ""
 
 msgid "Low to high"
-msgstr ""
+msgstr "پاین تا بالا"
 
 msgid "High to low"
-msgstr ""
+msgstr "بالا تا پاین"
 
 msgid "Add a subtitle"
 msgstr ""
@@ -581,10 +581,10 @@ msgid "Position"
 msgstr ""
 
 msgid "Top limit"
-msgstr ""
+msgstr "حد بالا"
 
 msgid "Options"
-msgstr ""
+msgstr "گزینه‌ها"
 
 msgid "Open as Map"
 msgstr ""
@@ -690,10 +690,10 @@ msgid "Something went wrong"
 msgstr ""
 
 msgid "or"
-msgstr ""
+msgstr "تنظیم"
 
 msgid "Today"
-msgstr ""
+msgstr "امروز"
 
 msgid "Yesterday"
 msgstr "دیروز"
@@ -702,46 +702,46 @@ msgid "Last 3 days"
 msgstr "3 روز گذشته"
 
 msgid "Last 7 days"
-msgstr ""
+msgstr "7 روز گذشته"
 
 msgid "Last 14 days"
-msgstr ""
+msgstr "14 روز گذشته"
 
 msgid "This week"
 msgstr "هفته جاری"
 
 msgid "Last week"
-msgstr ""
+msgstr "هفته گذشته"
 
 msgid "Last 4 weeks"
-msgstr ""
+msgstr "4 هفته گذشته"
 
 msgid "Last 12 weeks"
-msgstr ""
+msgstr "12 هفته گذشته"
 
 msgid "Last 52 weeks"
-msgstr ""
+msgstr "52 هفته گذشته"
 
 msgid "Weeks this year"
 msgstr ""
 
 msgid "This month"
-msgstr ""
+msgstr "ماه جاری"
 
 msgid "Last month"
-msgstr ""
+msgstr "ماه گذشته"
 
 msgid "Last 3 months"
-msgstr ""
+msgstr "3 ماهه گذشته"
 
 msgid "Last 6 months"
 msgstr "6 ماه گذشته"
 
 msgid "Last 12 months"
-msgstr ""
+msgstr "12 ماهه گذشته"
 
 msgid "Months this year"
-msgstr ""
+msgstr "ماه های سال هذا"
 
 msgid "This bimonth"
 msgstr ""
@@ -756,25 +756,25 @@ msgid "Bimonths this year"
 msgstr ""
 
 msgid "This quarter"
-msgstr ""
+msgstr "سه ماهه جاری"
 
 msgid "Last quarter"
-msgstr ""
+msgstr "سه ماهه آخیر"
 
 msgid "Last 4 quarters"
-msgstr ""
+msgstr "4 سه ماهه آخیر"
 
 msgid "Quarters this year"
-msgstr ""
+msgstr "ربع های سال هذا"
 
 msgid "This six-month"
 msgstr "شش-ماه جاری"
 
 msgid "Last six-month"
-msgstr ""
+msgstr "شش-ماهه گذشته"
 
 msgid "Last 2 six-months"
-msgstr ""
+msgstr "2 شش-ماهه گذشته"
 
 msgid "This financial year"
 msgstr "سال مالی جاری"
@@ -783,19 +783,19 @@ msgid "Last financial year"
 msgstr "سال گذشته مالی"
 
 msgid "Last 5 financial years"
-msgstr ""
+msgstr "5 سال گذشته مالی"
 
 msgid "This year"
-msgstr ""
+msgstr "سال جاری"
 
 msgid "Last year"
 msgstr "سال گذشته"
 
 msgid "Last 5 years"
-msgstr ""
+msgstr "5 سال گذشته"
 
 msgid "User org unit"
-msgstr ""
+msgstr "واحد سازمان استفاده کننده گان"
 
 msgid "User org unit children"
 msgstr ""
@@ -804,22 +804,22 @@ msgid "User org unit grand children"
 msgstr ""
 
 msgid "Data"
-msgstr ""
+msgstr "دیتا"
 
 msgid "Display"
-msgstr ""
+msgstr "نمایش"
 
 msgid "Axes"
-msgstr ""
+msgstr "محورونه"
 
 msgid "Horizontal (x) axis"
 msgstr ""
 
 msgid "Series"
-msgstr ""
+msgstr "سلسله (لړۍ)"
 
 msgid "Style"
-msgstr ""
+msgstr "استایل"
 
 msgid "Chart style"
 msgstr ""
@@ -834,13 +834,13 @@ msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Totals"
-msgstr ""
+msgstr "مجموعه"
 
 msgid "Empty data"
 msgstr ""
 
 msgid "Table title"
-msgstr ""
+msgstr "جدول عنوان"
 
 msgid "Limit values"
 msgstr ""
@@ -852,7 +852,7 @@ msgid "Limit minimum/maximum values"
 msgstr ""
 
 msgid "Parameters"
-msgstr ""
+msgstr "پارامتر ها"
 
 msgid "Color set"
 msgstr ""

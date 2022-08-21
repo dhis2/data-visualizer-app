@@ -1,14 +1,14 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2022
 # phil_dhis2, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
 "PO-Revision-Date: 2022-08-21 23:46+0000\n"
-"Last-Translator: phil_dhis2, 2022\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2022\n"
 "Language-Team: Tajik (https://www.transifex.com/hisp-uio/teams/100509/tg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -68,7 +68,7 @@ msgid "Filter dimensions"
 msgstr ""
 
 msgid "Graphics"
-msgstr ""
+msgstr "Графика"
 
 msgid "Image (.png)"
 msgstr ""
@@ -77,7 +77,7 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Table layout"
-msgstr ""
+msgstr "Тарҳбандии ҷадвал"
 
 msgid "Excel (.xls)"
 msgstr ""
@@ -92,19 +92,19 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr ""
+msgstr "Идентификатор"
 
 msgid "Code"
-msgstr ""
+msgstr "Рамз"
 
 msgid "Name"
-msgstr ""
+msgstr "Ном"
 
 msgid "Download"
-msgstr ""
+msgstr "Боргирӣ"
 
 msgid "Plain data source"
-msgstr ""
+msgstr "Маъхази иттилооти оддӣ"
 
 msgid "JSON"
 msgstr ""
@@ -149,7 +149,7 @@ msgid "The following information may be requested by technical support."
 msgstr ""
 
 msgid "Hide"
-msgstr ""
+msgstr "Пинҳон кардан"
 
 msgid "Interpretations"
 msgstr "Тафсирҳо"
@@ -176,7 +176,7 @@ msgid "Levels"
 msgstr ""
 
 msgid "Groups"
-msgstr ""
+msgstr "Гурӯҳҳо"
 
 msgid "And 1 other..."
 msgstr ""
@@ -237,13 +237,13 @@ msgid "Count"
 msgstr "Шумора"
 
 msgid "Average"
-msgstr ""
+msgstr "Миёна"
 
 msgid "Average (sum in org unit hierarchy)"
 msgstr ""
 
 msgid "Sum"
-msgstr ""
+msgstr "Ҷамъ"
 
 msgid "Last value"
 msgstr ""
@@ -252,10 +252,10 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr ""
 
 msgid "Min"
-msgstr ""
+msgstr "Мин"
 
 msgid "Max"
-msgstr ""
+msgstr "Макс"
 
 msgid "Standard deviation"
 msgstr ""
@@ -285,13 +285,13 @@ msgid "Value"
 msgstr "Қимат"
 
 msgid "Title"
-msgstr ""
+msgstr "Унвон"
 
 msgid "Base line title"
 msgstr ""
 
 msgid "Number"
-msgstr ""
+msgstr "Рақам"
 
 msgid "Labels"
 msgstr ""
@@ -327,7 +327,7 @@ msgid "Only include completed events"
 msgstr ""
 
 msgid "Include cumulative"
-msgstr ""
+msgstr "Бо ҷамъшавӣ"
 
 msgid "Cumulative values"
 msgstr ""
@@ -336,7 +336,7 @@ msgid "Digit group separator"
 msgstr "Ҷудокунандаи гурӯҳи рақамҳо"
 
 msgid "None"
-msgstr ""
+msgstr "Ягонто"
 
 msgid "Space"
 msgstr ""
@@ -345,16 +345,16 @@ msgid "Comma"
 msgstr ""
 
 msgid "Display density"
-msgstr ""
+msgstr "Зичии намоиш"
 
 msgid "Comfortable"
-msgstr ""
+msgstr "Роҳат"
 
 msgid "Normal"
-msgstr ""
+msgstr "Муқаррарӣ"
 
 msgid "Compact"
-msgstr ""
+msgstr "Муъҷаз"
 
 msgid "Axis title"
 msgstr ""
@@ -363,13 +363,13 @@ msgid "Add a title"
 msgstr ""
 
 msgid "Font size"
-msgstr ""
+msgstr "Андозаи шрифт"
 
 msgid "Large"
 msgstr "Калон"
 
 msgid "Small"
-msgstr ""
+msgstr "Хурд"
 
 msgid "Hide empty columns"
 msgstr ""
@@ -387,10 +387,10 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr ""
+msgstr "Ҳама"
 
 msgid "Hide empty rows"
-msgstr ""
+msgstr "Пинҳон кардани сатрҳои холӣ"
 
 msgid "Show legend key"
 msgstr ""
@@ -408,7 +408,7 @@ msgid "Custom"
 msgstr ""
 
 msgid "Chart title"
-msgstr ""
+msgstr "Унвони диаграмма"
 
 msgid "Display legend"
 msgstr ""
@@ -432,7 +432,7 @@ msgid "Legend changes text color"
 msgstr ""
 
 msgid "Legend"
-msgstr ""
+msgstr "Маҷмӯи аломатҳои шартӣ"
 
 msgid "Select from legends"
 msgstr ""
@@ -470,13 +470,13 @@ msgid "Percentage of column"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr ""
+msgstr "Воҳиди сохторӣ"
 
 msgid "Parent organisation unit"
-msgstr ""
+msgstr "Воҳиди сохтории болоӣ"
 
 msgid "Reporting period"
-msgstr ""
+msgstr "Давраи ҳисоботӣ"
 
 msgid "Stacked values add up to 100%"
 msgstr ""
@@ -496,10 +496,10 @@ msgid "Steps"
 msgstr ""
 
 msgid "Include regression"
-msgstr ""
+msgstr "Бо регрессия"
 
 msgid "Trend line"
-msgstr ""
+msgstr "Намоиши хатҳои майлон"
 
 msgid "Linear"
 msgstr ""
@@ -561,10 +561,10 @@ msgid "Custom sort order"
 msgstr ""
 
 msgid "Low to high"
-msgstr ""
+msgstr "Аз хурд ба калон"
 
 msgid "High to low"
-msgstr ""
+msgstr "Аз калон ба хурд"
 
 msgid "Add a subtitle"
 msgstr ""
@@ -585,7 +585,7 @@ msgid "Top limit"
 msgstr "Ҳудуди болоӣ"
 
 msgid "Options"
-msgstr ""
+msgstr "Имконот"
 
 msgid "Open as Map"
 msgstr ""
@@ -691,10 +691,10 @@ msgid "Something went wrong"
 msgstr ""
 
 msgid "or"
-msgstr ""
+msgstr "ё"
 
 msgid "Today"
-msgstr ""
+msgstr "Имрӯз"
 
 msgid "Yesterday"
 msgstr "Дирӯз"
@@ -703,7 +703,7 @@ msgid "Last 3 days"
 msgstr ""
 
 msgid "Last 7 days"
-msgstr ""
+msgstr "7 рӯзи охир"
 
 msgid "Last 14 days"
 msgstr ""
@@ -712,13 +712,13 @@ msgid "This week"
 msgstr ""
 
 msgid "Last week"
-msgstr ""
+msgstr "Ҳафтаи гузашта"
 
 msgid "Last 4 weeks"
-msgstr ""
+msgstr "4 ҳафтаи охир"
 
 msgid "Last 12 weeks"
-msgstr ""
+msgstr "12 ҳафтаи охир"
 
 msgid "Last 52 weeks"
 msgstr ""
@@ -730,19 +730,19 @@ msgid "This month"
 msgstr ""
 
 msgid "Last month"
-msgstr ""
+msgstr "Моҳи гузашта"
 
 msgid "Last 3 months"
-msgstr ""
+msgstr "3 моҳи охир"
 
 msgid "Last 6 months"
 msgstr "6 моҳи охир"
 
 msgid "Last 12 months"
-msgstr ""
+msgstr "12 моҳи охир"
 
 msgid "Months this year"
-msgstr ""
+msgstr "Моҳҳо дар ин сол"
 
 msgid "This bimonth"
 msgstr ""
@@ -760,22 +760,22 @@ msgid "This quarter"
 msgstr ""
 
 msgid "Last quarter"
-msgstr ""
+msgstr "Семоҳаи охир"
 
 msgid "Last 4 quarters"
-msgstr ""
+msgstr "4 семоҳаи охир"
 
 msgid "Quarters this year"
-msgstr ""
+msgstr "Семоҳаҳои ин сол"
 
 msgid "This six-month"
 msgstr ""
 
 msgid "Last six-month"
-msgstr ""
+msgstr "Шашмоҳаи охир"
 
 msgid "Last 2 six-months"
-msgstr ""
+msgstr "2 шашмоҳаи охир"
 
 msgid "This financial year"
 msgstr ""
@@ -784,7 +784,7 @@ msgid "Last financial year"
 msgstr "Соли молиявии гузашта"
 
 msgid "Last 5 financial years"
-msgstr ""
+msgstr "5 соли молиявии гузашта"
 
 msgid "This year"
 msgstr "Имсол"
@@ -793,10 +793,10 @@ msgid "Last year"
 msgstr "Соли гузашта"
 
 msgid "Last 5 years"
-msgstr ""
+msgstr "5 соли охир"
 
 msgid "User org unit"
-msgstr ""
+msgstr "Воҳиди сохтории корбар"
 
 msgid "User org unit children"
 msgstr ""
@@ -805,10 +805,10 @@ msgid "User org unit grand children"
 msgstr ""
 
 msgid "Data"
-msgstr ""
+msgstr "Иттилоот"
 
 msgid "Display"
-msgstr ""
+msgstr "Намоиш додан"
 
 msgid "Axes"
 msgstr ""
@@ -817,10 +817,10 @@ msgid "Horizontal (x) axis"
 msgstr ""
 
 msgid "Series"
-msgstr ""
+msgstr "Силсила"
 
 msgid "Style"
-msgstr ""
+msgstr "Услуб"
 
 msgid "Chart style"
 msgstr ""
@@ -835,7 +835,7 @@ msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Totals"
-msgstr ""
+msgstr "Ҳамагӣ"
 
 msgid "Empty data"
 msgstr ""
@@ -853,7 +853,7 @@ msgid "Limit minimum/maximum values"
 msgstr ""
 
 msgid "Parameters"
-msgstr ""
+msgstr "Параметрҳо"
 
 msgid "Color set"
 msgstr ""

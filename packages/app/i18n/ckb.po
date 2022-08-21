@@ -1,9 +1,15 @@
 # 
+# Translators:
+# Asos <aso.rezaiy@gmail.com>, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
+# KRG HIS <antonia.bezenchek@informa.pro>, 2022
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
 "PO-Revision-Date: 2022-08-21 23:46+0000\n"
+"Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2022\n"
 "Language-Team: Central Kurdish (https://www.transifex.com/hisp-uio/teams/100509/ckb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -144,7 +150,7 @@ msgid "The following information may be requested by technical support."
 msgstr ""
 
 msgid "Hide"
-msgstr ""
+msgstr "شاردنەوە"
 
 msgid "Interpretations"
 msgstr ""
@@ -200,7 +206,7 @@ msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
 msgid "Update"
-msgstr ""
+msgstr "نوێ کردنەوە"
 
 msgid "Getting started"
 msgstr ""
@@ -247,10 +253,10 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr ""
 
 msgid "Min"
-msgstr ""
+msgstr "کەمترین"
 
 msgid "Max"
-msgstr ""
+msgstr "زیاترین"
 
 msgid "Standard deviation"
 msgstr ""
@@ -277,7 +283,7 @@ msgid "Base line"
 msgstr ""
 
 msgid "Value"
-msgstr ""
+msgstr "بةها"
 
 msgid "Title"
 msgstr ""
@@ -331,7 +337,7 @@ msgid "Digit group separator"
 msgstr ""
 
 msgid "None"
-msgstr ""
+msgstr "هیچیان"
 
 msgid "Space"
 msgstr ""
@@ -465,7 +471,7 @@ msgid "Percentage of column"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr ""
+msgstr "يةكةي ريكخراو"
 
 msgid "Parent organisation unit"
 msgstr ""
@@ -683,13 +689,13 @@ msgid ""
 msgstr ""
 
 msgid "Something went wrong"
-msgstr ""
+msgstr "هەڵەیەک ڕووی دا"
 
 msgid "or"
 msgstr ""
 
 msgid "Today"
-msgstr ""
+msgstr "ئەمڕۆ"
 
 msgid "Yesterday"
 msgstr ""
@@ -704,10 +710,10 @@ msgid "Last 14 days"
 msgstr ""
 
 msgid "This week"
-msgstr ""
+msgstr "ئەم هەفتەیە"
 
 msgid "Last week"
-msgstr ""
+msgstr "هەفتەی ڕابردوو"
 
 msgid "Last 4 weeks"
 msgstr ""
@@ -722,13 +728,13 @@ msgid "Weeks this year"
 msgstr ""
 
 msgid "This month"
-msgstr ""
+msgstr "ئەم مانگە"
 
 msgid "Last month"
-msgstr ""
+msgstr "مانگی ڕابردوو"
 
 msgid "Last 3 months"
-msgstr ""
+msgstr "٣ مانگ پێشووتر"
 
 msgid "Last 6 months"
 msgstr ""

@@ -94,10 +94,10 @@ msgid "ID"
 msgstr ""
 
 msgid "Code"
-msgstr ""
+msgstr "Code"
 
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 msgid "Download"
 msgstr ""
@@ -204,7 +204,7 @@ msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
 msgid "Update"
-msgstr ""
+msgstr "Update"
 
 msgid "Getting started"
 msgstr ""
@@ -251,10 +251,10 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr ""
 
 msgid "Min"
-msgstr ""
+msgstr "Min"
 
 msgid "Max"
-msgstr ""
+msgstr "Max"
 
 msgid "Standard deviation"
 msgstr ""
@@ -284,13 +284,13 @@ msgid "Value"
 msgstr ""
 
 msgid "Title"
-msgstr ""
+msgstr "Title"
 
 msgid "Base line title"
 msgstr ""
 
 msgid "Number"
-msgstr ""
+msgstr "Number"
 
 msgid "Labels"
 msgstr ""
@@ -302,7 +302,7 @@ msgid "Columns totals"
 msgstr ""
 
 msgid "Default"
-msgstr ""
+msgstr "Default"
 
 msgid "Bright"
 msgstr ""
@@ -335,7 +335,7 @@ msgid "Digit group separator"
 msgstr ""
 
 msgid "None"
-msgstr ""
+msgstr "None"
 
 msgid "Space"
 msgstr ""
@@ -350,7 +350,7 @@ msgid "Comfortable"
 msgstr ""
 
 msgid "Normal"
-msgstr ""
+msgstr "Normal"
 
 msgid "Compact"
 msgstr ""
@@ -386,7 +386,7 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr ""
+msgstr "All"
 
 msgid "Hide empty rows"
 msgstr ""
@@ -469,7 +469,7 @@ msgid "Percentage of column"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr ""
+msgstr "Organisation unit"
 
 msgid "Parent organisation unit"
 msgstr ""
@@ -711,7 +711,7 @@ msgid "This week"
 msgstr ""
 
 msgid "Last week"
-msgstr ""
+msgstr "Last week"
 
 msgid "Last 4 weeks"
 msgstr ""
@@ -729,16 +729,16 @@ msgid "This month"
 msgstr ""
 
 msgid "Last month"
-msgstr ""
+msgstr "Last month"
 
 msgid "Last 3 months"
-msgstr ""
+msgstr "Last 3 months"
 
 msgid "Last 6 months"
 msgstr "Last 6 months"
 
 msgid "Last 12 months"
-msgstr ""
+msgstr "Last 12 months"
 
 msgid "Months this year"
 msgstr ""
@@ -819,7 +819,7 @@ msgid "Series"
 msgstr ""
 
 msgid "Style"
-msgstr ""
+msgstr "Style"
 
 msgid "Chart style"
 msgstr ""
