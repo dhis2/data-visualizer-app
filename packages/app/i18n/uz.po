@@ -1,32 +1,31 @@
 # 
 # Translators:
-# phil_dhis2, 2022
-# Viktor Varland <viktor@dhis2.org>, 2022
+# Ibatov <ibatovk@who.int>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-25T18:22:35.064Z\n"
 "PO-Revision-Date: 2022-08-21 23:46+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2022\n"
-"Language-Team: Urdu (https://www.transifex.com/hisp-uio/teams/100509/ur/)\n"
+"Last-Translator: Ibatov <ibatovk@who.int>, 2022\n"
+"Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ur\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: uz@Cyrl\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Rename successful"
 msgstr ""
 
 msgid "\"{{what}}\" successfully deleted."
-msgstr "\"{{what}}\" کامیابی سے حذف کر دیا گیا"
+msgstr "\"{{what}}\" муваффақиятли ўчирилди"
 
 msgid "You have unsaved changes."
 msgstr ""
 
 msgid "Discard unsaved changes?"
-msgstr "غیر محفوظ شدہ تبدیلیاں ختم کریں؟"
+msgstr "Сақланмаган ўзгаришлар бекор қилинсинми?"
 
 msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
@@ -34,13 +33,13 @@ msgid ""
 msgstr ""
 
 msgid "No, cancel"
-msgstr ""
+msgstr "Йўқ, бекор қилинг"
 
 msgid "Yes, leave"
 msgstr ""
 
 msgid "Axis 1"
-msgstr ""
+msgstr "Биринчи ўқ"
 
 msgid "Axis 2"
 msgstr ""
@@ -60,7 +59,7 @@ msgid "Update"
 msgstr ""
 
 msgid "Add to {{axisName}}"
-msgstr ""
+msgstr "{{axisName}} га қўшинг"
 
 msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
@@ -71,6 +70,9 @@ msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
+"'{{visualiationType}}' максимал {{maxNumber}} та сонни кўрсатишга "
+"мўлжалланган. Фақат биринчи {{maxNumber}} та элемент ишлатилади ва "
+"сақланади."
 
 msgid "Main dimensions"
 msgstr ""
@@ -100,10 +102,10 @@ msgid "Excel (.xls)"
 msgstr ""
 
 msgid "CSV (.csv)"
-msgstr ""
+msgstr "CSV (.csv)"
 
 msgid "HTML (.html)"
-msgstr ""
+msgstr "HTML (.html)"
 
 msgid "Download"
 msgstr ""
@@ -136,7 +138,7 @@ msgid "Code"
 msgstr ""
 
 msgid "Name"
-msgstr "ÙØ§Ù"
+msgstr "Исми"
 
 msgid "Data value set"
 msgstr ""
@@ -151,7 +153,7 @@ msgid "Raw data SQL"
 msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
+msgstr "DHIS2 Маълумотлар Визуализатор дастурида хатолик юз берди."
 
 msgid "Refresh to try again"
 msgstr ""
@@ -169,7 +171,7 @@ msgid "Hide"
 msgstr ""
 
 msgid "Interpretations"
-msgstr "تشریحات"
+msgstr "Талқинлар"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
@@ -243,7 +245,7 @@ msgid "Average"
 msgstr ""
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr "اوسط (اختیاری یونٹ کے تنظیمی ڈھانچے میں)"
+msgstr "Ўртача (ташкилий бирлик иерархияси жамланмаси)"
 
 msgid "Sum"
 msgstr ""
@@ -258,7 +260,7 @@ msgid "Min"
 msgstr ""
 
 msgid "Max"
-msgstr "زیادہ سے زیادہ"
+msgstr "Максимум"
 
 msgid "Standard deviation"
 msgstr ""
@@ -312,13 +314,13 @@ msgid "Include cumulative"
 msgstr ""
 
 msgid "Cumulative values"
-msgstr ""
+msgstr "Кумулятив қийматлар"
 
 msgid "Digit group separator"
 msgstr ""
 
 msgid "None"
-msgstr "کوئی نہں"
+msgstr "Йўқ"
 
 msgid "Space"
 msgstr ""
@@ -345,7 +347,7 @@ msgid "Add a title"
 msgstr ""
 
 msgid "Font size"
-msgstr "حرف کا سائز"
+msgstr "Шрифт ҳажми"
 
 msgid "Large"
 msgstr ""
@@ -363,7 +365,7 @@ msgid "Before first"
 msgstr ""
 
 msgid "After last"
-msgstr "آخری کے بعد"
+msgstr "Охиргидан кейинги"
 
 msgid "Before first and after last"
 msgstr ""
@@ -417,13 +419,13 @@ msgid "Legend changes text color"
 msgstr ""
 
 msgid "Legend"
-msgstr "علامات"
+msgstr "Таъриф"
 
 msgid "Select from legends"
 msgstr ""
 
 msgid "Loading legends"
-msgstr ""
+msgstr "Таърифлар юкланмоқда"
 
 msgid ""
 "You can set a minimum or maximum value. This will apply to the entire table,"
@@ -482,7 +484,7 @@ msgid "Include regression"
 msgstr ""
 
 msgid "Trend line"
-msgstr "رجحان لائن"
+msgstr "Йўналиш қатори"
 
 msgid "Linear"
 msgstr ""
@@ -506,7 +508,7 @@ msgid "Dimension labels"
 msgstr ""
 
 msgid "Display organisation unit hierarchy"
-msgstr ""
+msgstr "Ташкилий бўлим иерархиясини экранда кўрсатиш"
 
 msgid "Skip rounding"
 msgstr ""
@@ -515,7 +517,7 @@ msgid "Custom sort order"
 msgstr ""
 
 msgid "Low to high"
-msgstr "اعلی سے کم"
+msgstr "Пастдан юқорига"
 
 msgid "High to low"
 msgstr ""
@@ -524,7 +526,7 @@ msgid "Add a subtitle"
 msgstr ""
 
 msgid "Target line"
-msgstr "ہدف لائن"
+msgstr "Мақсад чегара чизиғи"
 
 msgid "Target line title"
 msgstr ""
@@ -533,7 +535,7 @@ msgid "Top limit"
 msgstr ""
 
 msgid "Options"
-msgstr "اختیارات"
+msgstr "Вариант"
 
 msgid "Open as Map"
 msgstr ""
@@ -551,7 +553,7 @@ msgid "Actual reports on time"
 msgstr ""
 
 msgid "Expected reports"
-msgstr "متوقع رپورٹ"
+msgstr "Кутилаётган ҳисоботлар"
 
 msgid "No data available"
 msgstr ""
@@ -560,9 +562,11 @@ msgid ""
 "The selected dimensions didn’t return any data. There may be no data, or you"
 " may not have access to it."
 msgstr ""
+"Танланган параметрлар асосида ҳеч қандай маълумотлар топилмади. Маълумотлар "
+"йўқ ёки уларгадан фойдаланиш ҳуқуқи мавжуд эмас."
 
 msgid "{{axisName}} is empty"
-msgstr ""
+msgstr "{{axisName}} бўш"
 
 msgid "Add at least one item to {{axisName}}."
 msgstr ""
@@ -583,7 +587,7 @@ msgid ""
 msgstr ""
 
 msgid "No data selected"
-msgstr ""
+msgstr "Маълумот танланмаган"
 
 msgid ""
 "{{visualizationType}} must have at least one data item or data element group"
@@ -600,6 +604,8 @@ msgid ""
 "A single indicator must be the only data item when using indicators as Data "
 "in Filter."
 msgstr ""
+"Индикаторларни Фильтрдаги маълумотлар сифатида ишлатилганда битта индикатоор"
+" ягона маълумот элементи бўлиши лозим."
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
 msgstr ""
@@ -612,6 +618,7 @@ msgstr ""
 
 msgid "Assigned Categories can only be used with data elements"
 msgstr ""
+"Тайинланган тоифалардан фақат маълумотлар элементларидан фойдаланиш мумкин"
 
 msgid ""
 "Fix this problem by selecting data elements or removing Assigned Categories."
@@ -624,7 +631,7 @@ msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
 
 msgid "Something went wrong"
-msgstr ""
+msgstr "Нимадир нотўғри бажарилди"
 
 msgid "or"
 msgstr ""
@@ -654,13 +661,13 @@ msgid "Last 4 weeks"
 msgstr ""
 
 msgid "Last 12 weeks"
-msgstr "آخری ۱۲ ہفتے"
+msgstr "Охирги 12 ҳафта"
 
 msgid "Last 52 weeks"
 msgstr ""
 
 msgid "Weeks this year"
-msgstr "اس سال ہفتہ"
+msgstr "Ҳафталар айни йилда "
 
 msgid "This month"
 msgstr ""
@@ -696,10 +703,10 @@ msgid "This quarter"
 msgstr ""
 
 msgid "Last quarter"
-msgstr "آخری سہ ماہ"
+msgstr "Охирги квартал"
 
 msgid "Last 4 quarters"
-msgstr "آخری ۴ سہ ماہی"
+msgstr "Охирги 4 квартал"
 
 msgid "Quarters this year"
 msgstr ""
@@ -714,10 +721,10 @@ msgid "Last 2 six-months"
 msgstr ""
 
 msgid "This financial year"
-msgstr "اس مالیاتی سال"
+msgstr "Ушбу молиявий йил"
 
 msgid "Last financial year"
-msgstr "آخری مالیاتی سال"
+msgstr "Охирги молиявий йил"
 
 msgid "Last 5 financial years"
 msgstr ""
@@ -753,10 +760,10 @@ msgid "Display"
 msgstr ""
 
 msgid "Lines"
-msgstr ""
+msgstr "Қаторлар"
 
 msgid "Vertical (y) axis"
-msgstr ""
+msgstr "Вертикал (y) ўқи"
 
 msgid "Horizontal (x) axis"
 msgstr ""
@@ -789,7 +796,7 @@ msgid "Parameters"
 msgstr ""
 
 msgid "Weeks per year"
-msgstr ""
+msgstr "Йил ичида ҳафталар"
 
 msgid "Months per year"
 msgstr ""

@@ -1,14 +1,15 @@
 # 
 # Translators:
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
+# Thuy Nguyen <thuynguyen@hispvietnam.org>, 2022
+# phil_dhis2, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-25T18:22:35.064Z\n"
-"PO-Revision-Date: 2020-03-02 13:01+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:46+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2022\n"
 "Language-Team: Lao (https://www.transifex.com/hisp-uio/teams/100509/lo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,10 +55,10 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr "Cancel"
+msgstr ""
 
 msgid "Update"
-msgstr "ປັບປຸງ"
+msgstr ""
 
 msgid "Add to {{axisName}}"
 msgstr ""
@@ -85,7 +86,7 @@ msgid "Filter dimensions"
 msgstr ""
 
 msgid "Graphics"
-msgstr "ກຣາບຟິກ"
+msgstr ""
 
 msgid "Image (.png)"
 msgstr ""
@@ -94,7 +95,7 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Table layout"
-msgstr "ເຄົ້າໂຄງຕາຕະລາງ"
+msgstr ""
 
 msgid "Excel (.xls)"
 msgstr ""
@@ -106,43 +107,43 @@ msgid "HTML (.html)"
 msgstr ""
 
 msgid "Download"
-msgstr "ດາວໂຫຼດ"
+msgstr ""
 
 msgid "Plain data source"
-msgstr "ສະເພາະຂໍ້ມູນພື້ນຖານ"
+msgstr ""
 
 msgid "JSON"
-msgstr "JSON"
+msgstr ""
 
 msgid "XML"
-msgstr "XML"
+msgstr ""
 
 msgid "Excel"
 msgstr ""
 
 msgid "CSV"
-msgstr "CSV"
+msgstr ""
 
 msgid "Advanced"
-msgstr "ການຕັ້ງຄ່າຂັ້ນສູງ"
+msgstr ""
 
 msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr "ລະຫັດ"
+msgstr ""
 
 msgid "Code"
-msgstr "ລະຫັດ"
+msgstr ""
 
 msgid "Name"
 msgstr "ຊື່"
 
 msgid "Data value set"
-msgstr "ການຕັ້ງຄ່າຂໍ້ມູນ"
+msgstr ""
 
 msgid "Other formats"
-msgstr "ຮູບແບບອື່ນ"
+msgstr ""
 
 msgid "JRXML"
 msgstr ""
@@ -166,7 +167,7 @@ msgid "The following information may be requested by technical support."
 msgstr ""
 
 msgid "Hide"
-msgstr "ເຊື່ອງ"
+msgstr ""
 
 msgid "Interpretations"
 msgstr "ການແປຂໍ້ມູນ"
@@ -193,7 +194,7 @@ msgid "Levels"
 msgstr ""
 
 msgid "Groups"
-msgstr "ກຸ່ມ"
+msgstr ""
 
 msgid "And 1 other..."
 msgstr ""
@@ -228,46 +229,46 @@ msgid "Your most viewed charts and tables"
 msgstr ""
 
 msgid "Aggregation type"
-msgstr "ປະເພດຕົວເລກລວມ"
+msgstr ""
 
 msgid "Determines how the values in the pivot table are aggregated."
 msgstr ""
 
 msgid "By data element"
-msgstr "ໂດຍອົງປະກອບຂອງຂໍ້ມູນ"
+msgstr ""
 
 msgid "Count"
-msgstr "ນັບ"
+msgstr ""
 
 msgid "Average"
-msgstr "ສະເລ່ຍ"
+msgstr ""
 
 msgid "Average (sum in org unit hierarchy)"
 msgstr "ຄ່າສະເລ່ຍ (ສັງລວມໃນໂຄງຮ່າງການຈັດຕັ້ງ)"
 
 msgid "Sum"
-msgstr "ຜົນບວກ"
+msgstr ""
 
 msgid "Last value"
-msgstr "ມູນຄ່າສຸດທ້າຍ"
+msgstr ""
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr "ມູນຄ່າສຸດທ້າຍ (ຄ່າສະເລ່ຍໃນໂຄງຮ່າງການຈັດຕັ້ງ)"
+msgstr ""
 
 msgid "Min"
-msgstr "ຄ່ານ້ອຍສຸດ"
+msgstr ""
 
 msgid "Max"
-msgstr "ຄ່າສູງສຸດ"
+msgstr ""
 
 msgid "Standard deviation"
 msgstr ""
 
 msgid "Variance"
-msgstr "ຄວາມແຕກຕ່າງ"
+msgstr ""
 
 msgid "Data approved at level"
-msgstr "ຂໍ້ມູນໄດ້ຮັບການອະນຸມັດຢູ່ຂັ້ນ"
+msgstr ""
 
 msgid "Select from predefined levels"
 msgstr ""
@@ -285,16 +286,16 @@ msgid "Base line"
 msgstr ""
 
 msgid "Value"
-msgstr "Value"
+msgstr ""
 
 msgid "Title"
-msgstr "ຫົວຂໍ້"
+msgstr ""
 
 msgid "Base line title"
-msgstr "ຫົວຂໍ້ເສັ້ນຖານ"
+msgstr ""
 
 msgid "Number"
-msgstr "ຈຳນວນ"
+msgstr ""
 
 msgid "Column sub-totals"
 msgstr ""
@@ -309,34 +310,34 @@ msgid "Only include completed events"
 msgstr ""
 
 msgid "Include cumulative"
-msgstr "​ລວມ​ເອົາ​ທັງ​ການ​ສະ​ສົມ"
+msgstr ""
 
 msgid "Cumulative values"
 msgstr ""
 
 msgid "Digit group separator"
-msgstr "ແຍກຕົວເລກເປັນກຸ່ມ"
+msgstr ""
 
 msgid "None"
-msgstr "ບໍ່ມີ"
+msgstr "ບໍ່ແມນ"
 
 msgid "Space"
-msgstr "ຍະຫວ່າງ"
+msgstr ""
 
 msgid "Comma"
-msgstr "ຈຸດ"
+msgstr ""
 
 msgid "Display density"
-msgstr "ສະແດງຄວາມໜາແໜ້ນ"
+msgstr ""
 
 msgid "Comfortable"
-msgstr "ຂະໜາດພໍດີງາມ"
+msgstr ""
 
 msgid "Normal"
-msgstr "ປົກກະຕິ"
+msgstr ""
 
 msgid "Compact"
-msgstr "ໜາແໜ້ນ"
+msgstr ""
 
 msgid "Axis title"
 msgstr ""
@@ -345,34 +346,34 @@ msgid "Add a title"
 msgstr ""
 
 msgid "Font size"
-msgstr "ຂະຫນາດຕົວອັກສອນ"
+msgstr ""
 
 msgid "Large"
-msgstr "ໃຫຍ່"
+msgstr ""
 
 msgid "Small"
-msgstr "ນ້ອຍ"
+msgstr ""
 
 msgid "Hide empty columns"
-msgstr "ປິດແຖວທີ່ຫວ່າງເປົ່າ"
+msgstr ""
 
 msgid "Hide empty categories"
-msgstr "ເຊື່ອງປະເພດຂອງຂໍ້ມູນທີ່ເປົ່າວ່າງ"
+msgstr ""
 
 msgid "Before first"
-msgstr "ກ່ອນໜ້າທໍາອິດ"
+msgstr ""
 
 msgid "After last"
 msgstr "ຫຼັງຈາກສຸດທ້າຍ"
 
 msgid "Before first and after last"
-msgstr "ກ່ອນໜ້າທໍາອິດ ແລະ ຫຼັງຈາກສຸດທ້າຍ"
+msgstr ""
 
 msgid "All"
-msgstr "ທັງໝົດ"
+msgstr ""
 
 msgid "Hide empty rows"
-msgstr "ເຊື່ອງແຖວທີ່ເປົ່າຫວ່າງ"
+msgstr ""
 
 msgid "Legend key"
 msgstr ""
@@ -381,7 +382,7 @@ msgid "Table subtitle"
 msgstr ""
 
 msgid "Chart subtitle"
-msgstr "ຫົວຂໍ້ຍ່ອຍຂອງເສັ້ນສະແດງ"
+msgstr ""
 
 msgid "Auto generated"
 msgstr ""
@@ -390,16 +391,16 @@ msgid "Custom"
 msgstr ""
 
 msgid "Table title"
-msgstr "ຊື່ຂອງຕາຕະລາງ"
+msgstr ""
 
 msgid "Chart title"
-msgstr "ຫົວຂໍ້ເສັ້ນສະແດງ"
+msgstr ""
 
 msgid "Display legend"
 msgstr ""
 
 msgid "Legend style"
-msgstr "ຫວ່າງຂໍ້ມູນ"
+msgstr ""
 
 msgid "Legend type"
 msgstr ""
@@ -443,7 +444,7 @@ msgid "No space between bars/columns"
 msgstr ""
 
 msgid "Number type"
-msgstr "Number type"
+msgstr ""
 
 msgid "Display the value of percentages of the total"
 msgstr ""
@@ -455,13 +456,13 @@ msgid "Percentage of column"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr "​ຫົວ​ໜ່ວຍ​ການ​ຈັດ​ຕັ້ງ"
+msgstr ""
 
 msgid "Parent organisation unit"
-msgstr "ໂຄງຮ່າງການຈັດຕັ້ງຂັ້ນສູງ"
+msgstr ""
 
 msgid "Reporting period"
-msgstr "​ໄລ​ຍະ​ເວ​ລາ​ການ​ລາຍ​ງານ"
+msgstr ""
 
 msgid "Stacked values add up to 100%"
 msgstr ""
@@ -479,19 +480,19 @@ msgid "Steps"
 msgstr ""
 
 msgid "Include regression"
-msgstr "​ລວມ​ທັງ​ອັນທີ່​ຊ້ຳ​ກັນ"
+msgstr ""
 
 msgid "Trend line"
 msgstr "ເສັ້ນແນວໂນ້ມ"
 
 msgid "Linear"
-msgstr "ຈຸດ"
+msgstr ""
 
 msgid "Polynomial"
-msgstr "ເສັ້ນສະແດງແບບໂຄ້ງ"
+msgstr ""
 
 msgid "Loess"
-msgstr "ເສັ້ນສະແດງແບບແຈກຢາຍເປັນຈຸດເປັນຈໍ້າ"
+msgstr ""
 
 msgid "Row sub-totals"
 msgstr ""
@@ -509,7 +510,7 @@ msgid "Display organisation unit hierarchy"
 msgstr ""
 
 msgid "Skip rounding"
-msgstr "ບໍ່ປັດຕົວເລກ"
+msgstr ""
 
 msgid "Custom sort order"
 msgstr ""
@@ -518,7 +519,7 @@ msgid "Low to high"
 msgstr "ຕ່ຳຫາສູງ"
 
 msgid "High to low"
-msgstr "ສູງຫາຕ່ຳ"
+msgstr ""
 
 msgid "Add a subtitle"
 msgstr ""
@@ -527,13 +528,13 @@ msgid "Target line"
 msgstr ""
 
 msgid "Target line title"
-msgstr "ຫົວຂໍ້ເສັ້ນເປົ້າໝາຍ"
+msgstr ""
 
 msgid "Top limit"
-msgstr "ຂໍ້​ຈຳ​ກັດ​ສູງ​ສຸດ"
+msgstr ""
 
 msgid "Options"
-msgstr "ຈັດການ"
+msgstr ""
 
 msgid "Open as Map"
 msgstr ""
@@ -576,7 +577,7 @@ msgid ""
 msgstr ""
 
 msgid "No period selected"
-msgstr "ບໍ່ໄດ້ເລືອກເວລາ"
+msgstr ""
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
@@ -627,58 +628,58 @@ msgid "Something went wrong"
 msgstr ""
 
 msgid "or"
-msgstr "or"
+msgstr ""
 
 msgid "Today"
-msgstr "ມື້ນີ້"
+msgstr ""
 
 msgid "Yesterday"
-msgstr "ມື້ວານນີ"
+msgstr ""
 
 msgid "Last 3 days"
-msgstr "3 ມື້ກ່ອນ"
+msgstr ""
 
 msgid "Last 7 days"
-msgstr "7 ມື້ກ່ອນ"
+msgstr ""
 
 msgid "Last 14 days"
-msgstr "14 ມື້ກ່ອນ"
+msgstr ""
 
 msgid "This week"
-msgstr "ທິດນີ້"
+msgstr ""
 
 msgid "Last week"
-msgstr "ອາທິດທີ່ຜ່ານມາ"
+msgstr ""
 
 msgid "Last 4 weeks"
-msgstr "4 ອາທິດຍ້ອນຫຼັງ"
+msgstr ""
 
 msgid "Last 12 weeks"
 msgstr "12 ອາທິດຍ້ອນຫຼັງ"
 
 msgid "Last 52 weeks"
-msgstr "52 ອາທິດຜ່ານມາ"
+msgstr ""
 
 msgid "Weeks this year"
-msgstr "ອາທິດ ຂອງປີນີ້"
+msgstr ""
 
 msgid "This month"
-msgstr "ເດືອນນີ້"
+msgstr ""
 
 msgid "Last month"
-msgstr "ເດືອນຜ່ານມາ"
+msgstr ""
 
 msgid "Last 3 months"
-msgstr "3 ເດືອນຍ້ອນຫຼັງ"
+msgstr ""
 
 msgid "Last 6 months"
-msgstr "6 ເດືອນຜ່ານມາ"
+msgstr ""
 
 msgid "Last 12 months"
-msgstr "12 ເດືອນຍ້ອນຫຼັງ"
+msgstr ""
 
 msgid "Months this year"
-msgstr "​ເດືອນ​ໃນ​ປີ"
+msgstr ""
 
 msgid "This bimonth"
 msgstr ""
@@ -693,46 +694,46 @@ msgid "Bimonths this year"
 msgstr ""
 
 msgid "This quarter"
-msgstr "ໄຕມານີ້"
+msgstr ""
 
 msgid "Last quarter"
 msgstr "ໄຕມາດຜ່ານມາ"
 
 msgid "Last 4 quarters"
-msgstr "4 ໄຕມາດຍ້ອນຫຼັງ"
+msgstr ""
 
 msgid "Quarters this year"
-msgstr "​ໄຕຼມາດ​ໃນ​ປີ"
+msgstr ""
 
 msgid "This six-month"
-msgstr "6 ເດືອນນີ້"
+msgstr ""
 
 msgid "Last six-month"
-msgstr "6 ເດືອນຜ່ານມາ"
+msgstr ""
 
 msgid "Last 2 six-months"
-msgstr "ລວມ 6 ເດືອນ 2 ຄັ້ງທີ່ຜ່ານມາ"
+msgstr ""
 
 msgid "This financial year"
 msgstr "ສົກປີງົບປະມານຂອງປິນີ້"
 
 msgid "Last financial year"
-msgstr "​ສົກ​ປີ​ງົບ​ປະ​ມານ​ປີ​ກາຍ"
+msgstr ""
 
 msgid "Last 5 financial years"
-msgstr "​ສົກ​ປິ​ງົບ​ປະ​ມານ 5ປີ​ຜ່ານ​ມາ"
+msgstr ""
 
 msgid "This year"
-msgstr "ປີນີ້"
+msgstr ""
 
 msgid "Last year"
-msgstr "ປີກາຍ"
+msgstr ""
 
 msgid "Last 5 years"
-msgstr "5 ປີຍ້ອນຫຼັງ"
+msgstr ""
 
 msgid "User org unit"
-msgstr "ໜ່ວຍງານທີ່ຂຶ້ນກັບຕົນເອງ"
+msgstr ""
 
 msgid "User org unit children"
 msgstr ""
@@ -741,16 +742,16 @@ msgid "User org unit grand children"
 msgstr ""
 
 msgid "Data"
-msgstr "ຂໍ້ມູນ"
+msgstr ""
 
 msgid "Axes"
-msgstr "ແກນ"
+msgstr ""
 
 msgid "Style"
-msgstr "ລັກສະນະ"
+msgstr ""
 
 msgid "Display"
-msgstr "ສະແດງ"
+msgstr ""
 
 msgid "Lines"
 msgstr ""
@@ -786,7 +787,7 @@ msgid "Limit minimum/maximum values"
 msgstr ""
 
 msgid "Parameters"
-msgstr "ຂອບເຂດ"
+msgstr ""
 
 msgid "Weeks per year"
 msgstr ""
