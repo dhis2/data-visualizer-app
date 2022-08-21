@@ -1,9 +1,13 @@
 # 
+# Translators:
+# KRG HIS <antonia.bezenchek@informa.pro>, 2022
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-14T01:00:50.112Z\n"
 "PO-Revision-Date: 2022-08-21 23:45+0000\n"
+"Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2022\n"
 "Language-Team: Arabic (Iraq) (https://www.transifex.com/hisp-uio/teams/100509/ar_IQ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,10 +39,10 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "إلغاء"
 
 msgid "Update"
-msgstr ""
+msgstr "تحديث"
 
 msgid ""
 "'Single Value' is intended to show a single data item. Only the first item "
@@ -46,16 +50,16 @@ msgid ""
 msgstr ""
 
 msgid "Hide"
-msgstr ""
+msgstr "إخفاء"
 
 msgid "Remove"
-msgstr ""
+msgstr "إزالة"
 
 msgid "Download"
-msgstr ""
+msgstr "تنزيل"
 
 msgid "Graphics"
-msgstr ""
+msgstr "الرسومات"
 
 msgid "Image (.png)"
 msgstr ""
@@ -64,10 +68,10 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Plain data source"
-msgstr ""
+msgstr "مصدر البيانات الصريحة"
 
 msgid "Advanced"
-msgstr ""
+msgstr "متقدم"
 
 msgid "Metadata ID scheme"
 msgstr ""
@@ -79,10 +83,10 @@ msgid "Code"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
 msgid "Data value set"
-msgstr ""
+msgstr "حزمة قيم البيانات"
 
 msgid "JSON"
 msgstr ""
@@ -91,7 +95,7 @@ msgid "XML"
 msgstr ""
 
 msgid "Other formats"
-msgstr ""
+msgstr "صيغ أخرى"
 
 msgid "JRXML"
 msgstr ""
@@ -118,7 +122,7 @@ msgid "The following information may be requested by technical support."
 msgstr ""
 
 msgid "Interpretations"
-msgstr ""
+msgstr "التفسيرات"
 
 msgid "{{total}} of 1 selected"
 msgstr ""
@@ -169,40 +173,40 @@ msgid "Error generating chart, please try again"
 msgstr ""
 
 msgid "Aggregation type"
-msgstr ""
+msgstr "نوع التجميع"
 
 msgid "By data element"
-msgstr ""
+msgstr "بواسطة عنصر البيانات"
 
 msgid "Count"
-msgstr ""
+msgstr "العدد"
 
 msgid "Average"
-msgstr ""
+msgstr "المتوسط"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr ""
+msgstr "المتوسط (المجموع في التسلسل الهرمي للوحدة التنظيمية)"
 
 msgid "Sum"
-msgstr ""
+msgstr "المجموع"
 
 msgid "Last value"
-msgstr ""
+msgstr "القيمة الأخيرة"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr ""
+msgstr "القيمة الأخيرة (المتوسط في التسلسل الهرمي للوحدة التنظيمية)"
 
 msgid "Min"
-msgstr ""
+msgstr "الأدنى"
 
 msgid "Max"
-msgstr ""
+msgstr "الأعلى"
 
 msgid "Standard deviation"
 msgstr ""
 
 msgid "Variance"
-msgstr ""
+msgstr "التباين"
 
 msgid "Base line"
 msgstr ""
@@ -226,7 +230,7 @@ msgid "Hide empty categories"
 msgstr ""
 
 msgid "None"
-msgstr ""
+msgstr "لا شيء"
 
 msgid "Before first"
 msgstr ""
@@ -238,7 +242,7 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr ""
+msgstr "الجميع"
 
 msgid "Hide chart legend"
 msgstr ""
@@ -289,13 +293,13 @@ msgid "Show values"
 msgstr ""
 
 msgid "Sort order"
-msgstr ""
+msgstr "ترتيب الفرز"
 
 msgid "Low to high"
-msgstr ""
+msgstr "من الأدنى إلى الأعلى"
 
 msgid "High to low"
-msgstr ""
+msgstr "من الأعلى إلى الأدنى"
 
 msgid "Chart subtitle"
 msgstr ""
@@ -313,22 +317,22 @@ msgid "Chart title"
 msgstr ""
 
 msgid "Data"
-msgstr ""
+msgstr "البيانات"
 
 msgid "Axis & legend"
 msgstr ""
 
 msgid "Style"
-msgstr ""
+msgstr "المظهر"
 
 msgid "Options"
-msgstr ""
+msgstr "الخيارات"
 
 msgid "Chart options"
 msgstr ""
 
 msgid "Column"
-msgstr ""
+msgstr "العمود"
 
 msgid "Stacked column"
 msgstr ""
@@ -343,7 +347,7 @@ msgid "Line"
 msgstr ""
 
 msgid "Area"
-msgstr ""
+msgstr "مساحة"
 
 msgid "Pie"
 msgstr ""
@@ -428,55 +432,55 @@ msgid "Please add at least one period as {{filter}}"
 msgstr ""
 
 msgid "Today"
-msgstr ""
+msgstr "اليوم"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "الأمس"
 
 msgid "Last 3 days"
-msgstr ""
+msgstr "آخر 3 أيام"
 
 msgid "Last 7 days"
-msgstr ""
+msgstr "آخر 7 أيام"
 
 msgid "Last 14 days"
-msgstr ""
+msgstr "آخر 14 يوم"
 
 msgid "This week"
-msgstr ""
+msgstr "الأسبوع الحالي"
 
 msgid "Last week"
-msgstr ""
+msgstr "الأسبوع الماضي"
 
 msgid "Last 4 weeks"
-msgstr ""
+msgstr "آخر 4 أسابيع"
 
 msgid "Last 12 weeks"
-msgstr ""
+msgstr "آخر 12 أسبوع"
 
 msgid "Last 52 weeks"
-msgstr ""
+msgstr "آخر 52 أسبوع"
 
 msgid "Weeks this year"
-msgstr ""
+msgstr "أسابيع السنة الحالية"
 
 msgid "This month"
-msgstr ""
+msgstr "الشهر الحالي"
 
 msgid "Last month"
-msgstr ""
+msgstr "الشهر الماضي"
 
 msgid "Last 3 months"
-msgstr ""
+msgstr "آخر 3 أشهر"
 
 msgid "Last 6 months"
-msgstr ""
+msgstr "آخر 6 أشهر"
 
 msgid "Last 12 months"
-msgstr ""
+msgstr "آخر 12 شهر"
 
 msgid "Months this year"
-msgstr ""
+msgstr "أشهر السنة الحالية"
 
 msgid "This bimonth"
 msgstr ""
@@ -491,46 +495,46 @@ msgid "Bimonths this year"
 msgstr ""
 
 msgid "This quarter"
-msgstr ""
+msgstr "ربع السنة الحالي"
 
 msgid "Last quarter"
-msgstr ""
+msgstr "ربع السنة الماضي"
 
 msgid "Last 4 quarters"
-msgstr ""
+msgstr "آخر 4 أرباع السنة"
 
 msgid "Quarters this year"
-msgstr ""
+msgstr "أرباع السنة الحالية"
 
 msgid "This six-month"
-msgstr ""
+msgstr "نصف السنة الحالي (فترة من ستة أشهر)"
 
 msgid "Last six-month"
-msgstr ""
+msgstr "آخر ستة أشهر"
 
 msgid "Last 2 six-months"
-msgstr ""
+msgstr "آخر 2 ستة أشهر"
 
 msgid "This financial year"
-msgstr ""
+msgstr "السنة المالية الحالية"
 
 msgid "Last financial year"
-msgstr ""
+msgstr "السنة المالية الماضية"
 
 msgid "Last 5 financial years"
-msgstr ""
+msgstr "آخر 5 سنوات مالية"
 
 msgid "This year"
-msgstr ""
+msgstr "السنة الحالية"
 
 msgid "Last year"
-msgstr ""
+msgstr "السنة الماضية"
 
 msgid "Last 5 years"
-msgstr ""
+msgstr "آخر 5 سنوات"
 
 msgid "User org unit"
-msgstr ""
+msgstr "الوحدة التنظيمية للمستخدم"
 
 msgid "User org unit children"
 msgstr ""

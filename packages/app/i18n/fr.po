@@ -1,47 +1,50 @@
 # 
 # Translators:
-# Bram Piot <bram.piot@gmail.com>, 2019
-# Karoline Tufte Lien <karoline@dhis2.org>, 2020
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
-# phil_dhis2, 2020
-# Djibril Dione <dione.djibril@gmail.com>, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
+# Karoline Tufte Lien <karoline@dhis2.org>, 2022
+# Yao Selom Saka <ysaka@hispwca.org>, 2022
+# Djibril Dione <dione.djibril@gmail.com>, 2022
+# phil_dhis2, 2022
+# Edem Kossi <ekossi@hispwca.org>, 2022
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-14T01:00:50.112Z\n"
-"PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:45+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2022\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Rename successful"
-msgstr ""
+msgstr "Renommer avec succès"
 
 msgid "\"{{what}}\" successfully deleted."
-msgstr ""
+msgstr "\"{{what}}\" supprimé avec succès."
 
 msgid "Data Visualizer"
-msgstr "Visualiseur de données"
+msgstr "Visualiseur de Données"
 
 msgid "Axis 1"
-msgstr ""
+msgstr "Axe 1"
 
 msgid "Axis 2"
-msgstr ""
+msgstr "Axe 2"
 
 msgid "Manage axes"
-msgstr ""
+msgstr "Gérer les axes"
 
 msgid ""
 "A chart can have two axes. Each axis will have its own scale. Set the axis "
 "for each data selection below."
 msgstr ""
+"Un graphique peut avoir deux axes. Chaque axe aura sa propre échelle. "
+"Définissez l'axe pour chaque sélection de données ci-dessous."
 
 msgid "Cancel"
 msgstr "Annuler"
@@ -53,6 +56,8 @@ msgid ""
 "'Single Value' is intended to show a single data item. Only the first item "
 "will be used and saved."
 msgstr ""
+"La 'Valeur unique' est destinée à afficher une seule donnée. Seul le premier"
+" élément sera utilisé et enregistré."
 
 msgid "Hide"
 msgstr "Masquer"
@@ -64,16 +69,16 @@ msgid "Download"
 msgstr "Télécharger"
 
 msgid "Graphics"
-msgstr "Graphisme"
+msgstr "Graphiques"
 
 msgid "Image (.png)"
-msgstr ""
+msgstr "Image (.png)"
 
 msgid "PDF (.pdf)"
-msgstr ""
+msgstr "PDF (.pdf)"
 
 msgid "Plain data source"
-msgstr "Sourc de données brutes"
+msgstr "Source de données brutes"
 
 msgid "Advanced"
 msgstr "Avancé"
@@ -82,7 +87,7 @@ msgid "Metadata ID scheme"
 msgstr "Schéma ID des métadata"
 
 msgid "ID"
-msgstr "Id"
+msgstr "ID"
 
 msgid "Code"
 msgstr "Code"
@@ -103,37 +108,39 @@ msgid "Other formats"
 msgstr "Autres formats"
 
 msgid "JRXML"
-msgstr ""
+msgstr "JRXML"
 
 msgid "Raw data SQL"
-msgstr ""
+msgstr "Données brutes SQL"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
+"Une erreur s'est produite dans l'application Visualiseur de Données de DHIS2"
 
 msgid "Something went wrong"
-msgstr ""
+msgstr "Quelque chose a mal tourné"
 
 msgid "Refresh to try again"
-msgstr ""
+msgstr "Actualiser pour réessayer"
 
 msgid "Hide technical details"
-msgstr ""
+msgstr "Masquer les détails techniques"
 
 msgid "Show technical details"
-msgstr ""
+msgstr "Afficher les détails techniques"
 
 msgid "The following information may be requested by technical support."
 msgstr ""
+"Les informations suivantes peuvent être demandées par soutien technique."
 
 msgid "Interpretations"
-msgstr "interprétations"
+msgstr "Interprétations"
 
 msgid "{{total}} of 1 selected"
-msgstr ""
+msgstr "{{total}} de 1 choisi"
 
 msgid "{{total}} selected"
-msgstr ""
+msgstr "{{total}} choisis"
 
 msgid "Series"
 msgstr "Séries"
@@ -142,46 +149,47 @@ msgid "Category"
 msgstr "Catégorie"
 
 msgid "Filter"
-msgstr "Filtrer"
+msgstr "Filtre"
 
 msgid "None selected"
-msgstr ""
+msgstr "Aucune sélection"
 
 msgid "Only '{{name}}' in use"
-msgstr ""
+msgstr "Uniquement '{{nom}}' en cours d'utilisation"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "Et 1 autre..."
 
 msgid "And {{numberOfItems}} others..."
-msgstr ""
+msgstr "Et {{numberOfItems}} autres..."
 
 msgid "Unsaved chart"
-msgstr ""
+msgstr "Graphique non enregistré"
 
 msgid "Edited"
-msgstr ""
+msgstr "Modifié"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
+msgstr "Affichage de l'interprétation de {{Date de l'interprétation}}"
 
 msgid "Error validating layout"
-msgstr ""
+msgstr "Erreur de validation de la mise en page"
 
 msgid "Chart error"
-msgstr ""
+msgstr "Erreur de graphique"
 
 msgid "Create a new visualization by adding dimensions to the layout"
 msgstr ""
+"Créer une nouvelle visualisation en ajoutant des dimensions à la disposition"
 
 msgid "Error generating chart, please try again"
-msgstr ""
+msgstr "Erreur lors de la génération du graphique, veuillez réessayer"
 
 msgid "Aggregation type"
 msgstr "Type d'agrégation"
 
 msgid "By data element"
-msgstr "Par élément de donnée"
+msgstr "Par élément de données"
 
 msgid "Count"
 msgstr "Décompte"
@@ -190,16 +198,17 @@ msgid "Average"
 msgstr "Moyenne"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr ""
+msgstr "Moyenne (somme dans l'arborescence d'org unit)"
 
 msgid "Sum"
 msgstr "Somme"
 
 msgid "Last value"
-msgstr ""
+msgstr "Dernière valeur"
 
 msgid "Last value (average in org unit hierarchy)"
 msgstr ""
+"Dernière valeur (moyenne dans la hiérarchie des unités d'organisation)"
 
 msgid "Min"
 msgstr "Min"
@@ -214,19 +223,19 @@ msgid "Variance"
 msgstr "Variance"
 
 msgid "Base line"
-msgstr ""
+msgstr "Ligne de référence"
 
 msgid "Base line title"
-msgstr ""
+msgstr "Titre de la ligne de référence"
 
 msgid "Base line value"
 msgstr "Valeur de la ligne de réference"
 
 msgid "Only include completed events"
-msgstr ""
+msgstr "Inclure uniquement les événements terminés"
 
 msgid "Use cumulative values"
-msgstr ""
+msgstr "Utiliser des valeurs cumulatives"
 
 msgid "Domain axis title"
 msgstr "Titre de l'axe des abscisses"
@@ -238,13 +247,13 @@ msgid "None"
 msgstr "Aucun"
 
 msgid "Before first"
-msgstr ""
+msgstr "Avant la première"
 
 msgid "After last"
-msgstr ""
+msgstr "Après la dernière"
 
 msgid "Before first and after last"
-msgstr ""
+msgstr "Avant la première et après la dernière"
 
 msgid "All"
 msgstr "Tout"
@@ -253,31 +262,31 @@ msgid "Hide chart legend"
 msgstr "Masquer légende du graphique"
 
 msgid "Hide subtitle"
-msgstr ""
+msgstr "Masquer le sous-titre"
 
 msgid "Hide title"
-msgstr ""
+msgstr "Masquer le titre"
 
 msgid "No space between columns/bars"
-msgstr ""
+msgstr "Pas d'espace entre barres"
 
 msgid "Use 100% stacked values"
-msgstr ""
+msgstr "Utiliser des valeurs empilées à 100%"
 
 msgid "Range axis decimals"
-msgstr ""
+msgstr "Décimales de l'axe des ordonnées"
 
 msgid "Range axis title"
 msgstr "Titre de l'axe des ordonnées"
 
 msgid "Range axis max"
-msgstr ""
+msgstr "Le maximum pour l'axe des ordonnées"
 
 msgid "Range axis min"
-msgstr ""
+msgstr "Le minimum pour l'axe des ordonnées"
 
 msgid "Range axis tick steps"
-msgstr ""
+msgstr "Nombre de graduations principales"
 
 msgid "Tick steps may extend the chart beyond 'Range axis max'"
 msgstr ""
@@ -289,10 +298,10 @@ msgid "Linear"
 msgstr "Linéaire"
 
 msgid "Polynomial"
-msgstr ""
+msgstr "Polynôme"
 
 msgid "Loess"
-msgstr ""
+msgstr "Lœss"
 
 msgid "Show values"
 msgstr "Afficher les valeurs"
@@ -307,13 +316,13 @@ msgid "High to low"
 msgstr "Décroissant"
 
 msgid "Chart subtitle"
-msgstr ""
+msgstr "Sous-titre du graphique"
 
 msgid "Target line"
-msgstr ""
+msgstr "Ligne cible"
 
 msgid "Target line title"
-msgstr ""
+msgstr "Titre de la ligne cible"
 
 msgid "Target line value"
 msgstr "Ligne valeur cible"
@@ -325,7 +334,7 @@ msgid "Data"
 msgstr "Données"
 
 msgid "Axis & legend"
-msgstr ""
+msgstr "Axe et légende"
 
 msgid "Style"
 msgstr "Style"
@@ -343,19 +352,19 @@ msgid "Stacked column"
 msgstr "Colonne empilée"
 
 msgid "Bar"
-msgstr "Bar"
+msgstr "Barre"
 
 msgid "Stacked bar"
-msgstr "Bar empilé"
+msgstr "Barre empilée"
 
 msgid "Line"
 msgstr "Ligne"
 
 msgid "Area"
-msgstr "Aire"
+msgstr "Zone"
 
 msgid "Pie"
-msgstr "Tarte"
+msgstr "Camembert"
 
 msgid "Radar"
 msgstr "Radar"
@@ -367,74 +376,77 @@ msgid "Year over year (line)"
 msgstr "Année après année (ligne)"
 
 msgid "Year over year (column)"
-msgstr "Année après année (colonne)"
+msgstr "Année après année (barre)"
 
 msgid "Single value"
 msgstr "Valeur unique"
 
 msgid "Open as Map"
-msgstr ""
+msgstr "Ouvrir comme carte"
 
 msgid "Add to series"
-msgstr ""
+msgstr "Ajouter aux séries"
 
 msgid "Add to category"
-msgstr ""
+msgstr "Ajouter à la catégorie"
 
 msgid "Add to filter"
-msgstr ""
+msgstr "Ajouter au filtre"
 
 msgid "Move to series"
-msgstr ""
+msgstr "Déplacer aux séries"
 
 msgid "Move to category"
-msgstr ""
+msgstr "Déplacer à catégorie"
 
 msgid "Move to filter"
-msgstr ""
+msgstr "Déplacer à filtre"
 
 msgid "series"
-msgstr ""
+msgstr "séries"
 
 msgid "category"
-msgstr ""
+msgstr "catégorie"
 
 msgid "filter"
-msgstr ""
+msgstr "filtre"
 
 msgid "Please add at least one {{series}} dimension"
-msgstr ""
+msgstr "Veuillez ajouter au moins une dimension de {{series}}"
 
 msgid "Please add at least one {{category}} dimension"
-msgstr ""
+msgstr "Veuillez ajouter au moins une dimension de {{category}}"
 
 msgid ""
 "Please add at least one period as {{series}}, {{category}} or {{filter}}"
 msgstr ""
+"Veuillez ajouter au moins une période comme {{series}}, {{category}} ou "
+"{{filter}}"
 
 msgid "Please add {{data}} as {{category}} or {{filter}}"
-msgstr ""
+msgstr "Veuillez ajouter {{data}} comme {{category}} ou {{filter}}"
 
 msgid "Please add at least one period as {{series}} or {{filter}}"
-msgstr ""
+msgstr "Veuillez ajouter au moins une période comme  {{series}} ou {{filter}}"
 
 msgid "Please add at least one {{filter}} dimension"
-msgstr ""
+msgstr "Veuillez ajouter au moins une dimension de  {{filter}}"
 
 msgid "Please add at least one period as a {{series}} dimension"
-msgstr ""
+msgstr "Veuillez ajouter au moins une période comme dimension de {{series}} "
 
 msgid "Please add at least one period as a {{category}} dimension"
 msgstr ""
+"Veuillez ajouter au moins une période comme dimension de  {{category}}"
 
 msgid "Please add {{data}} as a filter dimension"
-msgstr ""
+msgstr "Veuillez ajouter {{data}} comme une dimension de filtre"
 
 msgid "Please add one {{series}} dimension"
-msgstr ""
+msgstr "Veuillez ajouter une dimension {{série}}"
 
 msgid "Please add at least one period as {{filter}}"
-msgstr ""
+msgstr "Veuillez ajouter au moins une période comme {{filtre}}"
 
 msgid "Today"
 msgstr "Aujourd'hui"
@@ -449,7 +461,7 @@ msgid "Last 7 days"
 msgstr "7 derniers jours"
 
 msgid "Last 14 days"
-msgstr "14 dernier jours"
+msgstr "14 derniers jours"
 
 msgid "This week"
 msgstr "Cette semaine"
@@ -467,13 +479,13 @@ msgid "Last 52 weeks"
 msgstr "52 dernières semaines"
 
 msgid "Weeks this year"
-msgstr ""
+msgstr "Semaines cette année"
 
 msgid "This month"
-msgstr "Ce mois-ci"
+msgstr "Ce mois"
 
 msgid "Last month"
-msgstr "Le mois dernier"
+msgstr "Mois dernier"
 
 msgid "Last 3 months"
 msgstr "3 derniers mois"
@@ -488,16 +500,16 @@ msgid "Months this year"
 msgstr "Mois cette année"
 
 msgid "This bimonth"
-msgstr ""
+msgstr "Ce bimestre"
 
 msgid "Last bimonth"
-msgstr ""
+msgstr "Dernier bimestre"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "6 derniers bimestres"
 
 msgid "Bimonths this year"
-msgstr ""
+msgstr "Bimestres cette année"
 
 msgid "This quarter"
 msgstr "Ce trimestre"
@@ -524,10 +536,10 @@ msgid "This financial year"
 msgstr "Année fiscale en cours"
 
 msgid "Last financial year"
-msgstr "Dernière année financière"
+msgstr "Année fiscale précédente"
 
 msgid "Last 5 financial years"
-msgstr "5 dernières années financières"
+msgstr "5 dernières années fiscales"
 
 msgid "This year"
 msgstr "Année en cours"
@@ -539,22 +551,22 @@ msgid "Last 5 years"
 msgstr "5 dernières années"
 
 msgid "User org unit"
-msgstr "Unité d'organisation utilisateur"
+msgstr "Org unit de l'utilisateur"
 
 msgid "User org unit children"
-msgstr ""
+msgstr "Org unit filles de l'utilisateur"
 
 msgid "User org unit grand children"
-msgstr ""
+msgstr "Org unit petites-filles de l'utilisateur"
 
 msgid "Weeks per year"
-msgstr ""
+msgstr "Semaines par an"
 
 msgid "Months per year"
-msgstr ""
+msgstr "Mois par an"
 
 msgid "Bimonths per year"
-msgstr ""
+msgstr "Bimestres par an"
 
 msgid "Quarters per year"
-msgstr ""
+msgstr "Trimestres par an"

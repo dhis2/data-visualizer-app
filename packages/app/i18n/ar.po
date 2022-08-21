@@ -1,16 +1,16 @@
 # 
 # Translators:
-# phil_dhis2, 2020
-# Hamza Assada <7amza.it@gmail.com>, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
-# KRG HIS <antonia.bezenchek@informa.pro>, 2020
+# KRG HIS <antonia.bezenchek@informa.pro>, 2022
+# Hamza Assada <7amza.it@gmail.com>, 2022
+# phil_dhis2, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-14T01:00:50.112Z\n"
-"PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:45+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2022\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -60,10 +60,10 @@ msgid "Hide"
 msgstr "إخفاء"
 
 msgid "Remove"
-msgstr "إزالة"
+msgstr "إزلة"
 
 msgid "Download"
-msgstr "تحميل"
+msgstr "تنزيل"
 
 msgid "Graphics"
 msgstr "الرسومات"
@@ -81,13 +81,13 @@ msgid "Advanced"
 msgstr "متقدم"
 
 msgid "Metadata ID scheme"
-msgstr "مخطط معرف البيانات الوصفية"
+msgstr "مخطط ID البيانات الوصفية"
 
 msgid "ID"
-msgstr "المعرف"
+msgstr "ID"
 
 msgid "Code"
-msgstr "الرمز"
+msgstr "الكود"
 
 msgid "Name"
 msgstr "الإسم"
@@ -105,7 +105,7 @@ msgid "Other formats"
 msgstr "صيغ أخرى"
 
 msgid "JRXML"
-msgstr ""
+msgstr "JRXML"
 
 msgid "Raw data SQL"
 msgstr "للبيانات الأولية SQL "
@@ -114,10 +114,10 @@ msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "حدث خطأ في تطبيق DHIS2 Data Visualizer."
 
 msgid "Something went wrong"
-msgstr "هناك خطأ ما"
+msgstr "حدث خطأ ما"
 
 msgid "Refresh to try again"
-msgstr "حدث للمحاولة مرة أخرى"
+msgstr "قم بالتحديث للمحاولة مرة أخرى"
 
 msgid "Hide technical details"
 msgstr "إخفاء التفاصيل التقنية"
@@ -132,7 +132,7 @@ msgid "Interpretations"
 msgstr "التفسيرات"
 
 msgid "{{total}} of 1 selected"
-msgstr ""
+msgstr "تم تحديد {{total}} من 1"
 
 msgid "{{total}} selected"
 msgstr "{{total}} تم تحديدها"
@@ -150,10 +150,10 @@ msgid "None selected"
 msgstr "غير محدد"
 
 msgid "Only '{{name}}' in use"
-msgstr ""
+msgstr "فقط '{{name}}' قيد الاستخدام"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "و 1 غيرها ..."
 
 msgid "And {{numberOfItems}} others..."
 msgstr "و {{numberOfItems}} أخرى..."
@@ -183,7 +183,7 @@ msgid "Aggregation type"
 msgstr "نوع التجميع"
 
 msgid "By data element"
-msgstr "بواسطة عنصر البيانات"
+msgstr "حسب عنصر البيانات"
 
 msgid "Count"
 msgstr "العدد"
@@ -252,7 +252,7 @@ msgid "All"
 msgstr "الجميع"
 
 msgid "Hide chart legend"
-msgstr "إخفاء وسيلة الإيضاح للمخطط البياني"
+msgstr "إخفاء مفتاح الإيضاح للمخطط البياني"
 
 msgid "Hide subtitle"
 msgstr "إخفاء العنوان الفرعي"
@@ -267,19 +267,19 @@ msgid "Use 100% stacked values"
 msgstr "استخدم قيم مكدسة بنسبة 100٪"
 
 msgid "Range axis decimals"
-msgstr ""
+msgstr "عشريات محور المدى"
 
 msgid "Range axis title"
 msgstr "عنوان محور المجال"
 
 msgid "Range axis max"
-msgstr ""
+msgstr "أعلى قيمة لمحور المدى"
 
 msgid "Range axis min"
-msgstr ""
+msgstr "أدنى قيمة لمحور المدى"
 
 msgid "Range axis tick steps"
-msgstr ""
+msgstr "خطوات علامة محور المدى"
 
 msgid "Tick steps may extend the chart beyond 'Range axis max'"
 msgstr ""
@@ -294,7 +294,7 @@ msgid "Polynomial"
 msgstr "متعدد الحدود"
 
 msgid "Loess"
-msgstr ""
+msgstr "Loess"
 
 msgid "Show values"
 msgstr "إظهار القيم"
@@ -324,10 +324,10 @@ msgid "Chart title"
 msgstr "عنوان المخطط البياني"
 
 msgid "Data"
-msgstr "البيانات"
+msgstr "بيانات"
 
 msgid "Axis & legend"
-msgstr ""
+msgstr "المحور والمفتاح الإيضاحي"
 
 msgid "Style"
 msgstr "المظهر"
@@ -342,13 +342,13 @@ msgid "Column"
 msgstr "العمود"
 
 msgid "Stacked column"
-msgstr "عمود تراكمي"
+msgstr "عمود مكدس"
 
 msgid "Bar"
 msgstr "مخطط شريطي"
 
 msgid "Stacked bar"
-msgstr "شريط تراكمي"
+msgstr "شريط مكدس"
 
 msgid "Line"
 msgstr "مخطط خطي"
@@ -363,7 +363,7 @@ msgid "Radar"
 msgstr "مخطط رادار"
 
 msgid "Gauge"
-msgstr "مخطط قياس"
+msgstr "مخطط مقياس"
 
 msgid "Year over year (line)"
 msgstr "عام بعد عام (خط)"
@@ -378,65 +378,67 @@ msgid "Open as Map"
 msgstr "فتح كخريطة"
 
 msgid "Add to series"
-msgstr ""
+msgstr "إضافة للسلسة"
 
 msgid "Add to category"
-msgstr ""
+msgstr "إضافة للفئة"
 
 msgid "Add to filter"
-msgstr ""
+msgstr "إضافة لعامل التصفية"
 
 msgid "Move to series"
-msgstr ""
+msgstr "نقل إلى سلسلة"
 
 msgid "Move to category"
-msgstr ""
+msgstr "نقل إلى فئة"
 
 msgid "Move to filter"
-msgstr ""
+msgstr "نقل إلى عامل تصفية"
 
 msgid "series"
-msgstr ""
+msgstr "سلسلة"
 
 msgid "category"
-msgstr ""
+msgstr "فئة"
 
 msgid "filter"
-msgstr ""
+msgstr "عامل تصفية"
 
 msgid "Please add at least one {{series}} dimension"
-msgstr ""
+msgstr "الرجاء إضافة بُعد {{series}} واحد على الأقل"
 
 msgid "Please add at least one {{category}} dimension"
-msgstr ""
+msgstr "الرجاء إضافة بُعد {{category}} واحد على الأقل"
 
 msgid ""
 "Please add at least one period as {{series}}, {{category}} or {{filter}}"
 msgstr ""
+"الرجاء إضافة فترة واحدة على الأقل كـ {{series}} أو {{category}} أو "
+"{{filter}}"
 
 msgid "Please add {{data}} as {{category}} or {{filter}}"
-msgstr ""
+msgstr "الرجاء إضافة {{data}} كـ {{category}} أو {{filter}}"
 
 msgid "Please add at least one period as {{series}} or {{filter}}"
-msgstr ""
+msgstr "الرجاء إضافة فترة واحدة على الأقل كـ {{series}} أو {{filter}}"
 
 msgid "Please add at least one {{filter}} dimension"
-msgstr ""
+msgstr "يُرجى إضافة بُعد {{filter}} واحد على الأقل"
 
 msgid "Please add at least one period as a {{series}} dimension"
-msgstr ""
+msgstr "الرجاء إضافة فترة واحدة على الأقل كبُعد {{series}}"
 
 msgid "Please add at least one period as a {{category}} dimension"
-msgstr ""
+msgstr "الرجاء إضافة فترة واحدة على الأقل كبُعد {{category}}"
 
 msgid "Please add {{data}} as a filter dimension"
-msgstr ""
+msgstr "الرجاء إضافة {{data}} كبُعد عامل تصفية"
 
 msgid "Please add one {{series}} dimension"
-msgstr ""
+msgstr "الرجاء إضافة بُعد {{series}} واحد"
 
 msgid "Please add at least one period as {{filter}}"
-msgstr ""
+msgstr "الرجاء إضافة فترة واحدة على الأقل كـ {{filter}}"
 
 msgid "Today"
 msgstr "اليوم"
@@ -454,7 +456,7 @@ msgid "Last 14 days"
 msgstr "آخر 14 يوم"
 
 msgid "This week"
-msgstr "الأسبوع الحالي"
+msgstr "هذا الأسبوع"
 
 msgid "Last week"
 msgstr "الأسبوع الماضي"
@@ -517,10 +519,10 @@ msgid "This six-month"
 msgstr "الستة أشهر الحالية"
 
 msgid "Last six-month"
-msgstr "آخر نصف السنة (فترة من ستة أشهر)"
+msgstr "آخر ستة-أشهر"
 
 msgid "Last 2 six-months"
-msgstr "آخر نصفي السنة (كل فترة ستة أشهر)"
+msgstr "آخر فترتي ستة أشهر (نصفي سنة)"
 
 msgid "This financial year"
 msgstr "السنة المالية الحالية"

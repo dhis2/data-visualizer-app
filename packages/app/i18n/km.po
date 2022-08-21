@@ -1,9 +1,14 @@
 # 
+# Translators:
+# Viktor Varland <viktor@dhis2.org>, 2022
+# phil_dhis2, 2022
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-14T01:00:50.112Z\n"
 "PO-Revision-Date: 2022-08-21 23:45+0000\n"
+"Last-Translator: phil_dhis2, 2022\n"
 "Language-Team: Khmer (https://www.transifex.com/hisp-uio/teams/100509/km/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +23,7 @@ msgid "\"{{what}}\" successfully deleted."
 msgstr ""
 
 msgid "Data Visualizer"
-msgstr ""
+msgstr "រូបភាពទិន្នន័យ"
 
 msgid "Axis 1"
 msgstr ""
@@ -35,10 +40,10 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "បោះបង់"
 
 msgid "Update"
-msgstr ""
+msgstr "ធ្វើ​បច្ចុប្បន្នភាព"
 
 msgid ""
 "'Single Value' is intended to show a single data item. Only the first item "
@@ -49,7 +54,7 @@ msgid "Hide"
 msgstr ""
 
 msgid "Remove"
-msgstr ""
+msgstr "យកចេញ"
 
 msgid "Download"
 msgstr ""
@@ -73,13 +78,13 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr ""
+msgstr "​លេខ​សម្គាល់"
 
 msgid "Code"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "ឈ្មោះ"
 
 msgid "Data value set"
 msgstr ""
@@ -118,7 +123,7 @@ msgid "The following information may be requested by technical support."
 msgstr ""
 
 msgid "Interpretations"
-msgstr ""
+msgstr "កន្លែងសន្ទនារ"
 
 msgid "{{total}} of 1 selected"
 msgstr ""
@@ -175,16 +180,16 @@ msgid "By data element"
 msgstr ""
 
 msgid "Count"
-msgstr ""
+msgstr "ផលរាប់"
 
 msgid "Average"
-msgstr ""
+msgstr "ផលមធ្យម"
 
 msgid "Average (sum in org unit hierarchy)"
 msgstr ""
 
 msgid "Sum"
-msgstr ""
+msgstr "ផល​បូក"
 
 msgid "Last value"
 msgstr ""
@@ -193,10 +198,10 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr ""
 
 msgid "Min"
-msgstr ""
+msgstr "អប្បបរមា"
 
 msgid "Max"
-msgstr ""
+msgstr "អតិបរមា"
 
 msgid "Standard deviation"
 msgstr ""
@@ -226,7 +231,7 @@ msgid "Hide empty categories"
 msgstr ""
 
 msgid "None"
-msgstr ""
+msgstr "គ្មាន"
 
 msgid "Before first"
 msgstr ""
@@ -238,7 +243,7 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr ""
+msgstr "ទាំងអស់"
 
 msgid "Hide chart legend"
 msgstr ""
@@ -313,13 +318,13 @@ msgid "Chart title"
 msgstr ""
 
 msgid "Data"
-msgstr ""
+msgstr "Data"
 
 msgid "Axis & legend"
 msgstr ""
 
 msgid "Style"
-msgstr ""
+msgstr "​រចនាបទ"
 
 msgid "Options"
 msgstr ""
