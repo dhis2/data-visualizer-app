@@ -1,9 +1,13 @@
 # 
+# Translators:
+# Yury Rogachev <yury@dhis2.org>, 2022
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2020-05-13T19:08:48.461Z\n"
-"PO-Revision-Date: 2019-09-01 20:50+0000\n"
+"POT-Creation-Date: 2020-05-14T01:00:50.112Z\n"
+"PO-Revision-Date: 2022-08-21 23:45+0000\n"
+"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2022\n"
 "Language-Team: Uzbek (Latin) (https://www.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -310,7 +314,7 @@ msgid "Target line value"
 msgstr ""
 
 msgid "Chart title"
-msgstr ""
+msgstr "Diagramma sarlavhasi"
 
 msgid "Data"
 msgstr ""
@@ -472,6 +476,9 @@ msgstr ""
 msgid "Last 6 months"
 msgstr ""
 
+msgid "Last 12 months"
+msgstr ""
+
 msgid "Months this year"
 msgstr ""
 
@@ -479,7 +486,7 @@ msgid "This bimonth"
 msgstr ""
 
 msgid "Last bimonth"
-msgstr ""
+msgstr "Oxirgi juft oylik"
 
 msgid "Last 6 bimonths"
 msgstr ""
@@ -526,10 +533,16 @@ msgstr ""
 msgid "Last 5 years"
 msgstr ""
 
-msgid "Weeks per year"
+msgid "User org unit"
 msgstr ""
 
-msgid "Last 12 months"
+msgid "User org unit children"
+msgstr ""
+
+msgid "User org unit grand children"
+msgstr ""
+
+msgid "Weeks per year"
 msgstr ""
 
 msgid "Months per year"
@@ -539,4 +552,4 @@ msgid "Bimonths per year"
 msgstr ""
 
 msgid "Quarters per year"
-msgstr ""
+msgstr "Yil ichida choraklar"

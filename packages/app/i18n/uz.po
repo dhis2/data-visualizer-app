@@ -1,18 +1,18 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2022
+# Ibatov <ibatovk@who.int>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-14T01:00:50.112Z\n"
 "PO-Revision-Date: 2022-08-21 23:45+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2022\n"
-"Language-Team: Tetum (Tetun) (https://www.transifex.com/hisp-uio/teams/100509/tet/)\n"
+"Last-Translator: Ibatov <ibatovk@who.int>, 2022\n"
+"Language-Team: Uzbek (Cyrillic) (https://www.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tet\n"
+"Language: uz@Cyrl\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Rename successful"
@@ -266,7 +266,7 @@ msgid "Range axis title"
 msgstr ""
 
 msgid "Range axis max"
-msgstr ""
+msgstr "Ўқнинг максимал диапазони"
 
 msgid "Range axis min"
 msgstr ""
@@ -314,7 +314,7 @@ msgid "Target line value"
 msgstr ""
 
 msgid "Chart title"
-msgstr "Gráfiku nia títulu"
+msgstr "Диаграмма сарлавҳаси"
 
 msgid "Data"
 msgstr ""
@@ -417,7 +417,7 @@ msgid "Please add at least one {{filter}} dimension"
 msgstr ""
 
 msgid "Please add at least one period as a {{series}} dimension"
-msgstr ""
+msgstr "Илтимос, Камида битта давр қўшинг, {{серия}} сифатлари учун"
 
 msgid "Please add at least one period as a {{category}} dimension"
 msgstr ""
@@ -486,7 +486,7 @@ msgid "This bimonth"
 msgstr ""
 
 msgid "Last bimonth"
-msgstr ""
+msgstr "Охирги жуфт ойлик"
 
 msgid "Last 6 bimonths"
 msgstr ""
@@ -552,4 +552,4 @@ msgid "Bimonths per year"
 msgstr ""
 
 msgid "Quarters per year"
-msgstr ""
+msgstr "Йил ичида чораклар"

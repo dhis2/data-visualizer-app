@@ -1,13 +1,9 @@
 # 
-# Translators:
-# phil_dhis2, 2020
-# 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-14T01:00:50.112Z\n"
-"PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: phil_dhis2, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:45+0000\n"
 "Language-Team: Persian (Afghanistan) (https://www.transifex.com/hisp-uio/teams/100509/fa_AF/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +18,7 @@ msgid "\"{{what}}\" successfully deleted."
 msgstr ""
 
 msgid "Data Visualizer"
-msgstr "نمایش معلومات"
+msgstr ""
 
 msgid "Axis 1"
 msgstr ""
@@ -39,10 +35,10 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr "انصراف"
+msgstr ""
 
 msgid "Update"
-msgstr "تجدید"
+msgstr ""
 
 msgid ""
 "'Single Value' is intended to show a single data item. Only the first item "
@@ -50,16 +46,16 @@ msgid ""
 msgstr ""
 
 msgid "Hide"
-msgstr "مخفی کردن"
+msgstr ""
 
 msgid "Remove"
-msgstr "حذف"
+msgstr ""
 
 msgid "Download"
-msgstr "دانلود"
+msgstr ""
 
 msgid "Graphics"
-msgstr "اطلاعات گرافیکی"
+msgstr ""
 
 msgid "Image (.png)"
 msgstr ""
@@ -68,34 +64,34 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Plain data source"
-msgstr "منبع دیتا ساده"
+msgstr ""
 
 msgid "Advanced"
-msgstr "پیشرفته"
+msgstr ""
 
 msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr "آی دی"
+msgstr ""
 
 msgid "Code"
-msgstr "کوډ یا شفر"
+msgstr ""
 
 msgid "Name"
-msgstr "نام"
+msgstr ""
 
 msgid "Data value set"
-msgstr "سیت ارزش دیتا"
+msgstr ""
 
 msgid "JSON"
-msgstr "نشانه گذاری شی جاوااسکریپت"
+msgstr ""
 
 msgid "XML"
-msgstr "اکس‌ام‌ال"
+msgstr ""
 
 msgid "Other formats"
-msgstr "فارمت های دیگر"
+msgstr ""
 
 msgid "JRXML"
 msgstr ""
@@ -122,7 +118,7 @@ msgid "The following information may be requested by technical support."
 msgstr ""
 
 msgid "Interpretations"
-msgstr "تفسیر ها"
+msgstr ""
 
 msgid "{{total}} of 1 selected"
 msgstr ""
@@ -131,13 +127,13 @@ msgid "{{total}} selected"
 msgstr ""
 
 msgid "Series"
-msgstr "سلسله (لړۍ)"
+msgstr ""
 
 msgid "Category"
-msgstr "دسته بندی"
+msgstr ""
 
 msgid "Filter"
-msgstr "فلتر"
+msgstr ""
 
 msgid "None selected"
 msgstr ""
@@ -173,22 +169,22 @@ msgid "Error generating chart, please try again"
 msgstr ""
 
 msgid "Aggregation type"
-msgstr "نوع تجمع"
+msgstr ""
 
 msgid "By data element"
-msgstr "با دیتا ایلمنت"
+msgstr ""
 
 msgid "Count"
-msgstr "تعداد"
+msgstr ""
 
 msgid "Average"
-msgstr "اوسط"
+msgstr ""
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr "اوسط ( مجموع در ساختار واحد سازمان)"
+msgstr ""
 
 msgid "Sum"
-msgstr "جمع"
+msgstr ""
 
 msgid "Last value"
 msgstr ""
@@ -197,16 +193,16 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr ""
 
 msgid "Min"
-msgstr "کوچکتر"
+msgstr ""
 
 msgid "Max"
-msgstr "بزرگتر"
+msgstr ""
 
 msgid "Standard deviation"
-msgstr "معیاري انحراف"
+msgstr ""
 
 msgid "Variance"
-msgstr "مغییرات"
+msgstr ""
 
 msgid "Base line"
 msgstr ""
@@ -215,37 +211,37 @@ msgid "Base line title"
 msgstr ""
 
 msgid "Base line value"
-msgstr "د اساسي کرښې رقم"
+msgstr ""
 
 msgid "Only include completed events"
 msgstr ""
 
 msgid "Use cumulative values"
-msgstr "د اساسي کرښې رقم"
+msgstr ""
 
 msgid "Domain axis title"
-msgstr "د ډومېن محوري عنوان"
+msgstr ""
 
 msgid "Hide empty categories"
-msgstr "د تشو موضوعاتو د کټګوریو پټول"
+msgstr ""
 
 msgid "None"
-msgstr "هیچ‌کدام"
+msgstr ""
 
 msgid "Before first"
-msgstr "پیش از اول"
+msgstr ""
 
 msgid "After last"
-msgstr "بعد از آخر"
+msgstr ""
 
 msgid "Before first and after last"
-msgstr "پیش از اول و بعد از آخر"
+msgstr ""
 
 msgid "All"
-msgstr "همه"
+msgstr ""
 
 msgid "Hide chart legend"
-msgstr "د چارټ لېجنډ پټ کړئ"
+msgstr ""
 
 msgid "Hide subtitle"
 msgstr ""
@@ -257,13 +253,13 @@ msgid "No space between columns/bars"
 msgstr ""
 
 msgid "Use 100% stacked values"
-msgstr "استفاده 100% آرزش"
+msgstr ""
 
 msgid "Range axis decimals"
 msgstr ""
 
 msgid "Range axis title"
-msgstr "د تسلسل محوري عنوان"
+msgstr ""
 
 msgid "Range axis max"
 msgstr ""
@@ -278,10 +274,10 @@ msgid "Tick steps may extend the chart beyond 'Range axis max'"
 msgstr ""
 
 msgid "Trend line"
-msgstr "د محاسبې کرښې ښکاره کړئ"
+msgstr ""
 
 msgid "Linear"
-msgstr "د کرښې چارټ"
+msgstr ""
 
 msgid "Polynomial"
 msgstr ""
@@ -290,19 +286,19 @@ msgid "Loess"
 msgstr ""
 
 msgid "Show values"
-msgstr "ارقام ښکاره کړئ"
+msgstr ""
 
 msgid "Sort order"
-msgstr "مرتب سازی"
+msgstr ""
 
 msgid "Low to high"
-msgstr "پاین تا بالا"
+msgstr ""
 
 msgid "High to low"
-msgstr "بالا تا پاین"
+msgstr ""
 
 msgid "Chart subtitle"
-msgstr "د چارټ عنوان"
+msgstr ""
 
 msgid "Target line"
 msgstr ""
@@ -311,28 +307,28 @@ msgid "Target line title"
 msgstr ""
 
 msgid "Target line value"
-msgstr "د موخې د کرښې رقم"
+msgstr ""
 
 msgid "Chart title"
-msgstr "د چارټ عنوان"
+msgstr ""
 
 msgid "Data"
-msgstr "دیتا"
+msgstr ""
 
 msgid "Axis & legend"
 msgstr ""
 
 msgid "Style"
-msgstr "استایل"
+msgstr ""
 
 msgid "Options"
-msgstr "گزینه‌ها"
+msgstr ""
 
 msgid "Chart options"
-msgstr "د چارټ انتخابونه"
+msgstr ""
 
 msgid "Column"
-msgstr "ستون"
+msgstr ""
 
 msgid "Stacked column"
 msgstr ""
@@ -432,55 +428,55 @@ msgid "Please add at least one period as {{filter}}"
 msgstr ""
 
 msgid "Today"
-msgstr "امروز"
+msgstr ""
 
 msgid "Yesterday"
-msgstr "دیروز"
+msgstr ""
 
 msgid "Last 3 days"
-msgstr "3 روز گذشته"
+msgstr ""
 
 msgid "Last 7 days"
-msgstr "7 روز گذشته"
+msgstr ""
 
 msgid "Last 14 days"
-msgstr "14 روز گذشته"
+msgstr ""
 
 msgid "This week"
-msgstr "هفته جاری"
+msgstr ""
 
 msgid "Last week"
-msgstr "هفته گذشته"
+msgstr ""
 
 msgid "Last 4 weeks"
-msgstr "4 هفته گذشته"
+msgstr ""
 
 msgid "Last 12 weeks"
-msgstr "12 هفته گذشته"
+msgstr ""
 
 msgid "Last 52 weeks"
-msgstr "52 هفته گذشته"
+msgstr ""
 
 msgid "Weeks this year"
 msgstr ""
 
 msgid "This month"
-msgstr "ماه جاری"
+msgstr ""
 
 msgid "Last month"
-msgstr "ماه گذشته"
+msgstr ""
 
 msgid "Last 3 months"
-msgstr "3 ماهه گذشته"
+msgstr ""
 
 msgid "Last 6 months"
-msgstr "6 ماه گذشته"
+msgstr ""
 
 msgid "Last 12 months"
-msgstr "12 ماهه گذشته"
+msgstr ""
 
 msgid "Months this year"
-msgstr "ماه های سال هذا"
+msgstr ""
 
 msgid "This bimonth"
 msgstr ""
@@ -495,46 +491,46 @@ msgid "Bimonths this year"
 msgstr ""
 
 msgid "This quarter"
-msgstr "سه ماهه جاری"
+msgstr ""
 
 msgid "Last quarter"
-msgstr "سه ماهه آخیر"
+msgstr ""
 
 msgid "Last 4 quarters"
-msgstr "4 سه ماهه آخیر"
+msgstr ""
 
 msgid "Quarters this year"
-msgstr "ربع های سال هذا"
+msgstr ""
 
 msgid "This six-month"
-msgstr "شش-ماه جاری"
+msgstr ""
 
 msgid "Last six-month"
-msgstr "شش-ماهه گذشته"
+msgstr ""
 
 msgid "Last 2 six-months"
-msgstr "2 شش-ماهه گذشته"
+msgstr ""
 
 msgid "This financial year"
-msgstr "سال مالی جاری"
+msgstr ""
 
 msgid "Last financial year"
-msgstr "سال گذشته مالی"
+msgstr ""
 
 msgid "Last 5 financial years"
-msgstr "5 سال گذشته مالی"
+msgstr ""
 
 msgid "This year"
-msgstr "سال جاری"
+msgstr ""
 
 msgid "Last year"
-msgstr "سال گذشته"
+msgstr ""
 
 msgid "Last 5 years"
-msgstr "5 سال گذشته"
+msgstr ""
 
 msgid "User org unit"
-msgstr "واحد سازمان استفاده کننده گان"
+msgstr ""
 
 msgid "User org unit children"
 msgstr ""
