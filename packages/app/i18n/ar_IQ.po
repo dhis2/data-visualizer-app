@@ -1,9 +1,13 @@
 # 
+# Translators:
+# KRG HIS <antonia.bezenchek@informa.pro>, 2022
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
 "PO-Revision-Date: 2022-08-21 23:46+0000\n"
+"Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2022\n"
 "Language-Team: Arabic (Iraq) (https://www.transifex.com/hisp-uio/teams/100509/ar_IQ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -117,7 +121,7 @@ msgid "Advanced"
 msgstr ""
 
 msgid "Data value set"
-msgstr ""
+msgstr "حزمة قيم البيانات"
 
 msgid "Other formats"
 msgstr ""
@@ -147,7 +151,7 @@ msgid "Hide"
 msgstr ""
 
 msgid "Interpretations"
-msgstr ""
+msgstr "التفسيرات"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
@@ -226,10 +230,10 @@ msgid "Overrides aggregation type for all data values."
 msgstr ""
 
 msgid "By data element"
-msgstr ""
+msgstr "بواسطة عنصر البيانات"
 
 msgid "Count"
-msgstr ""
+msgstr "العدد"
 
 msgid "Average"
 msgstr ""
@@ -328,13 +332,13 @@ msgid "Cumulative values"
 msgstr ""
 
 msgid "Digit group separator"
-msgstr ""
+msgstr "فاصل مجموعة الخانات"
 
 msgid "None"
 msgstr ""
 
 msgid "Space"
-msgstr ""
+msgstr "مسافة"
 
 msgid "Comma"
 msgstr ""
@@ -361,7 +365,7 @@ msgid "Font size"
 msgstr ""
 
 msgid "Large"
-msgstr ""
+msgstr "كبير"
 
 msgid "Small"
 msgstr ""
@@ -692,10 +696,10 @@ msgid "Today"
 msgstr ""
 
 msgid "Yesterday"
-msgstr ""
+msgstr "الأمس"
 
 msgid "Last 3 days"
-msgstr ""
+msgstr "آخر 3 أيام"
 
 msgid "Last 7 days"
 msgstr ""
@@ -704,7 +708,7 @@ msgid "Last 14 days"
 msgstr ""
 
 msgid "This week"
-msgstr ""
+msgstr "الأسبوع الحالي"
 
 msgid "Last week"
 msgstr ""
@@ -731,7 +735,7 @@ msgid "Last 3 months"
 msgstr ""
 
 msgid "Last 6 months"
-msgstr ""
+msgstr "آخر 6 أشهر"
 
 msgid "Last 12 months"
 msgstr ""
@@ -764,7 +768,7 @@ msgid "Quarters this year"
 msgstr ""
 
 msgid "This six-month"
-msgstr ""
+msgstr "نصف السنة الحالي (فترة من ستة أشهر)"
 
 msgid "Last six-month"
 msgstr ""
@@ -773,10 +777,10 @@ msgid "Last 2 six-months"
 msgstr ""
 
 msgid "This financial year"
-msgstr ""
+msgstr "السنة المالية الحالية"
 
 msgid "Last financial year"
-msgstr ""
+msgstr "السنة المالية الماضية"
 
 msgid "Last 5 financial years"
 msgstr ""
@@ -785,7 +789,7 @@ msgid "This year"
 msgstr ""
 
 msgid "Last year"
-msgstr ""
+msgstr "السنة الماضية"
 
 msgid "Last 5 years"
 msgstr ""

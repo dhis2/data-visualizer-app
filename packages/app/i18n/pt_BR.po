@@ -1,20 +1,20 @@
 # 
 # Translators:
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
+# phil_dhis2, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
-"PO-Revision-Date: 2020-12-22 22:14+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:46+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2022\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/hisp-uio/teams/100509/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_BR\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -92,16 +92,16 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr "Id"
+msgstr ""
 
 msgid "Code"
-msgstr "Código"
+msgstr ""
 
 msgid "Name"
-msgstr "Nome"
+msgstr ""
 
 msgid "Download"
-msgstr "Baixar"
+msgstr ""
 
 msgid "Plain data source"
 msgstr ""
@@ -176,7 +176,7 @@ msgid "Levels"
 msgstr ""
 
 msgid "Groups"
-msgstr "Grupos"
+msgstr ""
 
 msgid "And 1 other..."
 msgstr ""
@@ -237,13 +237,13 @@ msgid "Count"
 msgstr "Contagem"
 
 msgid "Average"
-msgstr "Média"
+msgstr ""
 
 msgid "Average (sum in org unit hierarchy)"
 msgstr ""
 
 msgid "Sum"
-msgstr "Soma"
+msgstr ""
 
 msgid "Last value"
 msgstr ""
@@ -252,10 +252,10 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr ""
 
 msgid "Min"
-msgstr "Min"
+msgstr ""
 
 msgid "Max"
-msgstr "Máx"
+msgstr ""
 
 msgid "Standard deviation"
 msgstr ""
@@ -282,16 +282,16 @@ msgid "Base line"
 msgstr ""
 
 msgid "Value"
-msgstr "Valor"
+msgstr ""
 
 msgid "Title"
-msgstr "Título"
+msgstr ""
 
 msgid "Base line title"
 msgstr ""
 
 msgid "Number"
-msgstr "Número"
+msgstr ""
 
 msgid "Labels"
 msgstr ""
@@ -327,7 +327,7 @@ msgid "Only include completed events"
 msgstr ""
 
 msgid "Include cumulative"
-msgstr "Incluir cumulativa"
+msgstr ""
 
 msgid "Cumulative values"
 msgstr ""
@@ -336,7 +336,7 @@ msgid "Digit group separator"
 msgstr ""
 
 msgid "None"
-msgstr "Nenhum"
+msgstr ""
 
 msgid "Space"
 msgstr ""
@@ -348,13 +348,13 @@ msgid "Display density"
 msgstr ""
 
 msgid "Comfortable"
-msgstr "Confortável"
+msgstr ""
 
 msgid "Normal"
-msgstr "Normal"
+msgstr ""
 
 msgid "Compact"
-msgstr "Compacto"
+msgstr ""
 
 msgid "Axis title"
 msgstr ""
@@ -387,7 +387,7 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr "Tudo"
+msgstr ""
 
 msgid "Hide empty rows"
 msgstr ""
@@ -432,7 +432,7 @@ msgid "Legend changes text color"
 msgstr ""
 
 msgid "Legend"
-msgstr "Legenda"
+msgstr ""
 
 msgid "Select from legends"
 msgstr ""
@@ -470,13 +470,13 @@ msgid "Percentage of column"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr "Unidade organizacional"
+msgstr ""
 
 msgid "Parent organisation unit"
-msgstr "Unidade organizacional parente"
+msgstr ""
 
 msgid "Reporting period"
-msgstr "Período de relatório"
+msgstr ""
 
 msgid "Stacked values add up to 100%"
 msgstr ""
@@ -496,10 +496,10 @@ msgid "Steps"
 msgstr ""
 
 msgid "Include regression"
-msgstr "Incluir regressão"
+msgstr ""
 
 msgid "Trend line"
-msgstr "Linha de tendência"
+msgstr ""
 
 msgid "Linear"
 msgstr ""
@@ -561,10 +561,10 @@ msgid "Custom sort order"
 msgstr ""
 
 msgid "Low to high"
-msgstr "Baixo a alto"
+msgstr ""
 
 msgid "High to low"
-msgstr "Alto a baixo"
+msgstr ""
 
 msgid "Add a subtitle"
 msgstr ""
@@ -585,7 +585,7 @@ msgid "Top limit"
 msgstr "Limite superior"
 
 msgid "Options"
-msgstr "Opções"
+msgstr ""
 
 msgid "Open as Map"
 msgstr ""
@@ -691,10 +691,10 @@ msgid "Something went wrong"
 msgstr ""
 
 msgid "or"
-msgstr "ou"
+msgstr ""
 
 msgid "Today"
-msgstr "Hoje"
+msgstr ""
 
 msgid "Yesterday"
 msgstr "Ontém"
@@ -703,7 +703,7 @@ msgid "Last 3 days"
 msgstr ""
 
 msgid "Last 7 days"
-msgstr "Últimos 7 dias"
+msgstr ""
 
 msgid "Last 14 days"
 msgstr ""
@@ -712,13 +712,13 @@ msgid "This week"
 msgstr ""
 
 msgid "Last week"
-msgstr "Última semana"
+msgstr ""
 
 msgid "Last 4 weeks"
-msgstr "Últimas 4 semanas"
+msgstr ""
 
 msgid "Last 12 weeks"
-msgstr "Últimoas 12 semanas"
+msgstr ""
 
 msgid "Last 52 weeks"
 msgstr ""
@@ -730,19 +730,19 @@ msgid "This month"
 msgstr ""
 
 msgid "Last month"
-msgstr "Mês passado"
+msgstr ""
 
 msgid "Last 3 months"
-msgstr "Últimos 3 meses"
+msgstr ""
 
 msgid "Last 6 months"
 msgstr "Últimos 6 meses"
 
 msgid "Last 12 months"
-msgstr "Últimos 12 meses"
+msgstr ""
 
 msgid "Months this year"
-msgstr "Meses deste ano"
+msgstr ""
 
 msgid "This bimonth"
 msgstr ""
@@ -760,22 +760,22 @@ msgid "This quarter"
 msgstr ""
 
 msgid "Last quarter"
-msgstr "Último trimestre"
+msgstr ""
 
 msgid "Last 4 quarters"
-msgstr "Últimos 4 trimestresÚltimo 4 trimestre"
+msgstr ""
 
 msgid "Quarters this year"
-msgstr "Trimestres deste ano"
+msgstr ""
 
 msgid "This six-month"
 msgstr ""
 
 msgid "Last six-month"
-msgstr "Últimos 6 meses"
+msgstr ""
 
 msgid "Last 2 six-months"
-msgstr "Último 2 seis-meses"
+msgstr ""
 
 msgid "This financial year"
 msgstr ""
@@ -784,7 +784,7 @@ msgid "Last financial year"
 msgstr "último ano financeiro"
 
 msgid "Last 5 financial years"
-msgstr "Últimos 5 anos financeiros"
+msgstr ""
 
 msgid "This year"
 msgstr "Este ano"
@@ -793,7 +793,7 @@ msgid "Last year"
 msgstr "Ano passado"
 
 msgid "Last 5 years"
-msgstr "Últimos 5 anos"
+msgstr ""
 
 msgid "User org unit"
 msgstr ""
@@ -805,10 +805,10 @@ msgid "User org unit grand children"
 msgstr ""
 
 msgid "Data"
-msgstr "Dados"
+msgstr ""
 
 msgid "Display"
-msgstr "Exibir"
+msgstr ""
 
 msgid "Axes"
 msgstr ""
@@ -817,10 +817,10 @@ msgid "Horizontal (x) axis"
 msgstr ""
 
 msgid "Series"
-msgstr "Série"
+msgstr ""
 
 msgid "Style"
-msgstr "Estilo"
+msgstr ""
 
 msgid "Chart style"
 msgstr ""
@@ -835,7 +835,7 @@ msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Totals"
-msgstr "Totais"
+msgstr ""
 
 msgid "Empty data"
 msgstr ""
@@ -853,7 +853,7 @@ msgid "Limit minimum/maximum values"
 msgstr ""
 
 msgid "Parameters"
-msgstr "Paâmetros"
+msgstr ""
 
 msgid "Color set"
 msgstr ""

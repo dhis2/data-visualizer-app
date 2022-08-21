@@ -1,9 +1,13 @@
 # 
+# Translators:
+# Yury Rogachev <yury@dhis2.org>, 2022
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
 "PO-Revision-Date: 2022-08-21 23:46+0000\n"
+"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2022\n"
 "Language-Team: Uzbek (Latin) (https://www.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12,16 +16,16 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Rename successful"
-msgstr ""
+msgstr "Muvaffaqiyatli qayta nomlash"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr ""
 
 msgid "\"{{deletedObject}}\" successfully deleted."
-msgstr ""
+msgstr "{{deletedObject}}\" muvaffaqiyatli oʼchirildi."
 
 msgid "You have unsaved changes."
-msgstr ""
+msgstr "Sizda saqlanmagan oʼzgartirishlar mavjud."
 
 msgid "Discard unsaved changes?"
 msgstr ""
@@ -35,7 +39,7 @@ msgid "No, cancel"
 msgstr ""
 
 msgid "Yes, leave"
-msgstr ""
+msgstr "Ha, qoldirib ketish"
 
 msgid "Add to {{axisName}}"
 msgstr ""
@@ -44,6 +48,8 @@ msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
 "first item will be used and saved."
 msgstr ""
+"{{visualizationType}}' bitta maʼlumot elementini koʼrsatishga moʼljallangan."
+" Faqat birinchi element ishlatiladi va saqlanadi."
 
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
@@ -84,7 +90,7 @@ msgid "HTML (.html)"
 msgstr ""
 
 msgid "Metadata ID scheme"
-msgstr ""
+msgstr "MetaMaʼlumot ID sxemasi"
 
 msgid "ID"
 msgstr ""
@@ -117,7 +123,7 @@ msgid "Advanced"
 msgstr ""
 
 msgid "Data value set"
-msgstr ""
+msgstr "Maʼlumotlar qiymati oʼrnatilgan"
 
 msgid "Other formats"
 msgstr ""
@@ -126,13 +132,13 @@ msgid "JRXML"
 msgstr ""
 
 msgid "Raw data SQL"
-msgstr ""
+msgstr "Xom maʼlumotlar SQL"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
+msgstr "DHIS2 Maʼlumotlar Vizualizator dasturida xatolik yuz berdi."
 
 msgid "Refresh to try again"
-msgstr ""
+msgstr "Ыaytib urinib kщrin uchun avval yangilang"
 
 msgid "Hide technical details"
 msgstr ""
@@ -141,13 +147,13 @@ msgid "Show technical details"
 msgstr ""
 
 msgid "The following information may be requested by technical support."
-msgstr ""
+msgstr "Quyidagi axborot texnik yordamchilar tomonidan soʼralishi mumkin"
 
 msgid "Hide"
 msgstr ""
 
 msgid "Interpretations"
-msgstr ""
+msgstr "Talqinlar"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
@@ -162,7 +168,7 @@ msgid "None selected"
 msgstr ""
 
 msgid "Only '{{- name}}' in use"
-msgstr ""
+msgstr "Foydalanish uchun faqatgina '{{- name}}'"
 
 msgid "Only '{{number}}' in use"
 msgstr ""
@@ -177,30 +183,32 @@ msgid "And 1 other..."
 msgstr ""
 
 msgid "And {{numberOfItems}} others..."
-msgstr ""
+msgstr "Yana bir boshqasi {{numberOfItems}}"
 
 msgid "Select a period"
 msgstr ""
 
 msgid "Select years"
-msgstr ""
+msgstr "Yilni tanlang"
 
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
 msgstr ""
+"Ushbu vizualizatsiyani oʼchirib boʼlmaydi, chunki u bir yoki bir necha "
+"informatsiyaon panel tomonidan foydalanilmoqda"
 
 msgid "Unsaved visualization"
 msgstr ""
 
 msgid "Edited"
-msgstr ""
+msgstr "Tahrirlangan"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
 msgid "Update"
-msgstr ""
+msgstr "Янгилаш"
 
 msgid "Getting started"
 msgstr ""
@@ -215,6 +223,7 @@ msgstr ""
 
 msgid "Click a dimension to add or remove items"
 msgstr ""
+"Elementlarni qoʼshish yoki oʼchirish uchun, oʼlchamlar tugmasini bosing"
 
 msgid "Your most viewed charts and tables"
 msgstr ""
@@ -226,10 +235,10 @@ msgid "Overrides aggregation type for all data values."
 msgstr ""
 
 msgid "By data element"
-msgstr ""
+msgstr "Маълумотлар элементи бўйича"
 
 msgid "Count"
-msgstr ""
+msgstr "Ҳисоблаш"
 
 msgid "Average"
 msgstr ""
@@ -262,10 +271,10 @@ msgid "Data approved at level"
 msgstr ""
 
 msgid "Select from predefined levels"
-msgstr ""
+msgstr "oldindan belgilangan darajalardan tanlang"
 
 msgid "Loading data approval levels"
-msgstr ""
+msgstr "Maʼlumotlarni tasdiqlash darajalari yuklanmoqda"
 
 msgid "Axis range"
 msgstr ""
@@ -277,7 +286,7 @@ msgid "Base line"
 msgstr ""
 
 msgid "Value"
-msgstr ""
+msgstr "Қиймат"
 
 msgid "Title"
 msgstr ""
@@ -292,22 +301,22 @@ msgid "Labels"
 msgstr ""
 
 msgid "Column sub-totals"
-msgstr ""
+msgstr "Ustunning oraliq yigʼindilari"
 
 msgid "Columns totals"
-msgstr ""
+msgstr "Ustunlar boʼyicha yigʼindi"
 
 msgid "Default"
 msgstr ""
 
 msgid "Bright"
-msgstr ""
+msgstr "Yorqin"
 
 msgid "Dark"
 msgstr ""
 
 msgid "Gray"
-msgstr ""
+msgstr "Kulrang"
 
 msgid "Color blind"
 msgstr ""
@@ -328,13 +337,13 @@ msgid "Cumulative values"
 msgstr ""
 
 msgid "Digit group separator"
-msgstr ""
+msgstr "Raqamlar guruhini taqsimlovchi"
 
 msgid "None"
 msgstr ""
 
 msgid "Space"
-msgstr ""
+msgstr "Oraliq (maydon)"
 
 msgid "Comma"
 msgstr ""
@@ -361,7 +370,7 @@ msgid "Font size"
 msgstr ""
 
 msgid "Large"
-msgstr ""
+msgstr "Katta"
 
 msgid "Small"
 msgstr ""
@@ -370,7 +379,7 @@ msgid "Hide empty columns"
 msgstr ""
 
 msgid "Hide empty categories"
-msgstr ""
+msgstr "Boʼsh kategoriyalarni berkitish"
 
 msgid "Before first"
 msgstr ""
@@ -388,19 +397,19 @@ msgid "Hide empty rows"
 msgstr ""
 
 msgid "Show legend key"
-msgstr ""
+msgstr "Kalit taʼrifni koʼrsating"
 
 msgid "Table subtitle"
-msgstr ""
+msgstr "Jadval taglavhasi"
 
 msgid "Chart subtitle"
-msgstr ""
+msgstr "Diagramma sharhi"
 
 msgid "Auto generated"
 msgstr ""
 
 msgid "Custom"
-msgstr ""
+msgstr "Odatiy"
 
 msgid "Chart title"
 msgstr ""
@@ -409,16 +418,16 @@ msgid "Display legend"
 msgstr ""
 
 msgid "Legend style"
-msgstr ""
+msgstr "Taʼrif turi"
 
 msgid "Legend type"
-msgstr ""
+msgstr "Таъриф тури"
 
 msgid "Use pre-defined legend per data item"
 msgstr ""
 
 msgid "Select a single legend for the entire visualization"
-msgstr ""
+msgstr "Butun vizualizatsiya uchun bitta taʼrifni tanlang"
 
 msgid "Legend changes background color"
 msgstr ""
@@ -433,7 +442,7 @@ msgid "Select from legends"
 msgstr ""
 
 msgid "Loading legends"
-msgstr ""
+msgstr "Taʼriflar yuklanmoqda"
 
 msgid ""
 "You can set a minimum or maximum value. This will apply to the entire table,"
@@ -441,19 +450,19 @@ msgid ""
 msgstr ""
 
 msgid "Minimum data value"
-msgstr ""
+msgstr "Maʼlumotlarning minimal qiymati"
 
 msgid "Maximum data value"
 msgstr ""
 
 msgid "Clear min/max limits"
-msgstr ""
+msgstr "Minimal/maksimal chegaralarini aniqlashtiring"
 
 msgid "No space between bars/columns"
 msgstr ""
 
 msgid "Number type"
-msgstr ""
+msgstr "Raqam turi"
 
 msgid "Display the value of percentages of the total"
 msgstr ""
@@ -462,7 +471,7 @@ msgid "Percentage of row"
 msgstr ""
 
 msgid "Percentage of column"
-msgstr ""
+msgstr "Ustun foizi"
 
 msgid "Organisation unit"
 msgstr ""
@@ -477,10 +486,10 @@ msgid "Stacked values add up to 100%"
 msgstr ""
 
 msgid "Decimals"
-msgstr ""
+msgstr "Oʼnli kasrlar"
 
 msgid "Auto"
-msgstr ""
+msgstr "Аvto"
 
 msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
@@ -497,7 +506,7 @@ msgid "Trend line"
 msgstr ""
 
 msgid "Linear"
-msgstr ""
+msgstr "Chiziqli"
 
 msgid "Polynomial"
 msgstr ""
@@ -521,13 +530,13 @@ msgid "Axis {{axisId}}"
 msgstr ""
 
 msgid "Series is empty"
-msgstr ""
+msgstr "Seriya boʼsh"
 
 msgid "Options for selected items will be available here"
-msgstr ""
+msgstr "Tanlangan elementlar variantlari shu yerda mavjud"
 
 msgid "No Series options"
-msgstr ""
+msgstr "Hech qanday seriya variantalari yoʼq"
 
 msgid "There aren't any Series options for this visualization type"
 msgstr ""
@@ -539,6 +548,8 @@ msgid ""
 "Series options are not available when using relative selections for periods,"
 " org units or categories"
 msgstr ""
+"Davrlar, tashkiliy boʼlimlar yoki toifalar uchun nisbiy tanlovlardan "
+"foydalanilganda ketma-ket variantlar mavjud emas"
 
 msgid "Value labels"
 msgstr ""
@@ -547,10 +558,10 @@ msgid "Dimension labels"
 msgstr ""
 
 msgid "Display organisation unit hierarchy"
-msgstr ""
+msgstr "Tashkiliy boʼlim ierarxiyasini namoyish qilish"
 
 msgid "Skip rounding"
-msgstr ""
+msgstr "Soddalashtirish oʼtkazib yuborilsin"
 
 msgid "Custom sort order"
 msgstr ""
@@ -568,16 +579,16 @@ msgid "Target line"
 msgstr ""
 
 msgid "Target line title"
-msgstr ""
+msgstr "Maqsadli qator sarlavhasi"
 
 msgid "Size"
 msgstr ""
 
 msgid "Position"
-msgstr ""
+msgstr "Lavozimi"
 
 msgid "Top limit"
-msgstr ""
+msgstr "Yuqori chegara"
 
 msgid "Options"
 msgstr ""
@@ -599,10 +610,10 @@ msgid "Actual reports"
 msgstr ""
 
 msgid "Actual reports on time"
-msgstr ""
+msgstr "Haqiqiy hisobotlar oʼz vaqtida"
 
 msgid "Expected reports"
-msgstr ""
+msgstr "Kutilayotgan hisobotlar"
 
 msgid "No data available"
 msgstr ""
@@ -611,15 +622,17 @@ msgid ""
 "The selected dimensions didn’t return any data. There may be no data, or you"
 " may not have access to it."
 msgstr ""
+"Tanlangan parametrlar asosida hech qanday maʼlumotlar topilmadi. Maʼlumotlar"
+" yoʼq yoki ulargadan foydalanish huquqi mavjud emas."
 
 msgid "{{axisName}} is empty"
-msgstr ""
+msgstr "{{axisName}} boʼsh"
 
 msgid "Add at least one item to {{axisName}}."
 msgstr ""
 
 msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
-msgstr ""
+msgstr "{{columnsAxisName}} va {{rowsAxisName}} boʼsh"
 
 msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
@@ -627,7 +640,7 @@ msgid ""
 msgstr ""
 
 msgid "No period selected"
-msgstr ""
+msgstr "Давр танланмаган"
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
@@ -640,9 +653,13 @@ msgid ""
 "{{visualizationType}} must have at least one data item or data element group"
 " set item in {{axes}}."
 msgstr ""
+"{{visualizationType}} kamida bir maʼlumot elementi yoki element guruhi "
+"toʼplamiga ega boʼlmogʼi lozim, tanlangan oʼqda {{axes}}."
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
 msgstr ""
+"{{visualizationType}} kamida bir maʼlumot elementi ega boʼlmogʼi lozim, "
+"tanlangan oʼqda {{axes}}."
 
 msgid "There's a problem with the layout"
 msgstr ""
@@ -657,6 +674,7 @@ msgstr ""
 
 msgid "There is a problem with this {{visualizationType}} visualization."
 msgstr ""
+"Ushbu {{visualizationType}} vizualizatsiya bilan bogʼliq muammo mavjud."
 
 msgid "There was a problem getting the data from the server."
 msgstr ""
@@ -669,7 +687,7 @@ msgid ""
 msgstr ""
 
 msgid "Assigned Categories cannot be used as Filter"
-msgstr ""
+msgstr "Belgilangan toifalarni Filtr sifatida ishlatib boʼlmaydi"
 
 msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
@@ -692,19 +710,19 @@ msgid "Today"
 msgstr ""
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Кеча"
 
 msgid "Last 3 days"
-msgstr ""
+msgstr "Oxirgi 3 kun"
 
 msgid "Last 7 days"
 msgstr ""
 
 msgid "Last 14 days"
-msgstr ""
+msgstr "Oxirgi 14 kun"
 
 msgid "This week"
-msgstr ""
+msgstr "Ушбу ҳафта"
 
 msgid "Last week"
 msgstr ""
@@ -731,7 +749,7 @@ msgid "Last 3 months"
 msgstr ""
 
 msgid "Last 6 months"
-msgstr ""
+msgstr "Oxirgi yarim yillik"
 
 msgid "Last 12 months"
 msgstr ""
@@ -752,7 +770,7 @@ msgid "Bimonths this year"
 msgstr ""
 
 msgid "This quarter"
-msgstr ""
+msgstr "Ушбу квартал"
 
 msgid "Last quarter"
 msgstr ""
@@ -764,7 +782,7 @@ msgid "Quarters this year"
 msgstr ""
 
 msgid "This six-month"
-msgstr ""
+msgstr "Ушбу ярим йиллик"
 
 msgid "Last six-month"
 msgstr ""
@@ -773,19 +791,19 @@ msgid "Last 2 six-months"
 msgstr ""
 
 msgid "This financial year"
-msgstr ""
+msgstr "Ушбу молиявий йил"
 
 msgid "Last financial year"
-msgstr ""
+msgstr "Охирги молиявий йил"
 
 msgid "Last 5 financial years"
 msgstr ""
 
 msgid "This year"
-msgstr ""
+msgstr "Ушбу йил"
 
 msgid "Last year"
-msgstr ""
+msgstr "Охирги йил"
 
 msgid "Last 5 years"
 msgstr ""
@@ -803,13 +821,13 @@ msgid "Data"
 msgstr ""
 
 msgid "Display"
-msgstr ""
+msgstr "Ekranda koʼrsatish"
 
 msgid "Axes"
 msgstr ""
 
 msgid "Horizontal (x) axis"
-msgstr ""
+msgstr "gorizontal (X) oʼq"
 
 msgid "Series"
 msgstr ""
@@ -821,7 +839,7 @@ msgid "Chart style"
 msgstr ""
 
 msgid "Titles"
-msgstr ""
+msgstr "Sarlavhalar"
 
 msgid "Lines"
 msgstr ""
@@ -833,7 +851,7 @@ msgid "Totals"
 msgstr ""
 
 msgid "Empty data"
-msgstr ""
+msgstr "Boʼsh maʼlumotlar"
 
 msgid "Table title"
 msgstr ""
@@ -857,13 +875,13 @@ msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 
 msgid "Lines are not supported yet when using multiple axes"
-msgstr ""
+msgstr "Koʼp oʼqlardan foydalanganda chiziqlar hali qoʼllab quvvatlanmaydi"
 
 msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
 
 msgid "Weeks per year"
-msgstr ""
+msgstr "Yil ichida haftalar"
 
 msgid "Months per year"
 msgstr ""

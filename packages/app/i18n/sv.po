@@ -1,14 +1,14 @@
 # 
 # Translators:
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
+# phil_dhis2, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
-"PO-Revision-Date: 2020-12-22 22:14+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:46+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2022\n"
 "Language-Team: Swedish (https://www.transifex.com/hisp-uio/teams/100509/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -92,31 +92,31 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr "id"
+msgstr ""
 
 msgid "Code"
-msgstr "Koda"
+msgstr ""
 
 msgid "Name"
-msgstr "Namn"
+msgstr ""
 
 msgid "Download"
-msgstr "Ladda ner"
+msgstr ""
 
 msgid "Plain data source"
 msgstr ""
 
 msgid "JSON"
-msgstr "JSON"
+msgstr ""
 
 msgid "XML"
-msgstr "XML"
+msgstr ""
 
 msgid "Excel"
 msgstr ""
 
 msgid "CSV"
-msgstr "CSV"
+msgstr ""
 
 msgid "Advanced"
 msgstr ""
@@ -176,7 +176,7 @@ msgid "Levels"
 msgstr ""
 
 msgid "Groups"
-msgstr "Grupper"
+msgstr ""
 
 msgid "And 1 other..."
 msgstr ""
@@ -225,7 +225,7 @@ msgid "Your most viewed charts and tables"
 msgstr ""
 
 msgid "Aggregation type"
-msgstr "Aggregationtyp"
+msgstr ""
 
 msgid "Overrides aggregation type for all data values."
 msgstr ""
@@ -237,13 +237,13 @@ msgid "Count"
 msgstr "Räkna"
 
 msgid "Average"
-msgstr "Genomsnitt"
+msgstr ""
 
 msgid "Average (sum in org unit hierarchy)"
 msgstr ""
 
 msgid "Sum"
-msgstr "Belopp"
+msgstr ""
 
 msgid "Last value"
 msgstr ""
@@ -252,16 +252,16 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr ""
 
 msgid "Min"
-msgstr "min"
+msgstr ""
 
 msgid "Max"
-msgstr "max"
+msgstr ""
 
 msgid "Standard deviation"
-msgstr "Standardavvikelse"
+msgstr ""
 
 msgid "Variance"
-msgstr "Variation"
+msgstr ""
 
 msgid "Data approved at level"
 msgstr ""
@@ -285,13 +285,13 @@ msgid "Value"
 msgstr "Värde"
 
 msgid "Title"
-msgstr "Titel"
+msgstr ""
 
 msgid "Base line title"
 msgstr ""
 
 msgid "Number"
-msgstr "Antal"
+msgstr ""
 
 msgid "Labels"
 msgstr ""
@@ -303,7 +303,7 @@ msgid "Columns totals"
 msgstr ""
 
 msgid "Default"
-msgstr "Standard"
+msgstr ""
 
 msgid "Bright"
 msgstr ""
@@ -336,7 +336,7 @@ msgid "Digit group separator"
 msgstr ""
 
 msgid "None"
-msgstr "Ingen"
+msgstr ""
 
 msgid "Space"
 msgstr ""
@@ -351,7 +351,7 @@ msgid "Comfortable"
 msgstr ""
 
 msgid "Normal"
-msgstr "Vanligt"
+msgstr ""
 
 msgid "Compact"
 msgstr ""
@@ -387,7 +387,7 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr "Alla"
+msgstr ""
 
 msgid "Hide empty rows"
 msgstr ""
@@ -470,7 +470,7 @@ msgid "Percentage of column"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr "Organisationsenhet"
+msgstr ""
 
 msgid "Parent organisation unit"
 msgstr ""
@@ -493,7 +493,7 @@ msgid ""
 msgstr ""
 
 msgid "Steps"
-msgstr "Steg"
+msgstr ""
 
 msgid "Include regression"
 msgstr ""
@@ -585,7 +585,7 @@ msgid "Top limit"
 msgstr ""
 
 msgid "Options"
-msgstr "Alternativ"
+msgstr ""
 
 msgid "Open as Map"
 msgstr ""
@@ -712,37 +712,37 @@ msgid "This week"
 msgstr "Denna vecka"
 
 msgid "Last week"
-msgstr "Förra veckan"
+msgstr ""
 
 msgid "Last 4 weeks"
-msgstr "Senaste 4 veckorna"
+msgstr ""
 
 msgid "Last 12 weeks"
-msgstr "Senast 12 veckor"
+msgstr ""
 
 msgid "Last 52 weeks"
-msgstr "Senast 52 veckor"
+msgstr ""
 
 msgid "Weeks this year"
 msgstr ""
 
 msgid "This month"
-msgstr "Den här månaden"
+msgstr ""
 
 msgid "Last month"
-msgstr "Förra månaden"
+msgstr ""
 
 msgid "Last 3 months"
-msgstr "Senaste 3 månaderna"
+msgstr ""
 
 msgid "Last 6 months"
 msgstr "Senaste 6 månaderna"
 
 msgid "Last 12 months"
-msgstr "Senaste 12 månaderna"
+msgstr ""
 
 msgid "Months this year"
-msgstr "Månader i år"
+msgstr ""
 
 msgid "This bimonth"
 msgstr ""
@@ -760,22 +760,22 @@ msgid "This quarter"
 msgstr "detta kvartal"
 
 msgid "Last quarter"
-msgstr "Förra kvartalet"
+msgstr ""
 
 msgid "Last 4 quarters"
-msgstr "Senaste 4 kvartal"
+msgstr ""
 
 msgid "Quarters this year"
-msgstr "Kvartalen i år"
+msgstr ""
 
 msgid "This six-month"
 msgstr "Denna sexmånaders"
 
 msgid "Last six-month"
-msgstr "Senast sex månader"
+msgstr ""
 
 msgid "Last 2 six-months"
-msgstr "Senaste 2 sex månader"
+msgstr ""
 
 msgid "This financial year"
 msgstr "Detta räkenskapsår"
@@ -784,7 +784,7 @@ msgid "Last financial year"
 msgstr "Föregående räkenskapsår"
 
 msgid "Last 5 financial years"
-msgstr "Senaste 5 räkenskapsåren"
+msgstr ""
 
 msgid "This year"
 msgstr "Det här året"
@@ -793,7 +793,7 @@ msgid "Last year"
 msgstr "Förra året"
 
 msgid "Last 5 years"
-msgstr "Senaste 5 år"
+msgstr ""
 
 msgid "User org unit"
 msgstr ""
@@ -805,7 +805,7 @@ msgid "User org unit grand children"
 msgstr ""
 
 msgid "Data"
-msgstr "Data"
+msgstr ""
 
 msgid "Display"
 msgstr ""
@@ -820,7 +820,7 @@ msgid "Series"
 msgstr ""
 
 msgid "Style"
-msgstr "Stil"
+msgstr ""
 
 msgid "Chart style"
 msgstr ""
@@ -835,7 +835,7 @@ msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Totals"
-msgstr "Totals"
+msgstr ""
 
 msgid "Empty data"
 msgstr ""

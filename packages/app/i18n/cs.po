@@ -1,13 +1,13 @@
 # 
 # Translators:
-# trendspotter, 2020
+# trendspotter <jirka.p@volny.cz>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
-"PO-Revision-Date: 2020-12-22 22:14+0000\n"
-"Last-Translator: trendspotter, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:46+0000\n"
+"Last-Translator: trendspotter <jirka.p@volny.cz>, 2022\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,32 +19,30 @@ msgid "Rename successful"
 msgstr "Přejmenování bylo úspěšné"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr "Vizualizace bez názvu {{visualizationType}}, {{date}}"
+msgstr ""
 
 msgid "\"{{deletedObject}}\" successfully deleted."
-msgstr "\"{{deletedObject}}\" byl úspěšně smazán."
+msgstr ""
 
 msgid "You have unsaved changes."
 msgstr "Máte neuložené změny."
 
 msgid "Discard unsaved changes?"
-msgstr "Zahodit neuložené změny?"
+msgstr ""
 
 msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
 "be lost."
 msgstr ""
-"Opravdu chcete tuto vizualizaci opustit? Všechny neuložené změny budou "
-"ztraceny."
 
 msgid "No, cancel"
-msgstr "Ne, zrušit"
+msgstr ""
 
 msgid "Yes, leave"
 msgstr "Ano, odejít"
 
 msgid "Add to {{axisName}}"
-msgstr "Přidat k {{axisName}}"
+msgstr ""
 
 msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
@@ -57,83 +55,81 @@ msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
-"'{{visualiationType}}' má zobrazit maximální počet položek {{maxNumber}}. "
-"Bude použito a uloženo pouze prvních {{maxNumber}} položek."
 
 msgid "Main dimensions"
-msgstr "Hlavní rozměry"
+msgstr ""
 
 msgid "Other dimensions"
-msgstr "Jiné dimenze"
+msgstr ""
 
 msgid "Your dimensions"
-msgstr "Vaše rozměry"
+msgstr ""
 
 msgid "Filter dimensions"
-msgstr "Rozsahy filtru"
+msgstr ""
 
 msgid "Graphics"
-msgstr "Grafika"
+msgstr ""
 
 msgid "Image (.png)"
-msgstr "Obrázek (.png)"
+msgstr ""
 
 msgid "PDF (.pdf)"
-msgstr "PDF (.pdf)"
+msgstr ""
 
 msgid "Table layout"
-msgstr "Rozložení tabulky"
+msgstr ""
 
 msgid "Excel (.xls)"
-msgstr "Excel (.xls)"
+msgstr ""
 
 msgid "CSV (.csv)"
-msgstr "CSV (.csv)"
+msgstr ""
 
 msgid "HTML (.html)"
-msgstr "HTML (.html)"
+msgstr ""
 
 msgid "Metadata ID scheme"
 msgstr "Schéma metadata ID"
 
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 msgid "Code"
-msgstr "Kód"
+msgstr ""
 
 msgid "Name"
-msgstr "Název"
+msgstr ""
 
 msgid "Download"
-msgstr "Stáhnout"
+msgstr ""
 
 msgid "Plain data source"
-msgstr "Prostý zdroj dat"
+msgstr ""
 
 msgid "JSON"
-msgstr "JSON"
+msgstr ""
 
 msgid "XML"
-msgstr "XML"
+msgstr ""
 
 msgid "Excel"
-msgstr "Excel"
+msgstr ""
 
 msgid "CSV"
-msgstr "CSV"
+msgstr ""
 
 msgid "Advanced"
-msgstr "Pokročilý"
+msgstr ""
 
 msgid "Data value set"
 msgstr "Sada datových hodnot"
 
 msgid "Other formats"
-msgstr "Jiné formáty"
+msgstr ""
 
 msgid "JRXML"
-msgstr "JRXML"
+msgstr ""
 
 msgid "Raw data SQL"
 msgstr "Nezpracovaná data SQL"
@@ -145,55 +141,55 @@ msgid "Refresh to try again"
 msgstr "Obnovte a zkuste to znovu"
 
 msgid "Hide technical details"
-msgstr "Skrýt technické podrobnosti"
+msgstr ""
 
 msgid "Show technical details"
-msgstr "Zobrazit technické podrobnosti"
+msgstr ""
 
 msgid "The following information may be requested by technical support."
 msgstr "Následující informace mohou být požadovány technickou podporou."
 
 msgid "Hide"
-msgstr "Skrýt"
+msgstr ""
 
 msgid "Interpretations"
 msgstr "Interpretace"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr "Je vybráno {{total}} z {{axisMaxNumberOfItems}}"
+msgstr ""
 
 msgid "{{total}} selected"
-msgstr "Vybráno: {{total}}"
+msgstr ""
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
-msgstr "{{dimensionName}} je pro {{visTypeName}} uzamčen na {{axisName}}"
+msgstr ""
 
 msgid "None selected"
-msgstr "Není vybrán žádný"
+msgstr ""
 
 msgid "Only '{{- name}}' in use"
 msgstr "Používá se pouze '{{- name}}' "
 
 msgid "Only '{{number}}' in use"
-msgstr "Používá se pouze '{{number}}' "
+msgstr ""
 
 msgid "Levels"
-msgstr "Úrovně"
+msgstr ""
 
 msgid "Groups"
-msgstr "Skupiny"
+msgstr ""
 
 msgid "And 1 other..."
-msgstr "A 1 další ..."
+msgstr ""
 
 msgid "And {{numberOfItems}} others..."
 msgstr "A {{numberOfItems}} dalších ..."
 
 msgid "Select a period"
-msgstr "Vybrat období"
+msgstr ""
 
 msgid "Select years"
-msgstr "Vybrat roky"
+msgstr ""
 
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
@@ -203,41 +199,39 @@ msgstr ""
 "ovládacích panelech"
 
 msgid "Unsaved visualization"
-msgstr "Neuložená vizualizace"
+msgstr ""
 
 msgid "Edited"
 msgstr "Upraveno"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr "Prohlížení interpretací od {{interpretDate}}"
+msgstr ""
 
 msgid "Update"
-msgstr "Aktualizovat"
+msgstr ""
 
 msgid "Getting started"
-msgstr "Začínáme"
+msgstr ""
 
 msgid ""
 "All dimensions that you can use to build visualizations are shown in the "
 "left sidebar"
 msgstr ""
-"Všechny dimenze, které můžete použít k vytváření vizualizací, se zobrazují "
-"na levém postranním panelu"
 
 msgid "Add dimensions to the layout above"
-msgstr "Přidejte rozměry do výše uvedeného rozložení"
+msgstr ""
 
 msgid "Click a dimension to add or remove items"
 msgstr "Kliknutím na dimenzi přidáte nebo odeberete položky"
 
 msgid "Your most viewed charts and tables"
-msgstr "Vaše nejsledovanější grafy a tabulky"
+msgstr ""
 
 msgid "Aggregation type"
-msgstr "Typ agregace"
+msgstr ""
 
 msgid "Overrides aggregation type for all data values."
-msgstr "Přepíše typ agregace pro všechny datové hodnoty."
+msgstr ""
 
 msgid "By data element"
 msgstr "Podle datového prvku"
@@ -246,34 +240,34 @@ msgid "Count"
 msgstr "Počet"
 
 msgid "Average"
-msgstr "Průměr"
+msgstr ""
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr "Průměr (součet v hierarchii organizačních jednotek)"
+msgstr ""
 
 msgid "Sum"
-msgstr "Součet"
+msgstr ""
 
 msgid "Last value"
-msgstr "Poslední hodnota"
+msgstr ""
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr "Poslední hodnota (průměr v hierarchii organizačních jednotek)"
+msgstr ""
 
 msgid "Min"
-msgstr "Min"
+msgstr ""
 
 msgid "Max"
-msgstr "Max"
+msgstr ""
 
 msgid "Standard deviation"
-msgstr "Standardní odchylka"
+msgstr ""
 
 msgid "Variance"
-msgstr "Rozptyl"
+msgstr ""
 
 msgid "Data approved at level"
-msgstr "Data schválena na úrovni"
+msgstr ""
 
 msgid "Select from predefined levels"
 msgstr "Vybrat z předdefinovaných úrovní"
@@ -282,28 +276,28 @@ msgid "Loading data approval levels"
 msgstr "Načítání úrovní schválení dat"
 
 msgid "Axis range"
-msgstr "Rozsah os"
+msgstr ""
 
 msgid "Values outside of the range will not be displayed"
-msgstr "Hodnoty mimo rozsah se nezobrazí"
+msgstr ""
 
 msgid "Base line"
-msgstr "Základní linie"
+msgstr ""
 
 msgid "Value"
-msgstr "Hodnota"
+msgstr ""
 
 msgid "Title"
-msgstr "Titul"
+msgstr ""
 
 msgid "Base line title"
-msgstr "Název základní čáry"
+msgstr ""
 
 msgid "Number"
-msgstr "Číslo"
+msgstr ""
 
 msgid "Labels"
-msgstr "Štítky"
+msgstr ""
 
 msgid "Column sub-totals"
 msgstr "Mezisoučty sloupců"
@@ -312,94 +306,94 @@ msgid "Columns totals"
 msgstr "Součty sloupců"
 
 msgid "Default"
-msgstr "Výchozí"
+msgstr ""
 
 msgid "Bright"
 msgstr "Světlá"
 
 msgid "Dark"
-msgstr "Tmavá"
+msgstr ""
 
 msgid "Gray"
 msgstr "Šedá"
 
 msgid "Color blind"
-msgstr "pro Barvoslepé"
+msgstr ""
 
 msgid "Patterns"
-msgstr "Vzory"
+msgstr ""
 
 msgid "Event data"
-msgstr "Data události"
+msgstr ""
 
 msgid "Only include completed events"
-msgstr "Zahrnout pouze dokončené události"
+msgstr ""
 
 msgid "Include cumulative"
-msgstr "Zahrnout kumulativní"
+msgstr ""
 
 msgid "Cumulative values"
-msgstr "Kumulativní hodnoty"
+msgstr ""
 
 msgid "Digit group separator"
 msgstr "Oddělovač skupin číslic"
 
 msgid "None"
-msgstr "Žádný"
+msgstr ""
 
 msgid "Space"
 msgstr "Mezera"
 
 msgid "Comma"
-msgstr "Čárka"
+msgstr ""
 
 msgid "Display density"
-msgstr "Hustota zobrazení"
+msgstr ""
 
 msgid "Comfortable"
-msgstr "Komfortní"
+msgstr ""
 
 msgid "Normal"
-msgstr "Normální"
+msgstr ""
 
 msgid "Compact"
-msgstr "Kompaktní"
+msgstr ""
 
 msgid "Axis title"
-msgstr "Název osy"
+msgstr ""
 
 msgid "Add a title"
-msgstr "Přidat název"
+msgstr ""
 
 msgid "Font size"
-msgstr "Velikost písma"
+msgstr ""
 
 msgid "Large"
 msgstr "Velký"
 
 msgid "Small"
-msgstr "Malý"
+msgstr ""
 
 msgid "Hide empty columns"
-msgstr "Skrýt prázdné sloupce"
+msgstr ""
 
 msgid "Hide empty categories"
 msgstr "Skrýt prázdné kategorie"
 
 msgid "Before first"
-msgstr "Před první"
+msgstr ""
 
 msgid "After last"
-msgstr "Po poslední"
+msgstr ""
 
 msgid "Before first and after last"
-msgstr "Před první a po poslední"
+msgstr ""
 
 msgid "All"
-msgstr "Vše"
+msgstr ""
 
 msgid "Hide empty rows"
-msgstr "Skrýt prázdné řádky"
+msgstr ""
 
 msgid "Show legend key"
 msgstr "Zobrazit klíč legendy"
@@ -411,16 +405,16 @@ msgid "Chart subtitle"
 msgstr "Podtitul grafu"
 
 msgid "Auto generated"
-msgstr "Automaticky generováno"
+msgstr ""
 
 msgid "Custom"
 msgstr "Vlastní"
 
 msgid "Chart title"
-msgstr "Název grafu"
+msgstr ""
 
 msgid "Display legend"
-msgstr "Zobrazit legendu"
+msgstr ""
 
 msgid "Legend style"
 msgstr "Styl Legendy"
@@ -429,22 +423,22 @@ msgid "Legend type"
 msgstr "Typ legendy"
 
 msgid "Use pre-defined legend per data item"
-msgstr "Použijte předdefinovanou legendu na datovou položku"
+msgstr ""
 
 msgid "Select a single legend for the entire visualization"
 msgstr "Vyberte jednu legendu pro celou vizualizaci"
 
 msgid "Legend changes background color"
-msgstr "Legenda mění barvu pozadí"
+msgstr ""
 
 msgid "Legend changes text color"
-msgstr "Legenda mění barvu textu"
+msgstr ""
 
 msgid "Legend"
-msgstr "Legenda"
+msgstr ""
 
 msgid "Select from legends"
-msgstr "Vybrat si z legend"
+msgstr ""
 
 msgid "Loading legends"
 msgstr "Načítání legend"
@@ -453,45 +447,42 @@ msgid ""
 "You can set a minimum or maximum value. This will apply to the entire table,"
 " all values outside of the minimum/maximum range will not be displayed"
 msgstr ""
-"Můžete nastavit minimální nebo maximální hodnotu. Toto bude platit pro celou"
-" tabulku, nebudou zobrazeny všechny hodnoty mimo minimální / maximální "
-"rozsah"
 
 msgid "Minimum data value"
 msgstr "Minimální hodnota dat"
 
 msgid "Maximum data value"
-msgstr "Maximální hodnota dat"
+msgstr ""
 
 msgid "Clear min/max limits"
 msgstr "Vymazat minimální / maximální limity"
 
 msgid "No space between bars/columns"
-msgstr "Mezi pruhy / sloupci není mezera"
+msgstr ""
 
 msgid "Number type"
 msgstr "Typ čísla"
 
 msgid "Display the value of percentages of the total"
-msgstr "Zobrazit hodnotu procent z celkové částky"
+msgstr ""
 
 msgid "Percentage of row"
-msgstr "Procento řádku"
+msgstr ""
 
 msgid "Percentage of column"
-msgstr "Procento sloupce"
+msgstr ""
 
 msgid "Organisation unit"
-msgstr "Organizační jednotka"
+msgstr ""
 
 msgid "Parent organisation unit"
-msgstr "Nadřazená organizační jednotka"
+msgstr ""
 
 msgid "Reporting period"
-msgstr "Doba hlášení zpráv"
+msgstr ""
 
 msgid "Stacked values add up to 100%"
-msgstr "Skládané hodnoty se doplňují až do 100%"
+msgstr ""
 
 msgid "Decimals"
 msgstr "Desetinná místa"
@@ -503,40 +494,39 @@ msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
-"Počet kroků osy, včetně min a max. Hodnota 2 nebo nižší bude ignorována."
 
 msgid "Steps"
-msgstr "Kroky"
+msgstr ""
 
 msgid "Include regression"
-msgstr "Zahrnout regresi"
+msgstr ""
 
 msgid "Trend line"
-msgstr "Trendová čára"
+msgstr ""
 
 msgid "Linear"
 msgstr "Čárový"
 
 msgid "Polynomial"
-msgstr "Polynomiální"
+msgstr ""
 
 msgid "Loess"
-msgstr "Spraše"
+msgstr ""
 
 msgid "Row sub-totals"
-msgstr "Mezisoučty řádků"
+msgstr ""
 
 msgid "Row totals"
-msgstr "Součty řádků"
+msgstr ""
 
 msgid "Data item"
-msgstr "Datová položka"
+msgstr ""
 
 msgid "Visualization type"
-msgstr "Typ vizualizace"
+msgstr ""
 
 msgid "Axis {{axisId}}"
-msgstr "Osa {{axisId}}"
+msgstr ""
 
 msgid "Series is empty"
 msgstr "Série je prázdná"
@@ -548,10 +538,10 @@ msgid "No Series options"
 msgstr "Žádné možnosti serie"
 
 msgid "There aren't any Series options for this visualization type"
-msgstr "Pro tento typ vizualizace neexistují žádné možnosti Series"
+msgstr ""
 
 msgid "Series options unavailable"
-msgstr "Možnosti serie nejsou k dispozici"
+msgstr ""
 
 msgid ""
 "Series options are not available when using relative selections for periods,"
@@ -561,64 +551,62 @@ msgstr ""
 " organizační jednotky nebo kategorie"
 
 msgid "Value labels"
-msgstr "Hodnotové štítky"
+msgstr ""
 
 msgid "Dimension labels"
-msgstr "Štítky dimenzí"
+msgstr ""
 
 msgid "Display organisation unit hierarchy"
-msgstr "Zobrazit hierarchii organizačních jednotek"
+msgstr ""
 
 msgid "Skip rounding"
 msgstr "Přeskočit zaokrouhlování"
 
 msgid "Custom sort order"
-msgstr "Vlastní řazení pořadí"
+msgstr ""
 
 msgid "Low to high"
-msgstr "Od nízkého po vysoký"
+msgstr ""
 
 msgid "High to low"
-msgstr "Od nejvyšší k nejnižší"
+msgstr ""
 
 msgid "Add a subtitle"
-msgstr "Přidat podtitul"
+msgstr ""
 
 msgid "Target line"
-msgstr "Cílová linie"
+msgstr ""
 
 msgid "Target line title"
-msgstr "Název cílového řádku"
+msgstr ""
 
 msgid "Size"
-msgstr "Velikost"
+msgstr ""
 
 msgid "Position"
-msgstr "Pozice"
+msgstr ""
 
 msgid "Top limit"
-msgstr "Horní limit"
+msgstr ""
 
 msgid "Options"
-msgstr "Možnosti"
+msgstr ""
 
 msgid "Open as Map"
-msgstr "Otevřít jako mapu"
+msgstr ""
 
 msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
 msgstr ""
-"Vizuálně vykreslete data na mapě světa. Datové prvky používají samostatné "
-"mapové vrstvy."
 
 msgid "Reporting rate"
-msgstr "Četnost hlášení"
+msgstr ""
 
 msgid "Reporting rate on time"
-msgstr "Četnost hlášení na čas"
+msgstr ""
 
 msgid "Actual reports"
-msgstr "Aktuální zprávy"
+msgstr ""
 
 msgid "Actual reports on time"
 msgstr "Aktuální zprávy včas"
@@ -640,7 +628,7 @@ msgid "{{axisName}} is empty"
 msgstr "{{axisName}} je prázdný"
 
 msgid "Add at least one item to {{axisName}}."
-msgstr "Přidat alespoň jednu položku do {{axisName}}."
+msgstr ""
 
 msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
 msgstr "{{columnsAxisName}} a {{linesAxisName}} jsou prázdné"
@@ -649,8 +637,6 @@ msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
 " {{visualizationType}}."
 msgstr ""
-"Přidejte alespoň jednu položku do {{columnsAxisName}} nebo {{linesAxisName}}"
-" a vytvořte {{visualizationType}}."
 
 msgid "No period selected"
 msgstr "Není vybráno žádné období"
@@ -658,75 +644,64 @@ msgstr "Není vybráno žádné období"
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
 msgstr ""
-"{{visualizationType}} musí mít alespoň jedno období vybrané v {{axes}}."
 
 msgid "No data selected"
-msgstr "Nejsou vybrána žádná data"
+msgstr ""
 
 msgid ""
 "{{visualizationType}} must have at least one data item or data element group"
 " set item in {{axes}}."
 msgstr ""
-"{{visualizationType}} musí mít v {{axes}} alespoň jednu datovou položku nebo"
-" položku skupiny datových prvků."
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
 msgstr ""
-"{{visualizationType}} musí mít alespoň jednu datovou položku v {{axes}}."
 
 msgid "There's a problem with the layout"
-msgstr "Došlo k problému s rozvržením"
+msgstr ""
 
 msgid ""
 "A single indicator must be the only data item when using indicators as Data "
 "in Filter."
 msgstr ""
-"Jediný indikátor musí být jedinou datovou položkou, když používáte "
-"indikátory jako Data ve filtru."
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
-msgstr "Sady skupin datových prvků a sazby hlášení nelze použít společně."
+msgstr ""
 
 msgid "There is a problem with this {{visualizationType}} visualization."
 msgstr "S touto vizualizací {{visualizationType}} je problém."
 
 msgid "There was a problem getting the data from the server."
-msgstr "Při načítání dat ze serveru došlo k problému."
+msgstr ""
 
 msgid "Assigned Categories can only be used with data elements"
-msgstr "Přiřazené kategorie lze použít pouze s datovými prvky"
+msgstr ""
 
 msgid ""
 "Fix this problem by selecting data elements or removing Assigned Categories."
 msgstr ""
-"Opravte tento problém výběrem datových prvků nebo odebráním přiřazených "
-"kategorií."
 
 msgid "Assigned Categories cannot be used as Filter"
-msgstr "Přiřazené kategorie nelze použít jako filtr"
+msgstr ""
 
 msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
-"Opravte tento problém přesunutím nebo odebráním přiřazených kategorií."
 
 msgid "Visualization not found"
-msgstr "Vizualizace nenalezena"
+msgstr ""
 
 msgid ""
 "The visualization you are trying to view could not be found, the ID could be"
 " incorrect or it could have been deleted."
 msgstr ""
-"Vizualizaci, kterou se pokoušíte zobrazit, nelze najít, ID může být "
-"nesprávné nebo může být odstraněno."
 
 msgid "Something went wrong"
-msgstr "Něco se pokazilo"
+msgstr ""
 
 msgid "or"
-msgstr "nebo"
+msgstr ""
 
 msgid "Today"
-msgstr "Dnes"
+msgstr ""
 
 msgid "Yesterday"
 msgstr "Včera"
@@ -735,178 +710,178 @@ msgid "Last 3 days"
 msgstr "Poslední 3 dny"
 
 msgid "Last 7 days"
-msgstr "Posledních 7 dní"
+msgstr ""
 
 msgid "Last 14 days"
-msgstr "Posledních 14 dní"
+msgstr ""
 
 msgid "This week"
 msgstr "Tento týden"
 
 msgid "Last week"
-msgstr "Minulý týden"
+msgstr ""
 
 msgid "Last 4 weeks"
-msgstr "Poslední 4 týdny"
+msgstr ""
 
 msgid "Last 12 weeks"
-msgstr "Posledních 12 týdnů"
+msgstr ""
 
 msgid "Last 52 weeks"
-msgstr "Posledních 52 týdnů"
+msgstr ""
 
 msgid "Weeks this year"
-msgstr "Týdny tohoto roku"
+msgstr ""
 
 msgid "This month"
-msgstr "Tento měsíc"
+msgstr ""
 
 msgid "Last month"
-msgstr "Minulý měsíc"
+msgstr ""
 
 msgid "Last 3 months"
-msgstr "Poslední 3 měsíce"
+msgstr ""
 
 msgid "Last 6 months"
 msgstr "Posledních 6 měsíců"
 
 msgid "Last 12 months"
-msgstr "Posledních 12 měsíců"
+msgstr ""
 
 msgid "Months this year"
-msgstr "Měsíce tohoto roku"
+msgstr ""
 
 msgid "This bimonth"
-msgstr "Tento dvouměsíc"
+msgstr ""
 
 msgid "Last bimonth"
-msgstr "Poslední dvouměsíční"
+msgstr ""
 
 msgid "Last 6 bimonths"
-msgstr "Posledních 6 dvouměsíců"
+msgstr ""
 
 msgid "Bimonths this year"
-msgstr "Dvouměsíční tento rok"
+msgstr ""
 
 msgid "This quarter"
-msgstr "Toto čtvrtletí"
+msgstr ""
 
 msgid "Last quarter"
-msgstr "Poslední čtvrtletí"
+msgstr ""
 
 msgid "Last 4 quarters"
-msgstr "Poslední 4 čtvrtletí "
+msgstr ""
 
 msgid "Quarters this year"
-msgstr "Čtvrtletí tohoto roku"
+msgstr ""
 
 msgid "This six-month"
-msgstr "Tento půlrok"
+msgstr "Těchto šest měsíců"
 
 msgid "Last six-month"
-msgstr "Poslední půlrok"
+msgstr ""
 
 msgid "Last 2 six-months"
-msgstr "Poslední 2 šestiměsíce"
+msgstr ""
 
 msgid "This financial year"
-msgstr "Tento fiskální rok"
+msgstr "Tento finanční rok"
 
 msgid "Last financial year"
 msgstr "Poslední finanční rok"
 
 msgid "Last 5 financial years"
-msgstr "Posledních 5 fiskálních roků"
+msgstr ""
 
 msgid "This year"
-msgstr "Tento rok"
+msgstr ""
 
 msgid "Last year"
 msgstr "Poslední rok"
 
 msgid "Last 5 years"
-msgstr "Posledních 5 let"
+msgstr ""
 
 msgid "User org unit"
-msgstr "Organizační jednotka uživatele"
+msgstr ""
 
 msgid "User org unit children"
-msgstr "Uživatel podřízené uživatelské jednotky"
+msgstr ""
 
 msgid "User org unit grand children"
-msgstr " Uživatel druhé podřazené úrovně organizační jednotky"
+msgstr ""
 
 msgid "Data"
-msgstr "Data"
+msgstr ""
 
 msgid "Display"
-msgstr "Zobrazit"
+msgstr ""
 
 msgid "Axes"
-msgstr "Osy"
+msgstr ""
 
 msgid "Horizontal (x) axis"
 msgstr "Vodorovná (x) osa"
 
 msgid "Series"
-msgstr "Série"
+msgstr ""
 
 msgid "Style"
-msgstr "Styl"
+msgstr ""
 
 msgid "Chart style"
-msgstr "Styl grafu"
+msgstr ""
 
 msgid "Titles"
 msgstr "Tituly"
 
 msgid "Lines"
-msgstr "Linie"
+msgstr ""
 
 msgid "Vertical (y) axis"
-msgstr "Svislá osa (y)"
+msgstr ""
 
 msgid "Totals"
-msgstr "Součty"
+msgstr ""
 
 msgid "Empty data"
 msgstr "Prázdná data"
 
 msgid "Table title"
-msgstr "Název tabulky"
+msgstr ""
 
 msgid "Limit values"
-msgstr "Mezní hodnoty"
+msgstr ""
 
 msgid "Limit number of values"
-msgstr "Omezit počet hodnot"
+msgstr ""
 
 msgid "Limit minimum/maximum values"
-msgstr "Mezní minimální / maximální hodnoty"
+msgstr ""
 
 msgid "Parameters"
-msgstr "Parametry"
+msgstr ""
 
 msgid "Color set"
-msgstr "Barevná sada"
+msgstr ""
 
 msgid "Color sets are not supported yet when using multiple axes"
-msgstr "Barevné sady zatím nejsou podporovány při použití více os"
+msgstr ""
 
 msgid "Lines are not supported yet when using multiple axes"
 msgstr "Při použití více os ještě nejsou řádky podporovány"
 
 msgid "Vertical axis options are not supported yet when using multiple axes"
-msgstr "Možnosti svislé osy ještě nejsou podporovány při použití více os"
+msgstr ""
 
 msgid "Weeks per year"
-msgstr "Týdnů za rok"
+msgstr ""
 
 msgid "Months per year"
-msgstr "Měsíců za rok"
+msgstr ""
 
 msgid "Bimonths per year"
-msgstr "Dvouměsíční za rok"
+msgstr ""
 
 msgid "Quarters per year"
-msgstr "Čtvrtletí za rok"
+msgstr ""

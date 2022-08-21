@@ -1,9 +1,13 @@
 # 
+# Translators:
+# phil_dhis2, 2022
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
 "PO-Revision-Date: 2022-08-21 23:46+0000\n"
+"Last-Translator: phil_dhis2, 2022\n"
 "Language-Team: Persian (Afghanistan) (https://www.transifex.com/hisp-uio/teams/100509/fa_AF/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -117,7 +121,7 @@ msgid "Advanced"
 msgstr ""
 
 msgid "Data value set"
-msgstr ""
+msgstr "سیت ارزش دیتا"
 
 msgid "Other formats"
 msgstr ""
@@ -147,7 +151,7 @@ msgid "Hide"
 msgstr ""
 
 msgid "Interpretations"
-msgstr ""
+msgstr "تفسیر ها"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
@@ -226,10 +230,10 @@ msgid "Overrides aggregation type for all data values."
 msgstr ""
 
 msgid "By data element"
-msgstr ""
+msgstr "با دیتا ایلمنت"
 
 msgid "Count"
-msgstr ""
+msgstr "تعداد"
 
 msgid "Average"
 msgstr ""
@@ -328,13 +332,13 @@ msgid "Cumulative values"
 msgstr ""
 
 msgid "Digit group separator"
-msgstr ""
+msgstr "واحد سازی گروپ ارقام"
 
 msgid "None"
 msgstr ""
 
 msgid "Space"
-msgstr ""
+msgstr "فاصله"
 
 msgid "Comma"
 msgstr ""
@@ -361,7 +365,7 @@ msgid "Font size"
 msgstr ""
 
 msgid "Large"
-msgstr ""
+msgstr "بزرگ"
 
 msgid "Small"
 msgstr ""
@@ -370,7 +374,7 @@ msgid "Hide empty columns"
 msgstr ""
 
 msgid "Hide empty categories"
-msgstr ""
+msgstr "د تشو موضوعاتو د کټګوریو پټول"
 
 msgid "Before first"
 msgstr ""
@@ -394,13 +398,13 @@ msgid "Table subtitle"
 msgstr ""
 
 msgid "Chart subtitle"
-msgstr ""
+msgstr "د چارټ عنوان"
 
 msgid "Auto generated"
 msgstr ""
 
 msgid "Custom"
-msgstr ""
+msgstr "مروج"
 
 msgid "Chart title"
 msgstr ""
@@ -412,7 +416,7 @@ msgid "Legend style"
 msgstr ""
 
 msgid "Legend type"
-msgstr ""
+msgstr "د نښو او علایمو ډول"
 
 msgid "Use pre-defined legend per data item"
 msgstr ""
@@ -453,7 +457,7 @@ msgid "No space between bars/columns"
 msgstr ""
 
 msgid "Number type"
-msgstr ""
+msgstr "نوع اعداد"
 
 msgid "Display the value of percentages of the total"
 msgstr ""
@@ -497,7 +501,7 @@ msgid "Trend line"
 msgstr ""
 
 msgid "Linear"
-msgstr ""
+msgstr "د کرښې چارټ"
 
 msgid "Polynomial"
 msgstr ""
@@ -550,7 +554,7 @@ msgid "Display organisation unit hierarchy"
 msgstr ""
 
 msgid "Skip rounding"
-msgstr ""
+msgstr "له ګردولو (راونډینګ) څخه تېر شئ"
 
 msgid "Custom sort order"
 msgstr ""
@@ -627,7 +631,7 @@ msgid ""
 msgstr ""
 
 msgid "No period selected"
-msgstr ""
+msgstr "هېڅ دوره نه ده غوره شوې"
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
@@ -692,10 +696,10 @@ msgid "Today"
 msgstr ""
 
 msgid "Yesterday"
-msgstr ""
+msgstr "دیروز"
 
 msgid "Last 3 days"
-msgstr ""
+msgstr "3 روز گذشته"
 
 msgid "Last 7 days"
 msgstr ""
@@ -704,7 +708,7 @@ msgid "Last 14 days"
 msgstr ""
 
 msgid "This week"
-msgstr ""
+msgstr "هفته جاری"
 
 msgid "Last week"
 msgstr ""
@@ -731,7 +735,7 @@ msgid "Last 3 months"
 msgstr ""
 
 msgid "Last 6 months"
-msgstr ""
+msgstr "6 ماه گذشته"
 
 msgid "Last 12 months"
 msgstr ""
@@ -764,7 +768,7 @@ msgid "Quarters this year"
 msgstr ""
 
 msgid "This six-month"
-msgstr ""
+msgstr "شش-ماه جاری"
 
 msgid "Last six-month"
 msgstr ""
@@ -773,10 +777,10 @@ msgid "Last 2 six-months"
 msgstr ""
 
 msgid "This financial year"
-msgstr ""
+msgstr "سال مالی جاری"
 
 msgid "Last financial year"
-msgstr ""
+msgstr "سال گذشته مالی"
 
 msgid "Last 5 financial years"
 msgstr ""
@@ -785,7 +789,7 @@ msgid "This year"
 msgstr ""
 
 msgid "Last year"
-msgstr ""
+msgstr "سال گذشته"
 
 msgid "Last 5 years"
 msgstr ""

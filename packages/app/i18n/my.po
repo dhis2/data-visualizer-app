@@ -1,14 +1,14 @@
 # 
 # Translators:
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
+# Viktor Varland <viktor@dhis2.org>, 2022
+# phil_dhis2, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
-"PO-Revision-Date: 2020-12-22 22:14+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:46+0000\n"
+"Last-Translator: phil_dhis2, 2022\n"
 "Language-Team: Burmese (https://www.transifex.com/hisp-uio/teams/100509/my/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -92,13 +92,13 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr "အိုင်ဒီ"
+msgstr ""
 
 msgid "Code"
-msgstr "ကုဒ်"
+msgstr ""
 
 msgid "Name"
-msgstr "အမည်"
+msgstr ""
 
 msgid "Download"
 msgstr ""
@@ -237,13 +237,13 @@ msgid "Count"
 msgstr "အရေအတွက်"
 
 msgid "Average"
-msgstr "ပျမ်းမျှ"
+msgstr ""
 
 msgid "Average (sum in org unit hierarchy)"
 msgstr ""
 
 msgid "Sum"
-msgstr "စုစုပေါင်း"
+msgstr ""
 
 msgid "Last value"
 msgstr ""
@@ -252,10 +252,10 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr ""
 
 msgid "Min"
-msgstr "အနည်းဆုံး"
+msgstr ""
 
 msgid "Max"
-msgstr "အများဆုံး"
+msgstr ""
 
 msgid "Standard deviation"
 msgstr ""
@@ -282,16 +282,16 @@ msgid "Base line"
 msgstr ""
 
 msgid "Value"
-msgstr "တန်ဖိုး"
+msgstr ""
 
 msgid "Title"
-msgstr "ခေါင်းစဉ်"
+msgstr ""
 
 msgid "Base line title"
 msgstr ""
 
 msgid "Number"
-msgstr "ဂဏန်း"
+msgstr ""
 
 msgid "Labels"
 msgstr ""
@@ -303,7 +303,7 @@ msgid "Columns totals"
 msgstr ""
 
 msgid "Default"
-msgstr "Default"
+msgstr ""
 
 msgid "Bright"
 msgstr ""
@@ -336,7 +336,7 @@ msgid "Digit group separator"
 msgstr ""
 
 msgid "None"
-msgstr "တစ်ခုမှမဟုတ်"
+msgstr ""
 
 msgid "Space"
 msgstr ""
@@ -351,7 +351,7 @@ msgid "Comfortable"
 msgstr ""
 
 msgid "Normal"
-msgstr "Normal"
+msgstr ""
 
 msgid "Compact"
 msgstr ""
@@ -387,7 +387,7 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr "အားလုံး"
+msgstr ""
 
 msgid "Hide empty rows"
 msgstr ""
@@ -470,10 +470,10 @@ msgid "Percentage of column"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr "Organisation unit"
+msgstr ""
 
 msgid "Parent organisation unit"
-msgstr "Parent organisation unit"
+msgstr ""
 
 msgid "Reporting period"
 msgstr ""
@@ -499,7 +499,7 @@ msgid "Include regression"
 msgstr ""
 
 msgid "Trend line"
-msgstr "လမ်းကြောင်း"
+msgstr ""
 
 msgid "Linear"
 msgstr ""
@@ -691,7 +691,7 @@ msgid "Something went wrong"
 msgstr ""
 
 msgid "or"
-msgstr "သို့မဟုတ်"
+msgstr ""
 
 msgid "Today"
 msgstr ""
@@ -712,7 +712,7 @@ msgid "This week"
 msgstr ""
 
 msgid "Last week"
-msgstr "Last week"
+msgstr ""
 
 msgid "Last 4 weeks"
 msgstr ""
@@ -730,16 +730,16 @@ msgid "This month"
 msgstr ""
 
 msgid "Last month"
-msgstr "ယခင်လ"
+msgstr ""
 
 msgid "Last 3 months"
-msgstr "လွန်ခဲ့သော ၁၂လ"
+msgstr ""
 
 msgid "Last 6 months"
 msgstr "Last 6 months"
 
 msgid "Last 12 months"
-msgstr "လွန်ခဲ့သော ၁၂လ"
+msgstr ""
 
 msgid "Months this year"
 msgstr ""
@@ -760,22 +760,22 @@ msgid "This quarter"
 msgstr ""
 
 msgid "Last quarter"
-msgstr "လွန်ခဲ့သော ၃လက"
+msgstr ""
 
 msgid "Last 4 quarters"
-msgstr "လွန်ခဲ့သော ၁၂လက"
+msgstr ""
 
 msgid "Quarters this year"
-msgstr "Quarters this year"
+msgstr ""
 
 msgid "This six-month"
 msgstr ""
 
 msgid "Last six-month"
-msgstr "လွန်ခဲ့သော ၆လက"
+msgstr ""
 
 msgid "Last 2 six-months"
-msgstr "လွန်ခဲ့သော ၆လ(၂ကြိမ်)"
+msgstr ""
 
 msgid "This financial year"
 msgstr ""
@@ -787,13 +787,13 @@ msgid "Last 5 financial years"
 msgstr ""
 
 msgid "This year"
-msgstr "ဒီနှစ်"
+msgstr ""
 
 msgid "Last year"
 msgstr "ယခင်နှစ်"
 
 msgid "Last 5 years"
-msgstr "လွန်ခဲ့သော ၅ နှစ်"
+msgstr ""
 
 msgid "User org unit"
 msgstr ""
@@ -805,7 +805,7 @@ msgid "User org unit grand children"
 msgstr ""
 
 msgid "Data"
-msgstr "အချက်အလက်"
+msgstr ""
 
 msgid "Display"
 msgstr ""
@@ -817,10 +817,10 @@ msgid "Horizontal (x) axis"
 msgstr ""
 
 msgid "Series"
-msgstr "အစဉ်အတန်းများ"
+msgstr ""
 
 msgid "Style"
-msgstr "ပုံစံ"
+msgstr ""
 
 msgid "Chart style"
 msgstr ""

@@ -1,15 +1,15 @@
 # 
 # Translators:
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
-# Wanda <wanda@frontlineaids.org>, 2020
+# Viktor Varland <viktor@dhis2.org>, 2022
+# phil_dhis2, 2022
+# Éva Tamási, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
-"PO-Revision-Date: 2020-12-22 22:14+0000\n"
-"Last-Translator: Wanda <wanda@frontlineaids.org>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:46+0000\n"
+"Last-Translator: Éva Tamási, 2022\n"
 "Language-Team: Ukrainian (https://www.transifex.com/hisp-uio/teams/100509/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
 msgid "Rename successful"
-msgstr ""
+msgstr "Перейменування успішно виконано"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr ""
@@ -27,10 +27,10 @@ msgid "\"{{deletedObject}}\" successfully deleted."
 msgstr ""
 
 msgid "You have unsaved changes."
-msgstr ""
+msgstr "У вас є незбережені зміни."
 
 msgid "Discard unsaved changes?"
-msgstr "Проігнорувати зміни, які не було збережено?"
+msgstr ""
 
 msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
@@ -41,7 +41,7 @@ msgid "No, cancel"
 msgstr ""
 
 msgid "Yes, leave"
-msgstr ""
+msgstr "Так, вийти"
 
 msgid "Add to {{axisName}}"
 msgstr ""
@@ -50,6 +50,8 @@ msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
 "first item will be used and saved."
 msgstr ""
+"\"{{visualizationType}}\" призначений для відображення одного елемента "
+"даних. Буде використано і збережено лише перший елемент."
 
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
@@ -69,7 +71,7 @@ msgid "Filter dimensions"
 msgstr ""
 
 msgid "Graphics"
-msgstr "Графіка"
+msgstr ""
 
 msgid "Image (.png)"
 msgstr ""
@@ -78,7 +80,7 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Table layout"
-msgstr "Макет таблиці"
+msgstr ""
 
 msgid "Excel (.xls)"
 msgstr ""
@@ -90,55 +92,55 @@ msgid "HTML (.html)"
 msgstr ""
 
 msgid "Metadata ID scheme"
-msgstr ""
+msgstr "Схема ідентифікатора метаданих"
 
 msgid "ID"
-msgstr "ID (ідентифікатор)"
+msgstr ""
 
 msgid "Code"
-msgstr "Код"
+msgstr ""
 
 msgid "Name"
-msgstr "Ім'я"
+msgstr ""
 
 msgid "Download"
-msgstr "Завантажити"
+msgstr ""
 
 msgid "Plain data source"
-msgstr "Джерело простих даних"
+msgstr ""
 
 msgid "JSON"
-msgstr "JSON"
+msgstr ""
 
 msgid "XML"
-msgstr "XML"
+msgstr ""
 
 msgid "Excel"
 msgstr ""
 
 msgid "CSV"
-msgstr "CSV"
+msgstr ""
 
 msgid "Advanced"
-msgstr "Розширені"
+msgstr ""
 
 msgid "Data value set"
-msgstr "Набір значення даних"
+msgstr "Набір значень даних"
 
 msgid "Other formats"
-msgstr "Інші формати"
+msgstr ""
 
 msgid "JRXML"
 msgstr ""
 
 msgid "Raw data SQL"
-msgstr ""
+msgstr "Необроблені дані SQL"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
+msgstr "Сталася помилка в додатку DHIS2 Data Visualizer."
 
 msgid "Refresh to try again"
-msgstr ""
+msgstr "Оновіть, щоб спробувати ще раз"
 
 msgid "Hide technical details"
 msgstr ""
@@ -147,10 +149,10 @@ msgid "Show technical details"
 msgstr ""
 
 msgid "The following information may be requested by technical support."
-msgstr ""
+msgstr "Наступна інформація може знадобитися службі технічної підтримки."
 
 msgid "Hide"
-msgstr "Сховати"
+msgstr ""
 
 msgid "Interpretations"
 msgstr "Інтерпретації"
@@ -168,7 +170,7 @@ msgid "None selected"
 msgstr ""
 
 msgid "Only '{{- name}}' in use"
-msgstr ""
+msgstr "Використовується лише {{- name}}"
 
 msgid "Only '{{number}}' in use"
 msgstr ""
@@ -183,24 +185,26 @@ msgid "And 1 other..."
 msgstr ""
 
 msgid "And {{numberOfItems}} others..."
-msgstr ""
+msgstr "І ще {{numberOfItems}}..."
 
 msgid "Select a period"
 msgstr ""
 
 msgid "Select years"
-msgstr ""
+msgstr "Виберіть роки"
 
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
 msgstr ""
+"Цю візуалізацію неможливо видалити, оскільки вона використовується на одній "
+"або декількох інформаційних панелях"
 
 msgid "Unsaved visualization"
 msgstr ""
 
 msgid "Edited"
-msgstr ""
+msgstr "Відредаговано"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
@@ -220,13 +224,13 @@ msgid "Add dimensions to the layout above"
 msgstr ""
 
 msgid "Click a dimension to add or remove items"
-msgstr ""
+msgstr "Натисніть на вимір, щоб додати або видалити елементи"
 
 msgid "Your most viewed charts and tables"
 msgstr ""
 
 msgid "Aggregation type"
-msgstr "Тип агрегації"
+msgstr ""
 
 msgid "Overrides aggregation type for all data values."
 msgstr ""
@@ -238,40 +242,40 @@ msgid "Count"
 msgstr "Підрахунок"
 
 msgid "Average"
-msgstr "Середнє"
+msgstr ""
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr "Середнє (сума в ієрархії організаційних підрозділів)"
+msgstr ""
 
 msgid "Sum"
-msgstr "Сума"
+msgstr ""
 
 msgid "Last value"
-msgstr "Останнє значення"
+msgstr ""
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr "Останнє значення (середнє в ієрархії організаційних підрозділів)"
+msgstr ""
 
 msgid "Min"
-msgstr "Мін"
+msgstr ""
 
 msgid "Max"
-msgstr "Макс"
+msgstr ""
 
 msgid "Standard deviation"
-msgstr "Стандартне відхилення"
+msgstr ""
 
 msgid "Variance"
-msgstr "Коливання (варіативність)"
+msgstr ""
 
 msgid "Data approved at level"
-msgstr "Дані затверджено на рівні"
+msgstr ""
 
 msgid "Select from predefined levels"
-msgstr ""
+msgstr "Вибрати з попередньо визначених рівнів"
 
 msgid "Loading data approval levels"
-msgstr ""
+msgstr "Завантаження рівнів затвердження даних"
 
 msgid "Axis range"
 msgstr ""
@@ -286,34 +290,34 @@ msgid "Value"
 msgstr "Значення"
 
 msgid "Title"
-msgstr "Назва"
+msgstr ""
 
 msgid "Base line title"
 msgstr ""
 
 msgid "Number"
-msgstr "Кількість"
+msgstr ""
 
 msgid "Labels"
 msgstr ""
 
 msgid "Column sub-totals"
-msgstr ""
+msgstr "Проміжні підсумки стовпців"
 
 msgid "Columns totals"
-msgstr ""
+msgstr "Підсумки стовпців"
 
 msgid "Default"
-msgstr "За замовчуванням"
+msgstr ""
 
 msgid "Bright"
-msgstr ""
+msgstr "Яскравий"
 
 msgid "Dark"
 msgstr ""
 
 msgid "Gray"
-msgstr ""
+msgstr "Сірий"
 
 msgid "Color blind"
 msgstr ""
@@ -328,34 +332,34 @@ msgid "Only include completed events"
 msgstr ""
 
 msgid "Include cumulative"
-msgstr "Включити сукупне значення"
+msgstr ""
 
 msgid "Cumulative values"
 msgstr ""
 
 msgid "Digit group separator"
-msgstr "Роздільник групи цифр"
+msgstr "Роздільник груп цифр"
 
 msgid "None"
-msgstr "Жодного"
+msgstr ""
 
 msgid "Space"
 msgstr "Пробіл"
 
 msgid "Comma"
-msgstr "Кома"
+msgstr ""
 
 msgid "Display density"
-msgstr "Показати щільність"
+msgstr ""
 
 msgid "Comfortable"
-msgstr "Зручний"
+msgstr ""
 
 msgid "Normal"
-msgstr "Нормальний"
+msgstr ""
 
 msgid "Compact"
-msgstr "Компактний"
+msgstr ""
 
 msgid "Axis title"
 msgstr ""
@@ -364,19 +368,19 @@ msgid "Add a title"
 msgstr ""
 
 msgid "Font size"
-msgstr "Розмір шрифта"
+msgstr ""
 
 msgid "Large"
 msgstr "Великий"
 
 msgid "Small"
-msgstr "Маленький"
+msgstr ""
 
 msgid "Hide empty columns"
-msgstr "Сховати порожні стовпчики"
+msgstr ""
 
 msgid "Hide empty categories"
-msgstr ""
+msgstr "Приховати порожні категорії"
 
 msgid "Before first"
 msgstr ""
@@ -388,19 +392,19 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr "Всі"
+msgstr ""
 
 msgid "Hide empty rows"
-msgstr "Сховати порожні рядки"
+msgstr ""
 
 msgid "Show legend key"
-msgstr ""
+msgstr "Показати ключ умовних позначень"
 
 msgid "Table subtitle"
-msgstr ""
+msgstr "Підзаголовок таблиці"
 
 msgid "Chart subtitle"
-msgstr ""
+msgstr "Підзаголовок діаграми"
 
 msgid "Auto generated"
 msgstr ""
@@ -418,13 +422,13 @@ msgid "Legend style"
 msgstr "Стиль умовних позначень"
 
 msgid "Legend type"
-msgstr ""
+msgstr "Тип умовних позначень"
 
 msgid "Use pre-defined legend per data item"
 msgstr ""
 
 msgid "Select a single legend for the entire visualization"
-msgstr ""
+msgstr "Виберіть одні умовні позначення для всієї візуалізації"
 
 msgid "Legend changes background color"
 msgstr ""
@@ -433,13 +437,13 @@ msgid "Legend changes text color"
 msgstr ""
 
 msgid "Legend"
-msgstr "Умовні позначення"
+msgstr ""
 
 msgid "Select from legends"
 msgstr ""
 
 msgid "Loading legends"
-msgstr ""
+msgstr "Завантаження умовних позначень"
 
 msgid ""
 "You can set a minimum or maximum value. This will apply to the entire table,"
@@ -447,13 +451,13 @@ msgid ""
 msgstr ""
 
 msgid "Minimum data value"
-msgstr ""
+msgstr "Мінімальне значення даних"
 
 msgid "Maximum data value"
 msgstr ""
 
 msgid "Clear min/max limits"
-msgstr ""
+msgstr "Очистити мінімальні/максимальні межі"
 
 msgid "No space between bars/columns"
 msgstr ""
@@ -465,28 +469,28 @@ msgid "Display the value of percentages of the total"
 msgstr ""
 
 msgid "Percentage of row"
-msgstr "Відсоток рядка"
+msgstr ""
 
 msgid "Percentage of column"
 msgstr "Відсоток стовпчика"
 
 msgid "Organisation unit"
-msgstr "Організаційний підрозділ"
+msgstr ""
 
 msgid "Parent organisation unit"
-msgstr "Батьківський організаційний підрозділ"
+msgstr ""
 
 msgid "Reporting period"
-msgstr "Звітний період"
+msgstr ""
 
 msgid "Stacked values add up to 100%"
 msgstr ""
 
 msgid "Decimals"
-msgstr ""
+msgstr "Десяткові"
 
 msgid "Auto"
-msgstr ""
+msgstr "Авто"
 
 msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
@@ -497,13 +501,13 @@ msgid "Steps"
 msgstr ""
 
 msgid "Include regression"
-msgstr "Включити регресію"
+msgstr ""
 
 msgid "Trend line"
 msgstr ""
 
 msgid "Linear"
-msgstr ""
+msgstr "Лінійний"
 
 msgid "Polynomial"
 msgstr ""
@@ -527,13 +531,13 @@ msgid "Axis {{axisId}}"
 msgstr ""
 
 msgid "Series is empty"
-msgstr ""
+msgstr "Серія порожня"
 
 msgid "Options for selected items will be available here"
-msgstr ""
+msgstr "Параметри для вибраних елементів будуть доступні тут"
 
 msgid "No Series options"
-msgstr ""
+msgstr "Немає параметрів серії"
 
 msgid "There aren't any Series options for this visualization type"
 msgstr ""
@@ -545,6 +549,8 @@ msgid ""
 "Series options are not available when using relative selections for periods,"
 " org units or categories"
 msgstr ""
+"Параметри серії недоступні, якщо використовується відносний вибір для "
+"періодів, організаційних підрозділів або категорій"
 
 msgid "Value labels"
 msgstr ""
@@ -553,7 +559,7 @@ msgid "Dimension labels"
 msgstr ""
 
 msgid "Display organisation unit hierarchy"
-msgstr ""
+msgstr "Відображати ієрархію організаційних підрозділів"
 
 msgid "Skip rounding"
 msgstr "Пропустити округлення"
@@ -562,10 +568,10 @@ msgid "Custom sort order"
 msgstr ""
 
 msgid "Low to high"
-msgstr "Від низьких до високих"
+msgstr ""
 
 msgid "High to low"
-msgstr "Від високих до низьких"
+msgstr ""
 
 msgid "Add a subtitle"
 msgstr ""
@@ -580,13 +586,13 @@ msgid "Size"
 msgstr ""
 
 msgid "Position"
-msgstr ""
+msgstr "Позиція"
 
 msgid "Top limit"
 msgstr "Верхня межа"
 
 msgid "Options"
-msgstr "Опції"
+msgstr ""
 
 msgid "Open as Map"
 msgstr ""
@@ -605,27 +611,29 @@ msgid "Actual reports"
 msgstr ""
 
 msgid "Actual reports on time"
-msgstr ""
+msgstr "Фактичні звіти за часом"
 
 msgid "Expected reports"
-msgstr ""
+msgstr "Очікувані звіти"
 
 msgid "No data available"
-msgstr ""
+msgstr "Немає даних"
 
 msgid ""
 "The selected dimensions didn’t return any data. There may be no data, or you"
 " may not have access to it."
 msgstr ""
+"Вибрані виміри не повернули жодних даних. Можливо, дані відсутні або ви не "
+"маєте доступу до них."
 
 msgid "{{axisName}} is empty"
-msgstr ""
+msgstr "{{axisName}} порожня"
 
 msgid "Add at least one item to {{axisName}}."
 msgstr ""
 
 msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
-msgstr ""
+msgstr "{{columnsAxisName}} і {{rowsAxisName}} порожні"
 
 msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
@@ -633,7 +641,7 @@ msgid ""
 msgstr ""
 
 msgid "No period selected"
-msgstr ""
+msgstr "Немає вибраного періоду"
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
@@ -646,9 +654,12 @@ msgid ""
 "{{visualizationType}} must have at least one data item or data element group"
 " set item in {{axes}}."
 msgstr ""
+"{{visualizationType}} повинен мати принаймні один елемент даних або групу "
+"елементів даних в {{axes}}."
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
 msgstr ""
+"{{visualizationType}} повинен мати принаймні один елемент даних в {{axes}}."
 
 msgid "There's a problem with the layout"
 msgstr ""
@@ -662,7 +673,7 @@ msgid "Data Element Group Sets and Reporting Rates cannot be used together."
 msgstr ""
 
 msgid "There is a problem with this {{visualizationType}} visualization."
-msgstr ""
+msgstr "Виникла проблема з візуалізацією {{visualizationType}}."
 
 msgid "There was a problem getting the data from the server."
 msgstr ""
@@ -675,7 +686,7 @@ msgid ""
 msgstr ""
 
 msgid "Assigned Categories cannot be used as Filter"
-msgstr ""
+msgstr "Призначені категорії не можна використовувати як фільтр"
 
 msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
@@ -695,7 +706,7 @@ msgid "or"
 msgstr ""
 
 msgid "Today"
-msgstr "Сьогодні"
+msgstr ""
 
 msgid "Yesterday"
 msgstr "Вчора"
@@ -704,7 +715,7 @@ msgid "Last 3 days"
 msgstr "Минулі 3 дні"
 
 msgid "Last 7 days"
-msgstr "Минулі 7 днів"
+msgstr ""
 
 msgid "Last 14 days"
 msgstr "Минулі 14 днів"
@@ -713,37 +724,37 @@ msgid "This week"
 msgstr "Поточний тиждень"
 
 msgid "Last week"
-msgstr "Минулий тиждень"
+msgstr ""
 
 msgid "Last 4 weeks"
-msgstr "Останні 4 тижні"
+msgstr ""
 
 msgid "Last 12 weeks"
-msgstr "Останні 12 тижнів"
+msgstr ""
 
 msgid "Last 52 weeks"
-msgstr "Останні 52 тижні"
+msgstr ""
 
 msgid "Weeks this year"
-msgstr "Тижні поточного року"
+msgstr ""
 
 msgid "This month"
-msgstr "Поточний місяць"
+msgstr ""
 
 msgid "Last month"
-msgstr "Останній місяць"
+msgstr ""
 
 msgid "Last 3 months"
-msgstr "Останні 3 місяці"
+msgstr ""
 
 msgid "Last 6 months"
 msgstr "Останні 6 місяців"
 
 msgid "Last 12 months"
-msgstr "Останні 12 місяців"
+msgstr ""
 
 msgid "Months this year"
-msgstr "Місяців поточного року"
+msgstr ""
 
 msgid "This bimonth"
 msgstr ""
@@ -761,22 +772,22 @@ msgid "This quarter"
 msgstr "Поточний квартал"
 
 msgid "Last quarter"
-msgstr "Минулий квартал"
+msgstr ""
 
 msgid "Last 4 quarters"
-msgstr "Останні 4 квартали"
+msgstr ""
 
 msgid "Quarters this year"
-msgstr "Квартали поточного року"
+msgstr ""
 
 msgid "This six-month"
 msgstr "Поточне півріччя"
 
 msgid "Last six-month"
-msgstr "Останнє півріччя"
+msgstr ""
 
 msgid "Last 2 six-months"
-msgstr "Останні 2 півріччя"
+msgstr ""
 
 msgid "This financial year"
 msgstr "Поточний фінансовий рік"
@@ -785,7 +796,7 @@ msgid "Last financial year"
 msgstr "Минулий фінансовий рік"
 
 msgid "Last 5 financial years"
-msgstr "Останні 5 фінансових років"
+msgstr ""
 
 msgid "This year"
 msgstr "Поточний рік"
@@ -794,10 +805,10 @@ msgid "Last year"
 msgstr "Минулий рік"
 
 msgid "Last 5 years"
-msgstr "Останні 5 років"
+msgstr ""
 
 msgid "User org unit"
-msgstr "Організаційний підрозділ користувача"
+msgstr ""
 
 msgid "User org unit children"
 msgstr ""
@@ -806,28 +817,28 @@ msgid "User org unit grand children"
 msgstr ""
 
 msgid "Data"
-msgstr "Дані"
+msgstr ""
 
 msgid "Display"
-msgstr ""
+msgstr "Відображення"
 
 msgid "Axes"
 msgstr ""
 
 msgid "Horizontal (x) axis"
-msgstr ""
+msgstr "Горизонтальна вісь (x)"
 
 msgid "Series"
 msgstr ""
 
 msgid "Style"
-msgstr "Стиль"
+msgstr ""
 
 msgid "Chart style"
 msgstr ""
 
 msgid "Titles"
-msgstr ""
+msgstr "Заголовки"
 
 msgid "Lines"
 msgstr ""
@@ -836,13 +847,13 @@ msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Totals"
-msgstr "Підсумки"
-
-msgid "Empty data"
 msgstr ""
 
+msgid "Empty data"
+msgstr "Порожні дані"
+
 msgid "Table title"
-msgstr "Назва таблиці"
+msgstr ""
 
 msgid "Limit values"
 msgstr ""
@@ -854,7 +865,7 @@ msgid "Limit minimum/maximum values"
 msgstr ""
 
 msgid "Parameters"
-msgstr "Параметри"
+msgstr ""
 
 msgid "Color set"
 msgstr ""
@@ -863,13 +874,13 @@ msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 
 msgid "Lines are not supported yet when using multiple axes"
-msgstr ""
+msgstr "Лінії ще не підтримуються при використанні декількох осей"
 
 msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
 
 msgid "Weeks per year"
-msgstr ""
+msgstr "Тижні на рік"
 
 msgid "Months per year"
 msgstr ""

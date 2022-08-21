@@ -1,14 +1,14 @@
 # 
 # Translators:
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
+# phil_dhis2, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
-"PO-Revision-Date: 2020-12-22 22:14+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:46+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2022\n"
 "Language-Team: Urdu (https://www.transifex.com/hisp-uio/teams/100509/ur/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,7 +29,7 @@ msgid "You have unsaved changes."
 msgstr ""
 
 msgid "Discard unsaved changes?"
-msgstr "غیر محفوظ شدہ تبدیلیاں ختم کریں؟"
+msgstr ""
 
 msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
@@ -68,7 +68,7 @@ msgid "Filter dimensions"
 msgstr ""
 
 msgid "Graphics"
-msgstr "گرافکس"
+msgstr ""
 
 msgid "Image (.png)"
 msgstr ""
@@ -77,7 +77,7 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Table layout"
-msgstr "ٹیبل ترتیب"
+msgstr ""
 
 msgid "Excel (.xls)"
 msgstr ""
@@ -92,40 +92,40 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr "شناخت"
+msgstr ""
 
 msgid "Code"
-msgstr "کوڈ"
+msgstr ""
 
 msgid "Name"
-msgstr "ÙØ§Ù"
+msgstr ""
 
 msgid "Download"
-msgstr "ڈاؤن لوڈ کریں"
+msgstr ""
 
 msgid "Plain data source"
-msgstr "سادہ اعداد و شمار کا ذریعہ"
+msgstr ""
 
 msgid "JSON"
-msgstr "JSON"
+msgstr ""
 
 msgid "XML"
-msgstr "XML"
+msgstr ""
 
 msgid "Excel"
 msgstr ""
 
 msgid "CSV"
-msgstr "CSV"
+msgstr ""
 
 msgid "Advanced"
-msgstr "اعلی درجے کی"
+msgstr ""
 
 msgid "Data value set"
 msgstr "ڈیٹا کی قیمت مقرر"
 
 msgid "Other formats"
-msgstr "دیگر فارمیٹس"
+msgstr ""
 
 msgid "JRXML"
 msgstr ""
@@ -149,7 +149,7 @@ msgid "The following information may be requested by technical support."
 msgstr ""
 
 msgid "Hide"
-msgstr "چھپائیں"
+msgstr ""
 
 msgid "Interpretations"
 msgstr "تشریحات"
@@ -164,7 +164,7 @@ msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
 
 msgid "None selected"
-msgstr "کوئی بھی منتخب نہیں"
+msgstr ""
 
 msgid "Only '{{- name}}' in use"
 msgstr ""
@@ -176,7 +176,7 @@ msgid "Levels"
 msgstr ""
 
 msgid "Groups"
-msgstr "گروپ"
+msgstr ""
 
 msgid "And 1 other..."
 msgstr ""
@@ -225,7 +225,7 @@ msgid "Your most viewed charts and tables"
 msgstr ""
 
 msgid "Aggregation type"
-msgstr "مجموعی قسم"
+msgstr ""
 
 msgid "Overrides aggregation type for all data values."
 msgstr ""
@@ -237,34 +237,34 @@ msgid "Count"
 msgstr "شمار"
 
 msgid "Average"
-msgstr "اوسط"
+msgstr ""
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr "اوسط (اختیاری یونٹ کے تنظیمی ڈھانچے میں)"
+msgstr ""
 
 msgid "Sum"
-msgstr "جمع"
+msgstr ""
 
 msgid "Last value"
-msgstr "آخری قیمت"
+msgstr ""
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr "آخری قدر (اوسط یونٹ کے تنظیمی ڈھانچے میں اوسط)"
+msgstr ""
 
 msgid "Min"
-msgstr "کم سے کم"
+msgstr ""
 
 msgid "Max"
-msgstr "زیادہ سے زیادہ"
+msgstr ""
 
 msgid "Standard deviation"
-msgstr "معیاری انحراف"
+msgstr ""
 
 msgid "Variance"
-msgstr "متغیر"
+msgstr ""
 
 msgid "Data approved at level"
-msgstr "سطح پر منظوری دی گئی ہے"
+msgstr ""
 
 msgid "Select from predefined levels"
 msgstr ""
@@ -279,22 +279,22 @@ msgid "Values outside of the range will not be displayed"
 msgstr ""
 
 msgid "Base line"
-msgstr "بیس لائن"
+msgstr ""
 
 msgid "Value"
 msgstr "قدر"
 
 msgid "Title"
-msgstr "عنوان"
+msgstr ""
 
 msgid "Base line title"
-msgstr "بیس لائن کا عنوان"
+msgstr ""
 
 msgid "Number"
-msgstr "نمبر"
+msgstr ""
 
 msgid "Labels"
-msgstr "لیبل"
+msgstr ""
 
 msgid "Column sub-totals"
 msgstr ""
@@ -303,7 +303,7 @@ msgid "Columns totals"
 msgstr ""
 
 msgid "Default"
-msgstr "طےشدہ"
+msgstr ""
 
 msgid "Bright"
 msgstr ""
@@ -327,7 +327,7 @@ msgid "Only include completed events"
 msgstr ""
 
 msgid "Include cumulative"
-msgstr "مجموعی شامل کریں"
+msgstr ""
 
 msgid "Cumulative values"
 msgstr ""
@@ -336,25 +336,25 @@ msgid "Digit group separator"
 msgstr "ڈیجیٹٹ گروپ الگ الگ"
 
 msgid "None"
-msgstr "کوئی نہں"
+msgstr ""
 
 msgid "Space"
 msgstr "خلائی"
 
 msgid "Comma"
-msgstr "کما"
+msgstr ""
 
 msgid "Display density"
-msgstr "ڈسپلے کثافت"
+msgstr ""
 
 msgid "Comfortable"
-msgstr "آرام دہ اور پرسکون"
+msgstr ""
 
 msgid "Normal"
-msgstr "عام"
+msgstr ""
 
 msgid "Compact"
-msgstr "کومپیکٹ"
+msgstr ""
 
 msgid "Axis title"
 msgstr ""
@@ -363,34 +363,34 @@ msgid "Add a title"
 msgstr ""
 
 msgid "Font size"
-msgstr "حرف کا سائز"
+msgstr ""
 
 msgid "Large"
 msgstr "بڑے"
 
 msgid "Small"
-msgstr "چھوٹے"
+msgstr ""
 
 msgid "Hide empty columns"
-msgstr "خالی کالم چھپائیں"
+msgstr ""
 
 msgid "Hide empty categories"
 msgstr "خالی اقسام چھپائیں"
 
 msgid "Before first"
-msgstr "پہلے سے پہلے"
+msgstr ""
 
 msgid "After last"
-msgstr "آخری کے بعد"
+msgstr ""
 
 msgid "Before first and after last"
-msgstr "پہلے اور بعد میں آخری سے پہلے"
+msgstr ""
 
 msgid "All"
-msgstr "تمام"
+msgstr ""
 
 msgid "Hide empty rows"
-msgstr "خالی قطار چھپائیں"
+msgstr ""
 
 msgid "Show legend key"
 msgstr ""
@@ -408,7 +408,7 @@ msgid "Custom"
 msgstr "مرضی کے مطابق"
 
 msgid "Chart title"
-msgstr "چارٹ کا عنوان"
+msgstr ""
 
 msgid "Display legend"
 msgstr ""
@@ -432,7 +432,7 @@ msgid "Legend changes text color"
 msgstr ""
 
 msgid "Legend"
-msgstr "علامات"
+msgstr ""
 
 msgid "Select from legends"
 msgstr ""
@@ -464,19 +464,19 @@ msgid "Display the value of percentages of the total"
 msgstr ""
 
 msgid "Percentage of row"
-msgstr "قطار کا فیصد"
+msgstr ""
 
 msgid "Percentage of column"
 msgstr "کالم کا فیصد"
 
 msgid "Organisation unit"
-msgstr "تنظیم یونٹ"
+msgstr ""
 
 msgid "Parent organisation unit"
-msgstr "والدین تنظیم یونٹ"
+msgstr ""
 
 msgid "Reporting period"
-msgstr "رپورٹنگ مدت"
+msgstr ""
 
 msgid "Stacked values add up to 100%"
 msgstr ""
@@ -493,22 +493,22 @@ msgid ""
 msgstr ""
 
 msgid "Steps"
-msgstr "مرحلے"
+msgstr ""
 
 msgid "Include regression"
-msgstr "رجفریشن شامل کریں"
+msgstr ""
 
 msgid "Trend line"
-msgstr "رجحان لائن"
+msgstr ""
 
 msgid "Linear"
 msgstr "لکیری"
 
 msgid "Polynomial"
-msgstr "پولینومیل"
+msgstr ""
 
 msgid "Loess"
-msgstr "قرض"
+msgstr ""
 
 msgid "Row sub-totals"
 msgstr ""
@@ -561,19 +561,19 @@ msgid "Custom sort order"
 msgstr ""
 
 msgid "Low to high"
-msgstr "اعلی سے کم"
+msgstr ""
 
 msgid "High to low"
-msgstr "کم سے کم"
+msgstr ""
 
 msgid "Add a subtitle"
 msgstr ""
 
 msgid "Target line"
-msgstr "ہدف لائن"
+msgstr ""
 
 msgid "Target line title"
-msgstr "ہدف لائن کا عنوان"
+msgstr ""
 
 msgid "Size"
 msgstr ""
@@ -585,7 +585,7 @@ msgid "Top limit"
 msgstr "اوپر کی حد"
 
 msgid "Options"
-msgstr "اختیارات"
+msgstr ""
 
 msgid "Open as Map"
 msgstr ""
@@ -601,7 +601,7 @@ msgid "Reporting rate on time"
 msgstr ""
 
 msgid "Actual reports"
-msgstr "اصل رپورٹ"
+msgstr ""
 
 msgid "Actual reports on time"
 msgstr ""
@@ -691,10 +691,10 @@ msgid "Something went wrong"
 msgstr ""
 
 msgid "or"
-msgstr "یا"
+msgstr ""
 
 msgid "Today"
-msgstr "آج"
+msgstr ""
 
 msgid "Yesterday"
 msgstr "کل"
@@ -703,7 +703,7 @@ msgid "Last 3 days"
 msgstr "آخری 3 دن"
 
 msgid "Last 7 days"
-msgstr "آخری 7 دن"
+msgstr ""
 
 msgid "Last 14 days"
 msgstr "آخری 14 دن"
@@ -712,70 +712,70 @@ msgid "This week"
 msgstr "اس ہفتے"
 
 msgid "Last week"
-msgstr "آخری ہفتہ"
+msgstr ""
 
 msgid "Last 4 weeks"
-msgstr "آخری ۴ ہفتے"
+msgstr ""
 
 msgid "Last 12 weeks"
-msgstr "آخری ۱۲ ہفتے"
+msgstr ""
 
 msgid "Last 52 weeks"
-msgstr "آخری ۵۲ ہفتے"
+msgstr ""
 
 msgid "Weeks this year"
-msgstr "اس سال ہفتہ"
+msgstr ""
 
 msgid "This month"
-msgstr "اس مہینے"
+msgstr ""
 
 msgid "Last month"
-msgstr "آخری ماہ"
+msgstr ""
 
 msgid "Last 3 months"
-msgstr "آخری ۳ ماہ"
+msgstr ""
 
 msgid "Last 6 months"
 msgstr "آخری ۶ ماہ"
 
 msgid "Last 12 months"
-msgstr "آخری ۱۲ ماہ"
+msgstr ""
 
 msgid "Months this year"
-msgstr "ماہ اس سال"
+msgstr ""
 
 msgid "This bimonth"
-msgstr "یہ مہینہ"
+msgstr ""
 
 msgid "Last bimonth"
-msgstr "آخری بار"
+msgstr ""
 
 msgid "Last 6 bimonths"
-msgstr "آخری 6 بار"
+msgstr ""
 
 msgid "Bimonths this year"
-msgstr "اس سال دو ماہی"
+msgstr ""
 
 msgid "This quarter"
 msgstr "اس سہ ماہی"
 
 msgid "Last quarter"
-msgstr "آخری سہ ماہ"
+msgstr ""
 
 msgid "Last 4 quarters"
-msgstr "آخری ۴ سہ ماہی"
+msgstr ""
 
 msgid "Quarters this year"
-msgstr "سہ ماہی اس سال"
+msgstr ""
 
 msgid "This six-month"
 msgstr "یہ چھ ماہ"
 
 msgid "Last six-month"
-msgstr "آخری ۶ ماہ"
+msgstr ""
 
 msgid "Last 2 six-months"
-msgstr "آخری ۲ چھ ماہ"
+msgstr ""
 
 msgid "This financial year"
 msgstr "اس مالیاتی سال"
@@ -784,7 +784,7 @@ msgid "Last financial year"
 msgstr "آخری مالیاتی سال"
 
 msgid "Last 5 financial years"
-msgstr "آخری ۵ مالیاتی سال"
+msgstr ""
 
 msgid "This year"
 msgstr "اس سال"
@@ -793,34 +793,34 @@ msgid "Last year"
 msgstr "آخری سال"
 
 msgid "Last 5 years"
-msgstr "آخری ۵ سال"
+msgstr ""
 
 msgid "User org unit"
-msgstr "صارف کے اجزاء"
+msgstr ""
 
 msgid "User org unit children"
-msgstr "صارف کے اجزاء بچے"
+msgstr ""
 
 msgid "User org unit grand children"
-msgstr "یوزر ایو یونٹ گرینڈ بچوں"
+msgstr ""
 
 msgid "Data"
-msgstr "ڈیٹا"
+msgstr ""
 
 msgid "Display"
 msgstr ""
 
 msgid "Axes"
-msgstr "محور"
+msgstr ""
 
 msgid "Horizontal (x) axis"
 msgstr ""
 
 msgid "Series"
-msgstr "سیریز"
+msgstr ""
 
 msgid "Style"
-msgstr "سٹائل"
+msgstr ""
 
 msgid "Chart style"
 msgstr ""
@@ -835,13 +835,13 @@ msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Totals"
-msgstr "مجموعی طور پر"
+msgstr ""
 
 msgid "Empty data"
 msgstr ""
 
 msgid "Table title"
-msgstr "ٹیبل کا عنوان"
+msgstr ""
 
 msgid "Limit values"
 msgstr ""
@@ -853,7 +853,7 @@ msgid "Limit minimum/maximum values"
 msgstr ""
 
 msgid "Parameters"
-msgstr "پیرامیٹرز"
+msgstr ""
 
 msgid "Color set"
 msgstr ""
