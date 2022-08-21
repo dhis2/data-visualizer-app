@@ -107,7 +107,7 @@ msgid "Plain data source"
 msgstr "普通数据源"
 
 msgid "Microsoft Excel"
-msgstr ""
+msgstr "微软Excel"
 
 msgid "CSV"
 msgstr "CSV"
@@ -125,7 +125,7 @@ msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
 msgid "Download data from this date"
-msgstr ""
+msgstr "从该日期下载数据"
 
 msgid "Metadata ID scheme"
 msgstr "元数据ID方案"

@@ -1,24 +1,25 @@
 [main]
-host = https://www.transifex.com
-lang_map = fa_AF: prs, uz@Cyrl: uz, uz@Latn: uz_Latn
+host     = https://www.transifex.com
+lang_map = uz@Cyrl: uz, uz@Latn: uz_Latn, fa_AF: prs
 
-[app-data-visualizer.en-pot]
-file_filter = packages/app/i18n/<lang>.po
+[o:hisp-uio:p:app-data-visualizer:r:en-pot]
+file_filter  = packages/app/i18n/<lang>.po
+source_file  = packages/app/i18n/en.pot
+source_lang  = en
+type         = PO
 minimum_perc = 0
-source_file = packages/app/i18n/en.pot
-source_lang = en
-type = PO
 
-[app-data-visualizer.plugin-en-pot]
-file_filter = packages/plugin/i18n/<lang>.po
+[o:hisp-uio:p:app-data-visualizer:r:i18n_module_en-properties]
+file_filter  = packages/app/public/i18n_old/i18n_module_<lang>.properties
+source_file  = packages/app/public/i18n_old/i18n_module_en.properties
+source_lang  = en
+type         = PROPERTIES
 minimum_perc = 0
-source_file = packages/plugin/i18n/en.pot
-source_lang = en
-type = PO
 
-[app-data-visualizer.i18n_module_en-properties]
-file_filter = packages/app/public/i18n_old/i18n_module_<lang>.properties
+[o:hisp-uio:p:app-data-visualizer:r:plugin-en-pot]
+file_filter  = packages/plugin/i18n/<lang>.po
+source_file  = packages/plugin/i18n/en.pot
+source_lang  = en
+type         = PO
 minimum_perc = 0
-source_file = packages/app/public/i18n_old/i18n_module_en.properties
-source_lang = en
-type = PROPERTIES
+
