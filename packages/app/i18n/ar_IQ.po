@@ -56,7 +56,7 @@ msgid "Cancel"
 msgstr ""
 
 msgid "Update"
-msgstr ""
+msgstr "تحديث"
 
 msgid "Add to {{axisName}}"
 msgstr ""
@@ -84,7 +84,7 @@ msgid "Filter dimensions"
 msgstr ""
 
 msgid "Graphics"
-msgstr ""
+msgstr "الرسومات"
 
 msgid "Image (.png)"
 msgstr ""
@@ -93,7 +93,7 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Table layout"
-msgstr ""
+msgstr "تنسيق الجدول"
 
 msgid "Excel (.xls)"
 msgstr ""
@@ -105,10 +105,10 @@ msgid "HTML (.html)"
 msgstr ""
 
 msgid "Download"
-msgstr ""
+msgstr "تنزيل"
 
 msgid "Plain data source"
-msgstr ""
+msgstr "مصدر البيانات الصريحة"
 
 msgid "JSON"
 msgstr ""
@@ -123,7 +123,7 @@ msgid "CSV"
 msgstr ""
 
 msgid "Advanced"
-msgstr ""
+msgstr "متقدم"
 
 msgid "Metadata ID scheme"
 msgstr ""
@@ -138,10 +138,10 @@ msgid "Name"
 msgstr "الاسم"
 
 msgid "Data value set"
-msgstr ""
+msgstr "حزمة قيم البيانات"
 
 msgid "Other formats"
-msgstr ""
+msgstr "صيغ أخرى"
 
 msgid "JRXML"
 msgstr ""
@@ -165,7 +165,7 @@ msgid "The following information may be requested by technical support."
 msgstr ""
 
 msgid "Hide"
-msgstr ""
+msgstr "إخفاء"
 
 msgid "Interpretations"
 msgstr "التفسيرات"
@@ -227,19 +227,19 @@ msgid "Your most viewed charts and tables"
 msgstr ""
 
 msgid "Aggregation type"
-msgstr ""
+msgstr "نوع التجميع"
 
 msgid "Determines how the values in the pivot table are aggregated."
 msgstr ""
 
 msgid "By data element"
-msgstr ""
+msgstr "بواسطة عنصر البيانات"
 
 msgid "Count"
-msgstr ""
+msgstr "العدد"
 
 msgid "Average"
-msgstr ""
+msgstr "المتوسط"
 
 msgid "Average (sum in org unit hierarchy)"
 msgstr "المتوسط (المجموع في التسلسل الهرمي للوحدة التنظيمية)"
@@ -248,22 +248,22 @@ msgid "Sum"
 msgstr ""
 
 msgid "Last value"
-msgstr ""
+msgstr "القيمة الأخيرة"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr ""
+msgstr "القيمة الأخيرة (المتوسط في التسلسل الهرمي للوحدة التنظيمية)"
 
 msgid "Min"
-msgstr ""
+msgstr "الأدنى"
 
 msgid "Max"
-msgstr ""
+msgstr "الأعلى"
 
 msgid "Standard deviation"
 msgstr ""
 
 msgid "Variance"
-msgstr ""
+msgstr "التباين"
 
 msgid "Data approved at level"
 msgstr ""
@@ -284,10 +284,10 @@ msgid "Base line"
 msgstr ""
 
 msgid "Value"
-msgstr ""
+msgstr "القيمة"
 
 msgid "Title"
-msgstr ""
+msgstr "العنوان"
 
 msgid "Base line title"
 msgstr ""
@@ -308,7 +308,7 @@ msgid "Only include completed events"
 msgstr ""
 
 msgid "Include cumulative"
-msgstr ""
+msgstr "تضمين التراكم"
 
 msgid "Cumulative values"
 msgstr ""
@@ -320,19 +320,19 @@ msgid "None"
 msgstr "لا شيء"
 
 msgid "Space"
-msgstr ""
+msgstr "مسافة"
 
 msgid "Comma"
-msgstr ""
+msgstr "فاصلة"
 
 msgid "Display density"
-msgstr ""
+msgstr "كثافة العرض"
 
 msgid "Comfortable"
-msgstr ""
+msgstr "مريح"
 
 msgid "Normal"
-msgstr ""
+msgstr "عادي"
 
 msgid "Compact"
 msgstr ""
@@ -344,13 +344,13 @@ msgid "Add a title"
 msgstr ""
 
 msgid "Font size"
-msgstr ""
+msgstr "حجم الخط"
 
 msgid "Large"
-msgstr ""
+msgstr "كبير"
 
 msgid "Small"
-msgstr ""
+msgstr "صغير"
 
 msgid "Hide empty columns"
 msgstr ""
@@ -371,7 +371,7 @@ msgid "All"
 msgstr ""
 
 msgid "Hide empty rows"
-msgstr ""
+msgstr "إخفاء الصفوف الفارغة"
 
 msgid "Legend key"
 msgstr ""
@@ -389,7 +389,7 @@ msgid "Custom"
 msgstr ""
 
 msgid "Table title"
-msgstr ""
+msgstr "عنوان الجدول"
 
 msgid "Chart title"
 msgstr ""
@@ -454,13 +454,13 @@ msgid "Percentage of column"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr ""
+msgstr "الوحدة التنظيمية"
 
 msgid "Parent organisation unit"
-msgstr ""
+msgstr "الوحدة التنظيمية الأصل"
 
 msgid "Reporting period"
-msgstr ""
+msgstr "الفترة الزمنية لإعداد التقرير"
 
 msgid "Stacked values add up to 100%"
 msgstr ""
@@ -478,7 +478,7 @@ msgid "Steps"
 msgstr ""
 
 msgid "Include regression"
-msgstr ""
+msgstr "تضمين الانحدار"
 
 msgid "Trend line"
 msgstr ""
@@ -517,7 +517,7 @@ msgid "Low to high"
 msgstr "من الأدنى إلى الأعلى"
 
 msgid "High to low"
-msgstr ""
+msgstr "من الأعلى إلى الأدنى"
 
 msgid "Add a subtitle"
 msgstr ""
@@ -529,10 +529,10 @@ msgid "Target line title"
 msgstr ""
 
 msgid "Top limit"
-msgstr ""
+msgstr "الحد الأعلى"
 
 msgid "Options"
-msgstr ""
+msgstr "الخيارات"
 
 msgid "Open as Map"
 msgstr ""
@@ -629,7 +629,7 @@ msgid "or"
 msgstr ""
 
 msgid "Today"
-msgstr ""
+msgstr "اليوم"
 
 msgid "Yesterday"
 msgstr ""
@@ -638,46 +638,46 @@ msgid "Last 3 days"
 msgstr ""
 
 msgid "Last 7 days"
-msgstr ""
+msgstr "آخر 7 أيام"
 
 msgid "Last 14 days"
-msgstr ""
+msgstr "آخر 14 يوم"
 
 msgid "This week"
-msgstr ""
+msgstr "الأسبوع الحالي"
 
 msgid "Last week"
-msgstr ""
+msgstr "الأسبوع الماضي"
 
 msgid "Last 4 weeks"
-msgstr ""
+msgstr "آخر 4 أسابيع"
 
 msgid "Last 12 weeks"
-msgstr ""
+msgstr "آخر 12 أسبوع"
 
 msgid "Last 52 weeks"
-msgstr ""
+msgstr "آخر 52 أسبوع"
 
 msgid "Weeks this year"
-msgstr ""
+msgstr "أسابيع السنة الحالية"
 
 msgid "This month"
-msgstr ""
+msgstr "الشهر الحالي"
 
 msgid "Last month"
-msgstr ""
+msgstr "الشهر الماضي"
 
 msgid "Last 3 months"
-msgstr ""
+msgstr "آخر 3 أشهر"
 
 msgid "Last 6 months"
-msgstr ""
+msgstr "آخر 6 أشهر"
 
 msgid "Last 12 months"
-msgstr ""
+msgstr "آخر 12 شهر"
 
 msgid "Months this year"
-msgstr ""
+msgstr "أشهر السنة الحالية"
 
 msgid "This bimonth"
 msgstr ""
@@ -692,46 +692,46 @@ msgid "Bimonths this year"
 msgstr ""
 
 msgid "This quarter"
-msgstr ""
+msgstr "ربع السنة الحالي"
 
 msgid "Last quarter"
 msgstr "ربع السنة الماضي"
 
 msgid "Last 4 quarters"
-msgstr ""
+msgstr "آخر 4 أرباع السنة"
 
 msgid "Quarters this year"
-msgstr ""
+msgstr "أرباع السنة الحالية"
 
 msgid "This six-month"
 msgstr ""
 
 msgid "Last six-month"
-msgstr ""
+msgstr "آخر ستة أشهر"
 
 msgid "Last 2 six-months"
-msgstr ""
+msgstr "آخر 2 ستة أشهر"
 
 msgid "This financial year"
 msgstr "السنة المالية الحالية"
 
 msgid "Last financial year"
-msgstr ""
+msgstr "السنة المالية الماضية"
 
 msgid "Last 5 financial years"
-msgstr ""
+msgstr "آخر 5 سنوات مالية"
 
 msgid "This year"
 msgstr ""
 
 msgid "Last year"
-msgstr ""
+msgstr "السنة الماضية"
 
 msgid "Last 5 years"
-msgstr ""
+msgstr "آخر 5 سنوات"
 
 msgid "User org unit"
-msgstr ""
+msgstr "الوحدة التنظيمية للمستخدم"
 
 msgid "User org unit children"
 msgstr ""
@@ -740,7 +740,7 @@ msgid "User org unit grand children"
 msgstr ""
 
 msgid "Data"
-msgstr ""
+msgstr "البيانات"
 
 msgid "Axes"
 msgstr ""

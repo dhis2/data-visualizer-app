@@ -1,14 +1,14 @@
 # 
 # Translators:
-# phil_dhis2, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
+# phil_dhis2, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-25T18:22:35.064Z\n"
 "PO-Revision-Date: 2022-08-21 23:46+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2022\n"
+"Last-Translator: phil_dhis2, 2022\n"
 "Language-Team: Tetum (Tetun) (https://www.transifex.com/hisp-uio/teams/100509/tet/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -57,7 +57,7 @@ msgid "Cancel"
 msgstr ""
 
 msgid "Update"
-msgstr ""
+msgstr "Atualiza"
 
 msgid "Add to {{axisName}}"
 msgstr ""
@@ -85,7 +85,7 @@ msgid "Filter dimensions"
 msgstr ""
 
 msgid "Graphics"
-msgstr ""
+msgstr "Gráfikus"
 
 msgid "Image (.png)"
 msgstr ""
@@ -94,7 +94,7 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Table layout"
-msgstr ""
+msgstr "Dispozisaun tabela"
 
 msgid "Excel (.xls)"
 msgstr ""
@@ -106,10 +106,10 @@ msgid "HTML (.html)"
 msgstr ""
 
 msgid "Download"
-msgstr ""
+msgstr "Hatun"
 
 msgid "Plain data source"
-msgstr ""
+msgstr "Fonte dadus planu"
 
 msgid "JSON"
 msgstr ""
@@ -130,10 +130,10 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr ""
+msgstr "Id"
 
 msgid "Code"
-msgstr ""
+msgstr "Kódigu"
 
 msgid "Name"
 msgstr "Naran"
@@ -166,7 +166,7 @@ msgid "The following information may be requested by technical support."
 msgstr ""
 
 msgid "Hide"
-msgstr ""
+msgstr "Subar"
 
 msgid "Interpretations"
 msgstr "Interpretasoens"
@@ -228,25 +228,25 @@ msgid "Your most viewed charts and tables"
 msgstr ""
 
 msgid "Aggregation type"
-msgstr ""
+msgstr "Tipu agregasaun"
 
 msgid "Determines how the values in the pivot table are aggregated."
 msgstr ""
 
 msgid "By data element"
-msgstr ""
+msgstr "Tuir elementu dadus"
 
 msgid "Count"
-msgstr ""
+msgstr "Konta"
 
 msgid "Average"
-msgstr ""
+msgstr "Média"
 
 msgid "Average (sum in org unit hierarchy)"
 msgstr ""
 
 msgid "Sum"
-msgstr ""
+msgstr "Soma"
 
 msgid "Last value"
 msgstr ""
@@ -255,16 +255,16 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr ""
 
 msgid "Min"
-msgstr ""
+msgstr "Min"
 
 msgid "Max"
 msgstr "Max"
 
 msgid "Standard deviation"
-msgstr ""
+msgstr "Dezviu padraun"
 
 msgid "Variance"
-msgstr ""
+msgstr "Variasaun"
 
 msgid "Data approved at level"
 msgstr ""
@@ -285,16 +285,16 @@ msgid "Base line"
 msgstr ""
 
 msgid "Value"
-msgstr ""
+msgstr "Valor"
 
 msgid "Title"
-msgstr ""
+msgstr "Títulu"
 
 msgid "Base line title"
 msgstr ""
 
 msgid "Number"
-msgstr ""
+msgstr "Númeru"
 
 msgid "Column sub-totals"
 msgstr ""
@@ -309,7 +309,7 @@ msgid "Only include completed events"
 msgstr ""
 
 msgid "Include cumulative"
-msgstr ""
+msgstr "Inklui kumulativu"
 
 msgid "Cumulative values"
 msgstr ""
@@ -327,13 +327,13 @@ msgid "Comma"
 msgstr ""
 
 msgid "Display density"
-msgstr ""
+msgstr "Ezibe densidade"
 
 msgid "Comfortable"
-msgstr ""
+msgstr "Konfortável"
 
 msgid "Normal"
-msgstr ""
+msgstr "Normal"
 
 msgid "Compact"
 msgstr ""
@@ -348,10 +348,10 @@ msgid "Font size"
 msgstr "Letra nia tamañu"
 
 msgid "Large"
-msgstr ""
+msgstr "Bo'ot"
 
 msgid "Small"
-msgstr ""
+msgstr "Kiik"
 
 msgid "Hide empty columns"
 msgstr ""
@@ -455,13 +455,13 @@ msgid "Percentage of column"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr ""
+msgstr "Unidade organizasional"
 
 msgid "Parent organisation unit"
-msgstr ""
+msgstr "Unidade organizasional inan"
 
 msgid "Reporting period"
-msgstr ""
+msgstr "Períodu ne'ebé atu relata"
 
 msgid "Stacked values add up to 100%"
 msgstr ""
@@ -479,7 +479,7 @@ msgid "Steps"
 msgstr ""
 
 msgid "Include regression"
-msgstr ""
+msgstr "Inklui regresaun"
 
 msgid "Trend line"
 msgstr "Hatudu liñas tendensia"
@@ -518,7 +518,7 @@ msgid "Low to high"
 msgstr "Badak ba ás"
 
 msgid "High to low"
-msgstr ""
+msgstr "Ás ba badak"
 
 msgid "Add a subtitle"
 msgstr ""
@@ -530,7 +530,7 @@ msgid "Target line title"
 msgstr ""
 
 msgid "Top limit"
-msgstr ""
+msgstr "Limite leten"
 
 msgid "Options"
 msgstr "Opsoens"
@@ -648,16 +648,16 @@ msgid "This week"
 msgstr ""
 
 msgid "Last week"
-msgstr ""
+msgstr "Semana kotuk"
 
 msgid "Last 4 weeks"
-msgstr ""
+msgstr "Semana 4 ikus"
 
 msgid "Last 12 weeks"
 msgstr "Semana 12 ikus"
 
 msgid "Last 52 weeks"
-msgstr ""
+msgstr "Semana 52 ikus"
 
 msgid "Weeks this year"
 msgstr ""
@@ -666,19 +666,19 @@ msgid "This month"
 msgstr ""
 
 msgid "Last month"
-msgstr ""
+msgstr "Fulan kotuk"
 
 msgid "Last 3 months"
-msgstr ""
+msgstr "Fulan 3 ikus"
 
 msgid "Last 6 months"
-msgstr ""
+msgstr "Fulan 6 ikus"
 
 msgid "Last 12 months"
-msgstr ""
+msgstr "Fulan 12 ikus"
 
 msgid "Months this year"
-msgstr ""
+msgstr "Fulan sira tinan ida ne'e"
 
 msgid "This bimonth"
 msgstr ""
@@ -702,37 +702,37 @@ msgid "Last 4 quarters"
 msgstr "Trimestre 4 ikus liu"
 
 msgid "Quarters this year"
-msgstr ""
+msgstr "Trimestres sira tinan ida ne'e"
 
 msgid "This six-month"
 msgstr ""
 
 msgid "Last six-month"
-msgstr ""
+msgstr "Fulan-nén ikus"
 
 msgid "Last 2 six-months"
-msgstr ""
+msgstr "Fulan-nén 2 ikus"
 
 msgid "This financial year"
 msgstr "Tinan finanseiru ida ne'e"
 
 msgid "Last financial year"
-msgstr ""
+msgstr "Tinan finanseiru kotuk"
 
 msgid "Last 5 financial years"
-msgstr ""
+msgstr "Tinan finanseiru 5 ikus"
 
 msgid "This year"
-msgstr ""
+msgstr "Tina ida ne'e"
 
 msgid "Last year"
-msgstr ""
+msgstr "Tinan kotuk"
 
 msgid "Last 5 years"
-msgstr ""
+msgstr "Tinan 5 kotuk"
 
 msgid "User org unit"
-msgstr ""
+msgstr "Utilizador nia unid org"
 
 msgid "User org unit children"
 msgstr ""
@@ -741,10 +741,10 @@ msgid "User org unit grand children"
 msgstr ""
 
 msgid "Data"
-msgstr ""
+msgstr "Dadus"
 
 msgid "Axes"
-msgstr ""
+msgstr "Eixus"
 
 msgid "Style"
 msgstr ""

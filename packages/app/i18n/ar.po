@@ -1,15 +1,16 @@
 # 
 # Translators:
+# KRG HIS <antonia.bezenchek@informa.pro>, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
-# Hamza Assada <7amza.it@gmail.com>, 2022
 # phil_dhis2, 2022
+# Hamza Assada <7amza.it@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-25T18:22:35.064Z\n"
 "PO-Revision-Date: 2022-08-21 23:46+0000\n"
-"Last-Translator: phil_dhis2, 2022\n"
+"Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2022\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,13 +19,13 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
 msgid "Rename successful"
-msgstr ""
+msgstr "تمت إعادة التسمية بنجاح"
 
 msgid "\"{{what}}\" successfully deleted."
-msgstr ""
+msgstr "تم حذف \"{{what}}\" بنجاح"
 
 msgid "You have unsaved changes."
-msgstr ""
+msgstr "لديك تغييرات غير محفوظة."
 
 msgid "Discard unsaved changes?"
 msgstr "تجاهل التغييرات غير المحفوظة؟"
@@ -38,16 +39,16 @@ msgid "No, cancel"
 msgstr "لا، الغاء"
 
 msgid "Yes, leave"
-msgstr ""
+msgstr "نعم، غادر"
 
 msgid "Axis 1"
 msgstr "المحور 1"
 
 msgid "Axis 2"
-msgstr ""
+msgstr "المحور 2"
 
 msgid "Manage axes"
-msgstr ""
+msgstr "إدارة المحاور"
 
 msgid ""
 "A chart can have two axes. Each axis will have its own scale. Set the axis "
@@ -58,15 +59,17 @@ msgid "Cancel"
 msgstr ""
 
 msgid "Update"
-msgstr ""
+msgstr "تحديث"
 
 msgid "Add to {{axisName}}"
-msgstr ""
+msgstr "إضافة إلى {{axisName}}"
 
 msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
 "first item will be used and saved."
 msgstr ""
+"'{{visualizationType}}' يهدف إلى إظهار عنصر بيانات واحد. سيتم استخدام وحفظ "
+"العنصر الأول فقط."
 
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
@@ -76,31 +79,31 @@ msgstr ""
 " سيتم استخدام وحفظ العناصر الـ {{maxNumber}} الأولى فقط."
 
 msgid "Main dimensions"
-msgstr ""
+msgstr "الأبعاد الرئيسية"
 
 msgid "Other dimensions"
 msgstr ""
 
 msgid "Your dimensions"
-msgstr ""
+msgstr "الأبعاد الخاصة بك"
 
 msgid "Filter dimensions"
-msgstr ""
+msgstr "تصفية الأبعاد"
 
 msgid "Graphics"
-msgstr ""
+msgstr "الرسومات"
 
 msgid "Image (.png)"
-msgstr ""
+msgstr "صورة (.png)"
 
 msgid "PDF (.pdf)"
-msgstr ""
+msgstr "بي دي اف (.pdf)"
 
 msgid "Table layout"
-msgstr ""
+msgstr "تنسيق الجدول"
 
 msgid "Excel (.xls)"
-msgstr ""
+msgstr "إكسل (.xls)"
 
 msgid "CSV (.csv)"
 msgstr "CSV (.csv)"
@@ -109,67 +112,67 @@ msgid "HTML (.html)"
 msgstr "HTML (.html)"
 
 msgid "Download"
-msgstr ""
+msgstr "تنزيل"
 
 msgid "Plain data source"
-msgstr ""
+msgstr "مصدر البيانات الصريحة"
 
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 msgid "Excel"
-msgstr ""
+msgstr "إكسل"
 
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 msgid "Advanced"
-msgstr ""
+msgstr "متقدم"
 
 msgid "Metadata ID scheme"
-msgstr ""
+msgstr "مخطط ID البيانات الوصفية"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Code"
-msgstr ""
+msgstr "الكود"
 
 msgid "Name"
 msgstr "الإسم"
 
 msgid "Data value set"
-msgstr ""
+msgstr "حزمة قيم البيانات"
 
 msgid "Other formats"
-msgstr ""
+msgstr "صيغ أخرى"
 
 msgid "JRXML"
-msgstr ""
+msgstr "JRXML"
 
 msgid "Raw data SQL"
-msgstr ""
+msgstr "للبيانات الأولية SQL "
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
+msgstr "حدث خطأ في تطبيق DHIS2 Data Visualizer."
 
 msgid "Refresh to try again"
-msgstr ""
+msgstr "قم بالتحديث للمحاولة مرة أخرى"
 
 msgid "Hide technical details"
-msgstr ""
+msgstr "إخفاء التفاصيل التقنية"
 
 msgid "Show technical details"
-msgstr ""
+msgstr "إظهار التفاصيل التقنية"
 
 msgid "The following information may be requested by technical support."
-msgstr ""
+msgstr "قد يتم طلب المعلومات التالية من قبل الدعم الفني."
 
 msgid "Hide"
-msgstr ""
+msgstr "إخفاء"
 
 msgid "Interpretations"
 msgstr "التفسيرات"
@@ -178,72 +181,74 @@ msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
 
 msgid "{{total}} selected"
-msgstr ""
+msgstr "{{total}} تم تحديدها"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
-msgstr ""
+msgstr "{{dimensionName}} مقفل على {{axisName}} لـ {{visTypeName}}"
 
 msgid "None selected"
-msgstr ""
+msgstr "غير محدد"
 
 msgid "Only '{{- name}}' in use"
-msgstr ""
+msgstr "قيد الإستخدام '{{- name}}' فقط"
 
 msgid "Only '{{number}}' in use"
-msgstr ""
+msgstr "قيد الإستخدام '{{- name}}' فقط"
 
 msgid "Levels"
-msgstr ""
+msgstr "المستويات"
 
 msgid "Groups"
-msgstr ""
+msgstr "المجموعات"
 
 msgid "And 1 other..."
 msgstr ""
 
 msgid "And {{numberOfItems}} others..."
-msgstr ""
+msgstr "و {{numberOfItems}} أخرى..."
 
 msgid "Unsaved visualization"
-msgstr ""
+msgstr "مخطط عرض غير محفوظ"
 
 msgid "Edited"
 msgstr ""
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
+msgstr "مشاهدة التفسير من  {{interpretationDate}}"
 
 msgid "Getting started"
-msgstr ""
+msgstr "الشروع في العمل"
 
 msgid ""
 "All dimensions that you can use to build visualizations are shown in the "
 "left sidebar"
 msgstr ""
+"يتم عرض جميع الأبعاد التي يمكنك استخدامها لإنشاء مخططات عرض في الشريط "
+"الجانبي الأيسر"
 
 msgid "Add dimensions to the layout above"
-msgstr ""
+msgstr "أضف أبعاداً إلى التخطيط أعلاه"
 
 msgid "Click a dimension to add or remove items"
-msgstr ""
+msgstr "انقر فوق أحد الأبعاد لإضافة عناصر أو إزالتها"
 
 msgid "Your most viewed charts and tables"
-msgstr ""
+msgstr "الرسوم البيانية والجداول الأكثر مشاهدة"
 
 msgid "Aggregation type"
-msgstr ""
+msgstr "نوع التجميع"
 
 msgid "Determines how the values in the pivot table are aggregated."
-msgstr ""
+msgstr "يحدد كيفية تجميع القيم في الجدول المحوري."
 
 msgid "By data element"
-msgstr ""
+msgstr "حسب عنصر البيانات"
 
 msgid "Count"
-msgstr ""
+msgstr "العدد"
 
 msgid "Average"
-msgstr ""
+msgstr "المتوسط"
 
 msgid "Average (sum in org unit hierarchy)"
 msgstr "المتوسط (المجموع في التسلسل الهرمي للوحدة التنظيمية)"
@@ -252,52 +257,52 @@ msgid "Sum"
 msgstr ""
 
 msgid "Last value"
-msgstr ""
+msgstr "القيمة الأخيرة"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr ""
+msgstr "القيمة الأخيرة (المتوسط في التسلسل الهرمي للوحدة التنظيمية)"
 
 msgid "Min"
-msgstr ""
+msgstr "الأدنى"
 
 msgid "Max"
-msgstr ""
+msgstr "الأعلى"
 
 msgid "Standard deviation"
-msgstr ""
+msgstr "الانحراف المعياري"
 
 msgid "Variance"
-msgstr ""
+msgstr "التباين"
 
 msgid "Data approved at level"
-msgstr ""
+msgstr "البيانات الموافق عليها في مستوى"
 
 msgid "Select from predefined levels"
-msgstr ""
+msgstr "اختر من مستويات محددة مسبقاً"
 
 msgid "Loading data approval levels"
-msgstr ""
+msgstr "تحميل مستويات الموافقة على البيانات"
 
 msgid "Axis range"
-msgstr ""
+msgstr "نطاق المحور"
 
 msgid "Values outside of the range will not be displayed"
-msgstr ""
+msgstr "لن يتم عرض القيم خارج النطاق"
 
 msgid "Base line"
 msgstr ""
 
 msgid "Value"
-msgstr ""
+msgstr "القيمة"
 
 msgid "Title"
-msgstr ""
+msgstr "العنوان"
 
 msgid "Base line title"
-msgstr ""
+msgstr "عنوان خط الأساس"
 
 msgid "Number"
-msgstr ""
+msgstr "العدد"
 
 msgid "Column sub-totals"
 msgstr ""
@@ -306,13 +311,13 @@ msgid "Columns totals"
 msgstr ""
 
 msgid "Event data"
-msgstr ""
+msgstr "بيانات الحدث"
 
 msgid "Only include completed events"
-msgstr ""
+msgstr "تضمين الأحداث المكتملة فقط"
 
 msgid "Include cumulative"
-msgstr ""
+msgstr "تضمين التراكم"
 
 msgid "Cumulative values"
 msgstr "قيم تراكمية"
@@ -324,85 +329,85 @@ msgid "None"
 msgstr "لا شيء"
 
 msgid "Space"
-msgstr ""
+msgstr "مسافة"
 
 msgid "Comma"
-msgstr ""
+msgstr "فاصلة"
 
 msgid "Display density"
-msgstr ""
+msgstr "كثافة العرض"
 
 msgid "Comfortable"
-msgstr ""
+msgstr "مريح"
 
 msgid "Normal"
-msgstr ""
+msgstr "عادي"
 
 msgid "Compact"
 msgstr ""
 
 msgid "Axis title"
-msgstr ""
+msgstr "عنوان المحور"
 
 msgid "Add a title"
-msgstr ""
+msgstr "إضافة عنوان"
 
 msgid "Font size"
-msgstr ""
+msgstr "حجم الخط"
 
 msgid "Large"
-msgstr ""
+msgstr "كبير"
 
 msgid "Small"
-msgstr ""
+msgstr "صغير"
 
 msgid "Hide empty columns"
-msgstr ""
+msgstr "إخفاء الأعمدة الفارغة"
 
 msgid "Hide empty categories"
-msgstr ""
+msgstr "إخفاء الفئات الفارغة"
 
 msgid "Before first"
-msgstr ""
+msgstr "قبل الأول"
 
 msgid "After last"
 msgstr "بعد الأخير"
 
 msgid "Before first and after last"
-msgstr ""
+msgstr "قبل الأول وبعد الأخير"
 
 msgid "All"
 msgstr ""
 
 msgid "Hide empty rows"
-msgstr ""
+msgstr "إخفاء الصفوف الفارغة"
 
 msgid "Legend key"
 msgstr ""
 
 msgid "Table subtitle"
-msgstr ""
+msgstr "العنوان الفرعي للجدول"
 
 msgid "Chart subtitle"
-msgstr ""
+msgstr "العنوان الفرعي للمخطط البياني"
 
 msgid "Auto generated"
-msgstr ""
+msgstr "توليد تلقائي"
 
 msgid "Custom"
 msgstr ""
 
 msgid "Table title"
-msgstr ""
+msgstr "عنوان الجدول"
 
 msgid "Chart title"
 msgstr ""
 
 msgid "Display legend"
-msgstr ""
+msgstr "عرض المفاتيح الإيضاحية"
 
 msgid "Legend style"
-msgstr ""
+msgstr "نمط مفتاح الإيضاح"
 
 msgid "Legend type"
 msgstr ""
@@ -411,19 +416,19 @@ msgid "Use pre-defined legend per data item"
 msgstr ""
 
 msgid "Select a single legend for entire table"
-msgstr ""
+msgstr "حدد مفتاح إيضاحي واحد للجدول بالكامل"
 
 msgid "Legend changes background color"
-msgstr ""
+msgstr "المفتاح الإيضاحي يغير من لون الخلفية"
 
 msgid "Legend changes text color"
-msgstr ""
+msgstr "المفتاح الإيضاحي يغير من لون النص"
 
 msgid "Legend"
-msgstr ""
+msgstr "مفاتيح إيضاحية"
 
 msgid "Select from legends"
-msgstr ""
+msgstr "حدد من مفاتيح الإيضاح"
 
 msgid "Loading legends"
 msgstr "تحميل المفاتيح الإيضاحية"
@@ -432,132 +437,134 @@ msgid ""
 "You can set a minimum or maximum value. This will apply to the entire table,"
 " all values outside of the minimum/maximum range will not be displayed"
 msgstr ""
+"يمكنك تعيين قيمة دنيا أو قيمة قصوى. سيتم تطبيق ذلك على الجدول بالكامل ، ولن "
+"يتم عرض أي من القيم خارج نطاق القيمة الدنيا / القيمة القصوى"
 
 msgid "Minimum data value"
-msgstr ""
+msgstr "القيمة الأدنى"
 
 msgid "Maximum data value"
-msgstr ""
+msgstr "القيمة الأعلى"
 
 msgid "Clear min/max limits"
-msgstr ""
+msgstr "ازالة الحدود الدنيا/العليا"
 
 msgid "No space between bars/columns"
-msgstr ""
+msgstr "لا مسافة بين الخطوط العمودية"
 
 msgid "Number type"
-msgstr ""
+msgstr "نوع العدد"
 
 msgid "Display the value of percentages of the total"
-msgstr ""
+msgstr "اعرض قيمة النسب المئوية من الإجمالي"
 
 msgid "Percentage of row"
-msgstr ""
+msgstr "النسبة المئوية للصف"
 
 msgid "Percentage of column"
-msgstr ""
+msgstr "النسبة المئوية للعمود"
 
 msgid "Organisation unit"
-msgstr ""
+msgstr "الوحدة التنظيمية"
 
 msgid "Parent organisation unit"
-msgstr ""
+msgstr "الوحدة التنظيمية الأصل"
 
 msgid "Reporting period"
-msgstr ""
+msgstr "الفترة الزمنية لإعداد التقرير"
 
 msgid "Stacked values add up to 100%"
-msgstr ""
+msgstr "تضيف القيم المكدسة ما يصل إلى 100٪"
 
 msgid "Decimals"
-msgstr ""
+msgstr "كسور عشرية"
 
 msgid "Auto"
-msgstr ""
+msgstr "تلقائي"
 
 msgid "The number of axis steps between the min and max values"
 msgstr ""
 
 msgid "Steps"
-msgstr ""
+msgstr "الخطوات"
 
 msgid "Include regression"
-msgstr ""
+msgstr "تضمين الانحدار"
 
 msgid "Trend line"
 msgstr "خط الاتجاه"
 
 msgid "Linear"
-msgstr ""
+msgstr "خطي"
 
 msgid "Polynomial"
-msgstr ""
+msgstr "متعدد الحدود"
 
 msgid "Loess"
-msgstr ""
+msgstr "Loess"
 
 msgid "Row sub-totals"
-msgstr ""
+msgstr "المجاميع الفرعية للصف"
 
 msgid "Row totals"
-msgstr ""
+msgstr "إجماليات الصف"
 
 msgid "Value labels"
-msgstr ""
+msgstr "تسميات القيمة"
 
 msgid "Dimension labels"
-msgstr ""
+msgstr "تسميات الأبعاد"
 
 msgid "Display organisation unit hierarchy"
-msgstr ""
+msgstr "عرض التسلسل الهرمي للوحدة التنظيمية"
 
 msgid "Skip rounding"
-msgstr ""
+msgstr "تخطي التقريب"
 
 msgid "Custom sort order"
-msgstr ""
+msgstr "ترتيب فرز مخصص"
 
 msgid "Low to high"
 msgstr "من الأدنى إلى الأعلى"
 
 msgid "High to low"
-msgstr ""
+msgstr "من الأعلى إلى الأدنى"
 
 msgid "Add a subtitle"
-msgstr ""
+msgstr "إضافة عنوان فرعي"
 
 msgid "Target line"
 msgstr "خط المستهدف"
 
 msgid "Target line title"
-msgstr ""
+msgstr "عنوان خط الهدف"
 
 msgid "Top limit"
-msgstr ""
+msgstr "الحد الأعلى"
 
 msgid "Options"
-msgstr ""
+msgstr "الخيارات"
 
 msgid "Open as Map"
-msgstr ""
+msgstr "فتح كخريطة"
 
 msgid "Reporting rate"
 msgstr ""
 
 msgid "Reporting rate on time"
-msgstr ""
+msgstr "معدل الإبلاغ في الوقت المحدد"
 
 msgid "Actual reports"
 msgstr ""
 
 msgid "Actual reports on time"
-msgstr ""
+msgstr "الإبلاغات الفعلية في الوقت المحدد"
 
 msgid "Expected reports"
 msgstr "الإبلاغات المتوقعة"
 
 msgid "No data available"
-msgstr ""
+msgstr "لا توجد بيانات متاحة"
 
 msgid ""
 "The selected dimensions didn’t return any data. There may be no data, or you"
@@ -570,10 +577,10 @@ msgid "{{axisName}} is empty"
 msgstr "{{axisName}} فارغ"
 
 msgid "Add at least one item to {{axisName}}."
-msgstr ""
+msgstr "أضف عنصراً واحداً على الأقل إلى {{axisName}}."
 
 msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
-msgstr ""
+msgstr "{{columnsAxisName}} و {{rowsAxisName}} فارغة"
 
 msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
@@ -581,11 +588,13 @@ msgid ""
 msgstr ""
 
 msgid "No period selected"
-msgstr ""
+msgstr "لم يتم اختيار فترة"
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
 msgstr ""
+"{{visualizationType}} يجب ان تحتوي على فترة واحدة على الأقل محددة على "
+"{{axes}}."
 
 msgid "No data selected"
 msgstr "لم يتم اختيار أي بيانات"
@@ -594,12 +603,14 @@ msgid ""
 "{{visualizationType}} must have at least one data item or data element group"
 " set item in {{axes}}."
 msgstr ""
+"يجب أن تحتوي {{visualizationType}} على عنصر بيانات واحد على الأقل أو عنصر "
+"مجموعة مجموعة بيانات واحد في {{axes}}."
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
 msgstr ""
 
 msgid "There's a problem with the layout"
-msgstr ""
+msgstr "هناك مشكلة في التخطيط"
 
 msgid ""
 "A single indicator must be the only data item when using indicators as Data "
@@ -608,35 +619,37 @@ msgstr ""
 "يجب أن يكون المؤشر عنصر البيانات الوحيد عند استخدام المؤشرات كعوامل تصفية."
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
-msgstr ""
+msgstr "لا يمكن استخدام مجموعات عناصر البيانات ومعدلات التقارير معاً."
 
 msgid "There is a problem with this {{visualizationType}} visualization."
-msgstr ""
+msgstr "توجد مشكلة مع {{visualizationType}} العرض المرئي"
 
 msgid "There was a problem getting the data from the server."
-msgstr ""
+msgstr "حدثت مشكلة في الحصول على البيانات من الخادم."
 
 msgid "Assigned Categories can only be used with data elements"
-msgstr ""
+msgstr "لا يمكن استخدام الفئات التي تم تعينها إلا مع عناصر البيانات"
 
 msgid ""
 "Fix this problem by selecting data elements or removing Assigned Categories."
 msgstr ""
+"قم بإصلاح هذه المشكلة عن طريق تحديد عناصر البيانات أو إزالة الفئات التي تم "
+"تعينها."
 
 msgid "Assigned Categories cannot be used as Filter"
-msgstr ""
+msgstr "الفئات المعينة لا يمكن أن تستخدم كعوامل تصفية"
 
 msgid "Fix this problem by moving or removing Assigned Categories."
-msgstr ""
+msgstr "قم بإصلاح هذه المشكلة عن طريق نقل أو إزالة الفئات التي تم تعينها."
 
 msgid "Something went wrong"
 msgstr "حدث خطأ ما"
 
 msgid "or"
-msgstr ""
+msgstr "أو"
 
 msgid "Today"
-msgstr ""
+msgstr "اليوم"
 
 msgid "Yesterday"
 msgstr ""
@@ -645,151 +658,151 @@ msgid "Last 3 days"
 msgstr ""
 
 msgid "Last 7 days"
-msgstr ""
+msgstr "آخر 7 أيام"
 
 msgid "Last 14 days"
-msgstr ""
+msgstr "آخر 14 يوم"
 
 msgid "This week"
-msgstr ""
+msgstr "هذا الأسبوع"
 
 msgid "Last week"
-msgstr ""
+msgstr "الأسبوع الماضي"
 
 msgid "Last 4 weeks"
-msgstr ""
+msgstr "آخر 4 أسابيع"
 
 msgid "Last 12 weeks"
-msgstr ""
+msgstr "آخر 12 أسبوع"
 
 msgid "Last 52 weeks"
-msgstr ""
+msgstr "آخر 52 أسبوع"
 
 msgid "Weeks this year"
-msgstr ""
+msgstr "أسابيع السنة الحالية"
 
 msgid "This month"
-msgstr ""
+msgstr "الشهر الحالي"
 
 msgid "Last month"
-msgstr ""
+msgstr "الشهر الماضي"
 
 msgid "Last 3 months"
-msgstr ""
+msgstr "آخر 3 أشهر"
 
 msgid "Last 6 months"
-msgstr ""
+msgstr "آخر 6 أشهر"
 
 msgid "Last 12 months"
-msgstr ""
+msgstr "آخر 12 شهر"
 
 msgid "Months this year"
-msgstr ""
+msgstr "أشهر السنة الحالية"
 
 msgid "This bimonth"
-msgstr ""
+msgstr "ثنائي شهرين الحالي"
 
 msgid "Last bimonth"
-msgstr ""
+msgstr "آخر ثنائي شهري"
 
 msgid "Last 6 bimonths"
 msgstr ""
 
 msgid "Bimonths this year"
-msgstr ""
+msgstr "كل شهرين هذا العام"
 
 msgid "This quarter"
-msgstr ""
+msgstr "ربع السنة الحالي"
 
 msgid "Last quarter"
 msgstr "ربع السنة الماضي"
 
 msgid "Last 4 quarters"
-msgstr ""
+msgstr "آخر 4 أرباع السنة"
 
 msgid "Quarters this year"
-msgstr ""
+msgstr "أرباع السنة الحالية"
 
 msgid "This six-month"
 msgstr ""
 
 msgid "Last six-month"
-msgstr ""
+msgstr "آخر ستة-أشهر"
 
 msgid "Last 2 six-months"
-msgstr ""
+msgstr "آخر فترتي ستة أشهر (نصفي سنة)"
 
 msgid "This financial year"
 msgstr "السنة المالية الحالية"
 
 msgid "Last financial year"
-msgstr ""
+msgstr "السنة المالية الماضية"
 
 msgid "Last 5 financial years"
-msgstr ""
+msgstr "آخر 5 سنوات مالية"
 
 msgid "This year"
 msgstr ""
 
 msgid "Last year"
-msgstr ""
+msgstr "السنة الماضية"
 
 msgid "Last 5 years"
-msgstr ""
+msgstr "آخر 5 سنوات"
 
 msgid "User org unit"
-msgstr ""
+msgstr "الوحدة التنظيمية للمستخدم"
 
 msgid "User org unit children"
-msgstr ""
+msgstr "الوحدة التنظيمية للمستخدم العضو"
 
 msgid "User org unit grand children"
-msgstr ""
+msgstr "الوحدة التنظيمية الكبرى الأطفال"
 
 msgid "Data"
-msgstr ""
+msgstr "بيانات"
 
 msgid "Axes"
-msgstr ""
+msgstr "المحاور"
 
 msgid "Style"
 msgstr ""
 
 msgid "Display"
-msgstr ""
+msgstr "العرض"
 
 msgid "Lines"
-msgstr ""
+msgstr "الخطوط"
 
 msgid "Vertical (y) axis"
 msgstr "محور (ص) العمودي"
 
 msgid "Horizontal (x) axis"
-msgstr ""
+msgstr "محور (س) الأفقي"
 
 msgid "Chart style"
-msgstr ""
+msgstr "نمط الرسم البياني"
 
 msgid "Titles"
 msgstr ""
 
 msgid "Display totals"
-msgstr ""
+msgstr "عرض الإجماليات"
 
 msgid "Display empty data"
-msgstr ""
+msgstr "عرض البيانات الفارغة"
 
 msgid "Labels"
-msgstr ""
+msgstr "التسميات"
 
 msgid "Limit values"
 msgstr ""
 
 msgid "Limit number of values"
-msgstr ""
+msgstr "تحديد حدود عدد القيم"
 
 msgid "Limit minimum/maximum values"
-msgstr ""
+msgstr "الحد من القيم الدنيا / القصوى"
 
 msgid "Parameters"
 msgstr ""
@@ -798,10 +811,10 @@ msgid "Weeks per year"
 msgstr "أسابيع في السنة"
 
 msgid "Months per year"
-msgstr ""
+msgstr "أشهر في السنة"
 
 msgid "Bimonths per year"
-msgstr ""
+msgstr "ثنائي شهري في السنة"
 
 msgid "Quarters per year"
-msgstr ""
+msgstr "ارباع في السنة"

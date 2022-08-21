@@ -57,7 +57,7 @@ msgid "Cancel"
 msgstr ""
 
 msgid "Update"
-msgstr ""
+msgstr "‌နောက်ဆုံးသတင်းကိုရစေခြင်း"
 
 msgid "Add to {{axisName}}"
 msgstr ""
@@ -130,10 +130,10 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr ""
+msgstr "အိုင်ဒီ"
 
 msgid "Code"
-msgstr ""
+msgstr "ကုဒ်"
 
 msgid "Name"
 msgstr "အမည်"
@@ -237,10 +237,10 @@ msgid "By data element"
 msgstr ""
 
 msgid "Count"
-msgstr ""
+msgstr "အရေအတွက်"
 
 msgid "Average"
-msgstr ""
+msgstr "ပျမ်းမျှ"
 
 msgid "Average (sum in org unit hierarchy)"
 msgstr ""
@@ -255,10 +255,10 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr ""
 
 msgid "Min"
-msgstr ""
+msgstr "အနည်းဆုံး"
 
 msgid "Max"
-msgstr ""
+msgstr "အများဆုံး"
 
 msgid "Standard deviation"
 msgstr ""
@@ -285,16 +285,16 @@ msgid "Base line"
 msgstr ""
 
 msgid "Value"
-msgstr ""
+msgstr "တန်ဖိုး"
 
 msgid "Title"
-msgstr ""
+msgstr "ခေါင်းစဉ်"
 
 msgid "Base line title"
 msgstr ""
 
 msgid "Number"
-msgstr ""
+msgstr "ဂဏန်း"
 
 msgid "Column sub-totals"
 msgstr ""
@@ -333,7 +333,7 @@ msgid "Comfortable"
 msgstr ""
 
 msgid "Normal"
-msgstr ""
+msgstr "Normal"
 
 msgid "Compact"
 msgstr ""
@@ -443,7 +443,7 @@ msgid "No space between bars/columns"
 msgstr ""
 
 msgid "Number type"
-msgstr ""
+msgstr "ကိန်းဂဏန်းအရေတွက်"
 
 msgid "Display the value of percentages of the total"
 msgstr ""
@@ -455,10 +455,10 @@ msgid "Percentage of column"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr ""
+msgstr "Organisation unit"
 
 msgid "Parent organisation unit"
-msgstr ""
+msgstr "Parent organisation unit"
 
 msgid "Reporting period"
 msgstr ""
@@ -627,7 +627,7 @@ msgid "Something went wrong"
 msgstr ""
 
 msgid "or"
-msgstr ""
+msgstr "သို့မဟုတ်"
 
 msgid "Today"
 msgstr ""
@@ -648,7 +648,7 @@ msgid "This week"
 msgstr ""
 
 msgid "Last week"
-msgstr ""
+msgstr "Last week"
 
 msgid "Last 4 weeks"
 msgstr ""
@@ -666,16 +666,16 @@ msgid "This month"
 msgstr ""
 
 msgid "Last month"
-msgstr ""
+msgstr "ယခင်လ"
 
 msgid "Last 3 months"
-msgstr ""
+msgstr "လွန်ခဲ့သော ၁၂လ"
 
 msgid "Last 6 months"
-msgstr ""
+msgstr "Last 6 months"
 
 msgid "Last 12 months"
-msgstr ""
+msgstr "လွန်ခဲ့သော ၁၂လ"
 
 msgid "Months this year"
 msgstr ""
@@ -699,19 +699,19 @@ msgid "Last quarter"
 msgstr "လွန်ခဲ့သော ၃လက"
 
 msgid "Last 4 quarters"
-msgstr ""
+msgstr "လွန်ခဲ့သော ၁၂လက"
 
 msgid "Quarters this year"
-msgstr ""
+msgstr "Quarters this year"
 
 msgid "This six-month"
 msgstr ""
 
 msgid "Last six-month"
-msgstr ""
+msgstr "လွန်ခဲ့သော ၆လက"
 
 msgid "Last 2 six-months"
-msgstr ""
+msgstr "လွန်ခဲ့သော ၆လ(၂ကြိမ်)"
 
 msgid "This financial year"
 msgstr ""
@@ -723,13 +723,13 @@ msgid "Last 5 financial years"
 msgstr ""
 
 msgid "This year"
-msgstr ""
+msgstr "ဒီနှစ်"
 
 msgid "Last year"
-msgstr ""
+msgstr "ယခင်နှစ်"
 
 msgid "Last 5 years"
-msgstr ""
+msgstr "လွန်ခဲ့သော ၅ နှစ်"
 
 msgid "User org unit"
 msgstr ""
@@ -741,7 +741,7 @@ msgid "User org unit grand children"
 msgstr ""
 
 msgid "Data"
-msgstr ""
+msgstr "အချက်အလက်"
 
 msgid "Axes"
 msgstr ""

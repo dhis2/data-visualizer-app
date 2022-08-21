@@ -1,5 +1,6 @@
 # 
 # Translators:
+# Viktor Varland <viktor@dhis2.org>, 2022
 # phil_dhis2, 2022
 # 
 msgid ""
@@ -56,7 +57,7 @@ msgid "Cancel"
 msgstr ""
 
 msgid "Update"
-msgstr ""
+msgstr "ធ្វើ​បច្ចុប្បន្នភាព"
 
 msgid "Add to {{axisName}}"
 msgstr ""
@@ -129,7 +130,7 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr ""
+msgstr "​លេខ​សម្គាល់"
 
 msgid "Code"
 msgstr ""
@@ -236,10 +237,10 @@ msgid "By data element"
 msgstr ""
 
 msgid "Count"
-msgstr ""
+msgstr "ផលរាប់"
 
 msgid "Average"
-msgstr ""
+msgstr "ផលមធ្យម"
 
 msgid "Average (sum in org unit hierarchy)"
 msgstr ""
@@ -254,10 +255,10 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr ""
 
 msgid "Min"
-msgstr ""
+msgstr "អប្បបរមា"
 
 msgid "Max"
-msgstr ""
+msgstr "អតិបរមា"
 
 msgid "Standard deviation"
 msgstr ""
@@ -284,16 +285,16 @@ msgid "Base line"
 msgstr ""
 
 msgid "Value"
-msgstr ""
+msgstr "តម្លៃ"
 
 msgid "Title"
-msgstr ""
+msgstr "ចំណងជើង"
 
 msgid "Base line title"
 msgstr ""
 
 msgid "Number"
-msgstr ""
+msgstr "តួរលេខ"
 
 msgid "Column sub-totals"
 msgstr ""
@@ -454,10 +455,10 @@ msgid "Percentage of column"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr ""
+msgstr "ផ្នែក​នៃ​អង្គការ"
 
 msgid "Parent organisation unit"
-msgstr ""
+msgstr "Parent organisation unit"
 
 msgid "Reporting period"
 msgstr ""
@@ -740,7 +741,7 @@ msgid "User org unit grand children"
 msgstr ""
 
 msgid "Data"
-msgstr ""
+msgstr "Data"
 
 msgid "Axes"
 msgstr ""

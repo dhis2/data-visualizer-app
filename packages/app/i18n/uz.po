@@ -16,13 +16,13 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Rename successful"
-msgstr ""
+msgstr "Муваффақиятли қайта номлаш"
 
 msgid "\"{{what}}\" successfully deleted."
 msgstr "\"{{what}}\" муваффақиятли ўчирилди"
 
 msgid "You have unsaved changes."
-msgstr ""
+msgstr "Сизда сақланмаган ўзгартиришлар мавжуд."
 
 msgid "Discard unsaved changes?"
 msgstr "Сақланмаган ўзгаришлар бекор қилинсинми?"
@@ -31,21 +31,23 @@ msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
 "be lost."
 msgstr ""
+"Ҳақиқатдан ҳам ушбу визуализацияни тарк этмоқчимисиз? Ҳар қандай сақланмаган"
+" ўзгартиришлар йўқотилади."
 
 msgid "No, cancel"
 msgstr "Йўқ, бекор қилинг"
 
 msgid "Yes, leave"
-msgstr ""
+msgstr "Ҳа, қолдириб кетиш"
 
 msgid "Axis 1"
 msgstr "Биринчи ўқ"
 
 msgid "Axis 2"
-msgstr ""
+msgstr "Иккинчи ўқ"
 
 msgid "Manage axes"
-msgstr ""
+msgstr "Ўқларни бошқариш"
 
 msgid ""
 "A chart can have two axes. Each axis will have its own scale. Set the axis "
@@ -56,7 +58,7 @@ msgid "Cancel"
 msgstr ""
 
 msgid "Update"
-msgstr ""
+msgstr "Янгилаш"
 
 msgid "Add to {{axisName}}"
 msgstr "{{axisName}} га қўшинг"
@@ -65,6 +67,8 @@ msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
 "first item will be used and saved."
 msgstr ""
+"'{{visualizationType}}' битта маълумот элементини кўрсатишга мўлжалланган. "
+"Фақат биринчи элемент ишлатилади ва сақланади."
 
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
@@ -75,31 +79,31 @@ msgstr ""
 "сақланади."
 
 msgid "Main dimensions"
-msgstr ""
+msgstr "Умумий ўлчамлар"
 
 msgid "Other dimensions"
 msgstr ""
 
 msgid "Your dimensions"
-msgstr ""
+msgstr "Сизнинг созламаларингиз"
 
 msgid "Filter dimensions"
-msgstr ""
+msgstr "Фильтр созламалари"
 
 msgid "Graphics"
-msgstr ""
+msgstr "Графика"
 
 msgid "Image (.png)"
-msgstr ""
+msgstr "Расм (.png)"
 
 msgid "PDF (.pdf)"
-msgstr ""
+msgstr "PDF (.pdf)"
 
 msgid "Table layout"
-msgstr ""
+msgstr "Жадвал макети"
 
 msgid "Excel (.xls)"
-msgstr ""
+msgstr "Excel (.xls)"
 
 msgid "CSV (.csv)"
 msgstr "CSV (.csv)"
@@ -108,67 +112,67 @@ msgid "HTML (.html)"
 msgstr "HTML (.html)"
 
 msgid "Download"
-msgstr ""
+msgstr "Юклаш"
 
 msgid "Plain data source"
-msgstr ""
+msgstr "Оддий маълумотлар манбаи"
 
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 msgid "Excel"
-msgstr ""
+msgstr "Excel"
 
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 msgid "Advanced"
-msgstr ""
+msgstr "Илғор"
 
 msgid "Metadata ID scheme"
-msgstr ""
+msgstr "МетаМаълумот ID схемаси"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Code"
-msgstr ""
+msgstr "Код"
 
 msgid "Name"
 msgstr "Исми"
 
 msgid "Data value set"
-msgstr ""
+msgstr "Маълумотлар қиймати ўрнатилган"
 
 msgid "Other formats"
-msgstr ""
+msgstr "Бошқа шакллар"
 
 msgid "JRXML"
-msgstr ""
+msgstr "JRXML"
 
 msgid "Raw data SQL"
-msgstr ""
+msgstr "Хом маълумотлар SQL"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "DHIS2 Маълумотлар Визуализатор дастурида хатолик юз берди."
 
 msgid "Refresh to try again"
-msgstr ""
+msgstr "Қайтиб уриниб кщрин учун аввал янгиланг"
 
 msgid "Hide technical details"
-msgstr ""
+msgstr "Техник деталларни беркитиш"
 
 msgid "Show technical details"
-msgstr ""
+msgstr "Техник деталларни кўрсатиш"
 
 msgid "The following information may be requested by technical support."
-msgstr ""
+msgstr "Қуйидаги ахборот техник ёрдамчилар томонидан сўралиши мумкин"
 
 msgid "Hide"
-msgstr ""
+msgstr "Беркитиш"
 
 msgid "Interpretations"
 msgstr "Талқинлар"
@@ -177,126 +181,128 @@ msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
 
 msgid "{{total}} selected"
-msgstr ""
+msgstr "{{total}} танланди"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
-msgstr ""
+msgstr "{{dimensionName}} {{visTypeName}} учун {{axisName}} да қулфланган"
 
 msgid "None selected"
-msgstr ""
+msgstr "Бирор нима танланмаган"
 
 msgid "Only '{{- name}}' in use"
-msgstr ""
+msgstr "Фойдаланиш учун фақатгина '{{- name}}' "
 
 msgid "Only '{{number}}' in use"
-msgstr ""
+msgstr "Фойдаланиш учун фақатгина '{{number}}'"
 
 msgid "Levels"
-msgstr ""
+msgstr "Босқичлар/Қаватлар"
 
 msgid "Groups"
-msgstr ""
+msgstr "Гуруҳлар"
 
 msgid "And 1 other..."
 msgstr ""
 
 msgid "And {{numberOfItems}} others..."
-msgstr ""
+msgstr "Яна бир бошқаси {{numberOfItems}}"
 
 msgid "Unsaved visualization"
-msgstr ""
+msgstr "Сақланмаган визуализация"
 
 msgid "Edited"
 msgstr ""
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
+msgstr " {{ТалқинВақт}} дан талқинни кўриш"
 
 msgid "Getting started"
-msgstr ""
+msgstr "Иш бошланганида"
 
 msgid ""
 "All dimensions that you can use to build visualizations are shown in the "
 "left sidebar"
 msgstr ""
+"Визуализацияни шакллантириш учун фойдаланилган барча ўлчамлар, ён панелда "
+"кўрсатилган"
 
 msgid "Add dimensions to the layout above"
-msgstr ""
+msgstr "Юқори қават ўлчамларини қўшинг"
 
 msgid "Click a dimension to add or remove items"
-msgstr ""
+msgstr "Элементларни қўшиш ёки ўчириш учун, ўлчамлар тугмасини босинг"
 
 msgid "Your most viewed charts and tables"
-msgstr ""
+msgstr "Сизнинг энг кўрилган диаграмма ва жадвалларингиз"
 
 msgid "Aggregation type"
-msgstr ""
+msgstr "Бирлаштириш тури"
 
 msgid "Determines how the values in the pivot table are aggregated."
 msgstr ""
 
 msgid "By data element"
-msgstr ""
+msgstr "Маълумотлар элементи бўйича"
 
 msgid "Count"
-msgstr ""
+msgstr "Ҳисоблаш"
 
 msgid "Average"
-msgstr ""
+msgstr "Ўртача"
 
 msgid "Average (sum in org unit hierarchy)"
 msgstr "Ўртача (ташкилий бирлик иерархияси жамланмаси)"
 
 msgid "Sum"
-msgstr ""
+msgstr "Жамлаш"
 
 msgid "Last value"
-msgstr ""
+msgstr "Охирги қиймат"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr ""
+msgstr "Охирги қиймат (ташкилий бўлим иерархияси ўртача қиймати)"
 
 msgid "Min"
-msgstr ""
+msgstr "Минимум"
 
 msgid "Max"
 msgstr "Максимум"
 
 msgid "Standard deviation"
-msgstr ""
+msgstr "Стандарт оғиш"
 
 msgid "Variance"
-msgstr ""
+msgstr "Номувофиқлик"
 
 msgid "Data approved at level"
-msgstr ""
+msgstr "Маълумотлар тасдиқланган поғона"
 
 msgid "Select from predefined levels"
-msgstr ""
+msgstr "олдиндан белгиланган даражалардан танланг"
 
 msgid "Loading data approval levels"
-msgstr ""
+msgstr "Маълумотларни тасдиқлаш даражалари юкланмоқда"
 
 msgid "Axis range"
-msgstr ""
+msgstr "Ўқлар диапазони"
 
 msgid "Values outside of the range will not be displayed"
-msgstr ""
+msgstr "Диапазондан ташқари қийматлар акс эттирилмайди"
 
 msgid "Base line"
-msgstr ""
+msgstr "Базавий чизиқ"
 
 msgid "Value"
-msgstr ""
+msgstr "Қиймат"
 
 msgid "Title"
-msgstr ""
+msgstr "Сарлавҳа"
 
 msgid "Base line title"
-msgstr ""
+msgstr "Асосий қатор қиймати"
 
 msgid "Number"
-msgstr ""
+msgstr "Тартиб рақами"
 
 msgid "Column sub-totals"
 msgstr ""
@@ -305,13 +311,13 @@ msgid "Columns totals"
 msgstr ""
 
 msgid "Event data"
-msgstr ""
+msgstr "Ҳодиса/Тадбир маълумотлари"
 
 msgid "Only include completed events"
-msgstr ""
+msgstr "Фақат тугалланган ҳодиса/тадбирларни ўз ичига олади"
 
 msgid "Include cumulative"
-msgstr ""
+msgstr "Кумуляцияни ўз ичига олади"
 
 msgid "Cumulative values"
 msgstr "Кумулятив қийматлар"
@@ -323,106 +329,106 @@ msgid "None"
 msgstr "Йўқ"
 
 msgid "Space"
-msgstr ""
+msgstr "Оралиқ (майдон)"
 
 msgid "Comma"
-msgstr ""
+msgstr "Вергул"
 
 msgid "Display density"
-msgstr ""
+msgstr "Кўриниш зичлиги"
 
 msgid "Comfortable"
-msgstr ""
+msgstr "Қулай"
 
 msgid "Normal"
-msgstr ""
+msgstr "Меъёрий"
 
 msgid "Compact"
-msgstr ""
+msgstr "Зич"
 
 msgid "Axis title"
-msgstr ""
+msgstr "Ўқ сарлавҳаси"
 
 msgid "Add a title"
-msgstr ""
+msgstr "Сарлавҳа қўшиш"
 
 msgid "Font size"
 msgstr "Шрифт ҳажми"
 
 msgid "Large"
-msgstr ""
+msgstr "Катта"
 
 msgid "Small"
-msgstr ""
+msgstr "Кичик"
 
 msgid "Hide empty columns"
-msgstr ""
+msgstr "Бўш устунларни беркитиш"
 
 msgid "Hide empty categories"
-msgstr ""
+msgstr "Бўш категорияларни беркитиш"
 
 msgid "Before first"
-msgstr ""
+msgstr "Олдинги бет"
 
 msgid "After last"
 msgstr "Охиргидан кейинги"
 
 msgid "Before first and after last"
-msgstr ""
+msgstr "Биринчидан олдинги ва охиргидан кейинги"
 
 msgid "All"
 msgstr ""
 
 msgid "Hide empty rows"
-msgstr ""
+msgstr "Бўш қаторларни беркитиш"
 
 msgid "Legend key"
 msgstr ""
 
 msgid "Table subtitle"
-msgstr ""
+msgstr "Жадвал таглавҳаси"
 
 msgid "Chart subtitle"
-msgstr ""
+msgstr "Диаграмма шарҳи"
 
 msgid "Auto generated"
-msgstr ""
+msgstr "Автоматик равишда яратилган"
 
 msgid "Custom"
 msgstr ""
 
 msgid "Table title"
-msgstr ""
+msgstr "Жадвал сарлавҳаси"
 
 msgid "Chart title"
 msgstr ""
 
 msgid "Display legend"
-msgstr ""
+msgstr "Таърифни экранда кўрсатиш"
 
 msgid "Legend style"
-msgstr ""
+msgstr "Таъриф тури"
 
 msgid "Legend type"
 msgstr ""
 
 msgid "Use pre-defined legend per data item"
-msgstr ""
+msgstr "Ҳар бир маълумот учун олдиндан белгиланган таърифдан фойдаланинг"
 
 msgid "Select a single legend for entire table"
-msgstr ""
+msgstr "Бутун жадвал учун битта таърифни танланг"
 
 msgid "Legend changes background color"
-msgstr ""
+msgstr "Таъриф фон рангини ўзгартиради"
 
 msgid "Legend changes text color"
-msgstr ""
+msgstr "Таъриф матн рангини ўзгартиради"
 
 msgid "Legend"
 msgstr "Таъриф"
 
 msgid "Select from legends"
-msgstr ""
+msgstr "Таърифлардан сўранг"
 
 msgid "Loading legends"
 msgstr "Таърифлар юкланмоқда"
@@ -431,132 +437,135 @@ msgid ""
 "You can set a minimum or maximum value. This will apply to the entire table,"
 " all values outside of the minimum/maximum range will not be displayed"
 msgstr ""
+"Минимал ёки максимал қийматни белгилашингиз мумкин. Бу бутун жадвалга "
+"тааллуқлидир, минимал/максимал диапазондан ташқарисидаги барча қийматлар "
+"экранда кўрсатилмайди."
 
 msgid "Minimum data value"
-msgstr ""
+msgstr "Маълумотларнинг минимал қиймати"
 
 msgid "Maximum data value"
-msgstr ""
+msgstr "Маълумотларнинг максимал қиймати"
 
 msgid "Clear min/max limits"
-msgstr ""
+msgstr "Минимал/максимал чегараларини аниқлаштиринг"
 
 msgid "No space between bars/columns"
-msgstr ""
+msgstr "Барлар/устунлар орасида бўш жой йўқ"
 
 msgid "Number type"
-msgstr ""
+msgstr "Рақам тури"
 
 msgid "Display the value of percentages of the total"
-msgstr ""
+msgstr "Жамидан фоизлар қийматини экранда кўрсатиш"
 
 msgid "Percentage of row"
-msgstr ""
+msgstr "Қатор фоизи"
 
 msgid "Percentage of column"
-msgstr ""
+msgstr "Устун фоизи"
 
 msgid "Organisation unit"
-msgstr ""
+msgstr "Ташкилий бўлим"
 
 msgid "Parent organisation unit"
-msgstr ""
+msgstr "Юқори ташкилот бўлими"
 
 msgid "Reporting period"
-msgstr ""
+msgstr "Ҳисобот даври"
 
 msgid "Stacked values add up to 100%"
-msgstr ""
+msgstr "Умумий йиғиндиси 100% ни ташкил этади"
 
 msgid "Decimals"
-msgstr ""
+msgstr "Ўнли касрлар"
 
 msgid "Auto"
-msgstr ""
+msgstr "Авто"
 
 msgid "The number of axis steps between the min and max values"
 msgstr ""
 
 msgid "Steps"
-msgstr ""
+msgstr "Қадамлар"
 
 msgid "Include regression"
-msgstr ""
+msgstr "Регрессияни ўз ичига олади"
 
 msgid "Trend line"
 msgstr "Йўналиш қатори"
 
 msgid "Linear"
-msgstr ""
+msgstr "Чизиқли"
 
 msgid "Polynomial"
-msgstr ""
+msgstr "Кўп бўғимли"
 
 msgid "Loess"
-msgstr ""
+msgstr "Силжувчи"
 
 msgid "Row sub-totals"
-msgstr ""
+msgstr "Қаторнинг оралиқ йиғиндиси"
 
 msgid "Row totals"
-msgstr ""
+msgstr "Қатор йиғиндиси"
 
 msgid "Value labels"
-msgstr ""
+msgstr "Қиймат ёрлиқлари"
 
 msgid "Dimension labels"
-msgstr ""
+msgstr "Ўлчам қийматлари"
 
 msgid "Display organisation unit hierarchy"
 msgstr "Ташкилий бўлим иерархиясини экранда кўрсатиш"
 
 msgid "Skip rounding"
-msgstr ""
+msgstr "Соддалаштириш ўтказиб юборилсин"
 
 msgid "Custom sort order"
-msgstr ""
+msgstr "Махсус саралаш тартиби"
 
 msgid "Low to high"
 msgstr "Пастдан юқорига"
 
 msgid "High to low"
-msgstr ""
+msgstr "Юқоридан пастга"
 
 msgid "Add a subtitle"
-msgstr ""
+msgstr "Таглавҳа қўшинг"
 
 msgid "Target line"
 msgstr "Мақсад чегара чизиғи"
 
 msgid "Target line title"
-msgstr ""
+msgstr "Мақсадли қатор сарлавҳаси"
 
 msgid "Top limit"
-msgstr ""
+msgstr "Юқори чегара"
 
 msgid "Options"
 msgstr "Вариант"
 
 msgid "Open as Map"
-msgstr ""
+msgstr "Харита сифатида очиш"
 
 msgid "Reporting rate"
-msgstr ""
+msgstr "Ҳисоботдаги ставка"
 
 msgid "Reporting rate on time"
-msgstr ""
+msgstr "Ҳисоботдаги ставка ўз вақтида"
 
 msgid "Actual reports"
-msgstr ""
+msgstr "Ҳақиқий ҳисоботлар"
 
 msgid "Actual reports on time"
-msgstr ""
+msgstr "Ҳақиқий ҳисоботлар ўз вақтида"
 
 msgid "Expected reports"
 msgstr "Кутилаётган ҳисоботлар"
 
 msgid "No data available"
-msgstr ""
+msgstr "Маълумотлар мавжуд эмас"
 
 msgid ""
 "The selected dimensions didn’t return any data. There may be no data, or you"
@@ -569,10 +578,10 @@ msgid "{{axisName}} is empty"
 msgstr "{{axisName}} бўш"
 
 msgid "Add at least one item to {{axisName}}."
-msgstr ""
+msgstr "{{axisName}} учун камида бир элементни киритинг"
 
 msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
-msgstr ""
+msgstr "{{columnsAxisName}} ва {{rowsAxisName}} бўш"
 
 msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
@@ -580,11 +589,13 @@ msgid ""
 msgstr ""
 
 msgid "No period selected"
-msgstr ""
+msgstr "Давр танланмаган"
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
 msgstr ""
+"{{visualizationType}} камида бир даврга эга бўлмоғи лозим, танланган ўқда "
+"{{axes}}."
 
 msgid "No data selected"
 msgstr "Маълумот танланмаган"
@@ -593,12 +604,14 @@ msgid ""
 "{{visualizationType}} must have at least one data item or data element group"
 " set item in {{axes}}."
 msgstr ""
+"{{visualizationType}} камида бир маълумот элементи ёки элемент гуруҳи "
+"тўпламига эга бўлмоғи лозим, танланган ўқда {{axes}}."
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
 msgstr ""
 
 msgid "There's a problem with the layout"
-msgstr ""
+msgstr "Бу ерда қатлам маълумотларида хатолик"
 
 msgid ""
 "A single indicator must be the only data item when using indicators as Data "
@@ -609,12 +622,14 @@ msgstr ""
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
 msgstr ""
+"Маълумотлар элементлари гуруҳи тўпламлари ва ҳисобот ставкаларини биргаликда"
+" ишлатиб бўлмайди."
 
 msgid "There is a problem with this {{visualizationType}} visualization."
-msgstr ""
+msgstr "Ушбу {{visualizationType}} визуализация билан боғлиқ муаммо мавжуд."
 
 msgid "There was a problem getting the data from the server."
-msgstr ""
+msgstr "Сервердан маълумотларни олишда муаммо юз берди."
 
 msgid "Assigned Categories can only be used with data elements"
 msgstr ""
@@ -623,84 +638,88 @@ msgstr ""
 msgid ""
 "Fix this problem by selecting data elements or removing Assigned Categories."
 msgstr ""
+"Маълумот элементларини танлаш ёки тайинланган тоифаларни олиб ташлаш орқали "
+"ушбу муаммони ҳал қилинг."
 
 msgid "Assigned Categories cannot be used as Filter"
-msgstr ""
+msgstr "Белгиланган тоифаларни Фильтр сифатида ишлатиб бўлмайди"
 
 msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
+"Белгиланган тоифаларни кўчириш ёки олиб ташлаш орқали ушбу муаммони ҳал "
+"қилинг."
 
 msgid "Something went wrong"
 msgstr "Нимадир нотўғри бажарилди"
 
 msgid "or"
-msgstr ""
+msgstr "ёки"
 
 msgid "Today"
-msgstr ""
+msgstr "Бугун"
 
 msgid "Yesterday"
 msgstr ""
 
 msgid "Last 3 days"
-msgstr ""
+msgstr "Охирги 3 кун"
 
 msgid "Last 7 days"
-msgstr ""
+msgstr "Охирги 7 кун"
 
 msgid "Last 14 days"
-msgstr ""
+msgstr "Охирги 14 кун"
 
 msgid "This week"
-msgstr ""
+msgstr "Ушбу ҳафта"
 
 msgid "Last week"
-msgstr ""
+msgstr "Охирги ҳафта"
 
 msgid "Last 4 weeks"
-msgstr ""
+msgstr "Охирги 4 ҳафта"
 
 msgid "Last 12 weeks"
 msgstr "Охирги 12 ҳафта"
 
 msgid "Last 52 weeks"
-msgstr ""
+msgstr "Охирги 52 ҳафта"
 
 msgid "Weeks this year"
 msgstr "Ҳафталар айни йилда "
 
 msgid "This month"
-msgstr ""
+msgstr "Ушбу ой"
 
 msgid "Last month"
-msgstr ""
+msgstr "Охирги ой"
 
 msgid "Last 3 months"
-msgstr ""
+msgstr "Охирги 3 ой"
 
 msgid "Last 6 months"
-msgstr ""
+msgstr "Охирги ярим йиллик"
 
 msgid "Last 12 months"
-msgstr ""
+msgstr "Охирги 12 ой"
 
 msgid "Months this year"
-msgstr ""
+msgstr "Ойлар ушбу йилда"
 
 msgid "This bimonth"
-msgstr ""
+msgstr "Ушбу жуфт ойлик"
 
 msgid "Last bimonth"
-msgstr ""
+msgstr "Охирги жуфт ойлик"
 
 msgid "Last 6 bimonths"
 msgstr ""
 
 msgid "Bimonths this year"
-msgstr ""
+msgstr "Ушбу йилдаги жуфт ойлар"
 
 msgid "This quarter"
-msgstr ""
+msgstr "Ушбу квартал"
 
 msgid "Last quarter"
 msgstr "Охирги квартал"
@@ -709,16 +728,16 @@ msgid "Last 4 quarters"
 msgstr "Охирги 4 квартал"
 
 msgid "Quarters this year"
-msgstr ""
+msgstr "Ушбу йилдаги кварталлар"
 
 msgid "This six-month"
-msgstr ""
+msgstr "Ушбу ярим йиллик"
 
 msgid "Last six-month"
-msgstr ""
+msgstr "Охирги ярим йиллик"
 
 msgid "Last 2 six-months"
-msgstr ""
+msgstr "Охирги 2 та ярим йиллик"
 
 msgid "This financial year"
 msgstr "Ушбу молиявий йил"
@@ -727,37 +746,37 @@ msgid "Last financial year"
 msgstr "Охирги молиявий йил"
 
 msgid "Last 5 financial years"
-msgstr ""
+msgstr "Охирги 5 молиявий йиллар"
 
 msgid "This year"
-msgstr ""
+msgstr "Ушбу йил"
 
 msgid "Last year"
-msgstr ""
+msgstr "Охирги йил"
 
 msgid "Last 5 years"
-msgstr ""
+msgstr "Охирги 5 йил"
 
 msgid "User org unit"
-msgstr ""
+msgstr "Фойдаланувчи ташкилот бўлими"
 
 msgid "User org unit children"
-msgstr ""
+msgstr "Фойдаланувчи ташкилий бўлими қуйи бўлимлари "
 
 msgid "User org unit grand children"
-msgstr ""
+msgstr "Фойдаланувчи ташкилий бўлими 2 поғона қуйи бўлимлари "
 
 msgid "Data"
-msgstr ""
+msgstr "Маълумот"
 
 msgid "Axes"
-msgstr ""
+msgstr "Ўқлар"
 
 msgid "Style"
 msgstr ""
 
 msgid "Display"
-msgstr ""
+msgstr "Экранда кўрсатиш"
 
 msgid "Lines"
 msgstr "Қаторлар"
@@ -766,31 +785,31 @@ msgid "Vertical (y) axis"
 msgstr "Вертикал (y) ўқи"
 
 msgid "Horizontal (x) axis"
-msgstr ""
+msgstr "горизонтал (Х) ўқ"
 
 msgid "Chart style"
-msgstr ""
+msgstr "Диаграмма услуби"
 
 msgid "Titles"
 msgstr ""
 
 msgid "Display totals"
-msgstr ""
+msgstr "Жами кўрсатгичларни экранда кўрсатиш"
 
 msgid "Display empty data"
-msgstr ""
+msgstr "Бўш маълумотларни экранда кўрсатиш"
 
 msgid "Labels"
-msgstr ""
+msgstr "Ёрлиқ/Белгилар"
 
 msgid "Limit values"
 msgstr ""
 
 msgid "Limit number of values"
-msgstr ""
+msgstr "Қийматларнинг чекланган сони"
 
 msgid "Limit minimum/maximum values"
-msgstr ""
+msgstr "Минимал/максимал қийматларни чеклаш"
 
 msgid "Parameters"
 msgstr ""
@@ -799,10 +818,10 @@ msgid "Weeks per year"
 msgstr "Йил ичида ҳафталар"
 
 msgid "Months per year"
-msgstr ""
+msgstr "Йил ичида ойлар"
 
 msgid "Bimonths per year"
-msgstr ""
+msgstr "Йил ичида жуфт ойлар"
 
 msgid "Quarters per year"
-msgstr ""
+msgstr "Йил ичида чораклар"

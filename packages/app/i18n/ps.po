@@ -57,7 +57,7 @@ msgid "Cancel"
 msgstr ""
 
 msgid "Update"
-msgstr ""
+msgstr "تجدید یا نوي یې کړئ"
 
 msgid "Add to {{axisName}}"
 msgstr ""
@@ -85,7 +85,7 @@ msgid "Filter dimensions"
 msgstr ""
 
 msgid "Graphics"
-msgstr ""
+msgstr "ګرافیکي مالومات"
 
 msgid "Image (.png)"
 msgstr ""
@@ -94,7 +94,7 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Table layout"
-msgstr ""
+msgstr "د جدول طرحه"
 
 msgid "Excel (.xls)"
 msgstr ""
@@ -106,43 +106,43 @@ msgid "HTML (.html)"
 msgstr ""
 
 msgid "Download"
-msgstr ""
+msgstr "بارگیری"
 
 msgid "Plain data source"
-msgstr ""
+msgstr "د ډاټا یا مالوماتو ساده سرچینه"
 
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 msgid "Excel"
 msgstr ""
 
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 msgid "Advanced"
-msgstr ""
+msgstr "پرمختللي."
 
 msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr ""
+msgstr "د هویت څرګندونه"
 
 msgid "Code"
-msgstr ""
+msgstr "کوډ یا شفر"
 
 msgid "Name"
 msgstr "نوم"
 
 msgid "Data value set"
-msgstr ""
+msgstr "د ډاټا یا مالوماتو د ارزښت ټولګه"
 
 msgid "Other formats"
-msgstr ""
+msgstr "نور فارمټونه یا نمونې"
 
 msgid "JRXML"
 msgstr ""
@@ -166,7 +166,7 @@ msgid "The following information may be requested by technical support."
 msgstr ""
 
 msgid "Hide"
-msgstr ""
+msgstr "پټ یې کړئ"
 
 msgid "Interpretations"
 msgstr "شفاهي ژباړې"
@@ -193,7 +193,7 @@ msgid "Levels"
 msgstr ""
 
 msgid "Groups"
-msgstr ""
+msgstr "ګروپونه"
 
 msgid "And 1 other..."
 msgstr ""
@@ -228,19 +228,19 @@ msgid "Your most viewed charts and tables"
 msgstr ""
 
 msgid "Aggregation type"
-msgstr ""
+msgstr "نوع مجموعه"
 
 msgid "Determines how the values in the pivot table are aggregated."
 msgstr ""
 
 msgid "By data element"
-msgstr ""
+msgstr "عنصر اطلاعات له خوا"
 
 msgid "Count"
-msgstr ""
+msgstr "شمېرل"
 
 msgid "Average"
-msgstr ""
+msgstr "منځنۍ"
 
 msgid "Average (sum in org unit hierarchy)"
 msgstr ""
@@ -255,19 +255,19 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr ""
 
 msgid "Min"
-msgstr ""
+msgstr "حداقل"
 
 msgid "Max"
-msgstr ""
+msgstr "حداعظم"
 
 msgid "Standard deviation"
-msgstr ""
+msgstr "معیاري انحراف"
 
 msgid "Variance"
-msgstr ""
+msgstr "توپیر"
 
 msgid "Data approved at level"
-msgstr ""
+msgstr "په سطحه کې د مالوماتو (ډاټا) منظورول"
 
 msgid "Select from predefined levels"
 msgstr ""
@@ -285,16 +285,16 @@ msgid "Base line"
 msgstr ""
 
 msgid "Value"
-msgstr ""
+msgstr "ارزښت یا رقم"
 
 msgid "Title"
-msgstr ""
+msgstr "عنوان"
 
 msgid "Base line title"
-msgstr ""
+msgstr "د بنسټیزې کرښې عنوان"
 
 msgid "Number"
-msgstr ""
+msgstr "عدد [ بشپړ عدد ]"
 
 msgid "Column sub-totals"
 msgstr ""
@@ -309,7 +309,7 @@ msgid "Only include completed events"
 msgstr ""
 
 msgid "Include cumulative"
-msgstr ""
+msgstr "جمع کول یا تراکم په کې شامل کړئ"
 
 msgid "Cumulative values"
 msgstr ""
@@ -321,19 +321,19 @@ msgid "None"
 msgstr "هېڅ یو"
 
 msgid "Space"
-msgstr ""
+msgstr "فاصله یا واټن"
 
 msgid "Comma"
-msgstr ""
+msgstr "کامه (،)"
 
 msgid "Display density"
-msgstr ""
+msgstr "ګڼوالۍ څرګند کړئ"
 
 msgid "Comfortable"
-msgstr ""
+msgstr "هوسا"
 
 msgid "Normal"
-msgstr ""
+msgstr "نورمال"
 
 msgid "Compact"
 msgstr ""
@@ -345,34 +345,34 @@ msgid "Add a title"
 msgstr ""
 
 msgid "Font size"
-msgstr ""
+msgstr "د ليکنې اندازه"
 
 msgid "Large"
-msgstr ""
+msgstr "لوی"
 
 msgid "Small"
-msgstr ""
+msgstr "کوچنۍ"
 
 msgid "Hide empty columns"
 msgstr ""
 
 msgid "Hide empty categories"
-msgstr ""
+msgstr "د تشو موضوعاتو د کټګوریو پټول"
 
 msgid "Before first"
-msgstr ""
+msgstr "لومړۍ اول"
 
 msgid "After last"
 msgstr "په وروستي څخه بعد"
 
 msgid "Before first and after last"
-msgstr ""
+msgstr "لومړۍ اول او له وروستي څخه بعد"
 
 msgid "All"
 msgstr ""
 
 msgid "Hide empty rows"
-msgstr ""
+msgstr "خالي یا تش کتارونه پټ کړئ"
 
 msgid "Legend key"
 msgstr ""
@@ -381,7 +381,7 @@ msgid "Table subtitle"
 msgstr ""
 
 msgid "Chart subtitle"
-msgstr ""
+msgstr "د چارټ عنوان"
 
 msgid "Auto generated"
 msgstr ""
@@ -390,7 +390,7 @@ msgid "Custom"
 msgstr ""
 
 msgid "Table title"
-msgstr ""
+msgstr "د جدول عنوان"
 
 msgid "Chart title"
 msgstr ""
@@ -443,7 +443,7 @@ msgid "No space between bars/columns"
 msgstr ""
 
 msgid "Number type"
-msgstr ""
+msgstr "Number type"
 
 msgid "Display the value of percentages of the total"
 msgstr ""
@@ -455,13 +455,13 @@ msgid "Percentage of column"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr ""
+msgstr "د سازمان واحد"
 
 msgid "Parent organisation unit"
-msgstr ""
+msgstr "د لوی سازمان واحد"
 
 msgid "Reporting period"
-msgstr ""
+msgstr "د راپور ورکولو موده"
 
 msgid "Stacked values add up to 100%"
 msgstr ""
@@ -476,16 +476,16 @@ msgid "The number of axis steps between the min and max values"
 msgstr ""
 
 msgid "Steps"
-msgstr ""
+msgstr "ګامونه"
 
 msgid "Include regression"
-msgstr ""
+msgstr "شا ته تګ په کې شامل کړئ"
 
 msgid "Trend line"
 msgstr "د محاسبې کرښې ښکاره کړئ"
 
 msgid "Linear"
-msgstr ""
+msgstr "د کرښې چارټ"
 
 msgid "Polynomial"
 msgstr ""
@@ -509,7 +509,7 @@ msgid "Display organisation unit hierarchy"
 msgstr ""
 
 msgid "Skip rounding"
-msgstr ""
+msgstr "له ګردولو (راونډینګ) څخه تېر شئ"
 
 msgid "Custom sort order"
 msgstr ""
@@ -518,7 +518,7 @@ msgid "Low to high"
 msgstr "د ښکته لوري څخه پورته خوا ته"
 
 msgid "High to low"
-msgstr ""
+msgstr "د پورتنۍ خوا څخه ښکته لوري ته"
 
 msgid "Add a subtitle"
 msgstr ""
@@ -527,10 +527,10 @@ msgid "Target line"
 msgstr ""
 
 msgid "Target line title"
-msgstr ""
+msgstr "د ټاکلې کرښې عنوان"
 
 msgid "Top limit"
-msgstr ""
+msgstr "وروستۍ حد"
 
 msgid "Options"
 msgstr "ګزینه"
@@ -576,7 +576,7 @@ msgid ""
 msgstr ""
 
 msgid "No period selected"
-msgstr ""
+msgstr "هیج معیاد انتخاب نشده است"
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
@@ -630,55 +630,55 @@ msgid "or"
 msgstr ""
 
 msgid "Today"
-msgstr ""
+msgstr "نن ورځ"
 
 msgid "Yesterday"
 msgstr ""
 
 msgid "Last 3 days"
-msgstr ""
+msgstr "تېرې درې ورځې"
 
 msgid "Last 7 days"
-msgstr ""
+msgstr "تېرې اوه ورځې"
 
 msgid "Last 14 days"
-msgstr ""
+msgstr "تېرې څورلس ورځې"
 
 msgid "This week"
-msgstr ""
+msgstr "هفته هذا"
 
 msgid "Last week"
-msgstr ""
+msgstr "تېره اونۍ"
 
 msgid "Last 4 weeks"
-msgstr ""
+msgstr "تېرې 4 اونۍ"
 
 msgid "Last 12 weeks"
 msgstr "تېرو 12 اونۍ"
 
 msgid "Last 52 weeks"
-msgstr ""
+msgstr "تېرې دوه پنځوس اونۍ"
 
 msgid "Weeks this year"
-msgstr ""
+msgstr "په روان کال کې اونۍ"
 
 msgid "This month"
-msgstr ""
+msgstr "ماه هذا"
 
 msgid "Last month"
-msgstr ""
+msgstr "تېره میاشت"
 
 msgid "Last 3 months"
-msgstr ""
+msgstr "تېرې 3 میاشتې"
 
 msgid "Last 6 months"
-msgstr ""
+msgstr "تېرې شپږ میاشتې"
 
 msgid "Last 12 months"
-msgstr ""
+msgstr "تېرې 12 میاشتې"
 
 msgid "Months this year"
-msgstr ""
+msgstr "د روان کال میاشتې"
 
 msgid "This bimonth"
 msgstr ""
@@ -693,46 +693,46 @@ msgid "Bimonths this year"
 msgstr ""
 
 msgid "This quarter"
-msgstr ""
+msgstr "ربع هذا"
 
 msgid "Last quarter"
 msgstr "تېره ربعه"
 
 msgid "Last 4 quarters"
-msgstr ""
+msgstr "تېرې 4ربعې"
 
 msgid "Quarters this year"
-msgstr ""
+msgstr "د سږ کال ربعې"
 
 msgid "This six-month"
-msgstr ""
+msgstr "شش ماه هذا"
 
 msgid "Last six-month"
-msgstr ""
+msgstr "تېرې شپږ میاشتې [ تېرې ـ شپږ ـ میاشتې ]"
 
 msgid "Last 2 six-months"
-msgstr ""
+msgstr "تېرې دوه شپږ میاشتې"
 
 msgid "This financial year"
 msgstr "سږنۍ مالي کال"
 
 msgid "Last financial year"
-msgstr ""
+msgstr "تېر مالي کال"
 
 msgid "Last 5 financial years"
-msgstr ""
+msgstr "تېر 5 مالي کلونه"
 
 msgid "This year"
-msgstr ""
+msgstr "روان کال"
 
 msgid "Last year"
-msgstr ""
+msgstr "تېر کال"
 
 msgid "Last 5 years"
-msgstr ""
+msgstr "تېر 5 کلونه"
 
 msgid "User org unit"
-msgstr ""
+msgstr "د سازمان د واحد کاروونکی"
 
 msgid "User org unit children"
 msgstr ""
@@ -741,16 +741,16 @@ msgid "User org unit grand children"
 msgstr ""
 
 msgid "Data"
-msgstr ""
+msgstr "مالومات (ډاټا)"
 
 msgid "Axes"
-msgstr ""
+msgstr "محورونه"
 
 msgid "Style"
 msgstr ""
 
 msgid "Display"
-msgstr ""
+msgstr "ښکاره یې کړئ"
 
 msgid "Lines"
 msgstr ""

@@ -57,7 +57,7 @@ msgid "Cancel"
 msgstr ""
 
 msgid "Update"
-msgstr ""
+msgstr "Uppdatera"
 
 msgid "Add to {{axisName}}"
 msgstr ""
@@ -106,22 +106,22 @@ msgid "HTML (.html)"
 msgstr ""
 
 msgid "Download"
-msgstr ""
+msgstr "Ladda ner"
 
 msgid "Plain data source"
 msgstr ""
 
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 msgid "Excel"
 msgstr ""
 
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 msgid "Advanced"
 msgstr ""
@@ -130,10 +130,10 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr ""
+msgstr "id"
 
 msgid "Code"
-msgstr ""
+msgstr "Koda"
 
 msgid "Name"
 msgstr "Namn"
@@ -193,7 +193,7 @@ msgid "Levels"
 msgstr ""
 
 msgid "Groups"
-msgstr ""
+msgstr "Grupper"
 
 msgid "And 1 other..."
 msgstr ""
@@ -228,25 +228,25 @@ msgid "Your most viewed charts and tables"
 msgstr ""
 
 msgid "Aggregation type"
-msgstr ""
+msgstr "Aggregationtyp"
 
 msgid "Determines how the values in the pivot table are aggregated."
 msgstr ""
 
 msgid "By data element"
-msgstr ""
+msgstr "Per dataelement"
 
 msgid "Count"
-msgstr ""
+msgstr "Räkna"
 
 msgid "Average"
-msgstr ""
+msgstr "Genomsnitt"
 
 msgid "Average (sum in org unit hierarchy)"
 msgstr ""
 
 msgid "Sum"
-msgstr ""
+msgstr "Belopp"
 
 msgid "Last value"
 msgstr ""
@@ -255,16 +255,16 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr ""
 
 msgid "Min"
-msgstr ""
+msgstr "min"
 
 msgid "Max"
 msgstr "max"
 
 msgid "Standard deviation"
-msgstr ""
+msgstr "Standardavvikelse"
 
 msgid "Variance"
-msgstr ""
+msgstr "Variation"
 
 msgid "Data approved at level"
 msgstr ""
@@ -285,16 +285,16 @@ msgid "Base line"
 msgstr ""
 
 msgid "Value"
-msgstr ""
+msgstr "Värde"
 
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 msgid "Base line title"
 msgstr ""
 
 msgid "Number"
-msgstr ""
+msgstr "Antal"
 
 msgid "Column sub-totals"
 msgstr ""
@@ -333,7 +333,7 @@ msgid "Comfortable"
 msgstr ""
 
 msgid "Normal"
-msgstr ""
+msgstr "Vanligt"
 
 msgid "Compact"
 msgstr ""
@@ -455,7 +455,7 @@ msgid "Percentage of column"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr ""
+msgstr "Organisationsenhet"
 
 msgid "Parent organisation unit"
 msgstr ""
@@ -476,7 +476,7 @@ msgid "The number of axis steps between the min and max values"
 msgstr ""
 
 msgid "Steps"
-msgstr ""
+msgstr "Steg"
 
 msgid "Include regression"
 msgstr ""
@@ -576,7 +576,7 @@ msgid ""
 msgstr ""
 
 msgid "No period selected"
-msgstr ""
+msgstr "Ingen valda perioden"
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
@@ -645,40 +645,40 @@ msgid "Last 14 days"
 msgstr ""
 
 msgid "This week"
-msgstr ""
+msgstr "Denna vecka"
 
 msgid "Last week"
-msgstr ""
+msgstr "Förra veckan"
 
 msgid "Last 4 weeks"
-msgstr ""
+msgstr "Senaste 4 veckorna"
 
 msgid "Last 12 weeks"
 msgstr "Senast 12 veckor"
 
 msgid "Last 52 weeks"
-msgstr ""
+msgstr "Senast 52 veckor"
 
 msgid "Weeks this year"
 msgstr ""
 
 msgid "This month"
-msgstr ""
+msgstr "Den här månaden"
 
 msgid "Last month"
-msgstr ""
+msgstr "Förra månaden"
 
 msgid "Last 3 months"
-msgstr ""
+msgstr "Senaste 3 månaderna"
 
 msgid "Last 6 months"
-msgstr ""
+msgstr "Senaste 6 månaderna"
 
 msgid "Last 12 months"
-msgstr ""
+msgstr "Senaste 12 månaderna"
 
 msgid "Months this year"
-msgstr ""
+msgstr "Månader i år"
 
 msgid "This bimonth"
 msgstr ""
@@ -693,7 +693,7 @@ msgid "Bimonths this year"
 msgstr ""
 
 msgid "This quarter"
-msgstr ""
+msgstr "detta kvartal"
 
 msgid "Last quarter"
 msgstr "Förra kvartalet"
@@ -702,34 +702,34 @@ msgid "Last 4 quarters"
 msgstr "Senaste 4 kvartal"
 
 msgid "Quarters this year"
-msgstr ""
+msgstr "Kvartalen i år"
 
 msgid "This six-month"
-msgstr ""
+msgstr "Denna sexmånaders"
 
 msgid "Last six-month"
-msgstr ""
+msgstr "Senast sex månader"
 
 msgid "Last 2 six-months"
-msgstr ""
+msgstr "Senaste 2 sex månader"
 
 msgid "This financial year"
 msgstr "Detta räkenskapsår"
 
 msgid "Last financial year"
-msgstr ""
+msgstr "Föregående räkenskapsår"
 
 msgid "Last 5 financial years"
-msgstr ""
+msgstr "Senaste 5 räkenskapsåren"
 
 msgid "This year"
-msgstr ""
+msgstr "Det här året"
 
 msgid "Last year"
-msgstr ""
+msgstr "Förra året"
 
 msgid "Last 5 years"
-msgstr ""
+msgstr "Senaste 5 år"
 
 msgid "User org unit"
 msgstr ""
@@ -741,7 +741,7 @@ msgid "User org unit grand children"
 msgstr ""
 
 msgid "Data"
-msgstr ""
+msgstr "Data"
 
 msgid "Axes"
 msgstr ""
