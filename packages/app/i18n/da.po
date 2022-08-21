@@ -53,7 +53,7 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Cancel"
 
 msgid "Update"
 msgstr "Update"
@@ -368,7 +368,7 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr ""
+msgstr "All"
 
 msgid "Hide empty rows"
 msgstr ""
@@ -386,7 +386,7 @@ msgid "Auto generated"
 msgstr ""
 
 msgid "Custom"
-msgstr ""
+msgstr "Custom"
 
 msgid "Table title"
 msgstr ""
@@ -746,7 +746,7 @@ msgid "Axes"
 msgstr ""
 
 msgid "Style"
-msgstr ""
+msgstr "Style"
 
 msgid "Display"
 msgstr ""

@@ -34,6 +34,7 @@ msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
 "be lost."
 msgstr ""
+"هل أنت متأكد أنك تريد ترك هذا المخطط البياني؟ ستفقد أي تغييرات غير محفوظة."
 
 msgid "No, cancel"
 msgstr "لا، الغاء"
@@ -54,9 +55,11 @@ msgid ""
 "A chart can have two axes. Each axis will have its own scale. Set the axis "
 "for each data selection below."
 msgstr ""
+"يمكن أن يحتوي المخطط على محورين. سيكون لكل محور مقياسه الخاص. قم بتعيين محور"
+" لكل مجموعة بيانات أدناه."
 
 msgid "Cancel"
-msgstr ""
+msgstr "إلغاء"
 
 msgid "Update"
 msgstr "تحديث"
@@ -82,7 +85,7 @@ msgid "Main dimensions"
 msgstr "الأبعاد الرئيسية"
 
 msgid "Other dimensions"
-msgstr ""
+msgstr "أبعاد أخرى"
 
 msgid "Your dimensions"
 msgstr "الأبعاد الخاصة بك"
@@ -178,7 +181,7 @@ msgid "Interpretations"
 msgstr "التفسيرات"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr ""
+msgstr "{{total}} من {{axisMaxNumberOfItems}} تم تحديدها"
 
 msgid "{{total}} selected"
 msgstr "{{total}} تم تحديدها"
@@ -202,7 +205,7 @@ msgid "Groups"
 msgstr "المجموعات"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "و 1 غيرها ..."
 
 msgid "And {{numberOfItems}} others..."
 msgstr "و {{numberOfItems}} أخرى..."
@@ -211,7 +214,7 @@ msgid "Unsaved visualization"
 msgstr "مخطط عرض غير محفوظ"
 
 msgid "Edited"
-msgstr ""
+msgstr "تم التعديل"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "مشاهدة التفسير من  {{interpretationDate}}"
@@ -254,7 +257,7 @@ msgid "Average (sum in org unit hierarchy)"
 msgstr "المتوسط (المجموع في التسلسل الهرمي للوحدة التنظيمية)"
 
 msgid "Sum"
-msgstr ""
+msgstr "المجموع"
 
 msgid "Last value"
 msgstr "القيمة الأخيرة"
@@ -290,7 +293,7 @@ msgid "Values outside of the range will not be displayed"
 msgstr "لن يتم عرض القيم خارج النطاق"
 
 msgid "Base line"
-msgstr ""
+msgstr "خط الأساس"
 
 msgid "Value"
 msgstr "القيمة"
@@ -305,10 +308,10 @@ msgid "Number"
 msgstr "العدد"
 
 msgid "Column sub-totals"
-msgstr ""
+msgstr "إجماليات العمود الفرعية"
 
 msgid "Columns totals"
-msgstr ""
+msgstr "إجماليات الأعمدة"
 
 msgid "Event data"
 msgstr "بيانات الحدث"
@@ -323,7 +326,7 @@ msgid "Cumulative values"
 msgstr "قيم تراكمية"
 
 msgid "Digit group separator"
-msgstr ""
+msgstr "فاصل مجموعة الخانات الرقمية"
 
 msgid "None"
 msgstr "لا شيء"
@@ -344,7 +347,7 @@ msgid "Normal"
 msgstr "عادي"
 
 msgid "Compact"
-msgstr ""
+msgstr "مضغوط"
 
 msgid "Axis title"
 msgstr "عنوان المحور"
@@ -377,13 +380,13 @@ msgid "Before first and after last"
 msgstr "قبل الأول وبعد الأخير"
 
 msgid "All"
-msgstr ""
+msgstr "الجميع"
 
 msgid "Hide empty rows"
 msgstr "إخفاء الصفوف الفارغة"
 
 msgid "Legend key"
-msgstr ""
+msgstr "مفتاح إيضاحي"
 
 msgid "Table subtitle"
 msgstr "العنوان الفرعي للجدول"
@@ -395,13 +398,13 @@ msgid "Auto generated"
 msgstr "توليد تلقائي"
 
 msgid "Custom"
-msgstr ""
+msgstr "مخصص"
 
 msgid "Table title"
 msgstr "عنوان الجدول"
 
 msgid "Chart title"
-msgstr ""
+msgstr "عنوان المخطط البياني"
 
 msgid "Display legend"
 msgstr "عرض المفاتيح الإيضاحية"
@@ -410,10 +413,10 @@ msgid "Legend style"
 msgstr "نمط مفتاح الإيضاح"
 
 msgid "Legend type"
-msgstr ""
+msgstr "نوع مفتاح الخريطة"
 
 msgid "Use pre-defined legend per data item"
-msgstr ""
+msgstr "استخدم مفتاح إيضاح معرف مسبقاً لكل عنصر بيانات"
 
 msgid "Select a single legend for entire table"
 msgstr "حدد مفتاح إيضاحي واحد للجدول بالكامل"
@@ -483,7 +486,7 @@ msgid "Auto"
 msgstr "تلقائي"
 
 msgid "The number of axis steps between the min and max values"
-msgstr ""
+msgstr "عدد خطوات المحور بين القيم الدنيا والقصوى"
 
 msgid "Steps"
 msgstr "الخطوات"
@@ -549,13 +552,13 @@ msgid "Open as Map"
 msgstr "فتح كخريطة"
 
 msgid "Reporting rate"
-msgstr ""
+msgstr "معدل الإبلاغ"
 
 msgid "Reporting rate on time"
 msgstr "معدل الإبلاغ في الوقت المحدد"
 
 msgid "Actual reports"
-msgstr ""
+msgstr "الإبلاغات الفعلية"
 
 msgid "Actual reports on time"
 msgstr "الإبلاغات الفعلية في الوقت المحدد"
@@ -586,6 +589,8 @@ msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
 " {{visualizationType}}."
 msgstr ""
+"أضف عنصرًا واحدًا على الأقل إلى {{columnsAxisName}} أو الـ {{rowsAxisName}} "
+"لإنشاء {{visualizationType}}."
 
 msgid "No period selected"
 msgstr "لم يتم اختيار فترة"
@@ -607,7 +612,7 @@ msgstr ""
 "مجموعة مجموعة بيانات واحد في {{axes}}."
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
-msgstr ""
+msgstr "{{visualizationType}} يجب ان تحتوي عنصر واحد على الأقل على {{axes}}."
 
 msgid "There's a problem with the layout"
 msgstr "هناك مشكلة في التخطيط"
@@ -652,10 +657,10 @@ msgid "Today"
 msgstr "اليوم"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "الأمس"
 
 msgid "Last 3 days"
-msgstr ""
+msgstr "آخر 3 أيام"
 
 msgid "Last 7 days"
 msgstr "آخر 7 أيام"
@@ -706,7 +711,7 @@ msgid "Last bimonth"
 msgstr "آخر ثنائي شهري"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "آخر 6 أزواج شهرية"
 
 msgid "Bimonths this year"
 msgstr "كل شهرين هذا العام"
@@ -724,7 +729,7 @@ msgid "Quarters this year"
 msgstr "أرباع السنة الحالية"
 
 msgid "This six-month"
-msgstr ""
+msgstr "الستة أشهر الحالية"
 
 msgid "Last six-month"
 msgstr "آخر ستة-أشهر"
@@ -742,7 +747,7 @@ msgid "Last 5 financial years"
 msgstr "آخر 5 سنوات مالية"
 
 msgid "This year"
-msgstr ""
+msgstr "السنة الحالية"
 
 msgid "Last year"
 msgstr "السنة الماضية"
@@ -766,7 +771,7 @@ msgid "Axes"
 msgstr "المحاور"
 
 msgid "Style"
-msgstr ""
+msgstr "المظهر"
 
 msgid "Display"
 msgstr "العرض"
@@ -784,7 +789,7 @@ msgid "Chart style"
 msgstr "نمط الرسم البياني"
 
 msgid "Titles"
-msgstr ""
+msgstr "العناوين"
 
 msgid "Display totals"
 msgstr "عرض الإجماليات"
@@ -796,7 +801,7 @@ msgid "Labels"
 msgstr "التسميات"
 
 msgid "Limit values"
-msgstr ""
+msgstr "حدد حدود القيم"
 
 msgid "Limit number of values"
 msgstr "تحديد حدود عدد القيم"
@@ -805,7 +810,7 @@ msgid "Limit minimum/maximum values"
 msgstr "الحد من القيم الدنيا / القصوى"
 
 msgid "Parameters"
-msgstr ""
+msgstr "المعاملات"
 
 msgid "Weeks per year"
 msgstr "أسابيع في السنة"

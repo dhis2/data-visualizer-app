@@ -1,8 +1,8 @@
 # 
 # Translators:
 # Thuy Nguyen <thuynguyen@hispvietnam.org>, 2022
-# phil_dhis2, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
+# phil_dhis2, 2022
 # Mai Nguyen <thanhmai.jica@gmail.com>, 2022
 # 
 msgid ""
@@ -56,9 +56,11 @@ msgid ""
 "A chart can have two axes. Each axis will have its own scale. Set the axis "
 "for each data selection below."
 msgstr ""
+"Một biểu đồ có thể có hai trục tọa độ. Mỗi trục sẽ có tỷ lệ riêng. Đặt trục "
+"cho mỗi lựa chọn dữ liệu bên dưới."
 
 msgid "Cancel"
-msgstr ""
+msgstr "Hủy"
 
 msgid "Update"
 msgstr "Cập nhật"
@@ -84,7 +86,7 @@ msgid "Main dimensions"
 msgstr "Các chiều chính"
 
 msgid "Other dimensions"
-msgstr ""
+msgstr "Các chiều khác"
 
 msgid "Your dimensions"
 msgstr "Các chiều dữ liệu của bạn"
@@ -180,7 +182,7 @@ msgid "Interpretations"
 msgstr "Diễn giải "
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr ""
+msgstr "{{total}} / {{axisMaxNumberOfItems}}Đã chọn "
 
 msgid "{{total}} selected"
 msgstr "Đã chọn {{total}}"
@@ -204,7 +206,7 @@ msgid "Groups"
 msgstr "Các nhóm"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "Và 1..."
 
 msgid "And {{numberOfItems}} others..."
 msgstr "Và {{numberOfItems}} khác ..."
@@ -213,7 +215,7 @@ msgid "Unsaved visualization"
 msgstr "Không lưu mô hình trực quan hóa"
 
 msgid "Edited"
-msgstr ""
+msgstr "Chỉnh sửa"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "Xem phần diễn giải từ {{interpretationDate}}"
@@ -307,10 +309,10 @@ msgid "Number"
 msgstr "Số"
 
 msgid "Column sub-totals"
-msgstr ""
+msgstr "Tổng phụ cột"
 
 msgid "Columns totals"
-msgstr ""
+msgstr "Tổng cột"
 
 msgid "Event data"
 msgstr "Dữ liệu sự kiện"
@@ -325,7 +327,7 @@ msgid "Cumulative values"
 msgstr "Các giá trị tích lũy"
 
 msgid "Digit group separator"
-msgstr ""
+msgstr "Dấu tách nhóm chữ số"
 
 msgid "None"
 msgstr "Không"
@@ -379,13 +381,13 @@ msgid "Before first and after last"
 msgstr "Trước giá trị đầu tiên và sau giá trị cuối cùng"
 
 msgid "All"
-msgstr ""
+msgstr "Tất cả"
 
 msgid "Hide empty rows"
 msgstr "Ẩn dòng rỗng"
 
 msgid "Legend key"
-msgstr ""
+msgstr "Khóa chú giải"
 
 msgid "Table subtitle"
 msgstr "Tiêu đề phụ của bảng"
@@ -397,13 +399,13 @@ msgid "Auto generated"
 msgstr "Tự động tạo"
 
 msgid "Custom"
-msgstr ""
+msgstr "Tùy chỉnh"
 
 msgid "Table title"
 msgstr "Tiêu đề bảng"
 
 msgid "Chart title"
-msgstr ""
+msgstr "Tiêu đề biểu đồ"
 
 msgid "Display legend"
 msgstr "Hiển thị chú giải"
@@ -412,7 +414,7 @@ msgid "Legend style"
 msgstr "Mẫu chú giải"
 
 msgid "Legend type"
-msgstr ""
+msgstr "Loại chú giải"
 
 msgid "Use pre-defined legend per data item"
 msgstr "Sử dụng chú giải được xác định trước cho mỗi mục dữ liệu"
@@ -589,6 +591,8 @@ msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
 " {{visualizationType}}."
 msgstr ""
+"Thêm ít nhất một mục vào {{columnAxisName}} hoặc {{rowAxisName}} để tạo "
+"{{visualizationType}}."
 
 msgid "No period selected"
 msgstr "Chưa chọn thời điểm"
@@ -610,7 +614,7 @@ msgstr ""
 "dữ liệu trong {{axis}}."
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
-msgstr ""
+msgstr "{{visualizationType}} phải có ít nhất một mục dữ liệu trong {{axis}}."
 
 msgid "There's a problem with the layout"
 msgstr "Có lỗi bố cục"
@@ -712,7 +716,7 @@ msgid "Last bimonth"
 msgstr "2-Tháng trước"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "6 kỳ 2 tháng trước"
 
 msgid "Bimonths this year"
 msgstr "Các 2-Tháng trong năm này"
@@ -772,7 +776,7 @@ msgid "Axes"
 msgstr "Trục"
 
 msgid "Style"
-msgstr ""
+msgstr "Kiểu dáng"
 
 msgid "Display"
 msgstr "Hiển thị"
@@ -790,7 +794,7 @@ msgid "Chart style"
 msgstr "Dạng biểu đồ"
 
 msgid "Titles"
-msgstr ""
+msgstr "Tiêu đề"
 
 msgid "Display totals"
 msgstr "Hiển thị tổng"
@@ -802,7 +806,7 @@ msgid "Labels"
 msgstr "Nhãn"
 
 msgid "Limit values"
-msgstr ""
+msgstr "Giá trị giới hạn"
 
 msgid "Limit number of values"
 msgstr "Giới hạn số lượng giá trị"
@@ -811,7 +815,7 @@ msgid "Limit minimum/maximum values"
 msgstr "Giới hạn giá trị nhỏ nhất/lớn nhất"
 
 msgid "Parameters"
-msgstr ""
+msgstr "Tham số"
 
 msgid "Weeks per year"
 msgstr "Tuần mỗi năm"

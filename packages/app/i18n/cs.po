@@ -31,6 +31,8 @@ msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
 "be lost."
 msgstr ""
+"Opravdu chcete tuto vizualizaci opustit? Všechny neuložené změny budou "
+"ztraceny."
 
 msgid "No, cancel"
 msgstr "Ne, zrušit"
@@ -51,9 +53,11 @@ msgid ""
 "A chart can have two axes. Each axis will have its own scale. Set the axis "
 "for each data selection below."
 msgstr ""
+"Graf může mít dvě osy. Každá osa bude mít vlastní měřítko. Níže nastavte osu"
+" pro každý výběr dat."
 
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušit"
 
 msgid "Update"
 msgstr "Aktualizovat"
@@ -79,7 +83,7 @@ msgid "Main dimensions"
 msgstr "Hlavní rozměry"
 
 msgid "Other dimensions"
-msgstr ""
+msgstr "Jiné dimenze"
 
 msgid "Your dimensions"
 msgstr "Vaše dimenze"
@@ -175,7 +179,7 @@ msgid "Interpretations"
 msgstr "Interpretace"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr ""
+msgstr "Je vybráno {{total}} z {{axisMaxNumberOfItems}}"
 
 msgid "{{total}} selected"
 msgstr "Vybráno: {{total}}"
@@ -199,7 +203,7 @@ msgid "Groups"
 msgstr "Skupiny"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "A 1 další ..."
 
 msgid "And {{numberOfItems}} others..."
 msgstr "A {{numberOfItems}} dalších ..."
@@ -208,7 +212,7 @@ msgid "Unsaved visualization"
 msgstr "Neuložená vizualizace"
 
 msgid "Edited"
-msgstr ""
+msgstr "Upraveno"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "Prohlížení interpretací od {{interpretDate}}"
@@ -251,7 +255,7 @@ msgid "Average (sum in org unit hierarchy)"
 msgstr "Průměr (součet v hierarchii organizačních jednotek)"
 
 msgid "Sum"
-msgstr ""
+msgstr "Součet"
 
 msgid "Last value"
 msgstr "Poslední hodnota"
@@ -287,7 +291,7 @@ msgid "Values outside of the range will not be displayed"
 msgstr "Hodnoty mimo rozsah se nezobrazí"
 
 msgid "Base line"
-msgstr ""
+msgstr "Základní linie"
 
 msgid "Value"
 msgstr "Hodnota"
@@ -302,10 +306,10 @@ msgid "Number"
 msgstr "Číslo"
 
 msgid "Column sub-totals"
-msgstr ""
+msgstr "Mezisoučty sloupců"
 
 msgid "Columns totals"
-msgstr ""
+msgstr "Součty sloupců"
 
 msgid "Event data"
 msgstr "Data události"
@@ -320,7 +324,7 @@ msgid "Cumulative values"
 msgstr "Kumulativní hodnoty"
 
 msgid "Digit group separator"
-msgstr ""
+msgstr "Oddělovač skupin číslic"
 
 msgid "None"
 msgstr "Žádný"
@@ -341,7 +345,7 @@ msgid "Normal"
 msgstr "Normální"
 
 msgid "Compact"
-msgstr ""
+msgstr "Kompaktní"
 
 msgid "Axis title"
 msgstr "Název osy"
@@ -374,7 +378,7 @@ msgid "Before first and after last"
 msgstr "Před první a po poslední"
 
 msgid "All"
-msgstr ""
+msgstr "Vše"
 
 msgid "Hide empty rows"
 msgstr "Skrýt prázdné řádky"
@@ -392,13 +396,13 @@ msgid "Auto generated"
 msgstr "Automaticky generováno"
 
 msgid "Custom"
-msgstr ""
+msgstr "Vlastní"
 
 msgid "Table title"
 msgstr "Název tabulky"
 
 msgid "Chart title"
-msgstr ""
+msgstr "Název grafu"
 
 msgid "Display legend"
 msgstr "Zobrazit legendu"
@@ -407,10 +411,10 @@ msgid "Legend style"
 msgstr "Styl Legendy"
 
 msgid "Legend type"
-msgstr ""
+msgstr "Typ legendy"
 
 msgid "Use pre-defined legend per data item"
-msgstr ""
+msgstr "Použijte předdefinovanou legendu na datovou položku"
 
 msgid "Select a single legend for entire table"
 msgstr "Vyberte jednu legendu pro celou tabulku"
@@ -547,13 +551,13 @@ msgid "Open as Map"
 msgstr "Otevřít jako mapu"
 
 msgid "Reporting rate"
-msgstr ""
+msgstr "Četnost hlášení"
 
 msgid "Reporting rate on time"
 msgstr "Četnost hlášení na čas"
 
 msgid "Actual reports"
-msgstr ""
+msgstr "Aktuální zprávy"
 
 msgid "Actual reports on time"
 msgstr "Aktuální zprávy včas"
@@ -584,6 +588,8 @@ msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
 " {{visualizationType}}."
 msgstr ""
+"Přidejte alespoň jednu položku do {{columnsAxisName}} nebo {{linesAxisName}}"
+" a vytvořte {{visualizationType}}."
 
 msgid "No period selected"
 msgstr "Není vybráno žádné období"
@@ -605,6 +611,7 @@ msgstr ""
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
 msgstr ""
+"{{visualizationType}} musí mít alespoň jednu datovou položku v {{axes}}."
 
 msgid "There's a problem with the layout"
 msgstr "Došlo k problému s rozvržením"
@@ -651,10 +658,10 @@ msgid "Today"
 msgstr "Dnes"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Včera"
 
 msgid "Last 3 days"
-msgstr ""
+msgstr "Poslední 3 dny"
 
 msgid "Last 7 days"
 msgstr "Posledních 7 dní"
@@ -705,7 +712,7 @@ msgid "Last bimonth"
 msgstr "Poslední dvouměsíční"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "Posledních 6 dvouměsíců"
 
 msgid "Bimonths this year"
 msgstr "Dvouměsíční tento rok"
@@ -723,7 +730,7 @@ msgid "Quarters this year"
 msgstr "Čtvrtletí tohoto roku"
 
 msgid "This six-month"
-msgstr ""
+msgstr "Těchto šest měsíců"
 
 msgid "Last six-month"
 msgstr "Poslední půlrok"
@@ -741,7 +748,7 @@ msgid "Last 5 financial years"
 msgstr "Posledních 5 finančních roků"
 
 msgid "This year"
-msgstr ""
+msgstr "Tento rok"
 
 msgid "Last year"
 msgstr "Poslední rok"
@@ -765,7 +772,7 @@ msgid "Axes"
 msgstr "Osy"
 
 msgid "Style"
-msgstr ""
+msgstr "Styl"
 
 msgid "Display"
 msgstr "Zobrazit"
@@ -783,7 +790,7 @@ msgid "Chart style"
 msgstr "Styl grafu"
 
 msgid "Titles"
-msgstr ""
+msgstr "Tituly"
 
 msgid "Display totals"
 msgstr "Zobrazit součty"
@@ -795,7 +802,7 @@ msgid "Labels"
 msgstr "Štítky"
 
 msgid "Limit values"
-msgstr ""
+msgstr "Mezní hodnoty"
 
 msgid "Limit number of values"
 msgstr "Omezit počet hodnot"
@@ -804,7 +811,7 @@ msgid "Limit minimum/maximum values"
 msgstr "Mezní minimální / maximální hodnoty"
 
 msgid "Parameters"
-msgstr ""
+msgstr "Parametry"
 
 msgid "Weeks per year"
 msgstr "Týdnů za rok"

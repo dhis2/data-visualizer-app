@@ -54,7 +54,7 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 msgid "Update"
 msgstr "Uppdatera"
@@ -369,7 +369,7 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr ""
+msgstr "Alla"
 
 msgid "Hide empty rows"
 msgstr ""
@@ -387,7 +387,7 @@ msgid "Auto generated"
 msgstr ""
 
 msgid "Custom"
-msgstr ""
+msgstr "Beställnings"
 
 msgid "Table title"
 msgstr ""
@@ -402,7 +402,7 @@ msgid "Legend style"
 msgstr ""
 
 msgid "Legend type"
-msgstr ""
+msgstr "Typ av symbolförklaring"
 
 msgid "Use pre-defined legend per data item"
 msgstr ""
@@ -747,7 +747,7 @@ msgid "Axes"
 msgstr ""
 
 msgid "Style"
-msgstr ""
+msgstr "Stil"
 
 msgid "Display"
 msgstr ""

@@ -55,7 +55,7 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Бекор қилиш"
 
 msgid "Update"
 msgstr "Янгилаш"
@@ -82,7 +82,7 @@ msgid "Main dimensions"
 msgstr "Umumiy oʼlchamlar"
 
 msgid "Other dimensions"
-msgstr ""
+msgstr "Boshqa oʼlchamlar"
 
 msgid "Your dimensions"
 msgstr "Sizning sozlamalaringiz"
@@ -178,7 +178,7 @@ msgid "Interpretations"
 msgstr "Talqinlar"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr ""
+msgstr "{{total}} / {{axisMaxNumberOfItems}} dan tanlandi"
 
 msgid "{{total}} selected"
 msgstr "{{total}} tanlandi"
@@ -202,7 +202,7 @@ msgid "Groups"
 msgstr "Гуруҳлар"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "Yana bir boshqasi"
 
 msgid "And {{numberOfItems}} others..."
 msgstr "Yana bir boshqasi {{numberOfItems}}"
@@ -211,7 +211,7 @@ msgid "Unsaved visualization"
 msgstr "Saqlanmagan vizualizatsiya"
 
 msgid "Edited"
-msgstr ""
+msgstr "Tahrirlangan"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "{{TalqinVaqt}} dan talqinni koʼrish"
@@ -306,10 +306,10 @@ msgid "Number"
 msgstr "Tartib raqami"
 
 msgid "Column sub-totals"
-msgstr ""
+msgstr "Ustunning oraliq yigʼindilari"
 
 msgid "Columns totals"
-msgstr ""
+msgstr "Ustunlar boʼyicha yigʼindi"
 
 msgid "Event data"
 msgstr "Hodisa/Tadbir maʼlumotlari"
@@ -324,7 +324,7 @@ msgid "Cumulative values"
 msgstr "Kumulyativ qiymatlar"
 
 msgid "Digit group separator"
-msgstr ""
+msgstr "Raqamlar guruhini taqsimlovchi"
 
 msgid "None"
 msgstr "Йўқ"
@@ -378,7 +378,7 @@ msgid "Before first and after last"
 msgstr "Birinchidan oldingi va oxirgidan keyingi"
 
 msgid "All"
-msgstr ""
+msgstr "Barchasi"
 
 msgid "Hide empty rows"
 msgstr "Boʼsh qatorlarni berkitish"
@@ -396,13 +396,13 @@ msgid "Auto generated"
 msgstr "Аvtomatik ravishda yaratilgan"
 
 msgid "Custom"
-msgstr ""
+msgstr "Odatiy"
 
 msgid "Table title"
 msgstr "Jadval sarlavhasi"
 
 msgid "Chart title"
-msgstr ""
+msgstr "Diagramma sarlavhasi"
 
 msgid "Display legend"
 msgstr "Taʼrifni koʼrsatish"
@@ -411,7 +411,7 @@ msgid "Legend style"
 msgstr "Taʼrif turi"
 
 msgid "Legend type"
-msgstr ""
+msgstr "Таъриф тури"
 
 msgid "Use pre-defined legend per data item"
 msgstr "Har bir maʼlumot uchun oldindan belgilangan taʼrifdan foydalaning"
@@ -588,6 +588,8 @@ msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
 " {{visualizationType}}."
 msgstr ""
+"{{visualizationType}} yaratish uchun qoʼyidagi oʼqlarga {{columnsAxisName}} "
+"yoki {{rowsAxisName}} kamida bir elementni qoʼshing."
 
 msgid "No period selected"
 msgstr "Давр танланмаган"
@@ -610,6 +612,8 @@ msgstr ""
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
 msgstr ""
+"{{visualizationType}} kamida bir maʼlumot elementi ega boʼlmogʼi lozim, "
+"tanlangan oʼqda {{axes}}."
 
 msgid "There's a problem with the layout"
 msgstr "Bu yerda qatlam maʼlumotlarida xatolik"
@@ -715,7 +719,7 @@ msgid "Last bimonth"
 msgstr "Oxirgi juft oylik"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "Oxirgi juft yarim yillik"
 
 msgid "Bimonths this year"
 msgstr "Ushbu yildagi juft oylar"
@@ -775,7 +779,7 @@ msgid "Axes"
 msgstr "Oʼqlar"
 
 msgid "Style"
-msgstr ""
+msgstr "Услуб"
 
 msgid "Display"
 msgstr "Ekranda koʼrsatish"
@@ -793,7 +797,7 @@ msgid "Chart style"
 msgstr "Diagramma uslubi"
 
 msgid "Titles"
-msgstr ""
+msgstr "Sarlavhalar"
 
 msgid "Display totals"
 msgstr ""
@@ -805,7 +809,7 @@ msgid "Labels"
 msgstr "Yorliqlar"
 
 msgid "Limit values"
-msgstr ""
+msgstr "Cheklangan qiymatlar"
 
 msgid "Limit number of values"
 msgstr "Qiymatlarning cheklangan soni"
@@ -814,7 +818,7 @@ msgid "Limit minimum/maximum values"
 msgstr "Minimal/maksimal qiymatlarni cheklash"
 
 msgid "Parameters"
-msgstr ""
+msgstr "Parametrlar"
 
 msgid "Weeks per year"
 msgstr "Yil ichida haftalar"

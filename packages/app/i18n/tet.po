@@ -54,7 +54,7 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Kansela"
 
 msgid "Update"
 msgstr "Atualiza"
@@ -315,7 +315,7 @@ msgid "Cumulative values"
 msgstr ""
 
 msgid "Digit group separator"
-msgstr ""
+msgstr "Separador grupu díjitu"
 
 msgid "None"
 msgstr "Nein ida"
@@ -336,7 +336,7 @@ msgid "Normal"
 msgstr "Normal"
 
 msgid "Compact"
-msgstr ""
+msgstr "Kompaktu"
 
 msgid "Axis title"
 msgstr ""
@@ -369,7 +369,7 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr ""
+msgstr "Hotu"
 
 msgid "Hide empty rows"
 msgstr ""
@@ -393,7 +393,7 @@ msgid "Table title"
 msgstr ""
 
 msgid "Chart title"
-msgstr ""
+msgstr "Gráfiku nia títulu"
 
 msgid "Display legend"
 msgstr ""
@@ -747,7 +747,7 @@ msgid "Axes"
 msgstr "Eixus"
 
 msgid "Style"
-msgstr ""
+msgstr "Estilu"
 
 msgid "Display"
 msgstr ""
@@ -786,7 +786,7 @@ msgid "Limit minimum/maximum values"
 msgstr ""
 
 msgid "Parameters"
-msgstr ""
+msgstr "Parámetrus"
 
 msgid "Weeks per year"
 msgstr ""

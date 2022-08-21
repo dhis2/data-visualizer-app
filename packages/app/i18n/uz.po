@@ -53,9 +53,11 @@ msgid ""
 "A chart can have two axes. Each axis will have its own scale. Set the axis "
 "for each data selection below."
 msgstr ""
+"Диаграмма иккита ўқдан ташкил топиши мумкин. Ҳар бир ўқ ўз масштабига эга "
+"бўлади. Қуйида келтирилган маълумотлар тўпламлари учун ўқларни белгиланг."
 
 msgid "Cancel"
-msgstr ""
+msgstr "Бекор қилиш"
 
 msgid "Update"
 msgstr "Янгилаш"
@@ -82,7 +84,7 @@ msgid "Main dimensions"
 msgstr "Умумий ўлчамлар"
 
 msgid "Other dimensions"
-msgstr ""
+msgstr "Бошқа ўлчамлар"
 
 msgid "Your dimensions"
 msgstr "Сизнинг созламаларингиз"
@@ -178,7 +180,7 @@ msgid "Interpretations"
 msgstr "Талқинлар"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr ""
+msgstr "{{total}} / {{axisMaxNumberOfItems}} дан танланди"
 
 msgid "{{total}} selected"
 msgstr "{{total}} танланди"
@@ -202,7 +204,7 @@ msgid "Groups"
 msgstr "Гуруҳлар"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "Яна бир бошқаси"
 
 msgid "And {{numberOfItems}} others..."
 msgstr "Яна бир бошқаси {{numberOfItems}}"
@@ -211,7 +213,7 @@ msgid "Unsaved visualization"
 msgstr "Сақланмаган визуализация"
 
 msgid "Edited"
-msgstr ""
+msgstr "Таҳрирланган"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr " {{ТалқинВақт}} дан талқинни кўриш"
@@ -305,10 +307,10 @@ msgid "Number"
 msgstr "Тартиб рақами"
 
 msgid "Column sub-totals"
-msgstr ""
+msgstr "Устуннинг оралиқ йиғиндилари"
 
 msgid "Columns totals"
-msgstr ""
+msgstr "Устунлар бўйича йиғинди"
 
 msgid "Event data"
 msgstr "Ҳодиса/Тадбир маълумотлари"
@@ -323,7 +325,7 @@ msgid "Cumulative values"
 msgstr "Кумулятив қийматлар"
 
 msgid "Digit group separator"
-msgstr ""
+msgstr "Рақамлар гуруҳини тақсимловчи"
 
 msgid "None"
 msgstr "Йўқ"
@@ -377,7 +379,7 @@ msgid "Before first and after last"
 msgstr "Биринчидан олдинги ва охиргидан кейинги"
 
 msgid "All"
-msgstr ""
+msgstr "Барчаси"
 
 msgid "Hide empty rows"
 msgstr "Бўш қаторларни беркитиш"
@@ -395,13 +397,13 @@ msgid "Auto generated"
 msgstr "Автоматик равишда яратилган"
 
 msgid "Custom"
-msgstr ""
+msgstr "Одатий"
 
 msgid "Table title"
 msgstr "Жадвал сарлавҳаси"
 
 msgid "Chart title"
-msgstr ""
+msgstr "Диаграмма сарлавҳаси"
 
 msgid "Display legend"
 msgstr "Таърифни экранда кўрсатиш"
@@ -410,7 +412,7 @@ msgid "Legend style"
 msgstr "Таъриф тури"
 
 msgid "Legend type"
-msgstr ""
+msgstr "Таъриф тури"
 
 msgid "Use pre-defined legend per data item"
 msgstr "Ҳар бир маълумот учун олдиндан белгиланган таърифдан фойдаланинг"
@@ -587,6 +589,8 @@ msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
 " {{visualizationType}}."
 msgstr ""
+"{{visualizationType}} яратиш учун қўйидаги ўқларга {{columnsAxisName}} ёки "
+"{{rowsAxisName}} камида бир элементни қўшинг."
 
 msgid "No period selected"
 msgstr "Давр танланмаган"
@@ -609,6 +613,8 @@ msgstr ""
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
 msgstr ""
+"{{visualizationType}} камида бир маълумот элементи эга бўлмоғи лозим, "
+"танланган ўқда {{axes}}."
 
 msgid "There's a problem with the layout"
 msgstr "Бу ерда қатлам маълумотларида хатолик"
@@ -659,7 +665,7 @@ msgid "Today"
 msgstr "Бугун"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Кеча"
 
 msgid "Last 3 days"
 msgstr "Охирги 3 кун"
@@ -713,7 +719,7 @@ msgid "Last bimonth"
 msgstr "Охирги жуфт ойлик"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "Охирги жуфт ярим йиллик"
 
 msgid "Bimonths this year"
 msgstr "Ушбу йилдаги жуфт ойлар"
@@ -773,7 +779,7 @@ msgid "Axes"
 msgstr "Ўқлар"
 
 msgid "Style"
-msgstr ""
+msgstr "Услуб"
 
 msgid "Display"
 msgstr "Экранда кўрсатиш"
@@ -791,7 +797,7 @@ msgid "Chart style"
 msgstr "Диаграмма услуби"
 
 msgid "Titles"
-msgstr ""
+msgstr "Сарлавҳалар"
 
 msgid "Display totals"
 msgstr "Жами кўрсатгичларни экранда кўрсатиш"
@@ -803,7 +809,7 @@ msgid "Labels"
 msgstr "Ёрлиқ/Белгилар"
 
 msgid "Limit values"
-msgstr ""
+msgstr "Чекланган қийматлар"
 
 msgid "Limit number of values"
 msgstr "Қийматларнинг чекланган сони"
@@ -812,7 +818,7 @@ msgid "Limit minimum/maximum values"
 msgstr "Минимал/максимал қийматларни чеклаш"
 
 msgid "Parameters"
-msgstr ""
+msgstr "Параметрлар"
 
 msgid "Weeks per year"
 msgstr "Йил ичида ҳафталар"

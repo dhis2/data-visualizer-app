@@ -51,10 +51,10 @@ msgstr "管理坐标轴"
 msgid ""
 "A chart can have two axes. Each axis will have its own scale. Set the axis "
 "for each data selection below."
-msgstr ""
+msgstr "一个图可以有两个轴，每个轴都有之间的比例尺，为下面的数据设置轴"
 
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 msgid "Update"
 msgstr "更新"
@@ -76,7 +76,7 @@ msgid "Main dimensions"
 msgstr "主要维度"
 
 msgid "Other dimensions"
-msgstr ""
+msgstr "其它维度"
 
 msgid "Your dimensions"
 msgstr "你的维度"
@@ -172,7 +172,7 @@ msgid "Interpretations"
 msgstr "注释"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr ""
+msgstr "选择了 {{axisMaxNumberOfItems}} 中的{{total}} "
 
 msgid "{{total}} selected"
 msgstr "选择了 {{total}} "
@@ -205,7 +205,7 @@ msgid "Unsaved visualization"
 msgstr "没有保存可视化"
 
 msgid "Edited"
-msgstr ""
+msgstr "编辑"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "查看自{{interpretationDate}}的注释"
@@ -300,7 +300,7 @@ msgid "Column sub-totals"
 msgstr "列小计"
 
 msgid "Columns totals"
-msgstr ""
+msgstr "列合计"
 
 msgid "Event data"
 msgstr "事件数据"
@@ -315,7 +315,7 @@ msgid "Cumulative values"
 msgstr "汇总值"
 
 msgid "Digit group separator"
-msgstr ""
+msgstr "数字分隔符"
 
 msgid "None"
 msgstr "无"
@@ -369,13 +369,13 @@ msgid "Before first and after last"
 msgstr "第一个前和最后一个后面"
 
 msgid "All"
-msgstr ""
+msgstr "全部"
 
 msgid "Hide empty rows"
 msgstr "隐藏空行"
 
 msgid "Legend key"
-msgstr ""
+msgstr "图例键值"
 
 msgid "Table subtitle"
 msgstr "表子标题"
@@ -387,13 +387,13 @@ msgid "Auto generated"
 msgstr "自动生成"
 
 msgid "Custom"
-msgstr ""
+msgstr "定制"
 
 msgid "Table title"
 msgstr "表标题"
 
 msgid "Chart title"
-msgstr ""
+msgstr "图表标题"
 
 msgid "Display legend"
 msgstr "显示图例"
@@ -402,7 +402,7 @@ msgid "Legend style"
 msgstr "图例风格"
 
 msgid "Legend type"
-msgstr ""
+msgstr "图例类型"
 
 msgid "Use pre-defined legend per data item"
 msgstr "每个数据项使用预定义的图例"
@@ -574,6 +574,8 @@ msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
 " {{visualizationType}}."
 msgstr ""
+"至少添加一个条目到  {{columnsAxisName}} 或{{rowsAxisName}} 才能创建  "
+"{{visualizationType}}。"
 
 msgid "No period selected"
 msgstr "没有选择期间"
@@ -591,7 +593,7 @@ msgid ""
 msgstr "{{visualizationType}} 必须至少选择一个数据元或组集条目到  {{axes}}。"
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
-msgstr ""
+msgstr "布局有问题"
 
 msgid "There's a problem with the layout"
 msgstr "布局有问题"
@@ -687,7 +689,7 @@ msgid "Last bimonth"
 msgstr "最近俩月"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "最近六个俩月"
 
 msgid "Bimonths this year"
 msgstr "今年的俩月"
@@ -747,7 +749,7 @@ msgid "Axes"
 msgstr "轴"
 
 msgid "Style"
-msgstr ""
+msgstr "风格"
 
 msgid "Display"
 msgstr "显示"
@@ -765,7 +767,7 @@ msgid "Chart style"
 msgstr "图表风格"
 
 msgid "Titles"
-msgstr ""
+msgstr "标题"
 
 msgid "Display totals"
 msgstr "显示合计"
@@ -777,7 +779,7 @@ msgid "Labels"
 msgstr "标签"
 
 msgid "Limit values"
-msgstr ""
+msgstr "限值"
 
 msgid "Limit number of values"
 msgstr "限定值数量"
@@ -786,7 +788,7 @@ msgid "Limit minimum/maximum values"
 msgstr "限制最大最小值"
 
 msgid "Parameters"
-msgstr ""
+msgstr "参数"
 
 msgid "Weeks per year"
 msgstr "每年的周"

@@ -1,14 +1,14 @@
 # 
 # Translators:
-# phil_dhis2, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
+# phil_dhis2, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-25T18:22:35.064Z\n"
 "PO-Revision-Date: 2022-08-21 23:46+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2022\n"
+"Last-Translator: phil_dhis2, 2022\n"
 "Language-Team: Tajik (https://www.transifex.com/hisp-uio/teams/100509/tg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,7 +54,7 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Бекор кардан"
 
 msgid "Update"
 msgstr "Навсозӣ"
@@ -315,7 +315,7 @@ msgid "Cumulative values"
 msgstr ""
 
 msgid "Digit group separator"
-msgstr ""
+msgstr "Ҷудокунандаи гурӯҳи рақамҳо"
 
 msgid "None"
 msgstr "Ягонто"
@@ -369,7 +369,7 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr ""
+msgstr "Ҳама"
 
 msgid "Hide empty rows"
 msgstr "Пинҳон кардани сатрҳои холӣ"
@@ -393,7 +393,7 @@ msgid "Table title"
 msgstr ""
 
 msgid "Chart title"
-msgstr ""
+msgstr "Унвони диаграмма"
 
 msgid "Display legend"
 msgstr ""
@@ -402,7 +402,7 @@ msgid "Legend style"
 msgstr ""
 
 msgid "Legend type"
-msgstr ""
+msgstr "Навъи аломатҳои шартӣ"
 
 msgid "Use pre-defined legend per data item"
 msgstr ""
@@ -633,7 +633,7 @@ msgid "Today"
 msgstr "Имрӯз"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Дирӯз"
 
 msgid "Last 3 days"
 msgstr ""
@@ -747,7 +747,7 @@ msgid "Axes"
 msgstr ""
 
 msgid "Style"
-msgstr ""
+msgstr "Услуб"
 
 msgid "Display"
 msgstr "Намоиш додан"
@@ -786,7 +786,7 @@ msgid "Limit minimum/maximum values"
 msgstr ""
 
 msgid "Parameters"
-msgstr ""
+msgstr "Параметрҳо"
 
 msgid "Weeks per year"
 msgstr ""

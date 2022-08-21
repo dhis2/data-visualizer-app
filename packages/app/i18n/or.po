@@ -368,7 +368,7 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr ""
+msgstr "ସବୁ"
 
 msgid "Hide empty rows"
 msgstr ""
@@ -632,7 +632,7 @@ msgid "Today"
 msgstr "ଆଜି"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "ଗତକାଲି"
 
 msgid "Last 3 days"
 msgstr ""

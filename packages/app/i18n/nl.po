@@ -55,9 +55,11 @@ msgid ""
 "A chart can have two axes. Each axis will have its own scale. Set the axis "
 "for each data selection below."
 msgstr ""
+"Een grafiek kan over twee assen beschikken. Elke as heeft een eigen schaal. "
+"Stel de as in voor elke onderstaande gegevensselectie."
 
 msgid "Cancel"
-msgstr ""
+msgstr "Annuleren"
 
 msgid "Update"
 msgstr "Bijwerken"
@@ -84,7 +86,7 @@ msgid "Main dimensions"
 msgstr "Hoofddimensies"
 
 msgid "Other dimensions"
-msgstr ""
+msgstr "Andere dimensies"
 
 msgid "Your dimensions"
 msgstr "Uw dimensies"
@@ -182,7 +184,7 @@ msgid "Interpretations"
 msgstr "Interpretaties"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr ""
+msgstr "{{total}} van {{axisMaxNumberOfItems}} geselecteerd"
 
 msgid "{{total}} selected"
 msgstr "{{total}} geselecteerd"
@@ -207,7 +209,7 @@ msgid "Groups"
 msgstr "Groepen"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "En 1 andere..."
 
 msgid "And {{numberOfItems}} others..."
 msgstr "En {{numberOfItems}} anderen..."
@@ -216,7 +218,7 @@ msgid "Unsaved visualization"
 msgstr ""
 
 msgid "Edited"
-msgstr ""
+msgstr "Bewerkt"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "Interpretatie van {{interpretatieDatum}} aan het bezichtigen"
@@ -257,7 +259,7 @@ msgid "Average (sum in org unit hierarchy)"
 msgstr "Gemiddlede (som in organisatieëenheidshierarchie)"
 
 msgid "Sum"
-msgstr ""
+msgstr "Som"
 
 msgid "Last value"
 msgstr "Laatste waarde"
@@ -293,7 +295,7 @@ msgid "Values outside of the range will not be displayed"
 msgstr ""
 
 msgid "Base line"
-msgstr ""
+msgstr "Basislijn"
 
 msgid "Value"
 msgstr "Waarde"
@@ -380,7 +382,7 @@ msgid "Before first and after last"
 msgstr "Voor eerste en na laatste"
 
 msgid "All"
-msgstr ""
+msgstr "Alle"
 
 msgid "Hide empty rows"
 msgstr ""
@@ -404,7 +406,7 @@ msgid "Table title"
 msgstr ""
 
 msgid "Chart title"
-msgstr ""
+msgstr "Grafiektitel"
 
 msgid "Display legend"
 msgstr ""
@@ -644,7 +646,7 @@ msgid "Today"
 msgstr "Vandaag"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Gisteren"
 
 msgid "Last 3 days"
 msgstr "Laatste 3 dagen"
@@ -698,7 +700,7 @@ msgid "Last bimonth"
 msgstr "Laatste twee maanden"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "Laatste 6 twee maanden"
 
 msgid "Bimonths this year"
 msgstr "Twee maanden dit jaar"
@@ -758,7 +760,7 @@ msgid "Axes"
 msgstr ""
 
 msgid "Style"
-msgstr ""
+msgstr "Stijl"
 
 msgid "Display"
 msgstr ""

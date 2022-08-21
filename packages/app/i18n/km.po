@@ -54,7 +54,7 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "បោះបង់"
 
 msgid "Update"
 msgstr "ធ្វើ​បច្ចុប្បន្នភាព"
@@ -246,7 +246,7 @@ msgid "Average (sum in org unit hierarchy)"
 msgstr ""
 
 msgid "Sum"
-msgstr ""
+msgstr "ផល​បូក"
 
 msgid "Last value"
 msgstr ""
@@ -369,7 +369,7 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr ""
+msgstr "ទាំងអស់"
 
 msgid "Hide empty rows"
 msgstr ""
@@ -747,7 +747,7 @@ msgid "Axes"
 msgstr ""
 
 msgid "Style"
-msgstr ""
+msgstr "​រចនាបទ"
 
 msgid "Display"
 msgstr ""

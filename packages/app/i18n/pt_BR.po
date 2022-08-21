@@ -54,7 +54,7 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 msgid "Update"
 msgstr "Actualizar"
@@ -336,7 +336,7 @@ msgid "Normal"
 msgstr "Normal"
 
 msgid "Compact"
-msgstr ""
+msgstr "Compacto"
 
 msgid "Axis title"
 msgstr ""
@@ -369,7 +369,7 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr ""
+msgstr "Tudo"
 
 msgid "Hide empty rows"
 msgstr ""
@@ -402,7 +402,7 @@ msgid "Legend style"
 msgstr ""
 
 msgid "Legend type"
-msgstr ""
+msgstr "Tipo de legenda"
 
 msgid "Use pre-defined legend per data item"
 msgstr ""
@@ -633,7 +633,7 @@ msgid "Today"
 msgstr "Hoje"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Ontém"
 
 msgid "Last 3 days"
 msgstr ""
@@ -747,7 +747,7 @@ msgid "Axes"
 msgstr ""
 
 msgid "Style"
-msgstr ""
+msgstr "Estilo"
 
 msgid "Display"
 msgstr "Exibir"
@@ -786,7 +786,7 @@ msgid "Limit minimum/maximum values"
 msgstr ""
 
 msgid "Parameters"
-msgstr ""
+msgstr "Paâmetros"
 
 msgid "Weeks per year"
 msgstr ""

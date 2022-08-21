@@ -1,19 +1,19 @@
 # 
 # Translators:
 # Djibril Dione <dione.djibril@gmail.com>, 2022
-# Viktor Varland <viktor@dhis2.org>, 2022
 # Karoline Tufte Lien <karoline@dhis2.org>, 2022
-# Edem Kossi <ekossi@hispwca.org>, 2022
 # Yao Selom Saka <ysaka@hispwca.org>, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2022
 # phil_dhis2, 2022
+# Edem Kossi <ekossi@hispwca.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-25T18:22:35.064Z\n"
 "PO-Revision-Date: 2022-08-21 23:46+0000\n"
-"Last-Translator: phil_dhis2, 2022\n"
+"Last-Translator: Edem Kossi <ekossi@hispwca.org>, 2022\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,9 +59,11 @@ msgid ""
 "A chart can have two axes. Each axis will have its own scale. Set the axis "
 "for each data selection below."
 msgstr ""
+"Un graphique peut avoir deux axes. Chaque axe aura sa propre échelle. "
+"Définissez l'axe pour chaque sélection de données ci-dessous."
 
 msgid "Cancel"
-msgstr ""
+msgstr "Annuler"
 
 msgid "Update"
 msgstr "Mettre à jour"
@@ -88,7 +90,7 @@ msgid "Main dimensions"
 msgstr "Dimensions principales"
 
 msgid "Other dimensions"
-msgstr ""
+msgstr "Autres dimensions"
 
 msgid "Your dimensions"
 msgstr "Votre dimensions"
@@ -186,7 +188,7 @@ msgid "Interpretations"
 msgstr "Interprétations"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr ""
+msgstr "{{total}} de {{axisMaxNumberOfItems}} choisis"
 
 msgid "{{total}} selected"
 msgstr "{{total}} choisis"
@@ -211,7 +213,7 @@ msgid "Groups"
 msgstr "Groupes"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "Et 1 autre..."
 
 msgid "And {{numberOfItems}} others..."
 msgstr "Et {{numberOfItems}} autres..."
@@ -220,7 +222,7 @@ msgid "Unsaved visualization"
 msgstr "Visualisation non enregistrée"
 
 msgid "Edited"
-msgstr ""
+msgstr "Modifié"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "Affichage de l'interprétation de {{Date de l'interprétation}}"
@@ -264,7 +266,7 @@ msgid "Average (sum in org unit hierarchy)"
 msgstr "Moyenne (somme dans l'arborescence d'org unit)"
 
 msgid "Sum"
-msgstr ""
+msgstr "Somme"
 
 msgid "Last value"
 msgstr "Dernière valeur"
@@ -301,7 +303,7 @@ msgid "Values outside of the range will not be displayed"
 msgstr "Valeurs en dehors de la plage ne seront pas affichées"
 
 msgid "Base line"
-msgstr ""
+msgstr "Ligne de référence"
 
 msgid "Value"
 msgstr "Valeur"
@@ -316,10 +318,10 @@ msgid "Number"
 msgstr "Nombre"
 
 msgid "Column sub-totals"
-msgstr ""
+msgstr "Sous-totaux de colonne"
 
 msgid "Columns totals"
-msgstr ""
+msgstr "Totaux des colonnes"
 
 msgid "Event data"
 msgstr "Données d'événement"
@@ -334,7 +336,7 @@ msgid "Cumulative values"
 msgstr "Valeurs cumulées"
 
 msgid "Digit group separator"
-msgstr ""
+msgstr "Séparateur des groupe de chiffres"
 
 msgid "None"
 msgstr "Aucun"
@@ -355,7 +357,7 @@ msgid "Normal"
 msgstr "Normal"
 
 msgid "Compact"
-msgstr ""
+msgstr "Compact"
 
 msgid "Axis title"
 msgstr "Titre de l'axe"
@@ -388,13 +390,13 @@ msgid "Before first and after last"
 msgstr "Avant la première et après la dernière"
 
 msgid "All"
-msgstr ""
+msgstr "Tout"
 
 msgid "Hide empty rows"
 msgstr "Cacher lignes vides"
 
 msgid "Legend key"
-msgstr ""
+msgstr "Touche de légende"
 
 msgid "Table subtitle"
 msgstr "Sous-titre du tableau"
@@ -406,13 +408,13 @@ msgid "Auto generated"
 msgstr "Genere automatiquement"
 
 msgid "Custom"
-msgstr ""
+msgstr "Personnalisé"
 
 msgid "Table title"
 msgstr "Titre du tableau"
 
 msgid "Chart title"
-msgstr ""
+msgstr "Titre du graphique"
 
 msgid "Display legend"
 msgstr "Afficher la légende"
@@ -421,7 +423,7 @@ msgid "Legend style"
 msgstr "Style de légende"
 
 msgid "Legend type"
-msgstr ""
+msgstr "Type de légende"
 
 msgid "Use pre-defined legend per data item"
 msgstr "Utiliser une légende prédéfinie par élément de données"
@@ -495,7 +497,7 @@ msgid "Auto"
 msgstr "Auto"
 
 msgid "The number of axis steps between the min and max values"
-msgstr ""
+msgstr "Le nombre de pas d'axe entre les valeurs min et max"
 
 msgid "Steps"
 msgstr "Étapes"
@@ -561,7 +563,7 @@ msgid "Open as Map"
 msgstr "Ouvrir comme carte"
 
 msgid "Reporting rate"
-msgstr ""
+msgstr "Taux de déclaration"
 
 msgid "Reporting rate on time"
 msgstr "Taux de notification à temps"
@@ -598,6 +600,8 @@ msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
 " {{visualizationType}}."
 msgstr ""
+"Ajouter au moins un élément à {{columnsAxisName}} ou {{rowsAxisName}} créer "
+"un {{visualizationType}}."
 
 msgid "No period selected"
 msgstr "Aucune période n'est sélectionné"
@@ -620,6 +624,8 @@ msgstr ""
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
 msgstr ""
+"{{visualizationType}} doit contenir au moins un élément de données dans "
+"{{axes}}."
 
 msgid "There's a problem with the layout"
 msgstr "Il y a un problème avec la mise en page"
@@ -671,10 +677,10 @@ msgid "Today"
 msgstr "Aujourd'hui"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Hier"
 
 msgid "Last 3 days"
-msgstr ""
+msgstr "3 derniers jours"
 
 msgid "Last 7 days"
 msgstr "7 derniers jours"
@@ -725,7 +731,7 @@ msgid "Last bimonth"
 msgstr "Dernier bimestre"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "6 derniers bimestres"
 
 msgid "Bimonths this year"
 msgstr "Bimestres cette année"
@@ -743,7 +749,7 @@ msgid "Quarters this year"
 msgstr "Trimestres cette année"
 
 msgid "This six-month"
-msgstr ""
+msgstr "Ce semestre"
 
 msgid "Last six-month"
 msgstr "Dernier semestre"
@@ -785,7 +791,7 @@ msgid "Axes"
 msgstr "Axes"
 
 msgid "Style"
-msgstr ""
+msgstr "Style"
 
 msgid "Display"
 msgstr "Afficher"
@@ -803,7 +809,7 @@ msgid "Chart style"
 msgstr "Style de graphique"
 
 msgid "Titles"
-msgstr ""
+msgstr "Titres"
 
 msgid "Display totals"
 msgstr "Afficher les totaux"
@@ -815,7 +821,7 @@ msgid "Labels"
 msgstr "Étiquettes"
 
 msgid "Limit values"
-msgstr ""
+msgstr "Valeurs seuils"
 
 msgid "Limit number of values"
 msgstr "Nombre limite de valeurs"
@@ -824,7 +830,7 @@ msgid "Limit minimum/maximum values"
 msgstr "Valeurs seuils minimales/maximales"
 
 msgid "Parameters"
-msgstr ""
+msgstr "Paramètres"
 
 msgid "Weeks per year"
 msgstr "Semaines par an"

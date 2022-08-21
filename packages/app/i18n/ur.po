@@ -54,7 +54,7 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "منسوخ"
 
 msgid "Update"
 msgstr "اپڈیٹ"
@@ -315,7 +315,7 @@ msgid "Cumulative values"
 msgstr ""
 
 msgid "Digit group separator"
-msgstr ""
+msgstr "ڈیجیٹٹ گروپ الگ الگ"
 
 msgid "None"
 msgstr "کوئی نہں"
@@ -369,7 +369,7 @@ msgid "Before first and after last"
 msgstr "پہلے اور بعد میں آخری سے پہلے"
 
 msgid "All"
-msgstr ""
+msgstr "تمام"
 
 msgid "Hide empty rows"
 msgstr "خالی قطار چھپائیں"
@@ -387,13 +387,13 @@ msgid "Auto generated"
 msgstr ""
 
 msgid "Custom"
-msgstr ""
+msgstr "مرضی کے مطابق"
 
 msgid "Table title"
 msgstr "ٹیبل کا عنوان"
 
 msgid "Chart title"
-msgstr ""
+msgstr "چارٹ کا عنوان"
 
 msgid "Display legend"
 msgstr ""
@@ -402,7 +402,7 @@ msgid "Legend style"
 msgstr "علامات سٹائل"
 
 msgid "Legend type"
-msgstr ""
+msgstr "علامات کی قسم"
 
 msgid "Use pre-defined legend per data item"
 msgstr ""
@@ -633,7 +633,7 @@ msgid "Today"
 msgstr "آج"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "کل"
 
 msgid "Last 3 days"
 msgstr "آخری 3 دن"
@@ -687,7 +687,7 @@ msgid "Last bimonth"
 msgstr "آخری بار"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "آخری 6 بار"
 
 msgid "Bimonths this year"
 msgstr "اس سال دو ماہی"
@@ -747,7 +747,7 @@ msgid "Axes"
 msgstr "محور"
 
 msgid "Style"
-msgstr ""
+msgstr "سٹائل"
 
 msgid "Display"
 msgstr ""
@@ -786,7 +786,7 @@ msgid "Limit minimum/maximum values"
 msgstr ""
 
 msgid "Parameters"
-msgstr ""
+msgstr "پیرامیٹرز"
 
 msgid "Weeks per year"
 msgstr ""

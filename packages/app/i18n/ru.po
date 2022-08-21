@@ -56,7 +56,7 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 msgid "Update"
 msgstr "Обновить"
@@ -208,7 +208,7 @@ msgid "Unsaved visualization"
 msgstr ""
 
 msgid "Edited"
-msgstr ""
+msgstr "Редактированный"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "Просмотр интерпретации с {{interpretationDate}}"
@@ -320,7 +320,7 @@ msgid "Cumulative values"
 msgstr ""
 
 msgid "Digit group separator"
-msgstr ""
+msgstr "Разделитель групп разрядов"
 
 msgid "None"
 msgstr "Не известное значение"
@@ -341,7 +341,7 @@ msgid "Normal"
 msgstr "Стандартный"
 
 msgid "Compact"
-msgstr ""
+msgstr "Компактный"
 
 msgid "Axis title"
 msgstr "Название оси"
@@ -374,7 +374,7 @@ msgid "Before first and after last"
 msgstr "До первого и после последнего"
 
 msgid "All"
-msgstr ""
+msgstr "Все"
 
 msgid "Hide empty rows"
 msgstr "Скрыть незаполненные строки"
@@ -392,13 +392,13 @@ msgid "Auto generated"
 msgstr "Автогенерируемая"
 
 msgid "Custom"
-msgstr ""
+msgstr "Пользователь"
 
 msgid "Table title"
 msgstr "Название таблицы"
 
 msgid "Chart title"
-msgstr ""
+msgstr "Заголовок диаграммы"
 
 msgid "Display legend"
 msgstr ""
@@ -407,7 +407,7 @@ msgid "Legend style"
 msgstr "Стиль легенды"
 
 msgid "Legend type"
-msgstr ""
+msgstr "Тип условных обозначений"
 
 msgid "Use pre-defined legend per data item"
 msgstr ""
@@ -544,7 +544,7 @@ msgid "Open as Map"
 msgstr ""
 
 msgid "Reporting rate"
-msgstr ""
+msgstr "Показатель отчетности"
 
 msgid "Reporting rate on time"
 msgstr "Показатель отчетности по времени"
@@ -638,7 +638,7 @@ msgid "Today"
 msgstr "Сегодня"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Вчера"
 
 msgid "Last 3 days"
 msgstr "Последние 3 дня"
@@ -692,7 +692,7 @@ msgid "Last bimonth"
 msgstr "Прошлый бимесяц"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "Прошлые 6 бимесяцев"
 
 msgid "Bimonths this year"
 msgstr "Бимесяцы этого года"
@@ -752,7 +752,7 @@ msgid "Axes"
 msgstr "Оси"
 
 msgid "Style"
-msgstr ""
+msgstr "Стиль"
 
 msgid "Display"
 msgstr "Показать"
@@ -770,7 +770,7 @@ msgid "Chart style"
 msgstr ""
 
 msgid "Titles"
-msgstr ""
+msgstr "Титулы"
 
 msgid "Display totals"
 msgstr ""
@@ -791,7 +791,7 @@ msgid "Limit minimum/maximum values"
 msgstr ""
 
 msgid "Parameters"
-msgstr ""
+msgstr "Параметры"
 
 msgid "Weeks per year"
 msgstr "Недели за год"
