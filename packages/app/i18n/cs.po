@@ -1,0 +1,560 @@
+# 
+# Translators:
+# trendspotter <jirka.p@volny.cz>, 2022
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2020-05-14T01:00:50.112Z\n"
+"PO-Revision-Date: 2022-08-21 23:45+0000\n"
+"Last-Translator: trendspotter <jirka.p@volny.cz>, 2022\n"
+"Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: cs\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+
+msgid "Rename successful"
+msgstr "Přejmenování bylo úspěšné"
+
+msgid "\"{{what}}\" successfully deleted."
+msgstr "\"{{what}}\"  úspěšně smazáno."
+
+msgid "Data Visualizer"
+msgstr "Data Visualizer"
+
+msgid "Axis 1"
+msgstr "Osa 1"
+
+msgid "Axis 2"
+msgstr "Osa 2"
+
+msgid "Manage axes"
+msgstr "Spravujte osy"
+
+msgid ""
+"A chart can have two axes. Each axis will have its own scale. Set the axis "
+"for each data selection below."
+msgstr ""
+"Graf může mít dvě osy. Každá osa bude mít vlastní měřítko. Níže nastavte osu"
+" pro každý výběr dat."
+
+msgid "Cancel"
+msgstr "Zrušit"
+
+msgid "Update"
+msgstr "Aktualizovat"
+
+msgid ""
+"'Single Value' is intended to show a single data item. Only the first item "
+"will be used and saved."
+msgstr ""
+"'Single Value'  má zobrazit jednu datovou položku. Bude použita a uložena "
+"pouze první položka."
+
+msgid "Hide"
+msgstr "Skrýt"
+
+msgid "Remove"
+msgstr "Odebrat"
+
+msgid "Download"
+msgstr "Stáhnout"
+
+msgid "Graphics"
+msgstr "Grafika"
+
+msgid "Image (.png)"
+msgstr "Obrázek (.png)"
+
+msgid "PDF (.pdf)"
+msgstr "PDF (.pdf)"
+
+msgid "Plain data source"
+msgstr "Prostý zdroj dat"
+
+msgid "Advanced"
+msgstr "Pokročilý"
+
+msgid "Metadata ID scheme"
+msgstr "Schéma metadata ID"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Code"
+msgstr "Kód"
+
+msgid "Name"
+msgstr "Název"
+
+msgid "Data value set"
+msgstr "Sada datových hodnot"
+
+msgid "JSON"
+msgstr "JSON"
+
+msgid "XML"
+msgstr "XML"
+
+msgid "Other formats"
+msgstr "Jiné formáty"
+
+msgid "JRXML"
+msgstr "JRXML"
+
+msgid "Raw data SQL"
+msgstr "Nezpracovaná data SQL"
+
+msgid "An error occurred in the DHIS2 Data Visualizer application."
+msgstr "V aplikaci DHIS2 Data Visualizer došlo k chybě."
+
+msgid "Something went wrong"
+msgstr "Něco se pokazilo"
+
+msgid "Refresh to try again"
+msgstr "Obnovte a zkuste to znovu"
+
+msgid "Hide technical details"
+msgstr "Skrýt technické podrobnosti"
+
+msgid "Show technical details"
+msgstr "Zobrazit technické podrobnosti"
+
+msgid "The following information may be requested by technical support."
+msgstr "Následující informace mohou být požadovány technickou podporou."
+
+msgid "Interpretations"
+msgstr "Interpretace"
+
+msgid "{{total}} of 1 selected"
+msgstr "Vybráno {{total}} z 1"
+
+msgid "{{total}} selected"
+msgstr "Vybráno: {{total}}"
+
+msgid "Series"
+msgstr "Série"
+
+msgid "Category"
+msgstr "Kategorie"
+
+msgid "Filter"
+msgstr "Filtr"
+
+msgid "None selected"
+msgstr "Není vybrán žádný"
+
+msgid "Only '{{name}}' in use"
+msgstr "Používá se pouze '{{name}}' "
+
+msgid "And 1 other..."
+msgstr "A 1 další ..."
+
+msgid "And {{numberOfItems}} others..."
+msgstr "A {{numberOfItems}} dalších ..."
+
+msgid "Unsaved chart"
+msgstr "Neuložený graf"
+
+msgid "Edited"
+msgstr "Upraveno"
+
+msgid "Viewing interpretation from {{interpretationDate}}"
+msgstr "Prohlížení interpretací od {{interpretDate}}"
+
+msgid "Error validating layout"
+msgstr "Chyba při ověřování rozložení"
+
+msgid "Chart error"
+msgstr "Chyba grafu"
+
+msgid "Create a new visualization by adding dimensions to the layout"
+msgstr "Vytvořte novou vizualizaci přidáním dimenzí do rozložení"
+
+msgid "Error generating chart, please try again"
+msgstr "Při generování grafu došlo k chybě, zkuste to prosím znovu"
+
+msgid "Aggregation type"
+msgstr "Typ agregace"
+
+msgid "By data element"
+msgstr "Podle datového prvku"
+
+msgid "Count"
+msgstr "Počet"
+
+msgid "Average"
+msgstr "Průměr"
+
+msgid "Average (sum in org unit hierarchy)"
+msgstr "Průměr (součet v hierarchii organizačních jednotek)"
+
+msgid "Sum"
+msgstr "Součet"
+
+msgid "Last value"
+msgstr "Poslední hodnota"
+
+msgid "Last value (average in org unit hierarchy)"
+msgstr "Poslední hodnota (průměr v hierarchii organizačních jednotek)"
+
+msgid "Min"
+msgstr "Min"
+
+msgid "Max"
+msgstr "Max"
+
+msgid "Standard deviation"
+msgstr "Standardní odchylka"
+
+msgid "Variance"
+msgstr "Rozptyl"
+
+msgid "Base line"
+msgstr "Základní linie"
+
+msgid "Base line title"
+msgstr "Název účaří"
+
+msgid "Base line value"
+msgstr "Hodnota účaří"
+
+msgid "Only include completed events"
+msgstr "Zahrnout pouze dokončené události"
+
+msgid "Use cumulative values"
+msgstr "Použít kumulativní hodnoty"
+
+msgid "Domain axis title"
+msgstr "Název osy domény"
+
+msgid "Hide empty categories"
+msgstr "Skrýt prázdné kategorie"
+
+msgid "None"
+msgstr "Žádný"
+
+msgid "Before first"
+msgstr "Před první"
+
+msgid "After last"
+msgstr "Po poslední"
+
+msgid "Before first and after last"
+msgstr "Před první a po poslední"
+
+msgid "All"
+msgstr "Vše"
+
+msgid "Hide chart legend"
+msgstr "Skrýt legendu grafu"
+
+msgid "Hide subtitle"
+msgstr "Skrýt podnadpis"
+
+msgid "Hide title"
+msgstr "Skrýt název"
+
+msgid "No space between columns/bars"
+msgstr "Mezi sloupci / pruhy není mezera"
+
+msgid "Use 100% stacked values"
+msgstr "Použít 100% skládané hodnoty"
+
+msgid "Range axis decimals"
+msgstr "Desetinný rozsah osy "
+
+msgid "Range axis title"
+msgstr "Název rozsahu osy "
+
+msgid "Range axis max"
+msgstr "Max. rozsah Osy"
+
+msgid "Range axis min"
+msgstr "Min. rozsah osy"
+
+msgid "Range axis tick steps"
+msgstr "Kroky rozsahu osy "
+
+msgid "Tick steps may extend the chart beyond 'Range axis max'"
+msgstr ""
+
+msgid "Trend line"
+msgstr "Trendová čára"
+
+msgid "Linear"
+msgstr "Čárový"
+
+msgid "Polynomial"
+msgstr "Polynomiální"
+
+msgid "Loess"
+msgstr "Lokální polynomická regrese"
+
+msgid "Show values"
+msgstr "Zobrazit hodnoty"
+
+msgid "Sort order"
+msgstr "Pořadí řazení"
+
+msgid "Low to high"
+msgstr "Od nízkého po vysoký"
+
+msgid "High to low"
+msgstr "Od nejvyšší k nejnižší"
+
+msgid "Chart subtitle"
+msgstr "Podtitul grafu"
+
+msgid "Target line"
+msgstr "Cílová linie"
+
+msgid "Target line title"
+msgstr "Název cílového řádku"
+
+msgid "Target line value"
+msgstr "Hodnota cílového řádku"
+
+msgid "Chart title"
+msgstr "Název grafu"
+
+msgid "Data"
+msgstr "Data"
+
+msgid "Axis & legend"
+msgstr "Osa a legenda"
+
+msgid "Style"
+msgstr "Styl"
+
+msgid "Options"
+msgstr "Možnosti"
+
+msgid "Chart options"
+msgstr "Možnosti grafu"
+
+msgid "Column"
+msgstr "Sloupec"
+
+msgid "Stacked column"
+msgstr "Skládaný sloupec"
+
+msgid "Bar"
+msgstr "LIšta"
+
+msgid "Stacked bar"
+msgstr "Skládaný lištový graf"
+
+msgid "Line"
+msgstr "Linie"
+
+msgid "Area"
+msgstr "Oblast"
+
+msgid "Pie"
+msgstr "Výsečový"
+
+msgid "Radar"
+msgstr "Radar"
+
+msgid "Gauge"
+msgstr "Gauge"
+
+msgid "Year over year (line)"
+msgstr "Rok po roce (řádek)"
+
+msgid "Year over year (column)"
+msgstr "Rok po roce (sloupce)"
+
+msgid "Single value"
+msgstr "Jedna hodnota"
+
+msgid "Open as Map"
+msgstr "Otevřít jako mapu"
+
+msgid "Add to series"
+msgstr "Přidat do série"
+
+msgid "Add to category"
+msgstr "Přidat do kategorie"
+
+msgid "Add to filter"
+msgstr "Přidat do filtru"
+
+msgid "Move to series"
+msgstr "Přesunout do série"
+
+msgid "Move to category"
+msgstr "Přesunout do kategorie"
+
+msgid "Move to filter"
+msgstr "Přesunout do filtru"
+
+msgid "series"
+msgstr "série"
+
+msgid "category"
+msgstr "kategorie"
+
+msgid "filter"
+msgstr "filtr"
+
+msgid "Please add at least one {{series}} dimension"
+msgstr "Přidejte prosím alespoň jednu dimenzi {{series}}"
+
+msgid "Please add at least one {{category}} dimension"
+msgstr "Přidejte alespoň jednu dimenzi {{category}}"
+
+msgid ""
+"Please add at least one period as {{series}}, {{category}} or {{filter}}"
+msgstr ""
+"Přidejte alespoň jedno období jako {{series}}, {{category}} nebo {{filter}}"
+
+msgid "Please add {{data}} as {{category}} or {{filter}}"
+msgstr "Přidejte prosím {{data}} jako {{category}} nebo {{filter}}"
+
+msgid "Please add at least one period as {{series}} or {{filter}}"
+msgstr "Přidejte alespoň jedno období jako {{series}} nebo {{filter}}"
+
+msgid "Please add at least one {{filter}} dimension"
+msgstr "Přidejte alespoň jednu dimenzi {{filter}}"
+
+msgid "Please add at least one period as a {{series}} dimension"
+msgstr "Přidejte alespoň jedno období jako dimenzi {{series}}"
+
+msgid "Please add at least one period as a {{category}} dimension"
+msgstr "Přidejte alespoň jedno období jako dimenzi {{category}}"
+
+msgid "Please add {{data}} as a filter dimension"
+msgstr "Přidejte {{data}} jako dimenzi filtru "
+
+msgid "Please add one {{series}} dimension"
+msgstr "Přidejte prosím jednu dimenzi {{series}}"
+
+msgid "Please add at least one period as {{filter}}"
+msgstr "Přidejte alespoň jedno období jako {{filter}}"
+
+msgid "Today"
+msgstr "Dnes"
+
+msgid "Yesterday"
+msgstr "Včera"
+
+msgid "Last 3 days"
+msgstr "Poslední 3 dny"
+
+msgid "Last 7 days"
+msgstr "Posledních 7 dní"
+
+msgid "Last 14 days"
+msgstr "Posledních 14 dní"
+
+msgid "This week"
+msgstr "Tento týden"
+
+msgid "Last week"
+msgstr "Minulý týden"
+
+msgid "Last 4 weeks"
+msgstr "Poslední 4 týdny"
+
+msgid "Last 12 weeks"
+msgstr "Posledních 12 týdnů"
+
+msgid "Last 52 weeks"
+msgstr "Posledních 52 týdnů"
+
+msgid "Weeks this year"
+msgstr "Týdny tohoto roku"
+
+msgid "This month"
+msgstr "Tento měsíc"
+
+msgid "Last month"
+msgstr "Minulý měsíc"
+
+msgid "Last 3 months"
+msgstr "Poslední 3 měsíce"
+
+msgid "Last 6 months"
+msgstr "Posledních 6 měsíců"
+
+msgid "Last 12 months"
+msgstr "Posledních 12 měsíců"
+
+msgid "Months this year"
+msgstr "Měsíce tohoto roku"
+
+msgid "This bimonth"
+msgstr "Tento dvouměsíc"
+
+msgid "Last bimonth"
+msgstr "Poslední dvouměsíční"
+
+msgid "Last 6 bimonths"
+msgstr "Posledních 6 dvouměsíců"
+
+msgid "Bimonths this year"
+msgstr "Dvouměsíční tento rok"
+
+msgid "This quarter"
+msgstr "Toto čtvrtletí"
+
+msgid "Last quarter"
+msgstr "Poslední čtvrtletí"
+
+msgid "Last 4 quarters"
+msgstr "Poslední 4 čtvrtletí "
+
+msgid "Quarters this year"
+msgstr "Čtvrtletí tohoto roku"
+
+msgid "This six-month"
+msgstr "Těchto šest měsíců"
+
+msgid "Last six-month"
+msgstr "Poslední půlrok"
+
+msgid "Last 2 six-months"
+msgstr "Poslední 2 šestiměsíce"
+
+msgid "This financial year"
+msgstr "Tento finanční rok"
+
+msgid "Last financial year"
+msgstr "Poslední finanční rok"
+
+msgid "Last 5 financial years"
+msgstr "Posledních 5 finančních roků"
+
+msgid "This year"
+msgstr "Tento rok"
+
+msgid "Last year"
+msgstr "Poslední rok"
+
+msgid "Last 5 years"
+msgstr "Posledních 5 let"
+
+msgid "User org unit"
+msgstr "Organizační jednotka uživatele"
+
+msgid "User org unit children"
+msgstr "Uživatel podřízené uživatelské jednotky"
+
+msgid "User org unit grand children"
+msgstr " Uživatel druhé podřazené úrovně organizační jednotky"
+
+msgid "Weeks per year"
+msgstr "Týdnů za rok"
+
+msgid "Months per year"
+msgstr "Měsíců za rok"
+
+msgid "Bimonths per year"
+msgstr "Dvouměsíční za rok"
+
+msgid "Quarters per year"
+msgstr "Čtvrtletí za rok"

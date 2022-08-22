@@ -1,14 +1,18 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2020
-# Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2020
+# Guardian Sanjaya <gysanjaya@ugm.ac.id>, 2022
+# phil_dhis2, 2022
+# Yusuf Setiawan <mohammadyusufsetiawan@gmail.com>, 2022
+# Untoro Dwi Raharjo <untoro.dwi.raharjo@mail.ugm.ac.id>, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
+# Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-14T01:00:50.112Z\n"
-"PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:45+0000\n"
+"Last-Translator: Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2022\n"
 "Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -42,10 +46,10 @@ msgstr ""
 "masing-masing. Tentukan aksis untuk masing-masing pilihan data berikut."
 
 msgid "Cancel"
-msgstr "batal"
+msgstr "Batal"
 
 msgid "Update"
-msgstr "perbarui"
+msgstr "Perbarui"
 
 msgid ""
 "'Single Value' is intended to show a single data item. Only the first item "
@@ -82,7 +86,7 @@ msgid "Metadata ID scheme"
 msgstr "Skema ID metadata"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Code"
 msgstr "Kode"
@@ -148,7 +152,7 @@ msgid "None selected"
 msgstr "Tidak ada yang terpilih"
 
 msgid "Only '{{name}}' in use"
-msgstr "Hanya '{{name}}'yang  digunakan"
+msgstr "Hanya '{{name}}' yang digunakan"
 
 msgid "And 1 other..."
 msgstr "Dan 1 lainnya..."
@@ -181,7 +185,7 @@ msgid "Aggregation type"
 msgstr "Tipe agregasi"
 
 msgid "By data element"
-msgstr "Berdasarkan elemen data"
+msgstr "Berdasarkan data elemen"
 
 msgid "Count"
 msgstr "Hitung"
@@ -190,7 +194,7 @@ msgid "Average"
 msgstr "Rata-rata"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr "Rerata (jumlah dalam hirarki unit org)"
+msgstr "Rerata (jumlah dalam hirarki unit organisasi)"
 
 msgid "Sum"
 msgstr "Jumlah"
@@ -199,16 +203,16 @@ msgid "Last value"
 msgstr "Nilai terakhir"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr "Nilai terakhir (jumlah dalam hirarki unit org)"
+msgstr "Nilai terakhir (jumlah dalam hirarki unit organisasi)"
 
 msgid "Min"
-msgstr "Min"
+msgstr "Minimal"
 
 msgid "Max"
-msgstr "Maks"
+msgstr "Maksimal"
 
 msgid "Standard deviation"
-msgstr "Deviasi standar"
+msgstr "Standar deviasi"
 
 msgid "Variance"
 msgstr "Varian"
@@ -223,7 +227,7 @@ msgid "Base line value"
 msgstr "Nilai garis dasar"
 
 msgid "Only include completed events"
-msgstr ""
+msgstr "Hanya sertakan even yang telah selesai"
 
 msgid "Use cumulative values"
 msgstr "Gunakan nilai kumulatif"
@@ -352,7 +356,7 @@ msgid "Line"
 msgstr "Garis"
 
 msgid "Area"
-msgstr "Area"
+msgstr "Daerah"
 
 msgid "Pie"
 msgstr "Pie"
@@ -524,10 +528,10 @@ msgid "Last 2 six-months"
 msgstr "2 semester terakhir"
 
 msgid "This financial year"
-msgstr "Tahun finansial ini"
+msgstr "Anggaran tahun ini"
 
 msgid "Last financial year"
-msgstr "Tahun finansial kemarin"
+msgstr "Anggaran tahun lalu"
 
 msgid "Last 5 financial years"
 msgstr "5 tahun finansial terakhir"
@@ -536,19 +540,19 @@ msgid "This year"
 msgstr "Tahun ini"
 
 msgid "Last year"
-msgstr "Tahun kemarin"
+msgstr "Tahun lalu"
 
 msgid "Last 5 years"
 msgstr "5 tahun terakhir"
 
 msgid "User org unit"
-msgstr "Unit org pengguna"
+msgstr "Org unit pengguna"
 
 msgid "User org unit children"
-msgstr "Sub org unit user"
+msgstr "Sub organisasi unit user"
 
 msgid "User org unit grand children"
-msgstr "Sub-sub org unit pengguna"
+msgstr "Sub-sub organisasi unit pengguna"
 
 msgid "Weeks per year"
 msgstr "Minggu per tahun"

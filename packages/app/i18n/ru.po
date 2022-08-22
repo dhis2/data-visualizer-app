@@ -1,14 +1,15 @@
 # 
 # Translators:
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
+# Ulanbek Abakirov <ulans@mail.ru>, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
+# phil_dhis2, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-14T01:00:50.112Z\n"
-"PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:45+0000\n"
+"Last-Translator: phil_dhis2, 2022\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,10 +55,10 @@ msgid "Hide"
 msgstr "Скрыть"
 
 msgid "Remove"
-msgstr "Удалить"
+msgstr "Убрать"
 
 msgid "Download"
-msgstr "Загрузить"
+msgstr "Скачать"
 
 msgid "Graphics"
 msgstr "Графика"
@@ -69,7 +70,7 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Plain data source"
-msgstr "Простой источник данных"
+msgstr "Источник данных"
 
 msgid "Advanced"
 msgstr "Расширенный"
@@ -124,7 +125,7 @@ msgstr ""
 "Следующая информация может быть запрошена службой технической поддержки."
 
 msgid "Interpretations"
-msgstr "Интерпретации"
+msgstr "Interpretations"
 
 msgid "{{total}} of 1 selected"
 msgstr ""
@@ -175,28 +176,30 @@ msgid "Error generating chart, please try again"
 msgstr ""
 
 msgid "Aggregation type"
-msgstr "Тип агрегации"
+msgstr "Тип агрегирования"
 
 msgid "By data element"
-msgstr "По элементам данных"
+msgstr "По элементу данных"
 
 msgid "Count"
-msgstr "Счет"
+msgstr "Количество"
 
 msgid "Average"
 msgstr "Среднее"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr "Среднее (сумма по иерархии организационных единиц)"
+msgstr "Среднее (сумма по иерархической структуре организационных единиц)"
 
 msgid "Sum"
-msgstr "Сум"
+msgstr "Сумма"
 
 msgid "Last value"
 msgstr "Последнее значение"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr "Последнее значение (среднее по иерархии организационных единиц)"
+msgstr ""
+"Последнее значение (среднее по иерархической структуре организационных "
+"единиц)"
 
 msgid "Min"
 msgstr "Минимум"
@@ -214,16 +217,16 @@ msgid "Base line"
 msgstr "Базисная линия"
 
 msgid "Base line title"
-msgstr "Заголовок базовой линии"
+msgstr "Заголовок базисной линии"
 
 msgid "Base line value"
-msgstr "Исходное значение"
+msgstr "Значение базисной линии"
 
 msgid "Only include completed events"
 msgstr ""
 
 msgid "Use cumulative values"
-msgstr "Отображение в виде линейной диаграммы с накоплением"
+msgstr "Использовать накопленные значения"
 
 msgid "Domain axis title"
 msgstr "Заголовок оси области значений"
@@ -256,16 +259,16 @@ msgid "Hide title"
 msgstr "Скрыть заголовок"
 
 msgid "No space between columns/bars"
-msgstr "Отсутствует пробел между столбцами / строками"
+msgstr "Без пустого промежутка между столбцами"
 
 msgid "Use 100% stacked values"
-msgstr "Отображение в виде многослойной диаграммы (в сумме дает 100%)"
+msgstr "Отображать диаграмму с накоплением в 100%"
 
 msgid "Range axis decimals"
 msgstr "Количество десятичных знаков для значений оси диапазона."
 
 msgid "Range axis title"
-msgstr "Заголовок оси диапазона"
+msgstr "Подпись оси диапазона."
 
 msgid "Range axis max"
 msgstr "Максимальное значение оси диапазона."
@@ -280,13 +283,13 @@ msgid "Tick steps may extend the chart beyond 'Range axis max'"
 msgstr ""
 
 msgid "Trend line"
-msgstr "Показать тенденции"
+msgstr "Линия тренда"
 
 msgid "Linear"
 msgstr "Линейный"
 
 msgid "Polynomial"
-msgstr "Полиномиальная регрессия"
+msgstr "Полиномиальный"
 
 msgid "Loess"
 msgstr "Локальная регрессия (LOESS)"
@@ -298,10 +301,10 @@ msgid "Sort order"
 msgstr "Порядок сортировки"
 
 msgid "Low to high"
-msgstr "Низкий - высокий"
+msgstr "От низких к высоким"
 
 msgid "High to low"
-msgstr "Высокий-низкий"
+msgstr "От высоких к низким"
 
 msgid "Chart subtitle"
 msgstr "Подзаголовок диаграммы"
@@ -310,10 +313,10 @@ msgid "Target line"
 msgstr "Линия цели"
 
 msgid "Target line title"
-msgstr "Заголовок линии цели"
+msgstr "Значение линии цели"
 
 msgid "Target line value"
-msgstr "Значение линии цели"
+msgstr "Заголовок линии цели"
 
 msgid "Chart title"
 msgstr "Заголовок диаграммы"
@@ -328,13 +331,13 @@ msgid "Style"
 msgstr "Стиль"
 
 msgid "Options"
-msgstr "Опции"
+msgstr "Параметры"
 
 msgid "Chart options"
 msgstr "Параметры диаграммы"
 
 msgid "Column"
-msgstr "Столбец"
+msgstr "Столбчатая"
 
 msgid "Stacked column"
 msgstr "Столбчатая с накоплением"
@@ -367,7 +370,7 @@ msgid "Year over year (column)"
 msgstr "Год за годом (столбец)"
 
 msgid "Single value"
-msgstr ""
+msgstr "Одиночное значение"
 
 msgid "Open as Map"
 msgstr ""
@@ -456,13 +459,13 @@ msgid "This week"
 msgstr "Эта неделя"
 
 msgid "Last week"
-msgstr "Последняя неделя"
+msgstr "Прошлая неделя"
 
 msgid "Last 4 weeks"
-msgstr "Последние 4 недели"
+msgstr "Прошлые 4 недели"
 
 msgid "Last 12 weeks"
-msgstr "Последние 12 недель"
+msgstr "Прошлые 12 недель"
 
 msgid "Last 52 weeks"
 msgstr "Последние 52 недели"
@@ -477,16 +480,16 @@ msgid "Last month"
 msgstr "Последний месяц"
 
 msgid "Last 3 months"
-msgstr "Последние 3 месяца"
+msgstr "Прошлые 3 месяца"
 
 msgid "Last 6 months"
 msgstr "Последние 6 месяцев"
 
 msgid "Last 12 months"
-msgstr "Последние 12 месяцев"
+msgstr "Прошлые 12 месяцев"
 
 msgid "Months this year"
-msgstr "Месяцы в этом году"
+msgstr "Месяцы этого года"
 
 msgid "This bimonth"
 msgstr "Этот бимесяц"
@@ -507,10 +510,10 @@ msgid "Last quarter"
 msgstr "Последний квартал"
 
 msgid "Last 4 quarters"
-msgstr "Последние 4 квартала"
+msgstr "Прошлые 4 квартала"
 
 msgid "Quarters this year"
-msgstr "Кварталы в этом году"
+msgstr "Кварталы этого года"
 
 msgid "This six-month"
 msgstr "Это полугодие"
@@ -528,16 +531,16 @@ msgid "Last financial year"
 msgstr "Прошлый финансовый год"
 
 msgid "Last 5 financial years"
-msgstr "Последние 5 финансовых лет"
+msgstr "Прошлые 5 финансовых лет"
 
 msgid "This year"
 msgstr "Этот год"
 
 msgid "Last year"
-msgstr "Последний год"
+msgstr "Прошлый год"
 
 msgid "Last 5 years"
-msgstr "Последние 5 лет"
+msgstr "Прошлые 5 лет"
 
 msgid "User org unit"
 msgstr "Пользовательская организационная единица"

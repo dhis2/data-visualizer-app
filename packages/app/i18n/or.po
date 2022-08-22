@@ -1,15 +1,19 @@
 # 
+# Translators:
+# SubhamJena <subhamjena8465@gmail.com>, 2022
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-14T01:00:50.112Z\n"
 "PO-Revision-Date: 2022-08-21 23:45+0000\n"
-"Language-Team: Arabic (Egypt) (https://www.transifex.com/hisp-uio/teams/100509/ar_EG/)\n"
+"Last-Translator: SubhamJena <subhamjena8465@gmail.com>, 2022\n"
+"Language-Team: Odia (https://www.transifex.com/hisp-uio/teams/100509/or/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ar_EG\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Language: or\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -238,7 +242,7 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr ""
+msgstr "ସବୁ"
 
 msgid "Hide chart legend"
 msgstr ""
@@ -428,10 +432,10 @@ msgid "Please add at least one period as {{filter}}"
 msgstr ""
 
 msgid "Today"
-msgstr ""
+msgstr "ଆଜି"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "ଗତକାଲି"
 
 msgid "Last 3 days"
 msgstr ""
@@ -443,10 +447,10 @@ msgid "Last 14 days"
 msgstr ""
 
 msgid "This week"
-msgstr ""
+msgstr "ଚଳିତ ସପ୍ତାହ"
 
 msgid "Last week"
-msgstr ""
+msgstr "ଗତ ସପ୍ତାହ"
 
 msgid "Last 4 weeks"
 msgstr ""
@@ -461,10 +465,10 @@ msgid "Weeks this year"
 msgstr ""
 
 msgid "This month"
-msgstr ""
+msgstr "ଚଳିତ ମାସ"
 
 msgid "Last month"
-msgstr ""
+msgstr "ଗତ ମାସ"
 
 msgid "Last 3 months"
 msgstr ""
