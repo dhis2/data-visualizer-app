@@ -1,3 +1,10 @@
+## [33.1.78](https://github.com/dhis2/data-visualizer-app/compare/v33.1.77...v33.1.78) (2022-08-22)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (33.x) ([f001ba1](https://github.com/dhis2/data-visualizer-app/commit/f001ba163b96d84f0197fb3586403b719500a3e0))
+
 ## [33.1.77](https://github.com/dhis2/data-visualizer-app/compare/v33.1.76...v33.1.77) (2022-06-09)
 
 
