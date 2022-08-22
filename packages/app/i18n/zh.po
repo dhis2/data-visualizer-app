@@ -1,16 +1,16 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2020
-# easylin <lin_xd@126.com>, 2020
-# phil_dhis2, 2020
-# 晓东 林 <13981924470@126.com>, 2020
+# phil_dhis2, 2022
+# 晓东 林 <13981924470@126.com>, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
+# easylin <lin_xd@126.com>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-25T18:22:35.064Z\n"
-"PO-Revision-Date: 2020-03-02 13:01+0000\n"
-"Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:46+0000\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2022\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -72,7 +72,9 @@ msgstr "'{{visualizationType}}' 打算显示单个数据项，仅仅第一个条
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
 "items. Only the first {{maxNumber}} items will be used and saved."
-msgstr "'{{visualizationType}}' 打算显示最多{{maxNumber}}个数据项，仅其中第一个条目将被使用和保存。"
+msgstr ""
+"'{{visualizationType}}' 打算显示最多{{maxNumber}}个数据项，仅{{maxNumber}} "
+"个中第一个条目将被使用和保存。"
 
 msgid "Main dimensions"
 msgstr "主要维度"
@@ -132,7 +134,7 @@ msgid "Metadata ID scheme"
 msgstr "元数据ID方案"
 
 msgid "ID"
-msgstr "ID"
+msgstr "Id"
 
 msgid "Code"
 msgstr "代码"
@@ -144,13 +146,13 @@ msgid "Data value set"
 msgstr "数据值集"
 
 msgid "Other formats"
-msgstr "其它格式"
+msgstr "Other formats"
 
 msgid "JRXML"
-msgstr ""
+msgstr "JRXML"
 
 msgid "Raw data SQL"
-msgstr ""
+msgstr "原生数据SQL"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "数据可视化应用发生错误"
@@ -171,7 +173,7 @@ msgid "Hide"
 msgstr "隐藏"
 
 msgid "Interpretations"
-msgstr "注释"
+msgstr "解释"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr "选择了 {{axisMaxNumberOfItems}} 中的{{total}} "
@@ -245,7 +247,7 @@ msgid "Average"
 msgstr "平均"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr "平均 (按机构体系结构求和)"
+msgstr "平均 (按机构体系求和)"
 
 msgid "Sum"
 msgstr "求和"
@@ -254,7 +256,7 @@ msgid "Last value"
 msgstr "最近值"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr "最近值(按机构体系平均)"
+msgstr "最近值 (按机构体系求平均)"
 
 msgid "Min"
 msgstr "最小"
@@ -266,7 +268,7 @@ msgid "Standard deviation"
 msgstr "标准差"
 
 msgid "Variance"
-msgstr "方差"
+msgstr "差异"
 
 msgid "Data approved at level"
 msgstr "数据确认等级"
@@ -296,7 +298,7 @@ msgid "Base line title"
 msgstr "基线标题"
 
 msgid "Number"
-msgstr "数字"
+msgstr "数据"
 
 msgid "Column sub-totals"
 msgstr "列小计"
@@ -320,7 +322,7 @@ msgid "Digit group separator"
 msgstr "数字分隔符"
 
 msgid "None"
-msgstr "无"
+msgstr "没有"
 
 msgid "Space"
 msgstr "空格"
@@ -457,7 +459,7 @@ msgid "Percentage of column"
 msgstr "列百分比"
 
 msgid "Organisation unit"
-msgstr "组织机构"
+msgstr "机构"
 
 msgid "Parent organisation unit"
 msgstr "上级组织机构"
@@ -595,7 +597,7 @@ msgid ""
 msgstr "{{visualizationType}} 必须至少选择一个数据元或组集条目到  {{axes}}。"
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
-msgstr "布局有问题"
+msgstr "{{visualizationType}} 必须至少有一个数据项在 {{axes}}."
 
 msgid "There's a problem with the layout"
 msgstr "布局有问题"
@@ -628,7 +630,7 @@ msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr "移动或移除分类以便解决问题"
 
 msgid "Something went wrong"
-msgstr "出了些问题"
+msgstr "出问题了"
 
 msgid "or"
 msgstr "或"
@@ -640,7 +642,7 @@ msgid "Yesterday"
 msgstr "昨天"
 
 msgid "Last 3 days"
-msgstr "最近3天"
+msgstr "最近三天"
 
 msgid "Last 7 days"
 msgstr "最近7天"
@@ -655,7 +657,7 @@ msgid "Last week"
 msgstr "上周"
 
 msgid "Last 4 weeks"
-msgstr "最近四周"
+msgstr "最近4 周"
 
 msgid "Last 12 weeks"
 msgstr "最近12周"
@@ -664,7 +666,7 @@ msgid "Last 52 weeks"
 msgstr "最近52周"
 
 msgid "Weeks this year"
-msgstr "今年的星期"
+msgstr "今年的周"
 
 msgid "This month"
 msgstr "本月"
@@ -676,7 +678,7 @@ msgid "Last 3 months"
 msgstr "最近3个月"
 
 msgid "Last 6 months"
-msgstr "最近六个月<br>"
+msgstr "最近6个月"
 
 msgid "Last 12 months"
 msgstr "最近12月"
@@ -691,40 +693,40 @@ msgid "Last bimonth"
 msgstr "最近俩月"
 
 msgid "Last 6 bimonths"
-msgstr "最近六个俩月"
+msgstr "最近6个俩月"
 
 msgid "Bimonths this year"
 msgstr "今年的俩月"
 
 msgid "This quarter"
-msgstr "本季"
+msgstr "本季度"
 
 msgid "Last quarter"
 msgstr "最近一季"
 
 msgid "Last 4 quarters"
-msgstr "最近四个季度"
+msgstr "最近4个季度"
 
 msgid "Quarters this year"
 msgstr "今年的季度"
 
 msgid "This six-month"
-msgstr "本半年"
+msgstr "本六个月"
 
 msgid "Last six-month"
 msgstr "最近六个月"
 
 msgid "Last 2 six-months"
-msgstr "最近两个半年"
+msgstr "最近2个半年"
 
 msgid "This financial year"
-msgstr "本财政年"
+msgstr "本财年"
 
 msgid "Last financial year"
 msgstr "上一财政年"
 
 msgid "Last 5 financial years"
-msgstr "最近五个财政年"
+msgstr "最近5个财政年"
 
 msgid "This year"
 msgstr "今年"

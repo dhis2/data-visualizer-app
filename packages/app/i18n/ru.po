@@ -1,14 +1,16 @@
 # 
 # Translators:
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
+# Ulanbek Abakirov <ulans@mail.ru>, 2022
+# Saurabh Leekha <saurabh.leekha@hispindia.org>, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
+# phil_dhis2, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-25T18:22:35.064Z\n"
-"PO-Revision-Date: 2020-03-02 13:01+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:46+0000\n"
+"Last-Translator: phil_dhis2, 2022\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -60,7 +62,7 @@ msgid "Update"
 msgstr "Обновить"
 
 msgid "Add to {{axisName}}"
-msgstr ""
+msgstr "Добавить в {{axisName}}"
 
 msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
@@ -73,16 +75,16 @@ msgid ""
 msgstr ""
 
 msgid "Main dimensions"
-msgstr ""
+msgstr "Основное измерение"
 
 msgid "Other dimensions"
 msgstr ""
 
 msgid "Your dimensions"
-msgstr ""
+msgstr "Ваши Измерения"
 
 msgid "Filter dimensions"
-msgstr ""
+msgstr "Фильтровать измерения"
 
 msgid "Graphics"
 msgstr "Графика"
@@ -279,10 +281,10 @@ msgid "Loading data approval levels"
 msgstr ""
 
 msgid "Axis range"
-msgstr ""
+msgstr "Диапазон осей"
 
 msgid "Values outside of the range will not be displayed"
-msgstr ""
+msgstr "Значения вне диапазона не будут отображаться"
 
 msgid "Base line"
 msgstr "Базисная линия"
@@ -342,7 +344,7 @@ msgid "Compact"
 msgstr "Компактный"
 
 msgid "Axis title"
-msgstr ""
+msgstr "Название оси"
 
 msgid "Add a title"
 msgstr ""
@@ -387,7 +389,7 @@ msgid "Chart subtitle"
 msgstr "Подзаголовок диаграммы"
 
 msgid "Auto generated"
-msgstr ""
+msgstr "Автогенерируемая"
 
 msgid "Custom"
 msgstr "Пользователь"
@@ -443,7 +445,7 @@ msgid "Clear min/max limits"
 msgstr ""
 
 msgid "No space between bars/columns"
-msgstr ""
+msgstr "Без пробелов между полосами / столбцами"
 
 msgid "Number type"
 msgstr "Тип числа"
@@ -470,7 +472,7 @@ msgid "Stacked values add up to 100%"
 msgstr ""
 
 msgid "Decimals"
-msgstr ""
+msgstr "Десятичные дроби"
 
 msgid "Auto"
 msgstr "Авто"
@@ -503,7 +505,7 @@ msgid "Row totals"
 msgstr ""
 
 msgid "Value labels"
-msgstr ""
+msgstr "Ярлыки значений"
 
 msgid "Dimension labels"
 msgstr ""
@@ -759,16 +761,16 @@ msgid "Lines"
 msgstr ""
 
 msgid "Vertical (y) axis"
-msgstr ""
+msgstr "Вертикальная ось (y)"
 
 msgid "Horizontal (x) axis"
-msgstr ""
+msgstr "Горизонтальная ось (x)"
 
 msgid "Chart style"
 msgstr ""
 
 msgid "Titles"
-msgstr ""
+msgstr "Титулы"
 
 msgid "Display totals"
 msgstr ""

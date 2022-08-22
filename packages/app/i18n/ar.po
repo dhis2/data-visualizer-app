@@ -1,16 +1,16 @@
 # 
 # Translators:
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
-# Hamza Assada <7amza.it@gmail.com>, 2020
-# KRG HIS <antonia.bezenchek@informa.pro>, 2020
+# KRG HIS <antonia.bezenchek@informa.pro>, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
+# phil_dhis2, 2022
+# Hamza Assada <7amza.it@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-25T18:22:35.064Z\n"
-"PO-Revision-Date: 2020-03-02 13:01+0000\n"
-"Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:46+0000\n"
+"Last-Translator: Hamza Assada <7amza.it@gmail.com>, 2022\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -109,13 +109,13 @@ msgid "Excel (.xls)"
 msgstr "إكسل (.xls)"
 
 msgid "CSV (.csv)"
-msgstr ""
+msgstr "CSV (.csv)"
 
 msgid "HTML (.html)"
-msgstr ""
+msgstr "HTML (.html)"
 
 msgid "Download"
-msgstr "تحميل"
+msgstr "تنزيل"
 
 msgid "Plain data source"
 msgstr "مصدر البيانات الصريحة"
@@ -136,13 +136,13 @@ msgid "Advanced"
 msgstr "متقدم"
 
 msgid "Metadata ID scheme"
-msgstr "مخطط معرف البيانات الوصفية"
+msgstr "مخطط ID البيانات الوصفية"
 
 msgid "ID"
-msgstr "المعرف"
+msgstr "ID"
 
 msgid "Code"
-msgstr "الرمز"
+msgstr "الكود"
 
 msgid "Name"
 msgstr "الإسم"
@@ -154,7 +154,7 @@ msgid "Other formats"
 msgstr "صيغ أخرى"
 
 msgid "JRXML"
-msgstr ""
+msgstr "JRXML"
 
 msgid "Raw data SQL"
 msgstr "للبيانات الأولية SQL "
@@ -163,7 +163,7 @@ msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "حدث خطأ في تطبيق DHIS2 Data Visualizer."
 
 msgid "Refresh to try again"
-msgstr "حدث للمحاولة مرة أخرى"
+msgstr "قم بالتحديث للمحاولة مرة أخرى"
 
 msgid "Hide technical details"
 msgstr "إخفاء التفاصيل التقنية"
@@ -193,10 +193,10 @@ msgid "None selected"
 msgstr "غير محدد"
 
 msgid "Only '{{- name}}' in use"
-msgstr "فقط '{{- name}}' قيد الإستخدام"
+msgstr "قيد الإستخدام '{{- name}}' فقط"
 
 msgid "Only '{{number}}' in use"
-msgstr "فقط '{{number}}' قيد الإستخدام"
+msgstr "قيد الإستخدام '{{- name}}' فقط"
 
 msgid "Levels"
 msgstr "المستويات"
@@ -205,7 +205,7 @@ msgid "Groups"
 msgstr "المجموعات"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "و 1 غيرها ..."
 
 msgid "And {{numberOfItems}} others..."
 msgstr "و {{numberOfItems}} أخرى..."
@@ -245,7 +245,7 @@ msgid "Determines how the values in the pivot table are aggregated."
 msgstr "يحدد كيفية تجميع القيم في الجدول المحوري."
 
 msgid "By data element"
-msgstr "بواسطة عنصر البيانات"
+msgstr "حسب عنصر البيانات"
 
 msgid "Count"
 msgstr "العدد"
@@ -281,7 +281,7 @@ msgid "Data approved at level"
 msgstr "البيانات الموافق عليها في مستوى"
 
 msgid "Select from predefined levels"
-msgstr "اختر من مستويات المحددة مسبقًا"
+msgstr "اختر من مستويات محددة مسبقاً"
 
 msgid "Loading data approval levels"
 msgstr "تحميل مستويات الموافقة على البيانات"
@@ -308,10 +308,10 @@ msgid "Number"
 msgstr "العدد"
 
 msgid "Column sub-totals"
-msgstr "مجاميع العمود الفرعية"
+msgstr "إجماليات العمود الفرعية"
 
 msgid "Columns totals"
-msgstr "مجاميع الأعمدة"
+msgstr "إجماليات الأعمدة"
 
 msgid "Event data"
 msgstr "بيانات الحدث"
@@ -326,7 +326,7 @@ msgid "Cumulative values"
 msgstr "قيم تراكمية"
 
 msgid "Digit group separator"
-msgstr "فاصل مجموعة الخانات"
+msgstr "فاصل مجموعة الخانات الرقمية"
 
 msgid "None"
 msgstr "لا شيء"
@@ -386,7 +386,7 @@ msgid "Hide empty rows"
 msgstr "إخفاء الصفوف الفارغة"
 
 msgid "Legend key"
-msgstr "شروحات"
+msgstr "مفتاح إيضاحي"
 
 msgid "Table subtitle"
 msgstr "العنوان الفرعي للجدول"
@@ -407,19 +407,19 @@ msgid "Chart title"
 msgstr "عنوان المخطط البياني"
 
 msgid "Display legend"
-msgstr "عرض الشروحات"
+msgstr "عرض المفاتيح الإيضاحية"
 
 msgid "Legend style"
-msgstr "نمط وسيلة الإيضاح"
+msgstr "نمط مفتاح الإيضاح"
 
 msgid "Legend type"
 msgstr "نوع مفتاح الخريطة"
 
 msgid "Use pre-defined legend per data item"
-msgstr "استخدم مفاتيح ايضاحية معرفة مسبقًا لكل عنصر بيانات"
+msgstr "استخدم مفتاح إيضاح معرف مسبقاً لكل عنصر بيانات"
 
 msgid "Select a single legend for entire table"
-msgstr "حدد مفتاح تفسيري واحد للجدول بالكامل"
+msgstr "حدد مفتاح إيضاحي واحد للجدول بالكامل"
 
 msgid "Legend changes background color"
 msgstr "المفتاح الإيضاحي يغير من لون الخلفية"
@@ -428,13 +428,13 @@ msgid "Legend changes text color"
 msgstr "المفتاح الإيضاحي يغير من لون النص"
 
 msgid "Legend"
-msgstr "شروحات"
+msgstr "مفاتيح إيضاحية"
 
 msgid "Select from legends"
-msgstr "حدد من العناوين التفسيرية"
+msgstr "حدد من مفاتيح الإيضاح"
 
 msgid "Loading legends"
-msgstr "تحميل العناوين التفسيرية"
+msgstr "تحميل المفاتيح الإيضاحية"
 
 msgid ""
 "You can set a minimum or maximum value. This will apply to the entire table,"
@@ -450,7 +450,7 @@ msgid "Maximum data value"
 msgstr "القيمة الأعلى"
 
 msgid "Clear min/max limits"
-msgstr "ازالة الحدود العليا/الدنيا"
+msgstr "ازالة الحدود الدنيا/العليا"
 
 msgid "No space between bars/columns"
 msgstr "لا مسافة بين الخطوط العمودية"
@@ -480,7 +480,7 @@ msgid "Stacked values add up to 100%"
 msgstr "تضيف القيم المكدسة ما يصل إلى 100٪"
 
 msgid "Decimals"
-msgstr "كسور العشرية"
+msgstr "كسور عشرية"
 
 msgid "Auto"
 msgstr "تلقائي"
@@ -504,7 +504,7 @@ msgid "Polynomial"
 msgstr "متعدد الحدود"
 
 msgid "Loess"
-msgstr ""
+msgstr "Loess"
 
 msgid "Row sub-totals"
 msgstr "المجاميع الفرعية للصف"
@@ -552,16 +552,16 @@ msgid "Open as Map"
 msgstr "فتح كخريطة"
 
 msgid "Reporting rate"
-msgstr "معدل التبليغ"
+msgstr "معدل الإبلاغ"
 
 msgid "Reporting rate on time"
 msgstr "معدل الإبلاغ في الوقت المحدد"
 
 msgid "Actual reports"
-msgstr "التبليغات الفعلية"
+msgstr "الإبلاغات الفعلية"
 
 msgid "Actual reports on time"
-msgstr "التبليغات الفعلية في الوقت المحدد"
+msgstr "الإبلاغات الفعلية في الوقت المحدد"
 
 msgid "Expected reports"
 msgstr "الإبلاغات المتوقعة"
@@ -648,7 +648,7 @@ msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr "قم بإصلاح هذه المشكلة عن طريق نقل أو إزالة الفئات التي تم تعينها."
 
 msgid "Something went wrong"
-msgstr "هناك خطأ ما"
+msgstr "حدث خطأ ما"
 
 msgid "or"
 msgstr "أو"
@@ -669,7 +669,7 @@ msgid "Last 14 days"
 msgstr "آخر 14 يوم"
 
 msgid "This week"
-msgstr "الأسبوع الحالي"
+msgstr "هذا الأسبوع"
 
 msgid "Last week"
 msgstr "الأسبوع الماضي"
@@ -732,10 +732,10 @@ msgid "This six-month"
 msgstr "الستة أشهر الحالية"
 
 msgid "Last six-month"
-msgstr "آخر نصف السنة (فترة من ستة أشهر)"
+msgstr "آخر ستة-أشهر"
 
 msgid "Last 2 six-months"
-msgstr "آخر نصفي السنة (كل فترة ستة أشهر)"
+msgstr "آخر فترتي ستة أشهر (نصفي سنة)"
 
 msgid "This financial year"
 msgstr "السنة المالية الحالية"
@@ -765,7 +765,7 @@ msgid "User org unit grand children"
 msgstr "الوحدة التنظيمية الكبرى الأطفال"
 
 msgid "Data"
-msgstr "البيانات"
+msgstr "بيانات"
 
 msgid "Axes"
 msgstr "المحاور"
@@ -804,7 +804,7 @@ msgid "Limit values"
 msgstr "حدد حدود القيم"
 
 msgid "Limit number of values"
-msgstr "تحديد حد لعدد القيم"
+msgstr "تحديد حدود عدد القيم"
 
 msgid "Limit minimum/maximum values"
 msgstr "الحد من القيم الدنيا / القصوى"

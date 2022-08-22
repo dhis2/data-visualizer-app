@@ -1,0 +1,814 @@
+# 
+# Translators:
+# Yury Rogachev <yury@dhis2.org>, 2022
+# Cherise Beek <cherise.beek@gmail.com>, 2022
+# Rica Zamora Duchateau, 2022
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2020-05-25T18:22:35.064Z\n"
+"PO-Revision-Date: 2022-08-21 23:46+0000\n"
+"Last-Translator: Rica Zamora Duchateau, 2022\n"
+"Language-Team: Dutch (https://www.transifex.com/hisp-uio/teams/100509/nl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Rename successful"
+msgstr "Hernoeming geslaagd"
+
+msgid "\"{{what}}\" successfully deleted."
+msgstr "\"{{what}}\" met succes verwijderd."
+
+msgid "You have unsaved changes."
+msgstr "U heeft niet opgeslagen veranderingen."
+
+msgid "Discard unsaved changes?"
+msgstr "Niet opgeslaagde veranderingen verwerpen?"
+
+msgid ""
+"Are you sure you want to leave this visualization? Any unsaved changes will "
+"be lost."
+msgstr ""
+"Bent u zeker dat u deze visualisatie wil verlaten? Niet opgeslagen "
+"veranderingen worden verworpen."
+
+msgid "No, cancel"
+msgstr "Nee, annuleer"
+
+msgid "Yes, leave"
+msgstr "Ja, verlaat"
+
+msgid "Axis 1"
+msgstr "As 1"
+
+msgid "Axis 2"
+msgstr "As 2"
+
+msgid "Manage axes"
+msgstr "Beheer assen"
+
+msgid ""
+"A chart can have two axes. Each axis will have its own scale. Set the axis "
+"for each data selection below."
+msgstr ""
+"Een grafiek kan over twee assen beschikken. Elke as heeft een eigen schaal. "
+"Stel de as in voor elke onderstaande gegevensselectie."
+
+msgid "Cancel"
+msgstr "Annuleren"
+
+msgid "Update"
+msgstr "Bijwerken"
+
+msgid "Add to {{axisName}}"
+msgstr "Voeg toe aan {{axisName}}"
+
+msgid ""
+"'{{visualizationType}}' is intended to show a single data item. Only the "
+"first item will be used and saved."
+msgstr ""
+"'{{visualizationType}}' is bedoeld om een enkel gegevensitem te tonen. "
+"Alleen het eerste item wordt gebruikt en opgeslagen."
+
+msgid ""
+"'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
+"items. Only the first {{maxNumber}} items will be used and saved."
+msgstr ""
+"'{{visualizationType}}' is bedoeld om het maximum {{maxNumber}} aantal items"
+" te tonen. Alleen de eerste {{maxNumber}} items worden gebruikt en "
+"opgeslagen."
+
+msgid "Main dimensions"
+msgstr "Hoofddimensies"
+
+msgid "Other dimensions"
+msgstr "Andere dimensies"
+
+msgid "Your dimensions"
+msgstr "Uw dimensies"
+
+msgid "Filter dimensions"
+msgstr "Filter dimensies"
+
+msgid "Graphics"
+msgstr "Afbeeldingen"
+
+msgid "Image (.png)"
+msgstr "Afbeelding (.png)"
+
+msgid "PDF (.pdf)"
+msgstr "PDF (.pdf)"
+
+msgid "Table layout"
+msgstr "Tabel-lay-out"
+
+msgid "Excel (.xls)"
+msgstr "Excel (.xls)"
+
+msgid "CSV (.csv)"
+msgstr "CSV (.csv)"
+
+msgid "HTML (.html)"
+msgstr "HTML (.html)"
+
+msgid "Download"
+msgstr "Downloaden"
+
+msgid "Plain data source"
+msgstr "Gewone gegevensbron"
+
+msgid "JSON"
+msgstr "JSON"
+
+msgid "XML"
+msgstr "XML"
+
+msgid "Excel"
+msgstr "Excel"
+
+msgid "CSV"
+msgstr "CSV"
+
+msgid "Advanced"
+msgstr "Geavanceerd"
+
+msgid "Metadata ID scheme"
+msgstr "Schema van metadata-id"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Code"
+msgstr "Code"
+
+msgid "Name"
+msgstr "Naam"
+
+msgid "Data value set"
+msgstr "Gegevenswaardereeks"
+
+msgid "Other formats"
+msgstr "Andere formaten"
+
+msgid "JRXML"
+msgstr "JRXML"
+
+msgid "Raw data SQL"
+msgstr "Ruwe data-SQL"
+
+msgid "An error occurred in the DHIS2 Data Visualizer application."
+msgstr "Een fout is opgetreden in de toepassing DHIS2 Visualiseerder."
+
+msgid "Refresh to try again"
+msgstr "Ververs om opnieuw te proberen"
+
+msgid "Hide technical details"
+msgstr "Technische details verbergen"
+
+msgid "Show technical details"
+msgstr "Technische details tonen"
+
+msgid "The following information may be requested by technical support."
+msgstr ""
+"De volgende informatie kan aangevraagd worden bij de technische "
+"ondersteuning."
+
+msgid "Hide"
+msgstr "Verbergen"
+
+msgid "Interpretations"
+msgstr "Interpretaties"
+
+msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
+msgstr "{{total}} van {{axisMaxNumberOfItems}} geselecteerd"
+
+msgid "{{total}} selected"
+msgstr "{{total}} geselecteerd"
+
+msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
+msgstr ""
+"{{dimensionName}} is vergrendeld aan {{axisName}} voor {{visTypeName}}"
+
+msgid "None selected"
+msgstr "Geen geselecteerd"
+
+msgid "Only '{{- name}}' in use"
+msgstr ""
+
+msgid "Only '{{number}}' in use"
+msgstr ""
+
+msgid "Levels"
+msgstr ""
+
+msgid "Groups"
+msgstr "Groepen"
+
+msgid "And 1 other..."
+msgstr "En 1 andere..."
+
+msgid "And {{numberOfItems}} others..."
+msgstr "En {{numberOfItems}} anderen..."
+
+msgid "Unsaved visualization"
+msgstr ""
+
+msgid "Edited"
+msgstr "Bewerkt"
+
+msgid "Viewing interpretation from {{interpretationDate}}"
+msgstr "Interpretatie van {{interpretatieDatum}} aan het bezichtigen"
+
+msgid "Getting started"
+msgstr ""
+
+msgid ""
+"All dimensions that you can use to build visualizations are shown in the "
+"left sidebar"
+msgstr ""
+
+msgid "Add dimensions to the layout above"
+msgstr ""
+
+msgid "Click a dimension to add or remove items"
+msgstr ""
+
+msgid "Your most viewed charts and tables"
+msgstr ""
+
+msgid "Aggregation type"
+msgstr "Aggregatietype"
+
+msgid "Determines how the values in the pivot table are aggregated."
+msgstr ""
+
+msgid "By data element"
+msgstr "Volgens gegevenselement"
+
+msgid "Count"
+msgstr "Tel"
+
+msgid "Average"
+msgstr "Gemiddelde"
+
+msgid "Average (sum in org unit hierarchy)"
+msgstr "Gemiddlede (som in organisatieëenheidshierarchie)"
+
+msgid "Sum"
+msgstr "Som"
+
+msgid "Last value"
+msgstr "Laatste waarde"
+
+msgid "Last value (average in org unit hierarchy)"
+msgstr "Laatste waarde (gemiddelde in organisatieëenheidshierarchie)"
+
+msgid "Min"
+msgstr "Min"
+
+msgid "Max"
+msgstr "Max"
+
+msgid "Standard deviation"
+msgstr "Standaarddeviatie"
+
+msgid "Variance"
+msgstr "Variantie"
+
+msgid "Data approved at level"
+msgstr ""
+
+msgid "Select from predefined levels"
+msgstr ""
+
+msgid "Loading data approval levels"
+msgstr ""
+
+msgid "Axis range"
+msgstr ""
+
+msgid "Values outside of the range will not be displayed"
+msgstr ""
+
+msgid "Base line"
+msgstr "Basislijn"
+
+msgid "Value"
+msgstr "Waarde"
+
+msgid "Title"
+msgstr ""
+
+msgid "Base line title"
+msgstr "Basislijnstitel"
+
+msgid "Number"
+msgstr ""
+
+msgid "Column sub-totals"
+msgstr ""
+
+msgid "Columns totals"
+msgstr ""
+
+msgid "Event data"
+msgstr ""
+
+msgid "Only include completed events"
+msgstr ""
+
+msgid "Include cumulative"
+msgstr ""
+
+msgid "Cumulative values"
+msgstr ""
+
+msgid "Digit group separator"
+msgstr ""
+
+msgid "None"
+msgstr "Geen"
+
+msgid "Space"
+msgstr ""
+
+msgid "Comma"
+msgstr ""
+
+msgid "Display density"
+msgstr ""
+
+msgid "Comfortable"
+msgstr ""
+
+msgid "Normal"
+msgstr ""
+
+msgid "Compact"
+msgstr ""
+
+msgid "Axis title"
+msgstr ""
+
+msgid "Add a title"
+msgstr ""
+
+msgid "Font size"
+msgstr ""
+
+msgid "Large"
+msgstr ""
+
+msgid "Small"
+msgstr ""
+
+msgid "Hide empty columns"
+msgstr ""
+
+msgid "Hide empty categories"
+msgstr "Verberg lege waarden"
+
+msgid "Before first"
+msgstr "Voor eerste"
+
+msgid "After last"
+msgstr ""
+
+msgid "Before first and after last"
+msgstr "Voor eerste en na laatste"
+
+msgid "All"
+msgstr "Alle"
+
+msgid "Hide empty rows"
+msgstr ""
+
+msgid "Legend key"
+msgstr ""
+
+msgid "Table subtitle"
+msgstr ""
+
+msgid "Chart subtitle"
+msgstr "Grafieksondertitel"
+
+msgid "Auto generated"
+msgstr ""
+
+msgid "Custom"
+msgstr ""
+
+msgid "Table title"
+msgstr ""
+
+msgid "Chart title"
+msgstr "Grafiektitel"
+
+msgid "Display legend"
+msgstr ""
+
+msgid "Legend style"
+msgstr ""
+
+msgid "Legend type"
+msgstr ""
+
+msgid "Use pre-defined legend per data item"
+msgstr ""
+
+msgid "Select a single legend for entire table"
+msgstr ""
+
+msgid "Legend changes background color"
+msgstr ""
+
+msgid "Legend changes text color"
+msgstr ""
+
+msgid "Legend"
+msgstr "Legenda"
+
+msgid "Select from legends"
+msgstr ""
+
+msgid "Loading legends"
+msgstr ""
+
+msgid ""
+"You can set a minimum or maximum value. This will apply to the entire table,"
+" all values outside of the minimum/maximum range will not be displayed"
+msgstr ""
+
+msgid "Minimum data value"
+msgstr ""
+
+msgid "Maximum data value"
+msgstr ""
+
+msgid "Clear min/max limits"
+msgstr ""
+
+msgid "No space between bars/columns"
+msgstr ""
+
+msgid "Number type"
+msgstr ""
+
+msgid "Display the value of percentages of the total"
+msgstr ""
+
+msgid "Percentage of row"
+msgstr ""
+
+msgid "Percentage of column"
+msgstr ""
+
+msgid "Organisation unit"
+msgstr "Organisatieëenheid"
+
+msgid "Parent organisation unit"
+msgstr ""
+
+msgid "Reporting period"
+msgstr ""
+
+msgid "Stacked values add up to 100%"
+msgstr ""
+
+msgid "Decimals"
+msgstr ""
+
+msgid "Auto"
+msgstr "Auto"
+
+msgid "The number of axis steps between the min and max values"
+msgstr ""
+
+msgid "Steps"
+msgstr "Stappen"
+
+msgid "Include regression"
+msgstr ""
+
+msgid "Trend line"
+msgstr "Trendlijn"
+
+msgid "Linear"
+msgstr "Lineair"
+
+msgid "Polynomial"
+msgstr "Polynomiaal"
+
+msgid "Loess"
+msgstr "Löss"
+
+msgid "Row sub-totals"
+msgstr ""
+
+msgid "Row totals"
+msgstr ""
+
+msgid "Value labels"
+msgstr ""
+
+msgid "Dimension labels"
+msgstr ""
+
+msgid "Display organisation unit hierarchy"
+msgstr ""
+
+msgid "Skip rounding"
+msgstr ""
+
+msgid "Custom sort order"
+msgstr ""
+
+msgid "Low to high"
+msgstr "Laag naar hoog"
+
+msgid "High to low"
+msgstr "Hoog naar laag"
+
+msgid "Add a subtitle"
+msgstr ""
+
+msgid "Target line"
+msgstr "Doellijn"
+
+msgid "Target line title"
+msgstr "Doellijntitel"
+
+msgid "Top limit"
+msgstr ""
+
+msgid "Options"
+msgstr "Opties"
+
+msgid "Open as Map"
+msgstr "Open als Kaart"
+
+msgid "Reporting rate"
+msgstr ""
+
+msgid "Reporting rate on time"
+msgstr ""
+
+msgid "Actual reports"
+msgstr ""
+
+msgid "Actual reports on time"
+msgstr ""
+
+msgid "Expected reports"
+msgstr ""
+
+msgid "No data available"
+msgstr ""
+
+msgid ""
+"The selected dimensions didn’t return any data. There may be no data, or you"
+" may not have access to it."
+msgstr ""
+
+msgid "{{axisName}} is empty"
+msgstr ""
+
+msgid "Add at least one item to {{axisName}}."
+msgstr ""
+
+msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
+msgstr ""
+
+msgid ""
+"Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
+" {{visualizationType}}."
+msgstr ""
+
+msgid "No period selected"
+msgstr ""
+
+msgid ""
+"{{visualizationType}} must have at least one period selected in {{axes}}."
+msgstr ""
+
+msgid "No data selected"
+msgstr ""
+
+msgid ""
+"{{visualizationType}} must have at least one data item or data element group"
+" set item in {{axes}}."
+msgstr ""
+
+msgid "{{visualizationType}} must have at least one data item in {{axes}}."
+msgstr ""
+
+msgid "There's a problem with the layout"
+msgstr ""
+
+msgid ""
+"A single indicator must be the only data item when using indicators as Data "
+"in Filter."
+msgstr ""
+
+msgid "Data Element Group Sets and Reporting Rates cannot be used together."
+msgstr ""
+
+msgid "There is a problem with this {{visualizationType}} visualization."
+msgstr ""
+
+msgid "There was a problem getting the data from the server."
+msgstr ""
+
+msgid "Assigned Categories can only be used with data elements"
+msgstr ""
+
+msgid ""
+"Fix this problem by selecting data elements or removing Assigned Categories."
+msgstr ""
+
+msgid "Assigned Categories cannot be used as Filter"
+msgstr ""
+
+msgid "Fix this problem by moving or removing Assigned Categories."
+msgstr ""
+
+msgid "Something went wrong"
+msgstr "Er is iets fout gegaan."
+
+msgid "or"
+msgstr ""
+
+msgid "Today"
+msgstr "Vandaag"
+
+msgid "Yesterday"
+msgstr "Gisteren"
+
+msgid "Last 3 days"
+msgstr "Laatste 3 dagen"
+
+msgid "Last 7 days"
+msgstr "Laatste 7 dagen"
+
+msgid "Last 14 days"
+msgstr "Laatste 14 dagen"
+
+msgid "This week"
+msgstr "Deze week"
+
+msgid "Last week"
+msgstr "Laatste week"
+
+msgid "Last 4 weeks"
+msgstr "Laatste 4 weken"
+
+msgid "Last 12 weeks"
+msgstr "Laatste 12 weken"
+
+msgid "Last 52 weeks"
+msgstr "Laatste 52 weken"
+
+msgid "Weeks this year"
+msgstr "Weken dit jaar"
+
+msgid "This month"
+msgstr "Deze maand"
+
+msgid "Last month"
+msgstr "Laatste maand"
+
+msgid "Last 3 months"
+msgstr "Laatste 3 maanden"
+
+msgid "Last 6 months"
+msgstr "Laatste 6 maanden"
+
+msgid "Last 12 months"
+msgstr "Laatste 12 maanden"
+
+msgid "Months this year"
+msgstr "Maanden dit jaar"
+
+msgid "This bimonth"
+msgstr "Deze twee maanden"
+
+msgid "Last bimonth"
+msgstr "Laatste twee maanden"
+
+msgid "Last 6 bimonths"
+msgstr "Laatste 6 twee maanden"
+
+msgid "Bimonths this year"
+msgstr "Twee maanden dit jaar"
+
+msgid "This quarter"
+msgstr "Dit kwartier"
+
+msgid "Last quarter"
+msgstr "Laatste kwartier"
+
+msgid "Last 4 quarters"
+msgstr "Laatste 4 kwartieren"
+
+msgid "Quarters this year"
+msgstr "Kwartieren dit jaar"
+
+msgid "This six-month"
+msgstr "Dit halfjaar"
+
+msgid "Last six-month"
+msgstr "Laatste halfjaar"
+
+msgid "Last 2 six-months"
+msgstr "Laatste 2 halfjaren"
+
+msgid "This financial year"
+msgstr "Dit financieel jaar"
+
+msgid "Last financial year"
+msgstr "Laatste financieel jaar"
+
+msgid "Last 5 financial years"
+msgstr "Laatste 5 financiële jaren"
+
+msgid "This year"
+msgstr "Dit jaar"
+
+msgid "Last year"
+msgstr "Laatste jaar"
+
+msgid "Last 5 years"
+msgstr "Laatste 5 jaren"
+
+msgid "User org unit"
+msgstr "Gebruikersorganisatieëenheid"
+
+msgid "User org unit children"
+msgstr ""
+
+msgid "User org unit grand children"
+msgstr ""
+
+msgid "Data"
+msgstr "Gegevens"
+
+msgid "Axes"
+msgstr ""
+
+msgid "Style"
+msgstr "Stijl"
+
+msgid "Display"
+msgstr ""
+
+msgid "Lines"
+msgstr ""
+
+msgid "Vertical (y) axis"
+msgstr ""
+
+msgid "Horizontal (x) axis"
+msgstr ""
+
+msgid "Chart style"
+msgstr ""
+
+msgid "Titles"
+msgstr ""
+
+msgid "Display totals"
+msgstr ""
+
+msgid "Display empty data"
+msgstr ""
+
+msgid "Labels"
+msgstr "Labels"
+
+msgid "Limit values"
+msgstr ""
+
+msgid "Limit number of values"
+msgstr ""
+
+msgid "Limit minimum/maximum values"
+msgstr ""
+
+msgid "Parameters"
+msgstr ""
+
+msgid "Weeks per year"
+msgstr ""
+
+msgid "Months per year"
+msgstr ""
+
+msgid "Bimonths per year"
+msgstr ""
+
+msgid "Quarters per year"
+msgstr ""

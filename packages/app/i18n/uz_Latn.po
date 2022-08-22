@@ -1,0 +1,833 @@
+# 
+# Translators:
+# Yury Rogachev <yury@dhis2.org>, 2022
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2020-05-25T18:22:35.064Z\n"
+"PO-Revision-Date: 2022-08-21 23:46+0000\n"
+"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2022\n"
+"Language-Team: Uzbek (Latin) (https://www.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uz@Latn\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Rename successful"
+msgstr "Muvaffaqiyatli qayta nomlash"
+
+msgid "\"{{what}}\" successfully deleted."
+msgstr "{{what}}\" muvaffaqiyatli oʼchirildi."
+
+msgid "You have unsaved changes."
+msgstr "Sizda saqlanmagan oʼzgartirishlar mavjud."
+
+msgid "Discard unsaved changes?"
+msgstr "Saqlanmagan oʼzgarishlar bekor qilinsinmi?"
+
+msgid ""
+"Are you sure you want to leave this visualization? Any unsaved changes will "
+"be lost."
+msgstr ""
+"Haqiqatdan ham ushbu vizualizatsiyani tark etmoqchimisiz? Har qanday "
+"saqlanmagan oʼzgartirishlar yoʼqotiladi."
+
+msgid "No, cancel"
+msgstr "Yoʼq, bekor qiling"
+
+msgid "Yes, leave"
+msgstr "Ha, qoldirib ketish"
+
+msgid "Axis 1"
+msgstr ""
+
+msgid "Axis 2"
+msgstr ""
+
+msgid "Manage axes"
+msgstr ""
+
+msgid ""
+"A chart can have two axes. Each axis will have its own scale. Set the axis "
+"for each data selection below."
+msgstr ""
+
+msgid "Cancel"
+msgstr "Бекор қилиш"
+
+msgid "Update"
+msgstr "Янгилаш"
+
+msgid "Add to {{axisName}}"
+msgstr "{{axisName}} ga qoʼshing"
+
+msgid ""
+"'{{visualizationType}}' is intended to show a single data item. Only the "
+"first item will be used and saved."
+msgstr ""
+"{{visualizationType}}' bitta maʼlumot elementini koʼrsatishga moʼljallangan."
+" Faqat birinchi element ishlatiladi va saqlanadi."
+
+msgid ""
+"'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
+"items. Only the first {{maxNumber}} items will be used and saved."
+msgstr ""
+"{{visualiationType}}' maksimal {{maxNumber}} ta sonni koʼrsatishga "
+"moʼljallangan. Faqat birinchi {{maxNumber}} ta element ishlatiladi va "
+"saqlanadi."
+
+msgid "Main dimensions"
+msgstr "Umumiy oʼlchamlar"
+
+msgid "Other dimensions"
+msgstr "Boshqa oʼlchamlar"
+
+msgid "Your dimensions"
+msgstr "Sizning sozlamalaringiz"
+
+msgid "Filter dimensions"
+msgstr "Filtr sozlamalari"
+
+msgid "Graphics"
+msgstr "Grafika"
+
+msgid "Image (.png)"
+msgstr "Rasm (.png)"
+
+msgid "PDF (.pdf)"
+msgstr "PDF (.pdf)"
+
+msgid "Table layout"
+msgstr "Jadval maketi"
+
+msgid "Excel (.xls)"
+msgstr "Excel (.xls)"
+
+msgid "CSV (.csv)"
+msgstr "CSV (.csv)"
+
+msgid "HTML (.html)"
+msgstr "HTML (.html)"
+
+msgid "Download"
+msgstr "Юклаш"
+
+msgid "Plain data source"
+msgstr "Oddiy maʼlumotlar manbai"
+
+msgid "JSON"
+msgstr "JSON"
+
+msgid "XML"
+msgstr "XML"
+
+msgid "Excel"
+msgstr "Excel"
+
+msgid "CSV"
+msgstr "CSV"
+
+msgid "Advanced"
+msgstr "Ilgʼor"
+
+msgid "Metadata ID scheme"
+msgstr "MetaMaʼlumot ID sxemasi"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Code"
+msgstr "Kod"
+
+msgid "Name"
+msgstr "Исми"
+
+msgid "Data value set"
+msgstr "Maʼlumotlar qiymati oʼrnatilgan"
+
+msgid "Other formats"
+msgstr "Boshqa shakllar"
+
+msgid "JRXML"
+msgstr "JRXML"
+
+msgid "Raw data SQL"
+msgstr "Xom maʼlumotlar SQL"
+
+msgid "An error occurred in the DHIS2 Data Visualizer application."
+msgstr "DHIS2 Maʼlumotlar Vizualizator dasturida xatolik yuz berdi."
+
+msgid "Refresh to try again"
+msgstr "Ыaytib urinib kщrin uchun avval yangilang"
+
+msgid "Hide technical details"
+msgstr "Texnik detallarni berkitish"
+
+msgid "Show technical details"
+msgstr "Texnik detallarni koʼrsatish"
+
+msgid "The following information may be requested by technical support."
+msgstr "Quyidagi axborot texnik yordamchilar tomonidan soʼralishi mumkin"
+
+msgid "Hide"
+msgstr "Berkitish"
+
+msgid "Interpretations"
+msgstr "Talqinlar"
+
+msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
+msgstr "{{total}} / {{axisMaxNumberOfItems}} dan tanlandi"
+
+msgid "{{total}} selected"
+msgstr "{{total}} tanlandi"
+
+msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
+msgstr "{{dimensionName}} {{visTypeName}} uchun {{axisName}} da qulflangan"
+
+msgid "None selected"
+msgstr "Biror nima tanlanmagan"
+
+msgid "Only '{{- name}}' in use"
+msgstr "Foydalanish uchun faqatgina '{{- name}}'"
+
+msgid "Only '{{number}}' in use"
+msgstr "Foydalanish uchun faqatgina '{{number}}'"
+
+msgid "Levels"
+msgstr "Bosqichlar/Qavatlar"
+
+msgid "Groups"
+msgstr "Гуруҳлар"
+
+msgid "And 1 other..."
+msgstr "Yana bir boshqasi"
+
+msgid "And {{numberOfItems}} others..."
+msgstr "Yana bir boshqasi {{numberOfItems}}"
+
+msgid "Unsaved visualization"
+msgstr "Saqlanmagan vizualizatsiya"
+
+msgid "Edited"
+msgstr "Tahrirlangan"
+
+msgid "Viewing interpretation from {{interpretationDate}}"
+msgstr "{{TalqinVaqt}} dan talqinni koʼrish"
+
+msgid "Getting started"
+msgstr "Ish boshlanganida"
+
+msgid ""
+"All dimensions that you can use to build visualizations are shown in the "
+"left sidebar"
+msgstr ""
+"Vizualizatsiyani shakllantirish uchun foydalanilgan barcha oʼlchamlar, yon "
+"panelda koʼrsatilgan"
+
+msgid "Add dimensions to the layout above"
+msgstr "Yuqori qavat oʼlchamlarini qoʼshing"
+
+msgid "Click a dimension to add or remove items"
+msgstr ""
+"Elementlarni qoʼshish yoki oʼchirish uchun, oʼlchamlar tugmasini bosing"
+
+msgid "Your most viewed charts and tables"
+msgstr "Sizning eng koʼrilgan diagramma va jadvallaringiz"
+
+msgid "Aggregation type"
+msgstr "Бирлаштириш тури"
+
+msgid "Determines how the values in the pivot table are aggregated."
+msgstr ""
+
+msgid "By data element"
+msgstr "Маълумотлар элементи бўйича"
+
+msgid "Count"
+msgstr "Ҳисоблаш"
+
+msgid "Average"
+msgstr "Ўртача"
+
+msgid "Average (sum in org unit hierarchy)"
+msgstr "Oʼrtacha (tashkiliy birlik ierarxiyasi jamlanmasi)"
+
+msgid "Sum"
+msgstr "Жамлаш"
+
+msgid "Last value"
+msgstr "Oxirgi qiymat"
+
+msgid "Last value (average in org unit hierarchy)"
+msgstr "Oxirgi qiymat (tashkiliy birliklar ierarxiyasi oʼrtacha qiymati)"
+
+msgid "Min"
+msgstr "Минимум"
+
+msgid "Max"
+msgstr "Максимум"
+
+msgid "Standard deviation"
+msgstr "Standart ogʼish"
+
+msgid "Variance"
+msgstr "Номувофиқлик"
+
+msgid "Data approved at level"
+msgstr "Maʼlumotlar tasdiqlangan daraja"
+
+msgid "Select from predefined levels"
+msgstr "oldindan belgilangan darajalardan tanlang"
+
+msgid "Loading data approval levels"
+msgstr "Maʼlumotlarni tasdiqlash darajalari yuklanmoqda"
+
+msgid "Axis range"
+msgstr "Oʼqlar diapazoni"
+
+msgid "Values outside of the range will not be displayed"
+msgstr "Diapazondan tashqari qiymatlar aks ettirilmaydi"
+
+msgid "Base line"
+msgstr "Bazaviy chiziq"
+
+msgid "Value"
+msgstr "Қиймат"
+
+msgid "Title"
+msgstr "Sarlavha"
+
+msgid "Base line title"
+msgstr "Аsosiy qator qiymati"
+
+msgid "Number"
+msgstr "Tartib raqami"
+
+msgid "Column sub-totals"
+msgstr "Ustunning oraliq yigʼindilari"
+
+msgid "Columns totals"
+msgstr "Ustunlar boʼyicha yigʼindi"
+
+msgid "Event data"
+msgstr "Hodisa/Tadbir maʼlumotlari"
+
+msgid "Only include completed events"
+msgstr "Faqat tugallangan hodisa/tadbirlarni oʼz ichiga oladi"
+
+msgid "Include cumulative"
+msgstr "Kumulyatsiyani oʼz ichiga oladi"
+
+msgid "Cumulative values"
+msgstr "Kumulyativ qiymatlar"
+
+msgid "Digit group separator"
+msgstr "Raqamlar guruhini taqsimlovchi"
+
+msgid "None"
+msgstr "Йўқ"
+
+msgid "Space"
+msgstr "Oraliq (maydon)"
+
+msgid "Comma"
+msgstr "Vergul"
+
+msgid "Display density"
+msgstr "Koʼrinish zichligi"
+
+msgid "Comfortable"
+msgstr "Qulay"
+
+msgid "Normal"
+msgstr "Meʼyoriy"
+
+msgid "Compact"
+msgstr "Zich"
+
+msgid "Axis title"
+msgstr "Oʼq sarlavhasi"
+
+msgid "Add a title"
+msgstr "Sarlavha qoʼshish"
+
+msgid "Font size"
+msgstr "Shrift hajmi"
+
+msgid "Large"
+msgstr "Katta"
+
+msgid "Small"
+msgstr "Kichik"
+
+msgid "Hide empty columns"
+msgstr "Boʼsh ustunlarni berkitish"
+
+msgid "Hide empty categories"
+msgstr "Boʼsh kategoriyalarni berkitish"
+
+msgid "Before first"
+msgstr "Oldingi bet"
+
+msgid "After last"
+msgstr "Oxirgidan keyingi"
+
+msgid "Before first and after last"
+msgstr "Birinchidan oldingi va oxirgidan keyingi"
+
+msgid "All"
+msgstr "Barchasi"
+
+msgid "Hide empty rows"
+msgstr "Boʼsh qatorlarni berkitish"
+
+msgid "Legend key"
+msgstr ""
+
+msgid "Table subtitle"
+msgstr "Jadval taglavhasi"
+
+msgid "Chart subtitle"
+msgstr "Diagramma sharhi"
+
+msgid "Auto generated"
+msgstr "Аvtomatik ravishda yaratilgan"
+
+msgid "Custom"
+msgstr "Odatiy"
+
+msgid "Table title"
+msgstr "Jadval sarlavhasi"
+
+msgid "Chart title"
+msgstr "Diagramma sarlavhasi"
+
+msgid "Display legend"
+msgstr "Taʼrifni koʼrsatish"
+
+msgid "Legend style"
+msgstr "Taʼrif turi"
+
+msgid "Legend type"
+msgstr "Таъриф тури"
+
+msgid "Use pre-defined legend per data item"
+msgstr "Har bir maʼlumot uchun oldindan belgilangan taʼrifdan foydalaning"
+
+msgid "Select a single legend for entire table"
+msgstr ""
+
+msgid "Legend changes background color"
+msgstr "Taʼrif fon rangini oʼzgartiradi"
+
+msgid "Legend changes text color"
+msgstr "Taʼrif matn rangini oʼzgartiradi"
+
+msgid "Legend"
+msgstr "Taʼrif"
+
+msgid "Select from legends"
+msgstr "Taʼriflardan soʼrang"
+
+msgid "Loading legends"
+msgstr "Taʼriflar yuklanmoqda"
+
+msgid ""
+"You can set a minimum or maximum value. This will apply to the entire table,"
+" all values outside of the minimum/maximum range will not be displayed"
+msgstr ""
+"Minimal yoki maksimal qiymatni belgilashingiz mumkin. Bu butun jadvalga "
+"taalluqlidir, minimal/maksimal diapazondan tashqarisidagi barcha qiymatlar "
+"koʼrsatilmaydi."
+
+msgid "Minimum data value"
+msgstr "Maʼlumotlarning minimal qiymati"
+
+msgid "Maximum data value"
+msgstr "Maʼlumotlarning maksimal qiymati"
+
+msgid "Clear min/max limits"
+msgstr "Minimal/maksimal chegaralarini aniqlashtiring"
+
+msgid "No space between bars/columns"
+msgstr "Barlar/ustunlar orasida boʼsh joy yoʼq"
+
+msgid "Number type"
+msgstr "Raqam turi"
+
+msgid "Display the value of percentages of the total"
+msgstr "Jamidan foizlar qiymatini koʼrsatish"
+
+msgid "Percentage of row"
+msgstr "Qator foizi"
+
+msgid "Percentage of column"
+msgstr "Ustun foizi"
+
+msgid "Organisation unit"
+msgstr "Ташкилий бирлик"
+
+msgid "Parent organisation unit"
+msgstr "Yuqori tashkilot boʼlimi"
+
+msgid "Reporting period"
+msgstr "Hisobot davri"
+
+msgid "Stacked values add up to 100%"
+msgstr "Umumiy yigʼindisi 100% ni tashkil etadi"
+
+msgid "Decimals"
+msgstr "Oʼnli kasrlar"
+
+msgid "Auto"
+msgstr "Аvto"
+
+msgid "The number of axis steps between the min and max values"
+msgstr ""
+
+msgid "Steps"
+msgstr "Qadamlar"
+
+msgid "Include regression"
+msgstr "Regressiyani oʼz ichiga oladi"
+
+msgid "Trend line"
+msgstr "Yoʼnalish qatori"
+
+msgid "Linear"
+msgstr "Chiziqli"
+
+msgid "Polynomial"
+msgstr "Koʼp boʼgʼimli"
+
+msgid "Loess"
+msgstr "Siljuvchi"
+
+msgid "Row sub-totals"
+msgstr "Qatorning oraliq yigʼindisi"
+
+msgid "Row totals"
+msgstr "Qator yigʼindisi"
+
+msgid "Value labels"
+msgstr "Qiymat yorliqlari"
+
+msgid "Dimension labels"
+msgstr "Oʼlcham qiymatlari"
+
+msgid "Display organisation unit hierarchy"
+msgstr "Tashkiliy boʼlim ierarxiyasini namoyish qilish"
+
+msgid "Skip rounding"
+msgstr "Soddalashtirish oʼtkazib yuborilsin"
+
+msgid "Custom sort order"
+msgstr "Maxsus saralash tartibi"
+
+msgid "Low to high"
+msgstr "Pastdan yuqoriga"
+
+msgid "High to low"
+msgstr "Yuqoridan pastga"
+
+msgid "Add a subtitle"
+msgstr "Taglavha qoʼshing"
+
+msgid "Target line"
+msgstr "Maqsad chegara chizigʼi"
+
+msgid "Target line title"
+msgstr "Maqsadli qator sarlavhasi"
+
+msgid "Top limit"
+msgstr "Yuqori chegara"
+
+msgid "Options"
+msgstr "Вариант"
+
+msgid "Open as Map"
+msgstr "Xarita sifatida ochish"
+
+msgid "Reporting rate"
+msgstr "Hisobotdagi stavka"
+
+msgid "Reporting rate on time"
+msgstr "Hisobotdagi stavka oʼz vaqtida"
+
+msgid "Actual reports"
+msgstr "Haqiqiy hisobotlar"
+
+msgid "Actual reports on time"
+msgstr "Haqiqiy hisobotlar oʼz vaqtida"
+
+msgid "Expected reports"
+msgstr "Kutilayotgan hisobotlar"
+
+msgid "No data available"
+msgstr ""
+
+msgid ""
+"The selected dimensions didn’t return any data. There may be no data, or you"
+" may not have access to it."
+msgstr ""
+"Tanlangan parametrlar asosida hech qanday maʼlumotlar topilmadi. Maʼlumotlar"
+" yoʼq yoki ulargadan foydalanish huquqi mavjud emas."
+
+msgid "{{axisName}} is empty"
+msgstr "{{axisName}} boʼsh"
+
+msgid "Add at least one item to {{axisName}}."
+msgstr "{{axisName}} uchun kamida bir elementni kiriting"
+
+msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
+msgstr "{{columnsAxisName}} va {{rowsAxisName}} boʼsh"
+
+msgid ""
+"Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
+" {{visualizationType}}."
+msgstr ""
+"{{visualizationType}} yaratish uchun qoʼyidagi oʼqlarga {{columnsAxisName}} "
+"yoki {{rowsAxisName}} kamida bir elementni qoʼshing."
+
+msgid "No period selected"
+msgstr "Давр танланмаган"
+
+msgid ""
+"{{visualizationType}} must have at least one period selected in {{axes}}."
+msgstr ""
+"{{visualizationType}} kamida bir davrga ega boʼlmogʼi lozim, tanlangan oʼqda"
+" {{axes}}."
+
+msgid "No data selected"
+msgstr "Maʼlumot tanlanmagan"
+
+msgid ""
+"{{visualizationType}} must have at least one data item or data element group"
+" set item in {{axes}}."
+msgstr ""
+"{{visualizationType}} kamida bir maʼlumot elementi yoki element guruhi "
+"toʼplamiga ega boʼlmogʼi lozim, tanlangan oʼqda {{axes}}."
+
+msgid "{{visualizationType}} must have at least one data item in {{axes}}."
+msgstr ""
+"{{visualizationType}} kamida bir maʼlumot elementi ega boʼlmogʼi lozim, "
+"tanlangan oʼqda {{axes}}."
+
+msgid "There's a problem with the layout"
+msgstr "Bu yerda qatlam maʼlumotlarida xatolik"
+
+msgid ""
+"A single indicator must be the only data item when using indicators as Data "
+"in Filter."
+msgstr ""
+"Indikatorlarni Filtrdagi maʼlumotlar sifatida ishlatilganda bitta indikatoor"
+" yagona maʼlumot elementi boʼlishi lozim."
+
+msgid "Data Element Group Sets and Reporting Rates cannot be used together."
+msgstr ""
+"Maʼlumotlar elementlari guruhi toʼplamlari va hisobot stavkalarini "
+"birgalikda ishlatib boʼlmaydi."
+
+msgid "There is a problem with this {{visualizationType}} visualization."
+msgstr ""
+"Ushbu {{visualizationType}} vizualizatsiya bilan bogʼliq muammo mavjud."
+
+msgid "There was a problem getting the data from the server."
+msgstr "Serverdan maʼlumotlarni olishda muammo yuz berdi."
+
+msgid "Assigned Categories can only be used with data elements"
+msgstr ""
+"Tayinlangan toifalardan faqat maʼlumotlar elementlaridan foydalanish mumkin"
+
+msgid ""
+"Fix this problem by selecting data elements or removing Assigned Categories."
+msgstr ""
+"Maʼlumot elementlarini tanlash yoki tayinlangan toifalarni olib tashlash "
+"orqali ushbu muammoni hal qiling."
+
+msgid "Assigned Categories cannot be used as Filter"
+msgstr "Belgilangan toifalarni Filtr sifatida ishlatib boʼlmaydi"
+
+msgid "Fix this problem by moving or removing Assigned Categories."
+msgstr ""
+"Belgilangan toifalarni koʼchirish yoki olib tashlash orqali ushbu muammoni "
+"hal qiling."
+
+msgid "Something went wrong"
+msgstr "Nimadir notoʼgʼri bajarildi"
+
+msgid "or"
+msgstr "yoki"
+
+msgid "Today"
+msgstr "бугун"
+
+msgid "Yesterday"
+msgstr "Кеча"
+
+msgid "Last 3 days"
+msgstr "Oxirgi 3 kun"
+
+msgid "Last 7 days"
+msgstr "Oxirgi 7 kun"
+
+msgid "Last 14 days"
+msgstr "Oxirgi 14 kun"
+
+msgid "This week"
+msgstr "Ушбу ҳафта"
+
+msgid "Last week"
+msgstr "Охирги ҳафта"
+
+msgid "Last 4 weeks"
+msgstr "Охирги 4 ҳафта"
+
+msgid "Last 12 weeks"
+msgstr "Охирги 12 ҳафта"
+
+msgid "Last 52 weeks"
+msgstr "Охирги 52 ҳафта"
+
+msgid "Weeks this year"
+msgstr "Haftalar ayni yilda"
+
+msgid "This month"
+msgstr "Ушбу ой"
+
+msgid "Last month"
+msgstr "Охирги ой"
+
+msgid "Last 3 months"
+msgstr "Охирги 3 ой"
+
+msgid "Last 6 months"
+msgstr "Oxirgi yarim yillik"
+
+msgid "Last 12 months"
+msgstr "Охирги 12 ой"
+
+msgid "Months this year"
+msgstr "Oylar ushbu yilda"
+
+msgid "This bimonth"
+msgstr "Ushbu juft oylik"
+
+msgid "Last bimonth"
+msgstr "Oxirgi juft oylik"
+
+msgid "Last 6 bimonths"
+msgstr "Oxirgi juft yarim yillik"
+
+msgid "Bimonths this year"
+msgstr "Ushbu yildagi juft oylar"
+
+msgid "This quarter"
+msgstr "Ушбу квартал"
+
+msgid "Last quarter"
+msgstr "Охирги квартал"
+
+msgid "Last 4 quarters"
+msgstr "Охирги 4 квартал"
+
+msgid "Quarters this year"
+msgstr "Ushbu yildagi kvartallar"
+
+msgid "This six-month"
+msgstr "Ушбу ярим йиллик"
+
+msgid "Last six-month"
+msgstr "Oxirgi yarim yillik"
+
+msgid "Last 2 six-months"
+msgstr "Oxirgi 2 ta yarim yillik"
+
+msgid "This financial year"
+msgstr "Ушбу молиявий йил"
+
+msgid "Last financial year"
+msgstr "Охирги молиявий йил"
+
+msgid "Last 5 financial years"
+msgstr "Охирги 5 молиявий йиллар"
+
+msgid "This year"
+msgstr "Ушбу йил"
+
+msgid "Last year"
+msgstr "Охирги йил"
+
+msgid "Last 5 years"
+msgstr "Охирги 5 йил"
+
+msgid "User org unit"
+msgstr "Foydalanuvchi tashkilot boʼlimi"
+
+msgid "User org unit children"
+msgstr "Foydalanuvchi tashkiliy boʼlimi quyi boʼlimlari"
+
+msgid "User org unit grand children"
+msgstr "Foydalanuvchi tashkiliy boʼlimi 2 pogʼona quyi boʼlimlari"
+
+msgid "Data"
+msgstr "Маълумот"
+
+msgid "Axes"
+msgstr "Oʼqlar"
+
+msgid "Style"
+msgstr "Услуб"
+
+msgid "Display"
+msgstr "Ekranda koʼrsatish"
+
+msgid "Lines"
+msgstr "Qatorlar"
+
+msgid "Vertical (y) axis"
+msgstr "Vertikal (y) oʼqi"
+
+msgid "Horizontal (x) axis"
+msgstr "gorizontal (X) oʼq"
+
+msgid "Chart style"
+msgstr "Diagramma uslubi"
+
+msgid "Titles"
+msgstr "Sarlavhalar"
+
+msgid "Display totals"
+msgstr ""
+
+msgid "Display empty data"
+msgstr ""
+
+msgid "Labels"
+msgstr "Yorliqlar"
+
+msgid "Limit values"
+msgstr "Cheklangan qiymatlar"
+
+msgid "Limit number of values"
+msgstr "Qiymatlarning cheklangan soni"
+
+msgid "Limit minimum/maximum values"
+msgstr "Minimal/maksimal qiymatlarni cheklash"
+
+msgid "Parameters"
+msgstr "Parametrlar"
+
+msgid "Weeks per year"
+msgstr "Yil ichida haftalar"
+
+msgid "Months per year"
+msgstr "Yil ichida oylar"
+
+msgid "Bimonths per year"
+msgstr "Yil ichida juft oylar"
+
+msgid "Quarters per year"
+msgstr "Yil ichida choraklar"

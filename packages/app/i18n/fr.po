@@ -1,32 +1,34 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2020
-# Karoline Tufte Lien <karoline@dhis2.org>, 2020
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
-# phil_dhis2, 2020
-# Djibril Dione <dione.djibril@gmail.com>, 2020
+# Djibril Dione <dione.djibril@gmail.com>, 2022
+# Karoline Tufte Lien <karoline@dhis2.org>, 2022
+# Yao Selom Saka <ysaka@hispwca.org>, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2022
+# phil_dhis2, 2022
+# Edem Kossi <ekossi@hispwca.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-25T18:22:35.064Z\n"
-"PO-Revision-Date: 2020-03-02 13:01+0000\n"
-"Last-Translator: Djibril Dione <dione.djibril@gmail.com>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:46+0000\n"
+"Last-Translator: Edem Kossi <ekossi@hispwca.org>, 2022\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Rename successful"
-msgstr ""
+msgstr "Renommer avec succès"
 
 msgid "\"{{what}}\" successfully deleted."
-msgstr ""
+msgstr "\"{{what}}\" supprimé avec succès."
 
 msgid "You have unsaved changes."
-msgstr ""
+msgstr "Vous avez des changements non enregistrés."
 
 msgid "Discard unsaved changes?"
 msgstr "Abandonner les modifications non enregistrées?"
@@ -35,26 +37,30 @@ msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
 "be lost."
 msgstr ""
+"Voulez-vous vraiment quitter cette visualisation? Toutes les modifications "
+"non enregistrées seront perdues."
 
 msgid "No, cancel"
-msgstr ""
+msgstr "Non, annuler"
 
 msgid "Yes, leave"
-msgstr ""
+msgstr "Oui, quitter"
 
 msgid "Axis 1"
-msgstr ""
+msgstr "Axe 1"
 
 msgid "Axis 2"
-msgstr ""
+msgstr "Axe 2"
 
 msgid "Manage axes"
-msgstr ""
+msgstr "Gérer les axes"
 
 msgid ""
 "A chart can have two axes. Each axis will have its own scale. Set the axis "
 "for each data selection below."
 msgstr ""
+"Un graphique peut avoir deux axes. Chaque axe aura sa propre échelle. "
+"Définissez l'axe pour chaque sélection de données ci-dessous."
 
 msgid "Cancel"
 msgstr "Annuler"
@@ -69,50 +75,55 @@ msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
 "first item will be used and saved."
 msgstr ""
+"'{{visualizationType}}' est destiné à afficher un seul élément de données. "
+"Seul le premier élément sera utilisé et enregistré."
 
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
+"'{{visualiationType}}' est destiné à montrer le maximum {{maxNumber}} nombre"
+" d'éléments  . Seul les premiers {{maxNumber}} éléments seront utilisés et "
+"enregistrés."
 
 msgid "Main dimensions"
-msgstr ""
+msgstr "Dimensions principales"
 
 msgid "Other dimensions"
-msgstr ""
+msgstr "Autres dimensions"
 
 msgid "Your dimensions"
-msgstr ""
+msgstr "Votre dimensions"
 
 msgid "Filter dimensions"
-msgstr "Dimensions du filtre"
+msgstr "Filtrer les dimensions"
 
 msgid "Graphics"
-msgstr "Graphisme"
+msgstr "Graphiques"
 
 msgid "Image (.png)"
-msgstr ""
+msgstr "Image (.png)"
 
 msgid "PDF (.pdf)"
-msgstr ""
+msgstr "PDF (.pdf)"
 
 msgid "Table layout"
-msgstr "Mise en page du tableau"
+msgstr "Disposition du tableau"
 
 msgid "Excel (.xls)"
-msgstr ""
+msgstr "Excel (.xls)"
 
 msgid "CSV (.csv)"
-msgstr ""
+msgstr "CSV (.csv)"
 
 msgid "HTML (.html)"
-msgstr ""
+msgstr "HTML (.html)"
 
 msgid "Download"
 msgstr "Télécharger"
 
 msgid "Plain data source"
-msgstr "Sourc de données brutes"
+msgstr "Source de données brutes"
 
 msgid "JSON"
 msgstr "JSON"
@@ -121,7 +132,7 @@ msgid "XML"
 msgstr "XML"
 
 msgid "Excel"
-msgstr ""
+msgstr "Excel"
 
 msgid "CSV"
 msgstr "CSV"
@@ -133,7 +144,7 @@ msgid "Metadata ID scheme"
 msgstr "Schéma ID des métadata"
 
 msgid "ID"
-msgstr "Id"
+msgstr "ID"
 
 msgid "Code"
 msgstr "Code"
@@ -148,96 +159,102 @@ msgid "Other formats"
 msgstr "Autres formats"
 
 msgid "JRXML"
-msgstr ""
+msgstr "JRXML"
 
 msgid "Raw data SQL"
-msgstr ""
+msgstr "Données brutes SQL"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
+"Une erreur s'est produite dans l'application Visualiseur de Données de DHIS2"
 
 msgid "Refresh to try again"
-msgstr ""
+msgstr "Actualiser pour réessayer"
 
 msgid "Hide technical details"
-msgstr ""
+msgstr "Masquer les détails techniques"
 
 msgid "Show technical details"
-msgstr ""
+msgstr "Afficher les détails techniques"
 
 msgid "The following information may be requested by technical support."
 msgstr ""
+"Les informations suivantes peuvent être demandées par soutien technique."
 
 msgid "Hide"
 msgstr "Masquer"
 
 msgid "Interpretations"
-msgstr "interprétations"
+msgstr "Interprétations"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr ""
+msgstr "{{total}} de {{axisMaxNumberOfItems}} choisis"
 
 msgid "{{total}} selected"
-msgstr ""
+msgstr "{{total}} choisis"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
+"{{dimensionName}} est verrouillé sur {{axisName}} pour {{visTypeName}}"
 
 msgid "None selected"
-msgstr ""
+msgstr "Aucune sélection"
 
 msgid "Only '{{- name}}' in use"
-msgstr ""
+msgstr "Uniquement '{{- name}}' utilisé"
 
 msgid "Only '{{number}}' in use"
-msgstr ""
+msgstr "Uniquement '{{number}}' utilisé"
 
 msgid "Levels"
-msgstr ""
+msgstr "Niveaux"
 
 msgid "Groups"
 msgstr "Groupes"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "Et 1 autre..."
 
 msgid "And {{numberOfItems}} others..."
-msgstr ""
+msgstr "Et {{numberOfItems}} autres..."
 
 msgid "Unsaved visualization"
-msgstr ""
+msgstr "Visualisation non enregistrée"
 
 msgid "Edited"
-msgstr ""
+msgstr "Modifié"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
+msgstr "Affichage de l'interprétation de {{Date de l'interprétation}}"
 
 msgid "Getting started"
-msgstr ""
+msgstr "Commencer"
 
 msgid ""
 "All dimensions that you can use to build visualizations are shown in the "
 "left sidebar"
 msgstr ""
+"Toutes les dimensions que vous pouvez utiliser pour créer des visualisations"
+" sont affichées dans la barre latérale gauche"
 
 msgid "Add dimensions to the layout above"
-msgstr ""
+msgstr "Ajouter des dimensions à la disposition ci-dessus"
 
 msgid "Click a dimension to add or remove items"
-msgstr ""
+msgstr "Cliquez sur une dimension pour ajouter ou supprimer des éléments"
 
 msgid "Your most viewed charts and tables"
-msgstr ""
+msgstr "Vos graphiques et tableaux les plus vus"
 
 msgid "Aggregation type"
 msgstr "Type d'agrégation"
 
 msgid "Determines how the values in the pivot table are aggregated."
 msgstr ""
+"Détermine comment les valeurs du tableau croisé dynamique sont agrégées."
 
 msgid "By data element"
-msgstr "Par élément de donnée"
+msgstr "Par élément de données"
 
 msgid "Count"
 msgstr "Décompte"
@@ -246,16 +263,17 @@ msgid "Average"
 msgstr "Moyenne"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr ""
+msgstr "Moyenne (somme dans l'arborescence d'org unit)"
 
 msgid "Sum"
 msgstr "Somme"
 
 msgid "Last value"
-msgstr ""
+msgstr "Dernière valeur"
 
 msgid "Last value (average in org unit hierarchy)"
 msgstr ""
+"Dernière valeur (moyenne dans la hiérarchie des unités d'organisation)"
 
 msgid "Min"
 msgstr "Min"
@@ -273,19 +291,19 @@ msgid "Data approved at level"
 msgstr "Données approuvées au niveau"
 
 msgid "Select from predefined levels"
-msgstr ""
+msgstr "Sélectionnez parmi les niveaux prédéfinis"
 
 msgid "Loading data approval levels"
-msgstr ""
+msgstr "Chargement des niveaux d'approbation des données"
 
 msgid "Axis range"
-msgstr ""
+msgstr "Plage de l'axe"
 
 msgid "Values outside of the range will not be displayed"
-msgstr ""
+msgstr "Valeurs en dehors de la plage ne seront pas affichées"
 
 msgid "Base line"
-msgstr ""
+msgstr "Ligne de référence"
 
 msgid "Value"
 msgstr "Valeur"
@@ -294,28 +312,28 @@ msgid "Title"
 msgstr "Titre"
 
 msgid "Base line title"
-msgstr ""
+msgstr "Titre de la ligne de référence"
 
 msgid "Number"
 msgstr "Nombre"
 
 msgid "Column sub-totals"
-msgstr ""
+msgstr "Sous-totaux de colonne"
 
 msgid "Columns totals"
-msgstr ""
+msgstr "Totaux des colonnes"
 
 msgid "Event data"
-msgstr ""
+msgstr "Données d'événement"
 
 msgid "Only include completed events"
-msgstr ""
+msgstr "Inclure uniquement les événements terminés"
 
 msgid "Include cumulative"
 msgstr "Inclure cumulatif"
 
 msgid "Cumulative values"
-msgstr ""
+msgstr "Valeurs cumulées"
 
 msgid "Digit group separator"
 msgstr "Séparateur des groupe de chiffres"
@@ -342,10 +360,10 @@ msgid "Compact"
 msgstr "Compact"
 
 msgid "Axis title"
-msgstr ""
+msgstr "Titre de l'axe"
 
 msgid "Add a title"
-msgstr ""
+msgstr "Ajouter un titre"
 
 msgid "Font size"
 msgstr "Taille de la police"
@@ -357,19 +375,19 @@ msgid "Small"
 msgstr "Petit"
 
 msgid "Hide empty columns"
-msgstr ""
+msgstr "Cacher les colonnes vides"
 
 msgid "Hide empty categories"
 msgstr "Masquer les catégories vides"
 
 msgid "Before first"
-msgstr ""
+msgstr "Avant la première"
 
 msgid "After last"
-msgstr ""
+msgstr "Après la dernière"
 
 msgid "Before first and after last"
-msgstr ""
+msgstr "Avant la première et après la dernière"
 
 msgid "All"
 msgstr "Tout"
@@ -378,16 +396,16 @@ msgid "Hide empty rows"
 msgstr "Cacher lignes vides"
 
 msgid "Legend key"
-msgstr ""
+msgstr "Touche de légende"
 
 msgid "Table subtitle"
-msgstr ""
+msgstr "Sous-titre du tableau"
 
 msgid "Chart subtitle"
-msgstr ""
+msgstr "Sous-titre du graphique"
 
 msgid "Auto generated"
-msgstr ""
+msgstr "Genere automatiquement"
 
 msgid "Custom"
 msgstr "Personnalisé"
@@ -399,63 +417,66 @@ msgid "Chart title"
 msgstr "Titre du graphique"
 
 msgid "Display legend"
-msgstr ""
+msgstr "Afficher la légende"
 
 msgid "Legend style"
-msgstr ""
+msgstr "Style de légende"
 
 msgid "Legend type"
 msgstr "Type de légende"
 
 msgid "Use pre-defined legend per data item"
-msgstr ""
+msgstr "Utiliser une légende prédéfinie par élément de données"
 
 msgid "Select a single legend for entire table"
-msgstr ""
+msgstr "Sélectionnez une seule légende pour toute la table"
 
 msgid "Legend changes background color"
-msgstr ""
+msgstr "La légende change la couleur d'arrière-plan"
 
 msgid "Legend changes text color"
-msgstr ""
+msgstr "La légende change la couleur du texte"
 
 msgid "Legend"
 msgstr "Légende"
 
 msgid "Select from legends"
-msgstr ""
+msgstr "Choisissez parmi les légendes"
 
 msgid "Loading legends"
-msgstr ""
+msgstr "Chargement des légendes"
 
 msgid ""
 "You can set a minimum or maximum value. This will apply to the entire table,"
 " all values outside of the minimum/maximum range will not be displayed"
 msgstr ""
+"Vous pouvez définir une valeur minimale ou maximale. Cela s'appliquera à "
+"l'ensemble du tableau, toutes les valeurs en dehors de la plage "
+"minimale/maximale ne seront pas affichées"
 
 msgid "Minimum data value"
-msgstr ""
+msgstr "Valeur minimale des données"
 
 msgid "Maximum data value"
-msgstr ""
+msgstr "Valeur maximale des données"
 
 msgid "Clear min/max limits"
-msgstr ""
+msgstr "Limites min/max claires"
 
 msgid "No space between bars/columns"
-msgstr ""
+msgstr "Pas d'espace entre les barres/colonnes"
 
 msgid "Number type"
 msgstr "Type numérique"
 
 msgid "Display the value of percentages of the total"
-msgstr ""
+msgstr "Afficher la valeur des pourcentages du total"
 
 msgid "Percentage of row"
-msgstr ""
+msgstr "Pourcentage de ligne"
 
 msgid "Percentage of column"
-msgstr ""
+msgstr "Pourcentage de colonne"
 
 msgid "Organisation unit"
 msgstr "Unité d'organisation"
@@ -467,16 +488,16 @@ msgid "Reporting period"
 msgstr "Période de rapportage"
 
 msgid "Stacked values add up to 100%"
-msgstr ""
+msgstr "Les valeurs empilées s'additionnent à 100%"
 
 msgid "Decimals"
-msgstr ""
+msgstr "Décimales"
 
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 msgid "The number of axis steps between the min and max values"
-msgstr ""
+msgstr "Le nombre de pas d'axe entre les valeurs min et max"
 
 msgid "Steps"
 msgstr "Étapes"
@@ -491,31 +512,31 @@ msgid "Linear"
 msgstr "Linéaire"
 
 msgid "Polynomial"
-msgstr ""
+msgstr "Polynôme"
 
 msgid "Loess"
-msgstr ""
+msgstr "Lœss"
 
 msgid "Row sub-totals"
-msgstr ""
+msgstr "Sous-totaux de ligne"
 
 msgid "Row totals"
-msgstr ""
+msgstr "Totaux de ligne"
 
 msgid "Value labels"
-msgstr ""
+msgstr "Étiquettes de valeur"
 
 msgid "Dimension labels"
-msgstr ""
+msgstr "Étiquettes de dimension"
 
 msgid "Display organisation unit hierarchy"
-msgstr ""
+msgstr "Afficher la hiérarchie des unités d'organisation"
 
 msgid "Skip rounding"
 msgstr "Ne pas arondir"
 
 msgid "Custom sort order"
-msgstr ""
+msgstr "Ordre de tri personnalisé"
 
 msgid "Low to high"
 msgstr "Croissant"
@@ -524,13 +545,13 @@ msgid "High to low"
 msgstr "Décroissant"
 
 msgid "Add a subtitle"
-msgstr ""
+msgstr "Ajouter un sous-titre"
 
 msgid "Target line"
-msgstr ""
+msgstr "Ligne cible"
 
 msgid "Target line title"
-msgstr ""
+msgstr "Titre de la ligne cible"
 
 msgid "Top limit"
 msgstr "Limite supérieure"
@@ -539,7 +560,7 @@ msgid "Options"
 msgstr "Options"
 
 msgid "Open as Map"
-msgstr ""
+msgstr "Ouvrir comme carte"
 
 msgid "Reporting rate"
 msgstr "Taux de déclaration"
@@ -557,26 +578,30 @@ msgid "Expected reports"
 msgstr "Rapports attendus"
 
 msgid "No data available"
-msgstr ""
+msgstr "Pas de données disponibles"
 
 msgid ""
 "The selected dimensions didn’t return any data. There may be no data, or you"
 " may not have access to it."
 msgstr ""
+"The selected dimensions didn’t return any data. Il peut ne pas y avoir de "
+"données, ou vous pourriez ne pas y avoir accès."
 
 msgid "{{axisName}} is empty"
-msgstr ""
+msgstr "{{axisName}} est vide"
 
 msgid "Add at least one item to {{axisName}}."
-msgstr ""
+msgstr "Ajouter au moins un élément à {{axisName}}."
 
 msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
-msgstr ""
+msgstr "{{columnsAxisName}} et {{rowsAxisName}} sont vides"
 
 msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
 " {{visualizationType}}."
 msgstr ""
+"Ajouter au moins un élément à {{columnsAxisName}} ou {{rowsAxisName}} créer "
+"un {{visualizationType}}."
 
 msgid "No period selected"
 msgstr "Aucune période n'est sélectionné"
@@ -584,50 +609,66 @@ msgstr "Aucune période n'est sélectionné"
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
 msgstr ""
+"{{visualizationType}} doit avoir au moins une période sélectionnée dans "
+"{{axes}}."
 
 msgid "No data selected"
-msgstr ""
+msgstr "Aucune donnée sélectionnée"
 
 msgid ""
 "{{visualizationType}} must have at least one data item or data element group"
 " set item in {{axes}}."
 msgstr ""
+"{{visualizationType}} doit avoir au moins un élément de données ou un "
+"élément de groupe d'éléments de données dans {{axes}}."
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
 msgstr ""
+"{{visualizationType}} doit contenir au moins un élément de données dans "
+"{{axes}}."
 
 msgid "There's a problem with the layout"
-msgstr ""
+msgstr "Il y a un problème avec la mise en page"
 
 msgid ""
 "A single indicator must be the only data item when using indicators as Data "
 "in Filter."
 msgstr ""
+"Un indicateur unique doit être le seul élément de données en cas "
+"d'utilisation des indicateurs comme Données dans le filtre."
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
 msgstr ""
+"Les Ensembles de Groupes d'éléments de données et les Taux de déclaration ne"
+" peuvent pas être utilisés simultanément."
 
 msgid "There is a problem with this {{visualizationType}} visualization."
-msgstr ""
+msgstr "Il y a un problème avec cela {{visualizationType}} visualisation."
 
 msgid "There was a problem getting the data from the server."
-msgstr ""
+msgstr "Un problème est survenu lors de l'obtention des données du serveur."
 
 msgid "Assigned Categories can only be used with data elements"
 msgstr ""
+"Les Catégories Attribuées ne peuvent être utilisées qu'avec des éléments de "
+"données"
 
 msgid ""
 "Fix this problem by selecting data elements or removing Assigned Categories."
 msgstr ""
+"Résoudre ce problème en sélectionnant des éléments de données ou supprimer "
+"des Catégories Attribuées."
 
 msgid "Assigned Categories cannot be used as Filter"
-msgstr ""
+msgstr "Catégories Attribuées ne peuvent pas être utilisées comme Filtre"
 
 msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
+"Résoudre ce problème en déplaçant ou en supprimant les Catégories "
+"Attribuées."
 
 msgid "Something went wrong"
-msgstr ""
+msgstr "Quelque chose a mal tourné"
 
 msgid "or"
 msgstr "ou"
@@ -645,7 +686,7 @@ msgid "Last 7 days"
 msgstr "7 derniers jours"
 
 msgid "Last 14 days"
-msgstr "14 dernier jours"
+msgstr "14 derniers jours"
 
 msgid "This week"
 msgstr "Cette semaine"
@@ -663,13 +704,13 @@ msgid "Last 52 weeks"
 msgstr "52 dernières semaines"
 
 msgid "Weeks this year"
-msgstr ""
+msgstr "Semaines cette année"
 
 msgid "This month"
-msgstr "Ce mois-ci"
+msgstr "Ce mois"
 
 msgid "Last month"
-msgstr "Le mois dernier"
+msgstr "Mois dernier"
 
 msgid "Last 3 months"
 msgstr "3 derniers mois"
@@ -684,16 +725,16 @@ msgid "Months this year"
 msgstr "Mois cette année"
 
 msgid "This bimonth"
-msgstr ""
+msgstr "Ce bimestre"
 
 msgid "Last bimonth"
-msgstr ""
+msgstr "Dernier bimestre"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "6 derniers bimestres"
 
 msgid "Bimonths this year"
-msgstr ""
+msgstr "Bimestres cette année"
 
 msgid "This quarter"
 msgstr "Ce trimestre"
@@ -720,10 +761,10 @@ msgid "This financial year"
 msgstr "Année fiscale en cours"
 
 msgid "Last financial year"
-msgstr "Dernière année financière"
+msgstr "Année fiscale précédente"
 
 msgid "Last 5 financial years"
-msgstr "5 dernières années financières"
+msgstr "5 dernières années fiscales"
 
 msgid "This year"
 msgstr "Année en cours"
@@ -735,19 +776,19 @@ msgid "Last 5 years"
 msgstr "5 dernières années"
 
 msgid "User org unit"
-msgstr "Unité d'organisation utilisateur"
+msgstr "Org unit de l'utilisateur"
 
 msgid "User org unit children"
-msgstr ""
+msgstr "Org unit filles de l'utilisateur"
 
 msgid "User org unit grand children"
-msgstr ""
+msgstr "Org unit petites-filles de l'utilisateur"
 
 msgid "Data"
 msgstr "Données"
 
 msgid "Axes"
-msgstr ""
+msgstr "Axes"
 
 msgid "Style"
 msgstr "Style"
@@ -756,49 +797,49 @@ msgid "Display"
 msgstr "Afficher"
 
 msgid "Lines"
-msgstr ""
+msgstr "Lignes"
 
 msgid "Vertical (y) axis"
-msgstr ""
+msgstr "Axe vertical (y)"
 
 msgid "Horizontal (x) axis"
-msgstr ""
+msgstr "Axe horizontal (x)"
 
 msgid "Chart style"
-msgstr ""
+msgstr "Style de graphique"
 
 msgid "Titles"
-msgstr ""
+msgstr "Titres"
 
 msgid "Display totals"
-msgstr ""
+msgstr "Afficher les totaux"
 
 msgid "Display empty data"
-msgstr ""
+msgstr "Afficher les données vides"
 
 msgid "Labels"
-msgstr ""
+msgstr "Étiquettes"
 
 msgid "Limit values"
-msgstr ""
+msgstr "Valeurs seuils"
 
 msgid "Limit number of values"
-msgstr ""
+msgstr "Nombre limite de valeurs"
 
 msgid "Limit minimum/maximum values"
-msgstr ""
+msgstr "Valeurs seuils minimales/maximales"
 
 msgid "Parameters"
 msgstr "Paramètres"
 
 msgid "Weeks per year"
-msgstr ""
+msgstr "Semaines par an"
 
 msgid "Months per year"
-msgstr ""
+msgstr "Mois par an"
 
 msgid "Bimonths per year"
-msgstr ""
+msgstr "Bimestres par an"
 
 msgid "Quarters per year"
-msgstr ""
+msgstr "Trimestres par an"

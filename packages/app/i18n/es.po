@@ -1,22 +1,26 @@
 # 
 # Translators:
-# ericbp <ericbarredap@gmail.com>, 2020
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
+# Pablo Pajuelo Cabezas <ppajuelo@quadram.mobi>, 2022
+# Prabhjot Singh, 2022
+# Carlos Tejo Alonso, 2022
+# Janeth Cruz, 2022
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
+# ericbp <ericbarredap@gmail.com>, 2022
+# phil_dhis2, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-25T18:22:35.064Z\n"
-"PO-Revision-Date: 2020-03-02 13:01+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:46+0000\n"
+"Last-Translator: phil_dhis2, 2022\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -36,7 +40,7 @@ msgid ""
 msgstr ""
 
 msgid "No, cancel"
-msgstr ""
+msgstr "No, cancela"
 
 msgid "Yes, leave"
 msgstr ""
@@ -146,7 +150,7 @@ msgid "Data value set"
 msgstr "Valor de los datos"
 
 msgid "Other formats"
-msgstr ""
+msgstr "Otros formatos"
 
 msgid "JRXML"
 msgstr ""
@@ -367,10 +371,10 @@ msgid "Before first"
 msgstr ""
 
 msgid "After last"
-msgstr ""
+msgstr "Después del último"
 
 msgid "Before first and after last"
-msgstr ""
+msgstr "Antes del primero y después del último"
 
 msgid "All"
 msgstr "Todos"
@@ -628,7 +632,7 @@ msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
 
 msgid "Something went wrong"
-msgstr ""
+msgstr "Algo ha ido mal"
 
 msgid "or"
 msgstr "o"
@@ -685,16 +689,16 @@ msgid "Months this year"
 msgstr "Meses este año"
 
 msgid "This bimonth"
-msgstr ""
+msgstr "Este bimestre"
 
 msgid "Last bimonth"
-msgstr ""
+msgstr "Último bimestre"
 
 msgid "Last 6 bimonths"
 msgstr ""
 
 msgid "Bimonths this year"
-msgstr ""
+msgstr "Bimestres de este año"
 
 msgid "This quarter"
 msgstr "Este trimestre"
@@ -778,7 +782,7 @@ msgid "Display empty data"
 msgstr ""
 
 msgid "Labels"
-msgstr ""
+msgstr "Etiquetas"
 
 msgid "Limit values"
 msgstr ""
@@ -790,7 +794,7 @@ msgid "Limit minimum/maximum values"
 msgstr ""
 
 msgid "Parameters"
-msgstr "Parámetros"
+msgstr "Parámetros"
 
 msgid "Weeks per year"
 msgstr ""

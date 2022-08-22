@@ -1,14 +1,14 @@
 # 
 # Translators:
-# Karoline Tufte Lien <karoline@dhis2.org>, 2020
-# Caroline Hesthagen Holen <caroline@devotta.no>, 2020
+# Caroline Hesthagen Holen <caroline@devotta.no>, 2022
+# Karoline Tufte Lien <karoline@dhis2.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-25T18:22:35.064Z\n"
-"PO-Revision-Date: 2020-03-02 13:01+0000\n"
-"Last-Translator: Caroline Hesthagen Holen <caroline@devotta.no>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:46+0000\n"
+"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2022\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -70,8 +70,8 @@ msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
 "first item will be used and saved."
 msgstr ""
-"'{{visualizationType}}' er ment å vise et enkelt dataelement. Bare det "
-"første elementet vil bli brukt og lagret."
+"'{{visualizationType}}' er ment å vise et enkelt datapunkt. Bare det første "
+"punktetvil bli brukt og lagret."
 
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
@@ -388,13 +388,13 @@ msgid "Legend key"
 msgstr "Tegnforklaring"
 
 msgid "Table subtitle"
-msgstr "Tabellens undertittel"
+msgstr "Tabellundertittel"
 
 msgid "Chart subtitle"
-msgstr "Diagrammets undertittel"
+msgstr "Diagramundertittel"
 
 msgid "Auto generated"
-msgstr "Automatisk genert"
+msgstr "Automatisk generert"
 
 msgid "Custom"
 msgstr "Tilpasset"
@@ -415,13 +415,13 @@ msgid "Legend type"
 msgstr "Tegnforklaringtype"
 
 msgid "Use pre-defined legend per data item"
-msgstr "Bruk forhåndsdefinert tegnforklaring per dataelement"
+msgstr "Bruk forhåndsdefinert tegnforklaring per datapunkt"
 
 msgid "Select a single legend for entire table"
 msgstr "Velg en enkel tegnforklaring for hele tabellen"
 
 msgid "Legend changes background color"
-msgstr "Tegnforklaringen endrer bakgrunnsfarge"
+msgstr "Tegnforklaring endrer bakgrunnsfarge"
 
 msgid "Legend changes text color"
 msgstr "Tegnforklaring endrer tekstfarge"
@@ -461,7 +461,7 @@ msgid "Display the value of percentages of the total"
 msgstr "Vis verdien av prosenter av totalen"
 
 msgid "Percentage of row"
-msgstr "Prosent av rad"
+msgstr "Prosentandel av rad"
 
 msgid "Percentage of column"
 msgstr "Prosentandel av kolonne"
@@ -545,7 +545,7 @@ msgid "Top limit"
 msgstr "Toppgrense"
 
 msgid "Options"
-msgstr "Alternativer"
+msgstr "Alternativ"
 
 msgid "Open as Map"
 msgstr "Åpne som kart"
@@ -605,7 +605,7 @@ msgid ""
 "{{visualizationType}} must have at least one data item or data element group"
 " set item in {{axes}}."
 msgstr ""
-"{{visualizationType}} må ha minst ett dataelement eller "
+"{{visualizationType}} må ha minst ett datapunkr eller "
 "dataelementgruppesettelement i {{axes}}."
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
@@ -632,16 +632,16 @@ msgid "There was a problem getting the data from the server."
 msgstr "Det oppstod et problem med å hente dataene fra serveren."
 
 msgid "Assigned Categories can only be used with data elements"
-msgstr "Tildelte kategorier kan bare brukes med dataelementer"
+msgstr "Tildelte Kategorier kan bare brukes med dataelementer"
 
 msgid ""
 "Fix this problem by selecting data elements or removing Assigned Categories."
 msgstr ""
 "Løs dette problemet ved å velge dataelementer eller fjerne Tildelte "
-"kategorier."
+"Kategorier."
 
 msgid "Assigned Categories cannot be used as Filter"
-msgstr "Tildelte kategorier kan ikke brukes som filter"
+msgstr "Tildelte Kategorier kan ikke brukes som filter"
 
 msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr "Løs dette problemet ved å flytte eller fjerne Tildelte Kategorier."
@@ -683,7 +683,7 @@ msgid "Last 52 weeks"
 msgstr "Siste 52 uker"
 
 msgid "Weeks this year"
-msgstr "Uker i år"
+msgstr "Uker inneværende år"
 
 msgid "This month"
 msgstr "Denne måneden"
@@ -701,16 +701,16 @@ msgid "Last 12 months"
 msgstr "Siste 12 måneder"
 
 msgid "Months this year"
-msgstr "Måneder inneværende år"
+msgstr "Måneder i år"
 
 msgid "This bimonth"
-msgstr "Denne dobbelmåneden"
+msgstr "Denne tomåned"
 
 msgid "Last bimonth"
-msgstr "Siste dobbelmåned"
+msgstr "Siste tomåned"
 
 msgid "Last 6 bimonths"
-msgstr "Siste 6 dobbelmåneder"
+msgstr "Siste 6 tomåneder"
 
 msgid "Bimonths this year"
 msgstr "Tomåneder inneværende år"
@@ -725,7 +725,7 @@ msgid "Last 4 quarters"
 msgstr "Siste 4 kvartaler"
 
 msgid "Quarters this year"
-msgstr "Kvartaler inneværende år"
+msgstr "Kvartaler i år"
 
 msgid "This six-month"
 msgstr "Dette halvåret"
@@ -734,7 +734,7 @@ msgid "Last six-month"
 msgstr "Siste halvår"
 
 msgid "Last 2 six-months"
-msgstr "Siste to halvår"
+msgstr "Siste 2 halvår"
 
 msgid "This financial year"
 msgstr "Dette regnskapsåret"
@@ -749,13 +749,13 @@ msgid "This year"
 msgstr "Dette året"
 
 msgid "Last year"
-msgstr "I fjor"
+msgstr "Forrige år"
 
 msgid "Last 5 years"
 msgstr "Siste 5 år"
 
 msgid "User org unit"
-msgstr "Brukers org enhet"
+msgstr "Org enhet"
 
 msgid "User org unit children"
 msgstr "Bruker underordnet org enhet"
@@ -779,7 +779,7 @@ msgid "Lines"
 msgstr "Linjer"
 
 msgid "Vertical (y) axis"
-msgstr "Vertical (y) axis"
+msgstr "Vertikal (y) akse"
 
 msgid "Horizontal (x) axis"
 msgstr "Horisontal (x) akse"
@@ -809,7 +809,7 @@ msgid "Limit minimum/maximum values"
 msgstr "Begrens minimum/maksimumsverdier"
 
 msgid "Parameters"
-msgstr "Parametere"
+msgstr "Parametre"
 
 msgid "Weeks per year"
 msgstr "Uker per år"
