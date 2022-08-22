@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-06-02T12:25:50.102Z\n"
+"POT-Creation-Date: 2022-06-17T07:32:29.449Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2022\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -88,6 +88,36 @@ msgstr "الأبعاد الخاصة بك"
 msgid "Filter dimensions"
 msgstr "تصفية الأبعاد"
 
+msgid "Data value set"
+msgstr "حزمة قيم البيانات"
+
+msgid "JSON"
+msgstr "JSON"
+
+msgid "XML"
+msgstr "XML"
+
+msgid "Other formats"
+msgstr "صيغ أخرى"
+
+msgid "JRXML"
+msgstr "JRXML"
+
+msgid "Raw data SQL"
+msgstr "للبيانات الأولية SQL "
+
+msgid "Plain data source"
+msgstr "مصدر البيانات الصريحة"
+
+msgid "Microsoft Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr "CSV"
+
+msgid "Advanced"
+msgstr "متقدم"
+
 msgid "Graphics"
 msgstr "الرسومات"
 
@@ -97,17 +127,8 @@ msgstr "صورة (.png)"
 msgid "PDF (.pdf)"
 msgstr "بي دي اف (.pdf)"
 
-msgid "Table layout"
-msgstr "تنسيق الجدول"
-
-msgid "Excel (.xls)"
-msgstr "إكسل (.xls)"
-
-msgid "CSV (.csv)"
-msgstr "CSV (.csv)"
-
-msgid "HTML (.html)"
-msgstr "HTML (.html)"
+msgid "Download data from this date"
+msgstr ""
 
 msgid "Metadata ID scheme"
 msgstr "مخطط معرف البيانات الوصفية"
@@ -121,44 +142,23 @@ msgstr "الكود"
 msgid "Name"
 msgstr "الإسم"
 
+msgid "Table layout"
+msgstr "تنسيق الجدول"
+
+msgid "Excel (.xls)"
+msgstr "إكسل (.xls)"
+
+msgid "CSV (.csv)"
+msgstr "CSV (.csv)"
+
+msgid "HTML (.html)"
+msgstr "HTML (.html)"
+
 msgid "Download"
 msgstr "تحميل"
 
-msgid "Plain data source"
-msgstr "مصدر البيانات الصريحة"
-
-msgid "JSON"
-msgstr "JSON"
-
-msgid "XML"
-msgstr "XML"
-
-msgid "Excel"
-msgstr "إكسل"
-
-msgid "CSV"
-msgstr "CSV"
-
-msgid "Advanced"
-msgstr "متقدم"
-
-msgid "Data value set"
-msgstr "حزمة قيم البيانات"
-
-msgid "Other formats"
-msgstr "صيغ أخرى"
-
-msgid "JRXML"
-msgstr "JRXML"
-
-msgid "Raw data SQL"
-msgstr "للبيانات الأولية SQL "
-
 msgid "Hide"
 msgstr "إخفاء"
-
-msgid "Interpretations"
-msgstr "التفسيرات"
 
 msgid "All"
 msgstr "الجميع"
@@ -217,6 +217,9 @@ msgstr "حدد فترة"
 msgid "Select years"
 msgstr "حدد الأعوام"
 
+msgid "Interpretations"
+msgstr "التفسيرات"
+
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
@@ -227,9 +230,6 @@ msgstr "مخطط عرض غير محفوظ"
 
 msgid "Edited"
 msgstr "تم التعديل"
-
-msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr "مشاهدة التفسير من  {{interpretationDate}}"
 
 msgid "Update"
 msgstr "تحديث"

@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-06-02T12:25:50.102Z\n"
+"POT-Creation-Date: 2022-06-17T07:32:29.449Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Rica Zamora Duchateau, 2022\n"
 "Language-Team: Dutch (https://www.transifex.com/hisp-uio/teams/100509/nl/)\n"
@@ -91,6 +91,36 @@ msgstr "Uw dimensies"
 msgid "Filter dimensions"
 msgstr "Filter dimensies"
 
+msgid "Data value set"
+msgstr "Gegevenswaardereeks"
+
+msgid "JSON"
+msgstr "JSON"
+
+msgid "XML"
+msgstr "XML"
+
+msgid "Other formats"
+msgstr "Andere formaten"
+
+msgid "JRXML"
+msgstr "JRXML"
+
+msgid "Raw data SQL"
+msgstr "Ruwe data-SQL"
+
+msgid "Plain data source"
+msgstr "Gewone gegevensbron"
+
+msgid "Microsoft Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr "CSV"
+
+msgid "Advanced"
+msgstr "Geavanceerd"
+
 msgid "Graphics"
 msgstr "Afbeeldingen"
 
@@ -100,17 +130,8 @@ msgstr "Afbeelding (.png)"
 msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
-msgid "Table layout"
-msgstr "Tabel-lay-out"
-
-msgid "Excel (.xls)"
-msgstr "Excel (.xls)"
-
-msgid "CSV (.csv)"
-msgstr "CSV (.csv)"
-
-msgid "HTML (.html)"
-msgstr "HTML (.html)"
+msgid "Download data from this date"
+msgstr ""
 
 msgid "Metadata ID scheme"
 msgstr "Schema van metadata-id"
@@ -124,44 +145,23 @@ msgstr "Code"
 msgid "Name"
 msgstr "Naam"
 
+msgid "Table layout"
+msgstr "Tabel-lay-out"
+
+msgid "Excel (.xls)"
+msgstr "Excel (.xls)"
+
+msgid "CSV (.csv)"
+msgstr "CSV (.csv)"
+
+msgid "HTML (.html)"
+msgstr "HTML (.html)"
+
 msgid "Download"
 msgstr "Download"
 
-msgid "Plain data source"
-msgstr "Gewone gegevensbron"
-
-msgid "JSON"
-msgstr "JSON"
-
-msgid "XML"
-msgstr "XML"
-
-msgid "Excel"
-msgstr "Excel"
-
-msgid "CSV"
-msgstr "CSV"
-
-msgid "Advanced"
-msgstr "Geavanceerd"
-
-msgid "Data value set"
-msgstr "Gegevenswaardereeks"
-
-msgid "Other formats"
-msgstr "Andere formaten"
-
-msgid "JRXML"
-msgstr "JRXML"
-
-msgid "Raw data SQL"
-msgstr "Ruwe data-SQL"
-
 msgid "Hide"
 msgstr "Verbergen"
-
-msgid "Interpretations"
-msgstr "Interpretaties"
 
 msgid "All"
 msgstr "Alle"
@@ -221,6 +221,9 @@ msgstr ""
 msgid "Select years"
 msgstr ""
 
+msgid "Interpretations"
+msgstr "Interpretaties"
+
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
@@ -231,9 +234,6 @@ msgstr ""
 
 msgid "Edited"
 msgstr "Bewerkt"
-
-msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr "Interpretatie van {{interpretatieDatum}} aan het bezichtigen"
 
 msgid "Update"
 msgstr "Bijwerken"

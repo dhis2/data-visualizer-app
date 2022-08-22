@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-06-02T12:25:50.102Z\n"
+"POT-Creation-Date: 2022-06-17T07:32:29.449Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Yury Rogachev <yury@dhis2.org>, 2022\n"
 "Language-Team: Uzbek (Latin) (https://www.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
@@ -89,6 +89,36 @@ msgstr "Sizning sozlamalaringiz"
 msgid "Filter dimensions"
 msgstr "Filtr sozlamalari"
 
+msgid "Data value set"
+msgstr "Maʼlumotlar qiymati oʼrnatilgan"
+
+msgid "JSON"
+msgstr "JSON"
+
+msgid "XML"
+msgstr "XML"
+
+msgid "Other formats"
+msgstr "Boshqa shakllar"
+
+msgid "JRXML"
+msgstr "JRXML"
+
+msgid "Raw data SQL"
+msgstr "Xom maʼlumotlar SQL"
+
+msgid "Plain data source"
+msgstr "Oddiy maʼlumotlar manbai"
+
+msgid "Microsoft Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr "CSV"
+
+msgid "Advanced"
+msgstr "Ilgʼor"
+
 msgid "Graphics"
 msgstr "Grafika"
 
@@ -98,17 +128,8 @@ msgstr "Rasm (.png)"
 msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
-msgid "Table layout"
-msgstr "Jadval maketi"
-
-msgid "Excel (.xls)"
-msgstr "Excel (.xls)"
-
-msgid "CSV (.csv)"
-msgstr "CSV (.csv)"
-
-msgid "HTML (.html)"
-msgstr "HTML (.html)"
+msgid "Download data from this date"
+msgstr ""
 
 msgid "Metadata ID scheme"
 msgstr "MetaMaʼlumot ID sxemasi"
@@ -122,44 +143,23 @@ msgstr "Kod"
 msgid "Name"
 msgstr "Ismi"
 
+msgid "Table layout"
+msgstr "Jadval maketi"
+
+msgid "Excel (.xls)"
+msgstr "Excel (.xls)"
+
+msgid "CSV (.csv)"
+msgstr "CSV (.csv)"
+
+msgid "HTML (.html)"
+msgstr "HTML (.html)"
+
 msgid "Download"
 msgstr "Yuklash"
 
-msgid "Plain data source"
-msgstr "Oddiy maʼlumotlar manbai"
-
-msgid "JSON"
-msgstr "JSON"
-
-msgid "XML"
-msgstr "XML"
-
-msgid "Excel"
-msgstr "Excel"
-
-msgid "CSV"
-msgstr "CSV"
-
-msgid "Advanced"
-msgstr "Ilgʼor"
-
-msgid "Data value set"
-msgstr "Maʼlumotlar qiymati oʼrnatilgan"
-
-msgid "Other formats"
-msgstr "Boshqa shakllar"
-
-msgid "JRXML"
-msgstr "JRXML"
-
-msgid "Raw data SQL"
-msgstr "Xom maʼlumotlar SQL"
-
 msgid "Hide"
 msgstr "Berkitish"
-
-msgid "Interpretations"
-msgstr "Sharhlar"
 
 msgid "All"
 msgstr "Barchasi"
@@ -218,6 +218,9 @@ msgstr "Davrni tanlang"
 msgid "Select years"
 msgstr "Yilni tanlang"
 
+msgid "Interpretations"
+msgstr "Sharhlar"
+
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
@@ -230,9 +233,6 @@ msgstr "Saqlanmagan vizualizatsiya"
 
 msgid "Edited"
 msgstr "Tahrirlangan"
-
-msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr "{{interpretationDate}} dan talqinni koʼrish"
 
 msgid "Update"
 msgstr "Yangilash"

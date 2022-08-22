@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-06-02T12:25:50.102Z\n"
+"POT-Creation-Date: 2022-06-17T07:32:29.449Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: phil_dhis2, 2021\n"
 "Language-Team: Persian (Afghanistan) (https://www.transifex.com/hisp-uio/teams/100509/fa_AF/)\n"
@@ -80,6 +80,36 @@ msgstr ""
 msgid "Filter dimensions"
 msgstr ""
 
+msgid "Data value set"
+msgstr "سیت ارزش دیتا"
+
+msgid "JSON"
+msgstr "نشانه گذاری شی جاوااسکریپت"
+
+msgid "XML"
+msgstr "اکس‌ام‌ال"
+
+msgid "Other formats"
+msgstr "فارمت های دیگر"
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
+msgstr ""
+
+msgid "Plain data source"
+msgstr "منبع دیتا ساده"
+
+msgid "Microsoft Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr "مقادیر جداشده با کامه"
+
+msgid "Advanced"
+msgstr "پیشرفته"
+
 msgid "Graphics"
 msgstr "اطلاعات گرافیکی"
 
@@ -89,16 +119,7 @@ msgstr ""
 msgid "PDF (.pdf)"
 msgstr ""
 
-msgid "Table layout"
-msgstr "طرح جدول"
-
-msgid "Excel (.xls)"
-msgstr ""
-
-msgid "CSV (.csv)"
-msgstr ""
-
-msgid "HTML (.html)"
+msgid "Download data from this date"
 msgstr ""
 
 msgid "Metadata ID scheme"
@@ -113,44 +134,23 @@ msgstr "کوډ یا شفر"
 msgid "Name"
 msgstr "نام"
 
+msgid "Table layout"
+msgstr "طرح جدول"
+
+msgid "Excel (.xls)"
+msgstr ""
+
+msgid "CSV (.csv)"
+msgstr ""
+
+msgid "HTML (.html)"
+msgstr ""
+
 msgid "Download"
 msgstr "دانلود"
 
-msgid "Plain data source"
-msgstr "منبع دیتا ساده"
-
-msgid "JSON"
-msgstr "نشانه گذاری شی جاوااسکریپت"
-
-msgid "XML"
-msgstr "اکس‌ام‌ال"
-
-msgid "Excel"
-msgstr ""
-
-msgid "CSV"
-msgstr "مقادیر جداشده با کامه"
-
-msgid "Advanced"
-msgstr "پیشرفته"
-
-msgid "Data value set"
-msgstr "سیت ارزش دیتا"
-
-msgid "Other formats"
-msgstr "فارمت های دیگر"
-
-msgid "JRXML"
-msgstr ""
-
-msgid "Raw data SQL"
-msgstr ""
-
 msgid "Hide"
 msgstr "مخفی کردن"
-
-msgid "Interpretations"
-msgstr "تفسیر ها"
 
 msgid "All"
 msgstr "همه"
@@ -209,6 +209,9 @@ msgstr ""
 msgid "Select years"
 msgstr ""
 
+msgid "Interpretations"
+msgstr "تفسیر ها"
+
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
@@ -218,9 +221,6 @@ msgid "Unsaved visualization"
 msgstr ""
 
 msgid "Edited"
-msgstr ""
-
-msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
 msgid "Update"

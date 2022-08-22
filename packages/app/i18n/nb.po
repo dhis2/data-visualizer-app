@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-06-02T12:25:50.102Z\n"
+"POT-Creation-Date: 2022-06-17T07:32:29.449Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Caroline Hesthagen Holen <caroline@devotta.no>, 2022\n"
 "Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -89,6 +89,36 @@ msgstr "Dine dimensjoner"
 msgid "Filter dimensions"
 msgstr "Filterdimensjoner"
 
+msgid "Data value set"
+msgstr "Dataverdisett"
+
+msgid "JSON"
+msgstr "JSON"
+
+msgid "XML"
+msgstr "XML"
+
+msgid "Other formats"
+msgstr "Andre formater"
+
+msgid "JRXML"
+msgstr "JRXML"
+
+msgid "Raw data SQL"
+msgstr "Rådata SQL"
+
+msgid "Plain data source"
+msgstr "Ren datakilde"
+
+msgid "Microsoft Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr "CSV"
+
+msgid "Advanced"
+msgstr "Avansert"
+
 msgid "Graphics"
 msgstr "Grafikk"
 
@@ -98,17 +128,8 @@ msgstr "Bilde (.png)"
 msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
-msgid "Table layout"
-msgstr "Tabelloppsett"
-
-msgid "Excel (.xls)"
-msgstr "Excel (.xls)"
-
-msgid "CSV (.csv)"
-msgstr "CSV (.csv)"
-
-msgid "HTML (.html)"
-msgstr "HTML (.html)"
+msgid "Download data from this date"
+msgstr ""
 
 msgid "Metadata ID scheme"
 msgstr "Metadata-ID-ordning"
@@ -122,44 +143,23 @@ msgstr "Kode"
 msgid "Name"
 msgstr "Navn"
 
+msgid "Table layout"
+msgstr "Tabelloppsett"
+
+msgid "Excel (.xls)"
+msgstr "Excel (.xls)"
+
+msgid "CSV (.csv)"
+msgstr "CSV (.csv)"
+
+msgid "HTML (.html)"
+msgstr "HTML (.html)"
+
 msgid "Download"
 msgstr "Last ned"
 
-msgid "Plain data source"
-msgstr "Ren datakilde"
-
-msgid "JSON"
-msgstr "JSON"
-
-msgid "XML"
-msgstr "XML"
-
-msgid "Excel"
-msgstr "Excel"
-
-msgid "CSV"
-msgstr "CSV"
-
-msgid "Advanced"
-msgstr "Avansert"
-
-msgid "Data value set"
-msgstr "Dataverdisett"
-
-msgid "Other formats"
-msgstr "Andre formater"
-
-msgid "JRXML"
-msgstr "JRXML"
-
-msgid "Raw data SQL"
-msgstr "Rådata SQL"
-
 msgid "Hide"
 msgstr "Skjul"
-
-msgid "Interpretations"
-msgstr "Tolkninger"
 
 msgid "All"
 msgstr "Alt"
@@ -218,6 +218,9 @@ msgstr "Velg periode"
 msgid "Select years"
 msgstr "Velg år"
 
+msgid "Interpretations"
+msgstr "Tolkninger"
+
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
@@ -230,9 +233,6 @@ msgstr "Ikke lagret visualisering"
 
 msgid "Edited"
 msgstr "Redigert"
-
-msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr "Viser tolkning fra {{interpretationDate}}"
 
 msgid "Update"
 msgstr "Oppdater"

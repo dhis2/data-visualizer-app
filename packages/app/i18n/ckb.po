@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-06-02T12:25:50.102Z\n"
+"POT-Creation-Date: 2022-06-17T07:32:29.449Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Asos <aso.rezaiy@gmail.com>, 2020\n"
 "Language-Team: Central Kurdish (https://www.transifex.com/hisp-uio/teams/100509/ckb/)\n"
@@ -82,6 +82,36 @@ msgstr ""
 msgid "Filter dimensions"
 msgstr ""
 
+msgid "Data value set"
+msgstr ""
+
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
+msgid "Other formats"
+msgstr ""
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
+msgstr ""
+
+msgid "Plain data source"
+msgstr ""
+
+msgid "Microsoft Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr ""
+
+msgid "Advanced"
+msgstr ""
+
 msgid "Graphics"
 msgstr ""
 
@@ -91,16 +121,7 @@ msgstr ""
 msgid "PDF (.pdf)"
 msgstr ""
 
-msgid "Table layout"
-msgstr ""
-
-msgid "Excel (.xls)"
-msgstr ""
-
-msgid "CSV (.csv)"
-msgstr ""
-
-msgid "HTML (.html)"
+msgid "Download data from this date"
 msgstr ""
 
 msgid "Metadata ID scheme"
@@ -115,44 +136,23 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
+msgid "Table layout"
+msgstr ""
+
+msgid "Excel (.xls)"
+msgstr ""
+
+msgid "CSV (.csv)"
+msgstr ""
+
+msgid "HTML (.html)"
+msgstr ""
+
 msgid "Download"
-msgstr ""
-
-msgid "Plain data source"
-msgstr ""
-
-msgid "JSON"
-msgstr ""
-
-msgid "XML"
-msgstr ""
-
-msgid "Excel"
-msgstr ""
-
-msgid "CSV"
-msgstr ""
-
-msgid "Advanced"
-msgstr ""
-
-msgid "Data value set"
-msgstr ""
-
-msgid "Other formats"
-msgstr ""
-
-msgid "JRXML"
-msgstr ""
-
-msgid "Raw data SQL"
 msgstr ""
 
 msgid "Hide"
 msgstr "شاردنةوة"
-
-msgid "Interpretations"
-msgstr ""
 
 msgid "All"
 msgstr ""
@@ -211,6 +211,9 @@ msgstr ""
 msgid "Select years"
 msgstr ""
 
+msgid "Interpretations"
+msgstr ""
+
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
@@ -220,9 +223,6 @@ msgid "Unsaved visualization"
 msgstr ""
 
 msgid "Edited"
-msgstr ""
-
-msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
 msgid "Update"

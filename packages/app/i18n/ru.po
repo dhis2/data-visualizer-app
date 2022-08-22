@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-06-02T12:25:50.102Z\n"
+"POT-Creation-Date: 2022-06-17T07:32:29.449Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2022\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
@@ -84,6 +84,36 @@ msgstr "Ваши Измерения"
 msgid "Filter dimensions"
 msgstr "Фильтровать измерения"
 
+msgid "Data value set"
+msgstr "Набор значений данных"
+
+msgid "JSON"
+msgstr "JSON"
+
+msgid "XML"
+msgstr "XML"
+
+msgid "Other formats"
+msgstr "Другие форматы"
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
+msgstr ""
+
+msgid "Plain data source"
+msgstr "Источник данных"
+
+msgid "Microsoft Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr "CSV"
+
+msgid "Advanced"
+msgstr "Расширенный"
+
 msgid "Graphics"
 msgstr "Графика"
 
@@ -93,16 +123,7 @@ msgstr "Изображение (.png)"
 msgid "PDF (.pdf)"
 msgstr ""
 
-msgid "Table layout"
-msgstr "Формат таблицы"
-
-msgid "Excel (.xls)"
-msgstr ""
-
-msgid "CSV (.csv)"
-msgstr ""
-
-msgid "HTML (.html)"
+msgid "Download data from this date"
 msgstr ""
 
 msgid "Metadata ID scheme"
@@ -117,44 +138,23 @@ msgstr "Код"
 msgid "Name"
 msgstr "Название"
 
+msgid "Table layout"
+msgstr "Формат таблицы"
+
+msgid "Excel (.xls)"
+msgstr ""
+
+msgid "CSV (.csv)"
+msgstr ""
+
+msgid "HTML (.html)"
+msgstr ""
+
 msgid "Download"
 msgstr "Скачать"
 
-msgid "Plain data source"
-msgstr "Источник данных"
-
-msgid "JSON"
-msgstr "JSON"
-
-msgid "XML"
-msgstr "XML"
-
-msgid "Excel"
-msgstr "Excel"
-
-msgid "CSV"
-msgstr "CSV"
-
-msgid "Advanced"
-msgstr "Расширенный"
-
-msgid "Data value set"
-msgstr "Набор значений данных"
-
-msgid "Other formats"
-msgstr "Другие форматы"
-
-msgid "JRXML"
-msgstr ""
-
-msgid "Raw data SQL"
-msgstr ""
-
 msgid "Hide"
 msgstr "Скрыть"
-
-msgid "Interpretations"
-msgstr "Интерпретации"
 
 msgid "All"
 msgstr "Все"
@@ -213,6 +213,9 @@ msgstr ""
 msgid "Select years"
 msgstr ""
 
+msgid "Interpretations"
+msgstr "Интерпретации"
+
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
@@ -223,9 +226,6 @@ msgstr ""
 
 msgid "Edited"
 msgstr "Редактированный"
-
-msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr "Просмотр интерпретации с {{interpretationDate}}"
 
 msgid "Update"
 msgstr "Обновить"
