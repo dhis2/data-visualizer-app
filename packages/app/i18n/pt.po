@@ -1,29 +1,31 @@
 # 
 # Translators:
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
-# Ge Joao <gsimango@saudigitus.org>, 2020
-# Sheila André <sandre@saudigitus.org>, 2020
+# David Júnior <davidjr.mondlane@gmail.com>, 2022
+# phil_dhis2, 2022
+# Sheila André <sandre@saudigitus.org>, 2022
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2022
+# Fernando Jorge Bade, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
+# Ge Joao <gsimango@saudigitus.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
-"PO-Revision-Date: 2020-12-22 22:14+0000\n"
-"Last-Translator: Sheila André <sandre@saudigitus.org>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:46+0000\n"
+"Last-Translator: Ge Joao <gsimango@saudigitus.org>, 2022\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Rename successful"
 msgstr "Renomeado com sucesso"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr ""
+msgstr "Sem título {{visualizaçãoTipo}} visualização, {{date}}"
 
 msgid "\"{{deletedObject}}\" successfully deleted."
 msgstr "\"{{deleteObject}}\" apagado com sucesso."
@@ -42,7 +44,7 @@ msgstr ""
 "gravadas serão perdidas."
 
 msgid "No, cancel"
-msgstr "Não, cancelar"
+msgstr "Não cancele"
 
 msgid "Yes, leave"
 msgstr "Sim, sair"
@@ -204,6 +206,8 @@ msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
 msgstr ""
+"Esta visualização não pode ser eliminada porque é usada em um ou mais "
+"painéis de instrumentos"
 
 msgid "Unsaved visualization"
 msgstr "Visualização não salva"
@@ -215,7 +219,7 @@ msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "Visualizando interpretação de {{interpretaçãoDados}}"
 
 msgid "Update"
-msgstr "Actualizar"
+msgstr "Atualizar"
 
 msgid "Getting started"
 msgstr "Começando"
@@ -240,7 +244,7 @@ msgid "Aggregation type"
 msgstr "Tipo de agregacão"
 
 msgid "Overrides aggregation type for all data values."
-msgstr ""
+msgstr "Substitui o tipo de agregação para todos os valores de dados."
 
 msgid "By data element"
 msgstr "Por elemento de dado"
@@ -264,7 +268,7 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr "Último valor (média na hierarquia da unidade organizacional)"
 
 msgid "Min"
-msgstr "Mínimo"
+msgstr "Min"
 
 msgid "Max"
 msgstr "Máx"
@@ -318,19 +322,19 @@ msgid "Default"
 msgstr "Predefinido"
 
 msgid "Bright"
-msgstr ""
+msgstr "Brilhante"
 
 msgid "Dark"
-msgstr ""
+msgstr "Escuro"
 
 msgid "Gray"
-msgstr ""
+msgstr "Cinza"
 
 msgid "Color blind"
-msgstr ""
+msgstr "Daltónico de cor"
 
 msgid "Patterns"
-msgstr ""
+msgstr "Padrões"
 
 msgid "Event data"
 msgstr "Dados de eventos "
@@ -405,7 +409,7 @@ msgid "Hide empty rows"
 msgstr "Esconder linhas vazias"
 
 msgid "Show legend key"
-msgstr ""
+msgstr "Mostrar chave da legenda"
 
 msgid "Table subtitle"
 msgstr "Subtitulo da tabela"
@@ -435,7 +439,7 @@ msgid "Use pre-defined legend per data item"
 msgstr "Use legenda predefinida por item de dados"
 
 msgid "Select a single legend for the entire visualization"
-msgstr ""
+msgstr "Selecione uma única legenda para toda a visualização"
 
 msgid "Legend changes background color"
 msgstr "A legenda muda a cor do plano de fundo"
@@ -506,6 +510,8 @@ msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
+"Número de passos de tique-taque do eixo, incluindo o mínimo e o máximo. Um "
+"valor inferior a 2 ou inferior será ignorado."
 
 msgid "Steps"
 msgstr "Passos"
@@ -535,30 +541,32 @@ msgid "Data item"
 msgstr "Item de dados"
 
 msgid "Visualization type"
-msgstr ""
+msgstr "Tipo de visualização"
 
 msgid "Axis {{axisId}}"
-msgstr ""
+msgstr "Eixo {{eixoId}}"
 
 msgid "Series is empty"
-msgstr ""
+msgstr "A série está vazia."
 
 msgid "Options for selected items will be available here"
-msgstr ""
+msgstr "Opções para itens selecionados estarão disponíveis aqui"
 
 msgid "No Series options"
-msgstr ""
+msgstr "Sem opções série"
 
 msgid "There aren't any Series options for this visualization type"
-msgstr ""
+msgstr "Não existem opções da Série para este tipo de visualização"
 
 msgid "Series options unavailable"
-msgstr ""
+msgstr "Opções de série indisponíveis"
 
 msgid ""
 "Series options are not available when using relative selections for periods,"
 " org units or categories"
 msgstr ""
+"As opções da série não estão disponíveis quando se utilizam seleções "
+"relativas para períodos, unidades organizacionais ou categorias "
 
 msgid "Value labels"
 msgstr "Etiquetas de valor"
@@ -608,6 +616,8 @@ msgstr "Abrir como mapa"
 msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
 msgstr ""
+"Traçar visualmente dados num mapa do mundo. Os elementos de dados usam "
+"camadas de mapas separadas."
 
 msgid "Reporting rate"
 msgstr "Taxa de relatórios"
@@ -710,12 +720,14 @@ msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr "Corrija esse problema movendo ou removendo categorias atribuídas."
 
 msgid "Visualization not found"
-msgstr ""
+msgstr "Visualização não encontrada"
 
 msgid ""
 "The visualization you are trying to view could not be found, the ID could be"
 " incorrect or it could have been deleted."
 msgstr ""
+"A visualização que está a tentar visualizar não foi encontrada, o ID pode "
+"estar incorreto ou pode ter sido apagado."
 
 msgid "Something went wrong"
 msgstr "Ocorreu algo de errado"
@@ -841,7 +853,7 @@ msgid "Display"
 msgstr "Exibir"
 
 msgid "Axes"
-msgstr "Machados"
+msgstr "Eixos"
 
 msgid "Horizontal (x) axis"
 msgstr "Eixo Horizontal (x) "
@@ -868,7 +880,7 @@ msgid "Totals"
 msgstr "Totais"
 
 msgid "Empty data"
-msgstr ""
+msgstr "Dados vazios"
 
 msgid "Table title"
 msgstr "Titulo da tabela"
@@ -880,22 +892,25 @@ msgid "Limit number of values"
 msgstr "Número limite de valores"
 
 msgid "Limit minimum/maximum values"
-msgstr ""
+msgstr "Limitar valores mínimos/máximos"
 
 msgid "Parameters"
 msgstr "Parâmetros"
 
 msgid "Color set"
-msgstr ""
+msgstr "Conjunto de cores"
 
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
+"Os conjuntos de cores ainda não são suportados quando se usam vários eixos"
 
 msgid "Lines are not supported yet when using multiple axes"
-msgstr ""
+msgstr "As linhas ainda não são suportadas quando se usam vários eixos"
 
 msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
+"As opções do eixo vertical ainda não são suportadas quando se utilizam "
+"vários eixos"
 
 msgid "Weeks per year"
 msgstr "Semanas por ano"

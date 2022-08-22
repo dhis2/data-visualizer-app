@@ -1,13 +1,13 @@
 # 
 # Translators:
-# Yury Rogachev <yury@dhis2.org>, 2021
+# Yury Rogachev <yury@dhis2.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
-"PO-Revision-Date: 2020-12-22 22:14+0000\n"
-"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2021\n"
+"PO-Revision-Date: 2022-08-21 23:46+0000\n"
+"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2022\n"
 "Language-Team: Uzbek (Latin) (https://www.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -104,10 +104,10 @@ msgid "Code"
 msgstr "Kod"
 
 msgid "Name"
-msgstr "Ismi"
+msgstr "Исми"
 
 msgid "Download"
-msgstr "Yuklash"
+msgstr "Юклаш"
 
 msgid "Plain data source"
 msgstr "Oddiy maʼlumotlar manbai"
@@ -158,7 +158,7 @@ msgid "Hide"
 msgstr "Berkitish"
 
 msgid "Interpretations"
-msgstr "Sharhlar"
+msgstr "Talqinlar"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr "{{total}} / {{axisMaxNumberOfItems}} dan tanlandi"
@@ -182,7 +182,7 @@ msgid "Levels"
 msgstr "Bosqichlar/Qavatlar"
 
 msgid "Groups"
-msgstr ""
+msgstr "Гуруҳлар"
 
 msgid "And 1 other..."
 msgstr "Yana bir boshqasi"
@@ -210,10 +210,10 @@ msgid "Edited"
 msgstr "Tahrirlangan"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr "{{interpretationDate}} dan talqinni koʼrish"
+msgstr "{{TalqinVaqt}} dan talqinni koʼrish"
 
 msgid "Update"
-msgstr "Yangilash"
+msgstr "Янгилаш"
 
 msgid "Getting started"
 msgstr "Ish boshlanganida"
@@ -236,26 +236,26 @@ msgid "Your most viewed charts and tables"
 msgstr "Sizning eng koʼrilgan diagramma va jadvallaringiz"
 
 msgid "Aggregation type"
-msgstr "Birlashtirish turi"
+msgstr "Бирлаштириш тури"
 
 msgid "Overrides aggregation type for all data values."
 msgstr ""
 "Maʼlumotlarning barcha qiymatlari uchun agregatsiya turini aniqlab beradi."
 
 msgid "By data element"
-msgstr "Maʼlumotlar elementi boʼyicha"
+msgstr "Маълумотлар элементи бўйича"
 
 msgid "Count"
-msgstr "Hisoblash"
+msgstr "Ҳисоблаш"
 
 msgid "Average"
-msgstr "Oʼrtacha"
+msgstr "Ўртача"
 
 msgid "Average (sum in org unit hierarchy)"
 msgstr "Oʼrtacha (tashkiliy birlik ierarxiyasi jamlanmasi)"
 
 msgid "Sum"
-msgstr "Jamlash"
+msgstr "Жамлаш"
 
 msgid "Last value"
 msgstr "Oxirgi qiymat"
@@ -264,16 +264,16 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr "Oxirgi qiymat (tashkiliy birliklar ierarxiyasi oʼrtacha qiymati)"
 
 msgid "Min"
-msgstr "Minimum"
+msgstr "Минимум"
 
 msgid "Max"
-msgstr "Maksimum"
+msgstr "Максимум"
 
 msgid "Standard deviation"
 msgstr "Standart ogʼish"
 
 msgid "Variance"
-msgstr "Nomuvofiqlik"
+msgstr "Номувофиқлик"
 
 msgid "Data approved at level"
 msgstr "Maʼlumotlar tasdiqlangan daraja"
@@ -294,7 +294,7 @@ msgid "Base line"
 msgstr "Bazaviy chiziq"
 
 msgid "Value"
-msgstr "Qiymat"
+msgstr "Қиймат"
 
 msgid "Title"
 msgstr "Sarlavha"
@@ -348,7 +348,7 @@ msgid "Digit group separator"
 msgstr "Raqamlar guruhini taqsimlovchi"
 
 msgid "None"
-msgstr "Yoʼq"
+msgstr "Йўқ"
 
 msgid "Space"
 msgstr "Oraliq (maydon)"
@@ -375,7 +375,7 @@ msgid "Add a title"
 msgstr "Sarlavha qoʼshish"
 
 msgid "Font size"
-msgstr "Shrift oʼlchami"
+msgstr "Shrift hajmi"
 
 msgid "Large"
 msgstr "Katta"
@@ -429,7 +429,7 @@ msgid "Legend style"
 msgstr "Taʼrif turi"
 
 msgid "Legend type"
-msgstr "Taʼrif turi"
+msgstr "Таъриф тури"
 
 msgid "Use pre-defined legend per data item"
 msgstr "Har bir maʼlumot uchun oldindan belgilangan taʼrifdan foydalaning"
@@ -485,7 +485,7 @@ msgid "Percentage of column"
 msgstr "Ustun foizi"
 
 msgid "Organisation unit"
-msgstr "Tashkiliy birlik"
+msgstr "Ташкилий бирлик"
 
 msgid "Parent organisation unit"
 msgstr "Yuqori tashkilot boʼlimi"
@@ -604,7 +604,7 @@ msgid "Top limit"
 msgstr "Yuqori chegara"
 
 msgid "Options"
-msgstr "Variant"
+msgstr "Вариант"
 
 msgid "Open as Map"
 msgstr "Xarita sifatida ochish"
@@ -657,7 +657,7 @@ msgstr ""
 "yoki {{rowsAxisName}} kamida bir elementni qoʼshing."
 
 msgid "No period selected"
-msgstr "Davr tanlanmagan"
+msgstr "Давр танланмаган"
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
@@ -737,10 +737,10 @@ msgid "or"
 msgstr "yoki"
 
 msgid "Today"
-msgstr "Bugun"
+msgstr "бугун"
 
 msgid "Yesterday"
-msgstr "Kecha"
+msgstr "Кеча"
 
 msgid "Last 3 days"
 msgstr "Oxirgi 3 kun"
@@ -752,40 +752,40 @@ msgid "Last 14 days"
 msgstr "Oxirgi 14 kun"
 
 msgid "This week"
-msgstr "Ushbu hafta"
+msgstr "Ушбу ҳафта"
 
 msgid "Last week"
-msgstr "Oxirgi hafta"
+msgstr "Охирги ҳафта"
 
 msgid "Last 4 weeks"
-msgstr "Oxirgi 4 hafta"
+msgstr "Охирги 4 ҳафта"
 
 msgid "Last 12 weeks"
-msgstr "Oxirgi 12 hafta"
+msgstr "Охирги 12 ҳафта"
 
 msgid "Last 52 weeks"
-msgstr "Oxirgi 52 hafta"
+msgstr "Охирги 52 ҳафта"
 
 msgid "Weeks this year"
 msgstr "Haftalar ayni yilda"
 
 msgid "This month"
-msgstr "Ushbu oy"
+msgstr "Ушбу ой"
 
 msgid "Last month"
-msgstr "Oxirgi oy"
+msgstr "Охирги ой"
 
 msgid "Last 3 months"
-msgstr "Oxirgi 3 oy"
+msgstr "Охирги 3 ой"
 
 msgid "Last 6 months"
-msgstr "Oxirgi 6 oy"
+msgstr "Oxirgi yarim yillik"
 
 msgid "Last 12 months"
-msgstr "Oxirgi 12 oy"
+msgstr "Охирги 12 ой"
 
 msgid "Months this year"
-msgstr "Oylar ayni yilda"
+msgstr "Oylar ushbu yilda"
 
 msgid "This bimonth"
 msgstr "Ushbu juft oylik"
@@ -800,43 +800,43 @@ msgid "Bimonths this year"
 msgstr "Ushbu yildagi juft oylar"
 
 msgid "This quarter"
-msgstr "Ushbu kvartal"
+msgstr "Ушбу квартал"
 
 msgid "Last quarter"
-msgstr "Oxirgi kvartal"
+msgstr "Охирги квартал"
 
 msgid "Last 4 quarters"
-msgstr "Oxirgi 4 kvartal"
+msgstr "Охирги 4 квартал"
 
 msgid "Quarters this year"
 msgstr "Ushbu yildagi kvartallar"
 
 msgid "This six-month"
-msgstr "Ushbu yarim yillik"
+msgstr "Ушбу ярим йиллик"
 
 msgid "Last six-month"
-msgstr "Oxirgi 6 oy"
+msgstr "Oxirgi yarim yillik"
 
 msgid "Last 2 six-months"
-msgstr "Oxirgi 2 ta 6 oylik"
+msgstr "Oxirgi 2 ta yarim yillik"
 
 msgid "This financial year"
-msgstr "Ushbu moliyaviy yil"
+msgstr "Ушбу молиявий йил"
 
 msgid "Last financial year"
-msgstr "Oxirgi moliyaviy yil"
+msgstr "Охирги молиявий йил"
 
 msgid "Last 5 financial years"
-msgstr "Oxirgi 5 moliyaviy yillar"
+msgstr "Охирги 5 молиявий йиллар"
 
 msgid "This year"
-msgstr "Ushbu yil"
+msgstr "Ушбу йил"
 
 msgid "Last year"
-msgstr "Oxirgi yil"
+msgstr "Охирги йил"
 
 msgid "Last 5 years"
-msgstr "Oxirgi 5 yil"
+msgstr "Охирги 5 йил"
 
 msgid "User org unit"
 msgstr "Foydalanuvchi tashkilot boʼlimi"
@@ -848,7 +848,7 @@ msgid "User org unit grand children"
 msgstr "Foydalanuvchi tashkiliy boʼlimi 2 pogʼona quyi boʼlimlari"
 
 msgid "Data"
-msgstr "Maʼlumot"
+msgstr "Маълумот"
 
 msgid "Display"
 msgstr "Ekranda koʼrsatish"
@@ -863,7 +863,7 @@ msgid "Series"
 msgstr "Ketma-ketliklar"
 
 msgid "Style"
-msgstr "Uslub"
+msgstr "Услуб"
 
 msgid "Chart style"
 msgstr "Diagramma uslubi"
@@ -878,7 +878,7 @@ msgid "Vertical (y) axis"
 msgstr "Vertikal (y) oʼqi"
 
 msgid "Totals"
-msgstr "Jami"
+msgstr "Жами"
 
 msgid "Empty data"
 msgstr "Boʼsh maʼlumotlar"

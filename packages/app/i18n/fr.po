@@ -1,25 +1,25 @@
 # 
 # Translators:
-# phil_dhis2, 2020
-# Edem Kossi <ekossi@hispwca.org>, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
-# Karoline Tufte Lien <karoline@dhis2.org>, 2020
-# Yao Selom SAKA <saka.yao@yahoo.fr>, 2020
-# Djibril Dione <dione.djibril@gmail.com>, 2020
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
+# Djibril Dione <dione.djibril@gmail.com>, 2022
+# Karoline Tufte Lien <karoline@dhis2.org>, 2022
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2022
+# Edem Kossi <ekossi@hispwca.org>, 2022
+# phil_dhis2, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
+# Yao Selom Saka <ysaka@hispwca.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
-"PO-Revision-Date: 2020-12-22 22:14+0000\n"
-"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:46+0000\n"
+"Last-Translator: Yao Selom Saka <ysaka@hispwca.org>, 2022\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Rename successful"
 msgstr "Renommer avec succès"
@@ -47,7 +47,7 @@ msgid "No, cancel"
 msgstr "Non, annuler"
 
 msgid "Yes, leave"
-msgstr "Oui, abandon"
+msgstr "Oui, quitter"
 
 msgid "Add to {{axisName}}"
 msgstr "Ajouter à {{nomdel'axe}} "
@@ -64,8 +64,8 @@ msgid ""
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
 "'{{visualiationType}}' est destiné à montrer le maximum {{maxNumber}} nombre"
-" d'éléments  . Seul le premier {{maxNumber}} les éléments seront utilisés et"
-" enregistrés."
+" d'éléments  . Seul les premiers {{maxNumber}} éléments seront utilisés et "
+"enregistrés."
 
 msgid "Main dimensions"
 msgstr "Dimensions principales"
@@ -77,10 +77,10 @@ msgid "Your dimensions"
 msgstr "Votre dimensions"
 
 msgid "Filter dimensions"
-msgstr "Dimensions du filtre"
+msgstr "Filtrer les dimensions"
 
 msgid "Graphics"
-msgstr "Graphisme"
+msgstr "Graphiques"
 
 msgid "Image (.png)"
 msgstr "Image (.png)"
@@ -89,7 +89,7 @@ msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
 msgid "Table layout"
-msgstr "Mise en page du tableau"
+msgstr "Disposition du tableau"
 
 msgid "Excel (.xls)"
 msgstr "Excel (.xls)"
@@ -104,7 +104,7 @@ msgid "Metadata ID scheme"
 msgstr "Schéma ID des métadata"
 
 msgid "ID"
-msgstr "Id"
+msgstr "ID"
 
 msgid "Code"
 msgstr "Code"
@@ -116,7 +116,7 @@ msgid "Download"
 msgstr "Télécharger"
 
 msgid "Plain data source"
-msgstr "Sourc de données brutes"
+msgstr "Source de données brutes"
 
 msgid "JSON"
 msgstr "JSON"
@@ -146,32 +146,33 @@ msgid "Raw data SQL"
 msgstr "Données brutes SQL"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr "An error occurred in the Application Visualiseur de Données DHIS2"
+msgstr ""
+"Une erreur s'est produite dans l'application Visualiseur de Données de DHIS2"
 
 msgid "Refresh to try again"
 msgstr "Actualiser pour réessayer"
 
 msgid "Hide technical details"
-msgstr "Cacher les détails techniques"
+msgstr "Masquer les détails techniques"
 
 msgid "Show technical details"
 msgstr "Afficher les détails techniques"
 
 msgid "The following information may be requested by technical support."
 msgstr ""
-"Les informations suivantes peuvent être demandées par support technique."
+"Les informations suivantes peuvent être demandées par soutien technique."
 
 msgid "Hide"
 msgstr "Masquer"
 
 msgid "Interpretations"
-msgstr "interprétations"
+msgstr "Interprétations"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr "{{total}} de {{axisMaxNumberOfItems}} choisi"
+msgstr "{{total}} de {{axisMaxNumberOfItems}} choisis"
 
 msgid "{{total}} selected"
-msgstr "{{total}} choisi"
+msgstr "{{total}} choisis"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
@@ -215,10 +216,10 @@ msgid "Unsaved visualization"
 msgstr "Visualisation non enregistrée"
 
 msgid "Edited"
-msgstr "Édité"
+msgstr "Modifié"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr "Affichage de l'interprétation de {{interpretationDate}}"
+msgstr "Affichage de l'interprétation de {{Date de l'interprétation}}"
 
 msgid "Update"
 msgstr "Mettre à jour"
@@ -249,7 +250,7 @@ msgid "Overrides aggregation type for all data values."
 msgstr "Remplace le type d'agrégation pour toutes les valeurs de données."
 
 msgid "By data element"
-msgstr "Par élément de donnée"
+msgstr "Par élément de données"
 
 msgid "Count"
 msgstr "Décompte"
@@ -292,13 +293,13 @@ msgid "Loading data approval levels"
 msgstr "Chargement des niveaux d'approbation des données"
 
 msgid "Axis range"
-msgstr "Gamme d'axes"
+msgstr "Plage de l'axe"
 
 msgid "Values outside of the range will not be displayed"
 msgstr "Valeurs en dehors de la plage ne seront pas affichées"
 
 msgid "Base line"
-msgstr "Ligne de base"
+msgstr "Ligne de référence"
 
 msgid "Value"
 msgstr "Valeur"
@@ -307,7 +308,7 @@ msgid "Title"
 msgstr "Titre"
 
 msgid "Base line title"
-msgstr "Titre de la ligne de base"
+msgstr "Titre de la ligne de référence"
 
 msgid "Number"
 msgstr "Nombre"
@@ -397,13 +398,13 @@ msgid "Hide empty categories"
 msgstr "Masquer les catégories vides"
 
 msgid "Before first"
-msgstr "Avant le premier"
+msgstr "Avant la première"
 
 msgid "After last"
 msgstr "Après la dernière"
 
 msgid "Before first and after last"
-msgstr "Avant premier et après dernier "
+msgstr "Avant la première et après la dernière"
 
 msgid "All"
 msgstr "Tout"
@@ -412,7 +413,7 @@ msgid "Hide empty rows"
 msgstr "Cacher lignes vides"
 
 msgid "Show legend key"
-msgstr "Afficher la clé de légende"
+msgstr "Afficher la légende"
 
 msgid "Table subtitle"
 msgstr "Sous-titre du tableau"
@@ -513,8 +514,8 @@ msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
-"Nombre de pas de cochage des axes, y compris le min et le max. Une valeur "
-"inférieure ou égale à 2 sera ignorée."
+"Nombre de graduations principales de l'axe, y compris le min et le max. Une "
+"valeur inférieure ou égale à 2 sera ignorée."
 
 msgid "Steps"
 msgstr "Étapes"
@@ -758,7 +759,7 @@ msgid "Last 7 days"
 msgstr "7 derniers jours"
 
 msgid "Last 14 days"
-msgstr "14 dernier jours"
+msgstr "14 derniers jours"
 
 msgid "This week"
 msgstr "Cette semaine"
@@ -779,10 +780,10 @@ msgid "Weeks this year"
 msgstr "Semaines cette année"
 
 msgid "This month"
-msgstr "Ce mois-ci"
+msgstr "Ce mois"
 
 msgid "Last month"
-msgstr "Le mois dernier"
+msgstr "Mois dernier"
 
 msgid "Last 3 months"
 msgstr "3 derniers mois"
@@ -803,7 +804,7 @@ msgid "Last bimonth"
 msgstr "Dernier bimestre"
 
 msgid "Last 6 bimonths"
-msgstr "6 derniers mois"
+msgstr "6 derniers bimestres"
 
 msgid "Bimonths this year"
 msgstr "Bimestres cette année"
@@ -833,10 +834,10 @@ msgid "This financial year"
 msgstr "Année fiscale en cours"
 
 msgid "Last financial year"
-msgstr "Dernière année financière"
+msgstr "Année fiscale précédente"
 
 msgid "Last 5 financial years"
-msgstr "5 dernières années financières"
+msgstr "5 dernières années fiscales"
 
 msgid "This year"
 msgstr "Année en cours"
@@ -848,7 +849,7 @@ msgid "Last 5 years"
 msgstr "5 dernières années"
 
 msgid "User org unit"
-msgstr "Unité d'organisation utilisateur"
+msgstr "Org unit de l'utilisateur"
 
 msgid "User org unit children"
 msgstr "Org unit filles de l'utilisateur"

@@ -1,15 +1,16 @@
 # 
 # Translators:
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
-# Mai Nguyen <thanhmai.jica@gmail.com>, 2020
+# phil_dhis2, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
+# Thuy Nguyen <thuynguyen@hispvietnam.org>, 2022
+# Mai Nguyen <thanhmai.jica@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
-"PO-Revision-Date: 2020-12-22 22:14+0000\n"
-"Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:46+0000\n"
+"Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2022\n"
 "Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -84,7 +85,7 @@ msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
 msgid "Table layout"
-msgstr "Bố trí bảng"
+msgstr "Bố cục"
 
 msgid "Excel (.xls)"
 msgstr "Excel (.xls)"
@@ -419,7 +420,7 @@ msgid "Custom"
 msgstr "Tùy chỉnh"
 
 msgid "Chart title"
-msgstr "Tiêu đề của biểu đồ"
+msgstr "Tiêu đề biểu đồ"
 
 msgid "Display legend"
 msgstr "Hiển thị chú giải"
@@ -579,7 +580,7 @@ msgid "Custom sort order"
 msgstr "Săp xếp tùy chỉnh"
 
 msgid "Low to high"
-msgstr "Thấp đến cao"
+msgstr "Thấp lên cao"
 
 msgid "High to low"
 msgstr "Cao xuống thấp"
@@ -724,7 +725,7 @@ msgstr ""
 "không chính xác hoặc có thể đã bị xóa."
 
 msgid "Something went wrong"
-msgstr "Có lỗi"
+msgstr "Có gì đó không đúng"
 
 msgid "or"
 msgstr "hoặc"
@@ -751,16 +752,16 @@ msgid "Last week"
 msgstr "Tuần trước"
 
 msgid "Last 4 weeks"
-msgstr "4 tuần trước"
+msgstr "4 Tuần trước"
 
 msgid "Last 12 weeks"
-msgstr "12 tuần trước"
+msgstr "12 Tuần trước"
 
 msgid "Last 52 weeks"
-msgstr "52 tuần trước"
+msgstr "52 Tuần trước"
 
 msgid "Weeks this year"
-msgstr "Các tuần trong năm nay"
+msgstr "Các Tuần trong năm này"
 
 msgid "This month"
 msgstr "Tháng này"
@@ -769,28 +770,28 @@ msgid "Last month"
 msgstr "Tháng trước"
 
 msgid "Last 3 months"
-msgstr "3 tháng trước"
+msgstr "3 Tháng trước"
 
 msgid "Last 6 months"
 msgstr "6 tháng trước"
 
 msgid "Last 12 months"
-msgstr "Trong 12 tháng trước"
+msgstr "12 Tháng trước"
 
 msgid "Months this year"
-msgstr "Tháng năm nay"
+msgstr "Các Tháng trong năm này"
 
 msgid "This bimonth"
-msgstr "Kỳ 2 tháng này"
+msgstr "2-Tháng này"
 
 msgid "Last bimonth"
-msgstr "Kỳ 2 tháng trước"
+msgstr "2-Tháng trước"
 
 msgid "Last 6 bimonths"
 msgstr "6 kỳ 2 tháng trước"
 
 msgid "Bimonths this year"
-msgstr "Các kỳ 2 tháng trong năm"
+msgstr "Các 2-Tháng trong năm này"
 
 msgid "This quarter"
 msgstr "Quý này"
@@ -799,25 +800,25 @@ msgid "Last quarter"
 msgstr "Quý trước"
 
 msgid "Last 4 quarters"
-msgstr "4 quý trước"
+msgstr "4 Quý trước"
 
 msgid "Quarters this year"
-msgstr "Quý năm nay"
+msgstr "Các Quý trong năm này"
 
 msgid "This six-month"
 msgstr "6 tháng này"
 
 msgid "Last six-month"
-msgstr "6 tháng trước"
+msgstr "6-Tháng trước"
 
 msgid "Last 2 six-months"
-msgstr "2 lần sáu-tháng trước"
+msgstr "2 lần 6-Tháng trước"
 
 msgid "This financial year"
-msgstr "Năm tài chính này"
+msgstr "Năm Tài Chính này"
 
 msgid "Last financial year"
-msgstr "Năm tài chính trước"
+msgstr "Năm Tài Chính trước"
 
 msgid "Last 5 financial years"
 msgstr "5 năm tài chính trước"
@@ -826,13 +827,13 @@ msgid "This year"
 msgstr "Năm nay"
 
 msgid "Last year"
-msgstr "Năm ngoái"
+msgstr "Năm trước"
 
 msgid "Last 5 years"
-msgstr "5 năm trước"
+msgstr "5 Năm trước"
 
 msgid "User org unit"
-msgstr "Đơn vị của người dùng"
+msgstr "Đơn vị người dùng"
 
 msgid "User org unit children"
 msgstr "Đơn vị con của người dùng"
@@ -853,7 +854,7 @@ msgid "Horizontal (x) axis"
 msgstr "Trục ngang (x)"
 
 msgid "Series"
-msgstr "Chuỗi Dữ Liệu"
+msgstr "Loạt dữ liệu"
 
 msgid "Style"
 msgstr "Kiểu dáng"

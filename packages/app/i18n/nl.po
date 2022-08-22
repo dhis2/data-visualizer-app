@@ -1,169 +1,181 @@
 # 
 # Translators:
-# KRG HIS <antonia.bezenchek@informa.pro>, 2022
+# Cherise Beek <cherise.beek@gmail.com>, 2022
+# Yury Rogachev <yury@dhis2.org>, 2022
+# Rica Zamora Duchateau, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
 "PO-Revision-Date: 2022-08-21 23:46+0000\n"
-"Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2022\n"
-"Language-Team: Arabic (Iraq) (https://www.transifex.com/hisp-uio/teams/100509/ar_IQ/)\n"
+"Last-Translator: Rica Zamora Duchateau, 2022\n"
+"Language-Team: Dutch (https://www.transifex.com/hisp-uio/teams/100509/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ar_IQ\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Language: nl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Rename successful"
-msgstr ""
+msgstr "Hernoeming geslaagd"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr ""
+msgstr "Ongetitelde {{visualizationType}} visualisatie, {{date}}"
 
 msgid "\"{{deletedObject}}\" successfully deleted."
-msgstr ""
+msgstr "\"{{deletedObject}}\" met succes verwijderd"
 
 msgid "You have unsaved changes."
-msgstr ""
+msgstr "U heeft niet opgeslagen veranderingen."
 
 msgid "Discard unsaved changes?"
-msgstr ""
+msgstr "Niet opgeslaagde veranderingen verwerpen?"
 
 msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
 "be lost."
 msgstr ""
+"Bent u zeker dat u deze visualisatie wil verlaten? Niet opgeslagen "
+"veranderingen worden verworpen."
 
 msgid "No, cancel"
-msgstr ""
+msgstr "Nee, annuleer"
 
 msgid "Yes, leave"
-msgstr ""
+msgstr "Ja, verlaat"
 
 msgid "Add to {{axisName}}"
-msgstr ""
+msgstr "Voeg toe aan {{axisName}}"
 
 msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
 "first item will be used and saved."
 msgstr ""
+"'{{visualizationType}}' is bedoeld om een enkel gegevensitem te tonen. "
+"Alleen het eerste item wordt gebruikt en opgeslagen."
 
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
+"'{{visualizationType}}' is bedoeld om het maximum {{maxNumber}} aantal items"
+" te tonen. Alleen de eerste {{maxNumber}} items worden gebruikt en "
+"opgeslagen."
 
 msgid "Main dimensions"
-msgstr ""
+msgstr "Hoofddimensies"
 
 msgid "Other dimensions"
-msgstr ""
+msgstr "Andere dimensies"
 
 msgid "Your dimensions"
-msgstr ""
+msgstr "Uw dimensies"
 
 msgid "Filter dimensions"
-msgstr ""
+msgstr "Filter dimensies"
 
 msgid "Graphics"
-msgstr "الرسومات"
+msgstr "Afbeeldingen"
 
 msgid "Image (.png)"
-msgstr ""
+msgstr "Afbeelding (.png)"
 
 msgid "PDF (.pdf)"
-msgstr ""
+msgstr "PDF (.pdf)"
 
 msgid "Table layout"
-msgstr "تنسيق الجدول"
+msgstr "Tabel-lay-out"
 
 msgid "Excel (.xls)"
-msgstr ""
+msgstr "Excel (.xls)"
 
 msgid "CSV (.csv)"
-msgstr ""
+msgstr "CSV (.csv)"
 
 msgid "HTML (.html)"
-msgstr ""
+msgstr "HTML (.html)"
 
 msgid "Metadata ID scheme"
-msgstr ""
+msgstr "Schema van metadata-id"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Code"
-msgstr ""
+msgstr "Code"
 
 msgid "Name"
-msgstr "الاسم"
+msgstr "Naam"
 
 msgid "Download"
-msgstr "تنزيل"
+msgstr "Downloaden"
 
 msgid "Plain data source"
-msgstr "مصدر البيانات الصريحة"
+msgstr "Gewone gegevensbron"
 
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 msgid "XML"
-msgstr ""
+msgstr "XML"
 
 msgid "Excel"
-msgstr ""
+msgstr "Excel"
 
 msgid "CSV"
-msgstr ""
+msgstr "CSV"
 
 msgid "Advanced"
-msgstr "متقدم"
+msgstr "Geavanceerd"
 
 msgid "Data value set"
-msgstr "حزمة قيم البيانات"
+msgstr "Gegevenswaardereeks"
 
 msgid "Other formats"
-msgstr "صيغ أخرى"
+msgstr "Andere formaten"
 
 msgid "JRXML"
-msgstr ""
+msgstr "JRXML"
 
 msgid "Raw data SQL"
-msgstr ""
+msgstr "Ruwe data-SQL"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
+msgstr "Een fout is opgetreden in de toepassing DHIS2 Visualiseerder."
 
 msgid "Refresh to try again"
-msgstr ""
+msgstr "Ververs om opnieuw te proberen"
 
 msgid "Hide technical details"
-msgstr ""
+msgstr "Technische details verbergen"
 
 msgid "Show technical details"
-msgstr ""
+msgstr "Technische details tonen"
 
 msgid "The following information may be requested by technical support."
 msgstr ""
+"De volgende informatie kan aangevraagd worden bij de technische "
+"ondersteuning."
 
 msgid "Hide"
-msgstr "إخفاء"
+msgstr "Verbergen"
 
 msgid "Interpretations"
-msgstr "التفسيرات"
+msgstr "Interpretaties"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr ""
+msgstr "{{total}} van {{axisMaxNumberOfItems}} geselecteerd"
 
 msgid "{{total}} selected"
-msgstr ""
+msgstr "{{total}} geselecteerd"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
+"{{dimensionName}} is vergrendeld aan {{axisName}} voor {{visTypeName}}"
 
 msgid "None selected"
-msgstr ""
+msgstr "Geen geselecteerd"
 
 msgid "Only '{{- name}}' in use"
 msgstr ""
@@ -175,13 +187,13 @@ msgid "Levels"
 msgstr ""
 
 msgid "Groups"
-msgstr ""
+msgstr "Groepen"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "En 1 andere..."
 
 msgid "And {{numberOfItems}} others..."
-msgstr ""
+msgstr "En {{numberOfItems}} anderen..."
 
 msgid "Select a period"
 msgstr ""
@@ -198,13 +210,13 @@ msgid "Unsaved visualization"
 msgstr ""
 
 msgid "Edited"
-msgstr ""
+msgstr "Bewerkt"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
+msgstr "Interpretatie van {{interpretatieDatum}} aan het bezichtigen"
 
 msgid "Update"
-msgstr "تحديث"
+msgstr "Bijwerken"
 
 msgid "Getting started"
 msgstr ""
@@ -224,43 +236,43 @@ msgid "Your most viewed charts and tables"
 msgstr ""
 
 msgid "Aggregation type"
-msgstr "نوع التجميع"
+msgstr "Aggregatietype"
 
 msgid "Overrides aggregation type for all data values."
 msgstr ""
 
 msgid "By data element"
-msgstr "بواسطة عنصر البيانات"
+msgstr "Volgens gegevenselement"
 
 msgid "Count"
-msgstr "العدد"
+msgstr "Tel"
 
 msgid "Average"
-msgstr "المتوسط"
+msgstr "Gemiddelde"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr "المتوسط (المجموع في التسلسل الهرمي للوحدة التنظيمية)"
+msgstr "Gemiddlede (som in organisatieëenheidshierarchie)"
 
 msgid "Sum"
-msgstr "المجموع"
+msgstr "Som"
 
 msgid "Last value"
-msgstr "القيمة الأخيرة"
+msgstr "Laatste waarde"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr "القيمة الأخيرة (المتوسط في التسلسل الهرمي للوحدة التنظيمية)"
+msgstr "Laatste waarde (gemiddelde in organisatieëenheidshierarchie)"
 
 msgid "Min"
-msgstr "الأدنى"
+msgstr "Min"
 
 msgid "Max"
-msgstr "الأعلى"
+msgstr "Max"
 
 msgid "Standard deviation"
-msgstr ""
+msgstr "Standaarddeviatie"
 
 msgid "Variance"
-msgstr "التباين"
+msgstr "Variantie"
 
 msgid "Data approved at level"
 msgstr ""
@@ -278,22 +290,22 @@ msgid "Values outside of the range will not be displayed"
 msgstr ""
 
 msgid "Base line"
-msgstr ""
+msgstr "Basislijn"
 
 msgid "Value"
-msgstr "القيمة"
+msgstr "Waarde"
 
 msgid "Title"
-msgstr "العنوان"
+msgstr ""
 
 msgid "Base line title"
-msgstr ""
+msgstr "Basislijnstitel"
 
 msgid "Number"
 msgstr ""
 
 msgid "Labels"
-msgstr ""
+msgstr "Labels"
 
 msgid "Column sub-totals"
 msgstr ""
@@ -302,7 +314,7 @@ msgid "Columns totals"
 msgstr ""
 
 msgid "Default"
-msgstr "الافتراضي"
+msgstr ""
 
 msgid "Bright"
 msgstr ""
@@ -326,34 +338,34 @@ msgid "Only include completed events"
 msgstr ""
 
 msgid "Include cumulative"
-msgstr "تضمين التراكم"
+msgstr ""
 
 msgid "Cumulative values"
 msgstr ""
 
 msgid "Digit group separator"
-msgstr "فاصل مجموعة الخانات"
+msgstr ""
 
 msgid "None"
-msgstr "لا شيء"
+msgstr "Geen"
 
 msgid "Space"
-msgstr "مسافة"
+msgstr ""
 
 msgid "Comma"
-msgstr "فاصلة"
+msgstr ""
 
 msgid "Display density"
-msgstr "كثافة العرض"
+msgstr ""
 
 msgid "Comfortable"
-msgstr "مريح"
+msgstr ""
 
 msgid "Normal"
-msgstr "عادي"
+msgstr ""
 
 msgid "Compact"
-msgstr "مضغوط"
+msgstr ""
 
 msgid "Axis title"
 msgstr ""
@@ -362,43 +374,43 @@ msgid "Add a title"
 msgstr ""
 
 msgid "Font size"
-msgstr "حجم الخط"
+msgstr ""
 
 msgid "Large"
-msgstr "كبير"
+msgstr ""
 
 msgid "Small"
-msgstr "صغير"
+msgstr ""
 
 msgid "Hide empty columns"
 msgstr ""
 
 msgid "Hide empty categories"
-msgstr ""
+msgstr "Verberg lege waarden"
 
 msgid "Before first"
-msgstr ""
+msgstr "Voor eerste"
 
 msgid "After last"
 msgstr ""
 
 msgid "Before first and after last"
-msgstr ""
+msgstr "Voor eerste en na laatste"
 
 msgid "All"
-msgstr "الجميع"
+msgstr "Alle"
 
 msgid "Hide empty rows"
-msgstr "إخفاء الصفوف الفارغة"
+msgstr ""
 
 msgid "Show legend key"
-msgstr ""
+msgstr "Toon legendasleutel"
 
 msgid "Table subtitle"
 msgstr ""
 
 msgid "Chart subtitle"
-msgstr ""
+msgstr "Grafieksondertitel"
 
 msgid "Auto generated"
 msgstr ""
@@ -407,7 +419,7 @@ msgid "Custom"
 msgstr ""
 
 msgid "Chart title"
-msgstr ""
+msgstr "Grafiektitel"
 
 msgid "Display legend"
 msgstr ""
@@ -431,7 +443,7 @@ msgid "Legend changes text color"
 msgstr ""
 
 msgid "Legend"
-msgstr ""
+msgstr "Legenda"
 
 msgid "Select from legends"
 msgstr ""
@@ -469,13 +481,13 @@ msgid "Percentage of column"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr "الوحدة التنظيمية"
+msgstr "Organisatieëenheid"
 
 msgid "Parent organisation unit"
-msgstr "الوحدة التنظيمية الأصل"
+msgstr ""
 
 msgid "Reporting period"
-msgstr "الفترة الزمنية لإعداد التقرير"
+msgstr ""
 
 msgid "Stacked values add up to 100%"
 msgstr ""
@@ -484,7 +496,7 @@ msgid "Decimals"
 msgstr ""
 
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
@@ -492,22 +504,22 @@ msgid ""
 msgstr ""
 
 msgid "Steps"
-msgstr ""
+msgstr "Stappen"
 
 msgid "Include regression"
-msgstr "تضمين الانحدار"
+msgstr ""
 
 msgid "Trend line"
-msgstr ""
+msgstr "Trendlijn"
 
 msgid "Linear"
-msgstr ""
+msgstr "Lineair"
 
 msgid "Polynomial"
-msgstr ""
+msgstr "Polynomiaal"
 
 msgid "Loess"
-msgstr ""
+msgstr "Löss"
 
 msgid "Row sub-totals"
 msgstr ""
@@ -516,7 +528,7 @@ msgid "Row totals"
 msgstr ""
 
 msgid "Data item"
-msgstr ""
+msgstr "Gegevensitem"
 
 msgid "Visualization type"
 msgstr ""
@@ -560,34 +572,34 @@ msgid "Custom sort order"
 msgstr ""
 
 msgid "Low to high"
-msgstr "من الأدنى إلى الأعلى"
+msgstr "Laag naar hoog"
 
 msgid "High to low"
-msgstr "من الأعلى إلى الأدنى"
+msgstr "Hoog naar laag"
 
 msgid "Add a subtitle"
 msgstr ""
 
 msgid "Target line"
-msgstr ""
+msgstr "Doellijn"
 
 msgid "Target line title"
-msgstr ""
+msgstr "Doellijntitel"
 
 msgid "Size"
-msgstr ""
+msgstr "Grootte"
 
 msgid "Position"
 msgstr ""
 
 msgid "Top limit"
-msgstr "الحد الأعلى"
+msgstr ""
 
 msgid "Options"
-msgstr "الخيارات"
+msgstr "Opties"
 
 msgid "Open as Map"
-msgstr ""
+msgstr "Open als Kaart"
 
 msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
@@ -687,115 +699,115 @@ msgid ""
 msgstr ""
 
 msgid "Something went wrong"
-msgstr ""
+msgstr "Er is iets fout gegaan."
 
 msgid "or"
 msgstr ""
 
 msgid "Today"
-msgstr "اليوم"
+msgstr "Vandaag"
 
 msgid "Yesterday"
-msgstr "الأمس"
+msgstr "Gisteren"
 
 msgid "Last 3 days"
-msgstr "آخر 3 أيام"
+msgstr "Laatste 3 dagen"
 
 msgid "Last 7 days"
-msgstr "آخر 7 أيام"
+msgstr "Laatste 7 dagen"
 
 msgid "Last 14 days"
-msgstr "آخر 14 يوم"
+msgstr "Laatste 14 dagen"
 
 msgid "This week"
-msgstr "الأسبوع الحالي"
+msgstr "Deze week"
 
 msgid "Last week"
-msgstr "الأسبوع الماضي"
+msgstr "Laatste week"
 
 msgid "Last 4 weeks"
-msgstr "آخر 4 أسابيع"
+msgstr "Laatste 4 weken"
 
 msgid "Last 12 weeks"
-msgstr "آخر 12 أسبوع"
+msgstr "Laatste 12 weken"
 
 msgid "Last 52 weeks"
-msgstr "آخر 52 أسبوع"
+msgstr "Laatste 52 weken"
 
 msgid "Weeks this year"
-msgstr "أسابيع السنة الحالية"
+msgstr "Weken dit jaar"
 
 msgid "This month"
-msgstr "الشهر الحالي"
+msgstr "Deze maand"
 
 msgid "Last month"
-msgstr "الشهر الماضي"
+msgstr "Laatste maand"
 
 msgid "Last 3 months"
-msgstr "آخر 3 أشهر"
+msgstr "Laatste 3 maanden"
 
 msgid "Last 6 months"
-msgstr "آخر 6 أشهر"
+msgstr "Laatste 6 maanden"
 
 msgid "Last 12 months"
-msgstr "آخر 12 شهر"
+msgstr "Laatste 12 maanden"
 
 msgid "Months this year"
-msgstr "أشهر السنة الحالية"
+msgstr "Maanden dit jaar"
 
 msgid "This bimonth"
-msgstr ""
+msgstr "Deze twee maanden"
 
 msgid "Last bimonth"
-msgstr ""
+msgstr "Laatste twee maanden"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "Laatste 6 twee maanden"
 
 msgid "Bimonths this year"
-msgstr ""
+msgstr "Twee maanden dit jaar"
 
 msgid "This quarter"
-msgstr "ربع السنة الحالي"
+msgstr "Dit kwartier"
 
 msgid "Last quarter"
-msgstr "ربع السنة الماضي"
+msgstr "Laatste kwartier"
 
 msgid "Last 4 quarters"
-msgstr "آخر 4 أرباع السنة"
+msgstr "Laatste 4 kwartieren"
 
 msgid "Quarters this year"
-msgstr "أرباع السنة الحالية"
+msgstr "Kwartieren dit jaar"
 
 msgid "This six-month"
-msgstr "نصف السنة الحالي (فترة من ستة أشهر)"
+msgstr "Dit halfjaar"
 
 msgid "Last six-month"
-msgstr "آخر ستة أشهر"
+msgstr "Laatste halfjaar"
 
 msgid "Last 2 six-months"
-msgstr "آخر 2 ستة أشهر"
+msgstr "Laatste 2 halfjaren"
 
 msgid "This financial year"
-msgstr "السنة المالية الحالية"
+msgstr "Dit financieel jaar"
 
 msgid "Last financial year"
-msgstr "السنة المالية الماضية"
+msgstr "Laatste financieel jaar"
 
 msgid "Last 5 financial years"
-msgstr "آخر 5 سنوات مالية"
+msgstr "Laatste 5 financiële jaren"
 
 msgid "This year"
-msgstr "السنة الحالية"
+msgstr "Dit jaar"
 
 msgid "Last year"
-msgstr "السنة الماضية"
+msgstr "Laatste jaar"
 
 msgid "Last 5 years"
-msgstr "آخر 5 سنوات"
+msgstr "Laatste 5 jaren"
 
 msgid "User org unit"
-msgstr "الوحدة التنظيمية للمستخدم"
+msgstr "Gebruikersorganisatieëenheid"
 
 msgid "User org unit children"
 msgstr ""
@@ -804,7 +816,7 @@ msgid "User org unit grand children"
 msgstr ""
 
 msgid "Data"
-msgstr "البيانات"
+msgstr "Gegevens"
 
 msgid "Display"
 msgstr ""
@@ -816,10 +828,10 @@ msgid "Horizontal (x) axis"
 msgstr ""
 
 msgid "Series"
-msgstr ""
+msgstr "Reeks"
 
 msgid "Style"
-msgstr "المظهر"
+msgstr "Stijl"
 
 msgid "Chart style"
 msgstr ""
@@ -834,13 +846,13 @@ msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Totals"
-msgstr "الإجماليات"
+msgstr "Totalen"
 
 msgid "Empty data"
 msgstr ""
 
 msgid "Table title"
-msgstr "عنوان الجدول"
+msgstr ""
 
 msgid "Limit values"
 msgstr ""
@@ -852,7 +864,7 @@ msgid "Limit minimum/maximum values"
 msgstr ""
 
 msgid "Parameters"
-msgstr "المعاملات"
+msgstr ""
 
 msgid "Color set"
 msgstr ""

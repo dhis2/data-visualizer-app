@@ -1,19 +1,19 @@
 # 
 # Translators:
-# KRG HIS <antonia.bezenchek@informa.pro>, 2022
+# Valeriu Plesca <vplesca@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
 "PO-Revision-Date: 2022-08-21 23:46+0000\n"
-"Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2022\n"
-"Language-Team: Arabic (Iraq) (https://www.transifex.com/hisp-uio/teams/100509/ar_IQ/)\n"
+"Last-Translator: Valeriu Plesca <vplesca@gmail.com>, 2022\n"
+"Language-Team: Romanian (https://www.transifex.com/hisp-uio/teams/100509/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ar_IQ\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -36,7 +36,7 @@ msgid ""
 msgstr ""
 
 msgid "No, cancel"
-msgstr ""
+msgstr "Nu, anulare"
 
 msgid "Yes, leave"
 msgstr ""
@@ -67,7 +67,7 @@ msgid "Filter dimensions"
 msgstr ""
 
 msgid "Graphics"
-msgstr "الرسومات"
+msgstr ""
 
 msgid "Image (.png)"
 msgstr ""
@@ -76,7 +76,7 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Table layout"
-msgstr "تنسيق الجدول"
+msgstr ""
 
 msgid "Excel (.xls)"
 msgstr ""
@@ -97,13 +97,13 @@ msgid "Code"
 msgstr ""
 
 msgid "Name"
-msgstr "الاسم"
+msgstr ""
 
 msgid "Download"
-msgstr "تنزيل"
+msgstr ""
 
 msgid "Plain data source"
-msgstr "مصدر البيانات الصريحة"
+msgstr ""
 
 msgid "JSON"
 msgstr ""
@@ -118,13 +118,13 @@ msgid "CSV"
 msgstr ""
 
 msgid "Advanced"
-msgstr "متقدم"
+msgstr ""
 
 msgid "Data value set"
-msgstr "حزمة قيم البيانات"
+msgstr ""
 
 msgid "Other formats"
-msgstr "صيغ أخرى"
+msgstr ""
 
 msgid "JRXML"
 msgstr ""
@@ -148,10 +148,10 @@ msgid "The following information may be requested by technical support."
 msgstr ""
 
 msgid "Hide"
-msgstr "إخفاء"
+msgstr ""
 
 msgid "Interpretations"
-msgstr "التفسيرات"
+msgstr ""
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
@@ -175,7 +175,7 @@ msgid "Levels"
 msgstr ""
 
 msgid "Groups"
-msgstr ""
+msgstr "Grupuri"
 
 msgid "And 1 other..."
 msgstr ""
@@ -204,7 +204,7 @@ msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
 msgid "Update"
-msgstr "تحديث"
+msgstr "Actualizare"
 
 msgid "Getting started"
 msgstr ""
@@ -224,43 +224,43 @@ msgid "Your most viewed charts and tables"
 msgstr ""
 
 msgid "Aggregation type"
-msgstr "نوع التجميع"
+msgstr ""
 
 msgid "Overrides aggregation type for all data values."
 msgstr ""
 
 msgid "By data element"
-msgstr "بواسطة عنصر البيانات"
+msgstr ""
 
 msgid "Count"
-msgstr "العدد"
+msgstr ""
 
 msgid "Average"
-msgstr "المتوسط"
+msgstr ""
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr "المتوسط (المجموع في التسلسل الهرمي للوحدة التنظيمية)"
+msgstr ""
 
 msgid "Sum"
-msgstr "المجموع"
+msgstr ""
 
 msgid "Last value"
-msgstr "القيمة الأخيرة"
+msgstr ""
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr "القيمة الأخيرة (المتوسط في التسلسل الهرمي للوحدة التنظيمية)"
+msgstr ""
 
 msgid "Min"
-msgstr "الأدنى"
+msgstr "Min"
 
 msgid "Max"
-msgstr "الأعلى"
+msgstr "Max"
 
 msgid "Standard deviation"
 msgstr ""
 
 msgid "Variance"
-msgstr "التباين"
+msgstr ""
 
 msgid "Data approved at level"
 msgstr ""
@@ -281,10 +281,10 @@ msgid "Base line"
 msgstr ""
 
 msgid "Value"
-msgstr "القيمة"
+msgstr ""
 
 msgid "Title"
-msgstr "العنوان"
+msgstr ""
 
 msgid "Base line title"
 msgstr ""
@@ -302,7 +302,7 @@ msgid "Columns totals"
 msgstr ""
 
 msgid "Default"
-msgstr "الافتراضي"
+msgstr ""
 
 msgid "Bright"
 msgstr ""
@@ -326,34 +326,34 @@ msgid "Only include completed events"
 msgstr ""
 
 msgid "Include cumulative"
-msgstr "تضمين التراكم"
+msgstr ""
 
 msgid "Cumulative values"
 msgstr ""
 
 msgid "Digit group separator"
-msgstr "فاصل مجموعة الخانات"
+msgstr ""
 
 msgid "None"
-msgstr "لا شيء"
+msgstr ""
 
 msgid "Space"
-msgstr "مسافة"
+msgstr ""
 
 msgid "Comma"
-msgstr "فاصلة"
+msgstr ""
 
 msgid "Display density"
-msgstr "كثافة العرض"
+msgstr ""
 
 msgid "Comfortable"
-msgstr "مريح"
+msgstr ""
 
 msgid "Normal"
-msgstr "عادي"
+msgstr ""
 
 msgid "Compact"
-msgstr "مضغوط"
+msgstr ""
 
 msgid "Axis title"
 msgstr ""
@@ -362,13 +362,13 @@ msgid "Add a title"
 msgstr ""
 
 msgid "Font size"
-msgstr "حجم الخط"
+msgstr ""
 
 msgid "Large"
-msgstr "كبير"
+msgstr ""
 
 msgid "Small"
-msgstr "صغير"
+msgstr ""
 
 msgid "Hide empty columns"
 msgstr ""
@@ -386,10 +386,10 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr "الجميع"
+msgstr ""
 
 msgid "Hide empty rows"
-msgstr "إخفاء الصفوف الفارغة"
+msgstr ""
 
 msgid "Show legend key"
 msgstr ""
@@ -469,13 +469,13 @@ msgid "Percentage of column"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr "الوحدة التنظيمية"
+msgstr "Unitate organizațională"
 
 msgid "Parent organisation unit"
-msgstr "الوحدة التنظيمية الأصل"
+msgstr "Unitatea organizațională părinte"
 
 msgid "Reporting period"
-msgstr "الفترة الزمنية لإعداد التقرير"
+msgstr "Perioadă de raportare"
 
 msgid "Stacked values add up to 100%"
 msgstr ""
@@ -495,7 +495,7 @@ msgid "Steps"
 msgstr ""
 
 msgid "Include regression"
-msgstr "تضمين الانحدار"
+msgstr "Includere regresia"
 
 msgid "Trend line"
 msgstr ""
@@ -560,10 +560,10 @@ msgid "Custom sort order"
 msgstr ""
 
 msgid "Low to high"
-msgstr "من الأدنى إلى الأعلى"
+msgstr "De la mic spre mare"
 
 msgid "High to low"
-msgstr "من الأعلى إلى الأدنى"
+msgstr "De la mare spre mic"
 
 msgid "Add a subtitle"
 msgstr ""
@@ -581,10 +581,10 @@ msgid "Position"
 msgstr ""
 
 msgid "Top limit"
-msgstr "الحد الأعلى"
+msgstr "Limită superioară"
 
 msgid "Options"
-msgstr "الخيارات"
+msgstr ""
 
 msgid "Open as Map"
 msgstr ""
@@ -693,55 +693,55 @@ msgid "or"
 msgstr ""
 
 msgid "Today"
-msgstr "اليوم"
+msgstr "Astăzi"
 
 msgid "Yesterday"
-msgstr "الأمس"
+msgstr "Ieri"
 
 msgid "Last 3 days"
-msgstr "آخر 3 أيام"
+msgstr "Ultimele 3 zile"
 
 msgid "Last 7 days"
-msgstr "آخر 7 أيام"
+msgstr "Ultimele 7 zile"
 
 msgid "Last 14 days"
-msgstr "آخر 14 يوم"
+msgstr "Ultimele 14 zile"
 
 msgid "This week"
-msgstr "الأسبوع الحالي"
+msgstr "Săptămâna aceasta"
 
 msgid "Last week"
-msgstr "الأسبوع الماضي"
+msgstr "Săptămâna trecută"
 
 msgid "Last 4 weeks"
-msgstr "آخر 4 أسابيع"
+msgstr "Ultimele 4 săptămâni"
 
 msgid "Last 12 weeks"
-msgstr "آخر 12 أسبوع"
+msgstr "Ultimele 12 săptămâni"
 
 msgid "Last 52 weeks"
-msgstr "آخر 52 أسبوع"
+msgstr "Ultimele 52 de săptămâni"
 
 msgid "Weeks this year"
-msgstr "أسابيع السنة الحالية"
+msgstr "Săptămâni în anul curent"
 
 msgid "This month"
-msgstr "الشهر الحالي"
+msgstr "Luna aceasta"
 
 msgid "Last month"
-msgstr "الشهر الماضي"
+msgstr "Luna trecută"
 
 msgid "Last 3 months"
-msgstr "آخر 3 أشهر"
+msgstr "Ultimele 3 luni"
 
 msgid "Last 6 months"
-msgstr "آخر 6 أشهر"
+msgstr "Ultimele 6 luni"
 
 msgid "Last 12 months"
-msgstr "آخر 12 شهر"
+msgstr "Ultimele 12 luni"
 
 msgid "Months this year"
-msgstr "أشهر السنة الحالية"
+msgstr "Luni în anul curent"
 
 msgid "This bimonth"
 msgstr ""
@@ -756,46 +756,46 @@ msgid "Bimonths this year"
 msgstr ""
 
 msgid "This quarter"
-msgstr "ربع السنة الحالي"
+msgstr ""
 
 msgid "Last quarter"
-msgstr "ربع السنة الماضي"
+msgstr "Ultimul trimestru"
 
 msgid "Last 4 quarters"
-msgstr "آخر 4 أرباع السنة"
+msgstr "Ultimele 4 trimestre"
 
 msgid "Quarters this year"
-msgstr "أرباع السنة الحالية"
+msgstr "Trimestre în anul curent"
 
 msgid "This six-month"
-msgstr "نصف السنة الحالي (فترة من ستة أشهر)"
+msgstr ""
 
 msgid "Last six-month"
-msgstr "آخر ستة أشهر"
+msgstr "Ultimele șase luni"
 
 msgid "Last 2 six-months"
-msgstr "آخر 2 ستة أشهر"
+msgstr "Ultimele 2 șase luni"
 
 msgid "This financial year"
-msgstr "السنة المالية الحالية"
+msgstr ""
 
 msgid "Last financial year"
-msgstr "السنة المالية الماضية"
+msgstr "Ultimul an financiar"
 
 msgid "Last 5 financial years"
-msgstr "آخر 5 سنوات مالية"
+msgstr "Ultimii 5 ani financiari"
 
 msgid "This year"
-msgstr "السنة الحالية"
+msgstr ""
 
 msgid "Last year"
-msgstr "السنة الماضية"
+msgstr "Anul trecut"
 
 msgid "Last 5 years"
-msgstr "آخر 5 سنوات"
+msgstr "Ultimii 5 ani"
 
 msgid "User org unit"
-msgstr "الوحدة التنظيمية للمستخدم"
+msgstr ""
 
 msgid "User org unit children"
 msgstr ""
@@ -804,10 +804,10 @@ msgid "User org unit grand children"
 msgstr ""
 
 msgid "Data"
-msgstr "البيانات"
+msgstr ""
 
 msgid "Display"
-msgstr ""
+msgstr "Afişare"
 
 msgid "Axes"
 msgstr ""
@@ -819,7 +819,7 @@ msgid "Series"
 msgstr ""
 
 msgid "Style"
-msgstr "المظهر"
+msgstr ""
 
 msgid "Chart style"
 msgstr ""
@@ -834,13 +834,13 @@ msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Totals"
-msgstr "الإجماليات"
+msgstr ""
 
 msgid "Empty data"
 msgstr ""
 
 msgid "Table title"
-msgstr "عنوان الجدول"
+msgstr ""
 
 msgid "Limit values"
 msgstr ""
@@ -852,7 +852,7 @@ msgid "Limit minimum/maximum values"
 msgstr ""
 
 msgid "Parameters"
-msgstr "المعاملات"
+msgstr ""
 
 msgid "Color set"
 msgstr ""

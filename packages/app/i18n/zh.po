@@ -1,16 +1,16 @@
 # 
 # Translators:
-# easylin <lin_xd@126.com>, 2020
-# phil_dhis2, 2020
-# Viktor Varland <viktor@dhis2.org>, 2020
-# 晓东 林 <13981924470@126.com>, 2020
+# phil_dhis2, 2022
+# easylin <lin_xd@126.com>, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
+# 晓东 林 <13981924470@126.com>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
-"PO-Revision-Date: 2020-12-22 22:14+0000\n"
-"Last-Translator: 晓东 林 <13981924470@126.com>, 2020\n"
+"PO-Revision-Date: 2022-08-21 23:46+0000\n"
+"Last-Translator: 晓东 林 <13981924470@126.com>, 2022\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -96,7 +96,7 @@ msgid "Metadata ID scheme"
 msgstr "元数据ID方案"
 
 msgid "ID"
-msgstr "ID"
+msgstr "Id"
 
 msgid "Code"
 msgstr "代码"
@@ -694,7 +694,7 @@ msgid ""
 msgstr "找不到您尝试查看的可视化文件，该ID可能不正确或已被删除。"
 
 msgid "Something went wrong"
-msgstr "出了些问题"
+msgstr "出问题了"
 
 msgid "or"
 msgstr "或"
@@ -715,13 +715,13 @@ msgid "Last 14 days"
 msgstr "最近14天"
 
 msgid "This week"
-msgstr "本年"
+msgstr "本周"
 
 msgid "Last week"
 msgstr "上周"
 
 msgid "Last 4 weeks"
-msgstr "最近四周"
+msgstr "最近4 周"
 
 msgid "Last 12 weeks"
 msgstr "最近12周"
@@ -730,7 +730,7 @@ msgid "Last 52 weeks"
 msgstr "最近52周"
 
 msgid "Weeks this year"
-msgstr "今年的几周"
+msgstr "今年的周"
 
 msgid "This month"
 msgstr "本月"
@@ -790,7 +790,7 @@ msgid "Last financial year"
 msgstr "上一财政年"
 
 msgid "Last 5 financial years"
-msgstr "最近五个财政年"
+msgstr "最近5个财政年"
 
 msgid "This year"
 msgstr "今年"
