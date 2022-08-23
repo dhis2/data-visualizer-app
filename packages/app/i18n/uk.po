@@ -245,7 +245,7 @@ msgid "Aggregation type"
 msgstr "Тип агрегації"
 
 msgid "Determines how the values in the pivot table are aggregated."
-msgstr ""
+msgstr "Визначає спосіб агрегування значень у зведеній таблиці."
 
 msgid "By data element"
 msgstr "За елементом даних"
@@ -389,7 +389,7 @@ msgid "Hide empty rows"
 msgstr "Сховати порожні рядки"
 
 msgid "Legend key"
-msgstr ""
+msgstr "Ключ до умовних позначень"
 
 msgid "Table subtitle"
 msgstr "Підзаголовок таблиці"
@@ -492,7 +492,7 @@ msgid "Auto"
 msgstr "Авто"
 
 msgid "The number of axis steps between the min and max values"
-msgstr ""
+msgstr "Кількість кроків на осі між мінімальним і максимальним значеннями"
 
 msgid "Steps"
 msgstr "Кроки"
