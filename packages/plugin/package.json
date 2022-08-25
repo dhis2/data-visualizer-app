@@ -14,10 +14,10 @@
         "access": "public"
     },
     "dependencies": {
-        "@dhis2/analytics": "^23.13.3",
+        "@dhis2/analytics": "^24.0.4",
         "@dhis2/app-runtime": "^3.4.4",
         "@dhis2/d2-i18n": "^1.1.0",
-        "@dhis2/ui": "^7.7.3",
+        "@dhis2/ui": "^8.4.11",
         "lodash-es": "^4.17.21",
         "prop-types": "^15"
     },
@@ -27,7 +27,7 @@
         "react-dom": "^16.8"
     },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^8.3.0"
+        "@dhis2/cli-app-scripts": "^10.0.0"
     },
     "scripts": {
         "clean": "rm -rf ./build/*",
