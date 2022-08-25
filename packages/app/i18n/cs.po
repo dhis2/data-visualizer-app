@@ -110,7 +110,7 @@ msgid "Plain data source"
 msgstr "Prostý zdroj dat"
 
 msgid "Microsoft Excel"
-msgstr ""
+msgstr "Microsoft Excel"
 
 msgid "CSV"
 msgstr "CSV"
@@ -128,7 +128,7 @@ msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
 msgid "Download data from this date"
-msgstr ""
+msgstr "Stáhnout data od tohoto data"
 
 msgid "Metadata ID scheme"
 msgstr "Schéma metadata ID"
