@@ -1,3 +1,10 @@
+## [39.2.6](https://github.com/dhis2/data-visualizer-app/compare/v39.2.5...v39.2.6) (2022-08-26)
+
+
+### Bug Fixes
+
+* bump internal deps (ui, analytics, cli-app-scripts) ([#2147](https://github.com/dhis2/data-visualizer-app/issues/2147)) ([9791cf8](https://github.com/dhis2/data-visualizer-app/commit/9791cf884d1268ac2aaac062aac3c2874c4607be))
+
 ## [39.2.5](https://github.com/dhis2/data-visualizer-app/compare/v39.2.4...v39.2.5) (2022-08-25)
 
 
