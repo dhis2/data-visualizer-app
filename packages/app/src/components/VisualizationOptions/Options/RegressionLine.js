@@ -39,7 +39,7 @@ export const RegressionLine = ({
             <div
                 className={`${tabSectionOptionToggleable.className} ${tabSectionOptionComplexInline.className}`}
             >
-                <div>
+                <div style={{ marginRight: '8px' }}>
                     <Label>{i18n.t('Value')}</Label>
                     <RegressionLineValue
                         dataTest={`${dataTest}-value`}
