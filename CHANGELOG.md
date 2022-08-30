@@ -1,3 +1,10 @@
+## [39.2.7](https://github.com/dhis2/data-visualizer-app/compare/v39.2.6...v39.2.7) (2022-08-30)
+
+
+### Bug Fixes
+
+* missing right margin after @dhis2/ui bump (DHIS2-13168) ([#2149](https://github.com/dhis2/data-visualizer-app/issues/2149)) ([ab84d13](https://github.com/dhis2/data-visualizer-app/commit/ab84d13b1817e6e1abf5ab78589beb689f696632))
+
 ## [39.2.6](https://github.com/dhis2/data-visualizer-app/compare/v39.2.5...v39.2.6) (2022-08-26)
 
 
