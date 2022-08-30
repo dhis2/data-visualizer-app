@@ -17,6 +17,7 @@
 .fontSizeSelect,
 .textAlignSelect {
     min-width: 180px;
+    margin-right: var(--spacers-dp8);
 }
 
 .textColorLabel {

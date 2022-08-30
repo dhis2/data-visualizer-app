@@ -9,4 +9,5 @@
 
 .container > div:first-child {
     margin-bottom: var(--spacers-dp16);
+    padding-right: var(--spacers-dp8);
 }
