@@ -23,7 +23,7 @@ const DetailsPanel = (
     context
 ) => (
     <div className={classes.panel}>
-        <AboutAOUnit type="visualizations" id={visualization.id} />
+        <AboutAOUnit type="visualization" id={visualization.id} />
         <InterpretationsUnit
             ref={interpretationsUnitRef}
             type="visualization"
