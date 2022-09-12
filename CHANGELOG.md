@@ -1,3 +1,10 @@
+## [39.2.9](https://github.com/dhis2/data-visualizer-app/compare/v39.2.8...v39.2.9) (2022-09-12)
+
+
+### Bug Fixes
+
+* change default value for Save as (DHIS2-13328) [#2152](https://github.com/dhis2/data-visualizer-app/issues/2152) ([5beef61](https://github.com/dhis2/data-visualizer-app/commit/5beef61f94c3e2f3f75c4fd905703dde5c7a228d))
+
 ## [39.2.8](https://github.com/dhis2/data-visualizer-app/compare/v39.2.7...v39.2.8) (2022-08-31)
 
 
