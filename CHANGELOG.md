@@ -1,3 +1,31 @@
+## [39.2.9](https://github.com/dhis2/data-visualizer-app/compare/v39.2.8...v39.2.9) (2022-09-12)
+
+
+### Bug Fixes
+
+* change default value for Save as (DHIS2-13328) [#2152](https://github.com/dhis2/data-visualizer-app/issues/2152) ([5beef61](https://github.com/dhis2/data-visualizer-app/commit/5beef61f94c3e2f3f75c4fd905703dde5c7a228d))
+
+## [39.2.8](https://github.com/dhis2/data-visualizer-app/compare/v39.2.7...v39.2.8) (2022-08-31)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([85b5948](https://github.com/dhis2/data-visualizer-app/commit/85b59482d4e77a0cd12bc0d1143c19077e97a95f))
+
+## [39.2.7](https://github.com/dhis2/data-visualizer-app/compare/v39.2.6...v39.2.7) (2022-08-30)
+
+
+### Bug Fixes
+
+* missing right margin after @dhis2/ui bump (DHIS2-13168) ([#2149](https://github.com/dhis2/data-visualizer-app/issues/2149)) ([ab84d13](https://github.com/dhis2/data-visualizer-app/commit/ab84d13b1817e6e1abf5ab78589beb689f696632))
+
+## [39.2.6](https://github.com/dhis2/data-visualizer-app/compare/v39.2.5...v39.2.6) (2022-08-26)
+
+
+### Bug Fixes
+
+* bump internal deps (ui, analytics, cli-app-scripts) ([#2147](https://github.com/dhis2/data-visualizer-app/issues/2147)) ([9791cf8](https://github.com/dhis2/data-visualizer-app/commit/9791cf884d1268ac2aaac062aac3c2874c4607be))
+
 ## [39.2.5](https://github.com/dhis2/data-visualizer-app/compare/v39.2.4...v39.2.5) (2022-08-25)
 
 
