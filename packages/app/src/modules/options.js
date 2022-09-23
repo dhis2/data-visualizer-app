@@ -121,7 +121,7 @@ export const options = {
     },
     fixRowHeaders: {
         defaultValue: false,
-        requestble: false,
+        requestable: false,
         savable: true,
     },
 
@@ -174,6 +174,7 @@ export const getOptionsFromVisualization = (visualization) => {
         ...pick(visualization, Object.keys(options)),
     }
 
+    // XXX only in app
     optionsFromVisualization.axes = optionsFromVisualization.axes.map(
         (axis) => {
             if (axis.targetLine || axis.baseLine) {

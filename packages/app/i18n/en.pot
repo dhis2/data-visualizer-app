@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2022-08-25T09:58:02.683Z\n"
-"PO-Revision-Date: 2022-08-25T09:58:02.683Z\n"
+"POT-Creation-Date: 2022-09-23T12:57:32.255Z\n"
+"PO-Revision-Date: 2022-09-23T12:57:32.255Z\n"
 
 msgid "All items"
 msgstr "All items"
@@ -693,6 +693,12 @@ msgstr "Top limit"
 
 msgid "Options"
 msgstr "Options"
+
+msgid "Change org unit"
+msgstr "Change org unit"
+
+msgid "{{level}} level in {{orgunit}}"
+msgstr "{{level}} level in {{orgunit}}"
 
 msgid "Open as Map"
 msgstr "Open as Map"

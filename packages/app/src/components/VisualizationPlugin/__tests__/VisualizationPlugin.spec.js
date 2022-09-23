@@ -2,10 +2,10 @@ import * as analytics from '@dhis2/analytics'
 import { mount } from 'enzyme'
 import React from 'react'
 import { act } from 'react-dom/test-utils'
-import * as api from '../api/analytics.js'
+import * as api from '../../../api/analytics.js'
+import * as moduleAnalytics from '../../../modules/analytics.js'
+import * as options from '../../../modules/options.js'
 import ChartPlugin from '../ChartPlugin.js'
-import * as moduleAnalytics from '../modules/analytics.js'
-import * as options from '../modules/options.js'
 import { VisualizationPlugin } from '../VisualizationPlugin.js'
 
 jest.mock('../ChartPlugin', () => jest.fn(() => null))

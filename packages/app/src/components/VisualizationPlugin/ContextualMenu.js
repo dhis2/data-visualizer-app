@@ -4,8 +4,8 @@ import i18n from '@dhis2/d2-i18n'
 import { Divider, FlyoutMenu, MenuItem, Popper } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState, useCallback } from 'react'
-import ArrowDownwardIcon from './assets/ArrowDownwardIcon.js'
-import ArrowUpwardIcon from './assets/ArrowUpwardIcon.js'
+import ArrowDownwardIcon from '../../assets/ArrowDownwardIcon.js'
+import ArrowUpwardIcon from '../../assets/ArrowUpwardIcon.js'
 
 const ContextualMenu = ({ config, ouLevels, onClick, reference, dataTest }) => {
     const engine = useDataEngine()

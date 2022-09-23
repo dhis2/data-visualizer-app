@@ -1,8 +1,8 @@
-import VisualizationPlugin from '@dhis2/data-visualizer-plugin'
 import { shallow } from 'enzyme'
 import React from 'react'
 import { GenericServerError } from '../../../modules/error.js'
 import LoadingMask from '../../../widgets/LoadingMask.js'
+import { VisualizationPlugin } from '../../VisualizationPlugin/VisualizationPlugin.js'
 import StartScreen from '../StartScreen.js'
 import { UnconnectedVisualization as Visualization } from '../Visualization.js'
 

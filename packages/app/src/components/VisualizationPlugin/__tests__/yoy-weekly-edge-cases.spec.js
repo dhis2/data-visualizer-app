@@ -2,7 +2,7 @@ import { WEEKLY } from '@dhis2/analytics'
 import {
     computeYoYMatrix,
     computeGenericPeriodNamesFromMatrix,
-} from '../modules/analytics.js'
+} from '../../../modules/analytics.js'
 
 // 1st january 2021 is in week 53, so last 4 weeks from that date are
 // all in 2020, starting from W52 and counting 4 weeks backwards

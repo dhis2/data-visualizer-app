@@ -2,7 +2,7 @@ import { DAILY } from '@dhis2/analytics'
 import {
     computeYoYMatrix,
     computeGenericPeriodNamesFromMatrix,
-} from '../modules/analytics.js'
+} from '../../../modules/analytics.js'
 
 // 2020 is a leap year
 // counting 7 days backwards from March 1st yelds:
