@@ -1,3 +1,10 @@
+## [39.2.10](https://github.com/dhis2/data-visualizer-app/compare/v39.2.9...v39.2.10) (2022-09-28)
+
+
+### Bug Fixes
+
+* do not override height if present in style object DHIS2-13812 ([#2158](https://github.com/dhis2/data-visualizer-app/issues/2158)) ([4b05f07](https://github.com/dhis2/data-visualizer-app/commit/4b05f077759cd1d07f9bb5df44efbe6f862829c9))
+
 ## [39.2.9](https://github.com/dhis2/data-visualizer-app/compare/v39.2.8...v39.2.9) (2022-09-12)
 
 
