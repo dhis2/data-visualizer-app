@@ -8,6 +8,7 @@ const mostViewedListItemEl = 'start-screen-most-viewed-list-item'
 const errorContainerEl = 'start-screen-error-container'
 
 export const goToStartPage = () => {
+    cy.log(Cypress.env('dhis2_base_url'))
     cy.visit('')
     expectStartScreenToBeVisible()
 }
