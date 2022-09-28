@@ -1,3 +1,10 @@
+## [39.2.11](https://github.com/dhis2/data-visualizer-app/compare/v39.2.10...v39.2.11) (2022-09-28)
+
+
+### Bug Fixes
+
+* pass correct prop for analytics breaking change ([#2151](https://github.com/dhis2/data-visualizer-app/issues/2151)) ([709449e](https://github.com/dhis2/data-visualizer-app/commit/709449e3e53b9bbb6ca40152d94a609342e0cf73))
+
 ## [39.2.10](https://github.com/dhis2/data-visualizer-app/compare/v39.2.9...v39.2.10) (2022-09-28)
 
 
