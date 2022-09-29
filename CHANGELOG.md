@@ -1,3 +1,10 @@
+## [37.10.3](https://github.com/dhis2/data-visualizer-app/compare/v37.10.2...v37.10.3) (2022-09-29)
+
+
+### Bug Fixes
+
+* bump interpretations component for DHIS2-12617 (37.x) ([#2154](https://github.com/dhis2/data-visualizer-app/issues/2154)) ([116b38a](https://github.com/dhis2/data-visualizer-app/commit/116b38a1abe590115e66e8deea2f02cc99429ef4))
+
 ## [37.10.2](https://github.com/dhis2/data-visualizer-app/compare/v37.10.1...v37.10.2) (2022-08-19)
 
 
