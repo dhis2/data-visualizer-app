@@ -30,7 +30,7 @@ jobs:
                   token: ${{env.GH_TOKEN}}
             - uses: actions/setup-node@v1
               with:
-                  node-version: 16.x
+                  node-version: 12.x
 
             - name: Install
               run: yarn install --frozen-lockfile
