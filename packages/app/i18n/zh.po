@@ -28,7 +28,7 @@ msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr "无标题的{{visualizationType}}可视化，{{date}}"
 
 msgid "\"{{- deletedObject}}\" successfully deleted."
-msgstr ""
+msgstr "“{{- deletedObject}}”已成功删除。"
 
 msgid "You have unsaved changes."
 msgstr "你没有保存修改"
