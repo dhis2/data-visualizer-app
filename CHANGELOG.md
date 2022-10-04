@@ -1,3 +1,10 @@
+## [38.3.7](https://github.com/dhis2/data-visualizer-app/compare/v38.3.6...v38.3.7) (2022-10-04)
+
+
+### Bug Fixes
+
+* bump analytics to avoid es2022 fn ([#2159](https://github.com/dhis2/data-visualizer-app/issues/2159)) ([7ef365c](https://github.com/dhis2/data-visualizer-app/commit/7ef365cfa8474143ee46f9a0a638c42470b8b016))
+
 ## [38.3.6](https://github.com/dhis2/data-visualizer-app/compare/v38.3.5...v38.3.6) (2022-08-22)
 
 
