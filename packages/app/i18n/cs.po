@@ -25,7 +25,7 @@ msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr "Vizualizace bez názvu {{visualizationType}}, {{date}}"
 
 msgid "\"{{- deletedObject}}\" successfully deleted."
-msgstr ""
+msgstr "\"{{- deletedObject}}\" byl úspěšně odstraněn."
 
 msgid "You have unsaved changes."
 msgstr "Máte neuložené změny."
