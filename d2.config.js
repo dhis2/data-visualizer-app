@@ -6,6 +6,7 @@ const config = {
 
     entryPoints: {
         app: './src/AppWrapper.js',
+        plugin: './src/PluginWrapper.js',
     },
 }
 
