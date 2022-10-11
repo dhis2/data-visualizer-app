@@ -1,22 +1,29 @@
 # Data visualizer app and plugin
 
-This is a yarn workspaces mono-repo that contains the data-visualizer-app. Eventually it will also contain the analytics plugins.
+[![Build Status](https://travis-ci.org/dhis2/data-visualizer-app.svg)](https://travis-ci.org/dhis2/data-visualizer-app)
+[![Test Coverage](https://codeclimate.com/github/dhis2/data-visualizer-app/badges/coverage.svg)](https://codeclimate.com/github/dhis2/data-visualizer-app/coverage)
+[![Code Climate](https://codeclimate.com/github/dhis2/data-visualizer-app/badges/gpa.svg)](https://codeclimate.com/github/dhis2/data-visualizer-app)
+
+This is a repo that contains the data-visualizer-app and its plugin used both internally and built as a separate entrypoint so it can be used in other apps (dashboard app).
 
 ## Getting started
 
-To run data-visualizer-app from the repo root directory, install the dependencies for all packages
-and link all the packages in the repo, then make sure the plugin is built:
+To run data-visualizer-app from the repo root directory, install the dependencies:
 
 ```
 $ yarn install
-$ yarn build
 ```
 
 ### Development
 
-To build the plugin and start the app on `localhost:3000`, run `yarn start` from the repo root directory.
+Run `yarn start` from the repo's root to start the app on `localhost:3000` and the plugin on `localhost:3001`.
 
-The following npm scripts can all be run from the repo root directory and will execute on all packages
+The plugin running on a different port allows for testing it in other apps.
+For example, for testing it in dashboard app, run the dashboard app in a different port and via devtools override the plugin path with the host and port where the plugin is running.
+Add this entry to the dashboard app localStorage:
+`dashboard-app-plugin-overrides: { "VISUALIZATION": "http://localhost:3001" }`
+
+The following npm scripts can all be run from the repo root directory
 
 #### Unit tests
 
@@ -45,13 +52,7 @@ Cypress is used for e2e browser tests. This automatically runs on CI for PRs, th
 Run tests interactively (Cypress UI):
 
 ```
-yarn cy:open
-```
-
-Run tests in CI mode (headless):
-
-```
-yarn cy:run
+yarn cypress:live
 ```
 
 #### Linting and Formatting
@@ -68,7 +69,7 @@ Check all files for code-style violations (prettier and eslint)
 $ yarn lint
 ```
 
-### Build all packages
+### Build app and plugin
 
 ```
 $ yarn build
