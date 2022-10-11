@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { getStubContext } from '../../../../../config/testsContext.js'
+import { getStubContext } from '../../../config/testsContext.js'
 import * as actions from '../../actions/index.js'
 import { CURRENT_AO_KEY } from '../../api/userDataStore.js'
 import * as userDataStore from '../../api/userDataStore.js'
