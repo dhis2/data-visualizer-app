@@ -42,7 +42,7 @@ jobs:
                   enable-pull-request-comment: true
                   enable-commit-comment: false
                   alias: pr-${{ github.event.number }}
-                  publish-dir: './packages/app/build/app'
+                  publish-dir: './build/app'
               env:
                   # org secret
                   NETLIFY_AUTH_TOKEN: ${{ secrets.DHIS2_BOT_NETLIFY_TOKEN }}
