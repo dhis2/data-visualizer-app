@@ -4,8 +4,8 @@
   # Directory to change to before starting a build.
   # This is where we will look for package.json/.nvmrc/etc.
   base = ""
-  publish = "packages/app/build/app"
+  publish = "build/app"
 
-  command = "echo BUILDING... && cd packages/plugin && yarn build && cd ../app && yarn build --standalone"
+  command = "echo BUILDING... && yarn build --standalone"
 
   ignore = "exit 0"
