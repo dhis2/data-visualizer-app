@@ -1,99 +1,98 @@
 # 
 # Translators:
-# Farida Sibuea <farida_sibuea@yahoo.com>, 2020
+# phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
-# Yusuf Setiawan <mohammadyusufsetiawan@gmail.com>, 2021
-# Untoro Dwi Raharjo <untoro.dwi.raharjo@mail.ugm.ac.id>, 2021
-# Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2021
+# 晓东 林 <13981924470@126.com>, 2022
+# easylin <lin_xd@126.com>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-08-25T09:58:02.683Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2021\n"
-"Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2022\n"
+"Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: id\n"
+"Language: zh\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+msgid "Change org unit"
+msgstr "更改组织机构"
+
+msgid "{{level}} level in {{orgunit}}"
+msgstr "{{orgunit}} 中的 {{level}} 级"
+
 msgid "All items"
-msgstr ""
+msgstr "所有条目"
 
 msgid "Rename successful"
-msgstr "Penamaan ulang berhasil"
+msgstr "重命名成功"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr "Visualisasi {{visualizationType}} tanpa judul, {{date}}"
+msgstr "无标题的{{visualizationType}}可视化，{{date}}"
 
 msgid "\"{{- deletedObject}}\" successfully deleted."
-msgstr ""
+msgstr "“{{- deletedObject}}”已成功删除。"
 
 msgid "You have unsaved changes."
-msgstr "Anda memiliki pesan belum disimpan"
+msgstr "你没有保存修改"
 
 msgid "Discard unsaved changes?"
-msgstr "Buang perubahan yang belum disimpan?"
+msgstr "放弃没有保存的修改?"
 
 msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
 "be lost."
-msgstr ""
-"Apakah Anda yakin meninggalkan gambar ini? Perubahan yang belum tersimpan "
-"akan hilang"
+msgstr "你确信离开该可视化设计？所有修改都将丢失"
 
 msgid "No, cancel"
-msgstr "Tidak, batalkan"
+msgstr "不，取消"
 
 msgid "Yes, leave"
-msgstr "Ya, tinggalkan"
+msgstr "是离开"
 
 msgid "Add to {{axisName}}"
-msgstr "Tambahkan ke {{axisName}}"
+msgstr "添加到 {{axisName}}"
 
 msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
 "first item will be used and saved."
-msgstr ""
-"'{{visualizationType}}' digunakan untuk menunjukkan item data tunggal. Hanya"
-" item pertama yang akan digunakan dan disimpan."
+msgstr "'{{visualizationType}}' 打算显示单个数据项，仅仅第一个条目将被使用和保存。"
 
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
-"'{{visualizationType}}' digunakan untuk menunjukkan maksimum {{maxNumber}} "
-"item. Hanya {{maxNumber}} item pertama yang akan digunakan dan disimpan."
+"'{{visualizationType}}' 打算显示最多{{maxNumber}}个数据项，仅{{maxNumber}} "
+"个中第一个条目将被使用和保存。"
 
 msgid ""
 "'Scatter' is intended to show a single data item per axis. Only the first "
 "item will be used and saved."
-msgstr ""
-"'Scatter' dimaksudkan untuk menampilkan satu item data per aksis. Hanya item"
-" pertama yang akan digunakan dan disimpan."
+msgstr "“散点图”用于在每个轴上显示单个数据项。仅第一项将被使用和保存。"
 
 msgid "Vertical"
-msgstr "Vertikal"
+msgstr "垂直"
 
 msgid "Horizontal"
-msgstr "Horisontal"
+msgstr "水平"
 
 msgid "Main dimensions"
-msgstr "Dimensi utama"
+msgstr "主要维度"
 
 msgid "Other dimensions"
-msgstr "Dimensi lainnya"
+msgstr "其它维度"
 
 msgid "Your dimensions"
-msgstr "Dimensi Anda"
+msgstr "你的维度"
 
 msgid "Filter dimensions"
-msgstr "Filter dimensi"
+msgstr "过滤器维度"
 
 msgid "Data value set"
-msgstr "Set nilai data"
+msgstr "数据值集"
 
 msgid "JSON"
 msgstr "JSON"
@@ -102,52 +101,52 @@ msgid "XML"
 msgstr "XML"
 
 msgid "Other formats"
-msgstr "Format lain"
+msgstr "其它格式"
 
 msgid "JRXML"
 msgstr "JRXML"
 
 msgid "Raw data SQL"
-msgstr "SQL data mentah"
+msgstr "原生数据SQL"
 
 msgid "Plain data source"
-msgstr "Sumber data asli"
+msgstr "普通数据源"
 
 msgid "Microsoft Excel"
-msgstr ""
+msgstr "微软Excel"
 
 msgid "CSV"
 msgstr "CSV"
 
 msgid "Advanced"
-msgstr "Lebih Lanjut"
+msgstr "高级"
 
 msgid "Graphics"
-msgstr "Grafik"
+msgstr "图形"
 
 msgid "Image (.png)"
-msgstr "Gambar (.png)"
+msgstr "图像（.png）"
 
 msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
 msgid "Download data from this date"
-msgstr ""
+msgstr "从该日期下载数据"
 
 msgid "Metadata ID scheme"
-msgstr "Skema ID metadata"
+msgstr "元数据ID方案"
 
 msgid "ID"
 msgstr "ID"
 
 msgid "Code"
-msgstr "Kode"
+msgstr "代码"
 
 msgid "Name"
-msgstr "Nama"
+msgstr "名称"
 
 msgid "Table layout"
-msgstr "Tata letak tabel"
+msgstr "表布局"
 
 msgid "Excel (.xls)"
 msgstr "Excel (.xls)"
@@ -159,965 +158,922 @@ msgid "HTML (.html)"
 msgstr "HTML (.html)"
 
 msgid "Download"
-msgstr "Unduh"
+msgstr "下载"
 
 msgid "Hide"
-msgstr "Sembunyikan"
+msgstr "隐藏"
 
 msgid "All"
-msgstr "Semua"
+msgstr "全部"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr "{{total}} dari {{axisMaxNumberOfItems}} terpilih"
+msgstr "选择了 {{axisMaxNumberOfItems}} 中的{{total}} "
 
 msgid "{{total}} selected"
-msgstr "{{total}} terpilih"
+msgstr "选择了 {{total}} "
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
-msgstr "{{dimensionName}} dikunci sebagai {{axisName}} untuk {{visTypeName}}"
+msgstr "{{dimensionName}} 被 {{axisName}} 为 {{visTypeName}} 锁住"
 
 msgid "Not available for Scatter"
-msgstr "Tidak tersedia untuk Scatter"
+msgstr "不适用于散点图"
 
 msgid "Add Assigned Categories"
-msgstr "Tambahkan Kategori yang Ditugaskan"
+msgstr "添加指定的分类"
 
 msgid "Swap with {{axisName}} axis"
-msgstr "Tukar dengan aksis {{axisName}}"
+msgstr "与{{axisName}}轴交换"
 
 msgid "vertical"
-msgstr "vertikal"
+msgstr "垂直"
 
 msgid "horizontal"
-msgstr "horisontal"
+msgstr "水平的"
 
 msgid "None selected"
-msgstr "Tidak ada yang terpilih"
+msgstr "没有选择"
 
 msgid "Only '{{- name}}' in use"
-msgstr "Hanya '{{- name}}' digunakan"
+msgstr "仅'{{- name}}' 在使用"
 
 msgid "Only '{{number}}' in use"
-msgstr "Hanya '{{number}}' digunakan"
+msgstr "仅 '{{number}}' 在使用"
 
 msgid "All items are selected"
-msgstr ""
+msgstr "所有条目都被选中"
 
 msgid "Levels"
-msgstr "Level"
+msgstr "等级"
 
 msgid "Groups"
-msgstr "banyak grup"
+msgstr "组"
 
 msgid "And 1 other..."
-msgstr "Dan 1 lainnya..."
+msgstr "和其它1个"
 
 msgid "And {{numberOfItems}} others..."
-msgstr "Dan {{numberOfItems}} lainnya..."
+msgstr "和其他{{numberOfItems}} 个"
 
 msgid "Select a period"
-msgstr "Pilih periode"
+msgstr "选择期间"
 
 msgid "Select years"
-msgstr "Pilih tahun"
+msgstr "选择年份"
 
 msgid "Interpretations"
-msgstr "Interpretasi"
+msgstr "注释"
 
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
-msgstr ""
-"Visualisasi ini tidak dapat dihapus karena digunakan pada satu atau beberapa"
-" dasbor"
+msgstr "无法删除此可视化，因为它已在一个或多个仪表板上使用"
 
 msgid "Unsaved visualization"
-msgstr "Visualisasi belum disimpan"
+msgstr "没有保存可视化"
 
 msgid "Edited"
-msgstr "Diedit"
+msgstr "编辑"
 
 msgid "Update"
-msgstr "Perbarui"
+msgstr "更新"
 
 msgid "Getting started"
-msgstr "Mulai"
+msgstr "开始"
 
 msgid ""
 "All dimensions that you can use to build visualizations are shown in the "
 "left sidebar"
-msgstr ""
-"Semua dimensi yang dapat digunakan untuk membuat visualisasi disajikan di "
-"sisi kiri bar"
+msgstr "你可以用于可视化的维度显示在左边"
 
 msgid "Add dimensions to the layout above"
-msgstr "Tambahkan dimensi ke tata letak di atas"
+msgstr "添加维度到上面的布局"
 
 msgid "Click a dimension to add or remove items"
-msgstr "Klik dimensi untuk menambah atau menghapus item"
+msgstr "点击维度添加或移除条目"
 
 msgid "Your most viewed charts and tables"
-msgstr "Grafik dan tabel yang paling sering Anda lihat"
+msgstr "你最近查看最多的图表"
 
 msgid "Aggregation type"
-msgstr "Tipe agregasi"
+msgstr "汇总类型"
 
 msgid "Overrides aggregation type for all data values."
-msgstr "Mengganti jenis agregasi untuk semua nilai data."
+msgstr "覆盖所有数据值的聚合类型。"
 
 msgid "By data element"
-msgstr "Berdasarkan data elemen"
+msgstr "按数据元"
 
 msgid "Count"
-msgstr "Hitung"
+msgstr "计数"
 
 msgid "Average"
-msgstr "Rerata"
+msgstr "平均"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr "Rerata (jumlah dalam hirarki org unit)"
+msgstr "平均 (按机构体系结构求和)"
 
 msgid "Sum"
-msgstr "Jumlah"
+msgstr "求和"
 
 msgid "Last value"
-msgstr "Nilai terakhir"
+msgstr "最近值"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr "Nilai terakhir (rerata dalam hirarki org unit)"
+msgstr "最近值(按机构体系平均)"
 
 msgid "Min"
-msgstr "Min"
+msgstr "最小"
 
 msgid "Max"
-msgstr "Maks"
+msgstr "最大"
 
 msgid "Standard deviation"
-msgstr "Standar deviasi"
+msgstr "标准差"
 
 msgid "Variance"
-msgstr "Varians"
+msgstr "方差"
 
 msgid "Data approved at level"
-msgstr "Data disetujui di tingkat"
+msgstr "数据确认等级"
 
 msgid "Select from predefined levels"
-msgstr "Pilih dari level yang telah ditentukan"
+msgstr "从预定义的等级中选择"
 
 msgid "Loading data approval levels"
-msgstr "Memuat level persetujuan data"
+msgstr "载入数据审核等级"
 
 msgid "Decimals"
-msgstr "Desimal"
+msgstr "小数"
 
 msgid "Auto"
-msgstr "Otomatis"
+msgstr "自动"
 
 msgid "Labels"
-msgstr "Label"
+msgstr "标签"
 
 msgid "Axis range"
-msgstr "Jangkauan aksis"
+msgstr "范围轴"
 
 msgid "Values outside of the range will not be displayed"
-msgstr "Nilai di luar jangkauan tidak akan ditampilkan"
+msgstr "范围外的值将不显示"
 
 msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
-msgstr ""
-"Jumlah langkah penandaan aksis, termasuk min dan maks. Nilai 2 atau lebih "
-"rendah akan diabaikan."
+msgstr "轴刻度步数，包括最小值和最大值。小于等于2的值将被忽略。"
 
 msgid "Steps"
-msgstr "langkah"
+msgstr "步"
 
 msgid "Axis title"
-msgstr "Judul sumbu X"
+msgstr "轴标题"
 
 msgid "Auto generated from axis items"
-msgstr ""
+msgstr "从轴项自动生成"
 
 msgid "None"
-msgstr "Tidak ada"
+msgstr "无"
 
 msgid "Custom"
-msgstr "Kustom"
+msgstr "定制"
 
 msgid "Add a title"
-msgstr "Tambahkan judul"
+msgstr "添加标题"
 
 msgid "Reset style to default"
-msgstr "Setel ulang gaya ke default"
+msgstr "将样式重置为默认值"
 
 msgid "Base line"
-msgstr "Baseline"
+msgstr "基线"
 
 msgid "Column sub-totals"
-msgstr "Kolom sub-total"
+msgstr "列小计"
 
 msgid "Columns totals"
-msgstr "Total kolom"
+msgstr "列合计"
 
 msgid "Default"
-msgstr "Default"
+msgstr "默认"
 
 msgid "Basic"
-msgstr ""
+msgstr "基本"
 
 msgid "Extended"
-msgstr ""
+msgstr "扩展"
 
 msgid "Bright"
-msgstr "Terang"
+msgstr "明亮"
 
 msgid "Dark"
-msgstr "Gelap"
+msgstr "黑暗"
 
 msgid "Gray"
-msgstr "Abu-abu"
+msgstr "灰色"
 
 msgid "Color blind"
-msgstr "Buta warna"
+msgstr "色盲"
 
 msgid "Patterns"
-msgstr "Pola"
+msgstr "模式"
 
 msgid "Event data"
-msgstr "Data even"
+msgstr "事件数据"
 
 msgid "Only include completed events"
-msgstr "Hanya sertakan even yang telah selesai"
+msgstr "仅仅包括完成的事件"
 
 msgid "Include cumulative"
-msgstr "Masukkan kumulatif"
+msgstr "包括累计"
 
 msgid "Cumulative values"
-msgstr "Nilai Kumulatif"
+msgstr "汇总值"
 
 msgid "Digit group separator"
-msgstr "Pemisah kelompok digit"
+msgstr "数字分隔符"
 
 msgid "Space"
-msgstr "Spasi"
+msgstr "空格"
 
 msgid "Comma"
-msgstr "Koma"
+msgstr "逗号"
 
 msgid "Display density"
-msgstr "Tampilkan densitas"
+msgstr "显示稀密度"
 
 msgid "Comfortable"
-msgstr "Nyaman"
+msgstr "舒适"
 
 msgid "Normal"
-msgstr "Normal"
+msgstr "适度"
 
 msgid "Compact"
-msgstr "Padat"
+msgstr "紧凑"
 
 msgid "Extreme lines"
-msgstr "Garis ekstrim"
+msgstr "极限线"
 
 msgid "Calculated as a percent, usually 1%, of the total values along an axis"
-msgstr ""
-"Dihitung sebagai persen, biasanya 1%, dari nilai total sepanjang aksis"
+msgstr "计算为沿轴的总值的百分比，通常为1％"
 
 msgid "Extreme line % detection"
-msgstr "Deteksi % garis ekstrim"
+msgstr "极限线％检测"
 
 msgid "Number"
-msgstr "Angka"
+msgstr "数字"
 
 msgid "Fix column headers to top of table"
-msgstr ""
+msgstr "将列标题固定到表格顶部"
 
 msgid "There aren’t any column headers because Columns is empty."
-msgstr ""
+msgstr "没有任何列标题，因为 列是空的。"
 
 msgid "Fix row headers to left of table"
-msgstr ""
+msgstr "将行标题固定到表格的左侧"
 
 msgid "There aren’t any row headers because Rows is empty."
-msgstr ""
+msgstr "没有任何行标题，因为 行是空的。"
 
 msgid "Font size"
-msgstr "Ukuran font"
+msgstr "字体大小"
 
 msgid "Large"
-msgstr "Besar"
+msgstr "较大"
 
 msgid "Small"
-msgstr "Kecil"
+msgstr "小"
 
 msgid "Hide empty columns"
-msgstr "Sembunyikan kolom kosong"
+msgstr "隐藏空列"
 
 msgid "Hide empty categories"
-msgstr "Sembunyikan kategori yang kosong"
+msgstr "隐藏空分类"
 
 msgid "Before first"
-msgstr "Sebelum yang pertama"
+msgstr "第一个前面"
 
 msgid "After last"
-msgstr "Setelah terakhir"
+msgstr "最后一个后面"
 
 msgid "Before first and after last"
-msgstr "Sebelum yang pertama dan sesudah yang terakhir"
+msgstr "第一个前和最后一个后面"
 
 msgid "Hide empty rows"
-msgstr "Sembunyikan baris kosong"
+msgstr "隐藏空行"
 
 msgid "Table subtitle"
-msgstr "Subjudul tabel"
+msgstr "表子标题"
 
 msgid "Chart subtitle"
-msgstr "Subjudul grafik"
+msgstr "图表子标题"
 
 msgid "Auto generated"
-msgstr "Dibuat otomatis"
+msgstr "自动生成"
 
 msgid "Chart title"
-msgstr "Judul grafik"
+msgstr "图表标题"
 
 msgid "Use legend for chart colors"
-msgstr "Gunakan legenda untuk warna bagan"
+msgstr "将图例用于图表颜色"
 
 msgid "Legend style"
-msgstr "Gaya legenda"
+msgstr "图例风格"
 
 msgid "Legend type"
-msgstr "Tipe legenda"
+msgstr "图例类型"
 
 msgid "Use pre-defined legend per data item"
-msgstr "Gunakan legenda yang telah ditentukan sebelumnya per item data"
+msgstr "每个数据项使用预定义的图例"
 
 msgid "Select a single legend for the entire visualization"
-msgstr "Pilih satu legenda untuk seluruh visualisasi"
+msgstr "选择整个可视化图表单个图例"
 
 msgid "Legend changes background color"
-msgstr "Legenda mengubah warna latar belakang"
+msgstr "图例改变背景色"
 
 msgid "Legend changes text color"
-msgstr "Legenda mengubah warna teks"
+msgstr "图例改变文本颜色"
 
 msgid "Legend"
-msgstr "Legenda"
+msgstr "图例"
 
 msgid "Select from legends"
-msgstr "Pilih dari legenda"
+msgstr "从图例选择"
 
 msgid "Loading legends"
-msgstr "Memuat legenda"
+msgstr "载入图例"
 
 msgid ""
 "You can set a minimum or maximum value. This will apply to the entire "
 "visualization, all values outside of the minimum/maximum range will not be "
 "displayed"
-msgstr ""
-"Anda dapat mengatur nilai minimum atau maksimum. Ini akan berlaku untuk "
-"seluruh visualisasi, semua nilai di luar rentang minimum/maksimum tidak akan"
-" ditampilkan"
+msgstr "您可以设置最小值或最大值。这将应用于整个可视化，不会显示超出最小/最大范围的所有值"
 
 msgid "Minimum data value"
-msgstr "Nilai Miinimum"
+msgstr "最小值"
 
 msgid "Maximum data value"
-msgstr "Nilai maximum"
+msgstr "最大值"
 
 msgid "Clear min/max limits"
-msgstr "Hapus batas min/maks"
+msgstr "清除最大最小值"
 
 msgid "No space between bars/columns"
-msgstr "Tanpa spasi diantara bar/kolom"
+msgstr "列和柱之间无空隙"
 
 msgid "Number type"
-msgstr "Tipe nomor"
+msgstr "数字值类型"
 
 msgid "Display the value of percentages of the total"
-msgstr "Tampilkan nilai persentase dari total"
+msgstr "显示合计的百分比"
 
 msgid "Value"
-msgstr "Nilai"
+msgstr "值"
 
 msgid "Percentage of row"
-msgstr "Persentase baris"
+msgstr "行百分比"
 
 msgid "Percentage of column"
-msgstr "Persentase kolom"
+msgstr "列百分比"
 
 msgid ""
 "Each detection method identifies outliers in different ways and suits "
 "different data. Check the documentation for help to choose the right outlier"
 " detection method"
-msgstr ""
-"Setiap metode deteksi mengidentifikasi outlier dengan cara yang berbeda dan "
-"sesuai dengan data yang berbeda. Periksa dokumentasi untuk bantuan dalam "
-"memilih metode deteksi outlier yang tepat"
+msgstr "每种检测方法都以不同的方式识别异常值，不通啊的方法适合不同的数据。查看文档以获取帮助以选择正确的离群值检测方法"
 
 msgid "Threshold factor"
-msgstr "Faktor ambang batas"
+msgstr "阈值系数"
 
 msgid ""
 "A high value is more sensitive so fewer data items will be identified as "
 "outliers"
-msgstr ""
-"Nilai tinggi lebih sensitif sehingga lebih sedikit item data yang akan "
-"diidentifikasi sebagai outlier"
+msgstr "高值更敏感，因此较少数据项将被识别为异常值"
 
 msgid "Interquartile Range (IQR)"
-msgstr "Rentang Interkuartil (IQR)"
+msgstr "四分位间距（IQR）"
 
 msgid "Z-score / Standard score"
-msgstr "Z-score / Skor standar"
+msgstr "Z分数/标准分数"
 
 msgid "Modified Z-score"
-msgstr "Z-score yang dimodifikasi"
+msgstr "修改后的Z评分"
 
 msgid "Outlier analysis"
-msgstr "Analisis outlier"
+msgstr "离群分析"
 
 msgid ""
 "Outlier analysis detects and highlights data items that are markedly "
 "different from the rest of the data"
-msgstr ""
-"Analisis outlier mendeteksi dan menyoroti item data yang sangat berbeda dari"
-" data lainnya"
+msgstr "离群值分析检测并突出显示与其余数据明显不同的数据项"
 
 msgid "Outlier detection method"
-msgstr "Metode deteksi outlier"
+msgstr "离群值检测方法"
 
 msgid "Organisation unit"
-msgstr "Unit organisasi"
+msgstr "组织机构"
 
 msgid "Parent organisation unit"
-msgstr "Unit organisasi induk"
+msgstr "上级组织机构"
 
 msgid "Reporting period"
-msgstr "Periode pelaporan"
+msgstr "报表周期"
 
 msgid "Stacked values add up to 100%"
-msgstr "Nilai bertumpuk bertambah hingga 100%"
+msgstr "堆叠值到100%"
 
 msgid "Include regression"
-msgstr "Masukkan regresi"
+msgstr "包含回归分析"
 
 msgid "Title"
-msgstr "Judul"
+msgstr "称谓"
 
 msgid "Trend line"
-msgstr "Garis tren"
+msgstr "趋势线"
 
 msgid "Linear"
-msgstr "Linier"
+msgstr "线性"
 
 msgid "Polynomial"
-msgstr "Polinomial"
+msgstr "多项式曲线"
 
 msgid "Loess"
-msgstr "Loess"
+msgstr "多项式回归拟合"
 
 msgid "Row sub-totals"
-msgstr "Sub-total baris"
+msgstr "行小计"
 
 msgid "Row totals"
-msgstr "Total baris"
+msgstr "行合计"
 
 msgid "Data item"
-msgstr "barang data"
+msgstr "数据条目"
 
 msgid "Visualization type"
-msgstr "Jenis visualisasi"
+msgstr "可视化类型"
 
 msgid "Axis {{axisId}}"
-msgstr "Aksis {{axisId}}"
+msgstr "轴{{axisId}}"
 
 msgid "Series is empty"
-msgstr "Seri kosong"
+msgstr "系列为空"
 
 msgid "Options for selected items will be available here"
-msgstr "Pilihan untuk item yang dipilih akan tersedia di sini"
+msgstr "所选项目的选项将在此处提供"
 
 msgid "No Series options"
-msgstr "Tidak ada opsi Seri"
+msgstr "没有系列选项"
 
 msgid "There aren't any Series options for this visualization type"
-msgstr "Tidak ada opsi Seri untuk jenis visualisasi ini"
+msgstr "该可视化类型没有任何系列选项"
 
 msgid "Series options unavailable"
-msgstr "Opsi seri tidak tersedia"
+msgstr "系列选项不可用"
 
 msgid ""
 "Series options are not available when using relative selections for periods,"
 " org units or categories"
-msgstr ""
-"Opsi seri tidak tersedia saat menggunakan pilihan relatif untuk periode, "
-"unit organisasi, atau kategori"
+msgstr "在对期间，组织单位或类别使用相对选择时，系列选项不可用"
 
 msgid ""
 "Series options are not available when a series item has an \"All items\" "
 "selection"
-msgstr ""
+msgstr "当系列条目具有“所有条目”选择时，系列选项不可用"
 
 msgid "Value labels"
-msgstr "Label nilai"
+msgstr "值标签"
 
 msgid "Dimension labels"
-msgstr "Label dimensi"
+msgstr "维度标签"
 
 msgid "Display organisation unit hierarchy"
-msgstr "Tampilkan hierarki unit organisasi"
+msgstr "显示机构层次"
 
 msgid "Show legend key"
-msgstr "Tampilkan kunci legenda"
+msgstr "显示图例键值"
 
 msgid "Show series key"
-msgstr ""
+msgstr "显示系列键"
 
 msgid "Skip rounding"
-msgstr "Jangan bulatkan"
+msgstr "跳过舍入"
 
 msgid "Custom sort order"
-msgstr "Urutan pengurutan khusus"
+msgstr "定制排序"
 
 msgid "Low to high"
-msgstr "Rendah ke tinggi"
+msgstr "从低到高"
 
 msgid "High to low"
-msgstr "Tinggi ke rendah"
+msgstr "由高到低"
 
 msgid "Add a subtitle"
-msgstr "Tambahkan subtitle"
+msgstr "添加子标题"
 
 msgid "Target line"
-msgstr "Garis sasaran"
+msgstr "目标线"
 
 msgid "Size"
-msgstr "Ukuran"
+msgstr "大小"
 
 msgid "Position"
-msgstr "Posisi"
+msgstr "位置"
 
 msgid "Top limit"
-msgstr "Batas atas"
+msgstr "最高限度"
 
 msgid "Options"
-msgstr "Opsi"
+msgstr "选项"
 
 msgid "Open as Map"
-msgstr "Buka sebagai Peta"
+msgstr "打开为地图"
 
 msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
-msgstr ""
-"Plot data secara visual pada peta dunia. Elemen data menggunakan lapisan "
-"peta terpisah."
+msgstr "在世界地图上直观地绘制数据。数据元素使用单独的地图图层。"
 
 msgid "Reporting rate"
-msgstr "Tingkat pelaporan"
+msgstr "上报率"
 
 msgid "Reporting rate on time"
-msgstr "Tingkat pelaporan tepat waktu"
+msgstr "准时上报率"
 
 msgid "Actual reports"
-msgstr "Laporan sesungguhnya"
+msgstr "实际上报"
 
 msgid "Actual reports on time"
-msgstr "Laporan sesungguhnya yang tepat waktu"
+msgstr "实际准时上报"
 
 msgid "Expected reports"
-msgstr "Laporan yang diharapkan"
+msgstr "预期上报"
 
 msgid "No data available"
-msgstr "Tidak ada data yang tersedia"
+msgstr "没有值"
 
 msgid ""
 "The selected dimensions didn’t return any data. There may be no data, or you"
 " may not have access to it."
-msgstr ""
-"Dimensi yang dipilih tidak mengembalikan data apa pun. Mungkin tidak ada "
-"data, atau Anda mungkin tidak memiliki akses ke sana."
+msgstr "选择的维度没有返回任何值，可能没有数据，或者没有访问权限"
 
 msgid "{{axisName}} is empty"
-msgstr "{{axisName}} kosong"
+msgstr "{{axisName}} 为空"
 
 msgid "Add at least one item to {{axisName}}."
-msgstr "Tambahkan setidaknya satu item ke {{axisName}}."
+msgstr "至少添加一个条目到 {{axisName}}."
 
 msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
-msgstr "{{columnsAxisName}} dan {{rowsAxisName}} kosong"
+msgstr "{{columnsAxisName}} 和 {{rowsAxisName}} 轴为空"
 
 msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
 " {{visualizationType}}."
 msgstr ""
-"Tambahkan setidaknya satu item ke {{columnsAxisName}} atau {{rowsAxisName}} "
-"untuk membuat {{visualizationType}}."
+"至少添加一个条目到  {{columnsAxisName}} 或{{rowsAxisName}} 才能创建  "
+"{{visualizationType}}。"
 
 msgid "No period selected"
-msgstr "Tidak ada periode yang dipilih"
+msgstr "没有选择期间"
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
-msgstr ""
-"{{visualizationType}} harus memiliki setidaknya satu periode yang dipilih di"
-" {{axes}}."
+msgstr "{{visualizationType}} 必须至少选择一个期间到 {{axes}}."
 
 msgid "Add organisation units to {{axisName}}."
-msgstr "Tambahkan unit organisasi ke {{axisName}}."
+msgstr "将组织单位添加到{{axisName}}。"
 
 msgid "Vertical is empty"
-msgstr "Vertikal kosong"
+msgstr "垂直为空"
 
 msgid "Add a data item to the vertical axis."
-msgstr "Tambahkan item data ke sumbu vertikal."
+msgstr "将数据项添加到垂直轴。"
 
 msgid "Horizontal is empty"
-msgstr "Horisontal kosong"
+msgstr "水平为空"
 
 msgid "Add a data item to the horizontal axis."
-msgstr "Tambahkan item data ke sumbu horizontal."
+msgstr "将数据项添加到水平轴。"
 
 msgid "Axes data items are the same"
-msgstr "Item data sumbu adalah sama"
+msgstr "轴数据项相同"
 
 msgid ""
 "The horizontal and vertical axes have the same data item. Scatter chart axes"
 " must have different data for each axis."
-msgstr ""
-"Sumbu horizontal dan vertikal memiliki item data yang sama. Aksis bagan "
-"sebar harus memiliki data yang berbeda untuk setiap aksis."
+msgstr "水平轴和垂直轴具有相同的数据项。散点图轴的每个轴必须具有不同的数据。"
 
 msgid "No data selected"
-msgstr "Tidak ada data yang dipilih"
+msgstr "没有选择数据"
 
 msgid ""
 "{{visualizationType}} must have at least one data item or data element group"
 " set item in {{axes}}."
-msgstr ""
-"{{visualizationType}} harus memiliki setidaknya satu item data atau item "
-"kumpulan elemen data di {{axes}}."
+msgstr "{{visualizationType}} 必须至少选择一个数据元或组集条目到  {{axes}}。"
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
-msgstr ""
-"{{visualizationType}} harus memiliki setidaknya satu item data di {{axes}}."
+msgstr "{{visualizationType}} 必须至少有一个数据项在 {{axes}}."
 
 msgid "There's a problem with the layout"
-msgstr "Ada masalah dengan tata letak"
+msgstr "布局有问题"
 
 msgid ""
 "A single indicator must be the only data item when using indicators as Data "
 "in Filter."
-msgstr ""
-"Indikator tunggal harus menjadi satu-satunya item data saat menggunakan "
-"indikator sebagai Data dalam Filter."
+msgstr "当使用指标作为数据过滤器时，只能该唯一的指标作为数据项"
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
-msgstr ""
-"Kumpulan grup data elemen dan laju pelaporan tidak dapat digunakan bersama-"
-"sama."
+msgstr "数据元组集和上报率不能同时使用"
 
 msgid "There is a problem with this {{visualizationType}} visualization."
-msgstr "Ada masalah dengan visualisasi {{visualizationType}} ini."
+msgstr "该 {{visualizationType}} 可视化类型有些问题"
 
 msgid "There was a problem getting the data from the server."
-msgstr "Terjadi masalah saat mengambil data dari server."
+msgstr "从服务器获取数据有问题"
 
 msgid "Assigned Categories can only be used with data elements"
-msgstr "Kategori yang ditetapkan hanya dapat digunakan dengan elemen data"
+msgstr "指派的分类只能作为数据元"
 
 msgid ""
 "Fix this problem by selecting data elements or removing Assigned Categories."
-msgstr ""
-"Perbaiki masalah ini dengan memilih elemen data atau menghapus kategori yang"
-" ditetapkan."
+msgstr "选择数据元或移除指派的分类来解决问题"
 
 msgid "Assigned Categories cannot be used as Filter"
-msgstr "Kategori yang ditetapkan tidak dapat digunakan sebagai filter"
+msgstr "指派的分类不能作为过滤器"
 
 msgid "Fix this problem by moving or removing Assigned Categories."
-msgstr ""
-"Perbaiki masalah ini dengan memindahkan atau menghapus kategori yang "
-"ditetapkan."
+msgstr "移动或移除分类以便解决问题"
 
 msgid "Visualization not found"
-msgstr "Visualisasi tidak ditemukan"
+msgstr "找不到可视化"
 
 msgid ""
 "The visualization you are trying to view could not be found, the ID could be"
 " incorrect or it could have been deleted."
-msgstr ""
-"Visualisasi yang Anda coba lihat tidak dapat ditemukan, ID mungkin salah "
-"atau mungkin telah dihapus."
+msgstr "找不到您尝试查看的可视化文件，该ID可能不正确或已被删除。"
 
 msgid "No organization units found"
-msgstr "Tidak ada unit organisasi yang ditemukan"
+msgstr "找不到组织机构"
 
 msgid "The level or group selections didn't return any organization units."
-msgstr "Pilihan tingkat atau grup tidak menampilkan unit organisasi apa pun."
+msgstr "级别或组选择未返回任何组织机构。"
 
 msgid "Something went wrong"
-msgstr "Terjadi kesalahan"
+msgstr "出了些问题"
 
 msgid "or"
-msgstr "atau"
+msgstr "或"
 
 msgid "Today"
-msgstr "Hari ini"
+msgstr "今天"
 
 msgid "Yesterday"
-msgstr "Kemarin"
+msgstr "昨天"
 
 msgid "Last 3 days"
-msgstr "3 hari terakhir"
+msgstr "最近3天"
 
 msgid "Last 7 days"
-msgstr "7 hari terakhir"
+msgstr "最近7天"
 
 msgid "Last 14 days"
-msgstr "14 hari terakhir"
+msgstr "最近14天"
 
 msgid "This week"
-msgstr "Minggu ini"
+msgstr "本周"
 
 msgid "Last week"
-msgstr "Minggu lalu"
+msgstr "上周"
 
 msgid "Last 4 weeks"
-msgstr "4 minggu terakhir"
+msgstr "最近四周"
 
 msgid "Last 12 weeks"
-msgstr "12 minggu terakhir"
+msgstr "最近12周"
 
 msgid "Last 52 weeks"
-msgstr "52 minggu terakhir"
+msgstr "最近52周"
 
 msgid "Weeks this year"
-msgstr "Minggu dalam tahun ini"
+msgstr "今年的星期"
 
 msgid "This month"
-msgstr "Bulan ini"
+msgstr "本月"
 
 msgid "Last month"
-msgstr "Bulan lalu"
+msgstr "上月"
 
 msgid "Last 3 months"
-msgstr "3 bulan lalu"
+msgstr "最近3个月"
 
 msgid "Last 6 months"
-msgstr "6 bulan lalu"
+msgstr "最近6个月"
 
 msgid "Last 12 months"
-msgstr "12 bulan lalu"
+msgstr "最近12月"
 
 msgid "Months this year"
-msgstr "Bulan dalam tahun ini"
+msgstr "今年的月份"
 
 msgid "This bimonth"
-msgstr "Dwiwulan ini"
+msgstr "本俩月"
 
 msgid "Last bimonth"
-msgstr "Dwiwulan yang lalu"
+msgstr "最近俩月"
 
 msgid "Last 6 bimonths"
-msgstr "6 dwiwulan yang lalu"
+msgstr "最近6个俩月"
 
 msgid "Bimonths this year"
-msgstr "Dwiwulan tahun ini"
+msgstr "今年的俩月"
 
 msgid "This quarter"
-msgstr "Triwulan ini"
+msgstr "本季"
 
 msgid "Last quarter"
-msgstr "Triwulan yang lalu"
+msgstr "最近一季"
 
 msgid "Last 4 quarters"
-msgstr "4 triwulan yang lalu"
+msgstr "最近四个季度"
 
 msgid "Quarters this year"
-msgstr "Triwulan dalam tahun ini"
+msgstr "今年的季度"
 
 msgid "This six-month"
-msgstr "Semester ini"
+msgstr "本半年"
 
 msgid "Last six-month"
-msgstr "Semester yang lalu"
+msgstr "最近六个月"
 
 msgid "Last 2 six-months"
-msgstr "2 semester yang lalu"
+msgstr "最近两个半年"
 
 msgid "This financial year"
-msgstr "Tahun fiskal ini"
+msgstr "本财政年"
 
 msgid "Last financial year"
-msgstr "Tahun fiskal lalu"
+msgstr "上一财政年"
 
 msgid "Last 5 financial years"
-msgstr "5 tahun fiskal yang lalu"
+msgstr "最近五个财政年"
 
 msgid "This year"
-msgstr "Tahun ini"
+msgstr "今年"
 
 msgid "Last year"
-msgstr "Tahun lalu"
+msgstr "去年"
 
 msgid "Last 5 years"
-msgstr "5 tahun terakhir"
+msgstr "最近5年"
 
 msgid "User organisation unit"
-msgstr ""
+msgstr "用户所在机构"
 
 msgid "User sub-units"
-msgstr "Subunit pengguna"
+msgstr "我的下属机构"
 
 msgid "User sub-x2-units"
-msgstr "Sub-x2-unit pengguna"
+msgstr "该用户2级下属机构"
 
 msgid "Table title"
-msgstr "Judul tabel"
+msgstr "表标题"
 
 msgid "Parameters"
-msgstr "Parameter"
+msgstr "参数"
 
 msgid ""
 "These options only apply to legacy tables like standard reports. Options set"
 " here will have no effect on tables made in Data Visualizer."
-msgstr ""
-"Opsi ini hanya berlaku untuk tabel lawas seperti laporan standar. Opsi yang "
-"ditetapkan di sini tidak akan berpengaruh pada tabel yang dibuat di "
-"Visualizer Data."
+msgstr "这些选项仅适用于标准报告等旧表。此处设置的选项不会影响在 Data Visualizer（数据可视化应用） 中制作的表格。"
 
 msgid "Applies to standard reports only"
-msgstr "Hanya berlaku untuk laporan standar"
+msgstr "仅适用于标准报表"
 
 msgid "Base and target lines are available on the Axes tab for scatter charts"
-msgstr "Garis dasar dan target tersedia di tab aksis untuk bagan sebar"
+msgstr "散点图的“轴”选项卡上提供了基准线和目标线"
 
 msgid "Color set"
-msgstr "Set warna"
+msgstr "颜色集"
 
 msgid "Color sets are not supported yet when using multiple axes"
-msgstr "Set warna belum didukung saat menggunakan banyak aksis"
+msgstr "使用多轴时尚不支持颜色设置"
 
 msgid ""
 "Base and target lines are available on the Axes tab for multi-axis charts"
-msgstr "Garis dasar dan target tersedia di tab aksis untuk bagan multi-aksis"
+msgstr "基准线和目标线在多轴图表的轴选项卡上可用"
 
 msgid "Chart style"
-msgstr "Tipe grafik"
+msgstr "图表风格"
 
 msgid "Display"
-msgstr "Tampilan"
+msgstr "显示"
 
 msgid "Empty data"
-msgstr "Data kosong"
+msgstr "空数据"
 
 msgid "Horizontal (x) axis {{axisId}}"
-msgstr "Sumbu horizontal (x) {{axisId}}"
+msgstr "水平 (x) 轴 {{axisId}}"
 
 msgid "Horizontal (x) axis"
-msgstr "sumbu X"
+msgstr "水平轴（X）"
 
 msgid "Lines"
-msgstr "Garis"
+msgstr "线"
 
 msgid "Totals"
-msgstr "Total"
+msgstr "总共"
 
 msgid "Vertical (y) axis {{axisId}}"
-msgstr "Sumbu vertikal (y) {{axisId}}"
+msgstr "垂直 (y) 轴 {{axisId}}"
 
 msgid "Vertical (y) axis"
-msgstr "Sumbu Y"
+msgstr "垂轴（Y）"
 
 msgid "Titles"
-msgstr "Judul"
+msgstr "标题"
 
 msgid "Axes"
-msgstr "Sumbu"
+msgstr "轴"
 
 msgid "Data"
-msgstr "Data"
+msgstr "数据"
 
 msgid "Limit values"
-msgstr "batas nilai"
+msgstr "限值"
 
 msgid "Limit number of values"
-msgstr "Batasi jumlah nilai"
+msgstr "限定值数量"
 
 msgid "Limit minimum/maximum values"
-msgstr "Batasi nilai minimum/maksimum"
+msgstr "限制最大最小值"
 
 msgid "Outliers"
-msgstr "Pencilan"
+msgstr "离群值"
 
 msgid "Series"
-msgstr "Seri"
+msgstr "系列"
 
 msgid "Style"
-msgstr "Gaya"
+msgstr "风格"
 
 msgid "View data and indicators in a manipulatable table."
-msgstr ""
+msgstr "在可操作的表格中查看数据和指标。"
 
 msgid ""
 "Compare sizes of related elements vertically. Recommend period as filter."
-msgstr ""
+msgstr "垂直比较相关元素的大小。推荐时间段作为过滤器。"
 
 msgid ""
 "Compare parts of a whole against related elements vertically. Recommend data"
 " or org. unit as series."
-msgstr ""
+msgstr "垂直比较整个部分和相关元素。推荐数据或组织机构为系列。"
 
 msgid ""
 "Compare sizes of related elements horizontally. Recommend period as filter."
-msgstr ""
+msgstr "水平比较相关元素的大小。推荐时间段作为过滤器。"
 
 msgid ""
 "Compare parts of a whole against related elements horizontally. Recommend "
 "data or org. unit as series."
-msgstr ""
+msgstr "水平比较整个部分和相关元素。推荐数据或组织机构为系列。"
 
 msgid "Track or compare changes over time. Recommend period as category."
-msgstr ""
+msgstr "跟踪或比较随时间的变化规律。推荐时期为分类。"
 
 msgid ""
 "Track or compare parts of a whole over time. Recommend data as series and "
 "period as category."
-msgstr ""
+msgstr "随着时间的推移跟踪或比较整体的各个部分。推荐数据为系列，时段为分类别。"
 
 msgid ""
 "Compare parts of a whole at a single point in time. Recommend period as "
 "filter."
-msgstr ""
+msgstr "在单个时间点比较整个的一部分。推荐时段为过滤条件。"
 
 msgid "Compare several items against multiple variables."
-msgstr ""
+msgstr "将多个变量与多个条目进行比较。"
 
 msgid ""
 "Compare a percentage indicator against a 100% scale. Recommend period as "
 "filter."
-msgstr ""
+msgstr "将百分比指标与 100% 比例进行比较。推荐时间段作为过滤器。"
 
 msgid "Compare changes over time between multiple time periods."
-msgstr ""
+msgstr "比较多个时间段之间随时间的变化。"
 
 msgid "Display a single value. Recommend relative period to show latest data."
-msgstr ""
+msgstr "显示单个值。推荐相对时期以显示最新数据。"
 
 msgid ""
 "View the relationship between two data items at a place or time. Recommended"
 " for finding outliers."
-msgstr ""
+msgstr "查看某个地点或时间的两个数据项之间的关系。推荐用于发现异常值。"
 
 msgid "Weeks per year"
-msgstr "Minggu per tahun"
+msgstr "每年的周"
 
 msgid "Months per year"
-msgstr "Bulan per tahun"
+msgstr "每年的月"
 
 msgid "Bimonths per year"
-msgstr "Dwibulan per tahun"
+msgstr "每年的双月"
 
 msgid "Quarters per year"
-msgstr "Triwulan per tahun"
+msgstr "每年的季度"
