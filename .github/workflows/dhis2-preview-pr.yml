@@ -30,19 +30,23 @@ jobs:
             - run: yarn install --frozen-lockfile
 
             - name: Build
-              run: yarn build --standalone
+              run: yarn d2-app-scripts build --standalone
 
             - name: Deploy
               id: netlify-deploy
-              uses: nwtgck/actions-netlify@v1.1
+              uses: nwtgck/actions-netlify@v1.2.2
               timeout-minutes: 1
               with:
                   github-token: ${{ secrets.DHIS2_BOT_GITHUB_TOKEN }}
+                  github-deployment-environment: 'netlify'
+                  github-deployment-description: 'PR Preview on Netlify'
                   deploy-message: ${{ github.event.pull_request.title }}
                   enable-pull-request-comment: true
-                  enable-commit-comment: false
+                  enable-commit-comment: true
+                  enable-commit-status: true
                   alias: pr-${{ github.event.number }}
-                  publish-dir: './build/app'
+                  # customize according to project needs
+                  publish-dir: 'build/app'
               env:
                   # org secret
                   NETLIFY_AUTH_TOKEN: ${{ secrets.DHIS2_BOT_NETLIFY_TOKEN }}
