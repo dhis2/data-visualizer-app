@@ -6,14 +6,6 @@ import { VisualizationPlugin } from '../../VisualizationPlugin/VisualizationPlug
 import StartScreen from '../StartScreen.js'
 import { UnconnectedVisualization as Visualization } from '../Visualization.js'
 
-jest.mock(
-    '@dhis2/data-visualizer-plugin',
-    () =>
-        function DVPlugin() {
-            return <div />
-        }
-)
-
 describe('Visualization', () => {
     describe('component', () => {
         let props
