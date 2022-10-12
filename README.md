@@ -4,7 +4,7 @@
 [![Test Coverage](https://codeclimate.com/github/dhis2/data-visualizer-app/badges/coverage.svg)](https://codeclimate.com/github/dhis2/data-visualizer-app/coverage)
 [![Code Climate](https://codeclimate.com/github/dhis2/data-visualizer-app/badges/gpa.svg)](https://codeclimate.com/github/dhis2/data-visualizer-app)
 
-This is a repo that contains the data-visualizer-app and its plugin used both internally and built as a separate entrypoint so it can be used in other apps (dashboard app).
+This is a repo that contains the data-visualizer-app and its plugin used both internally and built as a separate entrypoint so it can be used in other apps such as the dashboard app
 
 ## Getting started
 
@@ -18,7 +18,7 @@ $ yarn install
 
 Run `yarn start` from the repo's root to start the app on `localhost:3000` and the plugin on `localhost:3001`.
 
-The plugin running on a different port allows for testing it in other apps.
+Running the plugin on a different port allows for testing it in other apps.
 For example, for testing it in dashboard app, run the dashboard app in a different port and via devtools override the plugin path with the host and port where the plugin is running.
 Add this entry to the dashboard app localStorage:
 `dashboard-app-plugin-overrides: { "VISUALIZATION": "http://localhost:3001" }`
