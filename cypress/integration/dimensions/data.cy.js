@@ -45,7 +45,7 @@ import {
 } from '../../utils/data.js'
 
 const PAGE_SIZE = 50
-const DATA_ITEMS_URL = '/dataItems'
+const DATA_ITEMS_URL = '**/dataItems*'
 
 describe('Data dimension', () => {
     describe('initial state', () => {
@@ -127,7 +127,7 @@ describe('Data dimension', () => {
     })
     describe('global search', () => {
         const testSearchTerm = 'Dispenser' // Use a data element for the third step to work
-        it('recieves a search term', () => {
+        it('receives a search term', () => {
             cy.intercept('GET', DATA_ITEMS_URL).as('request')
             inputSearchTerm(testSearchTerm)
             cy.wait('@request').then(({ request, response }) => {
@@ -144,7 +144,7 @@ describe('Data dimension', () => {
             expectItemToBeSelectable(testSearchTerm)
         })
         it('search result is maintained when switching data type', () => {
-            cy.intercept('GET', '/dataElements').as('dataElements')
+            cy.intercept('GET', '**/dataElements*').as('dataElements')
             switchDataTypeTo('Data elements')
             cy.wait('@dataElements').then(({ request, response }) => {
                 expect(request.url).to.contain('page=1')
@@ -210,7 +210,7 @@ describe('Data dimension', () => {
             defaultGroup: { name: 'All groups' },
             endpoint: {
                 hasMultiplePages: true,
-                requestUrl: '/indicators',
+                requestUrl: '**/indicators*',
                 responseBody: 'indicators',
             },
         },
@@ -222,7 +222,7 @@ describe('Data dimension', () => {
                 itemAmount: 10,
                 endpoint: {
                     hasMultiplePages: true,
-                    requestUrl: '/dataElementOperands',
+                    requestUrl: '**/dataElementOperands*',
                     responseBody: 'dataElementOperands',
                 },
             },
@@ -231,7 +231,7 @@ describe('Data dimension', () => {
             defaultSubGroup: { name: 'Totals only' },
             endpoint: {
                 hasMultiplePages: true,
-                requestUrl: '/dataElements',
+                requestUrl: '**/dataElements*',
                 responseBody: 'dataElements',
             },
         },
@@ -244,7 +244,7 @@ describe('Data dimension', () => {
             defaultSubGroup: { name: 'All metrics' },
             endpoint: {
                 hasMultiplePages: false,
-                requestUrl: '/dataSets',
+                requestUrl: '**/dataSets*',
                 responseBody: 'dataSets',
             },
         },
@@ -261,7 +261,7 @@ describe('Data dimension', () => {
         },
         {
             name: 'Program indicators',
-            testGroup: { name: 'Malaria focus investigation', itemAmount: 3 },
+            testGroup: { name: 'Malaria focus investigation', itemAmount: 6 },
             testItem: { name: 'BMI male' },
             defaultGroup: { name: 'All programs' },
             endpoint: {
@@ -434,11 +434,11 @@ describe('Data dimension', () => {
                 expectSourceToNotBeLoading()
                 expectSelectableItemsAmountToBeLeast(PAGE_SIZE)
                 if (testDataType.endpoint.requestUrl !== DATA_ITEMS_URL) {
-                    cy.intercept('GET', DATA_ITEMS_URL).as('/dataItems')
+                    cy.intercept('GET', DATA_ITEMS_URL).as('**/dataItems*')
                 }
                 switchDataTypeToAll()
                 expectSourceToBeLoading()
-                cy.wait('@/dataItems').then(({ request, response }) => {
+                cy.wait('@**/dataItems*').then(({ request, response }) => {
                     expect(request.url).to.contain('page=1')
                     expect(response.statusCode).to.eq(200)
                     expect(response.body.dataItems.length).to.eq(PAGE_SIZE)
