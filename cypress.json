@@ -4,6 +4,8 @@
     "testFiles": "**/*.cy.js",
     "experimentalInteractiveRunEvents": true,
     "video": false,
+    "viewportWidth": 1280,
+    "viewportHeight": 800,
     "env": {
         "dhis2DatatestPrefix": "dhis2-datavisualizer",
         "dhis2ApiVersion": 39
