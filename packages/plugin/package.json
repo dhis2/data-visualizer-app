@@ -14,7 +14,7 @@
         "access": "public"
     },
     "dependencies": {
-        "@dhis2/analytics": "^24.0.9",
+        "@dhis2/analytics": "^24.2.7",
         "@dhis2/app-runtime": "^3.4.4",
         "@dhis2/d2-i18n": "^1.1.0",
         "@dhis2/ui": "^8.4.11",
