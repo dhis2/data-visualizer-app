@@ -24,11 +24,7 @@ import { removeLastPathSegment } from '../../modules/orgUnit.js'
 import { sGetCurrent } from '../../reducers/current.js'
 import { sGetLoadError, sGetIsPluginLoading } from '../../reducers/loader.js'
 import { sGetSettingsDisplayNameProperty } from '../../reducers/settings.js'
-import {
-    sGetUiRightSidebarOpen,
-    sGetUiInterpretation,
-} from '../../reducers/ui.js'
-import { sGetVisualization } from '../../reducers/visualization.js'
+import { sGetUiRightSidebarOpen } from '../../reducers/ui.js'
 import LoadingMask from '../../widgets/LoadingMask.js'
 import StartScreen from './StartScreen.js'
 import styles from './styles/Visualization.style.js'
@@ -172,7 +168,6 @@ export class UnconnectedVisualization extends Component {
     render() {
         const {
             visualization,
-            visFilters,
             userSettings,
             error,
             isLoading,
@@ -192,7 +187,6 @@ export class UnconnectedVisualization extends Component {
                 <VisualizationPlugin
                     id={renderId}
                     visualization={visualization}
-                    filters={visFilters}
                     onChartGenerated={this.onChartGenerated}
                     onLoadingComplete={onLoadingComplete}
                     onResponsesReceived={this.onResponsesReceived}
@@ -217,24 +211,9 @@ UnconnectedVisualization.propTypes = {
     setLoadError: PropTypes.func,
     setUiItems: PropTypes.func,
     userSettings: PropTypes.object,
-    visFilters: PropTypes.object,
     visualization: PropTypes.object,
     onLoadingComplete: PropTypes.func,
 }
-
-export const visualizationSelector = createSelector(
-    [sGetCurrent, sGetVisualization, sGetUiInterpretation],
-    (current, visualization, interpretation) =>
-        interpretation.id ? visualization : current
-)
-
-export const visFiltersSelector = createSelector(
-    [sGetUiInterpretation],
-    (interpretation) =>
-        interpretation.created
-            ? { relativePeriodDate: interpretation.created }
-            : {}
-)
 
 export const userSettingsSelector = createSelector(
     [sGetSettingsDisplayNameProperty],
@@ -244,8 +223,7 @@ export const userSettingsSelector = createSelector(
 )
 
 const mapStateToProps = (state) => ({
-    visualization: visualizationSelector(state),
-    visFilters: visFiltersSelector(state),
+    visualization: sGetCurrent(state),
     rightSidebarOpen: sGetUiRightSidebarOpen(state),
     error: sGetLoadError(state),
     isLoading: sGetIsPluginLoading(state),

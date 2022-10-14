@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-04-06T05:26:25.625Z\n"
+"POT-Creation-Date: 2022-06-17T07:32:29.449Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: KRG HIS <antonia.bezenchek@informa.pro>, 2021\n"
 "Language-Team: Arabic (Iraq) (https://www.transifex.com/hisp-uio/teams/100509/ar_IQ/)\n"
@@ -80,6 +80,36 @@ msgstr ""
 msgid "Filter dimensions"
 msgstr ""
 
+msgid "Data value set"
+msgstr "حزمة قيم البيانات"
+
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
+msgid "Other formats"
+msgstr "صيغ أخرى"
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
+msgstr ""
+
+msgid "Plain data source"
+msgstr "مصدر البيانات الصريحة"
+
+msgid "Microsoft Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr ""
+
+msgid "Advanced"
+msgstr "متقدم"
+
 msgid "Graphics"
 msgstr "الرسومات"
 
@@ -89,16 +119,7 @@ msgstr ""
 msgid "PDF (.pdf)"
 msgstr ""
 
-msgid "Table layout"
-msgstr "تنسيق الجدول"
-
-msgid "Excel (.xls)"
-msgstr ""
-
-msgid "CSV (.csv)"
-msgstr ""
-
-msgid "HTML (.html)"
+msgid "Download data from this date"
 msgstr ""
 
 msgid "Metadata ID scheme"
@@ -113,44 +134,23 @@ msgstr ""
 msgid "Name"
 msgstr "الاسم"
 
+msgid "Table layout"
+msgstr "تنسيق الجدول"
+
+msgid "Excel (.xls)"
+msgstr ""
+
+msgid "CSV (.csv)"
+msgstr ""
+
+msgid "HTML (.html)"
+msgstr ""
+
 msgid "Download"
 msgstr "تنزيل"
 
-msgid "Plain data source"
-msgstr "مصدر البيانات الصريحة"
-
-msgid "JSON"
-msgstr ""
-
-msgid "XML"
-msgstr ""
-
-msgid "Excel"
-msgstr ""
-
-msgid "CSV"
-msgstr ""
-
-msgid "Advanced"
-msgstr "متقدم"
-
-msgid "Data value set"
-msgstr "حزمة قيم البيانات"
-
-msgid "Other formats"
-msgstr "صيغ أخرى"
-
-msgid "JRXML"
-msgstr ""
-
-msgid "Raw data SQL"
-msgstr ""
-
 msgid "Hide"
 msgstr "إخفاء"
-
-msgid "Interpretations"
-msgstr "التفسيرات"
 
 msgid "All"
 msgstr "الجميع"
@@ -209,6 +209,9 @@ msgstr ""
 msgid "Select years"
 msgstr ""
 
+msgid "Interpretations"
+msgstr "التفسيرات"
+
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
@@ -218,9 +221,6 @@ msgid "Unsaved visualization"
 msgstr ""
 
 msgid "Edited"
-msgstr ""
-
-msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
 msgid "Update"
@@ -343,6 +343,12 @@ msgstr ""
 
 msgid "Default"
 msgstr "الافتراضي"
+
+msgid "Basic"
+msgstr ""
+
+msgid "Extended"
+msgstr ""
 
 msgid "Bright"
 msgstr ""

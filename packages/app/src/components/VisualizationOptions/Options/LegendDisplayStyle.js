@@ -5,7 +5,7 @@ import {
 import i18n from '@dhis2/d2-i18n'
 import React from 'react'
 import { OPTION_LEGEND_DISPLAY_STYLE } from '../../../modules/options.js'
-import RadioBaseOption from './RadioBaseOption.js'
+import { default as RadioBaseOption } from './RadioBaseOption.js'
 
 const LegendDisplayStyle = () => (
     <RadioBaseOption

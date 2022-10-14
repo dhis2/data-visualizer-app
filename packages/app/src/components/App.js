@@ -1,3 +1,4 @@
+import { apiFetchOrganisationUnitLevels } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import {
     CssVariables,
@@ -23,9 +24,10 @@ import { getParentGraphMapFromVisualization } from '../modules/ui.js'
 import { STATE_DIRTY, getVisualizationState } from '../modules/visualization.js'
 import * as fromReducers from '../reducers/index.js'
 import { sGetVisualization } from '../reducers/visualization.js'
+import { default as DetailsPanel } from './DetailsPanel/DetailsPanel.js'
 import DimensionsPanel from './DimensionsPanel/DimensionsPanel.js'
 import DndContext from './DndContext.js'
-import { Interpretations } from './Interpretations/Interpretations.js'
+import { InterpretationModal } from './InterpretationModal/index.js'
 import Layout from './Layout/Layout.js'
 import { MenuBar } from './MenuBar/MenuBar.js'
 import { TitleBar } from './TitleBar/TitleBar.js'
@@ -40,10 +42,24 @@ export class UnconnectedApp extends Component {
 
     apiObjectName = 'visualization'
 
+    interpretationsUnitRef = React.createRef()
+
+    onInterpretationUpdate = () => this.interpretationsUnitRef.current.refresh()
+
     state = {
         previousLocation: null,
         initialLoadIsComplete: false,
         locationToConfirm: false,
+
+        ouLevels: null,
+    }
+
+    fetchOuLevels = async () => {
+        const ouLevels = await apiFetchOrganisationUnitLevels(
+            this.props.dataEngine
+        )
+
+        this.setState({ ouLevels: ouLevels })
     }
 
     /**
@@ -82,7 +98,7 @@ export class UnconnectedApp extends Component {
             // /currentAnalyticalObject
             // /${id}/
             // /${id}/interpretation/${interpretationId}
-            const { id, interpretationId } = this.parseLocation(location)
+            const { id } = this.parseLocation(location)
 
             const urlContainsCurrentAOKey = id === CURRENT_AO_KEY
 
@@ -106,17 +122,11 @@ export class UnconnectedApp extends Component {
             if (!urlContainsCurrentAOKey && this.refetch(location)) {
                 await this.props.setVisualization({
                     id,
-                    interpretationId,
-                    ouLevels: this.props.ouLevels,
+                    ouLevels: this.state.ouLevels,
                 })
-            }
-
-            if (!interpretationId) {
-                this.props.clearInterpretation()
             }
         } else {
             this.props.clearAll()
-            this.props.clearInterpretation()
         }
         this.setState({ initialLoadIsComplete: true })
         this.setState({ previousLocation: location.pathname })
@@ -129,6 +139,8 @@ export class UnconnectedApp extends Component {
         this.props.setUser(d2.currentUser)
         this.props.loadUserAuthority(APPROVAL_LEVEL_OPTION_AUTH)
         this.props.setDimensions()
+
+        await this.fetchOuLevels()
 
         const rootOrgUnits = this.props.settings.rootOrganisationUnits
 
@@ -147,12 +159,18 @@ export class UnconnectedApp extends Component {
 
         this.loadVisualization(this.props.location)
 
-        this.unlisten = history.listen((location) => {
+        this.unlisten = history.listen(({ location }) => {
             const isSaving = location.state?.isSaving
             const isOpening = location.state?.isOpening
             const isResetting = location.state?.isResetting
-            const { interpretationId } = this.parseLocation(location)
-
+            /*
+            const isModalOpening = location.state?.isModalOpening
+            const isModalClosing = location.state?.isModalClosing
+            const isValidLocationChange =
+                this.state.previousLocation !== location.pathname &&
+                !isModalOpening &&
+                !isModalClosing
+*/
             if (
                 // currently editing
                 getVisualizationState(
@@ -161,8 +179,6 @@ export class UnconnectedApp extends Component {
                 ) === STATE_DIRTY &&
                 // wanting to navigate elsewhere
                 this.state.previousLocation !== location.pathname &&
-                // currently *not* viewing an interpretation
-                !(this.props.interpretation.id || interpretationId) &&
                 // not saving
                 !isSaving
             ) {
@@ -248,14 +264,22 @@ export class UnconnectedApp extends Component {
                                     {this.state.initialLoadIsComplete && (
                                         <Visualization />
                                     )}
+                                    {this.props.current && (
+                                        <InterpretationModal
+                                            onInterpretationUpdate={
+                                                this.onInterpretationUpdate
+                                            }
+                                        />
+                                    )}
                                 </div>
                             </div>
                         </DndContext>
                         {this.props.ui.rightSidebarOpen && this.props.current && (
                             <div className="main-right">
-                                <Interpretations
-                                    type={this.apiObjectName}
-                                    id={this.props.current.id}
+                                <DetailsPanel
+                                    interpretationsUnitRef={
+                                        this.interpretationsUnitRef
+                                    }
                                 />
                             </div>
                         )}
@@ -280,7 +304,7 @@ export class UnconnectedApp extends Component {
                                             locationToConfirm: null,
                                         })
 
-                                        history.goBack()
+                                        history.back()
                                     }}
                                     dataTest={
                                         'confirm-leave-modal-option-cancel'
@@ -320,7 +344,6 @@ export class UnconnectedApp extends Component {
 const mapStateToProps = (state) => ({
     settings: fromReducers.fromSettings.sGetSettings(state),
     current: fromReducers.fromCurrent.sGetCurrent(state),
-    interpretation: fromReducers.fromUi.sGetUiInterpretation(state),
     ui: fromReducers.fromUi.sGetUi(state),
     visualization: sGetVisualization(state),
     snackbar: fromReducers.fromSnackbar.sGetSnackbar(state),
@@ -339,7 +362,6 @@ const mapDispatchToProps = {
     setDimensions: fromActions.fromDimensions.tSetDimensions,
     addMetadata: fromActions.fromMetadata.acAddMetadata,
     setVisualization: fromActions.tDoLoadVisualization,
-    clearInterpretation: fromActions.fromUi.acClearUiInterpretation,
     clearAll: fromActions.clearAll,
 }
 
@@ -361,15 +383,12 @@ UnconnectedApp.propTypes = {
     baseUrl: PropTypes.string,
     clearAll: PropTypes.func,
     clearCurrent: PropTypes.func,
-    clearInterpretation: PropTypes.func,
     clearVisualization: PropTypes.func,
     current: PropTypes.object,
     d2: PropTypes.object,
     dataEngine: PropTypes.object,
-    interpretation: PropTypes.object,
     loadUserAuthority: PropTypes.func,
     location: PropTypes.object,
-    ouLevels: PropTypes.array,
     setCurrentFromUi: PropTypes.func,
     setDimensions: PropTypes.func,
     setUiFromVisualization: PropTypes.func,

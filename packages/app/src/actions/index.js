@@ -80,7 +80,7 @@ const adaptAxisItems = (axis) =>
 // visualization, current, ui
 
 export const tDoLoadVisualization =
-    ({ id, interpretationId, ouLevels }) =>
+    ({ id, ouLevels }) =>
     async (dispatch, getState, engine) => {
         const onSuccess = async (response) => {
             dispatch(fromLoader.acSetPluginLoading(true))
@@ -92,17 +92,6 @@ export const tDoLoadVisualization =
             visualization.columns = adaptAxisItems(visualization.columns)
             visualization.rows = adaptAxisItems(visualization.rows)
             visualization.filters = adaptAxisItems(visualization.filters)
-
-            if (interpretationId) {
-                const interpretation = visualization.interpretations.find(
-                    (i) => i.id === interpretationId
-                )
-
-                if (interpretation) {
-                    dispatch(fromUi.acSetUiInterpretation(interpretation))
-                    dispatch(fromUi.acSetUiRightSidebarOpen())
-                }
-            }
 
             apiPostDataStatistics(engine, visualization.id)
 
@@ -200,15 +189,15 @@ export const tDoSaveVisualization =
         const onSuccess = (res) => {
             if (res.status === 'OK' && res.response.uid) {
                 if (copy) {
-                    history.push({
-                        pathname: `/${res.response.uid}`,
-                        state: { isSaving: true },
-                    }) // Save as
+                    history.push(
+                        { pathname: `/${res.response.uid}` },
+                        { isSaving: true }
+                    ) // Save as
                 } else {
-                    history.replace({
-                        pathname: `/${res.response.uid}`,
-                        state: { isSaving: true },
-                    }) // Save
+                    history.replace(
+                        { pathname: `/${res.response.uid}` },
+                        { isSaving: true }
+                    ) // Save
                 }
             }
         }
@@ -265,7 +254,7 @@ export const tDoDeleteVisualization = () => (dispatch, getState) => {
     dispatch(
         fromSnackbar.acReceivedSnackbarMessage({
             variant: VARIANT_SUCCESS,
-            message: i18n.t('"{{deletedObject}}" successfully deleted.', {
+            message: i18n.t('"{{- deletedObject}}" successfully deleted.', {
                 deletedObject: current.name,
             }),
             duration: 2000,

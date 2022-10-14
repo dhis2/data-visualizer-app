@@ -19,17 +19,6 @@ export default {
     suffix: {
         paddingLeft: '4px',
     },
-    interpretation: {
-        fontSize: '12px',
-        color: colors.grey700,
-    },
-    interpretationIcon: {
-        display: 'flex',
-        alignItems: 'center',
-        height: '14px',
-        width: '14px',
-        marginRight: '3px',
-    },
     titleUnsaved: {
         color: colors.grey500,
         fontStyle: 'italic',

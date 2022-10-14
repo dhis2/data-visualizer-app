@@ -23,7 +23,7 @@ import { sGetDimensions } from '../../reducers/dimensions.js'
 import { sGetMetadata } from '../../reducers/metadata.js'
 import { sGetUiType } from '../../reducers/ui.js'
 import { styles } from './styles/Chip.style.js'
-import TooltipContent from './TooltipContent.js'
+import { default as TooltipContent } from './TooltipContent.js'
 
 const Chip = ({
     type,

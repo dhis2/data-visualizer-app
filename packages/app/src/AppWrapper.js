@@ -1,7 +1,6 @@
-import { apiFetchOrganisationUnitLevels } from '@dhis2/analytics'
 import { useConfig, useDataEngine } from '@dhis2/app-runtime'
 import { D2Shim } from '@dhis2/app-runtime-adapter-d2'
-import React, { useState, useEffect, useCallback } from 'react'
+import React from 'react'
 import { Provider as ReduxProvider } from 'react-redux'
 import thunk from 'redux-thunk'
 import { App } from './components/App.js'
@@ -24,26 +23,6 @@ const AppWrapper = () => {
     if (window.Cypress) {
         window.store = store
     }
-
-    const [ouLevels, setOuLevels] = useState(null)
-
-    const doFetchOuLevelsData = useCallback(async () => {
-        const ouLevels = await apiFetchOrganisationUnitLevels(engine)
-
-        return ouLevels
-    }, [engine])
-
-    useEffect(() => {
-        const doFetch = async () => {
-            const ouLevelsData = await doFetchOuLevelsData()
-
-            setOuLevels(ouLevelsData)
-        }
-
-        doFetch()
-
-        /* eslint-disable-next-line react-hooks/exhaustive-deps */
-    }, [])
 
     const schemas = ['visualization', 'organisationUnit', 'userGroup']
     const d2Config = {
@@ -72,7 +51,6 @@ const AppWrapper = () => {
                                                 location={history.location}
                                                 baseUrl={baseUrl}
                                                 dataEngine={engine}
-                                                ouLevels={ouLevels}
                                                 userSettings={userSettings}
                                             />
                                         )

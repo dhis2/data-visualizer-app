@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-04-06T05:26:25.625Z\n"
+"POT-Creation-Date: 2022-08-25T09:58:02.683Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: trendspotter <jirka.p@volny.cz>, 2022\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -24,8 +24,8 @@ msgstr "Přejmenování bylo úspěšné"
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr "Vizualizace bez názvu {{visualizationType}}, {{date}}"
 
-msgid "\"{{deletedObject}}\" successfully deleted."
-msgstr "\"{{deletedObject}}\" byl úspěšně smazán."
+msgid "\"{{- deletedObject}}\" successfully deleted."
+msgstr "\"{{- deletedObject}}\" byl úspěšně odstraněn."
 
 msgid "You have unsaved changes."
 msgstr "Máte neuložené změny."
@@ -88,6 +88,36 @@ msgstr "Vaše rozměry"
 msgid "Filter dimensions"
 msgstr "Rozměry filtru"
 
+msgid "Data value set"
+msgstr "Sada datových hodnot"
+
+msgid "JSON"
+msgstr "JSON"
+
+msgid "XML"
+msgstr "XML"
+
+msgid "Other formats"
+msgstr "Jiné formáty"
+
+msgid "JRXML"
+msgstr "JRXML"
+
+msgid "Raw data SQL"
+msgstr "Nezpracovaná data SQL"
+
+msgid "Plain data source"
+msgstr "Prostý zdroj dat"
+
+msgid "Microsoft Excel"
+msgstr "Microsoft Excel"
+
+msgid "CSV"
+msgstr "CSV"
+
+msgid "Advanced"
+msgstr "Pokročilý"
+
 msgid "Graphics"
 msgstr "Grafika"
 
@@ -97,17 +127,8 @@ msgstr "Obrázek (.png)"
 msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
-msgid "Table layout"
-msgstr "Rozložení tabulky"
-
-msgid "Excel (.xls)"
-msgstr "Excel (.xls)"
-
-msgid "CSV (.csv)"
-msgstr "CSV (.csv)"
-
-msgid "HTML (.html)"
-msgstr "HTML (.html)"
+msgid "Download data from this date"
+msgstr "Stáhnout data od tohoto data"
 
 msgid "Metadata ID scheme"
 msgstr "Schéma metadata ID"
@@ -121,44 +142,23 @@ msgstr "Kód"
 msgid "Name"
 msgstr "Název"
 
+msgid "Table layout"
+msgstr "Rozložení tabulky"
+
+msgid "Excel (.xls)"
+msgstr "Excel (.xls)"
+
+msgid "CSV (.csv)"
+msgstr "CSV (.csv)"
+
+msgid "HTML (.html)"
+msgstr "HTML (.html)"
+
 msgid "Download"
 msgstr "Stáhnout"
 
-msgid "Plain data source"
-msgstr "Prostý zdroj dat"
-
-msgid "JSON"
-msgstr "JSON"
-
-msgid "XML"
-msgstr "XML"
-
-msgid "Excel"
-msgstr "Excel"
-
-msgid "CSV"
-msgstr "CSV"
-
-msgid "Advanced"
-msgstr "Pokročilý"
-
-msgid "Data value set"
-msgstr "Sada datových hodnot"
-
-msgid "Other formats"
-msgstr "Jiné formáty"
-
-msgid "JRXML"
-msgstr "JRXML"
-
-msgid "Raw data SQL"
-msgstr "Nezpracovaná data SQL"
-
 msgid "Hide"
 msgstr "Skrýt"
-
-msgid "Interpretations"
-msgstr "Interpretace"
 
 msgid "All"
 msgstr "Vše"
@@ -217,6 +217,9 @@ msgstr "Vybrat období"
 msgid "Select years"
 msgstr "Vybrat roky"
 
+msgid "Interpretations"
+msgstr "Interpretace"
+
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
@@ -229,9 +232,6 @@ msgstr "Neuložená vizualizace"
 
 msgid "Edited"
 msgstr "Upraveno"
-
-msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr "Prohlížení interpretací od {{interpretDate}}"
 
 msgid "Update"
 msgstr "Aktualizovat"
@@ -356,6 +356,12 @@ msgstr "Součty sloupců"
 
 msgid "Default"
 msgstr "Výchozí"
+
+msgid "Basic"
+msgstr "Základní"
+
+msgid "Extended"
+msgstr "Rozšířené"
 
 msgid "Bright"
 msgstr "Světlá"

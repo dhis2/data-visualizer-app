@@ -2,23 +2,23 @@
 # Translators:
 # phil_dhis2, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
-# Ge Joao <gsimango@saudigitus.org>, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Sheila André <sandre@saudigitus.org>, 2021
 # Fernando Jorge Bade, 2021
+# Ge Joao <gsimango@saudigitus.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-04-06T05:26:25.625Z\n"
+"POT-Creation-Date: 2022-08-25T09:58:02.683Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Fernando Jorge Bade, 2021\n"
+"Last-Translator: Ge Joao <gsimango@saudigitus.org>, 2022\n"
 "Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "All items"
 msgstr "Todos Itens"
@@ -29,8 +29,8 @@ msgstr "Renomeado com sucesso"
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr "Sem título {{visualizaçãoTipo}} visualização, {{date}}"
 
-msgid "\"{{deletedObject}}\" successfully deleted."
-msgstr "\"{{deleteObject}}\" apagado com sucesso."
+msgid "\"{{- deletedObject}}\" successfully deleted."
+msgstr ""
 
 msgid "You have unsaved changes."
 msgstr "Tem alterações não gravadas."
@@ -93,6 +93,36 @@ msgstr "Suas dimensões"
 msgid "Filter dimensions"
 msgstr "Dimensões do filtro"
 
+msgid "Data value set"
+msgstr "Conjunto de valores de dados"
+
+msgid "JSON"
+msgstr "JSON"
+
+msgid "XML"
+msgstr "XML"
+
+msgid "Other formats"
+msgstr "Outros formatos"
+
+msgid "JRXML"
+msgstr "JRXML"
+
+msgid "Raw data SQL"
+msgstr "Raw data SQL"
+
+msgid "Plain data source"
+msgstr "Fonte de dados simples"
+
+msgid "Microsoft Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr "CSV"
+
+msgid "Advanced"
+msgstr "Avançado"
+
 msgid "Graphics"
 msgstr "Gráficos"
 
@@ -102,17 +132,8 @@ msgstr "Imagem (.png)"
 msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
-msgid "Table layout"
-msgstr "Disposição da tabela"
-
-msgid "Excel (.xls)"
-msgstr "Excel (.xls)"
-
-msgid "CSV (.csv)"
-msgstr "CSV (.csv)"
-
-msgid "HTML (.html)"
-msgstr "HTML (.html)"
+msgid "Download data from this date"
+msgstr ""
 
 msgid "Metadata ID scheme"
 msgstr "Esquema de ID de metadados"
@@ -126,44 +147,23 @@ msgstr "Código"
 msgid "Name"
 msgstr "Nome"
 
+msgid "Table layout"
+msgstr "Disposição da tabela"
+
+msgid "Excel (.xls)"
+msgstr "Excel (.xls)"
+
+msgid "CSV (.csv)"
+msgstr "CSV (.csv)"
+
+msgid "HTML (.html)"
+msgstr "HTML (.html)"
+
 msgid "Download"
 msgstr "Descarregar"
 
-msgid "Plain data source"
-msgstr "Fonte de dados simples"
-
-msgid "JSON"
-msgstr "JSON"
-
-msgid "XML"
-msgstr "XML"
-
-msgid "Excel"
-msgstr "Excel"
-
-msgid "CSV"
-msgstr "CSV"
-
-msgid "Advanced"
-msgstr "Avançado"
-
-msgid "Data value set"
-msgstr "Conjunto de valores de dados"
-
-msgid "Other formats"
-msgstr "Outros formatos"
-
-msgid "JRXML"
-msgstr "JRXML"
-
-msgid "Raw data SQL"
-msgstr "Raw data SQL"
-
 msgid "Hide"
 msgstr "Esconder"
-
-msgid "Interpretations"
-msgstr "Interpretações"
 
 msgid "All"
 msgstr "Tudo"
@@ -223,6 +223,9 @@ msgstr "Selecionar periodos "
 msgid "Select years"
 msgstr "Selecionar anos "
 
+msgid "Interpretations"
+msgstr "Interpretações"
+
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
@@ -235,9 +238,6 @@ msgstr "Visualização não salva"
 
 msgid "Edited"
 msgstr "Editada"
-
-msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr "Visualizando interpretação de {{interpretaçãoDados}}"
 
 msgid "Update"
 msgstr "Actualizar"
@@ -363,6 +363,12 @@ msgstr "Coluna de totais "
 
 msgid "Default"
 msgstr "Predefinido"
+
+msgid "Basic"
+msgstr "Basico"
+
+msgid "Extended"
+msgstr ""
 
 msgid "Bright"
 msgstr "Brilhante"

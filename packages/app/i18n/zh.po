@@ -2,13 +2,13 @@
 # Translators:
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
-# 晓东 林 <13981924470@126.com>, 2021
+# 晓东 林 <13981924470@126.com>, 2022
 # easylin <lin_xd@126.com>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-04-06T05:26:25.625Z\n"
+"POT-Creation-Date: 2022-08-25T09:58:02.683Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2022\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -27,8 +27,8 @@ msgstr "重命名成功"
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr "无标题的{{visualizationType}}可视化，{{date}}"
 
-msgid "\"{{deletedObject}}\" successfully deleted."
-msgstr "\"{{deletedObject}}\" 被成功删除"
+msgid "\"{{- deletedObject}}\" successfully deleted."
+msgstr "“{{- deletedObject}}”已成功删除。"
 
 msgid "You have unsaved changes."
 msgstr "你没有保存修改"
@@ -85,6 +85,36 @@ msgstr "你的维度"
 msgid "Filter dimensions"
 msgstr "过滤器维度"
 
+msgid "Data value set"
+msgstr "数据值集"
+
+msgid "JSON"
+msgstr "JSON"
+
+msgid "XML"
+msgstr "XML"
+
+msgid "Other formats"
+msgstr "其它格式"
+
+msgid "JRXML"
+msgstr "JRXML"
+
+msgid "Raw data SQL"
+msgstr "原生数据SQL"
+
+msgid "Plain data source"
+msgstr "普通数据源"
+
+msgid "Microsoft Excel"
+msgstr "微软Excel"
+
+msgid "CSV"
+msgstr "CSV"
+
+msgid "Advanced"
+msgstr "高级"
+
 msgid "Graphics"
 msgstr "图形"
 
@@ -94,17 +124,8 @@ msgstr "图像（.png）"
 msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
-msgid "Table layout"
-msgstr "表布局"
-
-msgid "Excel (.xls)"
-msgstr "Excel (.xls)"
-
-msgid "CSV (.csv)"
-msgstr "CSV (.csv)"
-
-msgid "HTML (.html)"
-msgstr "HTML (.html)"
+msgid "Download data from this date"
+msgstr "从该日期下载数据"
 
 msgid "Metadata ID scheme"
 msgstr "元数据ID方案"
@@ -118,44 +139,23 @@ msgstr "代码"
 msgid "Name"
 msgstr "名称"
 
+msgid "Table layout"
+msgstr "表布局"
+
+msgid "Excel (.xls)"
+msgstr "Excel (.xls)"
+
+msgid "CSV (.csv)"
+msgstr "CSV (.csv)"
+
+msgid "HTML (.html)"
+msgstr "HTML (.html)"
+
 msgid "Download"
 msgstr "下载"
 
-msgid "Plain data source"
-msgstr "普通数据源"
-
-msgid "JSON"
-msgstr "JSON"
-
-msgid "XML"
-msgstr "XML"
-
-msgid "Excel"
-msgstr "Excel"
-
-msgid "CSV"
-msgstr "CSV"
-
-msgid "Advanced"
-msgstr "高级"
-
-msgid "Data value set"
-msgstr "数据值集"
-
-msgid "Other formats"
-msgstr "其它格式"
-
-msgid "JRXML"
-msgstr "JRXML"
-
-msgid "Raw data SQL"
-msgstr "原生数据SQL"
-
 msgid "Hide"
 msgstr "隐藏"
-
-msgid "Interpretations"
-msgstr "注释"
 
 msgid "All"
 msgstr "全部"
@@ -214,6 +214,9 @@ msgstr "选择期间"
 msgid "Select years"
 msgstr "选择年份"
 
+msgid "Interpretations"
+msgstr "注释"
+
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
@@ -224,9 +227,6 @@ msgstr "没有保存可视化"
 
 msgid "Edited"
 msgstr "编辑"
-
-msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr "查看自{{interpretationDate}}的注释"
 
 msgid "Update"
 msgstr "更新"
@@ -348,6 +348,12 @@ msgstr "列合计"
 
 msgid "Default"
 msgstr "默认"
+
+msgid "Basic"
+msgstr "基本"
+
+msgid "Extended"
+msgstr "扩展"
 
 msgid "Bright"
 msgstr "明亮"
@@ -1006,7 +1012,7 @@ msgstr "在可操作的表格中查看数据和指标。"
 
 msgid ""
 "Compare sizes of related elements vertically. Recommend period as filter."
-msgstr ""
+msgstr "垂直比较相关元素的大小。推荐时间段作为过滤器。"
 
 msgid ""
 "Compare parts of a whole against related elements vertically. Recommend data"
@@ -1015,7 +1021,7 @@ msgstr "垂直比较整个部分和相关元素。推荐数据或组织机构为
 
 msgid ""
 "Compare sizes of related elements horizontally. Recommend period as filter."
-msgstr ""
+msgstr "水平比较相关元素的大小。推荐时间段作为过滤器。"
 
 msgid ""
 "Compare parts of a whole against related elements horizontally. Recommend "
@@ -1028,7 +1034,7 @@ msgstr "跟踪或比较随时间的变化规律。推荐时期为分类。"
 msgid ""
 "Track or compare parts of a whole over time. Recommend data as series and "
 "period as category."
-msgstr ""
+msgstr "随着时间的推移跟踪或比较整体的各个部分。推荐数据为系列，时段为分类别。"
 
 msgid ""
 "Compare parts of a whole at a single point in time. Recommend period as "
@@ -1041,7 +1047,7 @@ msgstr "将多个变量与多个条目进行比较。"
 msgid ""
 "Compare a percentage indicator against a 100% scale. Recommend period as "
 "filter."
-msgstr ""
+msgstr "将百分比指标与 100% 比例进行比较。推荐时间段作为过滤器。"
 
 msgid "Compare changes over time between multiple time periods."
 msgstr "比较多个时间段之间随时间的变化。"

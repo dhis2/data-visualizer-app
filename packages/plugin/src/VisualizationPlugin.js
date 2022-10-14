@@ -313,8 +313,8 @@ export const VisualizationPlugin = ({
     }
 
     return (
-        <>
-            <div className={styles.container}>
+        <div className={styles.container}>
+            <div className={styles.chartWrapper}>
                 {!fetchResult.visualization.type ||
                 fetchResult.visualization.type === VIS_TYPE_PIVOT_TABLE ? (
                     <PivotPlugin
@@ -328,7 +328,11 @@ export const VisualizationPlugin = ({
                             onDrill ? onToggleContextualMenu : undefined
                         }
                         id={id}
-                        style={transformedStyle}
+                        // force height when no value available otherwise the PivotTable container sets 0 as height hiding the table content
+                        style={{
+                            ...transformedStyle,
+                            height: transformedStyle.height || '100%',
+                        }}
                     />
                 ) : (
                     <ChartPlugin
@@ -363,7 +367,7 @@ export const VisualizationPlugin = ({
                     />
                 </Layer>
             )}
-        </>
+        </div>
     )
 }
 

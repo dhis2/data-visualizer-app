@@ -27,7 +27,6 @@ describe('TitleBar component', () => {
         props = {
             titleState: STATE_EMPTY,
             titleText: null,
-            interpretationDate: null,
         }
 
         shallowTitleBar = undefined
@@ -64,15 +63,5 @@ describe('TitleBar component', () => {
         const wrappingDiv = titleBar().find('div').first()
 
         expect(wrappingDiv.children()).toEqual(titleBar().children())
-    })
-
-    it('renders the interpretation date', () => {
-        props.titleState = STATE_SAVED
-        props.titleText = 'Yall'
-        props.interpretationDate = 'aeons ago'
-        expect(titleBar().find('div')).toHaveLength(5)
-        expect(titleBar().find('div').last().text()).toEqual(
-            `Viewing interpretation from ${props.interpretationDate}`
-        )
     })
 })

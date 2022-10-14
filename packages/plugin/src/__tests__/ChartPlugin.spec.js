@@ -117,7 +117,7 @@ describe('ChartPlugin', () => {
 
     describe('createVisualization success', () => {
         beforeEach(() => {
-            // eslint-disable-next-line no-import-assign
+            // eslint-disable-next-line no-import-assign, import/namespace
             analytics.createVisualization = jest
                 .fn()
                 .mockReturnValue(createVisualizationMock)
@@ -160,7 +160,7 @@ describe('ChartPlugin', () => {
                     ...singleValueCurrentMock,
                 }
 
-                // eslint-disable-next-line no-import-assign
+                // eslint-disable-next-line no-import-assign, import/namespace
                 analytics.isSingleValue = jest
                     .fn()
                     .mockReturnValue(

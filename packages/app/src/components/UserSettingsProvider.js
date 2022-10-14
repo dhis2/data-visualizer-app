@@ -23,6 +23,7 @@ const UserSettingsProvider = ({ children }) => {
 
             const { keyAnalysisDisplayProperty, keyUiLocale, ...rest } =
                 userSettings
+
             setSettings({
                 ...rest,
                 displayProperty: keyAnalysisDisplayProperty,
@@ -34,7 +35,7 @@ const UserSettingsProvider = ({ children }) => {
             })
         }
         fetchData()
-    }, [])
+    }, [engine])
 
     return (
         <UserSettingsCtx.Provider

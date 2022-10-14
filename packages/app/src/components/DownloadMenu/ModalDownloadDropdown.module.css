@@ -1,0 +1,4 @@
+.container {
+    margin-top: var(--spacers-dp12);
+    margin-bottom: var(--spacers-dp16);
+}

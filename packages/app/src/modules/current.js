@@ -26,7 +26,7 @@ import {
     BASE_FIELD_TYPE,
     BASE_FIELD_YEARLY_SERIES,
 } from './fields/baseFields.js'
-import options from './options.js'
+import { default as options } from './options.js'
 import {} from './layout.js'
 
 const hasItems = (object, id) => Array.isArray(object[id]) && object[id].length

@@ -10,6 +10,12 @@ import { DEFAULT_CURRENT } from '../../reducers/current.js'
 import { UnconnectedApp as App } from '../App.js'
 import { Snackbar } from '../Snackbar/Snackbar.js'
 
+jest.mock('@dhis2/analytics', () => ({
+    apiFetchOrganisationUnitLevels: jest.fn(),
+    getPredefinedDimensions: () => {},
+    visTypeDisplayNames: {},
+}))
+
 jest.mock(
     '../Visualization/Visualization',
     () =>
@@ -69,7 +75,6 @@ describe('App', () => {
             setDimensions: jest.fn(),
             addMetadata: jest.fn(),
             setVisualization: jest.fn(),
-            clearInterpretation: jest.fn(),
         }
         shallowApp = undefined
 
@@ -135,10 +140,12 @@ describe('App', () => {
             app()
 
             setTimeout(() => {
-                history.replace({
-                    pathname: '/fluttershy',
-                    state: { isOpening: true },
-                })
+                history.replace(
+                    {
+                        pathname: '/fluttershy',
+                    },
+                    { isOpening: true }
+                )
                 expect(props.setVisualization).toBeCalledTimes(2)
 
                 done()
@@ -151,10 +158,12 @@ describe('App', () => {
             app()
 
             setTimeout(() => {
-                history.replace({
-                    pathname: '/fluttershy',
-                    state: { isSaving: true },
-                })
+                history.replace(
+                    {
+                        pathname: '/fluttershy',
+                    },
+                    { isSaving: true }
+                )
                 expect(props.setVisualization).toBeCalledTimes(2)
 
                 done()

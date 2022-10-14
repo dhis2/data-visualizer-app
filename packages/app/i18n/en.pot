@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2022-04-06T05:26:25.625Z\n"
-"PO-Revision-Date: 2022-04-06T05:26:25.625Z\n"
+"POT-Creation-Date: 2022-08-25T09:58:02.683Z\n"
+"PO-Revision-Date: 2022-08-25T09:58:02.683Z\n"
 
 msgid "All items"
 msgstr "All items"
@@ -17,8 +17,8 @@ msgstr "Rename successful"
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr "Untitled {{visualizationType}} visualization, {{date}}"
 
-msgid "\"{{deletedObject}}\" successfully deleted."
-msgstr "\"{{deletedObject}}\" successfully deleted."
+msgid "\"{{- deletedObject}}\" successfully deleted."
+msgstr "\"{{- deletedObject}}\" successfully deleted."
 
 msgid "You have unsaved changes."
 msgstr "You have unsaved changes."
@@ -81,6 +81,36 @@ msgstr "Your dimensions"
 msgid "Filter dimensions"
 msgstr "Filter dimensions"
 
+msgid "Data value set"
+msgstr "Data value set"
+
+msgid "JSON"
+msgstr "JSON"
+
+msgid "XML"
+msgstr "XML"
+
+msgid "Other formats"
+msgstr "Other formats"
+
+msgid "JRXML"
+msgstr "JRXML"
+
+msgid "Raw data SQL"
+msgstr "Raw data SQL"
+
+msgid "Plain data source"
+msgstr "Plain data source"
+
+msgid "Microsoft Excel"
+msgstr "Microsoft Excel"
+
+msgid "CSV"
+msgstr "CSV"
+
+msgid "Advanced"
+msgstr "Advanced"
+
 msgid "Graphics"
 msgstr "Graphics"
 
@@ -90,17 +120,8 @@ msgstr "Image (.png)"
 msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
-msgid "Table layout"
-msgstr "Table layout"
-
-msgid "Excel (.xls)"
-msgstr "Excel (.xls)"
-
-msgid "CSV (.csv)"
-msgstr "CSV (.csv)"
-
-msgid "HTML (.html)"
-msgstr "HTML (.html)"
+msgid "Download data from this date"
+msgstr "Download data from this date"
 
 msgid "Metadata ID scheme"
 msgstr "Metadata ID scheme"
@@ -114,44 +135,23 @@ msgstr "Code"
 msgid "Name"
 msgstr "Name"
 
+msgid "Table layout"
+msgstr "Table layout"
+
+msgid "Excel (.xls)"
+msgstr "Excel (.xls)"
+
+msgid "CSV (.csv)"
+msgstr "CSV (.csv)"
+
+msgid "HTML (.html)"
+msgstr "HTML (.html)"
+
 msgid "Download"
 msgstr "Download"
 
-msgid "Plain data source"
-msgstr "Plain data source"
-
-msgid "JSON"
-msgstr "JSON"
-
-msgid "XML"
-msgstr "XML"
-
-msgid "Excel"
-msgstr "Excel"
-
-msgid "CSV"
-msgstr "CSV"
-
-msgid "Advanced"
-msgstr "Advanced"
-
-msgid "Data value set"
-msgstr "Data value set"
-
-msgid "Other formats"
-msgstr "Other formats"
-
-msgid "JRXML"
-msgstr "JRXML"
-
-msgid "Raw data SQL"
-msgstr "Raw data SQL"
-
 msgid "Hide"
 msgstr "Hide"
-
-msgid "Interpretations"
-msgstr "Interpretations"
 
 msgid "All"
 msgstr "All"
@@ -210,6 +210,9 @@ msgstr "Select a period"
 msgid "Select years"
 msgstr "Select years"
 
+msgid "Interpretations"
+msgstr "Interpretations"
+
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
@@ -222,9 +225,6 @@ msgstr "Unsaved visualization"
 
 msgid "Edited"
 msgstr "Edited"
-
-msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr "Viewing interpretation from {{interpretationDate}}"
 
 msgid "Update"
 msgstr "Update"
@@ -350,6 +350,12 @@ msgstr "Columns totals"
 
 msgid "Default"
 msgstr "Default"
+
+msgid "Basic"
+msgstr "Basic"
+
+msgid "Extended"
+msgstr "Extended"
 
 msgid "Bright"
 msgstr "Bright"

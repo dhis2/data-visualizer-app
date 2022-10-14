@@ -7,19 +7,20 @@
 # Prabhjot Singh, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Janeth Cruz, 2022
+# Carlos Tejo Alonso, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-04-06T05:26:25.625Z\n"
+"POT-Creation-Date: 2022-06-17T07:32:29.449Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Janeth Cruz, 2022\n"
+"Last-Translator: Carlos Tejo Alonso, 2022\n"
 "Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "All items"
 msgstr ""
@@ -86,6 +87,36 @@ msgstr ""
 msgid "Filter dimensions"
 msgstr ""
 
+msgid "Data value set"
+msgstr "Valor de los datos"
+
+msgid "JSON"
+msgstr "JSON"
+
+msgid "XML"
+msgstr "XML"
+
+msgid "Other formats"
+msgstr "Otros formatos"
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
+msgstr ""
+
+msgid "Plain data source"
+msgstr "Fuente de datos sin formato"
+
+msgid "Microsoft Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr "CSV"
+
+msgid "Advanced"
+msgstr "Avanzado"
+
 msgid "Graphics"
 msgstr "Gráficos"
 
@@ -95,16 +126,7 @@ msgstr ""
 msgid "PDF (.pdf)"
 msgstr ""
 
-msgid "Table layout"
-msgstr "Disposición de la tabla"
-
-msgid "Excel (.xls)"
-msgstr ""
-
-msgid "CSV (.csv)"
-msgstr ""
-
-msgid "HTML (.html)"
+msgid "Download data from this date"
 msgstr ""
 
 msgid "Metadata ID scheme"
@@ -119,44 +141,23 @@ msgstr "Código"
 msgid "Name"
 msgstr "Nombre"
 
+msgid "Table layout"
+msgstr "Disposición de la tabla"
+
+msgid "Excel (.xls)"
+msgstr ""
+
+msgid "CSV (.csv)"
+msgstr ""
+
+msgid "HTML (.html)"
+msgstr ""
+
 msgid "Download"
 msgstr "Descargar"
 
-msgid "Plain data source"
-msgstr "Fuente de datos sin formato"
-
-msgid "JSON"
-msgstr "JSON"
-
-msgid "XML"
-msgstr "XML"
-
-msgid "Excel"
-msgstr ""
-
-msgid "CSV"
-msgstr "CSV"
-
-msgid "Advanced"
-msgstr "Avanzado"
-
-msgid "Data value set"
-msgstr "Valor de los datos"
-
-msgid "Other formats"
-msgstr "Otros formatos"
-
-msgid "JRXML"
-msgstr ""
-
-msgid "Raw data SQL"
-msgstr ""
-
 msgid "Hide"
 msgstr "Ocultar"
-
-msgid "Interpretations"
-msgstr "Interpretaciones"
 
 msgid "All"
 msgstr "Todos"
@@ -215,6 +216,9 @@ msgstr ""
 msgid "Select years"
 msgstr ""
 
+msgid "Interpretations"
+msgstr "Interpretaciones"
+
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
@@ -224,9 +228,6 @@ msgid "Unsaved visualization"
 msgstr ""
 
 msgid "Edited"
-msgstr ""
-
-msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
 msgid "Update"
@@ -304,7 +305,7 @@ msgid "Auto"
 msgstr ""
 
 msgid "Labels"
-msgstr ""
+msgstr "Etiquetas"
 
 msgid "Axis range"
 msgstr ""
@@ -349,6 +350,12 @@ msgstr ""
 
 msgid "Default"
 msgstr "Predeterminado"
+
+msgid "Basic"
+msgstr ""
+
+msgid "Extended"
+msgstr ""
 
 msgid "Bright"
 msgstr ""
@@ -662,7 +669,7 @@ msgid "Target line"
 msgstr ""
 
 msgid "Size"
-msgstr ""
+msgstr "Tamaño"
 
 msgid "Position"
 msgstr "Posición"

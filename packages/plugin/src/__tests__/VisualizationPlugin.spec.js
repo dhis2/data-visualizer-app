@@ -203,7 +203,6 @@ describe('VisualizationPlugin', () => {
                     .fn()
                     .mockReturnValue(peMock.items)
 
-                /* eslint-disable no-import-assign, import/namespace */
                 api.apiFetchAnalyticsForYearOverYear = jest
                     .fn()
                     .mockResolvedValue(new MockYoYAnalyticsResponse())

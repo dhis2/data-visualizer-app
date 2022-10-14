@@ -27,7 +27,7 @@ const OperatorSelect = ({ name, value, onChange }) => {
     ]
 
     return (
-        <div style={{ width: '112px' }}>
+        <div style={{ width: '112px', marginRight: '8px' }}>
             <SingleSelect
                 name={name}
                 onChange={({ selected }) => {
@@ -110,7 +110,7 @@ class MeasureCriteria extends Component {
                     )}
                 </p>
                 <div className={tabSectionOptionComplexInline.className}>
-                    <div style={{ width: '250px' }}>
+                    <div style={{ width: '250px', marginRight: '8px' }}>
                         <Label>{i18n.t('Minimum data value')}</Label>
                         <div
                             className={tabSectionOptionComplexInline.className}
