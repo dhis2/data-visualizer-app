@@ -1,16 +1,16 @@
 # 
 # Translators:
-# phil_dhis2, 2020
-# Saurabh Leekha <saurabh.leekha@hispindia.org>, 2021
-# Ulanbek Abakirov <ulans@mail.ru>, 2022
 # Yury Rogachev <yury@dhis2.org>, 2022
+# Ulanbek Abakirov <ulans@mail.ru>, 2022
+# Saurabh Leekha <saurabh.leekha@hispindia.org>, 2022
+# phil_dhis2, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-06-17T07:32:29.449Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"POT-Creation-Date: 2022-08-25T09:58:02.683Z\n"
+"PO-Revision-Date: 2022-10-15 22:30+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2022\n"
 "Language-Team: Russian (https://www.transifex.com/hisp-uio/teams/100509/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr "Переименовать удачно"
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr ""
 
-msgid "\"{{deletedObject}}\" successfully deleted."
+msgid "\"{{- deletedObject}}\" successfully deleted."
 msgstr ""
 
 msgid "You have unsaved changes."
@@ -214,7 +214,7 @@ msgid "Select years"
 msgstr ""
 
 msgid "Interpretations"
-msgstr "Интерпретации"
+msgstr "Interpretations"
 
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
@@ -277,13 +277,13 @@ msgstr ""
 "единиц)"
 
 msgid "Min"
-msgstr "Мин"
+msgstr "Минимум"
 
 msgid "Max"
-msgstr "Макс"
+msgstr "Максимум"
 
 msgid "Standard deviation"
-msgstr "Среднеквадратическое отклонение"
+msgstr "Стандартное отклонение"
 
 msgid "Variance"
 msgstr "Дисперсия"
@@ -844,7 +844,7 @@ msgid "Last 12 weeks"
 msgstr "Прошлые 12 недель"
 
 msgid "Last 52 weeks"
-msgstr "Прошлые 52 недели"
+msgstr "Последние 52 недели"
 
 msgid "Weeks this year"
 msgstr "Недели этого года"
@@ -853,13 +853,13 @@ msgid "This month"
 msgstr "Этот месяц"
 
 msgid "Last month"
-msgstr "Прошлый месяц"
+msgstr "Последний месяц"
 
 msgid "Last 3 months"
 msgstr "Прошлые 3 месяца"
 
 msgid "Last 6 months"
-msgstr "Прошлые 6 месяцев"
+msgstr "Последние 6 месяцев"
 
 msgid "Last 12 months"
 msgstr "Прошлые 12 месяцев"
@@ -883,7 +883,7 @@ msgid "This quarter"
 msgstr "Этот квартал"
 
 msgid "Last quarter"
-msgstr "Прошлый квартал"
+msgstr "Последний квартал"
 
 msgid "Last 4 quarters"
 msgstr "Прошлые 4 квартала"
@@ -898,7 +898,7 @@ msgid "Last six-month"
 msgstr "Прошлое полугодие"
 
 msgid "Last 2 six-months"
-msgstr "Прошлые 2 полугодия"
+msgstr "Последние два полугодия"
 
 msgid "This financial year"
 msgstr "Этот финансовый год"

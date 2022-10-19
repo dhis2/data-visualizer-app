@@ -1,22 +1,20 @@
 # 
 # Translators:
-# Bram Piot <bram.piot@gmail.com>, 2019
-# Matthieu Pinard <matthieu@pinard.no>, 2019
-# Djibril Dione <dione.djibril@gmail.com>, 2020
-# Karoline Tufte Lien <karoline@dhis2.org>, 2020
-# phil_dhis2, 2020
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
-# Yao Selom Saka <ysaka@hispwca.org>, 2020
-# Edem Kossi <ekossi@hispwca.org>, 2021
-# Viktor Varland <viktor@dhis2.org>, 2021
+# Djibril Dione <dione.djibril@gmail.com>, 2022
+# Karoline Tufte Lien <karoline@dhis2.org>, 2022
+# phil_dhis2, 2022
+# Edem Kossi <ekossi@hispwca.org>, 2022
 # Yayra Gomado <ygomado@hispwca.org>, 2022
+# Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2022
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-08-25T09:58:02.683Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Yayra Gomado <ygomado@hispwca.org>, 2022\n"
+"PO-Revision-Date: 2022-10-15 22:30+0000\n"
+"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2022\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -93,7 +91,7 @@ msgid "Other dimensions"
 msgstr "Autres dimensions"
 
 msgid "Your dimensions"
-msgstr "Vos dimensions"
+msgstr "Votre dimensions"
 
 msgid "Filter dimensions"
 msgstr "Filtrer les dimensions"
@@ -117,7 +115,7 @@ msgid "Raw data SQL"
 msgstr "Données brutes SQL"
 
 msgid "Plain data source"
-msgstr "Sourc de données brutes"
+msgstr "Source de données brutes"
 
 msgid "Microsoft Excel"
 msgstr ""
@@ -129,7 +127,7 @@ msgid "Advanced"
 msgstr "Avancé"
 
 msgid "Graphics"
-msgstr "Graphisme"
+msgstr "Graphiques"
 
 msgid "Image (.png)"
 msgstr "Image (.png)"
@@ -144,7 +142,7 @@ msgid "Metadata ID scheme"
 msgstr "Schéma ID des métadata"
 
 msgid "ID"
-msgstr "Id"
+msgstr "ID"
 
 msgid "Code"
 msgstr "Code"
@@ -229,7 +227,7 @@ msgid "Select years"
 msgstr "Sélectionner des années"
 
 msgid "Interpretations"
-msgstr "interprétations"
+msgstr "Interprétations"
 
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
@@ -273,7 +271,7 @@ msgid "Overrides aggregation type for all data values."
 msgstr "Remplace le type d'agrégation pour toutes les valeurs de données."
 
 msgid "By data element"
-msgstr "Par élément de donnée"
+msgstr "Par élément de données"
 
 msgid "Count"
 msgstr "Décompte"
@@ -359,7 +357,7 @@ msgid "Reset style to default"
 msgstr ""
 
 msgid "Base line"
-msgstr "Ligne de base"
+msgstr "Ligne de référence"
 
 msgid "Column sub-totals"
 msgstr "Sous-totaux de colonne"
@@ -466,13 +464,13 @@ msgid "Hide empty categories"
 msgstr "Masquer les catégories vides"
 
 msgid "Before first"
-msgstr "Avant le premier"
+msgstr "Avant la première"
 
 msgid "After last"
 msgstr "Après la dernière"
 
 msgid "Before first and after last"
-msgstr "Avant premier et après dernier "
+msgstr "Avant la première et après la dernière"
 
 msgid "Hide empty rows"
 msgstr "Cacher lignes vides"
@@ -607,7 +605,7 @@ msgid "Reporting period"
 msgstr "Période de rapportage"
 
 msgid "Stacked values add up to 100%"
-msgstr "Les valeurs empilées totalisent jusqu'à 100%"
+msgstr "Les valeurs empilées s'additionnent à 100%"
 
 msgid "Include regression"
 msgstr "Inclure régression"
@@ -681,7 +679,7 @@ msgid "Display organisation unit hierarchy"
 msgstr "Afficher la hiérarchie des unités d'organisation"
 
 msgid "Show legend key"
-msgstr "Afficher la clé de légende"
+msgstr "Afficher la légende"
 
 msgid "Show series key"
 msgstr ""
@@ -839,7 +837,7 @@ msgstr "Un problème est survenu lors de l'obtention des données du serveur."
 
 msgid "Assigned Categories can only be used with data elements"
 msgstr ""
-"Les catégories attribuées ne peuvent être utilisées qu'avec des éléments de "
+"Les Catégories Attribuées ne peuvent être utilisées qu'avec des éléments de "
 "données"
 
 msgid ""
@@ -891,7 +889,7 @@ msgid "Last 7 days"
 msgstr "7 derniers jours"
 
 msgid "Last 14 days"
-msgstr "14 dernier jours"
+msgstr "14 derniers jours"
 
 msgid "This week"
 msgstr "Cette semaine"
@@ -912,10 +910,10 @@ msgid "Weeks this year"
 msgstr "Semaines cette année"
 
 msgid "This month"
-msgstr "Ce mois-ci"
+msgstr "Ce mois"
 
 msgid "Last month"
-msgstr "Le mois dernier"
+msgstr "Mois dernier"
 
 msgid "Last 3 months"
 msgstr "3 derniers mois"
@@ -936,7 +934,7 @@ msgid "Last bimonth"
 msgstr "Dernier bimestre"
 
 msgid "Last 6 bimonths"
-msgstr "6 derniers mois"
+msgstr "6 derniers bimestres"
 
 msgid "Bimonths this year"
 msgstr "Bimestres cette année"
@@ -966,10 +964,10 @@ msgid "This financial year"
 msgstr "Année fiscale en cours"
 
 msgid "Last financial year"
-msgstr "Dernière année financière"
+msgstr "Année fiscale précédente"
 
 msgid "Last 5 financial years"
-msgstr "5 dernières années financières"
+msgstr "5 dernières années fiscales"
 
 msgid "This year"
 msgstr "Année en cours"
@@ -1157,7 +1155,7 @@ msgid "Months per year"
 msgstr "Mois par an"
 
 msgid "Bimonths per year"
-msgstr "Bimestre par an"
+msgstr "Bimestres par an"
 
 msgid "Quarters per year"
 msgstr "Trimestres par an"

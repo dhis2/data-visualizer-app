@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-06-17T07:32:29.449Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"POT-Creation-Date: 2022-08-25T09:58:02.683Z\n"
+"PO-Revision-Date: 2022-10-15 22:30+0000\n"
 "Last-Translator: Valeriu Plesca <vplesca@gmail.com>, 2022\n"
 "Language-Team: Romanian (https://www.transifex.com/hisp-uio/teams/100509/ro/)\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr ""
 
-msgid "\"{{deletedObject}}\" successfully deleted."
+msgid "\"{{- deletedObject}}\" successfully deleted."
 msgstr ""
 
 msgid "You have unsaved changes."
@@ -562,7 +562,7 @@ msgid "Organisation unit"
 msgstr "Unitate organizațională"
 
 msgid "Parent organisation unit"
-msgstr "Organizația părinte"
+msgstr "Unitatea organizațională părinte"
 
 msgid "Reporting period"
 msgstr "Perioadă de raportare"

@@ -1,7 +1,7 @@
 # 
 # Translators:
-# KRG HIS <antonia.bezenchek@informa.pro>, 2020
-# phil_dhis2, 2020
+# KRG HIS <antonia.bezenchek@informa.pro>, 2022
+# phil_dhis2, 2022
 # Hamza Assada <7amza.it@gmail.com>, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
 # 
@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-08-25T09:58:02.683Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"PO-Revision-Date: 2022-10-15 22:30+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2022\n"
 "Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
 "MIME-Version: 1.0\n"
@@ -131,7 +131,7 @@ msgid "Download data from this date"
 msgstr ""
 
 msgid "Metadata ID scheme"
-msgstr "مخطط معرف البيانات الوصفية"
+msgstr "مخطط ID البيانات الوصفية"
 
 msgid "ID"
 msgstr "ID"
@@ -155,7 +155,7 @@ msgid "HTML (.html)"
 msgstr "HTML (.html)"
 
 msgid "Download"
-msgstr "تحميل"
+msgstr "تنزيل"
 
 msgid "Hide"
 msgstr "إخفاء"
@@ -260,7 +260,7 @@ msgid "Overrides aggregation type for all data values."
 msgstr "إعادة كتابة نوع التجميع لكل قيم البيانات."
 
 msgid "By data element"
-msgstr "بواسطة عنصر البيانات"
+msgstr "حسب عنصر البيانات"
 
 msgid "Count"
 msgstr "العدد"
@@ -281,7 +281,7 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr "القيمة الأخيرة (المتوسط في التسلسل الهرمي للوحدة التنظيمية)"
 
 msgid "Min"
-msgstr "اﻷدنى"
+msgstr "الأدنى"
 
 msgid "Max"
 msgstr "الأعلى"
@@ -477,7 +477,7 @@ msgid "Use legend for chart colors"
 msgstr ""
 
 msgid "Legend style"
-msgstr "نمط وسيلة الإيضاح"
+msgstr "نمط مفتاح الإيضاح"
 
 msgid "Legend type"
 msgstr "نوع مفتاح الخريطة"
@@ -571,7 +571,7 @@ msgid "Outlier detection method"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr "الوحدة التنظيمية"
+msgstr "وحدة تنظيمية"
 
 msgid "Parent organisation unit"
 msgstr "الوحدة التنظيمية الأصل"
@@ -832,7 +832,7 @@ msgid "The level or group selections didn't return any organization units."
 msgstr ""
 
 msgid "Something went wrong"
-msgstr "هناك خطأ ما"
+msgstr "حدث خطأ ما"
 
 msgid "or"
 msgstr "أو"
@@ -853,7 +853,7 @@ msgid "Last 14 days"
 msgstr "آخر 14 يوم"
 
 msgid "This week"
-msgstr "الأسبوع الحالي"
+msgstr "هذا الأسبوع"
 
 msgid "Last week"
 msgstr "الأسبوع الماضي"
@@ -889,10 +889,10 @@ msgid "Months this year"
 msgstr "أشهر السنة الحالية"
 
 msgid "This bimonth"
-msgstr "ثنائي شهرين الحالي"
+msgstr "الشهرين الحاليين"
 
 msgid "Last bimonth"
-msgstr "آخر ثنائي شهري"
+msgstr "آخر شهرين"
 
 msgid "Last 6 bimonths"
 msgstr "آخر 6 أزواج شهرية"
@@ -916,10 +916,10 @@ msgid "This six-month"
 msgstr "الستة أشهر الحالية"
 
 msgid "Last six-month"
-msgstr "آخر نصف السنة (فترة من ستة أشهر)"
+msgstr "آخر ستة-أشهر"
 
 msgid "Last 2 six-months"
-msgstr "آخر نصفي السنة (كل فترة ستة أشهر)"
+msgstr "آخر فترتي ستة أشهر (نصفي سنة)"
 
 msgid "This financial year"
 msgstr "السنة المالية الحالية"
@@ -994,7 +994,7 @@ msgid "Lines"
 msgstr "الخطوط"
 
 msgid "Totals"
-msgstr "الإجمالي"
+msgstr "الإجماليات"
 
 msgid "Vertical (y) axis {{axisId}}"
 msgstr ""
@@ -1009,7 +1009,7 @@ msgid "Axes"
 msgstr "المحاور"
 
 msgid "Data"
-msgstr "البيانات"
+msgstr "بيانات"
 
 msgid "Limit values"
 msgstr "حدد حدود القيم"
