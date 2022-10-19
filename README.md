@@ -20,12 +20,13 @@ Run `yarn start` from the repo's root to start the app on `localhost:3000` and t
 Running the plugin on a different port allows for testing it in other apps.
 For example, for testing it in dashboard app, run the dashboard app in a different port and via devtools override the plugin path with the host and port where the plugin is running.
 Example steps:
+
 1. in DV: `yarn start`
 2. in dashboard: `yarn start`
-At this point DV is running on localhost:3000, DV plugin on localhost:3001 and dashboard app on localhost:3002.
+   At this point DV is running on localhost:3000, DV plugin on localhost:3001 and dashboard app on localhost:3002.
 3. Point the browser to localhost:3002.
 4. Add this entry to the dashboard app localStorage via devtools in the Application tab:
-`dhis2.dashboard.pluginOverrides: { "VISUALIZATION": "http://localhost:3001" }`
+   `dhis2.dashboard.pluginOverrides: { "VISUALIZATION": "http://localhost:3001" }`
 
 With the same principle is possible to test several plugins at the same time, you just need to make sure the port configured in the override is the right one for the plugin you are overriding.
 
