@@ -1,16 +1,16 @@
 # 
 # Translators:
-# phil_dhis2, 2020
-# Nadiia <semchuk@aph.org.ua>, 2021
-# Viktor Varland <viktor@dhis2.org>, 2021
-# Wanda <wanda@frontlineaids.org>, 2021
+# Nadiia <semchuk@aph.org.ua>, 2022
+# Wanda <wanda@frontlineaids.org>, 2022
+# phil_dhis2, 2022
+# Viktor Varland <viktor@dhis2.org>, 2022
 # Éva Tamási, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-08-25T09:58:02.683Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"PO-Revision-Date: 2022-10-15 22:30+0000\n"
 "Last-Translator: Éva Tamási, 2022\n"
 "Language-Team: Ukrainian (https://www.transifex.com/hisp-uio/teams/100509/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -166,7 +166,7 @@ msgid "Hide"
 msgstr "Приховати"
 
 msgid "All"
-msgstr "Всі"
+msgstr "Усі"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr "Вибрано {{total}} з {{axisMaxNumberOfItems}}"

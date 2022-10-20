@@ -1,14 +1,14 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2020
-# phil_dhis2, 2020
+# Viktor Varland <viktor@dhis2.org>, 2022
+# phil_dhis2, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-06-17T07:32:29.449Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: phil_dhis2, 2020\n"
+"POT-Creation-Date: 2022-08-25T09:58:02.683Z\n"
+"PO-Revision-Date: 2022-10-15 22:30+0000\n"
+"Last-Translator: phil_dhis2, 2022\n"
 "Language-Team: Burmese (https://www.transifex.com/hisp-uio/teams/100509/my/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,7 +25,7 @@ msgstr ""
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr ""
 
-msgid "\"{{deletedObject}}\" successfully deleted."
+msgid "\"{{- deletedObject}}\" successfully deleted."
 msgstr ""
 
 msgid "You have unsaved changes."
@@ -211,7 +211,7 @@ msgid "Select years"
 msgstr ""
 
 msgid "Interpretations"
-msgstr "Interpretations"
+msgstr "ဘာသာပြန်ခြင်းများ"
 
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
