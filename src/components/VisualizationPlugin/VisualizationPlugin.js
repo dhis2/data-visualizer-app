@@ -23,11 +23,11 @@ import styles from './styles/VisualizationPlugin.module.css'
 
 export const VisualizationPlugin = ({
     visualization,
+    displayProperty,
     filters,
     forDashboard,
     id,
     style,
-    userSettings,
     onChartGenerated,
     onError,
     onLoadingComplete,
@@ -100,7 +100,7 @@ export const VisualizationPlugin = ({
             visualization,
             filters,
             forDashboard,
-            userSettings,
+            displayProperty,
         })
 
         if (result.responses.length) {
@@ -112,7 +112,7 @@ export const VisualizationPlugin = ({
         engine,
         filters,
         forDashboard,
-        userSettings,
+        displayProperty,
         onResponsesReceived,
         visualization,
     ])
@@ -380,15 +380,14 @@ VisualizationPlugin.defaultProps = {
     onResponsesReceived: Function.prototype,
     style: {},
     visualization: {},
-    userSettings: {},
 }
 VisualizationPlugin.propTypes = {
+    displayProperty: PropTypes.object.isRequired,
     visualization: PropTypes.object.isRequired,
     filters: PropTypes.object,
     forDashboard: PropTypes.bool,
     id: PropTypes.number,
     style: PropTypes.object,
-    userSettings: PropTypes.object,
     onChartGenerated: PropTypes.func,
     onDrill: PropTypes.func,
     onError: PropTypes.func,
