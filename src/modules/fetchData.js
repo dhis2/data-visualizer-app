@@ -41,7 +41,7 @@ export const fetchData = async ({
     const options = getRequestOptions(
         adaptedVisualization,
         filters,
-        displayProperty,
+        displayProperty
     )
 
     const extraOptions = {
