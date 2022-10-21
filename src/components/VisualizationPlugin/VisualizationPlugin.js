@@ -382,7 +382,7 @@ VisualizationPlugin.defaultProps = {
     visualization: {},
 }
 VisualizationPlugin.propTypes = {
-    displayProperty: PropTypes.object.isRequired,
+    displayProperty: PropTypes.string.isRequired,
     visualization: PropTypes.object.isRequired,
     filters: PropTypes.object,
     forDashboard: PropTypes.bool,
