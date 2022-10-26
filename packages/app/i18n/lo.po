@@ -486,16 +486,16 @@ msgid "Months this year"
 msgstr "​ເດືອນ​ໃນ​ປີ"
 
 msgid "This bimonth"
-msgstr ""
+msgstr "ສອງເດືອນນີ້"
 
 msgid "Last bimonth"
-msgstr ""
+msgstr "ສອງເດືອນຜ່ານມາ"
 
 msgid "Last 6 bimonths"
 msgstr ""
 
 msgid "Bimonths this year"
-msgstr ""
+msgstr "ສອງເດືອນ ຂອງປີນີ້"
 
 msgid "This quarter"
 msgstr "ໄຕມານີ້"
