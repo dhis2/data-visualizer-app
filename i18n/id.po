@@ -1,0 +1,1129 @@
+# 
+# Translators:
+# Farida Sibuea <farida_sibuea@yahoo.com>, 2020
+# Viktor Varland <viktor@dhis2.org>, 2020
+# Yusuf Setiawan <mohammadyusufsetiawan@gmail.com>, 2021
+# Untoro Dwi Raharjo <untoro.dwi.raharjo@mail.ugm.ac.id>, 2021
+# Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2021
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2022-08-25T09:58:02.683Z\n"
+"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"Last-Translator: Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2021\n"
+"Language-Team: Indonesian (https://www.transifex.com/hisp-uio/teams/100509/id/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: id\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Change org unit"
+msgstr "Ubah unit organisasi"
+
+msgid "{{level}} level in {{orgunit}}"
+msgstr "{{level}} level pada {{unit organisasi}}"
+
+msgid "All items"
+msgstr ""
+
+msgid "Rename successful"
+msgstr "Penamaan ulang berhasil"
+
+msgid "Untitled {{visualizationType}} visualization, {{date}}"
+msgstr "Visualisasi {{visualizationType}} tanpa judul, {{date}}"
+
+msgid "\"{{- deletedObject}}\" successfully deleted."
+msgstr ""
+
+msgid "You have unsaved changes."
+msgstr "Anda memiliki pesan belum disimpan"
+
+msgid "Discard unsaved changes?"
+msgstr "Buang perubahan yang belum disimpan?"
+
+msgid ""
+"Are you sure you want to leave this visualization? Any unsaved changes will "
+"be lost."
+msgstr ""
+"Apakah Anda yakin meninggalkan gambar ini? Perubahan yang belum tersimpan "
+"akan hilang"
+
+msgid "No, cancel"
+msgstr "Tidak, batalkan"
+
+msgid "Yes, leave"
+msgstr "Ya, tinggalkan"
+
+msgid "Add to {{axisName}}"
+msgstr "Tambahkan ke {{axisName}}"
+
+msgid ""
+"'{{visualizationType}}' is intended to show a single data item. Only the "
+"first item will be used and saved."
+msgstr ""
+"'{{visualizationType}}' digunakan untuk menunjukkan item data tunggal. Hanya"
+" item pertama yang akan digunakan dan disimpan."
+
+msgid ""
+"'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
+"items. Only the first {{maxNumber}} items will be used and saved."
+msgstr ""
+"'{{visualizationType}}' digunakan untuk menunjukkan maksimum {{maxNumber}} "
+"item. Hanya {{maxNumber}} item pertama yang akan digunakan dan disimpan."
+
+msgid ""
+"'Scatter' is intended to show a single data item per axis. Only the first "
+"item will be used and saved."
+msgstr ""
+"'Scatter' dimaksudkan untuk menampilkan satu item data per aksis. Hanya item"
+" pertama yang akan digunakan dan disimpan."
+
+msgid "Vertical"
+msgstr "Vertikal"
+
+msgid "Horizontal"
+msgstr "Horisontal"
+
+msgid "Main dimensions"
+msgstr "Dimensi utama"
+
+msgid "Other dimensions"
+msgstr "Dimensi lainnya"
+
+msgid "Your dimensions"
+msgstr "Dimensi Anda"
+
+msgid "Filter dimensions"
+msgstr "Filter dimensi"
+
+msgid "Data value set"
+msgstr "Set nilai data"
+
+msgid "JSON"
+msgstr "JSON"
+
+msgid "XML"
+msgstr "XML"
+
+msgid "Other formats"
+msgstr "Format lain"
+
+msgid "JRXML"
+msgstr "JRXML"
+
+msgid "Raw data SQL"
+msgstr "SQL data mentah"
+
+msgid "Plain data source"
+msgstr "Sumber data asli"
+
+msgid "Microsoft Excel"
+msgstr ""
+
+msgid "CSV"
+msgstr "CSV"
+
+msgid "Advanced"
+msgstr "Lebih Lanjut"
+
+msgid "Graphics"
+msgstr "Grafik"
+
+msgid "Image (.png)"
+msgstr "Gambar (.png)"
+
+msgid "PDF (.pdf)"
+msgstr "PDF (.pdf)"
+
+msgid "Download data from this date"
+msgstr ""
+
+msgid "Metadata ID scheme"
+msgstr "Skema ID metadata"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Code"
+msgstr "Kode"
+
+msgid "Name"
+msgstr "Nama"
+
+msgid "Table layout"
+msgstr "Tata letak tabel"
+
+msgid "Excel (.xls)"
+msgstr "Excel (.xls)"
+
+msgid "CSV (.csv)"
+msgstr "CSV (.csv)"
+
+msgid "HTML (.html)"
+msgstr "HTML (.html)"
+
+msgid "Download"
+msgstr "Unduh"
+
+msgid "Hide"
+msgstr "Sembunyikan"
+
+msgid "All"
+msgstr "Semua"
+
+msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
+msgstr "{{total}} dari {{axisMaxNumberOfItems}} terpilih"
+
+msgid "{{total}} selected"
+msgstr "{{total}} terpilih"
+
+msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
+msgstr "{{dimensionName}} dikunci sebagai {{axisName}} untuk {{visTypeName}}"
+
+msgid "Not available for Scatter"
+msgstr "Tidak tersedia untuk Scatter"
+
+msgid "Add Assigned Categories"
+msgstr "Tambahkan Kategori yang Ditugaskan"
+
+msgid "Swap with {{axisName}} axis"
+msgstr "Tukar dengan aksis {{axisName}}"
+
+msgid "vertical"
+msgstr "vertikal"
+
+msgid "horizontal"
+msgstr "horisontal"
+
+msgid "None selected"
+msgstr "Tidak ada yang terpilih"
+
+msgid "Only '{{- name}}' in use"
+msgstr "Hanya '{{- name}}' digunakan"
+
+msgid "Only '{{number}}' in use"
+msgstr "Hanya '{{number}}' digunakan"
+
+msgid "All items are selected"
+msgstr ""
+
+msgid "Levels"
+msgstr "Level"
+
+msgid "Groups"
+msgstr "banyak grup"
+
+msgid "And 1 other..."
+msgstr "Dan 1 lainnya..."
+
+msgid "And {{numberOfItems}} others..."
+msgstr "Dan {{numberOfItems}} lainnya..."
+
+msgid "Select a period"
+msgstr "Pilih periode"
+
+msgid "Select years"
+msgstr "Pilih tahun"
+
+msgid "Interpretations"
+msgstr "Interpretasi"
+
+msgid ""
+"This visualization can't be deleted because it is used on one or more "
+"dashboards"
+msgstr ""
+"Visualisasi ini tidak dapat dihapus karena digunakan pada satu atau beberapa"
+" dasbor"
+
+msgid "Unsaved visualization"
+msgstr "Visualisasi belum disimpan"
+
+msgid "Edited"
+msgstr "Diedit"
+
+msgid "Update"
+msgstr "Perbarui"
+
+msgid "Getting started"
+msgstr "Mulai"
+
+msgid ""
+"All dimensions that you can use to build visualizations are shown in the "
+"left sidebar"
+msgstr ""
+"Semua dimensi yang dapat digunakan untuk membuat visualisasi disajikan di "
+"sisi kiri bar"
+
+msgid "Add dimensions to the layout above"
+msgstr "Tambahkan dimensi ke tata letak di atas"
+
+msgid "Click a dimension to add or remove items"
+msgstr "Klik dimensi untuk menambah atau menghapus item"
+
+msgid "Your most viewed charts and tables"
+msgstr "Grafik dan tabel yang paling sering Anda lihat"
+
+msgid "Aggregation type"
+msgstr "Tipe agregasi"
+
+msgid "Overrides aggregation type for all data values."
+msgstr "Mengganti jenis agregasi untuk semua nilai data."
+
+msgid "By data element"
+msgstr "Berdasarkan data elemen"
+
+msgid "Count"
+msgstr "Hitung"
+
+msgid "Average"
+msgstr "Rerata"
+
+msgid "Average (sum in org unit hierarchy)"
+msgstr "Rerata (jumlah dalam hirarki org unit)"
+
+msgid "Sum"
+msgstr "Jumlah"
+
+msgid "Last value"
+msgstr "Nilai terakhir"
+
+msgid "Last value (average in org unit hierarchy)"
+msgstr "Nilai terakhir (rerata dalam hirarki org unit)"
+
+msgid "Min"
+msgstr "Min"
+
+msgid "Max"
+msgstr "Maks"
+
+msgid "Standard deviation"
+msgstr "Standar deviasi"
+
+msgid "Variance"
+msgstr "Varians"
+
+msgid "Data approved at level"
+msgstr "Data disetujui di tingkat"
+
+msgid "Select from predefined levels"
+msgstr "Pilih dari level yang telah ditentukan"
+
+msgid "Loading data approval levels"
+msgstr "Memuat level persetujuan data"
+
+msgid "Decimals"
+msgstr "Desimal"
+
+msgid "Auto"
+msgstr "Otomatis"
+
+msgid "Labels"
+msgstr "Label"
+
+msgid "Axis range"
+msgstr "Jangkauan aksis"
+
+msgid "Values outside of the range will not be displayed"
+msgstr "Nilai di luar jangkauan tidak akan ditampilkan"
+
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr ""
+"Jumlah langkah penandaan aksis, termasuk min dan maks. Nilai 2 atau lebih "
+"rendah akan diabaikan."
+
+msgid "Steps"
+msgstr "langkah"
+
+msgid "Axis title"
+msgstr "Judul sumbu X"
+
+msgid "Auto generated from axis items"
+msgstr ""
+
+msgid "None"
+msgstr "Tidak ada"
+
+msgid "Custom"
+msgstr "Kustom"
+
+msgid "Add a title"
+msgstr "Tambahkan judul"
+
+msgid "Reset style to default"
+msgstr "Setel ulang gaya ke default"
+
+msgid "Base line"
+msgstr "Baseline"
+
+msgid "Column sub-totals"
+msgstr "Kolom sub-total"
+
+msgid "Columns totals"
+msgstr "Total kolom"
+
+msgid "Default"
+msgstr "Default"
+
+msgid "Basic"
+msgstr ""
+
+msgid "Extended"
+msgstr ""
+
+msgid "Bright"
+msgstr "Terang"
+
+msgid "Dark"
+msgstr "Gelap"
+
+msgid "Gray"
+msgstr "Abu-abu"
+
+msgid "Color blind"
+msgstr "Buta warna"
+
+msgid "Patterns"
+msgstr "Pola"
+
+msgid "Event data"
+msgstr "Data even"
+
+msgid "Only include completed events"
+msgstr "Hanya sertakan even yang telah selesai"
+
+msgid "Include cumulative"
+msgstr "Masukkan kumulatif"
+
+msgid "Cumulative values"
+msgstr "Nilai Kumulatif"
+
+msgid "Digit group separator"
+msgstr "Pemisah kelompok digit"
+
+msgid "Space"
+msgstr "Spasi"
+
+msgid "Comma"
+msgstr "Koma"
+
+msgid "Display density"
+msgstr "Tampilkan densitas"
+
+msgid "Comfortable"
+msgstr "Nyaman"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "Compact"
+msgstr "Padat"
+
+msgid "Extreme lines"
+msgstr "Garis ekstrim"
+
+msgid "Calculated as a percent, usually 1%, of the total values along an axis"
+msgstr ""
+"Dihitung sebagai persen, biasanya 1%, dari nilai total sepanjang aksis"
+
+msgid "Extreme line % detection"
+msgstr "Deteksi % garis ekstrim"
+
+msgid "Number"
+msgstr "Angka"
+
+msgid "Fix column headers to top of table"
+msgstr ""
+
+msgid "There aren’t any column headers because Columns is empty."
+msgstr ""
+
+msgid "Fix row headers to left of table"
+msgstr ""
+
+msgid "There aren’t any row headers because Rows is empty."
+msgstr ""
+
+msgid "Font size"
+msgstr "Ukuran font"
+
+msgid "Large"
+msgstr "Besar"
+
+msgid "Small"
+msgstr "Kecil"
+
+msgid "Hide empty columns"
+msgstr "Sembunyikan kolom kosong"
+
+msgid "Hide empty categories"
+msgstr "Sembunyikan kategori yang kosong"
+
+msgid "Before first"
+msgstr "Sebelum yang pertama"
+
+msgid "After last"
+msgstr "Setelah terakhir"
+
+msgid "Before first and after last"
+msgstr "Sebelum yang pertama dan sesudah yang terakhir"
+
+msgid "Hide empty rows"
+msgstr "Sembunyikan baris kosong"
+
+msgid "Table subtitle"
+msgstr "Subjudul tabel"
+
+msgid "Chart subtitle"
+msgstr "Subjudul grafik"
+
+msgid "Auto generated"
+msgstr "Dibuat otomatis"
+
+msgid "Chart title"
+msgstr "Judul grafik"
+
+msgid "Use legend for chart colors"
+msgstr "Gunakan legenda untuk warna bagan"
+
+msgid "Legend style"
+msgstr "Gaya legenda"
+
+msgid "Legend type"
+msgstr "Tipe legenda"
+
+msgid "Use pre-defined legend per data item"
+msgstr "Gunakan legenda yang telah ditentukan sebelumnya per item data"
+
+msgid "Select a single legend for the entire visualization"
+msgstr "Pilih satu legenda untuk seluruh visualisasi"
+
+msgid "Legend changes background color"
+msgstr "Legenda mengubah warna latar belakang"
+
+msgid "Legend changes text color"
+msgstr "Legenda mengubah warna teks"
+
+msgid "Legend"
+msgstr "Legenda"
+
+msgid "Select from legends"
+msgstr "Pilih dari legenda"
+
+msgid "Loading legends"
+msgstr "Memuat legenda"
+
+msgid ""
+"You can set a minimum or maximum value. This will apply to the entire "
+"visualization, all values outside of the minimum/maximum range will not be "
+"displayed"
+msgstr ""
+"Anda dapat mengatur nilai minimum atau maksimum. Ini akan berlaku untuk "
+"seluruh visualisasi, semua nilai di luar rentang minimum/maksimum tidak akan"
+" ditampilkan"
+
+msgid "Minimum data value"
+msgstr "Nilai Miinimum"
+
+msgid "Maximum data value"
+msgstr "Nilai maximum"
+
+msgid "Clear min/max limits"
+msgstr "Hapus batas min/maks"
+
+msgid "No space between bars/columns"
+msgstr "Tanpa spasi diantara bar/kolom"
+
+msgid "Number type"
+msgstr "Tipe nomor"
+
+msgid "Display the value of percentages of the total"
+msgstr "Tampilkan nilai persentase dari total"
+
+msgid "Value"
+msgstr "Nilai"
+
+msgid "Percentage of row"
+msgstr "Persentase baris"
+
+msgid "Percentage of column"
+msgstr "Persentase kolom"
+
+msgid ""
+"Each detection method identifies outliers in different ways and suits "
+"different data. Check the documentation for help to choose the right outlier"
+" detection method"
+msgstr ""
+"Setiap metode deteksi mengidentifikasi outlier dengan cara yang berbeda dan "
+"sesuai dengan data yang berbeda. Periksa dokumentasi untuk bantuan dalam "
+"memilih metode deteksi outlier yang tepat"
+
+msgid "Threshold factor"
+msgstr "Faktor ambang batas"
+
+msgid ""
+"A high value is more sensitive so fewer data items will be identified as "
+"outliers"
+msgstr ""
+"Nilai tinggi lebih sensitif sehingga lebih sedikit item data yang akan "
+"diidentifikasi sebagai outlier"
+
+msgid "Interquartile Range (IQR)"
+msgstr "Rentang Interkuartil (IQR)"
+
+msgid "Z-score / Standard score"
+msgstr "Z-score / Skor standar"
+
+msgid "Modified Z-score"
+msgstr "Z-score yang dimodifikasi"
+
+msgid "Outlier analysis"
+msgstr "Analisis outlier"
+
+msgid ""
+"Outlier analysis detects and highlights data items that are markedly "
+"different from the rest of the data"
+msgstr ""
+"Analisis outlier mendeteksi dan menyoroti item data yang sangat berbeda dari"
+" data lainnya"
+
+msgid "Outlier detection method"
+msgstr "Metode deteksi outlier"
+
+msgid "Organisation unit"
+msgstr "Unit organisasi"
+
+msgid "Parent organisation unit"
+msgstr "Unit organisasi induk"
+
+msgid "Reporting period"
+msgstr "Periode pelaporan"
+
+msgid "Stacked values add up to 100%"
+msgstr "Nilai bertumpuk bertambah hingga 100%"
+
+msgid "Include regression"
+msgstr "Masukkan regresi"
+
+msgid "Title"
+msgstr "Judul"
+
+msgid "Trend line"
+msgstr "Garis tren"
+
+msgid "Linear"
+msgstr "Linier"
+
+msgid "Polynomial"
+msgstr "Polinomial"
+
+msgid "Loess"
+msgstr "Loess"
+
+msgid "Row sub-totals"
+msgstr "Sub-total baris"
+
+msgid "Row totals"
+msgstr "Total baris"
+
+msgid "Data item"
+msgstr "barang data"
+
+msgid "Visualization type"
+msgstr "Jenis visualisasi"
+
+msgid "Axis {{axisId}}"
+msgstr "Aksis {{axisId}}"
+
+msgid "Series is empty"
+msgstr "Seri kosong"
+
+msgid "Options for selected items will be available here"
+msgstr "Pilihan untuk item yang dipilih akan tersedia di sini"
+
+msgid "No Series options"
+msgstr "Tidak ada opsi Seri"
+
+msgid "There aren't any Series options for this visualization type"
+msgstr "Tidak ada opsi Seri untuk jenis visualisasi ini"
+
+msgid "Series options unavailable"
+msgstr "Opsi seri tidak tersedia"
+
+msgid ""
+"Series options are not available when using relative selections for periods,"
+" org units or categories"
+msgstr ""
+"Opsi seri tidak tersedia saat menggunakan pilihan relatif untuk periode, "
+"unit organisasi, atau kategori"
+
+msgid ""
+"Series options are not available when a series item has an \"All items\" "
+"selection"
+msgstr ""
+
+msgid "Value labels"
+msgstr "Label nilai"
+
+msgid "Dimension labels"
+msgstr "Label dimensi"
+
+msgid "Display organisation unit hierarchy"
+msgstr "Tampilkan hierarki unit organisasi"
+
+msgid "Show legend key"
+msgstr "Tampilkan kunci legenda"
+
+msgid "Show series key"
+msgstr ""
+
+msgid "Skip rounding"
+msgstr "Jangan bulatkan"
+
+msgid "Custom sort order"
+msgstr "Urutan pengurutan khusus"
+
+msgid "Low to high"
+msgstr "Rendah ke tinggi"
+
+msgid "High to low"
+msgstr "Tinggi ke rendah"
+
+msgid "Add a subtitle"
+msgstr "Tambahkan subtitle"
+
+msgid "Target line"
+msgstr "Garis sasaran"
+
+msgid "Size"
+msgstr "Ukuran"
+
+msgid "Position"
+msgstr "Posisi"
+
+msgid "Top limit"
+msgstr "Batas atas"
+
+msgid "Options"
+msgstr "Opsi"
+
+msgid "Open as Map"
+msgstr "Buka sebagai Peta"
+
+msgid ""
+"Visually plot data on a world map. Data elements use separate map layers."
+msgstr ""
+"Plot data secara visual pada peta dunia. Elemen data menggunakan lapisan "
+"peta terpisah."
+
+msgid "Reporting rate"
+msgstr "Tingkat pelaporan"
+
+msgid "Reporting rate on time"
+msgstr "Tingkat pelaporan tepat waktu"
+
+msgid "Actual reports"
+msgstr "Laporan sesungguhnya"
+
+msgid "Actual reports on time"
+msgstr "Laporan sesungguhnya yang tepat waktu"
+
+msgid "Expected reports"
+msgstr "Laporan yang diharapkan"
+
+msgid "No data available"
+msgstr "Tidak ada data yang tersedia"
+
+msgid ""
+"The selected dimensions didn’t return any data. There may be no data, or you"
+" may not have access to it."
+msgstr ""
+"Dimensi yang dipilih tidak mengembalikan data apa pun. Mungkin tidak ada "
+"data, atau Anda mungkin tidak memiliki akses ke sana."
+
+msgid "{{axisName}} is empty"
+msgstr "{{axisName}} kosong"
+
+msgid "Add at least one item to {{axisName}}."
+msgstr "Tambahkan setidaknya satu item ke {{axisName}}."
+
+msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
+msgstr "{{columnsAxisName}} dan {{rowsAxisName}} kosong"
+
+msgid ""
+"Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
+" {{visualizationType}}."
+msgstr ""
+"Tambahkan setidaknya satu item ke {{columnsAxisName}} atau {{rowsAxisName}} "
+"untuk membuat {{visualizationType}}."
+
+msgid "No period selected"
+msgstr "Tidak ada periode yang dipilih"
+
+msgid ""
+"{{visualizationType}} must have at least one period selected in {{axes}}."
+msgstr ""
+"{{visualizationType}} harus memiliki setidaknya satu periode yang dipilih di"
+" {{axes}}."
+
+msgid "Add organisation units to {{axisName}}."
+msgstr "Tambahkan unit organisasi ke {{axisName}}."
+
+msgid "Vertical is empty"
+msgstr "Vertikal kosong"
+
+msgid "Add a data item to the vertical axis."
+msgstr "Tambahkan item data ke sumbu vertikal."
+
+msgid "Horizontal is empty"
+msgstr "Horisontal kosong"
+
+msgid "Add a data item to the horizontal axis."
+msgstr "Tambahkan item data ke sumbu horizontal."
+
+msgid "Axes data items are the same"
+msgstr "Item data sumbu adalah sama"
+
+msgid ""
+"The horizontal and vertical axes have the same data item. Scatter chart axes"
+" must have different data for each axis."
+msgstr ""
+"Sumbu horizontal dan vertikal memiliki item data yang sama. Aksis bagan "
+"sebar harus memiliki data yang berbeda untuk setiap aksis."
+
+msgid "No data selected"
+msgstr "Tidak ada data yang dipilih"
+
+msgid ""
+"{{visualizationType}} must have at least one data item or data element group"
+" set item in {{axes}}."
+msgstr ""
+"{{visualizationType}} harus memiliki setidaknya satu item data atau item "
+"kumpulan elemen data di {{axes}}."
+
+msgid "{{visualizationType}} must have at least one data item in {{axes}}."
+msgstr ""
+"{{visualizationType}} harus memiliki setidaknya satu item data di {{axes}}."
+
+msgid "There's a problem with the layout"
+msgstr "Ada masalah dengan tata letak"
+
+msgid ""
+"A single indicator must be the only data item when using indicators as Data "
+"in Filter."
+msgstr ""
+"Indikator tunggal harus menjadi satu-satunya item data saat menggunakan "
+"indikator sebagai Data dalam Filter."
+
+msgid "Data Element Group Sets and Reporting Rates cannot be used together."
+msgstr ""
+"Kumpulan grup data elemen dan laju pelaporan tidak dapat digunakan bersama-"
+"sama."
+
+msgid "There is a problem with this {{visualizationType}} visualization."
+msgstr "Ada masalah dengan visualisasi {{visualizationType}} ini."
+
+msgid "There was a problem getting the data from the server."
+msgstr "Terjadi masalah saat mengambil data dari server."
+
+msgid "Assigned Categories can only be used with data elements"
+msgstr "Kategori yang ditetapkan hanya dapat digunakan dengan elemen data"
+
+msgid ""
+"Fix this problem by selecting data elements or removing Assigned Categories."
+msgstr ""
+"Perbaiki masalah ini dengan memilih elemen data atau menghapus kategori yang"
+" ditetapkan."
+
+msgid "Assigned Categories cannot be used as Filter"
+msgstr "Kategori yang ditetapkan tidak dapat digunakan sebagai filter"
+
+msgid "Fix this problem by moving or removing Assigned Categories."
+msgstr ""
+"Perbaiki masalah ini dengan memindahkan atau menghapus kategori yang "
+"ditetapkan."
+
+msgid "Visualization not found"
+msgstr "Visualisasi tidak ditemukan"
+
+msgid ""
+"The visualization you are trying to view could not be found, the ID could be"
+" incorrect or it could have been deleted."
+msgstr ""
+"Visualisasi yang Anda coba lihat tidak dapat ditemukan, ID mungkin salah "
+"atau mungkin telah dihapus."
+
+msgid "No organization units found"
+msgstr "Tidak ada unit organisasi yang ditemukan"
+
+msgid "The level or group selections didn't return any organization units."
+msgstr "Pilihan tingkat atau grup tidak menampilkan unit organisasi apa pun."
+
+msgid "Something went wrong"
+msgstr "Terjadi kesalahan"
+
+msgid "or"
+msgstr "atau"
+
+msgid "Today"
+msgstr "Hari ini"
+
+msgid "Yesterday"
+msgstr "Kemarin"
+
+msgid "Last 3 days"
+msgstr "3 hari terakhir"
+
+msgid "Last 7 days"
+msgstr "7 hari terakhir"
+
+msgid "Last 14 days"
+msgstr "14 hari terakhir"
+
+msgid "This week"
+msgstr "Minggu ini"
+
+msgid "Last week"
+msgstr "Minggu lalu"
+
+msgid "Last 4 weeks"
+msgstr "4 minggu terakhir"
+
+msgid "Last 12 weeks"
+msgstr "12 minggu terakhir"
+
+msgid "Last 52 weeks"
+msgstr "52 minggu terakhir"
+
+msgid "Weeks this year"
+msgstr "Minggu dalam tahun ini"
+
+msgid "This month"
+msgstr "Bulan ini"
+
+msgid "Last month"
+msgstr "Bulan lalu"
+
+msgid "Last 3 months"
+msgstr "3 bulan lalu"
+
+msgid "Last 6 months"
+msgstr "6 bulan lalu"
+
+msgid "Last 12 months"
+msgstr "12 bulan lalu"
+
+msgid "Months this year"
+msgstr "Bulan dalam tahun ini"
+
+msgid "This bimonth"
+msgstr "Dwiwulan ini"
+
+msgid "Last bimonth"
+msgstr "Dwiwulan yang lalu"
+
+msgid "Last 6 bimonths"
+msgstr "6 dwiwulan yang lalu"
+
+msgid "Bimonths this year"
+msgstr "Dwiwulan tahun ini"
+
+msgid "This quarter"
+msgstr "Triwulan ini"
+
+msgid "Last quarter"
+msgstr "Triwulan yang lalu"
+
+msgid "Last 4 quarters"
+msgstr "4 triwulan yang lalu"
+
+msgid "Quarters this year"
+msgstr "Triwulan dalam tahun ini"
+
+msgid "This six-month"
+msgstr "Semester ini"
+
+msgid "Last six-month"
+msgstr "Semester yang lalu"
+
+msgid "Last 2 six-months"
+msgstr "2 semester yang lalu"
+
+msgid "This financial year"
+msgstr "Tahun fiskal ini"
+
+msgid "Last financial year"
+msgstr "Tahun fiskal lalu"
+
+msgid "Last 5 financial years"
+msgstr "5 tahun fiskal yang lalu"
+
+msgid "This year"
+msgstr "Tahun ini"
+
+msgid "Last year"
+msgstr "Tahun lalu"
+
+msgid "Last 5 years"
+msgstr "5 tahun terakhir"
+
+msgid "User organisation unit"
+msgstr ""
+
+msgid "User sub-units"
+msgstr "Subunit pengguna"
+
+msgid "User sub-x2-units"
+msgstr "Sub-x2-unit pengguna"
+
+msgid "Table title"
+msgstr "Judul tabel"
+
+msgid "Parameters"
+msgstr "Parameter"
+
+msgid ""
+"These options only apply to legacy tables like standard reports. Options set"
+" here will have no effect on tables made in Data Visualizer."
+msgstr ""
+"Opsi ini hanya berlaku untuk tabel lawas seperti laporan standar. Opsi yang "
+"ditetapkan di sini tidak akan berpengaruh pada tabel yang dibuat di "
+"Visualizer Data."
+
+msgid "Applies to standard reports only"
+msgstr "Hanya berlaku untuk laporan standar"
+
+msgid "Base and target lines are available on the Axes tab for scatter charts"
+msgstr "Garis dasar dan target tersedia di tab aksis untuk bagan sebar"
+
+msgid "Color set"
+msgstr "Set warna"
+
+msgid "Color sets are not supported yet when using multiple axes"
+msgstr "Set warna belum didukung saat menggunakan banyak aksis"
+
+msgid ""
+"Base and target lines are available on the Axes tab for multi-axis charts"
+msgstr "Garis dasar dan target tersedia di tab aksis untuk bagan multi-aksis"
+
+msgid "Chart style"
+msgstr "Tipe grafik"
+
+msgid "Display"
+msgstr "Tampilan"
+
+msgid "Empty data"
+msgstr "Data kosong"
+
+msgid "Horizontal (x) axis {{axisId}}"
+msgstr "Sumbu horizontal (x) {{axisId}}"
+
+msgid "Horizontal (x) axis"
+msgstr "sumbu X"
+
+msgid "Lines"
+msgstr "Garis"
+
+msgid "Totals"
+msgstr "Total"
+
+msgid "Vertical (y) axis {{axisId}}"
+msgstr "Sumbu vertikal (y) {{axisId}}"
+
+msgid "Vertical (y) axis"
+msgstr "Sumbu Y"
+
+msgid "Titles"
+msgstr "Judul"
+
+msgid "Axes"
+msgstr "Sumbu"
+
+msgid "Data"
+msgstr "Data"
+
+msgid "Limit values"
+msgstr "batas nilai"
+
+msgid "Limit number of values"
+msgstr "Batasi jumlah nilai"
+
+msgid "Limit minimum/maximum values"
+msgstr "Batasi nilai minimum/maksimum"
+
+msgid "Outliers"
+msgstr "Pencilan"
+
+msgid "Series"
+msgstr "Seri"
+
+msgid "Style"
+msgstr "Gaya"
+
+msgid "View data and indicators in a manipulatable table."
+msgstr ""
+
+msgid ""
+"Compare sizes of related elements vertically. Recommend period as filter."
+msgstr ""
+
+msgid ""
+"Compare parts of a whole against related elements vertically. Recommend data"
+" or org. unit as series."
+msgstr ""
+
+msgid ""
+"Compare sizes of related elements horizontally. Recommend period as filter."
+msgstr ""
+
+msgid ""
+"Compare parts of a whole against related elements horizontally. Recommend "
+"data or org. unit as series."
+msgstr ""
+
+msgid "Track or compare changes over time. Recommend period as category."
+msgstr ""
+
+msgid ""
+"Track or compare parts of a whole over time. Recommend data as series and "
+"period as category."
+msgstr ""
+
+msgid ""
+"Compare parts of a whole at a single point in time. Recommend period as "
+"filter."
+msgstr ""
+
+msgid "Compare several items against multiple variables."
+msgstr ""
+
+msgid ""
+"Compare a percentage indicator against a 100% scale. Recommend period as "
+"filter."
+msgstr ""
+
+msgid "Compare changes over time between multiple time periods."
+msgstr ""
+
+msgid "Display a single value. Recommend relative period to show latest data."
+msgstr ""
+
+msgid ""
+"View the relationship between two data items at a place or time. Recommended"
+" for finding outliers."
+msgstr ""
+
+msgid "Weeks per year"
+msgstr "Minggu per tahun"
+
+msgid "Months per year"
+msgstr "Bulan per tahun"
+
+msgid "Bimonths per year"
+msgstr "Dwibulan per tahun"
+
+msgid "Quarters per year"
+msgstr "Triwulan per tahun"
