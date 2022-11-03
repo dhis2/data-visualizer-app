@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-08-25T09:58:02.683Z\n"
+"POT-Creation-Date: 2022-09-23T12:57:32.255Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: trendspotter <jirka.p@volny.cz>, 2022\n"
 "Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
@@ -14,12 +14,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: cs\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
-
-msgid "Change org unit"
-msgstr "Změnit organizační jednotku"
-
-msgid "{{level}} level in {{orgunit}}"
-msgstr "Úroveň {{level}} v {{orgunit}}"
 
 msgid "All items"
 msgstr "Všechny položky"
@@ -705,6 +699,12 @@ msgstr "Horní limit"
 
 msgid "Options"
 msgstr "Možnosti"
+
+msgid "Change org unit"
+msgstr "Změnit organizační jednotku"
+
+msgid "{{level}} level in {{orgunit}}"
+msgstr "Úroveň {{level}} v {{orgunit}}"
 
 msgid "Open as Map"
 msgstr "Otevřít jako mapu"
