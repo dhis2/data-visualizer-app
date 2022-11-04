@@ -63,6 +63,7 @@ describe('The DialogManager component', () => {
             },
             d2: {},
             metadata: {},
+            dataEngine: {},
             changeDialog: jest.fn(),
             setRecommendedIds: jest.fn(),
             getAxisIdByDimensionId: () => {},
