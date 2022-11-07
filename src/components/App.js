@@ -59,8 +59,7 @@ const App = () => {
     const ui = useSelector(sGetUi)
     const visualization = useSelector(sGetVisualization)
 
-    const { currentUser, orgUnitLevels, rootOrgUnits, userSettings } =
-        useCachedDataQuery()
+    const { currentUser, orgUnitLevels, rootOrgUnits } = useCachedDataQuery()
 
     const interpretationsUnitRef = useRef()
     const onInterpretationUpdate = () => {
@@ -138,7 +137,7 @@ const App = () => {
     }
 
     useEffect(() => {
-        dispatch(acAddSettings(userSettings))
+        dispatch(acAddSettings(currentUser.settings))
         dispatch(tLoadUserAuthority('ALL'))
         dispatch(tLoadUserAuthority(APPROVAL_LEVEL_OPTION_AUTH))
         dispatch(acReceivedUser(currentUser))

@@ -37,7 +37,7 @@ export const Dimensions = ({
     const [dimensionId, setDimensionId] = useState(null)
     const [ref, setRef] = useState()
 
-    const { rootOrgUnits, systemSettings, userSettings } = useCachedDataQuery()
+    const { rootOrgUnits, systemSettings, currentUser } = useCachedDataQuery()
 
     const toggleMenu = () => {
         if (menuIsOpen) {
@@ -99,7 +99,9 @@ export const Dimensions = ({
                 dataEngine={dataEngine}
                 settings={systemSettings}
                 displayNameProperty={
-                    userSettings[DERIVED_USER_SETTINGS_DISPLAY_NAME_PROPERTY]
+                    currentUser.settings[
+                        DERIVED_USER_SETTINGS_DISPLAY_NAME_PROPERTY
+                    ]
                 }
                 rootOrgUnits={rootOrgUnits}
             />

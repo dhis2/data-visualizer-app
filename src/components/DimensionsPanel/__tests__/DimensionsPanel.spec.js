@@ -6,8 +6,10 @@ import { DndDimensionsPanel } from '../DndDimensionsPanel.js'
 jest.mock('@dhis2/analytics', () => ({
     ...jest.requireActual('@dhis2/analytics'),
     useCachedDataQuery: jest.fn(() => ({
-        userSettings: {
-            keyAnalysisDisplayProperty: 'name',
+        currentUser: {
+            settings: {
+                keyAnalysisDisplayProperty: 'name',
+            },
         },
     })),
 }))

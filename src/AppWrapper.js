@@ -10,7 +10,6 @@ import metadataMiddleware from './middleware/metadata.js'
 import { USER_DATASTORE_NAMESPACE } from './modules/currentAnalyticalObject.js'
 import { systemSettingsKeys } from './modules/systemSettings.js'
 import {
-    userSettingsKeys,
     USER_SETTINGS_DISPLAY_PROPERTY,
     DERIVED_USER_SETTINGS_DISPLAY_NAME_PROPERTY,
 } from './modules/userSettings.js'
@@ -20,13 +19,7 @@ const query = {
     currentUser: {
         resource: 'me',
         params: {
-            fields: 'id,username,displayName~rename(name)',
-        },
-    },
-    userSettings: {
-        resource: 'userSettings',
-        params: {
-            key: userSettingsKeys,
+            fields: 'id,username,displayName~rename(name),settings',
         },
     },
     systemSettings: {
@@ -55,19 +48,21 @@ const query = {
 
 const providerDataTransformation = ({
     currentUser,
-    userSettings,
     systemSettings,
     rootOrgUnits,
     orgUnitLevels,
 }) => {
     return {
-        currentUser,
-        userSettings: {
-            ...userSettings,
-            [DERIVED_USER_SETTINGS_DISPLAY_NAME_PROPERTY]:
-                userSettings[USER_SETTINGS_DISPLAY_PROPERTY] === 'name'
-                    ? 'displayName'
-                    : 'displayShortName',
+        currentUser: {
+            ...currentUser,
+            settings: {
+                ...currentUser.settings,
+                [DERIVED_USER_SETTINGS_DISPLAY_NAME_PROPERTY]:
+                    currentUser.settings[USER_SETTINGS_DISPLAY_PROPERTY] ===
+                    'name'
+                        ? 'displayName'
+                        : 'displayShortName',
+            },
         },
         systemSettings,
         rootOrgUnits: rootOrgUnits.organisationUnits,
