@@ -40,7 +40,9 @@ export const VisualizationPlugin = ({
     const [contextualMenuRef, setContextualMenuRef] = useState(undefined)
     const [contextualMenuConfig, setContextualMenuConfig] = useState({})
     const [showLegendKey, setShowLegendKey] = useState(false)
-    const [renderId, setRenderId] = useState(0)
+    const [renderId, setRenderId] = useState(id)
+
+    useEffect(() => setRenderId(id), [id])
 
     const incremementRenderId = () => setRenderId(renderId + 1)
 
