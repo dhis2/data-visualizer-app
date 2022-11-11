@@ -1,7 +1,7 @@
-import debounce from 'lodash-es/debounce'
 import { useCacheableSection, CacheableSection } from '@dhis2/app-runtime'
 import { CenteredContent, CircularLoader, Layer } from '@dhis2/ui'
 import postRobot from '@krakenjs/post-robot'
+import debounce from 'lodash-es/debounce'
 import PropTypes from 'prop-types'
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { VisualizationPlugin } from './components/VisualizationPlugin/VisualizationPlugin.js'
