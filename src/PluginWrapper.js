@@ -1,8 +1,9 @@
+import debounce from 'lodash-es/debounce'
 import { useCacheableSection, CacheableSection } from '@dhis2/app-runtime'
 import { CenteredContent, CircularLoader, Layer } from '@dhis2/ui'
 import postRobot from '@krakenjs/post-robot'
 import PropTypes from 'prop-types'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { VisualizationPlugin } from './components/VisualizationPlugin/VisualizationPlugin.js'
 
 const LoadingMask = () => {
@@ -69,6 +70,7 @@ CacheableSectionWrapper.propTypes = {
 
 const PluginWrapper = () => {
     const [propsFromParent, setPropsFromParent] = useState()
+    const [renderId, setRenderId] = useState(null)
 
     const receivePropsFromParent = (event) => setPropsFromParent(event.data)
 
@@ -88,6 +90,20 @@ const PluginWrapper = () => {
         return () => listener.cancel()
     }, [])
 
+    useLayoutEffect(() => {
+        const updateRenderId = debounce(
+            () =>
+                setRenderId((renderId) =>
+                    typeof renderId === 'number' ? renderId + 1 : 1
+                ),
+            300
+        )
+
+        window.addEventListener('resize', updateRenderId)
+
+        return () => window.removeEventListener('resize', updateRenderId)
+    }, [])
+
     return propsFromParent ? (
         <div
             style={{
@@ -101,7 +117,7 @@ const PluginWrapper = () => {
                 cacheNow={propsFromParent.recordOnNextLoad}
                 isParentCached={propsFromParent.isParentCached}
             >
-                <VisualizationPlugin {...propsFromParent} />
+                <VisualizationPlugin id={renderId} {...propsFromParent} />
             </CacheableSectionWrapper>
         </div>
     ) : null
