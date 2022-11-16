@@ -1,0 +1,563 @@
+# 
+# Translators:
+# Jaime Bosque <jaime.bosque@dhis2.org>, 2022
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"POT-Creation-Date: 2020-09-25T09:27:28.489Z\n"
+"PO-Revision-Date: 2019-09-01 20:50+0000\n"
+"Last-Translator: Jaime Bosque <jaime.bosque@dhis2.org>, 2022\n"
+"Language-Team: Spanish (Latin America) (https://www.transifex.com/hisp-uio/teams/100509/es_419/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: es_419\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+
+msgid "Rename successful"
+msgstr ""
+
+msgid "Untitled {{visualizationType}} visualization, {{date}}"
+msgstr ""
+
+msgid "\"{{what}}\" successfully deleted."
+msgstr ""
+
+msgid "Data Visualizer"
+msgstr ""
+
+msgid "Axis 1"
+msgstr ""
+
+msgid "Axis 2"
+msgstr ""
+
+msgid "Manage axes"
+msgstr ""
+
+msgid ""
+"A chart can have two axes. Each axis will have its own scale. Set the axis "
+"for each data selection below."
+msgstr ""
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Update"
+msgstr "Actualizar"
+
+msgid ""
+"'Single Value' is intended to show a single data item. Only the first item "
+"will be used and saved."
+msgstr ""
+
+msgid "Hide"
+msgstr ""
+
+msgid "Remove"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid "Graphics"
+msgstr ""
+
+msgid "Image (.png)"
+msgstr ""
+
+msgid "PDF (.pdf)"
+msgstr ""
+
+msgid "Plain data source"
+msgstr ""
+
+msgid "Advanced"
+msgstr ""
+
+msgid "Metadata ID scheme"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Name"
+msgstr "Nombre"
+
+msgid "Data value set"
+msgstr ""
+
+msgid "JSON"
+msgstr ""
+
+msgid "XML"
+msgstr ""
+
+msgid "Other formats"
+msgstr ""
+
+msgid "JRXML"
+msgstr ""
+
+msgid "Raw data SQL"
+msgstr ""
+
+msgid "An error occurred in the DHIS2 Data Visualizer application."
+msgstr ""
+
+msgid "Something went wrong"
+msgstr "Algo ha ido mal"
+
+msgid "Refresh to try again"
+msgstr ""
+
+msgid "Hide technical details"
+msgstr ""
+
+msgid "Show technical details"
+msgstr ""
+
+msgid "The following information may be requested by technical support."
+msgstr ""
+
+msgid "Interpretations"
+msgstr ""
+
+msgid "{{total}} of 1 selected"
+msgstr ""
+
+msgid "{{total}} selected"
+msgstr ""
+
+msgid "Series"
+msgstr ""
+
+msgid "Category"
+msgstr ""
+
+msgid "Filter"
+msgstr ""
+
+msgid "None selected"
+msgstr ""
+
+msgid "Only '{{name}}' in use"
+msgstr ""
+
+msgid "And 1 other..."
+msgstr ""
+
+msgid "And {{numberOfItems}} others..."
+msgstr ""
+
+msgid "Unsaved chart"
+msgstr ""
+
+msgid "Edited"
+msgstr ""
+
+msgid "Viewing interpretation from {{interpretationDate}}"
+msgstr ""
+
+msgid "Error validating layout"
+msgstr ""
+
+msgid "Chart error"
+msgstr ""
+
+msgid "Create a new visualization by adding dimensions to the layout"
+msgstr ""
+
+msgid "Error generating chart, please try again"
+msgstr ""
+
+msgid "Aggregation type"
+msgstr ""
+
+msgid "By data element"
+msgstr ""
+
+msgid "Count"
+msgstr ""
+
+msgid "Average"
+msgstr ""
+
+msgid "Average (sum in org unit hierarchy)"
+msgstr ""
+
+msgid "Sum"
+msgstr ""
+
+msgid "Last value"
+msgstr ""
+
+msgid "Last value (average in org unit hierarchy)"
+msgstr ""
+
+msgid "Min"
+msgstr ""
+
+msgid "Max"
+msgstr "Máx"
+
+msgid "Standard deviation"
+msgstr ""
+
+msgid "Variance"
+msgstr ""
+
+msgid "Base line"
+msgstr ""
+
+msgid "Base line title"
+msgstr ""
+
+msgid "Base line value"
+msgstr ""
+
+msgid "Only include completed events"
+msgstr ""
+
+msgid "Use cumulative values"
+msgstr ""
+
+msgid "Domain axis title"
+msgstr ""
+
+msgid "Hide empty categories"
+msgstr ""
+
+msgid "None"
+msgstr "Ninguno"
+
+msgid "Before first"
+msgstr ""
+
+msgid "After last"
+msgstr ""
+
+msgid "Before first and after last"
+msgstr ""
+
+msgid "All"
+msgstr "Todos"
+
+msgid "Show legend key"
+msgstr ""
+
+msgid "Hide subtitle"
+msgstr ""
+
+msgid "Hide title"
+msgstr ""
+
+msgid "No space between columns/bars"
+msgstr ""
+
+msgid "Use 100% stacked values"
+msgstr ""
+
+msgid "Auto"
+msgstr ""
+
+msgid "Range axis decimals"
+msgstr ""
+
+msgid "Range axis title"
+msgstr ""
+
+msgid "Range axis max"
+msgstr ""
+
+msgid "Range axis min"
+msgstr ""
+
+msgid "Range axis tick steps"
+msgstr ""
+
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr ""
+
+msgid "Trend line"
+msgstr ""
+
+msgid "Linear"
+msgstr ""
+
+msgid "Polynomial"
+msgstr ""
+
+msgid "Loess"
+msgstr ""
+
+msgid "Show values"
+msgstr ""
+
+msgid "Sort order"
+msgstr ""
+
+msgid "Low to high"
+msgstr ""
+
+msgid "High to low"
+msgstr ""
+
+msgid "Chart subtitle"
+msgstr ""
+
+msgid "Target line"
+msgstr ""
+
+msgid "Target line title"
+msgstr ""
+
+msgid "Target line value"
+msgstr ""
+
+msgid "Chart title"
+msgstr ""
+
+msgid "Data"
+msgstr "Datos"
+
+msgid "Axis & legend"
+msgstr ""
+
+msgid "Style"
+msgstr ""
+
+msgid "Options"
+msgstr ""
+
+msgid "Chart options"
+msgstr ""
+
+msgid "Column"
+msgstr ""
+
+msgid "Stacked column"
+msgstr ""
+
+msgid "Bar"
+msgstr ""
+
+msgid "Stacked bar"
+msgstr ""
+
+msgid "Line"
+msgstr ""
+
+msgid "Area"
+msgstr ""
+
+msgid "Pie"
+msgstr ""
+
+msgid "Radar"
+msgstr ""
+
+msgid "Gauge"
+msgstr ""
+
+msgid "Year over year (line)"
+msgstr ""
+
+msgid "Year over year (column)"
+msgstr ""
+
+msgid "Single value"
+msgstr ""
+
+msgid "Open as Map"
+msgstr ""
+
+msgid "Add to series"
+msgstr ""
+
+msgid "Add to category"
+msgstr ""
+
+msgid "Add to filter"
+msgstr ""
+
+msgid "Move to series"
+msgstr ""
+
+msgid "Move to category"
+msgstr ""
+
+msgid "Move to filter"
+msgstr ""
+
+msgid "series"
+msgstr ""
+
+msgid "category"
+msgstr ""
+
+msgid "filter"
+msgstr ""
+
+msgid "Please add at least one {{series}} dimension"
+msgstr ""
+
+msgid "Please add at least one {{category}} dimension"
+msgstr ""
+
+msgid ""
+"Please add at least one period as {{series}}, {{category}} or {{filter}}"
+msgstr ""
+
+msgid "Please add {{data}} as {{category}} or {{filter}}"
+msgstr ""
+
+msgid "Please add at least one period as {{series}} or {{filter}}"
+msgstr ""
+
+msgid "Please add at least one {{filter}} dimension"
+msgstr ""
+
+msgid "Please add at least one period as a {{series}} dimension"
+msgstr ""
+
+msgid "Please add at least one period as a {{category}} dimension"
+msgstr ""
+
+msgid "Please add {{data}} as a filter dimension"
+msgstr ""
+
+msgid "Please add one {{series}} dimension"
+msgstr ""
+
+msgid "Please add at least one period as {{filter}}"
+msgstr ""
+
+msgid "Today"
+msgstr "Hoy"
+
+msgid "Yesterday"
+msgstr "Ayer"
+
+msgid "Last 3 days"
+msgstr ""
+
+msgid "Last 7 days"
+msgstr ""
+
+msgid "Last 14 days"
+msgstr ""
+
+msgid "This week"
+msgstr "Esta semana"
+
+msgid "Last week"
+msgstr "Última semana"
+
+msgid "Last 4 weeks"
+msgstr ""
+
+msgid "Last 12 weeks"
+msgstr ""
+
+msgid "Last 52 weeks"
+msgstr ""
+
+msgid "Weeks this year"
+msgstr "Semanas de este año"
+
+msgid "This month"
+msgstr "Este mes"
+
+msgid "Last month"
+msgstr "Mes anterior"
+
+msgid "Last 3 months"
+msgstr ""
+
+msgid "Last 6 months"
+msgstr ""
+
+msgid "Last 12 months"
+msgstr ""
+
+msgid "Months this year"
+msgstr "Meses este año"
+
+msgid "This bimonth"
+msgstr "Este bimestre"
+
+msgid "Last bimonth"
+msgstr "Último bimestre"
+
+msgid "Last 6 bimonths"
+msgstr ""
+
+msgid "Bimonths this year"
+msgstr "Bimestres de este año"
+
+msgid "This quarter"
+msgstr "Este trimestre"
+
+msgid "Last quarter"
+msgstr "El trimestre pasado"
+
+msgid "Last 4 quarters"
+msgstr ""
+
+msgid "Quarters this year"
+msgstr "Trimestres de este año"
+
+msgid "This six-month"
+msgstr ""
+
+msgid "Last six-month"
+msgstr ""
+
+msgid "Last 2 six-months"
+msgstr ""
+
+msgid "This financial year"
+msgstr "Este año fiscal"
+
+msgid "Last financial year"
+msgstr "Último ejercicio financiero"
+
+msgid "Last 5 financial years"
+msgstr ""
+
+msgid "This year"
+msgstr "Este año"
+
+msgid "Last year"
+msgstr "El año pasado"
+
+msgid "Last 5 years"
+msgstr ""
+
+msgid "User org unit"
+msgstr ""
+
+msgid "User org unit children"
+msgstr ""
+
+msgid "User org unit grand children"
+msgstr ""
+
+msgid "Weeks per year"
+msgstr ""
+
+msgid "Months per year"
+msgstr ""
+
+msgid "Bimonths per year"
+msgstr ""
+
+msgid "Quarters per year"
+msgstr ""
