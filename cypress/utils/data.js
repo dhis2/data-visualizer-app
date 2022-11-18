@@ -67,7 +67,7 @@ export const TEST_AOS = [
         type: VIS_TYPE_PIE,
     },
     {
-        name: 'Immunization: OPV 3 coverage last month',
+        name: 'Immunization: OPV Coverage meter chart last quarter',
         type: VIS_TYPE_GAUGE,
     },
     {
