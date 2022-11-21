@@ -18,7 +18,7 @@
         "cypress:live": "start-server-and-test 'yarn start' http://localhost:3000 'yarn cypress open --env networkMode=live'"
     },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^10.0.0",
+        "@dhis2/cli-app-scripts": "^10.1.5",
         "@dhis2/cli-style": "^10.4.1",
         "@dhis2/cli-utils-cypress": "^9.0.2",
         "@dhis2/cypress-commands": "^9.0.2",
