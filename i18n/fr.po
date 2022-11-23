@@ -6,17 +6,17 @@
 # Karoline Tufte Lien <karoline@dhis2.org>, 2020
 # phil_dhis2, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
-# Yao Selom Saka <ysaka@hispwca.org>, 2020
 # Edem Kossi <ekossi@hispwca.org>, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Yayra Gomado <ygomado@hispwca.org>, 2022
+# Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-08-25T09:58:02.683Z\n"
+"POT-Creation-Date: 2022-09-23T12:57:32.255Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Yayra Gomado <ygomado@hispwca.org>, 2022\n"
+"Last-Translator: Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2022\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "All items"
-msgstr ""
+msgstr "Tous les items"
 
 msgid "Rename successful"
 msgstr "Renommer avec succès"
@@ -34,7 +34,7 @@ msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr "Visualisation {{visualizationType}} sans titre, {{date}}"
 
 msgid "\"{{- deletedObject}}\" successfully deleted."
-msgstr ""
+msgstr "\"{{- deletedObject}}\" supprimé avec succès."
 
 msgid "You have unsaved changes."
 msgstr "Vous avez des changements non enregistrés."
@@ -120,7 +120,7 @@ msgid "Plain data source"
 msgstr "Sourc de données brutes"
 
 msgid "Microsoft Excel"
-msgstr ""
+msgstr "Microsoft Excel"
 
 msgid "CSV"
 msgstr "CSV"
@@ -138,7 +138,7 @@ msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
 msgid "Download data from this date"
-msgstr ""
+msgstr "Télécharger les données à partir de cette date"
 
 msgid "Metadata ID scheme"
 msgstr "Schéma ID des métadata"
@@ -208,7 +208,7 @@ msgid "Only '{{number}}' in use"
 msgstr "Uniquement '{{number}}' utilisé"
 
 msgid "All items are selected"
-msgstr ""
+msgstr "Tous les éléments sont sélectionnés"
 
 msgid "Levels"
 msgstr "Niveaux"
@@ -344,7 +344,7 @@ msgid "Axis title"
 msgstr "Titre de l'axe"
 
 msgid "Auto generated from axis items"
-msgstr ""
+msgstr "Généré automatiquement à partir des éléments de l'axe"
 
 msgid "None"
 msgstr "Aucun"
@@ -356,7 +356,7 @@ msgid "Add a title"
 msgstr "Ajouter un titre"
 
 msgid "Reset style to default"
-msgstr ""
+msgstr "Réinitialiser le style par défaut"
 
 msgid "Base line"
 msgstr "Ligne de base"
@@ -374,7 +374,7 @@ msgid "Basic"
 msgstr "De base"
 
 msgid "Extended"
-msgstr ""
+msgstr "Agrandi"
 
 msgid "Bright"
 msgstr "Clair"
@@ -439,16 +439,16 @@ msgid "Number"
 msgstr "Nombre"
 
 msgid "Fix column headers to top of table"
-msgstr ""
+msgstr "Fixer les en-têtes de colonne en haut du tableau"
 
 msgid "There aren’t any column headers because Columns is empty."
-msgstr ""
+msgstr "Il n'y a pas d'en-tête de colonne car \"Colonnes\" est vide."
 
 msgid "Fix row headers to left of table"
-msgstr ""
+msgstr "Fixer les en-têtes de ligne à gauche du tableau"
 
 msgid "There aren’t any row headers because Rows is empty."
-msgstr ""
+msgstr "Il n'y a pas d'en-tête de ligne car \"Lignes\" est vide."
 
 msgid "Font size"
 msgstr "Taille de la police"
@@ -670,6 +670,8 @@ msgid ""
 "Series options are not available when a series item has an \"All items\" "
 "selection"
 msgstr ""
+"Les options de série ne sont pas disponibles lorsqu'un élément de série "
+"présente une sélection \"Tous les éléments\""
 
 msgid "Value labels"
 msgstr "Étiquettes de valeur"
@@ -684,7 +686,7 @@ msgid "Show legend key"
 msgstr "Afficher la clé de légende"
 
 msgid "Show series key"
-msgstr ""
+msgstr "Afficher la clé de série"
 
 msgid "Skip rounding"
 msgstr "Ne pas arondir"
@@ -715,6 +717,12 @@ msgstr "Limite supérieure"
 
 msgid "Options"
 msgstr "Options"
+
+msgid "Change org unit"
+msgstr "Changer d'unité d'organisation"
+
+msgid "{{level}} level in {{orgunit}}"
+msgstr "{niveau}} niveau dans {{unité d'org.}}"
 
 msgid "Open as Map"
 msgstr "Ouvrir comme carte"
@@ -1022,6 +1030,8 @@ msgstr ""
 msgid ""
 "Base and target lines are available on the Axes tab for multi-axis charts"
 msgstr ""
+"Les lignes de base et cible sont disponibles dans l'onglet Axes pour les "
+"graphiques à plusieurs axes"
 
 msgid "Chart style"
 msgstr "Style de graphique"
@@ -1033,7 +1043,7 @@ msgid "Empty data"
 msgstr "Données vides"
 
 msgid "Horizontal (x) axis {{axisId}}"
-msgstr ""
+msgstr "Axe horizontal (x) {{axisId}}"
 
 msgid "Horizontal (x) axis"
 msgstr "Axe horizontal (x)"
@@ -1045,7 +1055,7 @@ msgid "Totals"
 msgstr "Totaux"
 
 msgid "Vertical (y) axis {{axisId}}"
-msgstr ""
+msgstr "Axe vertical (y) {{axisId}}"
 
 msgid "Vertical (y) axis"
 msgstr "Axe vertical (y)"
