@@ -3,17 +3,17 @@
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
 # Karoline Tufte Lien <karoline@dhis2.org>, 2020
-# Yao Selom Saka <ysaka@hispwca.org>, 2020
+# Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2020
 # Djibril Dione <dione.djibril@gmail.com>, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
-# Edem Kossi <ekossi@hispwca.org>, 2021
+# Edem Kossi <ekossi@hispwca.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-04-23T09:26:03.770Z\n"
 "PO-Revision-Date: 2020-12-22 22:14+0000\n"
-"Last-Translator: Edem Kossi <ekossi@hispwca.org>, 2021\n"
+"Last-Translator: Edem Kossi <ekossi@hispwca.org>, 2022\n"
 "Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -74,13 +74,13 @@ msgid "Other dimensions"
 msgstr "Autres dimensions"
 
 msgid "Your dimensions"
-msgstr "Votre dimensions"
+msgstr "Vos dimensions"
 
 msgid "Filter dimensions"
 msgstr "Dimensions du filtre"
 
 msgid "Graphics"
-msgstr "Graphisme"
+msgstr "Graphiques"
 
 msgid "Image (.png)"
 msgstr "Image (.png)"
@@ -89,7 +89,7 @@ msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
 msgid "Table layout"
-msgstr "Mise en page du tableau"
+msgstr "Disposition du tableau"
 
 msgid "Excel (.xls)"
 msgstr "Excel (.xls)"
@@ -104,7 +104,7 @@ msgid "Metadata ID scheme"
 msgstr "Schéma ID des métadata"
 
 msgid "ID"
-msgstr "Id"
+msgstr "ID"
 
 msgid "Code"
 msgstr "Code"
@@ -116,7 +116,7 @@ msgid "Download"
 msgstr "Télécharger"
 
 msgid "Plain data source"
-msgstr "Sourc de données brutes"
+msgstr "Source de données brutes"
 
 msgid "JSON"
 msgstr "JSON"
@@ -152,10 +152,10 @@ msgid "Interpretations"
 msgstr "interprétations"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr "{{total}} de {{axisMaxNumberOfItems}} choisi"
+msgstr "{{total}} de {{axisMaxNumberOfItems}} choisis"
 
 msgid "{{total}} selected"
-msgstr "{{total}} choisi"
+msgstr "{{total}} choisis"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
@@ -165,10 +165,10 @@ msgid "None selected"
 msgstr "Aucune sélection"
 
 msgid "Only '{{- name}}' in use"
-msgstr "Uniquement '{{- name}}' utilisé"
+msgstr "Seulement '{{- name}}' utilisé"
 
 msgid "Only '{{number}}' in use"
-msgstr "Uniquement '{{number}}' utilisé"
+msgstr "Seulement '{{number}}' utilisés"
 
 msgid "Levels"
 msgstr "Niveaux"
@@ -208,7 +208,7 @@ msgid "Update"
 msgstr "Mettre à jour"
 
 msgid "Getting started"
-msgstr "Commencer"
+msgstr "Pour commencer"
 
 msgid ""
 "All dimensions that you can use to build visualizations are shown in the "
@@ -276,7 +276,7 @@ msgid "Loading data approval levels"
 msgstr "Chargement des niveaux d'approbation des données"
 
 msgid "Axis range"
-msgstr "Gamme d'axes"
+msgstr "Plage de l'axe"
 
 msgid "Values outside of the range will not be displayed"
 msgstr "Valeurs en dehors de la plage ne seront pas affichées"
@@ -336,7 +336,7 @@ msgid "Cumulative values"
 msgstr "Valeurs cumulées"
 
 msgid "Digit group separator"
-msgstr "Séparateur des groupe de chiffres"
+msgstr "Séparateur de millier"
 
 msgid "None"
 msgstr "Aucun"
@@ -375,7 +375,7 @@ msgid "Small"
 msgstr "Petit"
 
 msgid "Hide empty columns"
-msgstr "Cacher les colonnes vides"
+msgstr "Masquer les colonnes vides"
 
 msgid "Hide empty categories"
 msgstr "Masquer les catégories vides"
@@ -393,7 +393,7 @@ msgid "All"
 msgstr "Tout"
 
 msgid "Hide empty rows"
-msgstr "Cacher lignes vides"
+msgstr "Masquer les lignes vides"
 
 msgid "Show legend key"
 msgstr "Afficher la clé de légende"
