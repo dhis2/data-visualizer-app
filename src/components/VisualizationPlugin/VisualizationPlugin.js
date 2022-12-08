@@ -374,6 +374,7 @@ export const VisualizationPlugin = ({
 }
 
 VisualizationPlugin.defaultProps = {
+    displayProperty: 'name',
     filters: {},
     forDashboard: false,
     onChartGenerated: Function.prototype,
