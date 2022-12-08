@@ -7,6 +7,7 @@
     "scripts": {
         "build": "d2-app-scripts build",
         "start": "d2-app-scripts start",
+        "start:nobrowser": "BROWSER=none yarn start",
         "test": "d2-app-scripts test",
         "coverage": "yarn test --coverage",
         "deploy": "d2-app-scripts deploy",
@@ -14,8 +15,8 @@
         "format": "d2-style apply",
         "validate-commit": "d2-style check --staged",
         "validate-push": "yarn test",
-        "cypress:run": "start-server-and-test 'yarn start' http://localhost:3000 'yarn cypress run --env networkMode=live'",
-        "cypress:live": "start-server-and-test 'yarn start' http://localhost:3000 'yarn cypress open --env networkMode=live'"
+        "cypress:run": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress run --browser chrome headless --env networkMode=live'",
+        "cypress:live": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress open --browser chrome --env networkMode=live'"
     },
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^10.0.0",
