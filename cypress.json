@@ -3,7 +3,7 @@
     "projectId": "sojh88",
     "testFiles": "**/*.cy.js",
     "experimentalInteractiveRunEvents": true,
-    "video": false,
+    "video": true,
     "viewportWidth": 1280,
     "viewportHeight": 800,
     "env": {
