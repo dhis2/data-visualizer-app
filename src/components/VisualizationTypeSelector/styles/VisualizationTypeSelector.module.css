@@ -59,7 +59,8 @@
     border-color: var(--colors-grey400);
 }
 
-.listItemActive {
+.listItemActive,
+.listItemActive:hover {
     background: var(--colors-teal050);
     border: 2px solid var(--colors-teal300);
 }
