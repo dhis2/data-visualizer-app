@@ -17,7 +17,7 @@ export default () => [
         }),
         getAdvancedSection(),
     ]),
-    getLegendTab({ hideStyleOptions: true }),
+    getLegendTab(),
     getSeriesTab(),
     getStyleTab([
         getTitlesSection(),

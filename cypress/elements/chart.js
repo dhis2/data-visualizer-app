@@ -10,6 +10,7 @@ import {
 
 const visualizationContainerEl = 'visualization-container'
 const visualizationTitleEl = 'visualization-title'
+const visualizationSubitleEl = 'visualization-subtitle'
 const chartContainerEl = '.highcharts-container'
 const highchartsLegendEl = '.highcharts-legend'
 const highchartsTitleEl = '.highcharts-title'
@@ -111,3 +112,12 @@ export const clickChartItem = (index) =>
 
 export const expectChartItemsToHaveLength = (length) =>
     cy.get(highchartsChartItemEl).children().should('have.length', length)
+
+export const expectSVTitleToHaveColor = (color) =>
+    cy.getBySel(visualizationTitleEl).invoke('attr', 'fill').should('eq', color)
+
+export const expectSVSubtitleToHaveColor = (color) =>
+    cy
+        .getBySel(visualizationSubitleEl)
+        .invoke('attr', 'fill')
+        .should('eq', color)
