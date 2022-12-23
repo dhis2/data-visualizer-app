@@ -58,10 +58,12 @@ import {
     OPTIONS_TAB_SERIES,
     setItemToType,
     clickOptionsModalHideButton,
-    expectSingleValueToNotHaveTextColor,
     expectSingleValueToHaveBackgroundColor,
     expectSingleValueToNotHaveBackgroundColor,
     changeDisplayStyleToFill,
+    changeColor,
+    OPTIONS_TAB_STYLE,
+    changeDisplayStrategyToByDataItem,
 } from '../../elements/optionsModal/index.js'
 import { goToStartPage } from '../../elements/startScreen.js'
 import { changeVisType } from '../../elements/visualizationTypeSelector.js'
@@ -158,7 +160,11 @@ describe('Options - Legend', () => {
         const EXPECTED_STANDARD_TEXT_COLOR = '#212934'
         const EXPECTED_CONTRAST_TEXT_COLOR = '#ffffff'
         const EXPECTED_BACKGROUND_COLOR_1 = 'rgb(255, 255, 178)'
+        const EXPECTED_TEXT_COLOR_1 = '#FFFFB2'
         const EXPECTED_BACKGROUND_COLOR_2 = 'rgb(179, 64, 43)'
+        const EXPECTED_TEXT_COLOR_2 = '#B3402B'
+        const EXPECTED_CUSTOM_TITLE_COLOR = '#ff7700'
+        const EXPECTED_CUSTOM_SUBTITLE_COLOR = '#ffaa00'
         const TEST_LEGEND_SET_WITH_CONTRAST = 'Age 15y interval'
         const EXPECTED_STANDARD_TITLE_COLOR = '#212934'
         const EXPECTED_STANDARD_SUBTITLE_COLOR = '#4a5768'
@@ -182,9 +188,12 @@ describe('Options - Legend', () => {
             clickOptionsModalUpdateButton()
             expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
         })
+        // Legend on background, no contrast, no custom title colors
         it('background color legend is applied', () => {
             expectSingleValueToHaveTextColor(EXPECTED_STANDARD_TEXT_COLOR)
             expectSingleValueToHaveBackgroundColor(EXPECTED_BACKGROUND_COLOR_1)
+            expectSVTitleToHaveColor(EXPECTED_STANDARD_TITLE_COLOR)
+            expectSVSubtitleToHaveColor(EXPECTED_STANDARD_SUBTITLE_COLOR)
         })
         it('changes legend display style to text color', () => {
             clickMenuBarOptionsButton()
@@ -196,8 +205,9 @@ describe('Options - Legend', () => {
             clickOptionsModalUpdateButton()
             expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
         })
+        // Legend on text, no contrast, no custom title colors
         it('text color legend is applied', () => {
-            expectSingleValueToNotHaveTextColor(EXPECTED_STANDARD_TEXT_COLOR)
+            expectSingleValueToHaveTextColor(EXPECTED_TEXT_COLOR_1)
             expectSingleValueToNotHaveBackgroundColor()
             expectSVTitleToHaveColor(EXPECTED_STANDARD_TITLE_COLOR)
             expectSVSubtitleToHaveColor(EXPECTED_STANDARD_SUBTITLE_COLOR)
@@ -213,8 +223,9 @@ describe('Options - Legend', () => {
             clickOptionsModalUpdateButton()
             expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
         })
+        // Legend on text, with contrast (N/A), no custom title colors
         it('text color legend is applied', () => {
-            expectSingleValueToNotHaveTextColor(EXPECTED_STANDARD_TEXT_COLOR)
+            expectSingleValueToHaveTextColor(EXPECTED_TEXT_COLOR_2)
             expectSingleValueToNotHaveBackgroundColor()
             expectSVTitleToHaveColor(EXPECTED_STANDARD_TITLE_COLOR)
             expectSVSubtitleToHaveColor(EXPECTED_STANDARD_SUBTITLE_COLOR)
@@ -229,13 +240,78 @@ describe('Options - Legend', () => {
             clickOptionsModalUpdateButton()
             expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
         })
+        // Legend on background, with contrast, no custom title colors
         it('background color legend and contrast text color is applied', () => {
             expectSingleValueToHaveTextColor(EXPECTED_CONTRAST_TEXT_COLOR)
             expectSingleValueToHaveBackgroundColor(EXPECTED_BACKGROUND_COLOR_2)
             expectSVTitleToHaveColor(EXPECTED_CONTRAST_TEXT_COLOR)
             expectSVSubtitleToHaveColor(EXPECTED_CONTRAST_TEXT_COLOR)
         })
-        // TODO: change titles to custom colors and expect them to have those colors (not white)
+        it(`changes title and subtitle colors`, () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_STYLE)
+            changeColor('option-chart-title', EXPECTED_CUSTOM_TITLE_COLOR)
+            changeColor('option-chart-subtitle', EXPECTED_CUSTOM_SUBTITLE_COLOR)
+            clickOptionsModalUpdateButton()
+        })
+        // Legend on background, with contrast, with custom title colors
+        it('background color legend, contrast text color and custom title colors are applied', () => {
+            expectSingleValueToHaveTextColor(EXPECTED_CONTRAST_TEXT_COLOR)
+            expectSingleValueToHaveBackgroundColor(EXPECTED_BACKGROUND_COLOR_2)
+            expectSVTitleToHaveColor(EXPECTED_CUSTOM_TITLE_COLOR)
+            expectSVSubtitleToHaveColor(EXPECTED_CUSTOM_SUBTITLE_COLOR)
+        })
+        it('changes legend display style to text color', () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            expectLegendDisplayStrategyToBeFixed()
+            expectLegendDisplayStyleToBeFill()
+            changeDisplayStyleToText()
+            expectLegendDisplayStyleToBeText()
+            clickOptionsModalUpdateButton()
+            expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
+        })
+        // Legend on text, with contrast, with custom title colors
+        it('text color legend and custom title colors are applied', () => {
+            expectSingleValueToHaveTextColor(EXPECTED_TEXT_COLOR_2)
+            expectSingleValueToNotHaveBackgroundColor()
+            expectSVTitleToHaveColor(EXPECTED_CUSTOM_TITLE_COLOR)
+            expectSVSubtitleToHaveColor(EXPECTED_CUSTOM_SUBTITLE_COLOR)
+        })
+        it(`changes legend display strategy to by data item`, () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            expectLegendDisplayStyleToBeText()
+            expectLegendDisplayStrategyToBeFixed()
+            changeDisplayStrategyToByDataItem()
+            expectLegendDisplayStrategyToBeByDataItem()
+            clickOptionsModalUpdateButton()
+            expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
+        })
+        // Legend on text, no contrast, with custom title colors
+        it('text color legend and custom title colors are applied', () => {
+            expectSingleValueToHaveTextColor(EXPECTED_TEXT_COLOR_1)
+            expectSingleValueToNotHaveBackgroundColor()
+            expectSVTitleToHaveColor(EXPECTED_CUSTOM_TITLE_COLOR)
+            expectSVSubtitleToHaveColor(EXPECTED_CUSTOM_SUBTITLE_COLOR)
+        })
+        it('changes legend display style to background color', () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            changeDisplayStrategyToByDataItem()
+            expectLegendDisplayStyleToBeText()
+            changeDisplayStyleToFill()
+            expectLegendDisplayStyleToBeFill()
+            clickOptionsModalUpdateButton()
+            expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
+        })
+        // Legend on background, no contrast, with custom title colors
+        it('background color legend and custom title colors are applied', () => {
+            expectSingleValueToHaveTextColor(EXPECTED_STANDARD_TEXT_COLOR)
+            expectSingleValueToHaveBackgroundColor(EXPECTED_BACKGROUND_COLOR_1)
+            expectSVTitleToHaveColor(EXPECTED_CUSTOM_TITLE_COLOR)
+            expectSVSubtitleToHaveColor(EXPECTED_CUSTOM_SUBTITLE_COLOR)
+        })
         it('legend key is hidden', () => {
             expectLegendKeyToBeHidden()
         })
@@ -457,8 +533,7 @@ describe('Options - Legend', () => {
             expectLegendDisplayStrategyToBeFixed()
         })
     })
-    describe('Transferring a legend: Column -> Single value', () => {
-        const EXPECTED_STANDARD_TEXT_COLOR = '#212934'
+    describe('Transferring a legend: Pivot table -> Single value', () => {
         const TEST_ITEM = TEST_ITEMS[0]
         const EXPECTED_FIXED_COLOR = 'rgb(199, 233, 192)'
         const valueCellEl = 'visualization-value-cell'

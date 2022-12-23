@@ -24,6 +24,12 @@ export const changeDisplayStrategyToFixed = () =>
         .contains('Select a single legend for the entire visualization')
         .click()
 
+export const changeDisplayStrategyToByDataItem = () =>
+    cy
+        .getBySel(optionsModalContentEl)
+        .contains('Use pre-defined legend per data item')
+        .click()
+
 export const changeDisplayStyleToText = () =>
     cy
         .getBySel(optionsModalContentEl)
@@ -70,12 +76,6 @@ export const changeFixedLegendSet = (legendSetName) => {
 
 export const expectFixedLegendSetToBe = (legendSetName) =>
     cy.getBySel(fixedLegendSetSelectEl).should('contain', legendSetName)
-
-export const expectSingleValueToNotHaveTextColor = (color) =>
-    cy
-        .getBySel(singleValueTextEl)
-        .invoke('attr', 'fill')
-        .should('not.eq', color)
 
 export const expectSingleValueToHaveTextColor = (color) =>
     cy.getBySel(singleValueTextEl).invoke('attr', 'fill').should('eq', color)
