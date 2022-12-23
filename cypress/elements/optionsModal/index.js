@@ -33,6 +33,7 @@ export {
     changeFontSizeOption,
     clickBoldButton,
     clickItalicButton,
+    changeColor,
 } from './fontStyles.js'
 
 export {

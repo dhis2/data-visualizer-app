@@ -30,6 +30,7 @@ import {
     setAxisTitleText,
     setAxisTitleTextModeTo,
     switchAxesTabTo,
+    changeColor,
 } from '../../elements/optionsModal/index.js'
 import { goToStartPage } from '../../elements/startScreen.js'
 import {
@@ -78,26 +79,30 @@ const randomizeItalicOption = () => {
     return { input: useItalic, output: useItalic ? 'italic' : 'normal' }
 }
 
-const setFontStyleOptions = ({ fontSize, textAlign, bold, italic, prefix }) => {
+const setFontStyleOptions = ({
+    fontSize,
+    textAlign,
+    bold,
+    italic,
+    color,
+    prefix,
+}) => {
     if (fontSize) {
-        it(`changes the font size to ${fontSize}`, () => {
-            changeFontSizeOption(prefix, fontSize)
-        })
+        it(`changes the font size to ${fontSize}`, () =>
+            changeFontSizeOption(prefix, fontSize))
     }
     if (textAlign) {
-        it(`changes the text align to ${textAlign}`, () => {
-            changeTextAlignOption(prefix, textAlign)
-        })
+        it(`changes the text align to ${textAlign}`, () =>
+            changeTextAlignOption(prefix, textAlign))
     }
     if (bold) {
-        it('changes font to bold', () => {
-            clickBoldButton(prefix)
-        })
+        it('changes font to bold', () => clickBoldButton(prefix))
     }
     if (italic) {
-        it('changes font to italic', () => {
-            clickItalicButton(prefix)
-        })
+        it('changes font to italic', () => clickItalicButton(prefix))
+    }
+    if (color) {
+        it(`changes color to ${color}`, () => changeColor(prefix, color))
     }
 }
 
@@ -116,6 +121,7 @@ describe('Options - Font styles', () => {
             : { input: 'Right', output: 'right' }
         const TEST_BOLD_OPTION = randomizeBoldOption()
         const TEST_ITALIC_OPTION = randomizeItalicOption()
+        const TEST_COLOR = '#fafa00'
         const prefix = TITLE_PREFIX
 
         it('has default value', () => {
@@ -131,6 +137,7 @@ describe('Options - Font styles', () => {
             textAlign: TEST_TEXT_ALIGN_OPTION.input,
             bold: TEST_BOLD_OPTION.input,
             italic: TEST_ITALIC_OPTION.input,
+            color: TEST_COLOR,
             prefix,
         })
         it('clicks the modal update button', () => {
@@ -146,6 +153,7 @@ describe('Options - Font styles', () => {
                     fontSize: TEST_FONT_SIZE_OPTION.output,
                     fontWeight: TEST_BOLD_OPTION.output,
                     fontStyle: TEST_ITALIC_OPTION.output,
+                    color: TEST_COLOR,
                 },
             })
         })
@@ -503,5 +511,4 @@ describe('Options - Font styles', () => {
 /* TODO:    Add tests for all axes based options for Scatter
             Add tests for regression lines and vertical axis labels for Gauge
             Add tests for axes based options for a vertical type (e.g. Bar)
-            Test the color picker
 */
