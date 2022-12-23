@@ -143,7 +143,7 @@ describe('Options - Font styles', () => {
         it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
-        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
+        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}, color ${TEST_COLOR}`, () => {
             expectChartTitleToBeVisible()
             expectWindowConfigTitleToBeValue({
                 ...CONFIG_DEFAULT_TITLE,
@@ -165,6 +165,7 @@ describe('Options - Font styles', () => {
             : { input: 'Right', output: 'right' }
         const TEST_BOLD_OPTION = randomizeBoldOption()
         const TEST_ITALIC_OPTION = randomizeItalicOption()
+        const TEST_COLOR = '#fa00fa'
         const prefix = SUBTITLE_PREFIX
         const TEST_SUBTITLE_TEXT = 'S'
 
@@ -184,12 +185,13 @@ describe('Options - Font styles', () => {
             textAlign: TEST_TEXT_ALIGN_OPTION.input,
             bold: TEST_BOLD_OPTION.input,
             italic: TEST_ITALIC_OPTION.input,
+            color: TEST_COLOR,
             prefix,
         })
         it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
-        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
+        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}, color ${TEST_COLOR}`, () => {
             expectChartSubtitleToBeVisible()
             expectWindowConfigSubtitleToBeValue({
                 ...CONFIG_DEFAULT_SUBTITLE,
@@ -200,6 +202,7 @@ describe('Options - Font styles', () => {
                     fontSize: TEST_FONT_SIZE_OPTION.output,
                     fontWeight: TEST_BOLD_OPTION.output,
                     fontStyle: TEST_ITALIC_OPTION.output,
+                    color: TEST_COLOR,
                 },
             })
         })
@@ -211,6 +214,7 @@ describe('Options - Font styles', () => {
             : { input: 'Right', output: 'right', x: -10 }
         const TEST_BOLD_OPTION = randomizeBoldOption()
         const TEST_ITALIC_OPTION = randomizeItalicOption()
+        const TEST_COLOR = '#00fafa'
         const TEST_LABEL = 'TL'
         const TEST_VALUE = generateRandomNumber(10, 100)
         const prefix = TARGET_LINE_PREFIX
@@ -229,12 +233,13 @@ describe('Options - Font styles', () => {
             textAlign: TEST_TEXT_ALIGN_OPTION.input,
             bold: TEST_BOLD_OPTION.input,
             italic: TEST_ITALIC_OPTION.input,
+            color: TEST_COLOR,
             prefix,
         })
         it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
-        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
+        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}, color ${TEST_COLOR}`, () => {
             expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
             expectWindowConfigAxisPlotLinesToBeValue({
                 axisType: 'yAxis',
@@ -243,6 +248,7 @@ describe('Options - Font styles', () => {
                 value: {
                     ...CONFIG_DEFAULT_TARGET_LINE,
                     value: TEST_VALUE,
+                    color: TEST_COLOR,
                     label: {
                         ...CONFIG_DEFAULT_TARGET_LINE.label,
                         x: TEST_TEXT_ALIGN_OPTION.x,
@@ -253,6 +259,7 @@ describe('Options - Font styles', () => {
                             fontSize: TEST_FONT_SIZE_OPTION.output,
                             fontWeight: TEST_BOLD_OPTION.output,
                             fontStyle: TEST_ITALIC_OPTION.output,
+                            color: TEST_COLOR,
                         },
                     },
                 },
@@ -266,6 +273,7 @@ describe('Options - Font styles', () => {
             : { input: 'Right', output: 'right', x: -10 }
         const TEST_BOLD_OPTION = randomizeBoldOption()
         const TEST_ITALIC_OPTION = randomizeItalicOption()
+        const TEST_COLOR = '#99fa99'
         const TEST_LABEL = 'BL'
         const TEST_VALUE = generateRandomNumber(10, 100)
         const prefix = BASE_LINE_PREFIX
@@ -284,12 +292,13 @@ describe('Options - Font styles', () => {
             textAlign: TEST_TEXT_ALIGN_OPTION.input,
             bold: TEST_BOLD_OPTION.input,
             italic: TEST_ITALIC_OPTION.input,
+            color: TEST_COLOR,
             prefix,
         })
         it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
-        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
+        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}, color ${TEST_COLOR}`, () => {
             expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
             expectWindowConfigAxisPlotLinesToBeValue({
                 axisType: 'yAxis',
@@ -298,6 +307,7 @@ describe('Options - Font styles', () => {
                 value: {
                     ...CONFIG_DEFAULT_BASE_LINE,
                     value: TEST_VALUE,
+                    color: TEST_COLOR,
                     label: {
                         ...CONFIG_DEFAULT_BASE_LINE.label,
                         x: TEST_TEXT_ALIGN_OPTION.x,
@@ -308,6 +318,7 @@ describe('Options - Font styles', () => {
                             fontSize: TEST_FONT_SIZE_OPTION.output,
                             fontWeight: TEST_BOLD_OPTION.output,
                             fontStyle: TEST_ITALIC_OPTION.output,
+                            color: TEST_COLOR,
                         },
                     },
                 },
@@ -321,6 +332,7 @@ describe('Options - Font styles', () => {
             : { input: 'Right', output: 'right' }
         const TEST_BOLD_OPTION = randomizeBoldOption()
         const TEST_ITALIC_OPTION = randomizeItalicOption()
+        const TEST_COLOR = '#9090fa'
         const prefix = SERIES_KEY_PREFIX
 
         it('opens Options -> Style', () => {
@@ -332,12 +344,13 @@ describe('Options - Font styles', () => {
             textAlign: TEST_TEXT_ALIGN_OPTION.input,
             bold: TEST_BOLD_OPTION.input,
             italic: TEST_ITALIC_OPTION.input,
+            color: TEST_COLOR,
             prefix,
         })
         it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
-        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
+        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}, color ${TEST_COLOR}`, () => {
             expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
             expectWindowConfigLegendToBeValue({
                 ...CONFIG_DEFAULT_LEGEND,
@@ -347,6 +360,7 @@ describe('Options - Font styles', () => {
                     fontSize: TEST_FONT_SIZE_OPTION.output,
                     fontWeight: TEST_BOLD_OPTION.output,
                     fontStyle: TEST_ITALIC_OPTION.output,
+                    color: TEST_COLOR,
                 },
             })
         })
@@ -355,6 +369,7 @@ describe('Options - Font styles', () => {
         const TEST_FONT_SIZE_OPTION = { input: 'Regular', output: '13px' }
         const TEST_BOLD_OPTION = randomizeBoldOption()
         const TEST_ITALIC_OPTION = randomizeItalicOption()
+        const TEST_COLOR = '#0909fa'
         const prefix = VERTICAL_AXIS_LABELS_PREFIX
 
         it('opens Options -> Axes', () => {
@@ -365,12 +380,13 @@ describe('Options - Font styles', () => {
             fontSize: TEST_FONT_SIZE_OPTION.input,
             bold: TEST_BOLD_OPTION.input,
             italic: TEST_ITALIC_OPTION.input,
+            color: TEST_COLOR,
             prefix,
         })
         it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
-        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
+        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}, color ${TEST_COLOR}`, () => {
             expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
             expectWindowConfigAxisLabelsToBeValue('yAxis', 0, {
                 ...CONFIG_DEFAULT_AXIS_LABELS,
@@ -379,6 +395,7 @@ describe('Options - Font styles', () => {
                     fontSize: TEST_FONT_SIZE_OPTION.output,
                     fontWeight: TEST_BOLD_OPTION.output,
                     fontStyle: TEST_ITALIC_OPTION.output,
+                    color: TEST_COLOR,
                 },
             })
         })
@@ -387,6 +404,7 @@ describe('Options - Font styles', () => {
         const TEST_FONT_SIZE_OPTION = { input: 'Large', output: '18px' }
         const TEST_BOLD_OPTION = randomizeBoldOption()
         const TEST_ITALIC_OPTION = randomizeItalicOption()
+        const TEST_COLOR = '#fa0909'
         const prefix = HORIZONTAL_AXIS_LABELS_PREFIX
 
         it('opens Options -> Axes', () => {
@@ -398,12 +416,13 @@ describe('Options - Font styles', () => {
             fontSize: TEST_FONT_SIZE_OPTION.input,
             bold: TEST_BOLD_OPTION.input,
             italic: TEST_ITALIC_OPTION.input,
+            color: TEST_COLOR,
             prefix,
         })
         it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
-        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
+        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}, color ${TEST_COLOR}`, () => {
             expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
             expectWindowConfigAxisLabelsToBeValue('xAxis', 0, {
                 ...CONFIG_DEFAULT_AXIS_LABELS,
@@ -412,6 +431,7 @@ describe('Options - Font styles', () => {
                     fontSize: TEST_FONT_SIZE_OPTION.output,
                     fontWeight: TEST_BOLD_OPTION.output,
                     fontStyle: TEST_ITALIC_OPTION.output,
+                    color: TEST_COLOR,
                 },
             })
         })
@@ -423,6 +443,7 @@ describe('Options - Font styles', () => {
             : { input: 'End', output: 'high' }
         const TEST_BOLD_OPTION = randomizeBoldOption()
         const TEST_ITALIC_OPTION = randomizeItalicOption()
+        const TEST_COLOR = '#0f9a09'
         const TEST_TITLE = 'HT'
         const TEST_AXIS = 'DOMAIN_0'
         const prefix = HORIZONTAL_AXIS_TITLE_PREFIX
@@ -441,13 +462,14 @@ describe('Options - Font styles', () => {
             textAlign: TEST_TEXT_ALIGN_OPTION.input,
             bold: TEST_BOLD_OPTION.input,
             italic: TEST_ITALIC_OPTION.input,
+            color: TEST_COLOR,
             prefix,
         })
         it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
 
-        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
+        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}, color ${TEST_COLOR}`, () => {
             expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
             expectWindowConfigAxisTitleToBeValue('xAxis', 0, {
                 ...CONFIG_DEFAULT_HORIZONTAL_AXIS_TITLE,
@@ -458,6 +480,7 @@ describe('Options - Font styles', () => {
                     fontSize: TEST_FONT_SIZE_OPTION.output,
                     fontWeight: TEST_BOLD_OPTION.output,
                     fontStyle: TEST_ITALIC_OPTION.output,
+                    color: TEST_COLOR,
                 },
             })
         })
@@ -469,6 +492,7 @@ describe('Options - Font styles', () => {
             : { input: 'End', output: 'high' }
         const TEST_BOLD_OPTION = randomizeBoldOption()
         const TEST_ITALIC_OPTION = randomizeItalicOption()
+        const TEST_COLOR = '#a090f9'
         const TEST_TITLE = 'VT'
         const TEST_AXIS = 'RANGE_0'
         const prefix = VERTICAL_AXIS_TITLE_PREFIX
@@ -486,12 +510,13 @@ describe('Options - Font styles', () => {
             textAlign: TEST_TEXT_ALIGN_OPTION.input,
             bold: TEST_BOLD_OPTION.input,
             italic: TEST_ITALIC_OPTION.input,
+            color: TEST_COLOR,
             prefix,
         })
         it('clicks the modal update button', () => {
             clickOptionsModalUpdateButton()
         })
-        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}`, () => {
+        it(`config has font size "${TEST_FONT_SIZE_OPTION.output}", text align ${TEST_TEXT_ALIGN_OPTION.output}, bold ${TEST_BOLD_OPTION.input}, italic ${TEST_ITALIC_OPTION.input}, color ${TEST_COLOR}`, () => {
             expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
             expectWindowConfigAxisTitleToBeValue('yAxis', 0, {
                 ...CONFIG_DEFAULT_VERTICAL_AXIS_TITLE,
@@ -502,6 +527,7 @@ describe('Options - Font styles', () => {
                     fontSize: TEST_FONT_SIZE_OPTION.output,
                     fontWeight: TEST_BOLD_OPTION.output,
                     fontStyle: TEST_ITALIC_OPTION.output,
+                    color: TEST_COLOR,
                 },
             })
         })
