@@ -91,12 +91,14 @@ export class UnconnectedVisualization extends Component {
 
         responses.forEach((response) => {
             if (
-                response.metaData.dimensions[DIMENSION_ID_DATA]?.every(
+                (response?.metaData?.dimensions || {})[
+                    DIMENSION_ID_DATA
+                ]?.every(
                     (dim) => response.metaData.items[dim]?.valueType === 'TEXT'
                 ) &&
                 this.props.visualization.type !== VIS_TYPE_PIVOT_TABLE
             ) {
-                throw new DataTypeError() // all dx items are of type TEXT
+                throw new DataTypeError()
             }
 
             Object.entries(response.metaData.items).forEach(([id, item]) => {
