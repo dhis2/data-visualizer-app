@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2022-09-23T12:57:32.255Z\n"
-"PO-Revision-Date: 2022-09-23T12:57:32.255Z\n"
+"POT-Creation-Date: 2022-12-28T13:00:07.671Z\n"
+"PO-Revision-Date: 2022-12-28T13:00:07.671Z\n"
 
 msgid "All items"
 msgstr "All items"
@@ -837,6 +837,16 @@ msgstr "No organization units found"
 
 msgid "The level or group selections didn't return any organization units."
 msgstr "The level or group selections didn't return any organization units."
+
+msgid "Invalid data type"
+msgstr "Invalid data type"
+
+msgid ""
+"The selected data dimensions didn't return any valid data. This "
+"visualization type can only display numerical data."
+msgstr ""
+"The selected data dimensions didn't return any valid data. This "
+"visualization type can only display numerical data."
 
 msgid "Something went wrong"
 msgstr "Something went wrong"

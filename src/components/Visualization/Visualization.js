@@ -1,3 +1,4 @@
+import { DIMENSION_ID_DATA, VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
 import debounce from 'lodash-es/debounce'
 import PropTypes from 'prop-types'
 import React, { Component, Fragment } from 'react'
@@ -18,6 +19,7 @@ import {
     CombinationDEGSRRError,
     NoOrgUnitResponseError,
     NoDataError,
+    DataTypeError,
 } from '../../modules/error.js'
 import { removeLastPathSegment } from '../../modules/orgUnit.js'
 import { sGetCurrent } from '../../reducers/current.js'
@@ -86,7 +88,17 @@ export class UnconnectedVisualization extends Component {
 
     onResponsesReceived = (responses) => {
         const forMetadata = {}
+
         responses.forEach((response) => {
+            if (
+                response.metaData.dimensions[DIMENSION_ID_DATA]?.every(
+                    (dim) => response.metaData.items[dim]?.valueType === 'TEXT'
+                ) &&
+                this.props.visualization.type !== VIS_TYPE_PIVOT_TABLE
+            ) {
+                throw new DataTypeError() // all dx items are of type TEXT
+            }
+
             Object.entries(response.metaData.items).forEach(([id, item]) => {
                 forMetadata[id] = {
                     id,
