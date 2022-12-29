@@ -7,7 +7,7 @@ const DIMENSION_ITEM = `dimensionItem~rename(${ID})`
 const LEGEND_SET = `${ID},${NAME}`
 const USER = `${NAME},userCredentials[username]`
 
-const ITEMS = `${DIMENSION_ITEM},${NAME},dimensionItemType,expression`
+const ITEMS = `${DIMENSION_ITEM},${NAME},dimensionItemType`
 
 const AXIS = `dimension,filter,legendSet[${LEGEND_SET}],items[${ITEMS}]`
 const INTERPRETATIONS = 'id,created'

@@ -82,7 +82,7 @@ export const fieldsByType = {
         getFieldObject('columns'),
         getFieldObject('completedOnly', { option: true }),
         getFieldObject('created'),
-        getFieldObject('dataDimensionItems'),
+        getFieldObject('dataDimensionItems', { excluded: true }),
         getFieldObject('dataElementDimensions', { excluded: true }),
         getFieldObject('dataElementGroupSetDimensions', { excluded: true }),
         getFieldObject('description'),
