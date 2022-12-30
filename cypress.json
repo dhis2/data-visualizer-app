@@ -1,8 +1,13 @@
 {
     "baseUrl": "http://localhost:3000",
-    "video": true,
-    "testFiles": "**/*.cy.js",
     "projectId": "sojh88",
+    "testFiles": "**/*.cy.js",
+    "experimentalInteractiveRunEvents": true,
+    "video": true,
     "viewportWidth": 1280,
-    "viewportHeight": 800
+    "viewportHeight": 800,
+    "env": {
+        "dhis2DatatestPrefix": "dhis2-datavisualizer",
+        "dhis2ApiVersion": 39
+    }
 }

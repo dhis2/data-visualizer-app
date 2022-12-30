@@ -1,20 +1,10 @@
-const plugins = require('@dhis2/cli-utils-cypress/plugins')
+const {
+    networkShim,
+    chromeAllowXSiteCookies,
+} = require('@dhis2/cypress-plugins')
 
+/* eslint-disable-next-line no-unused-vars */
 module.exports = (on, config) => {
-    on('before:browser:launch', (browser, launchOptions) => {
-        if (browser.family === 'chromium' && browser.name !== 'electron') {
-            const disabledChromiumFeatures = [
-                'SameSiteByDefaultCookies',
-                'CookiesWithoutSameSiteMustBeSecure',
-                'SameSiteDefaultChecksMethodRigorously',
-            ]
-            launchOptions.args.push(
-                `--disable-features=${disabledChromiumFeatures.join(',')}`
-            )
-        }
-
-        return launchOptions
-    })
-
-    plugins(on, config)
+    networkShim(on)
+    chromeAllowXSiteCookies(on)
 }

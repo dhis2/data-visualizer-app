@@ -1,22 +1,36 @@
 # Data visualizer app and plugin
 
-This is a yarn workspaces mono-repo that contains the data-visualizer-app. Eventually it will also contain the analytics plugins.
+[![Test Coverage](https://codeclimate.com/github/dhis2/data-visualizer-app/badges/coverage.svg)](https://codeclimate.com/github/dhis2/data-visualizer-app/coverage)
+[![Code Climate](https://codeclimate.com/github/dhis2/data-visualizer-app/badges/gpa.svg)](https://codeclimate.com/github/dhis2/data-visualizer-app)
+
+This is a repo that contains the data-visualizer-app and its plugin used both internally and built as a separate entrypoint so it can be used in other apps such as the dashboard app
 
 ## Getting started
 
-To run data-visualizer-app from the repo root directory, install the dependencies for all packages
-and link all the packages in the repo, then make sure the plugin is built:
+To run data-visualizer-app from the repo root directory, install the dependencies:
 
 ```
 $ yarn install
-$ yarn build
 ```
 
 ### Development
 
-To build the plugin and start the app on `localhost:3000`, run `yarn start` from the repo root directory.
+Run `yarn start` from the repo's root to start the app on `localhost:3000` and the plugin on `localhost:3001`.
 
-The following npm scripts can all be run from the repo root directory and will execute on all packages
+Running the plugin on a different port allows for testing it in other apps.
+For example, for testing it in dashboard app, run the dashboard app in a different port and via devtools override the plugin path with the host and port where the plugin is running.
+Example steps:
+
+1. in DV: `yarn start`
+2. in dashboard: `yarn start`
+   At this point DV is running on localhost:3000, DV plugin on localhost:3001 and dashboard app on localhost:3002.
+3. Point the browser to localhost:3002.
+4. Add this entry to the dashboard app localStorage via devtools in the Application tab:
+   `dhis2.dashboard.pluginOverrides: { "VISUALIZATION": "http://localhost:3001" }`
+
+With the same principle is possible to test several plugins at the same time, you just need to make sure the port configured in the override is the right one for the plugin you are overriding.
+
+The following npm scripts can all be run from the repo root directory:
 
 #### Unit tests
 
@@ -36,22 +50,22 @@ Cypress is used for e2e browser tests. This automatically runs on CI for PRs, th
 
 ```sh
 {
-    "dhis2_base_url": "localhost:8080",
-    "dhis2_username": "admin",
-    "dhis2_password": "district",
+    "dhis2BaseUrl": "https://test.e2e.dhis2.org/dev",
+    "dhis2Username": "admin",
+    "dhis2Password": "district",
 }
 ```
 
 Run tests interactively (Cypress UI):
 
 ```
-yarn cy:open
+yarn cypress:live
 ```
 
-Run tests in CI mode (headless):
+Run tests in the console without Cypress UI:
 
 ```
-yarn cy:run
+yarn cypress:run
 ```
 
 #### Linting and Formatting
@@ -68,7 +82,7 @@ Check all files for code-style violations (prettier and eslint)
 $ yarn lint
 ```
 
-### Build all packages
+### Build app and plugin
 
 ```
 $ yarn build
@@ -76,26 +90,11 @@ $ yarn build
 
 #### Manual testing with Netlify
 
-This repo is configured to deploy all branches to netlify. This makes it simple to share a running implementation with others (e.g., tester, product manager, ux, fellow developers) prior
+This repo is configured to deploy pull requests to netlify. This makes it simple to share a running implementation with others (e.g., tester, product manager, ux, fellow developers) prior
 to merging to master.
-
-All netlfiy deployments run against play.dhis2.org/dev, so in order to use them, you must configure CORS for your particular branch:
-
-1. Copy the URL of the deployment you want to enable, i.e. `https://dhis2-data-visualizer.netlify.com`
-2. Visit the [system settings -- access](https://play.dhis2.org/dev/dhis-web-settings/index.html#/access) page on the DHIS2 instance you want to test against (i.e. `https://debug.dhis2.org/dev`)
-3. Add the copied URL on a new line the in CORS Whitelist textbox **NOTE**: do NOT include a trailing slash
-4. Back on [netlify](`https://dhis2-data-visualizer.netlify.com`), enter the DHIS2 instance URL in the Server input of the login dialog
-
-The master branch is always available at:
-
-`https://dhis2-data-visualizer.netlify.com`
-
-Branches are available at (replace `/` and other special characters in `{branchname}` with `-`):
-
-`https://{branchname}--dhis2-data-visualizer.netlify.com`
 
 Pull requests (I.E. #209) are available at:
 
-`https://deploy-preview-209--dhis2-data-visualizer.netlify.com`
+`https://pr-209--dhis2-data-visualizer.netlify.app`
 
 Netlify will also add a status check to each PR which links directly to the PR deployment.

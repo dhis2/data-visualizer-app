@@ -1,36 +1,12 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
-
-# dependencies
-**/node_modules
-
-# testing
-/coverage
-.netlify
-packages/app/cypress/videos/
-packages/app/cypress/screenshots/
+# DHIS2 platform
+node_modules
+.d2
+src/locales
+build
+coverage
 cypress.env.json
+cypress/screenshots
 
-# production
-packages/**/build
-packages/**/target
-
-packages/**/src/locales/
-packages/**/public/manifest.webapp
-packages/app/i18n/en.pot
-
-# misc
-.DS_Store
-*.env.local*
-.idea
-*.iml
+# Custom
 .vscode
-**/npm-debug.log*
-**/yarn-debug.log*
-**/yarn-error.log*
-
-#maven
-/target
-
-# DHIS2 Platform
-packages/*/.d2
-packages/*/coverage
+.gitignore

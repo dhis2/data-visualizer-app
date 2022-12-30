@@ -1,0 +1,1113 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18next-conv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"POT-Creation-Date: 2022-09-23T12:57:32.255Z\n"
+"PO-Revision-Date: 2022-09-23T12:57:32.255Z\n"
+
+msgid "All items"
+msgstr "All items"
+
+msgid "Rename successful"
+msgstr "Rename successful"
+
+msgid "Untitled {{visualizationType}} visualization, {{date}}"
+msgstr "Untitled {{visualizationType}} visualization, {{date}}"
+
+msgid "\"{{- deletedObject}}\" successfully deleted."
+msgstr "\"{{- deletedObject}}\" successfully deleted."
+
+msgid "You have unsaved changes."
+msgstr "You have unsaved changes."
+
+msgid "Discard unsaved changes?"
+msgstr "Discard unsaved changes?"
+
+msgid ""
+"Are you sure you want to leave this visualization? Any unsaved changes will "
+"be lost."
+msgstr ""
+"Are you sure you want to leave this visualization? Any unsaved changes will "
+"be lost."
+
+msgid "No, cancel"
+msgstr "No, cancel"
+
+msgid "Yes, leave"
+msgstr "Yes, leave"
+
+msgid "Add to {{axisName}}"
+msgstr "Add to {{axisName}}"
+
+msgid ""
+"'{{visualizationType}}' is intended to show a single data item. Only the "
+"first item will be used and saved."
+msgstr ""
+"'{{visualizationType}}' is intended to show a single data item. Only the "
+"first item will be used and saved."
+
+msgid ""
+"'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
+"items. Only the first {{maxNumber}} items will be used and saved."
+msgstr ""
+"'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
+"items. Only the first {{maxNumber}} items will be used and saved."
+
+msgid ""
+"'Scatter' is intended to show a single data item per axis. Only the first "
+"item will be used and saved."
+msgstr ""
+"'Scatter' is intended to show a single data item per axis. Only the first "
+"item will be used and saved."
+
+msgid "Vertical"
+msgstr "Vertical"
+
+msgid "Horizontal"
+msgstr "Horizontal"
+
+msgid "Main dimensions"
+msgstr "Main dimensions"
+
+msgid "Other dimensions"
+msgstr "Other dimensions"
+
+msgid "Your dimensions"
+msgstr "Your dimensions"
+
+msgid "Filter dimensions"
+msgstr "Filter dimensions"
+
+msgid "Data value set"
+msgstr "Data value set"
+
+msgid "JSON"
+msgstr "JSON"
+
+msgid "XML"
+msgstr "XML"
+
+msgid "Other formats"
+msgstr "Other formats"
+
+msgid "JRXML"
+msgstr "JRXML"
+
+msgid "Raw data SQL"
+msgstr "Raw data SQL"
+
+msgid "Plain data source"
+msgstr "Plain data source"
+
+msgid "Microsoft Excel"
+msgstr "Microsoft Excel"
+
+msgid "CSV"
+msgstr "CSV"
+
+msgid "Advanced"
+msgstr "Advanced"
+
+msgid "Graphics"
+msgstr "Graphics"
+
+msgid "Image (.png)"
+msgstr "Image (.png)"
+
+msgid "PDF (.pdf)"
+msgstr "PDF (.pdf)"
+
+msgid "Download data from this date"
+msgstr "Download data from this date"
+
+msgid "Metadata ID scheme"
+msgstr "Metadata ID scheme"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Code"
+msgstr "Code"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Table layout"
+msgstr "Table layout"
+
+msgid "Excel (.xls)"
+msgstr "Excel (.xls)"
+
+msgid "CSV (.csv)"
+msgstr "CSV (.csv)"
+
+msgid "HTML (.html)"
+msgstr "HTML (.html)"
+
+msgid "Download"
+msgstr "Download"
+
+msgid "Hide"
+msgstr "Hide"
+
+msgid "All"
+msgstr "All"
+
+msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
+msgstr "{{total}} of {{axisMaxNumberOfItems}} selected"
+
+msgid "{{total}} selected"
+msgstr "{{total}} selected"
+
+msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
+msgstr "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
+
+msgid "Not available for Scatter"
+msgstr "Not available for Scatter"
+
+msgid "Add Assigned Categories"
+msgstr "Add Assigned Categories"
+
+msgid "Swap with {{axisName}} axis"
+msgstr "Swap with {{axisName}} axis"
+
+msgid "vertical"
+msgstr "vertical"
+
+msgid "horizontal"
+msgstr "horizontal"
+
+msgid "None selected"
+msgstr "None selected"
+
+msgid "Only '{{- name}}' in use"
+msgstr "Only '{{- name}}' in use"
+
+msgid "Only '{{number}}' in use"
+msgstr "Only '{{number}}' in use"
+
+msgid "All items are selected"
+msgstr "All items are selected"
+
+msgid "Levels"
+msgstr "Levels"
+
+msgid "Groups"
+msgstr "Groups"
+
+msgid "And 1 other..."
+msgstr "And 1 other..."
+
+msgid "And {{numberOfItems}} others..."
+msgstr "And {{numberOfItems}} others..."
+
+msgid "Select a period"
+msgstr "Select a period"
+
+msgid "Select years"
+msgstr "Select years"
+
+msgid "Interpretations"
+msgstr "Interpretations"
+
+msgid ""
+"This visualization can't be deleted because it is used on one or more "
+"dashboards"
+msgstr ""
+"This visualization can't be deleted because it is used on one or more "
+"dashboards"
+
+msgid "Unsaved visualization"
+msgstr "Unsaved visualization"
+
+msgid "Edited"
+msgstr "Edited"
+
+msgid "Update"
+msgstr "Update"
+
+msgid "Getting started"
+msgstr "Getting started"
+
+msgid ""
+"All dimensions that you can use to build visualizations are shown in the "
+"left sidebar"
+msgstr ""
+"All dimensions that you can use to build visualizations are shown in the "
+"left sidebar"
+
+msgid "Add dimensions to the layout above"
+msgstr "Add dimensions to the layout above"
+
+msgid "Click a dimension to add or remove items"
+msgstr "Click a dimension to add or remove items"
+
+msgid "Your most viewed charts and tables"
+msgstr "Your most viewed charts and tables"
+
+msgid "Aggregation type"
+msgstr "Aggregation type"
+
+msgid "Overrides aggregation type for all data values."
+msgstr "Overrides aggregation type for all data values."
+
+msgid "By data element"
+msgstr "By data element"
+
+msgid "Count"
+msgstr "Count"
+
+msgid "Average"
+msgstr "Average"
+
+msgid "Average (sum in org unit hierarchy)"
+msgstr "Average (sum in org unit hierarchy)"
+
+msgid "Sum"
+msgstr "Sum"
+
+msgid "Last value"
+msgstr "Last value"
+
+msgid "Last value (average in org unit hierarchy)"
+msgstr "Last value (average in org unit hierarchy)"
+
+msgid "Min"
+msgstr "Min"
+
+msgid "Max"
+msgstr "Max"
+
+msgid "Standard deviation"
+msgstr "Standard deviation"
+
+msgid "Variance"
+msgstr "Variance"
+
+msgid "Data approved at level"
+msgstr "Data approved at level"
+
+msgid "Select from predefined levels"
+msgstr "Select from predefined levels"
+
+msgid "Loading data approval levels"
+msgstr "Loading data approval levels"
+
+msgid "Decimals"
+msgstr "Decimals"
+
+msgid "Auto"
+msgstr "Auto"
+
+msgid "Labels"
+msgstr "Labels"
+
+msgid "Axis range"
+msgstr "Axis range"
+
+msgid "Values outside of the range will not be displayed"
+msgstr "Values outside of the range will not be displayed"
+
+msgid ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+msgstr ""
+"Number of axis tick steps, including the min and max. A value of 2 or lower "
+"will be ignored."
+
+msgid "Steps"
+msgstr "Steps"
+
+msgid "Axis title"
+msgstr "Axis title"
+
+msgid "Auto generated from axis items"
+msgstr "Auto generated from axis items"
+
+msgid "None"
+msgstr "None"
+
+msgid "Custom"
+msgstr "Custom"
+
+msgid "Add a title"
+msgstr "Add a title"
+
+msgid "Reset style to default"
+msgstr "Reset style to default"
+
+msgid "Base line"
+msgstr "Base line"
+
+msgid "Column sub-totals"
+msgstr "Column sub-totals"
+
+msgid "Columns totals"
+msgstr "Columns totals"
+
+msgid "Default"
+msgstr "Default"
+
+msgid "Basic"
+msgstr "Basic"
+
+msgid "Extended"
+msgstr "Extended"
+
+msgid "Bright"
+msgstr "Bright"
+
+msgid "Dark"
+msgstr "Dark"
+
+msgid "Gray"
+msgstr "Gray"
+
+msgid "Color blind"
+msgstr "Color blind"
+
+msgid "Patterns"
+msgstr "Patterns"
+
+msgid "Event data"
+msgstr "Event data"
+
+msgid "Only include completed events"
+msgstr "Only include completed events"
+
+msgid "Include cumulative"
+msgstr "Include cumulative"
+
+msgid "Cumulative values"
+msgstr "Cumulative values"
+
+msgid "Digit group separator"
+msgstr "Digit group separator"
+
+msgid "Space"
+msgstr "Space"
+
+msgid "Comma"
+msgstr "Comma"
+
+msgid "Display density"
+msgstr "Display density"
+
+msgid "Comfortable"
+msgstr "Comfortable"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "Compact"
+msgstr "Compact"
+
+msgid "Extreme lines"
+msgstr "Extreme lines"
+
+msgid "Calculated as a percent, usually 1%, of the total values along an axis"
+msgstr "Calculated as a percent, usually 1%, of the total values along an axis"
+
+msgid "Extreme line % detection"
+msgstr "Extreme line % detection"
+
+msgid "Number"
+msgstr "Number"
+
+msgid "Fix column headers to top of table"
+msgstr "Fix column headers to top of table"
+
+msgid "There aren’t any column headers because Columns is empty."
+msgstr "There aren’t any column headers because Columns is empty."
+
+msgid "Fix row headers to left of table"
+msgstr "Fix row headers to left of table"
+
+msgid "There aren’t any row headers because Rows is empty."
+msgstr "There aren’t any row headers because Rows is empty."
+
+msgid "Font size"
+msgstr "Font size"
+
+msgid "Large"
+msgstr "Large"
+
+msgid "Small"
+msgstr "Small"
+
+msgid "Hide empty columns"
+msgstr "Hide empty columns"
+
+msgid "Hide empty categories"
+msgstr "Hide empty categories"
+
+msgid "Before first"
+msgstr "Before first"
+
+msgid "After last"
+msgstr "After last"
+
+msgid "Before first and after last"
+msgstr "Before first and after last"
+
+msgid "Hide empty rows"
+msgstr "Hide empty rows"
+
+msgid "Table subtitle"
+msgstr "Table subtitle"
+
+msgid "Chart subtitle"
+msgstr "Chart subtitle"
+
+msgid "Auto generated"
+msgstr "Auto generated"
+
+msgid "Chart title"
+msgstr "Chart title"
+
+msgid "Use legend for chart colors"
+msgstr "Use legend for chart colors"
+
+msgid "Legend style"
+msgstr "Legend style"
+
+msgid "Legend type"
+msgstr "Legend type"
+
+msgid "Use pre-defined legend per data item"
+msgstr "Use pre-defined legend per data item"
+
+msgid "Select a single legend for the entire visualization"
+msgstr "Select a single legend for the entire visualization"
+
+msgid "Legend changes background color"
+msgstr "Legend changes background color"
+
+msgid "Legend changes text color"
+msgstr "Legend changes text color"
+
+msgid "Legend"
+msgstr "Legend"
+
+msgid "Select from legends"
+msgstr "Select from legends"
+
+msgid "Loading legends"
+msgstr "Loading legends"
+
+msgid ""
+"You can set a minimum or maximum value. This will apply to the entire "
+"visualization, all values outside of the minimum/maximum range will not be "
+"displayed"
+msgstr ""
+"You can set a minimum or maximum value. This will apply to the entire "
+"visualization, all values outside of the minimum/maximum range will not be "
+"displayed"
+
+msgid "Minimum data value"
+msgstr "Minimum data value"
+
+msgid "Maximum data value"
+msgstr "Maximum data value"
+
+msgid "Clear min/max limits"
+msgstr "Clear min/max limits"
+
+msgid "No space between bars/columns"
+msgstr "No space between bars/columns"
+
+msgid "Number type"
+msgstr "Number type"
+
+msgid "Display the value of percentages of the total"
+msgstr "Display the value of percentages of the total"
+
+msgid "Value"
+msgstr "Value"
+
+msgid "Percentage of row"
+msgstr "Percentage of row"
+
+msgid "Percentage of column"
+msgstr "Percentage of column"
+
+msgid ""
+"Each detection method identifies outliers in different ways and suits "
+"different data. Check the documentation for help to choose the right "
+"outlier detection method"
+msgstr ""
+"Each detection method identifies outliers in different ways and suits "
+"different data. Check the documentation for help to choose the right "
+"outlier detection method"
+
+msgid "Threshold factor"
+msgstr "Threshold factor"
+
+msgid ""
+"A high value is more sensitive so fewer data items will be identified as "
+"outliers"
+msgstr ""
+"A high value is more sensitive so fewer data items will be identified as "
+"outliers"
+
+msgid "Interquartile Range (IQR)"
+msgstr "Interquartile Range (IQR)"
+
+msgid "Z-score / Standard score"
+msgstr "Z-score / Standard score"
+
+msgid "Modified Z-score"
+msgstr "Modified Z-score"
+
+msgid "Outlier analysis"
+msgstr "Outlier analysis"
+
+msgid ""
+"Outlier analysis detects and highlights data items that are markedly "
+"different from the rest of the data"
+msgstr ""
+"Outlier analysis detects and highlights data items that are markedly "
+"different from the rest of the data"
+
+msgid "Outlier detection method"
+msgstr "Outlier detection method"
+
+msgid "Organisation unit"
+msgstr "Organisation unit"
+
+msgid "Parent organisation unit"
+msgstr "Parent organisation unit"
+
+msgid "Reporting period"
+msgstr "Reporting period"
+
+msgid "Stacked values add up to 100%"
+msgstr "Stacked values add up to 100%"
+
+msgid "Include regression"
+msgstr "Include regression"
+
+msgid "Title"
+msgstr "Title"
+
+msgid "Trend line"
+msgstr "Trend line"
+
+msgid "Linear"
+msgstr "Linear"
+
+msgid "Polynomial"
+msgstr "Polynomial"
+
+msgid "Loess"
+msgstr "Loess"
+
+msgid "Row sub-totals"
+msgstr "Row sub-totals"
+
+msgid "Row totals"
+msgstr "Row totals"
+
+msgid "Data item"
+msgstr "Data item"
+
+msgid "Visualization type"
+msgstr "Visualization type"
+
+msgid "Axis {{axisId}}"
+msgstr "Axis {{axisId}}"
+
+msgid "Series is empty"
+msgstr "Series is empty"
+
+msgid "Options for selected items will be available here"
+msgstr "Options for selected items will be available here"
+
+msgid "No Series options"
+msgstr "No Series options"
+
+msgid "There aren't any Series options for this visualization type"
+msgstr "There aren't any Series options for this visualization type"
+
+msgid "Series options unavailable"
+msgstr "Series options unavailable"
+
+msgid ""
+"Series options are not available when using relative selections for "
+"periods, org units or categories"
+msgstr ""
+"Series options are not available when using relative selections for "
+"periods, org units or categories"
+
+msgid ""
+"Series options are not available when a series item has an \"All items\" "
+"selection"
+msgstr ""
+"Series options are not available when a series item has an \"All items\" "
+"selection"
+
+msgid "Value labels"
+msgstr "Value labels"
+
+msgid "Dimension labels"
+msgstr "Dimension labels"
+
+msgid "Display organisation unit hierarchy"
+msgstr "Display organisation unit hierarchy"
+
+msgid "Show legend key"
+msgstr "Show legend key"
+
+msgid "Show series key"
+msgstr "Show series key"
+
+msgid "Skip rounding"
+msgstr "Skip rounding"
+
+msgid "Custom sort order"
+msgstr "Custom sort order"
+
+msgid "Low to high"
+msgstr "Low to high"
+
+msgid "High to low"
+msgstr "High to low"
+
+msgid "Add a subtitle"
+msgstr "Add a subtitle"
+
+msgid "Target line"
+msgstr "Target line"
+
+msgid "Size"
+msgstr "Size"
+
+msgid "Position"
+msgstr "Position"
+
+msgid "Top limit"
+msgstr "Top limit"
+
+msgid "Options"
+msgstr "Options"
+
+msgid "Change org unit"
+msgstr "Change org unit"
+
+msgid "{{level}} level in {{orgunit}}"
+msgstr "{{level}} level in {{orgunit}}"
+
+msgid "Open as Map"
+msgstr "Open as Map"
+
+msgid "Visually plot data on a world map. Data elements use separate map layers."
+msgstr "Visually plot data on a world map. Data elements use separate map layers."
+
+msgid "Reporting rate"
+msgstr "Reporting rate"
+
+msgid "Reporting rate on time"
+msgstr "Reporting rate on time"
+
+msgid "Actual reports"
+msgstr "Actual reports"
+
+msgid "Actual reports on time"
+msgstr "Actual reports on time"
+
+msgid "Expected reports"
+msgstr "Expected reports"
+
+msgid "No data available"
+msgstr "No data available"
+
+msgid ""
+"The selected dimensions didn’t return any data. There may be no data, or "
+"you may not have access to it."
+msgstr ""
+"The selected dimensions didn’t return any data. There may be no data, or "
+"you may not have access to it."
+
+msgid "{{axisName}} is empty"
+msgstr "{{axisName}} is empty"
+
+msgid "Add at least one item to {{axisName}}."
+msgstr "Add at least one item to {{axisName}}."
+
+msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
+msgstr "{{columnsAxisName}} and {{rowsAxisName}} are empty"
+
+msgid ""
+"Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create "
+"a {{visualizationType}}."
+msgstr ""
+"Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create "
+"a {{visualizationType}}."
+
+msgid "No period selected"
+msgstr "No period selected"
+
+msgid "{{visualizationType}} must have at least one period selected in {{axes}}."
+msgstr "{{visualizationType}} must have at least one period selected in {{axes}}."
+
+msgid "Add organisation units to {{axisName}}."
+msgstr "Add organisation units to {{axisName}}."
+
+msgid "Vertical is empty"
+msgstr "Vertical is empty"
+
+msgid "Add a data item to the vertical axis."
+msgstr "Add a data item to the vertical axis."
+
+msgid "Horizontal is empty"
+msgstr "Horizontal is empty"
+
+msgid "Add a data item to the horizontal axis."
+msgstr "Add a data item to the horizontal axis."
+
+msgid "Axes data items are the same"
+msgstr "Axes data items are the same"
+
+msgid ""
+"The horizontal and vertical axes have the same data item. Scatter chart "
+"axes must have different data for each axis."
+msgstr ""
+"The horizontal and vertical axes have the same data item. Scatter chart "
+"axes must have different data for each axis."
+
+msgid "No data selected"
+msgstr "No data selected"
+
+msgid ""
+"{{visualizationType}} must have at least one data item or data element "
+"group set item in {{axes}}."
+msgstr ""
+"{{visualizationType}} must have at least one data item or data element "
+"group set item in {{axes}}."
+
+msgid "{{visualizationType}} must have at least one data item in {{axes}}."
+msgstr "{{visualizationType}} must have at least one data item in {{axes}}."
+
+msgid "There's a problem with the layout"
+msgstr "There's a problem with the layout"
+
+msgid ""
+"A single indicator must be the only data item when using indicators as Data "
+"in Filter."
+msgstr ""
+"A single indicator must be the only data item when using indicators as Data "
+"in Filter."
+
+msgid "Data Element Group Sets and Reporting Rates cannot be used together."
+msgstr "Data Element Group Sets and Reporting Rates cannot be used together."
+
+msgid "There is a problem with this {{visualizationType}} visualization."
+msgstr "There is a problem with this {{visualizationType}} visualization."
+
+msgid "There was a problem getting the data from the server."
+msgstr "There was a problem getting the data from the server."
+
+msgid "Assigned Categories can only be used with data elements"
+msgstr "Assigned Categories can only be used with data elements"
+
+msgid "Fix this problem by selecting data elements or removing Assigned Categories."
+msgstr "Fix this problem by selecting data elements or removing Assigned Categories."
+
+msgid "Assigned Categories cannot be used as Filter"
+msgstr "Assigned Categories cannot be used as Filter"
+
+msgid "Fix this problem by moving or removing Assigned Categories."
+msgstr "Fix this problem by moving or removing Assigned Categories."
+
+msgid "Visualization not found"
+msgstr "Visualization not found"
+
+msgid ""
+"The visualization you are trying to view could not be found, the ID could "
+"be incorrect or it could have been deleted."
+msgstr ""
+"The visualization you are trying to view could not be found, the ID could "
+"be incorrect or it could have been deleted."
+
+msgid "No organization units found"
+msgstr "No organization units found"
+
+msgid "The level or group selections didn't return any organization units."
+msgstr "The level or group selections didn't return any organization units."
+
+msgid "Something went wrong"
+msgstr "Something went wrong"
+
+msgid "or"
+msgstr "or"
+
+msgid "Today"
+msgstr "Today"
+
+msgid "Yesterday"
+msgstr "Yesterday"
+
+msgid "Last 3 days"
+msgstr "Last 3 days"
+
+msgid "Last 7 days"
+msgstr "Last 7 days"
+
+msgid "Last 14 days"
+msgstr "Last 14 days"
+
+msgid "This week"
+msgstr "This week"
+
+msgid "Last week"
+msgstr "Last week"
+
+msgid "Last 4 weeks"
+msgstr "Last 4 weeks"
+
+msgid "Last 12 weeks"
+msgstr "Last 12 weeks"
+
+msgid "Last 52 weeks"
+msgstr "Last 52 weeks"
+
+msgid "Weeks this year"
+msgstr "Weeks this year"
+
+msgid "This month"
+msgstr "This month"
+
+msgid "Last month"
+msgstr "Last month"
+
+msgid "Last 3 months"
+msgstr "Last 3 months"
+
+msgid "Last 6 months"
+msgstr "Last 6 months"
+
+msgid "Last 12 months"
+msgstr "Last 12 months"
+
+msgid "Months this year"
+msgstr "Months this year"
+
+msgid "This bimonth"
+msgstr "This bimonth"
+
+msgid "Last bimonth"
+msgstr "Last bimonth"
+
+msgid "Last 6 bimonths"
+msgstr "Last 6 bimonths"
+
+msgid "Bimonths this year"
+msgstr "Bimonths this year"
+
+msgid "This quarter"
+msgstr "This quarter"
+
+msgid "Last quarter"
+msgstr "Last quarter"
+
+msgid "Last 4 quarters"
+msgstr "Last 4 quarters"
+
+msgid "Quarters this year"
+msgstr "Quarters this year"
+
+msgid "This six-month"
+msgstr "This six-month"
+
+msgid "Last six-month"
+msgstr "Last six-month"
+
+msgid "Last 2 six-months"
+msgstr "Last 2 six-months"
+
+msgid "This financial year"
+msgstr "This financial year"
+
+msgid "Last financial year"
+msgstr "Last financial year"
+
+msgid "Last 5 financial years"
+msgstr "Last 5 financial years"
+
+msgid "This year"
+msgstr "This year"
+
+msgid "Last year"
+msgstr "Last year"
+
+msgid "Last 5 years"
+msgstr "Last 5 years"
+
+msgid "User organisation unit"
+msgstr "User organisation unit"
+
+msgid "User sub-units"
+msgstr "User sub-units"
+
+msgid "User sub-x2-units"
+msgstr "User sub-x2-units"
+
+msgid "Table title"
+msgstr "Table title"
+
+msgid "Parameters"
+msgstr "Parameters"
+
+msgid ""
+"These options only apply to legacy tables like standard reports. Options "
+"set here will have no effect on tables made in Data Visualizer."
+msgstr ""
+"These options only apply to legacy tables like standard reports. Options "
+"set here will have no effect on tables made in Data Visualizer."
+
+msgid "Applies to standard reports only"
+msgstr "Applies to standard reports only"
+
+msgid "Base and target lines are available on the Axes tab for scatter charts"
+msgstr "Base and target lines are available on the Axes tab for scatter charts"
+
+msgid "Color set"
+msgstr "Color set"
+
+msgid "Color sets are not supported yet when using multiple axes"
+msgstr "Color sets are not supported yet when using multiple axes"
+
+msgid "Base and target lines are available on the Axes tab for multi-axis charts"
+msgstr "Base and target lines are available on the Axes tab for multi-axis charts"
+
+msgid "Chart style"
+msgstr "Chart style"
+
+msgid "Display"
+msgstr "Display"
+
+msgid "Empty data"
+msgstr "Empty data"
+
+msgid "Horizontal (x) axis {{axisId}}"
+msgstr "Horizontal (x) axis {{axisId}}"
+
+msgid "Horizontal (x) axis"
+msgstr "Horizontal (x) axis"
+
+msgid "Lines"
+msgstr "Lines"
+
+msgid "Totals"
+msgstr "Totals"
+
+msgid "Vertical (y) axis {{axisId}}"
+msgstr "Vertical (y) axis {{axisId}}"
+
+msgid "Vertical (y) axis"
+msgstr "Vertical (y) axis"
+
+msgid "Titles"
+msgstr "Titles"
+
+msgid "Axes"
+msgstr "Axes"
+
+msgid "Data"
+msgstr "Data"
+
+msgid "Limit values"
+msgstr "Limit values"
+
+msgid "Limit number of values"
+msgstr "Limit number of values"
+
+msgid "Limit minimum/maximum values"
+msgstr "Limit minimum/maximum values"
+
+msgid "Outliers"
+msgstr "Outliers"
+
+msgid "Series"
+msgstr "Series"
+
+msgid "Style"
+msgstr "Style"
+
+msgid "View data and indicators in a manipulatable table."
+msgstr "View data and indicators in a manipulatable table."
+
+msgid "Compare sizes of related elements vertically. Recommend period as filter."
+msgstr "Compare sizes of related elements vertically. Recommend period as filter."
+
+msgid ""
+"Compare parts of a whole against related elements vertically. Recommend "
+"data or org. unit as series."
+msgstr ""
+"Compare parts of a whole against related elements vertically. Recommend "
+"data or org. unit as series."
+
+msgid "Compare sizes of related elements horizontally. Recommend period as filter."
+msgstr "Compare sizes of related elements horizontally. Recommend period as filter."
+
+msgid ""
+"Compare parts of a whole against related elements horizontally. Recommend "
+"data or org. unit as series."
+msgstr ""
+"Compare parts of a whole against related elements horizontally. Recommend "
+"data or org. unit as series."
+
+msgid "Track or compare changes over time. Recommend period as category."
+msgstr "Track or compare changes over time. Recommend period as category."
+
+msgid ""
+"Track or compare parts of a whole over time. Recommend data as series and "
+"period as category."
+msgstr ""
+"Track or compare parts of a whole over time. Recommend data as series and "
+"period as category."
+
+msgid ""
+"Compare parts of a whole at a single point in time. Recommend period as "
+"filter."
+msgstr ""
+"Compare parts of a whole at a single point in time. Recommend period as "
+"filter."
+
+msgid "Compare several items against multiple variables."
+msgstr "Compare several items against multiple variables."
+
+msgid ""
+"Compare a percentage indicator against a 100% scale. Recommend period as "
+"filter."
+msgstr ""
+"Compare a percentage indicator against a 100% scale. Recommend period as "
+"filter."
+
+msgid "Compare changes over time between multiple time periods."
+msgstr "Compare changes over time between multiple time periods."
+
+msgid "Display a single value. Recommend relative period to show latest data."
+msgstr "Display a single value. Recommend relative period to show latest data."
+
+msgid ""
+"View the relationship between two data items at a place or time. "
+"Recommended for finding outliers."
+msgstr ""
+"View the relationship between two data items at a place or time. "
+"Recommended for finding outliers."
+
+msgid "Weeks per year"
+msgstr "Weeks per year"
+
+msgid "Months per year"
+msgstr "Months per year"
+
+msgid "Bimonths per year"
+msgstr "Bimonths per year"
+
+msgid "Quarters per year"
+msgstr "Quarters per year"

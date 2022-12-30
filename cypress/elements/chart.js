@@ -10,7 +10,6 @@ import {
 
 const visualizationContainerEl = 'visualization-container'
 const visualizationTitleEl = 'visualization-title'
-const visualizationSubtitleEl = 'visualization-subtitle'
 const chartContainerEl = '.highcharts-container'
 const highchartsLegendEl = '.highcharts-legend'
 const highchartsTitleEl = '.highcharts-title'
@@ -64,10 +63,7 @@ export const expectChartToContainDimensionItem = (visType, itemName) => {
                 .and('contain', itemName)
             break
         case VIS_TYPE_SINGLE_VALUE:
-            cy.getBySel(visualizationTitleEl, visualizationSubtitleEl).should(
-                'contain',
-                itemName
-            )
+            cy.getBySel(visualizationTitleEl).should('contain', itemName)
             break
         case VIS_TYPE_PIVOT_TABLE:
             cy.getBySel('visualization-column-header')
