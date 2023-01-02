@@ -264,6 +264,70 @@ describe('Options - Legend', () => {
             expectLegedKeyItemAmountToBe(1)
         })
     })
+    describe('Applying a legend: Stacked column', () => {
+        it('navigates to the start page and adds data items', () => {
+            goToStartPage()
+            changeVisType(visTypeDisplayNames[VIS_TYPE_STACKED_COLUMN])
+            openDimension(DIMENSION_ID_DATA)
+            selectIndicators(TEST_ITEMS.map((item) => item.name))
+            clickDimensionModalUpdateButton()
+            expectVisualizationToBeVisible(VIS_TYPE_STACKED_COLUMN)
+        })
+        it('enables legend', () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            toggleLegend()
+            expectLegendToBeEnabled()
+            expectLegendDisplayStrategyToBeByDataItem()
+            clickOptionsModalUpdateButton()
+            expectChartTitleToBeVisible()
+        })
+        it('legend by data item is applied', () => {
+            TEST_ITEMS.forEach((item) =>
+                expectWindowConfigSeriesItemToHaveLegendSet(
+                    item.name,
+                    item.legendSet
+                )
+            )
+        })
+        it(`changes legend display strategy to fixed (${TEST_LEGEND_SET})`, () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            expectLegendDisplayStrategyToBeByDataItem()
+            changeDisplayStrategyToFixed()
+            expectLegendDisplayStrategyToBeFixed()
+            changeFixedLegendSet(TEST_LEGEND_SET)
+            clickOptionsModalUpdateButton()
+            expectChartTitleToBeVisible()
+        })
+        it('fixed legend is applied', () => {
+            TEST_ITEMS.forEach((item) =>
+                expectWindowConfigSeriesItemToHaveLegendSet(
+                    item.name,
+                    TEST_LEGEND_SET
+                )
+            )
+        })
+        it('legend key is hidden', () => {
+            expectLegendKeyToBeHidden()
+        })
+        it('verifies that options are persisted', () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            expectLegendDisplayStrategyToBeFixed()
+            expectFixedLegendSetToBe(TEST_LEGEND_SET)
+        })
+        it('enables legend key option', () => {
+            toggleLegendKeyOption()
+            expectLegendKeyOptionToBeEnabled()
+            clickOptionsModalUpdateButton()
+            expectVisualizationToBeVisible()
+        })
+        it('legend key is shown with 1 item', () => {
+            expectLegendKeyToBeVisible()
+            expectLegedKeyItemAmountToBe(1)
+        })
+    })
     describe('Applying a legend: Pivot table', () => {
         const TEST_ITEM = TEST_ITEMS[0]
         const EXPECTED_STANDARD_TEXT_COLOR = 'color: rgb(33, 41, 52)'
