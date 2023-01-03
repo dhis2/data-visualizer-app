@@ -323,7 +323,7 @@ export class NoOrgUnitResponseError extends VisualizationError {
     }
 }
 
-export class DataTypeError extends VisualizationError {
+export class ValueTypeError extends VisualizationError {
     constructor() {
         super(
             DataError,

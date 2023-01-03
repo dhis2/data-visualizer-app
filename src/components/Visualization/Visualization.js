@@ -19,7 +19,7 @@ import {
     CombinationDEGSRRError,
     NoOrgUnitResponseError,
     NoDataError,
-    DataTypeError,
+    ValueTypeError,
 } from '../../modules/error.js'
 import { removeLastPathSegment } from '../../modules/orgUnit.js'
 import { sGetCurrent } from '../../reducers/current.js'
@@ -98,7 +98,7 @@ export class UnconnectedVisualization extends Component {
                 ) &&
                 this.props.visualization.type !== VIS_TYPE_PIVOT_TABLE
             ) {
-                throw new DataTypeError()
+                throw new ValueTypeError()
             }
 
             Object.entries(response.metaData.items).forEach(([id, item]) => {
