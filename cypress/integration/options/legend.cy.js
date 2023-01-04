@@ -9,6 +9,7 @@ import {
     visTypeDisplayNames,
     DIMENSION_ID_PERIOD,
     AXIS_ID_COLUMNS,
+    VIS_TYPE_AREA,
 } from '@dhis2/analytics'
 import {
     expectChartTitleToBeVisible,
@@ -589,7 +590,7 @@ describe('Options - Legend', () => {
             expectLegendKeyToBeHidden()
         })
     })
-    describe('Preventing options bleed: Column -> Stacked column', () => {
+    describe('Preventing options bleed: Column -> Area', () => {
         it('navigates to the start page and adds data items', () => {
             goToStartPage()
             openDimension(DIMENSION_ID_DATA)
@@ -614,12 +615,12 @@ describe('Options - Legend', () => {
                 )
             )
         })
-        it('changes vis type to Stacked column', () => {
-            changeVisType(visTypeDisplayNames[VIS_TYPE_STACKED_COLUMN])
+        it('changes vis type to Area', () => {
+            changeVisType(visTypeDisplayNames[VIS_TYPE_AREA])
             clickMenuBarUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_STACKED_COLUMN)
+            expectVisualizationToBeVisible(VIS_TYPE_AREA)
         })
-        it('legend is not applied to Stacked column', () => {
+        it('legend is not applied to Area', () => {
             TEST_ITEMS.forEach((item) =>
                 expectWindowConfigSeriesItemToNotHaveLegendSet(item.name)
             )
