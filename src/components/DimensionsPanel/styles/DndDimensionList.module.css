@@ -7,6 +7,7 @@
 .wrapper {
     position: absolute;
     width: 100%;
+    height: 100%;
     overflow: auto;
     margin-top: 0px;
     padding: var(--spacers-dp8);
