@@ -13,18 +13,20 @@ import { sGetUiOption } from '../../../reducers/ui.js'
 import { tabSectionOptionToggleable } from '../styles/VisualizationOptions.style.js'
 import LegendSet from './LegendSet.js'
 
-const LegendDisplayStrategy = ({ value, onChange }) => (
+const LegendDisplayStrategy = ({ value, onChange, singleLegendSetOnly }) => (
     <Fragment>
         <Field name={OPTION_LEGEND_DISPLAY_STRATEGY} dense>
-            <Radio
-                key={LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM}
-                label={i18n.t('Use pre-defined legend per data item')}
-                value={LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM}
-                checked={value === LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM}
-                onChange={onChange}
-                dense
-                dataTest={`legend-display-strategy-${LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM}`}
-            />
+            {!singleLegendSetOnly && (
+                <Radio
+                    key={LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM}
+                    label={i18n.t('Use pre-defined legend per data item')}
+                    value={LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM}
+                    checked={value === LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM}
+                    onChange={onChange}
+                    dense
+                    dataTest={`legend-display-strategy-${LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM}`}
+                />
+            )}
             <Radio
                 key={LEGEND_DISPLAY_STRATEGY_FIXED}
                 label={i18n.t(
@@ -48,6 +50,7 @@ const LegendDisplayStrategy = ({ value, onChange }) => (
 LegendDisplayStrategy.propTypes = {
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
+    singleLegendSetOnly: PropTypes.bool,
 }
 
 const mapStateToProps = (state) => ({

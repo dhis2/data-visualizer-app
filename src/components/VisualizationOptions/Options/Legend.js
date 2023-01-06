@@ -31,6 +31,7 @@ const Legend = ({
     legendDisplayStrategy,
     onChange,
     hideStyleOptions,
+    hideByDataItemStrategy,
 }) => {
     const [legendEnabled, setLegendEnabled] = useState(
         !(
@@ -110,7 +111,9 @@ const Legend = ({
                                 </span>
                             </UiCoreLegend>
                             <div className={tabSectionOption.className}>
-                                <LegendDisplayStrategy />
+                                <LegendDisplayStrategy
+                                    singleLegendSetOnly={hideByDataItemStrategy}
+                                />
                             </div>
                         </FieldSet>
                     </div>
@@ -125,6 +128,7 @@ const Legend = ({
 
 Legend.propTypes = {
     onChange: PropTypes.func.isRequired,
+    hideByDataItemStrategy: PropTypes.bool,
     hideStyleOptions: PropTypes.bool,
     legendDisplayStrategy: PropTypes.string,
     legendSet: PropTypes.object,
