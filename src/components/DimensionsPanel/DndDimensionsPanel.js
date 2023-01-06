@@ -19,15 +19,20 @@ export class DndDimensionsPanel extends Component {
     render() {
         return (
             <div className={styles.container} data-test="dimensions-panel">
-                <DimensionFilter
-                    placeholder={i18n.t('Filter dimensions')}
-                    text={this.state.filterText}
-                    onChange={this.onFilterTextChange}
-                    onClear={this.onClearFilter}
-                    disableUnderline={true}
-                    type="search"
-                    dataTest="dimensions-panel-filter"
-                />
+                <div
+                    className={styles.filter}
+                    data-test="dimensions-panel-filter"
+                >
+                    <DimensionFilter
+                        placeholder={i18n.t('Filter dimensions')}
+                        text={this.state.filterText}
+                        onChange={this.onFilterTextChange}
+                        onClear={this.onClearFilter}
+                        disableUnderline={true}
+                        type="search"
+                        dataTest="dimensions-panel-filter"
+                    />
+                </div>
                 <DndDimensionList
                     filterText={this.state.filterText}
                     onDimensionOptionsClick={this.props.onDimensionOptionsClick}
