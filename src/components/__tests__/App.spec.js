@@ -16,13 +16,10 @@ jest.mock('@dhis2/analytics', () => ({
     visTypeDisplayNames: {},
 }))
 
-jest.mock(
-    '../Visualization/Visualization',
-    () =>
-        function Vis() {
-            return <div />
-        }
-)
+jest.mock('../Visualization/Visualization', () => ({
+    __esModule: true,
+    Visualization: () => <div />,
+}))
 
 describe('App', () => {
     let props
