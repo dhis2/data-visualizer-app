@@ -8,13 +8,10 @@ export const acAddSettings = (value) => ({
 })
 
 export const tAddSettings =
-    (...extraSettings) =>
-    async (dispatch, getState, engine) => {
+    (extraSettings) => async (dispatch, getState, engine) => {
         const onSuccess = (fetchedSettings) => {
             dispatch(
-                acAddSettings(
-                    Object.assign({}, fetchedSettings, ...extraSettings)
-                )
+                acAddSettings(Object.assign({}, fetchedSettings, extraSettings))
             )
         }
 

@@ -23,11 +23,11 @@ import styles from './styles/VisualizationPlugin.module.css'
 
 export const VisualizationPlugin = ({
     visualization,
+    displayProperty,
     filters,
     forDashboard,
     id,
     style,
-    userSettings,
     onChartGenerated,
     onError,
     onLoadingComplete,
@@ -40,7 +40,9 @@ export const VisualizationPlugin = ({
     const [contextualMenuRef, setContextualMenuRef] = useState(undefined)
     const [contextualMenuConfig, setContextualMenuConfig] = useState({})
     const [showLegendKey, setShowLegendKey] = useState(false)
-    const [renderId, setRenderId] = useState(0)
+    const [renderId, setRenderId] = useState(id)
+
+    useEffect(() => setRenderId(id), [id])
 
     const incremementRenderId = () => setRenderId(renderId + 1)
 
@@ -100,7 +102,7 @@ export const VisualizationPlugin = ({
             visualization,
             filters,
             forDashboard,
-            userSettings,
+            displayProperty,
         })
 
         if (result.responses.length) {
@@ -112,7 +114,7 @@ export const VisualizationPlugin = ({
         engine,
         filters,
         forDashboard,
-        userSettings,
+        displayProperty,
         onResponsesReceived,
         visualization,
     ])
@@ -372,6 +374,7 @@ export const VisualizationPlugin = ({
 }
 
 VisualizationPlugin.defaultProps = {
+    displayProperty: 'name',
     filters: {},
     forDashboard: false,
     onChartGenerated: Function.prototype,
@@ -380,15 +383,14 @@ VisualizationPlugin.defaultProps = {
     onResponsesReceived: Function.prototype,
     style: {},
     visualization: {},
-    userSettings: {},
 }
 VisualizationPlugin.propTypes = {
+    displayProperty: PropTypes.string.isRequired,
     visualization: PropTypes.object.isRequired,
     filters: PropTypes.object,
     forDashboard: PropTypes.bool,
     id: PropTypes.number,
     style: PropTypes.object,
-    userSettings: PropTypes.object,
     onChartGenerated: PropTypes.func,
     onDrill: PropTypes.func,
     onError: PropTypes.func,
