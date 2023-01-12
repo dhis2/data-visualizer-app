@@ -12,7 +12,10 @@ import {
 import ArrowDown from '../../assets/ArrowDown.js'
 import { prepareCurrentAnalyticalObject } from '../../modules/currentAnalyticalObject.js'
 import { getAdaptedUiByType } from '../../modules/ui.js'
-import { visTypes, visTypeDescriptions } from '../../modules/visualization.js'
+import {
+    visTypes,
+    getVisTypeDescriptions,
+} from '../../modules/visualization.js'
 import { sGetCurrent } from '../../reducers/current.js'
 import { sGetMetadata } from '../../reducers/metadata.js'
 import { sGetUi, sGetUiType } from '../../reducers/ui.js'
@@ -64,7 +67,7 @@ const UnconnectedVisualizationTypeSelector = (
                             key={visType}
                             iconType={visType}
                             label={visTypeDisplayNames[visType]}
-                            description={visTypeDescriptions[visType]}
+                            description={getVisTypeDescriptions()[visType]}
                             isSelected={visType === visualizationType}
                             onClick={handleListItemClick(visType)}
                         />
