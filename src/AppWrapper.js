@@ -57,6 +57,8 @@ const providerDataTransformation = ({
             ...currentUser,
             settings: {
                 ...currentUser.settings,
+                displayProperty:
+                    currentUser.settings[USER_SETTINGS_DISPLAY_PROPERTY],
                 [DERIVED_USER_SETTINGS_DISPLAY_NAME_PROPERTY]:
                     currentUser.settings[USER_SETTINGS_DISPLAY_PROPERTY] ===
                     'name'
