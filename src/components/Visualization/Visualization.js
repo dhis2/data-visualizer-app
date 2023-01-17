@@ -24,7 +24,7 @@ import {
 import { removeLastPathSegment } from '../../modules/orgUnit.js'
 import { sGetCurrent } from '../../reducers/current.js'
 import { sGetLoadError, sGetIsPluginLoading } from '../../reducers/loader.js'
-import { sGetSettingsDisplayNameProperty } from '../../reducers/settings.js'
+import { sGetSettingsDisplayProperty } from '../../reducers/settings.js'
 import { sGetUiRightSidebarOpen } from '../../reducers/ui.js'
 import LoadingMask from '../../widgets/LoadingMask.js'
 import { VisualizationPlugin } from '../VisualizationPlugin/VisualizationPlugin.js'
@@ -207,7 +207,7 @@ export class UnconnectedVisualization extends Component {
                     onError={this.onError}
                     onDrill={this.onDrill}
                     style={styles.chartCanvas}
-                    userSettings={userSettings}
+                    displayProperty={userSettings.displayProperty}
                 />
             </Fragment>
         )
@@ -230,7 +230,7 @@ UnconnectedVisualization.propTypes = {
 }
 
 export const userSettingsSelector = createSelector(
-    [sGetSettingsDisplayNameProperty],
+    [sGetSettingsDisplayProperty],
     (displayProperty) => ({
         displayProperty,
     })
