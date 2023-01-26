@@ -29,7 +29,7 @@ export const fetchData = async ({
     visualization,
     filters,
     forDashboard,
-    userSettings,
+    displayProperty,
 }) => {
     const adaptedVisualization = {
         ...visualization,
@@ -41,7 +41,7 @@ export const fetchData = async ({
     const options = getRequestOptions(
         adaptedVisualization,
         filters,
-        userSettings
+        displayProperty
     )
 
     const extraOptions = {

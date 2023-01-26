@@ -2,7 +2,7 @@
 
 .data-visualizer-app {
     height: 100%;
-    background-color: var(--colors-grey100);
+    background-color: var(--colors-grey300);
     overflow: hidden;
 }
 .data-visualizer-app * {
@@ -45,7 +45,7 @@ body {
 
 .toolbar-type {
     width: 260px;
-    border-right: 1px solid var(--colors-grey300);
+    border-right: 1px solid var(--colors-grey400);
     border-bottom: 1px solid var(--colors-grey400);
 }
 
@@ -60,14 +60,14 @@ body {
 
 .main-left {
     min-width: 260px;
-    border-right: 1px solid var(--colors-grey400);
 }
 
 .main-right {
     flex: 1 1 0%;
     max-width: 380px;
-    background-color: var(--colors-grey200);
+    background-color: var(--colors-grey100);
     border-left: 1px solid var(--colors-grey400);
+    box-shadow: 1px 0 -2px 0 rgba(0, 0, 0, 0.03);
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -80,4 +80,8 @@ body {
     height: 100%;
     overflow: hidden;
     position: relative;
+}
+
+.main-center-layout {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
 }

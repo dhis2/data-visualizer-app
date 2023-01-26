@@ -34,11 +34,11 @@ const AppWrapper = () => {
             <UserSettingsProvider>
                 <UserSettingsCtx.Consumer>
                     {({ userSettings }) => {
-                        return userSettings?.keyUiLocale ? (
+                        return userSettings?.uiLocale ? (
                             <D2Shim
                                 d2Config={d2Config}
                                 i18nRoot="./i18n_old"
-                                locale={userSettings.keyUiLocale}
+                                locale={userSettings.uiLocale}
                             >
                                 {({ d2 }) => {
                                     if (!d2) {

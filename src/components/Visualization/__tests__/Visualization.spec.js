@@ -20,6 +20,9 @@ describe('Visualization', () => {
         beforeEach(() => {
             props = {
                 visualization: {},
+                userSettings: {
+                    displayProperty: 'shortName',
+                },
                 error: null,
                 rightSidebarOpen: false,
                 addMetadata: jest.fn(),

@@ -38,7 +38,7 @@ export const visTypes = [
     VIS_TYPE_SCATTER,
 ]
 
-export const visTypeDescriptions = {
+export const getVisTypeDescriptions = () => ({
     [VIS_TYPE_PIVOT_TABLE]: i18n.t(
         'View data and indicators in a manipulatable table.'
     ),
@@ -84,7 +84,7 @@ export const visTypeDescriptions = {
     [VIS_TYPE_SCATTER]: i18n.t(
         'View the relationship between two data items at a place or time. Recommended for finding outliers.'
     ),
-}
+})
 
 export const getVisualizationFromCurrent = (current) => {
     const visualization = Object.assign({}, current)
