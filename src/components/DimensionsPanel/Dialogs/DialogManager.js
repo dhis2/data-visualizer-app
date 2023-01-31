@@ -315,12 +315,22 @@ export class DialogManager extends Component {
                               itemAttribute: dialogId,
                           })
                     : dimensionProps.onSelect
+                const onCalculationSave = (calculation) => {
+                    this.props.addMetadata({
+                        [calculation.id]: {
+                            id: calculation.id,
+                            name: calculation.name,
+                            dimensionItemType: calculation.type,
+                        },
+                    })
+                }
                 const dimensionSelector = (
                     <DataDimension
                         displayNameProp={displayNameProperty}
                         selectedDimensions={selectedItems}
                         infoBoxMessage={infoBoxMessage}
                         onSelect={onSelect}
+                        onCalculationSave={onCalculationSave}
                     />
                 )
                 const dataTabs = isScatterAttribute(dialogId) ? (
