@@ -83,6 +83,7 @@ exports[`The DialogManager component renders OUDimension content with display:no
         />
       </div>
       <DataDimension
+        onCalculationSave={[Function]}
         onSelect={[Function]}
         selectedDimensions={Array []}
       />
@@ -125,6 +126,7 @@ exports[`The DialogManager component renders the DataDimension content in dialog
       dataTest="dialog-manager-modal-content"
     >
       <DataDimension
+        onCalculationSave={[Function]}
         onSelect={[Function]}
         selectedDimensions={Array []}
       />
