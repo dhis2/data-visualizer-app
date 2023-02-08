@@ -6,7 +6,7 @@ import { USER_DATASTORE_CURRENT_AO_KEY } from '../../modules/currentAnalyticalOb
 import history from '../../modules/history.js'
 import * as ui from '../../modules/ui.js'
 import { DEFAULT_CURRENT } from '../../reducers/current.js'
-import App from '../App.js'
+import { UnconnectedApp as App } from '../App.js'
 import { Snackbar } from '../Snackbar/Snackbar.js'
 
 jest.mock('@dhis2/analytics', () => ({

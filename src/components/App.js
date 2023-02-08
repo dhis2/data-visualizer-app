@@ -111,7 +111,7 @@ export class UnconnectedApp extends Component {
                 this.props.clearVisualization()
                 this.props.clearCurrent()
 
-                this.props.setUiFromVisualization(currentAO)
+                this.props.setUiFromVisualization(this.props.currentAO)
                 this.props.setCurrentFromUi(this.props.ui)
             }
 
@@ -381,6 +381,7 @@ UnconnectedApp.propTypes = {
     clearCurrent: PropTypes.func,
     clearVisualization: PropTypes.func,
     current: PropTypes.object,
+    currentAO: PropTypes.object,
     d2: PropTypes.object,
     dataEngine: PropTypes.object,
     loadUserAuthority: PropTypes.func,

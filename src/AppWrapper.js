@@ -10,8 +10,8 @@ import UserSettingsProvider, {
 } from './components/UserSettingsProvider.js'
 import configureStore from './configureStore.js'
 import metadataMiddleware from './middleware/metadata.js'
+import { USER_DATASTORE_NAMESPACE } from './modules/currentAnalyticalObject.js'
 import history from './modules/history.js'
-import { USER_DATASTORE_NAMESPACE } from './modules/currentAnalyticalObject'
 import './locales/index.js'
 
 const AppWrapper = () => {
