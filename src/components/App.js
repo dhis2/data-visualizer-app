@@ -405,9 +405,7 @@ const withCurrentAO = (Component) => {
     }
 }
 
-export const App = () => {
-    return connect(
-        mapStateToProps,
-        mapDispatchToProps
-    )(withCurrentAO(UnconnectedApp))
-}
+export const App = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(withCurrentAO(UnconnectedApp))
