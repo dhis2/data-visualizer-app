@@ -33,15 +33,21 @@ describe('Data dimension', () => {
         it('modal has a title', () => {
             expectCalculationsModalTitleToContain('Data / New calculation')
         })
-        /*
+        it('"All groups" is selected', () => {
+            cy.getBySel('data-element-group-select').contains('All groups')
+        })
+        it('"Totals only" is selected', () => {
+            cy.getBySel('data-element-disaggregation-select').contains(
+                'Totals only'
+            )
+        })
+        it('items are loaded', () => {
+            cy.getBySelLike('dimension-list')
+                .findBySel('dimension-option')
+                .should('have.length', PAGE_SIZE)
+        })
 
-        --initial
-        label is empty
-        search field is empty
-        group select is "All"
-        disaggregation select is "Totals only"
-        no items are selected
-        list is loaded
+        /*
 
         --search/filter
         searching
@@ -59,7 +65,7 @@ describe('Data dimension', () => {
         all math operators work and creates a valid formula when used
         dataElements (Totals only) show correct name when added
         dataElementOperands (Details only) show correct name when added
-
+        
         --frontend validation / "Check formula"
         "Empty formula"
         "Consecutive math operators"
@@ -68,6 +74,7 @@ describe('Data dimension', () => {
         "Missing right parenthesis )"
         "Missing left parenthesis ("
         "Valid"
+        sample test formula from request to validation (note that detailed tests are already done in Jest)
         changing the formula resets the status
         EDI can't be saved without a valid formula (check with Joe if this is still valid)
 
