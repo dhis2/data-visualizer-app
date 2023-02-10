@@ -1,4 +1,5 @@
 import { apiFetchOrganisationUnitLevels } from '@dhis2/analytics'
+import { useSetting } from '@dhis2/app-service-datastore'
 import i18n from '@dhis2/d2-i18n'
 import {
     CssVariables,
@@ -13,11 +14,8 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as fromActions from '../actions/index.js'
-import {
-    apiFetchAOFromUserDataStore,
-    CURRENT_AO_KEY,
-} from '../api/userDataStore.js'
 import { Snackbar } from '../components/Snackbar/Snackbar.js'
+import { USER_DATASTORE_CURRENT_AO_KEY } from '../modules/currentAnalyticalObject.js'
 import history from '../modules/history.js'
 import defaultMetadata from '../modules/metadata.js'
 import { getParentGraphMapFromVisualization } from '../modules/ui.js'
@@ -100,13 +98,11 @@ export class UnconnectedApp extends Component {
             // /${id}/interpretation/${interpretationId}
             const { id } = this.parseLocation(location)
 
-            const urlContainsCurrentAOKey = id === CURRENT_AO_KEY
+            const urlContainsCurrentAOKey = id === USER_DATASTORE_CURRENT_AO_KEY
 
             if (urlContainsCurrentAOKey) {
-                const AO = await apiFetchAOFromUserDataStore()
-
                 this.props.addParentGraphMap(
-                    getParentGraphMapFromVisualization(AO)
+                    getParentGraphMapFromVisualization(this.props.currentAO)
                 )
 
                 // clear visualization and current
@@ -115,7 +111,7 @@ export class UnconnectedApp extends Component {
                 this.props.clearVisualization()
                 this.props.clearCurrent()
 
-                this.props.setUiFromVisualization(AO)
+                this.props.setUiFromVisualization(this.props.currentAO)
                 this.props.setCurrentFromUi(this.props.ui)
             }
 
@@ -385,6 +381,7 @@ UnconnectedApp.propTypes = {
     clearCurrent: PropTypes.func,
     clearVisualization: PropTypes.func,
     current: PropTypes.object,
+    currentAO: PropTypes.object,
     d2: PropTypes.object,
     dataEngine: PropTypes.object,
     loadUserAuthority: PropTypes.func,
@@ -400,4 +397,15 @@ UnconnectedApp.propTypes = {
     visualization: PropTypes.object,
 }
 
-export const App = connect(mapStateToProps, mapDispatchToProps)(UnconnectedApp)
+const withCurrentAO = (Component) => {
+    return function WrappedComponent(props) {
+        const [currentAO] = useSetting(USER_DATASTORE_CURRENT_AO_KEY)
+
+        return <Component {...props} currentAO={currentAO} />
+    }
+}
+
+export const App = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(withCurrentAO(UnconnectedApp))
