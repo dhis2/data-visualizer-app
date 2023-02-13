@@ -1,3 +1,4 @@
+import { DIMENSION_ID_DATA, VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
 import debounce from 'lodash-es/debounce'
 import PropTypes from 'prop-types'
 import React, { Component, Fragment } from 'react'
@@ -18,11 +19,12 @@ import {
     CombinationDEGSRRError,
     NoOrgUnitResponseError,
     NoDataError,
+    ValueTypeError,
 } from '../../modules/error.js'
 import { removeLastPathSegment } from '../../modules/orgUnit.js'
 import { sGetCurrent } from '../../reducers/current.js'
 import { sGetLoadError, sGetIsPluginLoading } from '../../reducers/loader.js'
-import { sGetSettingsDisplayNameProperty } from '../../reducers/settings.js'
+import { sGetSettingsDisplayProperty } from '../../reducers/settings.js'
 import { sGetUiRightSidebarOpen } from '../../reducers/ui.js'
 import LoadingMask from '../../widgets/LoadingMask.js'
 import { VisualizationPlugin } from '../VisualizationPlugin/VisualizationPlugin.js'
@@ -86,7 +88,19 @@ export class UnconnectedVisualization extends Component {
 
     onResponsesReceived = (responses) => {
         const forMetadata = {}
+
         responses.forEach((response) => {
+            if (
+                (response?.metaData?.dimensions || {})[
+                    DIMENSION_ID_DATA
+                ]?.every(
+                    (dim) => response.metaData.items[dim]?.valueType === 'TEXT'
+                ) &&
+                this.props.visualization.type !== VIS_TYPE_PIVOT_TABLE
+            ) {
+                throw new ValueTypeError()
+            }
+
             Object.entries(response.metaData.items).forEach(([id, item]) => {
                 forMetadata[id] = {
                     id,
@@ -193,7 +207,7 @@ export class UnconnectedVisualization extends Component {
                     onError={this.onError}
                     onDrill={this.onDrill}
                     style={styles.chartCanvas}
-                    userSettings={userSettings}
+                    displayProperty={userSettings.displayProperty}
                 />
             </Fragment>
         )
@@ -216,7 +230,7 @@ UnconnectedVisualization.propTypes = {
 }
 
 export const userSettingsSelector = createSelector(
-    [sGetSettingsDisplayNameProperty],
+    [sGetSettingsDisplayProperty],
     (displayProperty) => ({
         displayProperty,
     })

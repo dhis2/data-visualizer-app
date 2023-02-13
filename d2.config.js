@@ -4,8 +4,16 @@ const config = {
     title: 'Data Visualizer',
     coreApp: true,
 
+    pwa: {
+        enabled: true,
+        caching: {
+            patternsToOmitFromAppShell: [/.*/],
+        },
+    },
+
     entryPoints: {
         app: './src/AppWrapper.js',
+        plugin: './src/PluginWrapper.js',
     },
 }
 
