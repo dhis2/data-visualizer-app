@@ -1981,10 +1981,10 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^24.4.0":
-  version "24.4.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-24.4.0.tgz#99a4cc0c8d846edb9792e489db3f93357f71d8be"
-  integrity sha512-0tSECJLMhEvn96OLYQhfdbNoEaLN2EkXp0zc8FfjEfM7HtVjNeiops9SaQH1Fzu2/XkkY9H1lcX5PHGo4Ail9g==
+"@dhis2/analytics@^24.6.0":
+  version "24.6.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-24.6.0.tgz#2b118a9b13f5e4793c7ee9553c17688c2569adae"
+  integrity sha512-yiH0iEyOI9YnFTfMv1aR/TsjXjDf/cTGpL0z7pojMXkSEa0hxxq774iixYVa0hkjCGmdM/RUr7yVkljtdsbj5Q==
   dependencies:
     "@dhis2/d2-ui-rich-text" "^7.4.0"
     classnames "^2.3.1"
