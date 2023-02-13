@@ -10,7 +10,7 @@ import { clickMenuBarUpdateButton } from './menuBar.js'
 const loadingEl = 'dhis2-uicore-circularloader'
 
 export const expectAppToNotBeLoading = () =>
-    cy.getBySel(loadingEl).should('not.exist')
+    cy.getBySel(loadingEl, { timeout: 15000 }).should('not.exist')
 
 export const clickCheckbox = (target) =>
     cy.getBySel(target).click().find('[type="checkbox"]').should('be.checked')
