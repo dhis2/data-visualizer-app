@@ -113,3 +113,28 @@ export const STATE_EMPTY = 'EMPTY'
 export const STATE_SAVED = 'SAVED'
 export const STATE_UNSAVED = 'UNSAVED'
 export const STATE_DIRTY = 'DIRTY'
+
+export const dimensionMetadataProps = [
+    'expressionDimensionItem',
+    'dataElement',
+    'dataElementOperand',
+    'reportingRate',
+    'programAttribute',
+    'programIndicator',
+    'indicator',
+]
+
+// Loop through and collect dimension metadata from the visualization
+export const getDimensionMetadataFromVisualization = (visualization) => {
+    const metadata = []
+
+    visualization.dataDimensionItems.forEach((dimensionItem) => {
+        Object.entries(dimensionItem).forEach(([key, object]) => {
+            if (dimensionMetadataProps.includes(key)) {
+                metadata.push({ [object.id]: object })
+            }
+        })
+    })
+
+    return metadata
+}

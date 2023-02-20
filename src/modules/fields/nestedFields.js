@@ -1,5 +1,7 @@
 // constants
 
+import { dimensionMetadataProps } from '../visualization.js'
+
 const ID = 'id'
 const NAME = 'name,displayName,displayShortName'
 
@@ -13,6 +15,11 @@ const AXIS = `dimension,filter,legendSet[${LEGEND_SET}],items[${ITEMS}]`
 const INTERPRETATIONS = 'id,created'
 const LEGEND = `showKey,style,strategy,set[${LEGEND_SET}]`
 
+const DIMENSION_PROPS = dimensionMetadataProps
+    .map((prop) => `${prop}[${ITEMS}]`)
+    .join(',')
+const DIMENSION_ITEMS = `dataDimensionItemType,${DIMENSION_PROPS}`
+
 // nested fields map
 export const nestedFields = {
     columns: AXIS,
@@ -21,6 +28,7 @@ export const nestedFields = {
     user: USER,
     interpretations: INTERPRETATIONS,
     legend: LEGEND,
+    dataDimensionItems: DIMENSION_ITEMS,
 }
 
 export const extendFields = (field) =>

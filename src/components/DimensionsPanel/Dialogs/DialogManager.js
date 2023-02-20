@@ -203,6 +203,9 @@ export class DialogManager extends Component {
                 type:
                     this.props.metadata[id]?.type ||
                     this.props.metadata[id]?.dimensionItemType,
+                ...(this.props.metadata[id]?.expression
+                    ? { expression: this.props.metadata[id]?.expression }
+                    : {}),
             }))
     }
 
