@@ -128,8 +128,8 @@ export const dimensionMetadataProps = [
 export const getDimensionMetadataFromVisualization = (visualization) => {
     const metadata = []
 
-    visualization.dataDimensionItems.forEach((dimensionItem) => {
-        Object.entries(dimensionItem).forEach(([key, object]) => {
+    visualization.dataDimensionItems?.forEach((dimensionItem) => {
+        Object.entries(dimensionItem)?.forEach(([key, object]) => {
             if (dimensionMetadataProps.includes(key)) {
                 metadata.push({ [object.id]: object })
             }
