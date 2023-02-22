@@ -175,7 +175,10 @@ export class DialogManager extends Component {
                             id: item.id,
                             name: item.name || item.displayName,
                             displayName: item.displayName,
-                            type: item.type,
+                            dimensionItemType: item.type,
+                            ...(item.expression
+                                ? { expression: item.expression }
+                                : {}),
                         }
 
                         return obj
@@ -324,6 +327,7 @@ export class DialogManager extends Component {
                             id: calculation.id,
                             name: calculation.name,
                             dimensionItemType: calculation.type,
+                            expression: calculation.expression,
                         },
                     })
                 }
