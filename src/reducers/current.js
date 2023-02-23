@@ -30,7 +30,7 @@ const getDefaultFromUi = (state, action) => {
         ...action.value,
         itemsByDimension: getItemsByDimensionFromUi(action.value),
     }
-    const metadata = sGetMetadata(state)
+    const metadata = sGetMetadata(state || {})
 
     const axesFromUi = getAxesFromUi(adaptedUi, metadata)
     const optionsFromUi = getOptionsFromUi(adaptedUi)
