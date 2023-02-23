@@ -17,6 +17,7 @@ import {
     getItemsByDimensionFromUi,
 } from '../modules/current.js'
 import { BASE_FIELD_TYPE } from '../modules/fields/baseFields.js'
+import { sGetMetadata } from './metadata.js'
 
 export const SET_CURRENT = 'SET_CURRENT'
 export const SET_CURRENT_FROM_UI = 'SET_CURRENT_FROM_UI'
@@ -29,7 +30,9 @@ const getDefaultFromUi = (state, action) => {
         ...action.value,
         itemsByDimension: getItemsByDimensionFromUi(action.value),
     }
-    const axesFromUi = getAxesFromUi(adaptedUi)
+    const metadata = sGetMetadata(state)
+
+    const axesFromUi = getAxesFromUi(adaptedUi, metadata)
     const optionsFromUi = getOptionsFromUi(adaptedUi)
     const series = getSeriesFromUi(adaptedUi)
 

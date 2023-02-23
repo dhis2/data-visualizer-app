@@ -31,7 +31,7 @@ import {} from './layout.js'
 
 const hasItems = (object, id) => Array.isArray(object[id]) && object[id].length
 
-export const getAxesFromUi = (ui) =>
+export const getAxesFromUi = (ui, metadata) =>
     Object.entries(ui.layout).reduce(
         (layout, [axisId, dimensionIds]) => ({
             ...layout,
@@ -42,10 +42,15 @@ export const getAxesFromUi = (ui) =>
                         dimensionId,
                         DIMENSION_PROP_NO_ITEMS
                     )
-                        ? dimensionCreate(
-                              dimensionId,
-                              ui.itemsByDimension[dimensionId]
-                          )
+                        ? {
+                              dimension: dimensionId,
+                              items: ui.itemsByDimension[dimensionId].map(
+                                  (id) =>
+                                      metadata && metadata[id]
+                                          ? metadata[id]
+                                          : { id }
+                              ),
+                          }
                         : null
                 )
                 .filter((dim) => dim !== null),
