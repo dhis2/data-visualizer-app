@@ -323,6 +323,18 @@ export class NoOrgUnitResponseError extends VisualizationError {
     }
 }
 
+export class ValueTypeError extends VisualizationError {
+    constructor() {
+        super(
+            DataError,
+            i18n.t('Invalid data type'),
+            i18n.t(
+                "The selected data dimensions didn't return any valid data. This visualization type can only display numerical data."
+            )
+        )
+    }
+}
+
 export const genericErrorTitle = i18n.t('Something went wrong')
 
 const getAvailableAxesDescription = (visType) => {
