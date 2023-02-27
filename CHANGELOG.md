@@ -1,3 +1,15 @@
+# [100.0.0](https://github.com/dhis2/data-visualizer-app/compare/v99.0.0...v100.0.0) (2023-02-27)
+
+
+### chore
+
+* prepare app for continuous delivery ([8db6c88](https://github.com/dhis2/data-visualizer-app/commit/8db6c88908fde153adc646cd1f13f25a55edf299))
+
+
+### BREAKING CHANGES
+
+* v100.0.0
+
 ## [39.2.15](https://github.com/dhis2/data-visualizer-app/compare/v39.2.14...v39.2.15) (2022-10-27)
 
 
