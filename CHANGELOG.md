@@ -1,3 +1,20 @@
+# [39.3.0](https://github.com/dhis2/data-visualizer-app/compare/v39.2.15...v39.3.0) (2023-02-27)
+
+
+### Bug Fixes
+
+* bump Analytics (DHIS2-6626) ([#2222](https://github.com/dhis2/data-visualizer-app/issues/2222)) ([c41c02f](https://github.com/dhis2/data-visualizer-app/commit/c41c02fc81b7351d871a760597e9a679c6a02e06))
+* displayNameProperty prop name typo + prevent duplicates in store + remove unused fn ([#1931](https://github.com/dhis2/data-visualizer-app/issues/1931)) ([12f5b4a](https://github.com/dhis2/data-visualizer-app/commit/12f5b4abd90a53c41175c279876644841c544a12))
+* error message for non-numeric data types (DHIS2-10067) ([#2224](https://github.com/dhis2/data-visualizer-app/issues/2224)) ([df261f8](https://github.com/dhis2/data-visualizer-app/commit/df261f82ca70479dc6e34abfe3d6d3b14a86d78d))
+* type selector - wrong hover style for active selection (DHIS2-9262) ([#2214](https://github.com/dhis2/data-visualizer-app/issues/2214)) ([5641d8d](https://github.com/dhis2/data-visualizer-app/commit/5641d8dfaec27c6fed3052684da476c3bd1a03eb))
+* update design to match Line Listing app ([#2226](https://github.com/dhis2/data-visualizer-app/issues/2226)) ([50f462f](https://github.com/dhis2/data-visualizer-app/commit/50f462f19b3995343f6aba840c3285b3d2fc3738))
+* use app runtime's datastore service ([#2235](https://github.com/dhis2/data-visualizer-app/issues/2235)) ([ae5cac3](https://github.com/dhis2/data-visualizer-app/commit/ae5cac3cac11afbff1cbf714f8ed2f32670eaf5c))
+
+
+### Features
+
+* apply a legend for Stacked Column Chart (DHIS2-13783) ([#2225](https://github.com/dhis2/data-visualizer-app/issues/2225)) ([bbb0c11](https://github.com/dhis2/data-visualizer-app/commit/bbb0c11d46bf047ec7ed8ce22b7cf9b193199eb8))
+
 ## [39.2.15](https://github.com/dhis2/data-visualizer-app/compare/v39.2.14...v39.2.15) (2022-10-27)
 
 
