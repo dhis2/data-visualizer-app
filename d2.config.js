@@ -5,7 +5,7 @@ const config = {
     title: 'Data Visualizer',
     coreApp: true,
 
-    minDHIS2Version: '2.39',
+    minDHIS2Version: '2.40',
 
     pwa: {
         enabled: true,
