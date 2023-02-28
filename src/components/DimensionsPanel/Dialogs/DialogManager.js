@@ -190,6 +190,12 @@ export class DialogManager extends Component {
 
     closeDialog = () => this.props.changeDialog(null)
 
+    mapExpressionIdsToMetadata = (input) => {
+        const regex = /#{([a-zA-Z0-9#]+.*?)}/g
+        const ids = input.match(regex).map((match) => match.slice(2, -1))
+        return ids.map((id) => this.props.metadata[id])
+    }
+
     getSelectedItems = (dialogId) => {
         const items = isScatterAttribute(dialogId)
             ? this.props.getItemsByAttribute(dialogId)
@@ -207,7 +213,13 @@ export class DialogManager extends Component {
                     this.props.metadata[id]?.type ||
                     this.props.metadata[id]?.dimensionItemType,
                 ...(this.props.metadata[id]?.expression
-                    ? { expression: this.props.metadata[id]?.expression }
+                    ? {
+                          expression: this.props.metadata[id].expression,
+                          metadata: this.mapExpressionIdsToMetadata(
+                              // TODO: return only the relevant name instead of name, displayName and displayShortName
+                              this.props.metadata[id].expression
+                          ),
+                      }
                     : {}),
             }))
     }
@@ -322,6 +334,7 @@ export class DialogManager extends Component {
                           })
                     : dimensionProps.onSelect
                 const onCalculationSave = (calculation) => {
+                    // TODO: recieve metadata for the expression items and add that to the store as well
                     this.props.addMetadata({
                         [calculation.id]: {
                             id: calculation.id,
