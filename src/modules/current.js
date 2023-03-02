@@ -47,7 +47,7 @@ export const getAxesFromUi = (ui, metadata) =>
                               items: ui.itemsByDimension[dimensionId].map(
                                   (id) =>
                                       metadata && metadata[id]
-                                          ? metadata[id]
+                                          ? { ...metadata[id], id }
                                           : { id }
                               ),
                           }
@@ -129,16 +129,13 @@ export const getItemsByDimensionFromUi = (ui) => {
     return result
 }
 
-export const getSingleValueCurrentFromUi = (state, action) => {
+export const getSingleValueCurrentFromUi = (state, value) => {
     const ui = {
-        ...action.value,
+        ...value,
         layout: {
-            ...getAdaptedUiLayoutByType(
-                action.value.layout,
-                VIS_TYPE_SINGLE_VALUE
-            ),
+            ...getAdaptedUiLayoutByType(value.layout, VIS_TYPE_SINGLE_VALUE),
         },
-        itemsByDimension: getItemsByDimensionFromUi(action.value),
+        itemsByDimension: getItemsByDimensionFromUi(value),
     }
 
     const axesFromUi = getAxesFromUi(ui)
@@ -159,13 +156,13 @@ export const getSingleValueCurrentFromUi = (state, action) => {
     }
 }
 
-export const getScatterCurrentFromUi = (state, action) => {
+export const getScatterCurrentFromUi = (state, value) => {
     const ui = {
-        ...action.value,
+        ...value,
         layout: {
-            ...getAdaptedUiLayoutByType(action.value.layout, VIS_TYPE_SCATTER),
+            ...getAdaptedUiLayoutByType(value.layout, VIS_TYPE_SCATTER),
         },
-        itemsByDimension: getItemsByDimensionFromUi(action.value),
+        itemsByDimension: getItemsByDimensionFromUi(value),
     }
 
     const axesFromUi = getAxesFromUi(ui)
@@ -193,13 +190,13 @@ export const getScatterCurrentFromUi = (state, action) => {
     }
 }
 
-export const getPieCurrentFromUi = (state, action) => {
+export const getPieCurrentFromUi = (state, value) => {
     const ui = {
-        ...action.value,
+        ...value,
         layout: {
-            ...getAdaptedUiLayoutByType(action.value.layout, VIS_TYPE_PIE),
+            ...getAdaptedUiLayoutByType(value.layout, VIS_TYPE_PIE),
         },
-        itemsByDimension: getItemsByDimensionFromUi(action.value),
+        itemsByDimension: getItemsByDimensionFromUi(value),
     }
 
     return {
@@ -210,10 +207,10 @@ export const getPieCurrentFromUi = (state, action) => {
     }
 }
 
-export const getYearOverYearCurrentFromUi = (state, action) => {
+export const getYearOverYearCurrentFromUi = (state, value) => {
     const ui = {
-        ...action.value,
-        itemsByDimension: getItemsByDimensionFromUi(action.value),
+        ...value,
+        itemsByDimension: getItemsByDimensionFromUi(value),
     }
 
     const periodDimension = dimensionCreate(
