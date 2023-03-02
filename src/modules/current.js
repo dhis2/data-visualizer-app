@@ -79,7 +79,6 @@ export const getOptionsFromUi = (ui) => {
         optionsFromUi.approvalLevel = optionsFromUi.approvalLevel.id
     }
 
-    // XXX
     // icons is stored as array of objects { type: DATA_ITEM }
     if (optionsFromUi.icons !== options.icons.defaultValue) {
         optionsFromUi.icons = [{ type: 'DATA_ITEM' }]

@@ -201,7 +201,6 @@ export const getOptionsFromVisualization = (visualization) => {
         }
     )
 
-    // XXX
     // if array has at least one element, convert into boolean
     optionsFromVisualization.icons = Boolean(visualization.icons?.length)
 
