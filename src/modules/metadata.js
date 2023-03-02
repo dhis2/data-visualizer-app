@@ -52,5 +52,8 @@ export default function () {
     return Object.entries({
         ...getRelativePeriods(),
         ...getOrganisationUnits(),
-    }).reduce((obj, [key, value]) => ({ ...obj, [key]: { name: value } }), {})
+    }).reduce(
+        (obj, [key, value]) => ({ ...obj, [key]: { id: key, name: value } }),
+        {}
+    )
 }
