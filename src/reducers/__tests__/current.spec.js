@@ -85,7 +85,7 @@ describe('reducer: current', () => {
 
         const actualState = reducer(undefined, {
             type: SET_CURRENT_FROM_UI,
-            value: ui,
+            value: { ui },
         })
 
         expect(actualState).toEqual(expectedState)
@@ -136,7 +136,7 @@ describe('reducer: current', () => {
 
         const actualState = reducer(undefined, {
             type: SET_CURRENT_FROM_UI,
-            value: ui,
+            value: { ui },
         })
 
         expect(actualState).toEqual(expectedState)
