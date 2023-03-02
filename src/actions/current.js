@@ -10,7 +10,7 @@ export const acSetCurrent = (value) => ({
     value,
 })
 
-export const acClear = () => ({
+export const acClearCurrent = () => ({
     type: CLEAR_CURRENT,
 })
 

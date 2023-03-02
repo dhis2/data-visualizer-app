@@ -128,15 +128,15 @@ export const clearAll =
             dispatch(fromLoader.acClearLoadError())
         }
 
-        dispatch(fromVisualization.acClear())
-        dispatch(fromCurrent.acClear())
+        dispatch(fromVisualization.acClearVisualization())
+        dispatch(fromCurrent.acClearCurrent())
 
         const rootOrganisationUnits = sGetRootOrgUnits(getState())
         const relativePeriod = sGetRelativePeriod(getState())
         const digitGroupSeparator = sGetSettingsDigitGroupSeparator(getState())
 
         dispatch(
-            fromUi.acClear({
+            fromUi.acClearUi({
                 rootOrganisationUnits,
                 relativePeriod,
                 digitGroupSeparator,

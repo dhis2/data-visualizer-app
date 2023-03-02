@@ -109,7 +109,6 @@ describe('VisualizationPlugin', () => {
         visualization: {},
         displayProperty: '',
         filters: {},
-        d2: {},
         forDashboard: false,
         onResponsesReceived: jest.fn(),
         onError: jest.fn(),
