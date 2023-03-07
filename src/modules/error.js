@@ -232,7 +232,7 @@ export class MultipleIndicatorAsFilterError extends VisualizationError {
             DataError,
             i18n.t("There's a problem with the layout"),
             i18n.t(
-                'A single indicator must be the only data item when using indicators as Data in Filter.'
+                'A single indicator or calculation must be the only data item when using indicators or calculations as Data in Filter.'
             )
         )
     }
