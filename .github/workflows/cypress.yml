@@ -10,8 +10,8 @@ env:
     SERVER_START_CMD: 'yarn cypress:start'
     SERVER_URL: 'http://localhost:3000'
     CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-    REACT_APP_DHIS2_BASE_URL: ${{ secrets.REACT_APP_DHIS2_BASE_URL }}
-    cypress_dhis2_base_url: ${{ secrets.REACT_APP_DHIS2_BASE_URL }}
+    REACT_APP_DHIS2_BASE_URL: ${{ secrets.CYPRESS_DHIS2_BASE_URL_38 }}
+    cypress_dhis2_base_url: ${{ secrets.CYPRESS_DHIS2_BASE_URL_38 }}
     cypress_dhis2_username: ${{ secrets.DHIS2_USERNAME }}
     cypress_dhis2_password: ${{ secrets.DHIS_PASSWORD }}
 
@@ -26,6 +26,10 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v2
+
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: 14.x
 
             - name: Tests
               uses: cypress-io/github-action@v2
