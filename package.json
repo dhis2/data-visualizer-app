@@ -5,6 +5,7 @@
     "license": "BSD-3-Clause",
     "private": true,
     "scripts": {
+        "deduplicate": "d2-app-scripts deduplicate",
         "postinstall": "patch-package",
         "build": "d2-app-scripts build",
         "start": "d2-app-scripts start",
