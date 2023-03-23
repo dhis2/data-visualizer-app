@@ -1,3 +1,10 @@
+## [100.0.1](https://github.com/dhis2/data-visualizer-app/compare/v100.0.0...v100.0.1) (2023-03-23)
+
+
+### Bug Fixes
+
+* set height on chart container when not defined ([#2246](https://github.com/dhis2/data-visualizer-app/issues/2246)) ([#2250](https://github.com/dhis2/data-visualizer-app/issues/2250)) ([a922569](https://github.com/dhis2/data-visualizer-app/commit/a922569cb9ca8683e602bd070c1e45cd67c87049))
+
 # [100.0.0](https://github.com/dhis2/data-visualizer-app/compare/v99.0.0...v100.0.0) (2023-02-27)
 
 
