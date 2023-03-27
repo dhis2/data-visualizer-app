@@ -1,3 +1,10 @@
+## [100.0.2](https://github.com/dhis2/data-visualizer-app/compare/v100.0.1...v100.0.2) (2023-03-27)
+
+
+### Bug Fixes
+
+* remove translucent layer by using app-scripts 10.3.4 (DHIS2-15008) ([#2251](https://github.com/dhis2/data-visualizer-app/issues/2251)) ([9d62ca7](https://github.com/dhis2/data-visualizer-app/commit/9d62ca7f4946a9ec3c9db7a17cfea0f9055daeb7))
+
 ## [100.0.1](https://github.com/dhis2/data-visualizer-app/compare/v100.0.0...v100.0.1) (2023-03-23)
 
 
