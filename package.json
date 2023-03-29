@@ -26,6 +26,7 @@
         "@dhis2/cypress-commands": "^9.0.2",
         "@dhis2/cypress-plugins": "^9.0.2",
         "cypress": "^8.5.0",
+        "cypress-tags": "^1.1.2",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.5",
         "eslint-plugin-cypress": "^2.11.3",
@@ -35,7 +36,8 @@
         "patch-package": "^6.5.0",
         "postinstall-postinstall": "^2.1.0",
         "redux-mock-store": "^1.5.4",
-        "start-server-and-test": "^1.14.0"
+        "start-server-and-test": "^1.14.0",
+        "typescript": "^5.0.2"
     },
     "dependencies": {
         "@dhis2/analytics": "^24.4.0",

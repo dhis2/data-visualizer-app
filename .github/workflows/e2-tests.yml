@@ -1,0 +1,174 @@
+name: 'e2e-tests'
+
+# Requirements:
+#
+# - Secrets:
+#     GITHUB_TOKEN
+#     CYPRESS_DHIS2_USERNAME
+#     CYPRESS_DHIS2_PASSWORD
+#
+# - Customize environment variables:
+#     BASE_URL_INSTANCES: Set the base url for the instances, e.g. https://test.e2e.dhis2.org
+#     NAME_PATTERN_PROD_INSTANCES: Set the name pattern for your instances. {version} will be replaced by "[majorVersion].[minorVersion]"
+#     NAME_PATTERN_DEV_INSTANCE: Set the name pattern for your dev instance. {version} will be replaced by "dev"
+#
+# - Other optional customizations:
+#     containers: Set the matrix containers array for the e2e-prod job. The number of parallel Cypress instances running for each backend version will equal the array length.
+#
+# - Set status check as required:
+#     We recommend setting "e2e-tests-success"  as a required step in your workflow.
+
+on:
+    push:
+        branches:
+            - dev
+    pull_request:
+        types: [opened, synchronize, reopened, ready_for_review]
+    workflow_dispatch:
+
+env:
+    BASE_URL_INSTANCES: https://test.e2e.dhis2.org
+    NAME_PATTERN_PROD_INSTANCES: 'analytics-{version}'
+    NAME_PATTERN_DEV_INSTANCE: analytics-dev
+
+concurrency:
+    group: ${{ github.workflow}}-${{ github.ref }}
+    cancel-in-progress: true
+
+defaults:
+    run:
+        shell: bash
+
+jobs:
+    compute-prod-versions:
+        if: "!github.event.push.repository.fork && (github.event.pull_request.draft == false || github.action == 'workflow_dispatch')"
+        runs-on: ubuntu-latest
+        outputs:
+            versions: ${{ steps.prod-versions.outputs.versions }}
+        steps:
+            - name: Compute dev instance url
+              id: instance-url
+              run: |
+                  url=${BASE_URL_INSTANCES%/}/${NAME_PATTERN_DEV_INSTANCE/"{version}"/dev}
+                  echo "url=$url" >> $GITHUB_OUTPUT
+                  echo "url: $url"
+
+            - uses: actions/checkout@v3
+
+            - name: Output prod version urls
+              id: prod-versions
+              uses: dhis2/action-supported-legacy-versions@v1
+              with:
+                  instance-url-latest: ${{ steps.instance-url.outputs.url }} # can be removed if maxDHIS2Version has been specified
+                  username: ${{ secrets.CYPRESS_DHIS2_USERNAME }} # can be removed if maxDHIS2Version has been specified
+                  password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }} # can be removed if maxDHIS2Version has been specified
+
+    e2e-prod:
+        needs: compute-prod-versions
+        runs-on: ubuntu-latest
+        container:
+            image: cypress/browsers:node16.17.0-chrome106
+            options: --user 1001
+        strategy:
+            fail-fast: false
+            matrix:
+                versions: ${{ fromJSON(needs.compute-prod-versions.outputs.versions) }}
+                containers: [1, 2, 3, 4]
+        steps:
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 18.x
+
+            - name: Compute prod instance url
+              id: instance-url
+              run: |
+                  url=${BASE_URL_INSTANCES%/}/${NAME_PATTERN_PROD_INSTANCES/"{version}"/$version}
+                  echo "url=$url" >> $GITHUB_OUTPUT
+                  echo "url: $url"
+              env:
+                  version: ${{ matrix.versions }}
+
+            - name: Run e2e tests
+              uses: cypress-io/github-action@v5
+              with:
+                  start: yarn d2-app-scripts start
+                  wait-on: 'http://localhost:3000'
+                  wait-on-timeout: 300
+                  record: true
+                  parallel: true
+                  browser: chrome
+                  group: e2e-chrome-parallel-${{ matrix.versions }}
+              env:
+                  CI: true
+                  BROWSER: none
+                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+                  CYPRESS_dhis2BaseUrl: ${{ steps.instance-url.outputs.url }}
+                  CYPRESS_dhis2InstanceVersion: ${{matrix.versions}}
+                  CYPRESS_dhis2Username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
+                  CYPRESS_dhis2Password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
+                  CYPRESS_networkMode: live
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    compute-dev-version:
+        if: "!github.event.push.repository.fork && (github.event.pull_request.draft == false || github.action == 'workflow_dispatch')"
+        runs-on: ubuntu-latest
+        outputs:
+            version: ${{ steps.instance-version.outputs.version }}
+        steps:
+            - name: Output dev version
+              id: instance-version
+              uses: dhis2/action-instance-version@v1
+              with:
+                  instance-url: https://test.e2e.dhis2.org/analytics-dev
+                  username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
+                  password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
+
+    e2e-dev:
+        needs: compute-dev-version
+        runs-on: ubuntu-latest
+        container:
+            image: cypress/browsers:node16.17.0-chrome106
+            options: --user 1001
+
+        strategy:
+            fail-fast: false
+            matrix:
+                containers: [1, 2, 3, 4]
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 18.x
+
+            - name: Run e2e tests
+              uses: cypress-io/github-action@v5
+              with:
+                  start: yarn d2-app-scripts start
+                  wait-on: 'http://localhost:3000'
+                  wait-on-timeout: 300
+                  record: true
+                  parallel: true
+                  browser: chrome
+                  group: e2e-chrome-parallel-dev
+              env:
+                  BROWSER: none
+                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+                  CYPRESS_dhis2BaseUrl: https://test.e2e.dhis2.org/analytics-dev
+                  CYPRESS_dhis2InstanceVersion: ${{ needs.compute-dev-version.outputs.version }}
+                  CYPRESS_dhis2Username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
+                  CYPRESS_dhis2Password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
+                  CYPRESS_networkMode: live
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    e2e-tests-success:
+        needs: e2e-prod
+        if: ${{ success() || failure() }}
+        runs-on: ubuntu-latest
+        steps:
+            - run: if [ $result != 'success' ]; then exit 1; fi;
+              env:
+                  result: ${{ needs.e2e-prod.result }}

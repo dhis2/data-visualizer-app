@@ -83,46 +83,9 @@ jobs:
             - name: Test
               run: yarn d2-app-scripts test
 
-    e2e:
-        runs-on: ubuntu-latest
-        if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
-
-        strategy:
-            fail-fast: false
-            matrix:
-                containers: [1, 2, 3, 4]
-
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v2
-
-            - uses: actions/setup-node@v1
-              with:
-                  node-version: 14.x
-
-            - name: End-to-End tests
-              uses: cypress-io/github-action@v2
-              with:
-                  start: yarn d2-app-scripts start
-                  wait-on: 'http://localhost:3000'
-                  wait-on-timeout: 300
-                  record: true
-                  video: true
-                  parallel: true
-                  browser: chrome
-                  headless: true
-              env:
-                  BROWSER: none
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-                  CYPRESS_dhis2BaseUrl: ${{ secrets.CYPRESS_DHIS2_BASE_URL_DEV }}
-                  CYPRESS_dhis2Username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
-                  CYPRESS_dhis2Password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
-                  CYPRESS_networkMode: live
-
     release:
         runs-on: ubuntu-latest
-        needs: [build, lint, test, e2e]
+        needs: [build, lint, test]
         if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
         steps:
             - uses: actions/checkout@v2
