@@ -1,0 +1,80 @@
+name: 'dhis2: nightly'
+
+# Requirements:
+#
+# - Secrets:
+#     GITHUB_TOKEN
+#     CYPRESS_DHIS2_USERNAME
+#     CYPRESS_DHIS2_PASSWORD
+#     CYPRESS_RECORD_KEY
+#
+# This workflow runs the e2e tests on the default branch against dev at 2:20am M-F
+
+on:
+    schedule:
+        - cron: '20 2 * * 1-5'
+    workflow_dispatch:
+
+concurrency:
+    group: ${{ github.workflow}}-${{ github.ref }}
+    cancel-in-progress: true
+
+defaults:
+    run:
+        shell: bash
+
+jobs:
+    e2e-dev:
+        runs-on: ubuntu-latest
+        container:
+            image: cypress/browsers:node16.17.0-chrome106
+            options: --user 1001
+
+        strategy:
+            fail-fast: false
+            matrix:
+                containers: [1, 2, 3, 4]
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 18.x
+
+            - name: Run e2e tests
+              uses: cypress-io/github-action@v5
+              with:
+                  start: yarn d2-app-scripts start
+                  wait-on: 'http://localhost:3000'
+                  wait-on-timeout: 300
+                  record: true
+                  parallel: true
+                  browser: chrome
+              env:
+                  BROWSER: none
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+                  CYPRESS_dhis2BaseUrl: https://test.e2e.dhis2.org/analytics-dev
+                  CYPRESS_dhis2Username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
+                  CYPRESS_dhis2Password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
+                  CYPRESS_dhis2InstanceVersion: dev
+                  CYPRESS_networkMode: live
+
+    send-slack-message:
+        runs-on: ubuntu-latest
+        needs: [e2e-dev]
+        if: |
+            always() &&
+            contains(needs.e2e-dev.result, 'failure')
+
+        steps:
+            - name: Send failure message to analytics-internal-kfmt slack channel
+              id: slack
+              uses: slackapi/slack-github-action@v1.23.0
+              with:
+                  channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
+                  slack-message: ':x: Data-visualizer-app e2e nightly run <https://cloud.cypress.io/projects/sojh88/runs?branches=[{"label":"dev","suggested":false,"value":"dev"}]|failed>'
+              env:
+                  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
