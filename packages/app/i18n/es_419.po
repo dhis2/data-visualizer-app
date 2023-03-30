@@ -1,9 +1,13 @@
 # 
+# Translators:
+# Jaime Bosque <jaime.bosque@dhis2.org>, 2022
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-05-14T01:00:50.112Z\n"
 "PO-Revision-Date: 2022-08-21 23:45+0000\n"
+"Last-Translator: Jaime Bosque <jaime.bosque@dhis2.org>, 2022\n"
 "Language-Team: Spanish (Latin America) (https://www.transifex.com/hisp-uio/teams/100509/es_419/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,10 +39,10 @@ msgid ""
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 msgid "Update"
-msgstr ""
+msgstr "Actualizar"
 
 msgid ""
 "'Single Value' is intended to show a single data item. Only the first item "
@@ -79,7 +83,7 @@ msgid "Code"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 msgid "Data value set"
 msgstr ""
@@ -103,7 +107,7 @@ msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr ""
 
 msgid "Something went wrong"
-msgstr ""
+msgstr "Algo ha ido mal"
 
 msgid "Refresh to try again"
 msgstr ""
@@ -196,7 +200,7 @@ msgid "Min"
 msgstr ""
 
 msgid "Max"
-msgstr ""
+msgstr "Máx"
 
 msgid "Standard deviation"
 msgstr ""
@@ -226,7 +230,7 @@ msgid "Hide empty categories"
 msgstr ""
 
 msgid "None"
-msgstr ""
+msgstr "Ninguno"
 
 msgid "Before first"
 msgstr ""
@@ -238,7 +242,7 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr ""
+msgstr "Todos"
 
 msgid "Hide chart legend"
 msgstr ""
@@ -313,7 +317,7 @@ msgid "Chart title"
 msgstr ""
 
 msgid "Data"
-msgstr ""
+msgstr "Datos"
 
 msgid "Axis & legend"
 msgstr ""
@@ -428,10 +432,10 @@ msgid "Please add at least one period as {{filter}}"
 msgstr ""
 
 msgid "Today"
-msgstr ""
+msgstr "Hoy"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Ayer"
 
 msgid "Last 3 days"
 msgstr ""
@@ -443,10 +447,10 @@ msgid "Last 14 days"
 msgstr ""
 
 msgid "This week"
-msgstr ""
+msgstr "Esta semana"
 
 msgid "Last week"
-msgstr ""
+msgstr "Última semana"
 
 msgid "Last 4 weeks"
 msgstr ""
@@ -458,13 +462,13 @@ msgid "Last 52 weeks"
 msgstr ""
 
 msgid "Weeks this year"
-msgstr ""
+msgstr "Semanas de este año"
 
 msgid "This month"
-msgstr ""
+msgstr "Este mes"
 
 msgid "Last month"
-msgstr ""
+msgstr "Mes anterior"
 
 msgid "Last 3 months"
 msgstr ""
@@ -476,31 +480,31 @@ msgid "Last 12 months"
 msgstr ""
 
 msgid "Months this year"
-msgstr ""
+msgstr "Meses este año"
 
 msgid "This bimonth"
-msgstr ""
+msgstr "Este bimestre"
 
 msgid "Last bimonth"
-msgstr ""
+msgstr "Último bimestre"
 
 msgid "Last 6 bimonths"
 msgstr ""
 
 msgid "Bimonths this year"
-msgstr ""
+msgstr "Bimestres de este año"
 
 msgid "This quarter"
-msgstr ""
+msgstr "Este trimestre"
 
 msgid "Last quarter"
-msgstr ""
+msgstr "El trimestre pasado"
 
 msgid "Last 4 quarters"
 msgstr ""
 
 msgid "Quarters this year"
-msgstr ""
+msgstr "Trimestres de este año"
 
 msgid "This six-month"
 msgstr ""
@@ -512,19 +516,19 @@ msgid "Last 2 six-months"
 msgstr ""
 
 msgid "This financial year"
-msgstr ""
+msgstr "Este año fiscal"
 
 msgid "Last financial year"
-msgstr ""
+msgstr "Último ejercicio financiero"
 
 msgid "Last 5 financial years"
 msgstr ""
 
 msgid "This year"
-msgstr ""
+msgstr "Este año"
 
 msgid "Last year"
-msgstr ""
+msgstr "El año pasado"
 
 msgid "Last 5 years"
 msgstr ""

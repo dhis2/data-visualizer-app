@@ -252,7 +252,7 @@ msgid "All"
 msgstr "Усі"
 
 msgid "Hide chart legend"
-msgstr ""
+msgstr "Приховати умовні позначення діаграми"
 
 msgid "Hide subtitle"
 msgstr "Приховати підзаголовок"
@@ -283,6 +283,8 @@ msgstr "Кроки між поділками діапазону осі"
 
 msgid "Tick steps may extend the chart beyond 'Range axis max'"
 msgstr ""
+"Кроки між поділками можуть розширити діаграму за межі \"макс. діапазону "
+"осі\""
 
 msgid "Trend line"
 msgstr "Лінія тенденції"
