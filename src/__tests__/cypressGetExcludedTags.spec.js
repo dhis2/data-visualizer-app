@@ -3,6 +3,11 @@ import { minDHIS2Version } from '../../d2.config.js'
 
 const minVersion = parseInt(minDHIS2Version.slice(2))
 
+/*
+    If the minVersion is 40, and the instance version 41, then the generated tags
+    should be: <40, <=40, <41, >41, >=42, >42, >=43
+*/
+
 describe('get excluded Cypress tags', () => {
     test(`instanceVersion 2.${minVersion}`, () => {
         expect(getExcludedTags(`2.${minVersion}`)).toEqual([
