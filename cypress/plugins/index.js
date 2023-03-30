@@ -5,7 +5,6 @@ const {
 const { tagify } = require('cypress-tags')
 const { getExcludedTags } = require('../support/getExcludedTags.js')
 
-/* eslint-disable-next-line no-unused-vars */
 module.exports = (on, config) => {
     networkShim(on)
     chromeAllowXSiteCookies(on)
