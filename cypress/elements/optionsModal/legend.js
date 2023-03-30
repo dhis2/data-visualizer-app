@@ -3,6 +3,7 @@ const legendKeyOptionEl = 'option-legend-key'
 const legendKeyEl = 'visualization-legend-key'
 const legendKeyContainerEl = 'legend-key-container'
 const legendKeyItemEl = 'legend-key-item'
+const visualizationContainerEl = 'visualization-container'
 const singleValueOutputEl = 'visualization-primary-value'
 const legendDisplayStrategyByDataItemEl = 'legend-display-strategy-BY_DATA_ITEM'
 const legendDisplayStrategyFixedEl = 'legend-display-strategy-FIXED'
@@ -64,11 +65,17 @@ export const changeFixedLegendSet = (legendSetName) => {
 export const expectFixedLegendSetToBe = (legendSetName) =>
     cy.getBySel(fixedLegendSetSelectEl).should('contain', legendSetName)
 
-export const expectSingleValueToNotBeColor = (color) =>
+export const expectSingleValueToHaveBackgroundColor = (color) =>
     cy
-        .getBySel(singleValueOutputEl)
-        .invoke('attr', 'fill')
-        .should('not.eq', color)
+        .getBySel(visualizationContainerEl)
+        .parent()
+        .should('have.css', 'background-color', color)
+
+export const expectSingleValueToNotHaveBackgroundColor = (color) =>
+    cy
+        .getBySel(visualizationContainerEl)
+        .parent()
+        .should('not.have.css', 'background-color', color)
 
 export const expectSingleValueToBeColor = (color) =>
     cy.getBySel(singleValueOutputEl).invoke('attr', 'fill').should('eq', color)
