@@ -61,6 +61,7 @@
         "redux-logger": "^3.0.6",
         "redux-thunk": "^2.2.0",
         "reselect": "^4.0.0",
+        "styled-jsx": "^4",
         "whatwg-fetch": "^3.6.2"
     },
     "jest": {
