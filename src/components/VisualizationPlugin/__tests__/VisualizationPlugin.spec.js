@@ -107,6 +107,7 @@ describe('VisualizationPlugin', () => {
     ]
     const defaultProps = {
         visualization: {},
+        displayProperty: '',
         filters: {},
         d2: {},
         forDashboard: false,

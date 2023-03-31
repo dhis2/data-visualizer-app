@@ -1,0 +1,25 @@
+diff --git a/node_modules/react-scripts/config/webpack.config.js b/node_modules/react-scripts/config/webpack.config.js
+index e465d8e..2bc428c 100644
+--- a/node_modules/react-scripts/config/webpack.config.js
++++ b/node_modules/react-scripts/config/webpack.config.js
+@@ -239,19 +239,7 @@ module.exports = function (webpackEnv) {
+         : isEnvDevelopment &&
+           (info => path.resolve(info.absoluteResourcePath).replace(/\\/g, '/')),
+     },
+-    cache: {
+-      type: 'filesystem',
+-      version: createEnvironmentHash(env.raw),
+-      cacheDirectory: paths.appWebpackCache,
+-      store: 'pack',
+-      buildDependencies: {
+-        defaultWebpack: ['webpack/lib/'],
+-        config: [__filename],
+-        tsconfig: [paths.appTsConfig, paths.appJsConfig].filter(f =>
+-          fs.existsSync(f)
+-        ),
+-      },
+-    },
++    cache: false,
+     infrastructureLogging: {
+       level: 'none',
+     },

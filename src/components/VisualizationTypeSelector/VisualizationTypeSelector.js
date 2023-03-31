@@ -1,18 +1,21 @@
 import { visTypeDisplayNames } from '@dhis2/analytics'
+import { useSetting } from '@dhis2/app-service-datastore'
 import i18n from '@dhis2/d2-i18n'
 import { Divider, Popper, Layer } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState, createRef } from 'react'
 import { connect } from 'react-redux'
 import { acSetUi, acClearSeriesType } from '../../actions/ui.js'
-import {
-    apiSaveAOInUserDataStore,
-    CURRENT_AO_KEY,
-} from '../../api/userDataStore.js'
 import ArrowDown from '../../assets/ArrowDown.js'
-import { prepareCurrentAnalyticalObject } from '../../modules/currentAnalyticalObject.js'
+import {
+    prepareCurrentAnalyticalObject,
+    USER_DATASTORE_CURRENT_AO_KEY,
+} from '../../modules/currentAnalyticalObject.js'
 import { getAdaptedUiByType } from '../../modules/ui.js'
-import { visTypes, visTypeDescriptions } from '../../modules/visualization.js'
+import {
+    visTypes,
+    getVisTypeDescriptions,
+} from '../../modules/visualization.js'
 import { sGetCurrent } from '../../reducers/current.js'
 import { sGetMetadata } from '../../reducers/metadata.js'
 import { sGetUi, sGetUiType } from '../../reducers/ui.js'
@@ -28,6 +31,9 @@ const UnconnectedVisualizationTypeSelector = (
 ) => {
     const baseUrl = context.baseUrl
 
+    const [, /* actual value not used */ { set }] = useSetting(
+        USER_DATASTORE_CURRENT_AO_KEY
+    )
     const [listIsOpen, setListIsOpen] = useState(false)
 
     const toggleList = () => setListIsOpen(!listIsOpen)
@@ -50,9 +56,9 @@ const UnconnectedVisualizationTypeSelector = (
             ui
         )
 
-        await apiSaveAOInUserDataStore(currentAnalyticalObject)
+        set(currentAnalyticalObject)
 
-        window.location.href = `${baseUrl}/${MAPS_APP_URL}?${CURRENT_AO_KEY}=true`
+        window.location.href = `${baseUrl}/${MAPS_APP_URL}?${USER_DATASTORE_CURRENT_AO_KEY}=true`
     }
 
     const VisTypesList = (
@@ -64,7 +70,7 @@ const UnconnectedVisualizationTypeSelector = (
                             key={visType}
                             iconType={visType}
                             label={visTypeDisplayNames[visType]}
-                            description={visTypeDescriptions[visType]}
+                            description={getVisTypeDescriptions()[visType]}
                             isSelected={visType === visualizationType}
                             onClick={handleListItemClick(visType)}
                         />

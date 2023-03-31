@@ -4,6 +4,9 @@ import {
 } from '@dhis2/analytics'
 import { getInverseLayout } from './layout.js'
 
+export const USER_DATASTORE_NAMESPACE = 'analytics'
+export const USER_DATASTORE_CURRENT_AO_KEY = 'currentAnalyticalObject'
+
 export const getPathForOrgUnit = (orgUnit, parentGraphMap) => {
     if (parentGraphMap[orgUnit.id] === undefined) {
         return undefined

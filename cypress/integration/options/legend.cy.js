@@ -9,6 +9,7 @@ import {
     visTypeDisplayNames,
     DIMENSION_ID_PERIOD,
     AXIS_ID_COLUMNS,
+    VIS_TYPE_AREA,
 } from '@dhis2/analytics'
 import {
     expectChartTitleToBeVisible,
@@ -45,7 +46,8 @@ import {
     expectLegendDisplayStyleToBeText,
     expectLegendToBeEnabled,
     expectSingleValueToBeColor,
-    expectSingleValueToNotBeColor,
+    expectSingleValueToHaveBackgroundColor,
+    expectSingleValueToNotHaveBackgroundColor,
     OPTIONS_TAB_LEGEND,
     toggleLegendKeyOption,
     expectLegendKeyOptionToBeEnabled,
@@ -151,6 +153,7 @@ describe('Options - Legend', () => {
     describe('Applying a legend: Single value', () => {
         const TEST_ITEM = TEST_ITEMS[0]
         const EXPECTED_STANDARD_TEXT_COLOR = '#212934'
+        const EXPECTED_LEGEND_BACKGROUND_COLOR = 'rgb(255, 255, 178)'
         it('navigates to the start page and adds data items', () => {
             goToStartPage()
             changeVisType(visTypeDisplayNames[VIS_TYPE_SINGLE_VALUE])
@@ -159,6 +162,9 @@ describe('Options - Legend', () => {
             clickDimensionModalUpdateButton()
             expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
             expectSingleValueToBeColor(EXPECTED_STANDARD_TEXT_COLOR)
+            expectSingleValueToNotHaveBackgroundColor(
+                EXPECTED_LEGEND_BACKGROUND_COLOR
+            )
         })
         it('enables legend', () => {
             clickMenuBarOptionsButton()
@@ -170,7 +176,9 @@ describe('Options - Legend', () => {
             expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
         })
         it('legend is applied', () => {
-            expectSingleValueToNotBeColor(EXPECTED_STANDARD_TEXT_COLOR)
+            expectSingleValueToHaveBackgroundColor(
+                EXPECTED_LEGEND_BACKGROUND_COLOR
+            )
         })
         it('legend key is hidden', () => {
             expectLegendKeyToBeHidden()
@@ -258,6 +266,70 @@ describe('Options - Legend', () => {
             expectLegendKeyOptionToBeEnabled()
             clickOptionsModalUpdateButton()
             expectVisualizationToBeVisible(VIS_TYPE_GAUGE)
+        })
+        it('legend key is shown with 1 item', () => {
+            expectLegendKeyToBeVisible()
+            expectLegedKeyItemAmountToBe(1)
+        })
+    })
+    describe('Applying a legend: Stacked column', () => {
+        it('navigates to the start page and adds data items', () => {
+            goToStartPage()
+            changeVisType(visTypeDisplayNames[VIS_TYPE_STACKED_COLUMN])
+            openDimension(DIMENSION_ID_DATA)
+            selectIndicators(TEST_ITEMS.map((item) => item.name))
+            clickDimensionModalUpdateButton()
+            expectVisualizationToBeVisible(VIS_TYPE_STACKED_COLUMN)
+        })
+        it('enables legend', () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            toggleLegend()
+            expectLegendToBeEnabled()
+            expectLegendDisplayStrategyToBeByDataItem()
+            clickOptionsModalUpdateButton()
+            expectChartTitleToBeVisible()
+        })
+        it('legend by data item is applied', () => {
+            TEST_ITEMS.forEach((item) =>
+                expectWindowConfigSeriesItemToHaveLegendSet(
+                    item.name,
+                    item.legendSet
+                )
+            )
+        })
+        it(`changes legend display strategy to fixed (${TEST_LEGEND_SET})`, () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            expectLegendDisplayStrategyToBeByDataItem()
+            changeDisplayStrategyToFixed()
+            expectLegendDisplayStrategyToBeFixed()
+            changeFixedLegendSet(TEST_LEGEND_SET)
+            clickOptionsModalUpdateButton()
+            expectChartTitleToBeVisible()
+        })
+        it('fixed legend is applied', () => {
+            TEST_ITEMS.forEach((item) =>
+                expectWindowConfigSeriesItemToHaveLegendSet(
+                    item.name,
+                    TEST_LEGEND_SET
+                )
+            )
+        })
+        it('legend key is hidden', () => {
+            expectLegendKeyToBeHidden()
+        })
+        it('verifies that options are persisted', () => {
+            clickMenuBarOptionsButton()
+            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            expectLegendDisplayStrategyToBeFixed()
+            expectFixedLegendSetToBe(TEST_LEGEND_SET)
+        })
+        it('enables legend key option', () => {
+            toggleLegendKeyOption()
+            expectLegendKeyOptionToBeEnabled()
+            clickOptionsModalUpdateButton()
+            expectVisualizationToBeVisible()
         })
         it('legend key is shown with 1 item', () => {
             expectLegendKeyToBeVisible()
@@ -394,7 +466,7 @@ describe('Options - Legend', () => {
         })
     })
     describe('Transferring a legend: Column -> Single value', () => {
-        const EXPECTED_STANDARD_TEXT_COLOR = '#212934'
+        const EXPECTED_LEGEND_BACKGROUND_COLOR = 'rgb(255, 255, 178)'
         it('navigates to the start page and adds data items', () => {
             goToStartPage()
             openDimension(DIMENSION_ID_DATA)
@@ -425,7 +497,9 @@ describe('Options - Legend', () => {
             expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
         })
         it('legend is applied to Single value', () => {
-            expectSingleValueToNotBeColor(EXPECTED_STANDARD_TEXT_COLOR)
+            expectSingleValueToHaveBackgroundColor(
+                EXPECTED_LEGEND_BACKGROUND_COLOR
+            )
         })
         it('verifies that options are persisted', () => {
             clickMenuBarOptionsButton()
@@ -525,7 +599,7 @@ describe('Options - Legend', () => {
             expectLegendKeyToBeHidden()
         })
     })
-    describe('Preventing options bleed: Column -> Stacked column', () => {
+    describe('Preventing options bleed: Column -> Area', () => {
         it('navigates to the start page and adds data items', () => {
             goToStartPage()
             openDimension(DIMENSION_ID_DATA)
@@ -550,12 +624,12 @@ describe('Options - Legend', () => {
                 )
             )
         })
-        it('changes vis type to Stacked column', () => {
-            changeVisType(visTypeDisplayNames[VIS_TYPE_STACKED_COLUMN])
+        it('changes vis type to Area', () => {
+            changeVisType(visTypeDisplayNames[VIS_TYPE_AREA])
             clickMenuBarUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_STACKED_COLUMN)
+            expectVisualizationToBeVisible(VIS_TYPE_AREA)
         })
-        it('legend is not applied to Stacked column', () => {
+        it('legend is not applied to Area', () => {
             TEST_ITEMS.forEach((item) =>
                 expectWindowConfigSeriesItemToNotHaveLegendSet(item.name)
             )

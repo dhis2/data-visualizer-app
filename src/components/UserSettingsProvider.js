@@ -21,14 +21,17 @@ const UserSettingsProvider = ({ children }) => {
                 userSettings: userSettingsQuery,
             })
 
+            const { keyAnalysisDisplayProperty, keyUiLocale, ...rest } =
+                userSettings
+
             setSettings({
-                ...userSettings,
-                displayProperty: userSettings.keyAnalysisDisplayProperty,
+                ...rest,
+                displayProperty: keyAnalysisDisplayProperty,
                 displayNameProperty:
-                    userSettings.keyAnalysisDisplayProperty === 'name'
+                    keyAnalysisDisplayProperty === 'name'
                         ? 'displayName'
                         : 'displayShortName',
-                uiLocale: userSettings.keyUiLocale,
+                uiLocale: keyUiLocale,
             })
         }
         fetchData()

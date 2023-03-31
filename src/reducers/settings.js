@@ -27,6 +27,9 @@ export default (state = DEFAULT_SETTINGS, action) => {
 
 export const sGetSettings = (state) => state.settings
 
+export const sGetSettingsDisplayProperty = (state) =>
+    sGetSettings(state).displayProperty
+
 export const sGetSettingsDisplayNameProperty = (state) =>
     sGetSettings(state).displayNameProperty
 

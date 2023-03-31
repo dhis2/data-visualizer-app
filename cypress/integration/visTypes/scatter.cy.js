@@ -17,6 +17,7 @@ import {
     expectDataDimensionModalWarningToContain,
     expectDataItemToBeInactive,
     expectOrgUnitDimensionModalToBeVisible,
+    expectOrgUnitDimensionToNotBeLoading,
     toggleOrgUnitLevel,
     deselectUserOrgUnit,
     selectOrgUnitTreeItem,
@@ -101,7 +102,11 @@ describe('using a Scatter chart', () => {
         openDimension(DIMENSION_ID_ORGUNIT)
         expectOrgUnitDimensionModalToBeVisible()
         deselectUserOrgUnit('User organisation unit')
-        selectOrgUnitTreeItem('Sierra Leone')
+        expectOrgUnitDimensionToNotBeLoading()
+        // FIXME this selection causes a analytics request that takes too long on test instances
+        //selectOrgUnitTreeItem('Sierra Leone')
+        selectOrgUnitTreeItem('Bo')
+        selectOrgUnitTreeItem('Bombali')
         toggleOrgUnitLevel(TEST_ORG_UNIT_LEVEL)
         expectOrgUnitDimensionModalToBeVisible()
         clickDimensionModalUpdateButton()
