@@ -19,11 +19,7 @@ name: 'e2e-tests'
 #     We recommend setting "e2e-tests-success"  as a required step in your workflow.
 
 on:
-    push:
-        branches:
-            - dev
-    pull_request:
-        types: [opened, synchronize, reopened, ready_for_review]
+    workflow_call:
     workflow_dispatch:
 
 env:
