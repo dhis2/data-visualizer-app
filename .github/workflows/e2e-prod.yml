@@ -32,7 +32,7 @@ env:
     NAME_PATTERN_DEV_INSTANCE: analytics-dev
 
 concurrency:
-    group: ${{ github.workflow}}-${{ github.ref }}
+    group: e2e-prod-${{ github.workflow}}-${{ github.ref }}
     cancel-in-progress: true
 
 defaults:
