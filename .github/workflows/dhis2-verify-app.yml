@@ -69,7 +69,6 @@ jobs:
 
     e2e:
         runs-on: ubuntu-latest
-        needs: [call_workflow_e2e]
         if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
 
         strategy:
@@ -105,11 +104,10 @@ jobs:
                   CYPRESS_dhis2InstanceVersion: '2.40'
                   CYPRESS_networkMode: live
 
-
     call-workflow-e2e:
-      needs: [e2e]
+        needs: [e2e]
         uses: ./.github/workflows/e2e.yml
-        
+
     release:
         runs-on: ubuntu-latest
         needs: [build, call-workflow-lint, test, e2e]
