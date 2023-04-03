@@ -1,15 +1,5 @@
 name: 'dhis2: verify (app)'
 
-# Requirements:
-#
-# - Org secrets:
-#       DHIS2_BOT_GITHUB_TOKEN
-#       DHIS2_BOT_APPHUB_TOKEN
-# - Enable the 'jobs.e2e' section if applicable
-# - Customize the properties if needed:
-#       'jobs.release.steps.*.cwd'
-#       'jobs.release.steps.*.build-dir'
-
 on: push
 
 concurrency:
@@ -26,10 +16,10 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v1
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
               with:
-                  node-version: 14.x
+                  node-version: 16.x
 
             - uses: c-hive/gha-yarn-cache@v1
             - run: yarn install --frozen-lockfile
@@ -65,10 +55,10 @@ jobs:
     test:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v1
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
               with:
-                  node-version: 14.x
+                  node-version: 16.x
 
             - uses: c-hive/gha-yarn-cache@v1
             - run: yarn install --frozen-lockfile
@@ -82,15 +72,8 @@ jobs:
               run: yarn d2-app-scripts test
 
     call-workflow-e2e-prod:
+        needs: [build, lint, test]
         uses: ./.github/workflows/e2e-prod.yml
-        secrets:
-            baseurl: ${{ secrets.CYPRESS_DHIS2_BASE_URL_DEV }}
-            username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
-            password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
-            recordkey: ${{ secrets.CYPRESS_RECORD_KEY }}
-
-    call-workflow-e2e-dev:
-        uses: ./.github/workflows/e2e-dev.yml
         secrets:
             baseurl: ${{ secrets.CYPRESS_DHIS2_BASE_URL_DEV }}
             username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
@@ -102,13 +85,13 @@ jobs:
         needs: [build, lint, test, call-workflow-e2e-prod]
         if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
         steps:
-            - uses: actions/checkout@v2
+            - uses: actions/checkout@v3
               with:
                   token: ${{ secrets.DHIS2_BOT_GITHUB_TOKEN }}
 
-            - uses: actions/setup-node@v1
+            - uses: actions/setup-node@v3
               with:
-                  node-version: 14.x
+                  node-version: 16.x
 
             - uses: actions/download-artifact@v2
               with:
