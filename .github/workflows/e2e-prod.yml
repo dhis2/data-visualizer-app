@@ -1,4 +1,4 @@
-name: 'e2e-tests'
+name: 'e2e-prod'
 
 # Requirements:
 #
@@ -105,60 +105,6 @@ jobs:
                   CYPRESS_RECORD_KEY: ${{ secrets.recordkey }}
                   CYPRESS_dhis2BaseUrl: ${{ steps.instance-url.outputs.url }}
                   CYPRESS_dhis2InstanceVersion: ${{matrix.versions}}
-                  CYPRESS_dhis2Username: ${{ secrets.username }}
-                  CYPRESS_dhis2Password: ${{ secrets.password }}
-                  CYPRESS_networkMode: live
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    compute-dev-version:
-        if: "!github.event.push.repository.fork && (github.event.pull_request.draft == false || github.action == 'workflow_dispatch')"
-        runs-on: ubuntu-latest
-        outputs:
-            version: ${{ steps.instance-version.outputs.version }}
-        steps:
-            - name: Output dev version
-              id: instance-version
-              uses: dhis2/action-instance-version@v1
-              with:
-                  instance-url: https://test.e2e.dhis2.org/analytics-dev
-                  username: ${{ secrets.username }}
-                  password: ${{ secrets.password }}
-
-    e2e-dev:
-        needs: compute-dev-version
-        runs-on: ubuntu-latest
-        container:
-            image: cypress/browsers:node16.17.0-chrome106
-            options: --user 1001
-
-        strategy:
-            fail-fast: false
-            matrix:
-                containers: [1, 2, 3, 4]
-
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v3
-
-            - uses: actions/setup-node@v3
-              with:
-                  node-version: 18.x
-
-            - name: Run e2e tests
-              uses: cypress-io/github-action@v5
-              with:
-                  start: yarn d2-app-scripts start
-                  wait-on: 'http://localhost:3000'
-                  wait-on-timeout: 300
-                  record: true
-                  parallel: true
-                  browser: chrome
-                  group: e2e-chrome-parallel-dev
-              env:
-                  BROWSER: none
-                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-                  CYPRESS_dhis2BaseUrl: https://test.e2e.dhis2.org/analytics-dev
-                  CYPRESS_dhis2InstanceVersion: ${{ needs.compute-dev-version.outputs.version }}
                   CYPRESS_dhis2Username: ${{ secrets.username }}
                   CYPRESS_dhis2Password: ${{ secrets.password }}
                   CYPRESS_networkMode: live
