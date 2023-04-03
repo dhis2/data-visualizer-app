@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-08-25T09:58:02.683Z\n"
+"POT-Creation-Date: 2022-09-23T12:57:32.255Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2022\n"
 "Language-Team: Chinese (https://www.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -17,12 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: zh\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-msgid "Change org unit"
-msgstr "更改组织机构"
-
-msgid "{{level}} level in {{orgunit}}"
-msgstr "{{orgunit}} 中的 {{level}} 级"
 
 msgid "All items"
 msgstr "所有条目"
@@ -683,6 +677,12 @@ msgstr "最高限度"
 
 msgid "Options"
 msgstr "选项"
+
+msgid "Change org unit"
+msgstr "更改组织机构"
+
+msgid "{{level}} level in {{orgunit}}"
+msgstr "{{orgunit}} 中的 {{level}} 级"
 
 msgid "Open as Map"
 msgstr "打开为地图"

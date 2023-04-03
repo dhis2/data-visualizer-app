@@ -46,7 +46,8 @@ import {
     expectLegendDisplayStyleToBeText,
     expectLegendToBeEnabled,
     expectSingleValueToBeColor,
-    expectSingleValueToNotBeColor,
+    expectSingleValueToHaveBackgroundColor,
+    expectSingleValueToNotHaveBackgroundColor,
     OPTIONS_TAB_LEGEND,
     toggleLegendKeyOption,
     expectLegendKeyOptionToBeEnabled,
@@ -152,6 +153,7 @@ describe('Options - Legend', () => {
     describe('Applying a legend: Single value', () => {
         const TEST_ITEM = TEST_ITEMS[0]
         const EXPECTED_STANDARD_TEXT_COLOR = '#212934'
+        const EXPECTED_LEGEND_BACKGROUND_COLOR = 'rgb(255, 255, 178)'
         it('navigates to the start page and adds data items', () => {
             goToStartPage()
             changeVisType(visTypeDisplayNames[VIS_TYPE_SINGLE_VALUE])
@@ -160,6 +162,9 @@ describe('Options - Legend', () => {
             clickDimensionModalUpdateButton()
             expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
             expectSingleValueToBeColor(EXPECTED_STANDARD_TEXT_COLOR)
+            expectSingleValueToNotHaveBackgroundColor(
+                EXPECTED_LEGEND_BACKGROUND_COLOR
+            )
         })
         it('enables legend', () => {
             clickMenuBarOptionsButton()
@@ -171,7 +176,9 @@ describe('Options - Legend', () => {
             expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
         })
         it('legend is applied', () => {
-            expectSingleValueToNotBeColor(EXPECTED_STANDARD_TEXT_COLOR)
+            expectSingleValueToHaveBackgroundColor(
+                EXPECTED_LEGEND_BACKGROUND_COLOR
+            )
         })
         it('legend key is hidden', () => {
             expectLegendKeyToBeHidden()
@@ -459,7 +466,7 @@ describe('Options - Legend', () => {
         })
     })
     describe('Transferring a legend: Column -> Single value', () => {
-        const EXPECTED_STANDARD_TEXT_COLOR = '#212934'
+        const EXPECTED_LEGEND_BACKGROUND_COLOR = 'rgb(255, 255, 178)'
         it('navigates to the start page and adds data items', () => {
             goToStartPage()
             openDimension(DIMENSION_ID_DATA)
@@ -490,7 +497,9 @@ describe('Options - Legend', () => {
             expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
         })
         it('legend is applied to Single value', () => {
-            expectSingleValueToNotBeColor(EXPECTED_STANDARD_TEXT_COLOR)
+            expectSingleValueToHaveBackgroundColor(
+                EXPECTED_LEGEND_BACKGROUND_COLOR
+            )
         })
         it('verifies that options are persisted', () => {
             clickMenuBarOptionsButton()
