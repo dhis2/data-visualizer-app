@@ -11,8 +11,6 @@ on:
                 required: true
             recordkey:
                 required: true
-            ghtoken:
-                required: true
 
 jobs:
     e2e:
@@ -44,7 +42,7 @@ jobs:
                   headless: true
               env:
                   BROWSER: none
-                  GITHUB_TOKEN: ${{ secrets.ghtoken }}
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   CYPRESS_RECORD_KEY: ${{ secrets.recordkey }}
                   CYPRESS_dhis2BaseUrl: ${{ secrets.baseurl }}
                   CYPRESS_dhis2Username: ${{ secrets.username }}

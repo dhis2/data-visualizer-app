@@ -2,11 +2,6 @@ name: 'e2e-tests'
 
 # Requirements:
 #
-# - Secrets:
-#     GITHUB_TOKEN
-#     CYPRESS_DHIS2_USERNAME
-#     CYPRESS_DHIS2_PASSWORD
-#
 # - Customize environment variables:
 #     BASE_URL_INSTANCES: Set the base url for the instances, e.g. https://test.e2e.dhis2.org
 #     NAME_PATTERN_PROD_INSTANCES: Set the name pattern for your instances. {version} will be replaced by "[majorVersion].[minorVersion]"
@@ -20,6 +15,15 @@ name: 'e2e-tests'
 
 on:
     workflow_call:
+        secrets:
+            baseurl:
+                required: true
+            username:
+                required: true
+            password:
+                required: true
+            recordkey:
+                required: true
     workflow_dispatch:
 
 env:
@@ -56,8 +60,8 @@ jobs:
               uses: dhis2/action-supported-legacy-versions@v1
               with:
                   instance-url-latest: ${{ steps.instance-url.outputs.url }} # can be removed if maxDHIS2Version has been specified
-                  username: ${{ secrets.CYPRESS_DHIS2_USERNAME }} # can be removed if maxDHIS2Version has been specified
-                  password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }} # can be removed if maxDHIS2Version has been specified
+                  username: ${{ secrets.username }}
+                  password: ${{ secrets.password }}
 
     e2e-prod:
         needs: compute-prod-versions
@@ -98,11 +102,11 @@ jobs:
               env:
                   CI: true
                   BROWSER: none
-                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+                  CYPRESS_RECORD_KEY: ${{ secrets.recordkey }}
                   CYPRESS_dhis2BaseUrl: ${{ steps.instance-url.outputs.url }}
                   CYPRESS_dhis2InstanceVersion: ${{matrix.versions}}
-                  CYPRESS_dhis2Username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
-                  CYPRESS_dhis2Password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
+                  CYPRESS_dhis2Username: ${{ secrets.username }}
+                  CYPRESS_dhis2Password: ${{ secrets.password }}
                   CYPRESS_networkMode: live
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -117,8 +121,8 @@ jobs:
               uses: dhis2/action-instance-version@v1
               with:
                   instance-url: https://test.e2e.dhis2.org/analytics-dev
-                  username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
-                  password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
+                  username: ${{ secrets.username }}
+                  password: ${{ secrets.password }}
 
     e2e-dev:
         needs: compute-dev-version
@@ -155,8 +159,8 @@ jobs:
                   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
                   CYPRESS_dhis2BaseUrl: https://test.e2e.dhis2.org/analytics-dev
                   CYPRESS_dhis2InstanceVersion: ${{ needs.compute-dev-version.outputs.version }}
-                  CYPRESS_dhis2Username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
-                  CYPRESS_dhis2Password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
+                  CYPRESS_dhis2Username: ${{ secrets.username }}
+                  CYPRESS_dhis2Password: ${{ secrets.password }}
                   CYPRESS_networkMode: live
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
