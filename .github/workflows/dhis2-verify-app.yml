@@ -67,9 +67,12 @@ jobs:
             - name: Test
               run: yarn d2-app-scripts test
 
+    call-workflow-e2e:
+        uses: ./.github/workflows/e2e.yml
+
     release:
         runs-on: ubuntu-latest
-        needs: [build, call-workflow-lint, test]
+        needs: [build, call-workflow-lint, test, call-workflow-e2e]
         if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
         steps:
             - uses: actions/checkout@v2
