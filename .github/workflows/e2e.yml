@@ -28,7 +28,6 @@ jobs:
                   wait-on: 'http://localhost:3000'
                   wait-on-timeout: 300
                   record: true
-                  video: true
                   parallel: true
                   browser: chrome
                   headless: true
@@ -39,4 +38,5 @@ jobs:
                   CYPRESS_dhis2BaseUrl: ${{ secrets.CYPRESS_DHIS2_BASE_URL_DEV }}
                   CYPRESS_dhis2Username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
                   CYPRESS_dhis2Password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
+                  CYPRESS_dhis2InstanceVersion: dev
                   CYPRESS_networkMode: live
