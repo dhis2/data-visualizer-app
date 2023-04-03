@@ -74,7 +74,7 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                containers: [1]
+                containers: [1, 2]
 
         steps:
             - name: Checkout
@@ -105,7 +105,6 @@ jobs:
                   CYPRESS_networkMode: live
 
     call-workflow-e2e:
-        needs: [e2e]
         uses: ./.github/workflows/e2e.yml
 
     release:
