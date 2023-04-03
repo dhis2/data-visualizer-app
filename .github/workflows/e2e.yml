@@ -2,6 +2,17 @@ name: 'e2e'
 
 on:
     workflow_call:
+        secrets:
+            baseurl:
+                required: true
+            username:
+                required: true
+            password:
+                required: true
+            recordkey:
+                required: true
+            ghtoken:
+                required: true
 
 jobs:
     e2e:
@@ -33,10 +44,10 @@ jobs:
                   headless: true
               env:
                   BROWSER: none
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-                  CYPRESS_dhis2BaseUrl: ${{ secrets.CYPRESS_DHIS2_BASE_URL_DEV }}
-                  CYPRESS_dhis2Username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
-                  CYPRESS_dhis2Password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
+                  GITHUB_TOKEN: ${{ secrets.ghtoken }}
+                  CYPRESS_RECORD_KEY: ${{ secrets.recordkey }}
+                  CYPRESS_dhis2BaseUrl: ${{ secrets.baseurl }}
+                  CYPRESS_dhis2Username: ${{ secrets.username }}
+                  CYPRESS_dhis2Password: ${{ secrets.password }}
                   CYPRESS_dhis2InstanceVersion: '2.40'
                   CYPRESS_networkMode: live
