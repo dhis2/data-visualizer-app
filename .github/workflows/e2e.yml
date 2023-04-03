@@ -27,7 +27,7 @@ jobs:
                   start: yarn d2-app-scripts start
                   wait-on: 'http://localhost:3000'
                   wait-on-timeout: 300
-                  record: true
+                  record: false
                   parallel: true
                   browser: chrome
                   headless: true
