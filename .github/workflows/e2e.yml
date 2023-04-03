@@ -11,7 +11,7 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                containers: [1, 2, 3, 4]
+                containers: [1]
 
         steps:
             - name: Checkout
@@ -38,5 +38,5 @@ jobs:
                   CYPRESS_dhis2BaseUrl: ${{ secrets.CYPRESS_DHIS2_BASE_URL_DEV }}
                   CYPRESS_dhis2Username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
                   CYPRESS_dhis2Password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
-                  CYPRESS_dhis2InstanceVersion: dev
+                  CYPRESS_dhis2InstanceVersion: '2.40'
                   CYPRESS_networkMode: live
