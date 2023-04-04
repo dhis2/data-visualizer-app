@@ -24,7 +24,6 @@ on:
                 required: true
             recordkey:
                 required: true
-    workflow_dispatch:
 
 env:
     BASE_URL_INSTANCES: https://test.e2e.dhis2.org
