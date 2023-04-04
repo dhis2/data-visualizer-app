@@ -80,9 +80,18 @@ jobs:
             password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
             recordkey: ${{ secrets.CYPRESS_RECORD_KEY }}
 
+    call-workflow-e2e-dev:
+        needs: [call-workflow-e2e-prod]
+        uses: ./.github/workflows/e2e-dev.yml
+        secrets:
+            baseurl: ${{ secrets.CYPRESS_DHIS2_BASE_URL_DEV }}
+            username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
+            password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
+            recordkey: ${{ secrets.CYPRESS_RECORD_KEY }}
+
     release:
         runs-on: ubuntu-latest
-        needs: [build, lint, test, call-workflow-e2e-prod]
+        needs: [call-workflow-e2e-prod]
         if: "!github.event.push.repository.fork && github.actor != 'dependabot[bot]'"
         steps:
             - uses: actions/checkout@v3
