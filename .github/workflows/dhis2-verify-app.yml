@@ -27,7 +27,7 @@ jobs:
             - name: Build
               run: yarn d2-app-scripts build
 
-            - uses: actions/upload-artifact@v2
+            - uses: actions/upload-artifact@v3
               with:
                   name: app-build
                   path: |
@@ -102,11 +102,12 @@ jobs:
               with:
                   node-version: 18.x
 
-            - uses: actions/download-artifact@v2
+            - uses: actions/download-artifact@v3
               with:
                   name: app-build
 
-            - run: yarn install --frozen-lockfile
+            - name: Install
+              run: yarn install --frozen-lockfile
 
             - uses: dhis2/action-semantic-release@master
               with:
@@ -120,9 +121,26 @@ jobs:
                   build-dir: build/app
                   github-token: ${{ secrets.DHIS2_BOT_GITHUB_TOKEN }}
 
-    report-failure-to-slack:
+    report-release-failure:
         runs-on: ubuntu-latest
-        needs: [release]
+        needs: release
+        if: |
+            always() &&
+            github.ref == 'refs/heads/master' &&
+            contains(needs.*.result, 'failure')
+        steps:
+            - name: Send failure message to analytics-internal-bot slack channel
+              id: slack
+              uses: slackapi/slack-github-action@v1.23.0
+              with:
+                  channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
+                  slack-message: ':small_red_triangle_down: Data-visualizer-app release <https://github.com/dhis2/data-visualizer-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Afailure>'
+              env:
+                  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
+    report-dev-failure:
+        runs-on: ubuntu-latest
+        needs: [build, lint, test, call-workflow-e2e-prod]
         if: |
             always() &&
             github.ref == 'refs/heads/dev' &&
@@ -133,6 +151,6 @@ jobs:
               uses: slackapi/slack-github-action@v1.23.0
               with:
                   channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
-                  slack-message: ':small_red_triangle_down: Data-visualizer-app build <https://github.com/dhis2/data-visualizer-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Adev+is%3Afailure>'
+                  slack-message: ':small_red_triangle_down: Data-visualizer-app build on dev <https://github.com/dhis2/data-visualizer-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Adev+is%3Afailure>'
               env:
                   SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
