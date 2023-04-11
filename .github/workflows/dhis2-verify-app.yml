@@ -84,15 +84,6 @@ jobs:
             password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
             recordkey: ${{ secrets.CYPRESS_RECORD_KEY }}
 
-    call-workflow-e2e-dev:
-        needs: [build, lint, test]
-        uses: ./.github/workflows/e2e-dev.yml
-        secrets:
-            baseurl: ${{ secrets.CYPRESS_DHIS2_BASE_URL_DEV }}
-            username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
-            password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
-            recordkey: ${{ secrets.CYPRESS_RECORD_KEY }}
-
     release:
         runs-on: ubuntu-latest
         needs: [build, call-workflow-e2e-prod]
@@ -142,22 +133,5 @@ jobs:
               with:
                   channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
                   slack-message: ':small_red_triangle_down: Data-visualizer-app release <https://github.com/dhis2/data-visualizer-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Afailure>'
-              env:
-                  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-
-    report-dev-failure:
-        runs-on: ubuntu-latest
-        needs: [build, lint, test, call-workflow-e2e-prod]
-        if: |
-            always() &&
-            github.ref == 'refs/heads/dev' &&
-            contains(needs.*.result, 'failure')
-        steps:
-            - name: Send failure message to analytics-internal-bot slack channel
-              id: slack
-              uses: slackapi/slack-github-action@v1.23.0
-              with:
-                  channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
-                  slack-message: ':small_red_triangle_down: Data-visualizer-app build on dev <https://github.com/dhis2/data-visualizer-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Adev+is%3Afailure>'
               env:
                   SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
