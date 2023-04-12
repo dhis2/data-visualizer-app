@@ -211,6 +211,7 @@ export class DialogManager extends Component {
                           expression: this.props.metadata[id].expression,
                       }
                     : {}),
+                access: this.props.metadata[id]?.access,
             }))
     }
 
