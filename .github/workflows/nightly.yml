@@ -1,10 +1,10 @@
 name: 'dhis2: nightly'
 
-# This workflow runs the e2e tests on the default branch against dev at 3:20am M and W
+# This workflow runs the e2e tests on the default branch against dev at 3:20am M-F
 
 on:
     schedule:
-        - cron: '20 3 * * 1,3'
+        - cron: '20 3 * * 1-5'
 
 concurrency:
     group: ${{ github.workflow}}-${{ github.ref }}
@@ -16,6 +16,7 @@ defaults:
 
 jobs:
     call-workflow-e2e-dev:
+        if: github.ref == 'refs/heads/master'
         uses: ./.github/workflows/e2e-dev.yml
         secrets:
             baseurl: ${{ secrets.CYPRESS_DHIS2_BASE_URL_DEV }}
@@ -27,8 +28,8 @@ jobs:
         runs-on: ubuntu-latest
         needs: call-workflow-e2e-dev
         if: |
-            always() &&
-            contains(needs.call-workflow-e2e-dev.result, 'failure')
+            failure() &&
+            !cancelled()
 
         steps:
             - name: Send failure message to analytics-internal-kfmt slack channel
