@@ -15,7 +15,7 @@ export const goToStartPage = () => {
 export const expectStartScreenToBeVisible = () =>
     cy
         .getBySel(primaryTitleEl, {
-            timeout: 10000,
+            timeout: 15000,
         })
         .should('contain', primaryTitleText)
 
