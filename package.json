@@ -27,6 +27,7 @@
         "@dhis2/cypress-commands": "^9.0.2",
         "@dhis2/cypress-plugins": "^9.0.2",
         "cypress": "^8.5.0",
+        "cypress-tags": "^1.1.2",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.5",
         "eslint-plugin-cypress": "^2.11.3",
