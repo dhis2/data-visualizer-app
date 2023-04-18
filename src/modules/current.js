@@ -44,11 +44,12 @@ export const getAxesFromUi = (ui, metadata) =>
                     )
                         ? {
                               dimension: dimensionId,
-                              items: ui.itemsByDimension[dimensionId].map(
-                                  (id) =>
-                                      metadata && metadata[id]
-                                          ? { ...metadata[id], id }
-                                          : { id }
+                              items: (
+                                  ui.itemsByDimension[dimensionId] || []
+                              ).map((id) =>
+                                  metadata && metadata[id]
+                                      ? { ...metadata[id], id }
+                                      : { id }
                               ),
                           }
                         : null
