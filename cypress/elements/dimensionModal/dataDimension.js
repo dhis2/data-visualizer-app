@@ -60,7 +60,7 @@ export const selectIndicators = (indicators) => {
     indicators.forEach((item) => {
         cy.get('input[placeholder*="Search by data item name"]').type(item)
         selectItemByDoubleClick(item)
-        cy.get('input[placeholder*="Search by data item name"]').type('')
+        cy.get('input[placeholder*="Search by data item name"]').clear()
     })
 }
 
