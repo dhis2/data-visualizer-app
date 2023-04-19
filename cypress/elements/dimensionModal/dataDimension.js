@@ -57,7 +57,10 @@ export const selectFirstDataItem = () =>
 export const selectIndicators = (indicators) => {
     switchDataTypeTo('Indicators')
     expectSourceToNotBeLoading()
-    indicators.forEach((item) => selectItemByDoubleClick(item))
+    indicators.forEach((item) => {
+        cy.get('input[placeholder*="Search by data item name"]').type(item)
+        selectItemByDoubleClick(item)
+    })
 }
 
 export const switchDataTab = (tabName) => {
