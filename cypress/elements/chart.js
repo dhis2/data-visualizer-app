@@ -115,3 +115,12 @@ export const clickChartItem = (index) =>
 
 export const expectChartItemsToHaveLength = (length) =>
     cy.get(highchartsChartItemEl).children().should('have.length', length)
+
+export const expectSVTitleToHaveColor = (color) =>
+    cy.getBySel(visualizationTitleEl).invoke('attr', 'fill').should('eq', color)
+
+export const expectSVSubtitleToHaveColor = (color) =>
+    cy
+        .getBySel(visualizationSubtitleEl)
+        .invoke('attr', 'fill')
+        .should('eq', color)
