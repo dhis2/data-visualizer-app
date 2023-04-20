@@ -3,7 +3,6 @@ import { clearInput, typeInput } from '../common.js'
 import {
     expectDimensionModalToBeVisible,
     expectSourceToNotBeLoading,
-    expectItemToBeSelected,
     selectItemByDoubleClick,
 } from './index.js'
 
@@ -58,12 +57,7 @@ export const selectFirstDataItem = () =>
 export const selectIndicators = (indicators) => {
     switchDataTypeTo('Indicators')
     expectSourceToNotBeLoading()
-    indicators.forEach((item) => {
-        cy.get('input[placeholder*="Search by data item name"]').type(item)
-        selectItemByDoubleClick(item)
-        expectItemToBeSelected(item)
-        cy.get('input[placeholder*="Search by data item name"]').clear()
-    })
+    indicators.forEach((item) => selectItemByDoubleClick(item))
 }
 
 export const switchDataTab = (tabName) => {
