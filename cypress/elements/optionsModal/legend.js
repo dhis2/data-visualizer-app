@@ -81,18 +81,13 @@ export const expectSingleValueToHaveTextColor = (color) =>
     cy.getBySel(singleValueTextEl).invoke('attr', 'fill').should('eq', color)
 
 export const expectSingleValueToNotHaveBackgroundColor = () =>
-    cy
-        .getBySel(singleValueOutputEl)
-        .parent()
-        .invoke('attr', 'style')
-        .should('not.contain', 'background')
+    cy.getBySel(singleValueOutputEl).should('not.have.attr', 'style')
 
 export const expectSingleValueToHaveBackgroundColor = (color) =>
     cy
         .getBySel(singleValueOutputEl)
-        .parent()
         .invoke('attr', 'style')
-        .should('contain', `background: ${color}`)
+        .should('contain', `background-color: ${color}`)
 
 export const toggleLegendKeyOption = () =>
     cy.getBySel(optionsModalContentEl).contains('Show legend key').click()
