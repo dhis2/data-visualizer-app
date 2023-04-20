@@ -10,7 +10,7 @@ import {
 
 const visualizationContainerEl = 'visualization-container'
 const visualizationTitleEl = 'visualization-title'
-const visualizationSubitleEl = 'visualization-subtitle'
+const visualizationSubtitleEl = 'visualization-subtitle'
 const chartContainerEl = '.highcharts-container'
 const highchartsLegendEl = '.highcharts-legend'
 const highchartsTitleEl = '.highcharts-title'
@@ -118,6 +118,6 @@ export const expectSVTitleToHaveColor = (color) =>
 
 export const expectSVSubtitleToHaveColor = (color) =>
     cy
-        .getBySel(visualizationSubitleEl)
+        .getBySel(visualizationSubtitleEl)
         .invoke('attr', 'fill')
         .should('eq', color)
