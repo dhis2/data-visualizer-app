@@ -84,7 +84,7 @@ export const getOptionsFromUi = (ui) => {
         optionsFromUi.icons = [{ type: 'DATA_ITEM' }]
     } else {
         // if options is not enabled, do not pass the "internal" boolean value
-        delete optionsFromUi.icons
+        optionsFromUi.icons = undefined
     }
 
     // nested options under reportingParams
