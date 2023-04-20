@@ -1,5 +1,5 @@
 import { useCacheableSection, CacheableSection } from '@dhis2/app-runtime'
-import { CenteredContent, CircularLoader, Layer } from '@dhis2/ui'
+import { CssVariables, CenteredContent, CircularLoader, Layer } from '@dhis2/ui'
 import postRobot from '@krakenjs/post-robot'
 import debounce from 'lodash-es/debounce'
 import PropTypes from 'prop-types'
@@ -119,6 +119,7 @@ const PluginWrapper = () => {
             >
                 <VisualizationPlugin id={renderId} {...propsFromParent} />
             </CacheableSectionWrapper>
+            <CssVariables colors spacers elevations />
         </div>
     ) : null
 }
