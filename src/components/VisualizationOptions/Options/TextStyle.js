@@ -107,7 +107,7 @@ const TextStyle = ({
                         <input
                             type="color"
                             value={fontStyle[FONT_STYLE_OPTION_TEXT_COLOR]}
-                            onChange={(e) => onChangeColor(e.target.value)}
+                            onInput={(e) => onChangeColor(e.target.value)}
                             className={styles.textColorInput}
                             disabled={disabled}
                         />
