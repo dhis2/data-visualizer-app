@@ -600,7 +600,7 @@ describe('Options - Legend', () => {
     })
     describe('Transferring a legend: Pivot table -> Single value', () => {
         const TEST_ITEM = TEST_ITEMS[0]
-        const EXPECTED_FIXED_COLOR = 'rgb(199, 233, 192)'
+        const EXPECTED_FIXED_COLOR = '#c7e9c0'
         const valueCellEl = 'visualization-value-cell'
         const EXPECTED_SV_STANDARD_TEXT_COLOR = '#212934'
         const EXPECTED_PT_STANDARD_TEXT_COLOR = 'color: rgb(33, 41, 52)'
