@@ -16,7 +16,7 @@ defaults:
 
 jobs:
     call-workflow-e2e-dev:
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/dev'
         uses: ./.github/workflows/e2e-dev.yml
         secrets:
             baseurl: ${{ secrets.CYPRESS_DHIS2_BASE_URL_DEV }}
