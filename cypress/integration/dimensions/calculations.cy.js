@@ -12,42 +12,36 @@ const PAGE_SIZE = 50
 const DATA_ELEMENTS_URL = '**/dataElements?*'
 
 describe('Data dimension', () => {
-    describe('initial state', () => {
-        it('navigates to the start page', () => {
-            goToStartPage()
-        })
-        it('opens the data dimension modal', () => {
-            openDimension(DIMENSION_ID_DATA)
-            expectDataDimensionModalToBeVisible()
-        })
-        it('opens the calculations modal', () => {
-            cy.intercept('GET', DATA_ELEMENTS_URL).as('request')
-            clickNewCalculationButton()
-            cy.wait('@request').then(({ request, response }) => {
-                expect(request.url).to.contain('page=1')
-                expect(response.statusCode).to.eq(200)
-                expect(response.body.dataElements.length).to.eq(PAGE_SIZE)
-            })
-            expectCalculationsModalToBeVisible()
-        })
-        it('modal has a title', () => {
-            expectCalculationsModalTitleToContain('Data / New calculation')
-        })
-        it('"All groups" is selected', () => {
-            cy.getBySel('data-element-group-select').contains('All groups')
-        })
-        it('"Totals only" is selected', () => {
-            cy.getBySel('data-element-disaggregation-select').contains(
-                'Totals only'
-            )
-        })
-        it('items are loaded', () => {
-            cy.getBySelLike('dimension-list')
-                .findBySel('dimension-option')
-                .should('have.length', PAGE_SIZE)
-        })
+    beforeEach(() => {
+        goToStartPage()
+    })
+    it('initial state loads correctly', () => {
+        openDimension(DIMENSION_ID_DATA)
+        expectDataDimensionModalToBeVisible()
 
-        /*
+        cy.intercept('GET', DATA_ELEMENTS_URL).as('request')
+        clickNewCalculationButton()
+        cy.wait('@request').then(({ request, response }) => {
+            expect(request.url).to.contain('page=1')
+            expect(response.statusCode).to.eq(200)
+            expect(response.body.dataElements.length).to.eq(PAGE_SIZE)
+        })
+        expectCalculationsModalToBeVisible()
+
+        expectCalculationsModalTitleToContain('Data / New calculation')
+
+        cy.getBySel('data-element-group-select').contains('All groups')
+
+        cy.getBySel('data-element-disaggregation-select').contains(
+            'Totals only'
+        )
+
+        cy.getBySelLike('dimension-list')
+            .children()
+            .should('have.length', PAGE_SIZE + 1)
+    })
+
+    /*
 
         --search/filter
         searching
@@ -98,5 +92,4 @@ describe('Data dimension', () => {
             edited EDI displays correctly in visualization
 
         */
-    })
 })
