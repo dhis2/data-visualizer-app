@@ -1,17 +1,34 @@
-import { DIMENSION_ID_DATA } from '@dhis2/analytics'
+import { DIMENSION_ID_DATA, VIS_TYPE_COLUMN } from '@dhis2/analytics'
 import {
+    clickCancelButton,
+    clickConfirmDeleteButton,
+    clickDeleteButton,
     clickNewCalculationButton,
+    clickSaveButton,
     expectCalculationsModalTitleToContain,
     expectCalculationsModalToBeVisible,
+    expectDimensionsListToHaveLength,
+    expectFormulaFieldToContainItem,
+    inputCalculationLabel,
+    selectItemFromDimensionsListByDoubleClick,
 } from '../../elements/calculationsModal.js'
-import { expectDataDimensionModalToBeVisible } from '../../elements/dimensionModal/index.js'
+import { expectVisualizationToBeVisible } from '../../elements/chart.js'
+import { expectAppToNotBeLoading } from '../../elements/common.js'
+import {
+    clickDimensionModalUpdateButton,
+    clickEDIEditButton,
+    expectDataDimensionModalToBeVisible,
+    expectItemToBeSelected,
+    expectNoDataItemsToBeSelected,
+} from '../../elements/dimensionModal/index.js'
 import { openDimension } from '../../elements/dimensionsPanel.js'
+import { saveNewAO } from '../../elements/fileMenu/save.js'
 import { goToStartPage } from '../../elements/startScreen.js'
 
 const PAGE_SIZE = 50
 const DATA_ELEMENTS_URL = '**/dataElements?*'
 
-describe('Data dimension', () => {
+describe('Calculations', () => {
     beforeEach(() => {
         goToStartPage()
     })
@@ -36,11 +53,45 @@ describe('Data dimension', () => {
             'Totals only'
         )
 
-        cy.getBySelLike('dimension-list')
-            .children()
-            .should('have.length', PAGE_SIZE + 1)
+        expectDimensionsListToHaveLength(PAGE_SIZE)
     })
+    it('can save, load and delete', () => {
+        const TEST_DATA_ELEMENT = 'ANC 2nd visit'
+        const TEST_LABEL = `EDI ${new Date().toLocaleString()}`
+        const TEST_AO_NAME = `TEST with EDI ${new Date().toLocaleString()}`
 
+        // create
+        openDimension(DIMENSION_ID_DATA)
+        clickNewCalculationButton()
+        selectItemFromDimensionsListByDoubleClick(TEST_DATA_ELEMENT)
+        expectFormulaFieldToContainItem(TEST_DATA_ELEMENT)
+        inputCalculationLabel(TEST_LABEL)
+        clickSaveButton()
+        expectItemToBeSelected(TEST_LABEL)
+        clickEDIEditButton(TEST_LABEL)
+        expectFormulaFieldToContainItem(TEST_DATA_ELEMENT)
+        clickCancelButton()
+        clickDimensionModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+        cy.getBySel('layout-chip-dx').trigger('mouseover')
+        cy.getBySelLike('tooltip-content').contains(TEST_LABEL)
+
+        // save
+        saveNewAO(TEST_AO_NAME)
+        expectAppToNotBeLoading()
+        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+
+        // load
+        openDimension(DIMENSION_ID_DATA)
+        expectItemToBeSelected(TEST_LABEL)
+        clickEDIEditButton(TEST_LABEL)
+        expectFormulaFieldToContainItem(TEST_DATA_ELEMENT)
+
+        // delete
+        clickDeleteButton()
+        clickConfirmDeleteButton()
+        expectNoDataItemsToBeSelected()
+    })
     /*
 
         --search/filter
@@ -73,21 +124,18 @@ describe('Data dimension', () => {
         EDI can't be saved without a valid formula (check with Joe if this is still valid)
 
         --saving a formula
-        enter a label
-        create a valid formula
-        validate the formula
-        save
-        EDI displays correctly in the visualization
+        -enter a label
+        -create a valid formula
+        -validate the formula
+        -save
+        -EDI displays correctly in the visualization
 
         --opening a saved formula
         unselected formula is listed under "Data Type: Calculations"
-            tooltip shows on hover
             has label and formula when opened
         selected formula is selected and not listed under "Data Type: Calculations"
-            tooltip shows on hover
             has label and formula when opened
         editing and saving works
-            edited formula shows in tooltip on hover
             edited name shows in list of data items
             edited EDI displays correctly in visualization
 
