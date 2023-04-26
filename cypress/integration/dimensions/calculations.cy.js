@@ -13,7 +13,7 @@ import {
     selectItemFromDimensionsListByDoubleClick,
 } from '../../elements/calculationsModal.js'
 import { expectVisualizationToBeVisible } from '../../elements/chart.js'
-import { expectAppToNotBeLoading } from '../../elements/common.js'
+import { expectAppToNotBeLoading, typeInput } from '../../elements/common.js'
 import {
     clickDimensionModalUpdateButton,
     clickEDIEditButton,
@@ -91,6 +91,51 @@ describe('Calculations', () => {
         clickDeleteButton()
         clickConfirmDeleteButton()
         expectNoDataItemsToBeSelected()
+    })
+    it.only('can search and filter data elements', () => {
+        const expectFirstItemToBe = (name) =>
+            cy
+                .getBySelLike('dimension-list')
+                .findBySelLike('data-element-option')
+                .eq(0)
+                .contains(name)
+
+        openDimension(DIMENSION_ID_DATA)
+        clickNewCalculationButton()
+        expectDimensionsListToHaveLength(50)
+        expectFirstItemToBe('ANC 1st visit')
+
+        // scroll down to fetch page 2
+        cy.getBySelLike('dimension-list')
+            .parent()
+            .scrollTo('bottom', { duration: 50 }) // using regular Cypress scrolling doesn't trigger the fetch for some reason
+        expectDimensionsListToHaveLength(100)
+        expectFirstItemToBe('ANC 1st visit')
+        cy.getBySelLike('dimension-list')
+            .findBySelLike('data-element-option')
+            .eq(50)
+            .contains('Blood pressure monitor, electronic or manual available')
+
+        // search
+        typeInput('data-element-search', 'malaria')
+        expectDimensionsListToHaveLength(21)
+        expectFirstItemToBe('IDSR Malaria')
+
+        // filter by group
+        cy.getBySel('data-element-group-select').click()
+        cy.getBySelLike('data-element-group-select-option')
+            .contains('Malaria')
+            .click()
+        expectDimensionsListToHaveLength(13)
+        expectFirstItemToBe('Malaria referrals')
+
+        // change to details only
+        cy.getBySel('data-element-disaggregation-select').click()
+        cy.getBySelLike('data-element-disaggregation-select-option')
+            .contains('Details only')
+            .click()
+        expectDimensionsListToHaveLength(50)
+        expectFirstItemToBe('Malaria referrals 0-4y')
     })
     /*
 
