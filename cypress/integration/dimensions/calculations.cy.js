@@ -1,6 +1,7 @@
 import { DIMENSION_ID_DATA, VIS_TYPE_COLUMN } from '@dhis2/analytics'
 import {
     clickCancelButton,
+    clickCheckFormulaButton,
     clickConfirmDeleteButton,
     clickDeleteButton,
     clickNewCalculationButton,
@@ -9,10 +10,14 @@ import {
     expectCalculationsModalToBeVisible,
     expectDimensionsListToHaveLength,
     expectFormulaFieldToContainItem,
+    expectFormulaFieldToNotContainItem,
+    expectFormulaToBeValid,
     expectSaveButtonToBeDisabled,
     expectSaveButtonToHaveTooltip,
     inputCalculationLabel,
     selectItemFromDimensionsListByDoubleClick,
+    selectOperatorFromListByDoubleClick,
+    typeInNumberField,
 } from '../../elements/calculationsModal.js'
 import { expectVisualizationToBeVisible } from '../../elements/chart.js'
 import { expectAppToNotBeLoading, typeInput } from '../../elements/common.js'
@@ -141,16 +146,66 @@ describe('Calculations', () => {
         expectDimensionsListToHaveLength(50)
         expectFirstItemToBe('Malaria referrals 0-4y')
     })
+
+    it.only('can add and remove formula items', () => {
+        const TEST_DATA_ELEMENTS = [
+            'ART enrollment stage 1',
+            'ART enrollment stage 2',
+            'ART enrollment stage 3',
+            'ART enrollment stage 4',
+        ]
+        const TEST_OPERATORS = ['+', '-', '×', '/', '(', ')', 'Number']
+
+        openDimension(DIMENSION_ID_DATA)
+        clickNewCalculationButton()
+
+        // add with double click
+        selectItemFromDimensionsListByDoubleClick(TEST_DATA_ELEMENTS[0])
+        expectFormulaFieldToContainItem(TEST_DATA_ELEMENTS[0])
+
+        // remove with double click
+        cy.getBySel('formula-field')
+            .findBySelLike('formula-item')
+            .contains(TEST_DATA_ELEMENTS[0])
+            .dblclick()
+        expectFormulaFieldToNotContainItem(TEST_DATA_ELEMENTS[0])
+
+        // add with double click
+        selectItemFromDimensionsListByDoubleClick(TEST_DATA_ELEMENTS[1])
+        expectFormulaFieldToContainItem(TEST_DATA_ELEMENTS[1])
+
+        // remove with remove button
+        cy.getBySel('formula-field')
+            .findBySelLike('formula-item')
+            .contains(TEST_DATA_ELEMENTS[1])
+            .click()
+        cy.getBySel('calculation-modal')
+            .find('button')
+            .contains('Remove item')
+            .click()
+        expectFormulaFieldToNotContainItem(TEST_DATA_ELEMENTS[1])
+
+        // TODO: add and reorder with DND
+
+        // add math operators: ( DE1 + DE2 - DE3 ) * DE4 / 10
+        selectOperatorFromListByDoubleClick(TEST_OPERATORS[4])
+        for (let i = 0; i < 4; i++) {
+            selectItemFromDimensionsListByDoubleClick(TEST_DATA_ELEMENTS[i])
+            if (i === 2) {
+                selectOperatorFromListByDoubleClick(TEST_OPERATORS[5])
+            }
+            selectOperatorFromListByDoubleClick(TEST_OPERATORS[i])
+        }
+        selectOperatorFromListByDoubleClick(TEST_OPERATORS[6])
+        typeInNumberField(13, 10)
+
+        // validate formula
+        clickCheckFormulaButton()
+        expectFormulaToBeValid()
+    })
     /*
 
         --creating a formula
-        double-click to add
-        //dnd to add
-        add math operators
-        remove by selecting and "remove item" button
-        remove by double click
-        //reorder with DND
-        all math operators work and creates a valid formula when used
         dataElements (Totals only) show correct name when added
         dataElementOperands (Details only) show correct name when added
         

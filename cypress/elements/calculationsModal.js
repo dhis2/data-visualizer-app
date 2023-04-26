@@ -2,6 +2,8 @@ import { typeInput } from './common.js'
 
 const calculationModalEl = 'calculation-modal'
 const modalTitleEl = 'calculation-modal-title'
+const formulaFieldEl = 'formula-field'
+const dimensionsListEl = 'dimension-list'
 
 const saveButton = () =>
     cy.getBySel(calculationModalEl).find('button').contains('Save calculation')
@@ -19,24 +21,27 @@ export const expectCalculationsModalTitleToContain = (text) =>
     cy.getBySel(modalTitleEl).should('contain', text)
 
 export const expectDimensionsListToHaveLength = (length) => {
-    cy.getBySelLike('dimension-list')
+    cy.getBySelLike(dimensionsListEl)
         .findBySelLike('data-element-option')
         .should('have.length', length)
 }
 
 export const expectFormulaFieldToContainItem = (item) =>
-    cy
-        .getBySel('formula-field')
-        .findBySelLike('formula-item-EXPRESSION_TYPE_DATA')
-        .contains(item)
-        .should('exist')
+    cy.getBySel(formulaFieldEl).contains(item).should('exist')
+
+export const expectFormulaFieldToNotContainItem = (item) =>
+    cy.getBySel(formulaFieldEl).contains(item).should('not.exist')
 
 export const selectItemFromDimensionsListByDoubleClick = (item) => {
-    cy.getBySelLike('dimension-list')
+    cy.getBySelLike(dimensionsListEl)
         .findBySelLike('data-element-option')
         .should('have.length.least', 1)
         .contains(item)
         .dblclick()
+}
+
+export const selectOperatorFromListByDoubleClick = (item) => {
+    cy.getBySelLike('operators-list').contains(item).dblclick()
 }
 
 export const inputCalculationLabel = (label) =>
@@ -61,6 +66,13 @@ export const clickConfirmDeleteButton = () =>
         .contains('Yes, delete')
         .click()
 
+export const clickCheckFormulaButton = () =>
+    cy
+        .getBySel(calculationModalEl)
+        .find('button')
+        .contains('Check formula')
+        .click()
+
 export const expectSaveButtonToBeDisabled = () => {
     saveButton().should('have.attr', 'disabled')
     saveButton().parent().should('have.css', 'cursor', 'not-allowed')
@@ -69,4 +81,15 @@ export const expectSaveButtonToBeDisabled = () => {
 export const expectSaveButtonToHaveTooltip = (tooltip) => {
     saveButton().trigger('mouseover', { force: true }) // use force as the button is disabled
     cy.getBySelLike('tooltip-content').contains(tooltip)
+}
+
+export const typeInNumberField = (id, value) =>
+    cy
+        .getBySel(formulaFieldEl)
+        .findBySel(`formula-item-EXPRESSION_TYPE_NUMBER-${id}`)
+        .find('input')
+        .type(value)
+
+export const expectFormulaToBeValid = () => {
+    cy.getBySel('validation-message').containsExact('Valid')
 }
