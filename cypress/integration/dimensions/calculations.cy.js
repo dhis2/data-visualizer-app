@@ -9,6 +9,8 @@ import {
     expectCalculationsModalToBeVisible,
     expectDimensionsListToHaveLength,
     expectFormulaFieldToContainItem,
+    expectSaveButtonToBeDisabled,
+    expectSaveButtonToHaveTooltip,
     inputCalculationLabel,
     selectItemFromDimensionsListByDoubleClick,
 } from '../../elements/calculationsModal.js'
@@ -65,6 +67,8 @@ describe('Calculations', () => {
         clickNewCalculationButton()
         selectItemFromDimensionsListByDoubleClick(TEST_DATA_ELEMENT)
         expectFormulaFieldToContainItem(TEST_DATA_ELEMENT)
+        expectSaveButtonToBeDisabled()
+        expectSaveButtonToHaveTooltip('Add a name to save this calculation')
         inputCalculationLabel(TEST_LABEL)
         clickSaveButton()
         expectItemToBeSelected(TEST_LABEL)
@@ -92,7 +96,7 @@ describe('Calculations', () => {
         clickConfirmDeleteButton()
         expectNoDataItemsToBeSelected()
     })
-    it.only('can search and filter data elements', () => {
+    it('can search and filter data elements', () => {
         const expectFirstItemToBe = (name) =>
             cy
                 .getBySelLike('dimension-list')
@@ -139,19 +143,13 @@ describe('Calculations', () => {
     })
     /*
 
-        --search/filter
-        searching
-        filtering by group
-        changing disaggregation type
-        scrolling down and fetching the next page
-
         --creating a formula
         double-click to add
         //dnd to add
         add math operators
         remove by selecting and "remove item" button
-        //remove by double click
-        reorder with DND
+        remove by double click
+        //reorder with DND
         all math operators work and creates a valid formula when used
         dataElements (Totals only) show correct name when added
         dataElementOperands (Details only) show correct name when added
@@ -167,13 +165,6 @@ describe('Calculations', () => {
         sample test formula from request to validation (note that detailed tests are already done in Jest)
         changing the formula resets the status
         EDI can't be saved without a valid formula (check with Joe if this is still valid)
-
-        --saving a formula
-        -enter a label
-        -create a valid formula
-        -validate the formula
-        -save
-        -EDI displays correctly in the visualization
 
         --opening a saved formula
         unselected formula is listed under "Data Type: Calculations"

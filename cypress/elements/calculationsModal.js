@@ -3,6 +3,9 @@ import { typeInput } from './common.js'
 const calculationModalEl = 'calculation-modal'
 const modalTitleEl = 'calculation-modal-title'
 
+const saveButton = () =>
+    cy.getBySel(calculationModalEl).find('button').contains('Save calculation')
+
 export const clickNewCalculationButton = () =>
     cy
         .getBySel('data-dimension-transfer-leftfooter')
@@ -39,12 +42,7 @@ export const selectItemFromDimensionsListByDoubleClick = (item) => {
 export const inputCalculationLabel = (label) =>
     typeInput('calculation-label', label)
 
-export const clickSaveButton = () =>
-    cy
-        .getBySel(calculationModalEl)
-        .find('button')
-        .contains('Save calculation')
-        .click()
+export const clickSaveButton = () => saveButton().click()
 
 export const clickCancelButton = () =>
     cy.getBySel(calculationModalEl).find('button').contains('Cancel').click()
@@ -62,3 +60,13 @@ export const clickConfirmDeleteButton = () =>
         .find('button')
         .contains('Yes, delete')
         .click()
+
+export const expectSaveButtonToBeDisabled = () => {
+    saveButton().should('have.attr', 'disabled')
+    saveButton().parent().should('have.css', 'cursor', 'not-allowed')
+}
+
+export const expectSaveButtonToHaveTooltip = (tooltip) => {
+    saveButton().trigger('mouseover', { force: true }) // use force as the button is disabled
+    cy.getBySelLike('tooltip-content').contains(tooltip)
+}
