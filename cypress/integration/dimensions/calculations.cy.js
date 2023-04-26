@@ -102,6 +102,7 @@ describe('Calculations', () => {
         expectNoDataItemsToBeSelected()
     })
     it('can search and filter data elements', () => {
+        let item
         const expectFirstItemToBe = (name) =>
             cy
                 .getBySelLike('dimension-list')
@@ -111,15 +112,20 @@ describe('Calculations', () => {
 
         openDimension(DIMENSION_ID_DATA)
         clickNewCalculationButton()
+
+        // initial state
+        item = 'ANC 1st visit'
         expectDimensionsListToHaveLength(50)
-        expectFirstItemToBe('ANC 1st visit')
+        expectFirstItemToBe(item)
+        selectItemFromDimensionsListByDoubleClick(item)
+        expectFormulaFieldToContainItem(item)
 
         // scroll down to fetch page 2
         cy.getBySelLike('dimension-list')
             .parent()
             .scrollTo('bottom', { duration: 50 }) // using regular Cypress scrolling doesn't trigger the fetch for some reason
         expectDimensionsListToHaveLength(100)
-        expectFirstItemToBe('ANC 1st visit')
+        expectFirstItemToBe(item)
         cy.getBySelLike('dimension-list')
             .findBySelLike('data-element-option')
             .eq(50)
@@ -128,7 +134,10 @@ describe('Calculations', () => {
         // search
         typeInput('data-element-search', 'malaria')
         expectDimensionsListToHaveLength(21)
-        expectFirstItemToBe('IDSR Malaria')
+        item = 'IDSR Malaria'
+        expectFirstItemToBe(item)
+        selectItemFromDimensionsListByDoubleClick(item)
+        expectFormulaFieldToContainItem(item)
 
         // filter by group
         cy.getBySel('data-element-group-select').click()
@@ -136,7 +145,10 @@ describe('Calculations', () => {
             .contains('Malaria')
             .click()
         expectDimensionsListToHaveLength(13)
-        expectFirstItemToBe('Malaria referrals')
+        item = 'Malaria referrals'
+        expectFirstItemToBe(item)
+        selectItemFromDimensionsListByDoubleClick(item)
+        expectFormulaFieldToContainItem(item)
 
         // change to details only
         cy.getBySel('data-element-disaggregation-select').click()
@@ -144,10 +156,12 @@ describe('Calculations', () => {
             .contains('Details only')
             .click()
         expectDimensionsListToHaveLength(50)
-        expectFirstItemToBe('Malaria referrals 0-4y')
+        item = 'Malaria referrals 0-4y'
+        selectItemFromDimensionsListByDoubleClick(item)
+        expectFormulaFieldToContainItem(item)
     })
 
-    it.only('can add and remove formula items', () => {
+    it('can add and remove formula items', () => {
         const TEST_DATA_ELEMENTS = [
             'ART enrollment stage 1',
             'ART enrollment stage 2',
@@ -203,12 +217,7 @@ describe('Calculations', () => {
         clickCheckFormulaButton()
         expectFormulaToBeValid()
     })
-    /*
-
-        --creating a formula
-        dataElements (Totals only) show correct name when added
-        dataElementOperands (Details only) show correct name when added
-        
+    /*        
         --frontend validation / "Check formula"
         "Empty formula"
         "Consecutive math operators"
