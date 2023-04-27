@@ -86,9 +86,7 @@ describe('getSingleValueCurrentFromUi', () => {
 
         ui.type = 'SINGLEVALUE'
 
-        const actualState = getSingleValueCurrentFromUi(DEFAULT_CURRENT, {
-            value: ui,
-        })
+        const actualState = getSingleValueCurrentFromUi(DEFAULT_CURRENT, ui)
 
         expect(actualState).toEqual(expectedState)
     })

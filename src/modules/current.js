@@ -31,7 +31,7 @@ import {} from './layout.js'
 
 const hasItems = (object, id) => Array.isArray(object[id]) && object[id].length
 
-export const getAxesFromUi = (ui) =>
+export const getAxesFromUi = (ui, metadata) =>
     Object.entries(ui.layout).reduce(
         (layout, [axisId, dimensionIds]) => ({
             ...layout,
@@ -42,10 +42,16 @@ export const getAxesFromUi = (ui) =>
                         dimensionId,
                         DIMENSION_PROP_NO_ITEMS
                     )
-                        ? dimensionCreate(
-                              dimensionId,
-                              ui.itemsByDimension[dimensionId]
-                          )
+                        ? {
+                              dimension: dimensionId,
+                              items: (
+                                  ui.itemsByDimension[dimensionId] || []
+                              ).map((id) =>
+                                  metadata && metadata[id]
+                                      ? { ...metadata[id], id }
+                                      : { id }
+                              ),
+                          }
                         : null
                 )
                 .filter((dim) => dim !== null),
@@ -132,16 +138,13 @@ export const getItemsByDimensionFromUi = (ui) => {
     return result
 }
 
-export const getSingleValueCurrentFromUi = (state, action) => {
+export const getSingleValueCurrentFromUi = (state, value) => {
     const ui = {
-        ...action.value,
+        ...value,
         layout: {
-            ...getAdaptedUiLayoutByType(
-                action.value.layout,
-                VIS_TYPE_SINGLE_VALUE
-            ),
+            ...getAdaptedUiLayoutByType(value.layout, VIS_TYPE_SINGLE_VALUE),
         },
-        itemsByDimension: getItemsByDimensionFromUi(action.value),
+        itemsByDimension: getItemsByDimensionFromUi(value),
     }
 
     const axesFromUi = getAxesFromUi(ui)
@@ -162,13 +165,13 @@ export const getSingleValueCurrentFromUi = (state, action) => {
     }
 }
 
-export const getScatterCurrentFromUi = (state, action) => {
+export const getScatterCurrentFromUi = (state, value) => {
     const ui = {
-        ...action.value,
+        ...value,
         layout: {
-            ...getAdaptedUiLayoutByType(action.value.layout, VIS_TYPE_SCATTER),
+            ...getAdaptedUiLayoutByType(value.layout, VIS_TYPE_SCATTER),
         },
-        itemsByDimension: getItemsByDimensionFromUi(action.value),
+        itemsByDimension: getItemsByDimensionFromUi(value),
     }
 
     const axesFromUi = getAxesFromUi(ui)
@@ -196,13 +199,13 @@ export const getScatterCurrentFromUi = (state, action) => {
     }
 }
 
-export const getPieCurrentFromUi = (state, action) => {
+export const getPieCurrentFromUi = (state, value) => {
     const ui = {
-        ...action.value,
+        ...value,
         layout: {
-            ...getAdaptedUiLayoutByType(action.value.layout, VIS_TYPE_PIE),
+            ...getAdaptedUiLayoutByType(value.layout, VIS_TYPE_PIE),
         },
-        itemsByDimension: getItemsByDimensionFromUi(action.value),
+        itemsByDimension: getItemsByDimensionFromUi(value),
     }
 
     return {
@@ -213,10 +216,10 @@ export const getPieCurrentFromUi = (state, action) => {
     }
 }
 
-export const getYearOverYearCurrentFromUi = (state, action) => {
+export const getYearOverYearCurrentFromUi = (state, value) => {
     const ui = {
-        ...action.value,
-        itemsByDimension: getItemsByDimensionFromUi(action.value),
+        ...value,
+        itemsByDimension: getItemsByDimensionFromUi(value),
     }
 
     const periodDimension = dimensionCreate(

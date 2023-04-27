@@ -64,6 +64,7 @@ describe('index', () => {
                 {
                     type: SET_VISUALIZATION,
                     value: vis,
+                    metadata: [],
                 },
                 { type: SET_CURRENT, value: vis },
                 {
@@ -107,6 +108,7 @@ describe('index', () => {
                 {
                     type: SET_VISUALIZATION,
                     value: vis,
+                    metadata: [],
                 },
                 { type: SET_CURRENT, value: vis },
                 {
@@ -269,6 +271,7 @@ describe('index', () => {
                 {
                     type: SET_VISUALIZATION,
                     value: { ...visualization, ...extraParams },
+                    metadata: [],
                 },
                 {
                     type: SET_CURRENT,
@@ -299,6 +302,7 @@ describe('index', () => {
                 {
                     type: SET_VISUALIZATION,
                     value: { ...visualization, ...extraParams },
+                    metadata: [],
                 },
                 {
                     type: SET_CURRENT,
