@@ -11,10 +11,15 @@ import {
     expectDimensionsListToHaveLength,
     expectFormulaFieldToContainItem,
     expectFormulaFieldToNotContainItem,
+    expectFormulaToBeInvalid,
     expectFormulaToBeValid,
+    expectFormulaToNotBeValidated,
     expectSaveButtonToBeDisabled,
+    expectSaveButtonToBeEnabled,
     expectSaveButtonToHaveTooltip,
+    expectSaveButtonToNotHaveTooltip,
     inputCalculationLabel,
+    removeItemFromFormulaFieldByDoubleClick,
     selectItemFromDimensionsListByDoubleClick,
     selectOperatorFromListByDoubleClick,
     typeInNumberField,
@@ -84,6 +89,7 @@ describe('Calculations', () => {
         expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
         cy.getBySel('layout-chip-dx').trigger('mouseover')
         cy.getBySelLike('tooltip-content').contains(TEST_LABEL)
+        cy.getBySel('layout-chip-dx').trigger('mouseout')
 
         // save
         saveNewAO(TEST_AO_NAME)
@@ -178,10 +184,7 @@ describe('Calculations', () => {
         expectFormulaFieldToContainItem(TEST_DATA_ELEMENTS[0])
 
         // remove with double click
-        cy.getBySel('formula-field')
-            .findBySelLike('formula-item')
-            .contains(TEST_DATA_ELEMENTS[0])
-            .dblclick()
+        removeItemFromFormulaFieldByDoubleClick(TEST_DATA_ELEMENTS[0])
         expectFormulaFieldToNotContainItem(TEST_DATA_ELEMENTS[0])
 
         // add with double click
@@ -217,19 +220,103 @@ describe('Calculations', () => {
         clickCheckFormulaButton()
         expectFormulaToBeValid()
     })
-    /*        
-        --frontend validation / "Check formula"
-        "Empty formula"
-        "Consecutive math operators"
-        "Consecutive data elements"
-        "Starts or ends with a math operator"
-        "Missing right parenthesis )"
-        "Missing left parenthesis ("
-        "Valid"
-        sample test formula from request to validation (note that detailed tests are already done in Jest)
-        changing the formula resets the status
-        EDI can't be saved without a valid formula (check with Joe if this is still valid)
 
+    it.only('validates formulas', () => {
+        const saveButtonIsDisabled = () => {
+            expectSaveButtonToBeDisabled()
+            expectSaveButtonToHaveTooltip(
+                'The calculation can only be saved with a valid formula'
+            )
+        }
+
+        const saveButtonIsEnabled = () => {
+            expectSaveButtonToBeEnabled()
+            expectSaveButtonToNotHaveTooltip()
+        }
+
+        const TEST_LABEL = `EDI ${new Date().toLocaleString()}`
+        const TEST_DATA_ELEMENTS = [
+            'ART enrollment stage 1',
+            'ART enrollment stage 2',
+            'ART enrollment stage 3',
+        ]
+        openDimension(DIMENSION_ID_DATA)
+        clickNewCalculationButton()
+        inputCalculationLabel(TEST_LABEL)
+        expectFormulaToNotBeValidated()
+        saveButtonIsEnabled()
+
+        // empty formula - invalid
+        clickCheckFormulaButton()
+        expectFormulaToBeInvalid(
+            'Formula is empty. Add items to the formula from the lists on the left.'
+        )
+        saveButtonIsDisabled()
+
+        // single data element - valid
+        selectItemFromDimensionsListByDoubleClick(TEST_DATA_ELEMENTS[0])
+        expectFormulaToNotBeValidated()
+        saveButtonIsEnabled()
+        clickCheckFormulaButton()
+        expectFormulaToBeValid()
+        saveButtonIsEnabled()
+
+        // consecutive data elements - invalid
+        selectItemFromDimensionsListByDoubleClick(TEST_DATA_ELEMENTS[1])
+        expectFormulaToNotBeValidated()
+        saveButtonIsEnabled()
+        clickCheckFormulaButton()
+        expectFormulaToBeInvalid('Consecutive data elements')
+        saveButtonIsDisabled()
+
+        // data element, math operator, data element - valid
+        removeItemFromFormulaFieldByDoubleClick(TEST_DATA_ELEMENTS[1])
+        expectFormulaToNotBeValidated()
+        saveButtonIsEnabled()
+        selectOperatorFromListByDoubleClick('+')
+        selectItemFromDimensionsListByDoubleClick(TEST_DATA_ELEMENTS[1])
+        clickCheckFormulaButton()
+        expectFormulaToBeValid()
+        saveButtonIsEnabled()
+
+        // // consecutive math operators - invalid
+        // TODO: currently allowed as negative values needs to be supported, e.g. 10 + -5
+
+        // ends with math operator - invalid
+        selectOperatorFromListByDoubleClick('/')
+        expectFormulaToNotBeValidated()
+        saveButtonIsEnabled()
+        clickCheckFormulaButton()
+        expectFormulaToBeInvalid('Starts or ends with a math operator')
+        saveButtonIsDisabled()
+
+        // missing right parenthesis - invalid
+        selectOperatorFromListByDoubleClick('(')
+        expectFormulaToNotBeValidated()
+        saveButtonIsEnabled()
+        selectItemFromDimensionsListByDoubleClick(TEST_DATA_ELEMENTS[2])
+        clickCheckFormulaButton()
+        expectFormulaToBeInvalid('Missing right parenthesis )')
+        saveButtonIsDisabled()
+
+        // both parentheses - valid
+        selectOperatorFromListByDoubleClick(')')
+        expectFormulaToNotBeValidated()
+        saveButtonIsEnabled()
+        clickCheckFormulaButton()
+        expectFormulaToBeValid()
+        saveButtonIsEnabled()
+
+        // missing left parenthesis - invalid
+        removeItemFromFormulaFieldByDoubleClick('(')
+        expectFormulaToNotBeValidated()
+        saveButtonIsEnabled()
+        clickCheckFormulaButton()
+        expectFormulaToBeInvalid('Missing left parenthesis (')
+        saveButtonIsDisabled()
+    })
+    /*        
+        TODO:
         --opening a saved formula
         unselected formula is listed under "Data Type: Calculations"
             has label and formula when opened

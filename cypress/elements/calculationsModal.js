@@ -44,6 +44,13 @@ export const selectOperatorFromListByDoubleClick = (item) => {
     cy.getBySelLike('operators-list').contains(item).dblclick()
 }
 
+export const removeItemFromFormulaFieldByDoubleClick = (item) =>
+    cy
+        .getBySel('formula-field')
+        .findBySelLike('formula-item')
+        .contains(item)
+        .dblclick()
+
 export const inputCalculationLabel = (label) =>
     typeInput('calculation-label', label)
 
@@ -73,6 +80,11 @@ export const clickCheckFormulaButton = () =>
         .contains('Check formula')
         .click()
 
+export const expectSaveButtonToBeEnabled = () => {
+    saveButton().should('not.have.attr', 'disabled')
+    saveButton().parent().should('not.have.css', 'cursor', 'not-allowed')
+}
+
 export const expectSaveButtonToBeDisabled = () => {
     saveButton().should('have.attr', 'disabled')
     saveButton().parent().should('have.css', 'cursor', 'not-allowed')
@@ -81,6 +93,13 @@ export const expectSaveButtonToBeDisabled = () => {
 export const expectSaveButtonToHaveTooltip = (tooltip) => {
     saveButton().trigger('mouseover', { force: true }) // use force as the button is disabled
     cy.getBySelLike('tooltip-content').contains(tooltip)
+    saveButton().trigger('mouseout', { force: true })
+}
+
+export const expectSaveButtonToNotHaveTooltip = () => {
+    saveButton().trigger('mouseover')
+    cy.getBySelLike('tooltip-content').should('not.exist')
+    saveButton().trigger('mouseout')
 }
 
 export const typeInNumberField = (id, value) =>
@@ -90,6 +109,14 @@ export const typeInNumberField = (id, value) =>
         .find('input')
         .type(value)
 
+export const expectFormulaToNotBeValidated = () => {
+    cy.getBySel('validation-message').should('be.empty')
+}
+
 export const expectFormulaToBeValid = () => {
     cy.getBySel('validation-message').containsExact('Valid')
+}
+
+export const expectFormulaToBeInvalid = (message) => {
+    cy.getBySel('validation-message').containsExact(message)
 }
