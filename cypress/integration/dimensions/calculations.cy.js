@@ -221,7 +221,7 @@ describe('Calculations', () => {
         expectFormulaToBeValid()
     })
 
-    it.only('validates formulas', () => {
+    it('validates formulas', () => {
         const saveButtonIsDisabled = () => {
             expectSaveButtonToBeDisabled()
             expectSaveButtonToHaveTooltip(
