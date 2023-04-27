@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-02-08T10:41:55.462Z\n"
-"PO-Revision-Date: 2023-02-08T10:41:55.462Z\n"
+"POT-Creation-Date: 2023-02-17T09:58:56.369Z\n"
+"PO-Revision-Date: 2023-02-17T09:58:56.369Z\n"
 
 msgid "All items"
 msgstr "All items"
@@ -383,6 +383,12 @@ msgstr "Include cumulative"
 
 msgid "Cumulative values"
 msgstr "Cumulative values"
+
+msgid "Show data item icon"
+msgstr "Show data item icon"
+
+msgid "If the data item has an icon, display it next to the value"
+msgstr "If the data item has an icon, display it next to the value"
 
 msgid "Digit group separator"
 msgstr "Digit group separator"

@@ -23,6 +23,7 @@ export const fieldsByType = {
     ],
     chart: [
         getFieldObject('category', { excluded: true }),
+        getFieldObject('icons', { option: true }),
         getFieldObject(BASE_FIELD_YEARLY_SERIES),
     ],
     eventReport: [getFieldObject('dataType')],
