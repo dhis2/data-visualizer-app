@@ -6,7 +6,6 @@ import {
     clickDeleteButton,
     clickNewCalculationButton,
     clickSaveButton,
-    expectCalculationsModalTitleToContain,
     expectCalculationsModalToBeVisible,
     expectDimensionsListToHaveLength,
     expectFormulaFieldToContainItem,
@@ -57,7 +56,10 @@ describe('Calculations', () => {
         })
         expectCalculationsModalToBeVisible()
 
-        expectCalculationsModalTitleToContain('Data / New calculation')
+        cy.getBySel('calculation-modal-title').should(
+            'contain',
+            'Data / New calculation'
+        )
 
         cy.getBySel('data-element-group-select').contains('All groups')
 

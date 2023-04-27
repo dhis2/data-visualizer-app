@@ -1,7 +1,6 @@
 import { typeInput } from './common.js'
 
 const calculationModalEl = 'calculation-modal'
-const modalTitleEl = 'calculation-modal-title'
 const formulaFieldEl = 'formula-field'
 const dimensionsListEl = 'dimension-list'
 
@@ -16,9 +15,6 @@ export const clickNewCalculationButton = () =>
 
 export const expectCalculationsModalToBeVisible = () =>
     cy.getBySel(calculationModalEl).should('be.visible')
-
-export const expectCalculationsModalTitleToContain = (text) =>
-    cy.getBySel(modalTitleEl).should('contain', text)
 
 export const expectDimensionsListToHaveLength = (length) => {
     cy.getBySelLike(dimensionsListEl)
