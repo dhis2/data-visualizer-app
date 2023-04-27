@@ -7,7 +7,12 @@ import {
     DIMENSION_ID_ORGUNIT,
 } from '@dhis2/analytics'
 import { DEFAULT_CURRENT } from '../../reducers/current.js'
-import { getAxesFromUi, getSingleValueCurrentFromUi } from '../current.js'
+import {
+    getAxesFromUi,
+    getSingleValueCurrentFromUi,
+    getOptionsFromUi,
+} from '../current.js'
+import { getOptionsForUi } from '../options.js'
 
 const dxItem1id = 'dxItem1id'
 const dxItem2id = 'dxItem2id'
@@ -37,7 +42,7 @@ const ui = {
         [DIMENSION_ID_PERIOD]: peItems,
         [DIMENSION_ID_ORGUNIT]: ouItems,
     },
-    options: {},
+    options: getOptionsForUi(),
 }
 
 describe('getAxesFromUi', () => {
@@ -66,6 +71,7 @@ describe('getAxesFromUi', () => {
 describe('getSingleValueCurrentFromUi', () => {
     it('should return only the 1st item in dx', () => {
         const expectedState = {
+            ...getOptionsFromUi(ui),
             columns: [
                 { dimension: DIMENSION_ID_DATA, items: [{ id: dxItem1id }] },
             ],
@@ -75,12 +81,6 @@ describe('getSingleValueCurrentFromUi', () => {
                 { dimension: DIMENSION_ID_PERIOD, items: [{ id: peItemId }] },
             ],
             rows: [],
-            reportingParams: {
-                organisationUnit: undefined,
-                reportingPeriod: undefined,
-                parentOrganisationUnit: undefined,
-                grandParentOrganisationUnit: undefined,
-            },
             type: 'SINGLEVALUE',
         }
 

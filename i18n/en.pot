@@ -384,6 +384,12 @@ msgstr "Include cumulative"
 msgid "Cumulative values"
 msgstr "Cumulative values"
 
+msgid "Show data item icon"
+msgstr "Show data item icon"
+
+msgid "If the data item has an icon, display it next to the value"
+msgstr "If the data item has an icon, display it next to the value"
+
 msgid "Digit group separator"
 msgstr "Digit group separator"
 

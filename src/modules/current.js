@@ -85,6 +85,14 @@ export const getOptionsFromUi = (ui) => {
         optionsFromUi.approvalLevel = optionsFromUi.approvalLevel.id
     }
 
+    // icons is stored as array of objects { type: DATA_ITEM }
+    if (optionsFromUi.icons !== options.icons.defaultValue) {
+        optionsFromUi.icons = [{ type: 'DATA_ITEM' }]
+    } else {
+        // if options is not enabled, do not pass the "internal" boolean value
+        optionsFromUi.icons = undefined
+    }
+
     // nested options under reportingParams
     optionsFromUi.reportingParams = {}
     ;[
