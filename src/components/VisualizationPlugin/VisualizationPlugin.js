@@ -163,7 +163,7 @@ export const VisualizationPlugin = ({
             if (
                 Boolean(visualization.icons?.length) &&
                 dxIds[0] &&
-                responses[0].metaData.items[dxIds[0]].style?.icon
+                responses[0].metaData.items[dxIds[0]]?.style?.icon
             ) {
                 const dxIconResponse = await fetch(
                     responses[0].metaData.items[dxIds[0]].style.icon
