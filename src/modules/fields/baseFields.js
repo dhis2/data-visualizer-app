@@ -23,6 +23,7 @@ export const fieldsByType = {
     ],
     chart: [
         getFieldObject('category', { excluded: true }),
+        getFieldObject('icons', { option: true }),
         getFieldObject(BASE_FIELD_YEARLY_SERIES),
     ],
     eventReport: [getFieldObject('dataType')],
@@ -82,7 +83,7 @@ export const fieldsByType = {
         getFieldObject('columns'),
         getFieldObject('completedOnly', { option: true }),
         getFieldObject('created'),
-        getFieldObject('dataDimensionItems', { excluded: true }),
+        getFieldObject('dataDimensionItems'),
         getFieldObject('dataElementDimensions', { excluded: true }),
         getFieldObject('dataElementGroupSetDimensions', { excluded: true }),
         getFieldObject('description'),

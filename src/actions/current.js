@@ -3,6 +3,7 @@ import {
     SET_CURRENT_FROM_UI,
     CLEAR_CURRENT,
 } from '../reducers/current.js'
+import { sGetMetadata } from '../reducers/metadata.js'
 import { sGetUi } from '../reducers/ui.js'
 
 export const acSetCurrent = (value) => ({
@@ -20,5 +21,10 @@ export const acSetCurrentFromUi = (value) => ({
 })
 
 export const tSetCurrentFromUi = () => async (dispatch, getState) => {
-    dispatch(acSetCurrentFromUi(sGetUi(getState())))
+    dispatch(
+        acSetCurrentFromUi({
+            ui: sGetUi(getState()),
+            metadata: sGetMetadata(getState()),
+        })
+    )
 }

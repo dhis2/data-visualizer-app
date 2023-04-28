@@ -175,7 +175,10 @@ export class DialogManager extends Component {
                             id: item.id,
                             name: item.name || item.displayName,
                             displayName: item.displayName,
-                            type: item.type,
+                            dimensionItemType: item.type,
+                            ...(item.expression
+                                ? { expression: item.expression }
+                                : {}),
                         }
 
                         return obj
@@ -203,6 +206,12 @@ export class DialogManager extends Component {
                 type:
                     this.props.metadata[id]?.type ||
                     this.props.metadata[id]?.dimensionItemType,
+                ...(this.props.metadata[id]?.expression
+                    ? {
+                          expression: this.props.metadata[id].expression,
+                      }
+                    : {}),
+                access: this.props.metadata[id]?.access,
             }))
     }
 
@@ -315,12 +324,23 @@ export class DialogManager extends Component {
                               itemAttribute: dialogId,
                           })
                     : dimensionProps.onSelect
+                const onCalculationSave = (calculation) => {
+                    this.props.addMetadata({
+                        [calculation.id]: {
+                            id: calculation.id,
+                            name: calculation.name,
+                            dimensionItemType: calculation.type,
+                            expression: calculation.expression,
+                        },
+                    })
+                }
                 const dimensionSelector = (
                     <DataDimension
                         displayNameProp={displayNameProperty}
                         selectedDimensions={selectedItems}
                         infoBoxMessage={infoBoxMessage}
                         onSelect={onSelect}
+                        onCalculationSave={onCalculationSave}
                     />
                 )
                 const dataTabs = isScatterAttribute(dialogId) ? (
