@@ -142,6 +142,7 @@ export {
     expectSubGroupSelectToBeVisible,
     expectSubGroupSelectToBe,
     switchSubGroupTo,
+    clickEDIEditButton,
 } from './dataDimension.js'
 
 export {

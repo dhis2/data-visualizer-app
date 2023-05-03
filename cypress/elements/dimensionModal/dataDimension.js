@@ -119,6 +119,14 @@ export const expectEmptySourceMessageToBe = (message) => {
     cy.getBySel(emptySourceEl).should('contain', message)
 }
 
+export const clickEDIEditButton = (item) =>
+    cy
+        .getBySel(optionContentEl)
+        .contains(item)
+        .parent()
+        .findBySel('data-dimension-transfer-option-edit-button')
+        .click()
+
 /* TODO: Find a way to use random items
     export const replaceDataItemsWithRandomDataElements = amount => {
         expectDataDimensionModalToBeVisible()

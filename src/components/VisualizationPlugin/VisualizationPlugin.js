@@ -152,6 +152,34 @@ export const VisualizationPlugin = ({
                 forDashboard
             )
 
+            // parse responses to extract dx ids from metaData
+            // multiple responses are only for YOY which does not support legends or custom icon
+            // safe to use only the 1st
+            // dx dimensions might not be present, the empty array covers that case
+            const dxIds = responses[0].metaData.dimensions.dx || []
+
+            // DHIS2-10496: show icon on the side of the single value if an icon is assigned in Maintenance app and
+            // the "Show data item icon" option is set in DV options
+            if (
+                Boolean(visualization.icons?.length) &&
+                dxIds[0] &&
+                responses[0].metaData.items[dxIds[0]]?.style?.icon
+            ) {
+                const dxIconResponse = await fetch(
+                    responses[0].metaData.items[dxIds[0]].style.icon
+                )
+                const originalIcon = await dxIconResponse.text()
+
+                // This allows for color override of the icon using the parent color
+                // needed when a legend color or contrast color is applied
+                const adaptedIcon = originalIcon.replaceAll(
+                    '#333333',
+                    'currentColor'
+                )
+
+                extraOptions.icon = adaptedIcon
+            }
+
             const legendSetIds = []
 
             switch (visualization.legend?.strategy) {
@@ -161,12 +189,6 @@ export const VisualizationPlugin = ({
                     }
                     break
                 case LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM: {
-                    // parse responses to extract legendSet ids from metaData
-                    // multiple responses are only for YOY which does not support legends
-                    // safe to use only the 1st
-                    // dx dimensions might not be present, the empty array covers that case
-                    const dxIds = responses[0].metaData.dimensions.dx || []
-
                     dxIds.forEach((dxId) => {
                         const legendSetId =
                             responses[0].metaData.items[dxId].legendSet
