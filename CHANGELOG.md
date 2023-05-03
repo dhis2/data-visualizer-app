@@ -1,3 +1,10 @@
+## [100.0.3](https://github.com/dhis2/data-visualizer-app/compare/v100.0.2...v100.0.3) (2023-05-03)
+
+
+### Bug Fixes
+
+* plugin sends installation status ([#2277](https://github.com/dhis2/data-visualizer-app/issues/2277)) ([de989c3](https://github.com/dhis2/data-visualizer-app/commit/de989c317dcf8fa1fad2d4240f3d0381f3273b5b))
+
 ## [100.0.2](https://github.com/dhis2/data-visualizer-app/compare/v100.0.1...v100.0.2) (2023-03-27)
 
 
