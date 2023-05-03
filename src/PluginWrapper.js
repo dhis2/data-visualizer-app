@@ -1,5 +1,5 @@
 import { useCacheableSection, CacheableSection } from '@dhis2/app-runtime'
-import { CenteredContent, CircularLoader, Layer } from '@dhis2/ui'
+import { CssVariables, CenteredContent, CircularLoader, Layer } from '@dhis2/ui'
 import postRobot from '@krakenjs/post-robot'
 import debounce from 'lodash-es/debounce'
 import PropTypes from 'prop-types'
@@ -39,7 +39,7 @@ const CacheableSectionWrapper = ({
         const listener = postRobot.on(
             'removeCachedData',
             // todo: check domain too; differs based on deployment env though
-            { window: window.top },
+            { window: window.parent },
             () => remove()
         )
 
@@ -81,7 +81,7 @@ const PluginWrapper = () => {
 
     useEffect(() => {
         postRobot
-            .send(window.top, 'getProps')
+            .send(window.parent, 'getProps')
             .then(receivePropsFromParent)
             .catch((err) => console.error(err))
 
@@ -94,7 +94,7 @@ const PluginWrapper = () => {
         // Allow parent to update props
         const listener = postRobot.on(
             'newProps',
-            { window: window.top /* Todo: check domain */ },
+            { window: window.parent /* Todo: check domain */ },
             receivePropsFromParent
         )
 
@@ -130,6 +130,7 @@ const PluginWrapper = () => {
             >
                 <VisualizationPlugin id={renderId} {...propsFromParent} />
             </CacheableSectionWrapper>
+            <CssVariables colors spacers elevations />
         </div>
     ) : null
 }

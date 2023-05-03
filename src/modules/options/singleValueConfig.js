@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-key */
 import React from 'react'
+import DataIcon from '../../components/VisualizationOptions/Options/DataIcon.js'
 import DigitGroupSeparator from '../../components/VisualizationOptions/Options/DigitGroupSeparator.js'
 import SkipRounding from '../../components/VisualizationOptions/Options/SkipRounding.js'
 import getAdvancedSection from './sections/advanced.js'
@@ -17,13 +18,16 @@ export default () => [
         }),
         getAdvancedSection(),
     ]),
-    getLegendTab({ hideStyleOptions: true }),
+    getLegendTab(),
     getSeriesTab(),
     getStyleTab([
-        getTitlesSection(),
         {
             key: 'style-section-2',
-            content: React.Children.toArray([<DigitGroupSeparator />]),
+            content: React.Children.toArray([
+                <DigitGroupSeparator />,
+                <DataIcon />,
+            ]),
         },
+        getTitlesSection(),
     ]),
 ]
