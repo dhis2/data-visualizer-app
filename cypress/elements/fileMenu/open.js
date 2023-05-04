@@ -1,3 +1,4 @@
+import { EXTENDED_TIMEOUT } from '../../support/utils.js'
 import { generateRandomChar, generateRandomNumber } from '../../utils/random.js'
 import { clickMenuBarFileButton } from '../menuBar.js'
 import { FILE_MENU_BUTTON_OPEN, clickFileMenuButton } from './index.js'
@@ -67,5 +68,7 @@ export const openAOByName = (name) => {
     clickMenuBarFileButton()
     clickFileMenuButton(FILE_MENU_BUTTON_OPEN)
     searchAOByName(name)
-    cy.getBySel(openModalEl).contains(name).click()
+    cy.getBySel(openModalEl, EXTENDED_TIMEOUT)
+        .contains(name, EXTENDED_TIMEOUT)
+        .click()
 }
