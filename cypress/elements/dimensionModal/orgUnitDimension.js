@@ -1,9 +1,7 @@
 import { DIMENSION_ID_ORGUNIT } from '@dhis2/analytics'
+import { EXTENDED_TIMEOUT } from '../../support/utils.js'
 import { expectDimensionModalToBeVisible } from './index.js'
 
-const timeout = {
-    timeout: 20000,
-}
 const orgUnitModalEl = 'dialog-manager-ou'
 const levelSelectEl = 'org-unit-level-select'
 const levelSelectOptionEl = 'org-unit-level-select-option'
@@ -21,7 +19,7 @@ export const expectOrgUnitDimensionModalToBeVisible = () =>
 export const expectOrgUnitDimensionToNotBeLoading = () =>
     cy
         .getBySel(orgUnitTreeEl)
-        .find('[role="progressbar"]', timeout)
+        .find('[role="progressbar"]', EXTENDED_TIMEOUT)
         .should('not.exist')
 
 export const expectOrgUnitItemToBeSelected = (itemName) =>
