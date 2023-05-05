@@ -44,6 +44,7 @@ export class UnconnectedVisualization extends Component {
         let error
         if (response) {
             switch (response.details?.errorCode) {
+                case 'E7113':
                 case 'E7114':
                     error = new AssignedCategoriesDataElementsError()
                     break
