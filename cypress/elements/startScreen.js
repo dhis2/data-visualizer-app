@@ -1,3 +1,5 @@
+import { EXTENDED_TIMEOUT } from '../support/utils.js'
+
 //const startScreen = '*[class^="StartScreen_outer"]'
 const primaryTitleText = 'Getting started'
 const primaryTitleEl = 'start-screen-primary-section-title'
@@ -14,9 +16,7 @@ export const goToStartPage = () => {
 
 export const expectStartScreenToBeVisible = () =>
     cy
-        .getBySel(primaryTitleEl, {
-            timeout: 10000,
-        })
+        .getBySel(primaryTitleEl, EXTENDED_TIMEOUT)
         .should('contain', primaryTitleText)
 
 export const expectMostViewedToBeVisible = () => {

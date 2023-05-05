@@ -16,7 +16,9 @@ export const saveNewAO = (name, description) => {
     clickFileMenuButton(FILE_MENU_BUTTON_SAVE_NEW)
     clearInput(saveModalNameEl)
     typeInput(saveModalNameEl, name)
-    cy.getBySel(saveModalDescriptionEl).find('textarea').type(description)
+    if (description) {
+        cy.getBySel(saveModalDescriptionEl).find('textarea').type(description)
+    }
     cy.getBySel(saveModalSaveButtonEl).click()
 }
 

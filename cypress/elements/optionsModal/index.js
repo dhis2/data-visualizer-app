@@ -33,6 +33,7 @@ export {
     changeFontSizeOption,
     clickBoldButton,
     clickItalicButton,
+    changeColor,
 } from './fontStyles.js'
 
 export {
@@ -71,13 +72,16 @@ export {
     expectLegendDisplayStrategyToBeByDataItem,
     expectLegendDisplayStrategyToBeFixed,
     changeDisplayStrategyToFixed,
+    changeDisplayStrategyToByDataItem,
     changeFixedLegendSet,
     expectFixedLegendSetToBe,
     changeDisplayStyleToText,
+    changeDisplayStyleToFill,
     expectLegendDisplayStyleToBeText,
     expectLegendDisplayStyleToBeFill,
-    expectSingleValueToNotBeColor,
-    expectSingleValueToBeColor,
+    expectSingleValueToHaveTextColor,
+    expectSingleValueToNotHaveBackgroundColor,
+    expectSingleValueToHaveBackgroundColor,
     toggleLegendKeyOption,
     expectLegendKeyOptionToBeEnabled,
     expectLegendKeyOptionToBeDisabled,

@@ -3,7 +3,8 @@ const legendKeyOptionEl = 'option-legend-key'
 const legendKeyEl = 'visualization-legend-key'
 const legendKeyContainerEl = 'legend-key-container'
 const legendKeyItemEl = 'legend-key-item'
-const singleValueOutputEl = 'visualization-primary-value'
+const singleValueTextEl = 'visualization-primary-value'
+const singleValueOutputEl = 'visualization-container'
 const legendDisplayStrategyByDataItemEl = 'legend-display-strategy-BY_DATA_ITEM'
 const legendDisplayStrategyFixedEl = 'legend-display-strategy-FIXED'
 const legendDisplayStyleOptionTextEl = 'legend-display-style-option-TEXT'
@@ -23,10 +24,22 @@ export const changeDisplayStrategyToFixed = () =>
         .contains('Select a single legend for the entire visualization')
         .click()
 
+export const changeDisplayStrategyToByDataItem = () =>
+    cy
+        .getBySel(optionsModalContentEl)
+        .contains('Use pre-defined legend per data item')
+        .click()
+
 export const changeDisplayStyleToText = () =>
     cy
         .getBySel(optionsModalContentEl)
         .contains('Legend changes text color')
+        .click()
+
+export const changeDisplayStyleToFill = () =>
+    cy
+        .getBySel(optionsModalContentEl)
+        .contains('Legend changes background color')
         .click()
 
 export const expectLegendToBeEnabled = () =>
@@ -64,14 +77,17 @@ export const changeFixedLegendSet = (legendSetName) => {
 export const expectFixedLegendSetToBe = (legendSetName) =>
     cy.getBySel(fixedLegendSetSelectEl).should('contain', legendSetName)
 
-export const expectSingleValueToNotBeColor = (color) =>
+export const expectSingleValueToHaveTextColor = (color) =>
+    cy.getBySel(singleValueTextEl).invoke('attr', 'fill').should('eq', color)
+
+export const expectSingleValueToNotHaveBackgroundColor = () =>
+    cy.getBySel(singleValueOutputEl).should('not.have.attr', 'style')
+
+export const expectSingleValueToHaveBackgroundColor = (color) =>
     cy
         .getBySel(singleValueOutputEl)
-        .invoke('attr', 'fill')
-        .should('not.eq', color)
-
-export const expectSingleValueToBeColor = (color) =>
-    cy.getBySel(singleValueOutputEl).invoke('attr', 'fill').should('eq', color)
+        .invoke('attr', 'style')
+        .should('contain', `background-color: ${color}`)
 
 export const toggleLegendKeyOption = () =>
     cy.getBySel(optionsModalContentEl).contains('Show legend key').click()
