@@ -1,3 +1,10 @@
+# [100.1.0](https://github.com/dhis2/data-visualizer-app/compare/v100.0.3...v100.1.0) (2023-05-05)
+
+
+### Features
+
+* 100.1.0 ([#2286](https://github.com/dhis2/data-visualizer-app/issues/2286)) ([334b13d](https://github.com/dhis2/data-visualizer-app/commit/334b13de5ba2413295404cacd155b7467a91b548)), closes [#1946](https://github.com/dhis2/data-visualizer-app/issues/1946)
+
 ## [100.0.3](https://github.com/dhis2/data-visualizer-app/compare/v100.0.2...v100.0.3) (2023-05-03)
 
 
