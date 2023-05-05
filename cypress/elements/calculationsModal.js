@@ -1,4 +1,4 @@
-import { typeInput } from './common.js'
+import { clearInput, typeInput } from './common.js'
 
 const calculationModalEl = 'calculation-modal'
 const formulaFieldEl = 'formula-field'
@@ -47,8 +47,10 @@ export const removeItemFromFormulaFieldByDoubleClick = (item) =>
         .contains(item)
         .dblclick()
 
-export const inputCalculationLabel = (label) =>
+export const inputCalculationLabel = (label) => {
+    clearInput('calculation-label')
     typeInput('calculation-label', label)
+}
 
 export const clickSaveButton = () => saveButton().click()
 

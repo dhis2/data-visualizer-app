@@ -29,8 +29,11 @@ import {
     clickDimensionModalUpdateButton,
     clickEDIEditButton,
     expectDataDimensionModalToBeVisible,
+    expectItemToBeSelectable,
     expectItemToBeSelected,
     expectNoDataItemsToBeSelected,
+    switchDataTypeTo,
+    unselectItemByDoubleClick,
 } from '../../elements/dimensionModal/index.js'
 import { openDimension } from '../../elements/dimensionsPanel.js'
 import { saveNewAO } from '../../elements/fileMenu/save.js'
@@ -38,6 +41,8 @@ import { goToStartPage } from '../../elements/startScreen.js'
 
 const PAGE_SIZE = 50
 const DATA_ELEMENTS_URL = '**/dataElements?*'
+const tooltipContentEl = 'tooltip-content'
+const dataChipEl = 'layout-chip-dx'
 
 describe('Calculations', () => {
     beforeEach(() => {
@@ -70,9 +75,10 @@ describe('Calculations', () => {
         expectDimensionsListToHaveLength(PAGE_SIZE)
     })
     it('can save, load and delete', () => {
+        const date = new Date().toLocaleString()
         const TEST_DATA_ELEMENT = 'ANC 2nd visit'
-        const TEST_LABEL = `EDI ${new Date().toLocaleString()}`
-        const TEST_AO_NAME = `TEST with EDI ${new Date().toLocaleString()}`
+        const TEST_LABEL = `EDI ${date}`
+        const TEST_AO_NAME = `TEST with EDI ${date}`
 
         // create
         openDimension(DIMENSION_ID_DATA)
@@ -89,9 +95,9 @@ describe('Calculations', () => {
         clickCancelButton()
         clickDimensionModalUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
-        cy.getBySel('layout-chip-dx').trigger('mouseover')
-        cy.getBySelLike('tooltip-content').contains(TEST_LABEL)
-        cy.getBySel('layout-chip-dx').trigger('mouseout')
+        cy.getBySel(dataChipEl).trigger('mouseover')
+        cy.getBySelLike(tooltipContentEl).should('contain', TEST_LABEL)
+        cy.getBySel(dataChipEl).trigger('mouseout')
 
         // save
         saveNewAO(TEST_AO_NAME)
@@ -168,7 +174,6 @@ describe('Calculations', () => {
         selectItemFromDimensionsListByDoubleClick(item)
         expectFormulaFieldToContainItem(item)
     })
-
     it('can add and remove formula items', () => {
         const TEST_DATA_ELEMENTS = [
             'ART enrollment stage 1',
@@ -317,16 +322,79 @@ describe('Calculations', () => {
         expectFormulaToBeInvalid('Missing left parenthesis (')
         saveButtonIsDisabled()
     })
-    /*        
-        TODO:
-        --opening a saved formula
-        unselected formula is listed under "Data Type: Calculations"
-            has label and formula when opened
-        selected formula is selected and not listed under "Data Type: Calculations"
-            has label and formula when opened
-        editing and saving works
-            edited name shows in list of data items
-            edited EDI displays correctly in visualization
+    it.only('changes persist after saving', () => {
+        const getEditedLabel = (label) => label.slice(0, -1) + 'E' // "E" for edited
+        const date = new Date().toLocaleString()
+        const TEST_DATA_ELEMENTS = ['ANC 1st visit', 'ANC 2nd visit']
+        const TEST_LABELS = [`EDI 1 ${date} O`, `EDI 2 ${date} O`] // "O" for original
+        const TEST_AO_NAME = `TEST with EDI ${date}`
 
-        */
+        // create
+        openDimension(DIMENSION_ID_DATA)
+        TEST_LABELS.forEach((label, i) => {
+            clickNewCalculationButton()
+            selectItemFromDimensionsListByDoubleClick(TEST_DATA_ELEMENTS[i])
+            inputCalculationLabel(label)
+            clickSaveButton()
+            expectItemToBeSelected(label)
+        })
+
+        // edit
+        clickEDIEditButton(TEST_LABELS[0])
+        inputCalculationLabel(getEditedLabel(TEST_LABELS[0]))
+        clickSaveButton()
+        expectItemToBeSelected(getEditedLabel(TEST_LABELS[0]))
+        expectItemToBeSelected(TEST_LABELS[1])
+        clickDimensionModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+        cy.getBySel(dataChipEl).trigger('mouseover')
+        cy.getBySelLike(tooltipContentEl).should(
+            'contain',
+            getEditedLabel(TEST_LABELS[0])
+        )
+        cy.getBySelLike(tooltipContentEl).should('contain', TEST_LABELS[1])
+        cy.getBySel(dataChipEl).trigger('mouseout')
+
+        // reopen and deselect second EDI
+        openDimension(DIMENSION_ID_DATA)
+        expectItemToBeSelected(getEditedLabel(TEST_LABELS[0]))
+        expectItemToBeSelected(TEST_LABELS[1])
+        unselectItemByDoubleClick(TEST_LABELS[1])
+        clickDimensionModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+        cy.getBySel(dataChipEl).trigger('mouseover')
+        cy.getBySelLike(tooltipContentEl).should(
+            'contain',
+            getEditedLabel(TEST_LABELS[0])
+        )
+        cy.getBySelLike(tooltipContentEl).should('not.contain', TEST_LABELS[1])
+        cy.getBySel(dataChipEl).trigger('mouseout')
+
+        // save
+        saveNewAO(TEST_AO_NAME)
+        expectAppToNotBeLoading()
+        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+        cy.getBySel(dataChipEl).trigger('mouseover')
+        cy.getBySelLike(tooltipContentEl).should(
+            'contain',
+            getEditedLabel(TEST_LABELS[0])
+        )
+        cy.getBySelLike(tooltipContentEl).should('not.contain', TEST_LABELS[1])
+        cy.getBySel(dataChipEl).trigger('mouseout')
+
+        // reopen and delete
+        openDimension(DIMENSION_ID_DATA)
+        expectItemToBeSelected(getEditedLabel(TEST_LABELS[0]))
+        switchDataTypeTo('Calculations')
+        expectItemToBeSelectable(TEST_LABELS[1])
+        clickEDIEditButton(getEditedLabel(TEST_LABELS[0]))
+        expectFormulaFieldToContainItem(TEST_DATA_ELEMENTS[0])
+        clickDeleteButton()
+        clickConfirmDeleteButton()
+        clickEDIEditButton(TEST_LABELS[1])
+        expectFormulaFieldToContainItem(TEST_DATA_ELEMENTS[1])
+        clickDeleteButton()
+        clickConfirmDeleteButton()
+        expectNoDataItemsToBeSelected()
+    })
 })
