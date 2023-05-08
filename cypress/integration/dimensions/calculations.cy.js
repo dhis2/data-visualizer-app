@@ -322,7 +322,7 @@ describe('Calculations', () => {
         expectFormulaToBeInvalid('Missing left parenthesis (')
         saveButtonIsDisabled()
     })
-    it.only('changes persist after saving', () => {
+    it('changes persist after saving', () => {
         const getEditedLabel = (label) => label.slice(0, -1) + 'E' // "E" for edited
         const date = new Date().toLocaleString()
         const TEST_DATA_ELEMENTS = ['ANC 1st visit', 'ANC 2nd visit']
