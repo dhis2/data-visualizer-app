@@ -2,20 +2,21 @@
 # Translators:
 # phil_dhis2, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
-# Pablo Pajuelo Cabezas <ppajuelo@quadram.mobi>, 2020
+# Pablo Pajuelo Cabezas <pablo@dhis2.org>, 2020
 # ericbp <ericbarredap@gmail.com>, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
 # Prabhjot Singh, 2021
 # Janeth Cruz, 2021
 # Carlos Tejo Alonso, 2022
+# Enzo Nicolas Rossi <enzo@dhis2.org>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-04-23T09:26:03.770Z\n"
 "PO-Revision-Date: 2020-12-22 22:14+0000\n"
-"Last-Translator: Carlos Tejo Alonso, 2022\n"
-"Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
+"Last-Translator: Enzo Nicolas Rossi <enzo@dhis2.org>, 2023\n"
+"Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,16 +24,16 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Rename successful"
-msgstr ""
+msgstr "Nombre actualizado"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr ""
+msgstr "Visualización {{visualizationType}} sin título, {{date}}"
 
 msgid "\"{{deletedObject}}\" successfully deleted."
 msgstr ""
 
 msgid "You have unsaved changes."
-msgstr ""
+msgstr "Tiene cambios sin guardar."
 
 msgid "Discard unsaved changes?"
 msgstr "¿Descartar los cambios no guardados ?"
@@ -41,12 +42,14 @@ msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
 "be lost."
 msgstr ""
+"¿Está seguro de que desea abandonar esta visualización? Cualquier cambio no "
+"guardado se perderá."
 
 msgid "No, cancel"
 msgstr "No, cancela"
 
 msgid "Yes, leave"
-msgstr ""
+msgstr "Si, salir"
 
 msgid "Add to {{axisName}}"
 msgstr "Añadir a {{Nombredeleje}}"
