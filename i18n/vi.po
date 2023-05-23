@@ -7,10 +7,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-08-25T09:58:02.683Z\n"
+"POT-Creation-Date: 2023-03-07T12:07:38.393Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2022\n"
-"Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
+"Language-Team: Vietnamese (https://app.transifex.com/hisp-uio/teams/100509/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -393,6 +393,12 @@ msgstr "Bao gồm các giá trị tính toán"
 msgid "Cumulative values"
 msgstr "Các giá trị tích lũy"
 
+msgid "Show data item icon"
+msgstr ""
+
+msgid "If the data item has an icon, display it next to the value"
+msgstr ""
+
 msgid "Digit group separator"
 msgstr "Khoảng cách nhóm chữ số"
 
@@ -691,6 +697,12 @@ msgstr "Giới hạn trên"
 msgid "Options"
 msgstr "Tùy chọn"
 
+msgid "Change org unit"
+msgstr ""
+
+msgid "{{level}} level in {{orgunit}}"
+msgstr ""
+
 msgid "Open as Map"
 msgstr "Mở dưới dạng bản đồ"
 
@@ -699,21 +711,6 @@ msgid ""
 msgstr ""
 "Vẽ dữ liệu trực quan trên bản đồ thế giới. Các phần tử dữ liệu sử dụng các "
 "lớp bản đồ riêng biệt."
-
-msgid "Reporting rate"
-msgstr "Tỉ lệ báo cáo"
-
-msgid "Reporting rate on time"
-msgstr "Tỉ lệ báo cáo đúng hạn"
-
-msgid "Actual reports"
-msgstr "Báo cáo thực tế"
-
-msgid "Actual reports on time"
-msgstr "Báo cáo thực tế đúng hạn"
-
-msgid "Expected reports"
-msgstr "Báo cáo dự kiến"
 
 msgid "No data available"
 msgstr "Không có dữ liệu"
@@ -792,11 +789,9 @@ msgid "There's a problem with the layout"
 msgstr "Có lỗi bố cục"
 
 msgid ""
-"A single indicator must be the only data item when using indicators as Data "
-"in Filter."
+"A single indicator or calculation must be the only data item when using "
+"indicators or calculations as Data in Filter."
 msgstr ""
-"Một chỉ số phải là mục dữ liệu duy nhất khi sử dụng các chỉ số làm dữ liệu "
-"trong bộ lọc."
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
 msgstr ""
@@ -838,6 +833,14 @@ msgid "No organization units found"
 msgstr ""
 
 msgid "The level or group selections didn't return any organization units."
+msgstr ""
+
+msgid "Invalid data type"
+msgstr ""
+
+msgid ""
+"The selected data dimensions didn't return any valid data. This "
+"visualization type can only display numerical data."
 msgstr ""
 
 msgid "Something went wrong"
