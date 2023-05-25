@@ -2,7 +2,6 @@ import { DIMENSION_ID_DATA } from '@dhis2/analytics'
 import { clearInput, typeInput } from '../common.js'
 import {
     expectDimensionModalToBeVisible,
-    expectSourceToNotBeLoading,
     selectItemByDoubleClick,
 } from './index.js'
 
@@ -26,6 +25,16 @@ const rightHeaderEl = 'data-dimension-transfer-rightheader'
 const searchFieldEl = 'data-dimension-left-header-filter-input-field-content'
 const emptySourceEl = 'data-dimension-empty-source'
 
+const expectItemsToBeInSource = (items) => {
+    cy.getBySelLike('transfer-sourceoptions').should(($elems) => {
+        expect($elems).to.have.lengthOf(2)
+        const $container = $elems.first()
+        expect($container).to.have.class('container')
+        const $options = $container.find('[data-test*="transfer-option"]')
+        items.forEach((item) => expect($options).to.contain(item))
+    })
+}
+
 export const expectDataDimensionModalToBeVisible = () =>
     expectDimensionModalToBeVisible(DIMENSION_ID_DATA)
 
@@ -47,7 +56,7 @@ export const scrollSourceToBottom = () => {
 
 export const selectDataElements = (dataElements) => {
     switchDataTypeTo('Data elements')
-    expectSourceToNotBeLoading()
+    expectItemsToBeInSource(dataElements)
     dataElements.forEach((item) => selectItemByDoubleClick(item))
 }
 
@@ -56,7 +65,7 @@ export const selectFirstDataItem = () =>
 
 export const selectIndicators = (indicators) => {
     switchDataTypeTo('Indicators')
-    expectSourceToNotBeLoading()
+    expectItemsToBeInSource(indicators)
     indicators.forEach((item) => selectItemByDoubleClick(item))
 }
 
