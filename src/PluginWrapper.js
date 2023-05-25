@@ -3,7 +3,7 @@ import { CssVariables, CenteredContent, CircularLoader, Layer } from '@dhis2/ui'
 import postRobot from '@krakenjs/post-robot'
 import debounce from 'lodash-es/debounce'
 import PropTypes from 'prop-types'
-import React, { useEffect, useLayoutEffect, useState } from 'react'
+import React, { useCallback, useEffect, useLayoutEffect, useState } from 'react'
 import { VisualizationPlugin } from './components/VisualizationPlugin/VisualizationPlugin.js'
 import { getPWAInstallationStatus } from './modules/getPWAInstallationStatus.js'
 
@@ -76,8 +76,30 @@ const sendInstallationStatus = (installationStatus) => {
 const PluginWrapper = () => {
     const [propsFromParent, setPropsFromParent] = useState()
     const [renderId, setRenderId] = useState(null)
+    const [size, setSize] = useState({ width: 0, height: 0 })
 
     const receivePropsFromParent = (event) => setPropsFromParent(event.data)
+
+    const containerRef = useCallback((node) => {
+        if (node !== null) {
+            setSize({
+                width: node.parentElement.clientWidth,
+                height: node.parentElement.clientHeight,
+            })
+        }
+    }, [])
+
+    useEffect(() => {
+        if (size.width && !propsFromParent?.style?.width) {
+            setPropsFromParent({
+                ...propsFromParent,
+                style: {
+                    ...propsFromParent.style,
+                    ...size,
+                },
+            })
+        }
+    }, [propsFromParent, size])
 
     useEffect(() => {
         postRobot
@@ -122,6 +144,7 @@ const PluginWrapper = () => {
                 height: '100%',
                 overflow: 'hidden',
             }}
+            ref={containerRef}
         >
             <CacheableSectionWrapper
                 id={propsFromParent.cacheId}
