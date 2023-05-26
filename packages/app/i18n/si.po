@@ -86,7 +86,7 @@ msgid "Code"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "නම"
 
 msgid "Data value set"
 msgstr ""
@@ -137,7 +137,7 @@ msgid "Series"
 msgstr ""
 
 msgid "Category"
-msgstr ""
+msgstr "කාණ්ඩය"
 
 msgid "Filter"
 msgstr ""
@@ -185,13 +185,13 @@ msgid "Count"
 msgstr ""
 
 msgid "Average"
-msgstr ""
+msgstr "සාමාන්‍ය"
 
 msgid "Average (sum in org unit hierarchy)"
 msgstr ""
 
 msgid "Sum"
-msgstr ""
+msgstr "එකතුව"
 
 msgid "Last value"
 msgstr ""
@@ -325,7 +325,7 @@ msgid "Chart title"
 msgstr ""
 
 msgid "Data"
-msgstr ""
+msgstr "දත්ත"
 
 msgid "Axis & legend"
 msgstr ""
@@ -455,37 +455,37 @@ msgid "Last 14 days"
 msgstr ""
 
 msgid "This week"
-msgstr ""
+msgstr "මෙම සතිය"
 
 msgid "Last week"
-msgstr ""
+msgstr "පසුගිය සතිය"
 
 msgid "Last 4 weeks"
-msgstr ""
+msgstr "පසුගිය සති 4"
 
 msgid "Last 12 weeks"
-msgstr ""
+msgstr "පසුගිය සති 12"
 
 msgid "Last 52 weeks"
-msgstr ""
+msgstr "පසුගිය සති 52"
 
 msgid "Weeks this year"
 msgstr ""
 
 msgid "This month"
-msgstr ""
+msgstr "මෙම මාසය"
 
 msgid "Last month"
-msgstr ""
+msgstr "පසුගිය මාසය"
 
 msgid "Last 3 months"
-msgstr ""
+msgstr "පසුගිය මාස 3"
 
 msgid "Last 6 months"
-msgstr ""
+msgstr "පසුගිය මාස 6"
 
 msgid "Last 12 months"
-msgstr ""
+msgstr "පසුගිය මාස 12"
 
 msgid "Months this year"
 msgstr ""
@@ -533,13 +533,13 @@ msgid "Last 5 financial years"
 msgstr ""
 
 msgid "This year"
-msgstr ""
+msgstr "මෙම වසර"
 
 msgid "Last year"
-msgstr ""
+msgstr "පසුගිය වසර"
 
 msgid "Last 5 years"
-msgstr ""
+msgstr "පසුගිය 5 වසර"
 
 msgid "User org unit"
 msgstr ""
