@@ -13,7 +13,8 @@ import { useDataEngine } from '@dhis2/app-runtime'
 import { Button, IconLegend24, Layer } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useEffect, useState, useCallback } from 'react'
+import React, { useEffect, useState, useCallback, useRef } from 'react'
+import ResizeObserver from 'resize-observer-polyfill'
 import { apiFetchLegendSets } from '../../api/legendSets.js'
 import { fetchData } from '../../modules/fetchData.js'
 import ChartPlugin from './ChartPlugin.js'
@@ -41,6 +42,17 @@ export const VisualizationPlugin = ({
     const [contextualMenuConfig, setContextualMenuConfig] = useState({})
     const [showLegendKey, setShowLegendKey] = useState(false)
     const [renderId, setRenderId] = useState(id)
+    const [size, setSize] = useState({ width: 0, height: 0 })
+
+    const containerRef = useCallback((node) => {
+        if (node !== null) {
+            console.log('node', node)
+            setSize({
+                width: node.parentElement.clientWidth,
+                height: node.parentElement.clientHeight,
+            })
+        }
+    }, [])
 
     useEffect(() => setRenderId(id), [id])
 
@@ -283,7 +295,7 @@ export const VisualizationPlugin = ({
         forDashboard && hasLegendSet
             ? {
                   ...style,
-                  width: style.width - (showLegendKey ? 200 : 36),
+                  width: style.width || size.width - (showLegendKey ? 200 : 36),
                   // 200: width of legend key component with margin and scrollbar
                   // 36: width of the toggle button with margin
               }
@@ -292,7 +304,7 @@ export const VisualizationPlugin = ({
     // force height when no value available otherwise the PivotTable container sets 0 as height hiding the table content
     // and Highcharts does not render correctly the chart/legend
     if (!transformedStyle.height) {
-        transformedStyle.height = '100%'
+        transformedStyle.height = size.height || '100%'
     }
 
     const getLegendKey = () => {
@@ -343,7 +355,7 @@ export const VisualizationPlugin = ({
     }
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} ref={containerRef}>
             <div className={styles.chartWrapper}>
                 {!fetchResult.visualization.type ||
                 fetchResult.visualization.type === VIS_TYPE_PIVOT_TABLE ? (
