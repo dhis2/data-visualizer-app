@@ -2,6 +2,7 @@ import { DIMENSION_ID_DATA } from '@dhis2/analytics'
 import { clearInput, typeInput } from '../common.js'
 import {
     expectDimensionModalToBeVisible,
+    expectSourceToNotBeLoading,
     selectItemByDoubleClick,
 } from './index.js'
 
@@ -55,6 +56,7 @@ export const scrollSourceToBottom = () => {
 }
 
 export const selectDataElements = (dataElements) => {
+    expectSourceToNotBeLoading()
     switchDataTypeTo('Data elements')
     expectItemsToBeInSource(dataElements)
     dataElements.forEach((item) => selectItemByDoubleClick(item))
@@ -64,6 +66,7 @@ export const selectFirstDataItem = () =>
     cy.getBySel(selectableItemsEl).findBySel(optionContentEl).eq(0).dblclick()
 
 export const selectIndicators = (indicators) => {
+    expectSourceToNotBeLoading()
     switchDataTypeTo('Indicators')
     expectItemsToBeInSource(indicators)
     indicators.forEach((item) => selectItemByDoubleClick(item))
