@@ -98,18 +98,22 @@ export const expectSelectedItemsAmountToBeLeast = (amount) =>
         .should('have.length.least', amount)
 
 export const expectSelectableItemsAmountToBeLeast = (amount) =>
-    cy
-        .getBySelLike(transferSelectableItemsEl)
-        .findBySelLike(transferOptionEl)
-        .filter('.wrapper')
-        .should('have.length.least', amount)
+    cy.getBySelLike('transfer-sourceoptions').should(($elems) => {
+        expect($elems).to.have.lengthOf(2)
+        const $container = $elems.first()
+        expect(
+            $container.find('[data-test*="transfer-option"]')
+        ).to.have.length.of.at.least(amount)
+    })
 
 export const expectSelectableItemsAmountToBe = (amount) =>
-    cy
-        .getBySelLike(transferSelectableItemsEl)
-        .findBySelLike(transferOptionEl)
-        .filter('.wrapper')
-        .should('have.length', amount)
+    cy.getBySelLike('transfer-sourceoptions').should(($elems) => {
+        expect($elems).to.have.lengthOf(2)
+        const $container = $elems.first()
+        expect(
+            $container.find('[data-test*="transfer-option"]')
+        ).to.have.lengthOf(amount)
+    })
 
 export const expectSelectedItemsAmountToBe = (amount) =>
     cy
