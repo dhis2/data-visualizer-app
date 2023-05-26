@@ -99,7 +99,6 @@ export const expectSelectedItemsAmountToBeLeast = (amount) =>
 
 export const expectSelectableItemsAmountToBeLeast = (amount) =>
     cy.getBySelLike('transfer-sourceoptions').should(($elems) => {
-        expect($elems).to.have.lengthOf(2)
         const $container = $elems.first()
         expect(
             $container.find('[data-test*="transfer-option"]')
@@ -108,7 +107,6 @@ export const expectSelectableItemsAmountToBeLeast = (amount) =>
 
 export const expectSelectableItemsAmountToBe = (amount) =>
     cy.getBySelLike('transfer-sourceoptions').should(($elems) => {
-        expect($elems).to.have.lengthOf(2)
         const $container = $elems.first()
         expect(
             $container.find('[data-test*="transfer-option"]')

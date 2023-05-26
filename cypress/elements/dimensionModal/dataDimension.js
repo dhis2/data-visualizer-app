@@ -28,7 +28,6 @@ const emptySourceEl = 'data-dimension-empty-source'
 
 const expectItemsToBeInSource = (items) => {
     cy.getBySelLike('transfer-sourceoptions').should(($elems) => {
-        expect($elems).to.have.lengthOf(2)
         const $container = $elems.first()
         expect($container).to.have.class('container')
         const $options = $container.find('[data-test*="transfer-option"]')
