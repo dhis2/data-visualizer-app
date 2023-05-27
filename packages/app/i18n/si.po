@@ -94,13 +94,13 @@ msgid "ID"
 msgstr ""
 
 msgid "Code"
-msgstr ""
+msgstr "කේත කරන්න"
 
 msgid "Name"
 msgstr "නම"
 
 msgid "Download"
-msgstr ""
+msgstr "බාගත කරන්න"
 
 msgid "Plain data source"
 msgstr ""
@@ -218,7 +218,7 @@ msgid "By data element"
 msgstr ""
 
 msgid "Count"
-msgstr ""
+msgstr "ගණන"
 
 msgid "Average"
 msgstr "සාමාන්‍ය"
@@ -690,13 +690,13 @@ msgid "Yesterday"
 msgstr "ඊයේ"
 
 msgid "Last 3 days"
-msgstr ""
+msgstr "පසුගිය දින 3"
 
 msgid "Last 7 days"
-msgstr ""
+msgstr "පසුගිය දින 7"
 
 msgid "Last 14 days"
-msgstr ""
+msgstr "පසුගිය දින 14"
 
 msgid "This week"
 msgstr "මෙම සතිය"
