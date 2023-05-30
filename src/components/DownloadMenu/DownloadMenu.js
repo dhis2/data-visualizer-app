@@ -1,4 +1,4 @@
-import { VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
+import { VIS_TYPE_PIVOT_TABLE, HoverMenuList } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import { FlyoutMenu, MenuSectionHeader } from '@dhis2/ui'
 import PropTypes from 'prop-types'
@@ -14,45 +14,63 @@ import { GraphicsMenu } from './GraphicsMenu.js'
 import { PlainDataSourceSubMenu } from './PlainDataSourceSubMenu.js'
 import { TableMenu } from './TableMenu.js'
 
-const DownloadMenu = ({ visType, onDownloadData, onDownloadImage }) => (
-    <FlyoutMenu>
-        {visType === VIS_TYPE_PIVOT_TABLE ? (
-            <TableMenu onDownload={onDownloadData} />
-        ) : (
-            <GraphicsMenu onDownload={onDownloadImage} />
-        )}
-        <MenuSectionHeader label={i18n.t('Plain data source')} />
-        <PlainDataSourceSubMenu
-            onDownload={onDownloadData}
-            label={i18n.t('JSON')}
-            format={FILE_FORMAT_JSON}
-        />
-        <PlainDataSourceSubMenu
-            onDownload={onDownloadData}
-            label={i18n.t('XML')}
-            format={FILE_FORMAT_XML}
-        />
-        <PlainDataSourceSubMenu
-            onDownload={onDownloadData}
-            label={i18n.t('Microsoft Excel')}
-            format={FILE_FORMAT_XLS}
-        />
-        <PlainDataSourceSubMenu
-            onDownload={onDownloadData}
-            label={i18n.t('CSV')}
-            format={FILE_FORMAT_CSV}
-        />
-        <AdvancedSubMenu
-            onDownload={onDownloadData}
-            label={i18n.t('Advanced')}
-        />
-    </FlyoutMenu>
-)
+const DownloadMenu = ({
+    visType,
+    onDownloadData,
+    onDownloadImage,
+    hoverable,
+}) => {
+    const MenuComponent = hoverable ? HoverMenuList : FlyoutMenu
+
+    return (
+        <MenuComponent>
+            {visType === VIS_TYPE_PIVOT_TABLE ? (
+                <TableMenu hoverable={hoverable} onDownload={onDownloadData} />
+            ) : (
+                <GraphicsMenu
+                    hoverable={hoverable}
+                    onDownload={onDownloadImage}
+                />
+            )}
+            <MenuSectionHeader label={i18n.t('Plain data source')} />
+            <PlainDataSourceSubMenu
+                hoverable={hoverable}
+                onDownload={onDownloadData}
+                label={i18n.t('JSON')}
+                format={FILE_FORMAT_JSON}
+            />
+            <PlainDataSourceSubMenu
+                hoverable={hoverable}
+                onDownload={onDownloadData}
+                label={i18n.t('XML')}
+                format={FILE_FORMAT_XML}
+            />
+            <PlainDataSourceSubMenu
+                hoverable={hoverable}
+                onDownload={onDownloadData}
+                label={i18n.t('Microsoft Excel')}
+                format={FILE_FORMAT_XLS}
+            />
+            <PlainDataSourceSubMenu
+                hoverable={hoverable}
+                onDownload={onDownloadData}
+                label={i18n.t('CSV')}
+                format={FILE_FORMAT_CSV}
+            />
+            <AdvancedSubMenu
+                hoverable={hoverable}
+                onDownload={onDownloadData}
+                label={i18n.t('Advanced')}
+            />
+        </MenuComponent>
+    )
+}
 
 DownloadMenu.propTypes = {
     visType: PropTypes.string.isRequired,
     onDownloadData: PropTypes.func.isRequired,
     onDownloadImage: PropTypes.func.isRequired,
+    hoverable: PropTypes.bool,
 }
 
 export { DownloadMenu }
