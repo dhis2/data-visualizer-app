@@ -10,6 +10,7 @@
         "build": "d2-app-scripts build",
         "start": "d2-app-scripts start",
         "start:nobrowser": "BROWSER=none yarn start",
+        "start:localanalytics": "cd ../analytics && yarn build && cd ../data-visualizer-app && rm -rf node_modules/@dhis2/analytics/build && cp -R ../analytics/build/ node_modules/@dhis2/analytics/build && yarn start",
         "test": "d2-app-scripts test",
         "coverage": "yarn test --coverage",
         "deploy": "d2-app-scripts deploy",

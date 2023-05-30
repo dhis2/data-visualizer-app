@@ -1,7 +1,9 @@
 import {
     FileMenu,
+    HoverMenubar,
     VIS_TYPE_GROUP_ALL,
     VIS_TYPE_GROUP_CHARTS,
+    UpdateButton,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
@@ -13,11 +15,9 @@ import history from '../../modules/history.js'
 import { visTypes } from '../../modules/visualization.js'
 import { sGetCurrent } from '../../reducers/current.js'
 import { ToolbarDownloadDropdown } from '../DownloadMenu/ToolbarDownloadDropdown.js'
-import UpdateButton from '../UpdateButton/UpdateButton.js'
 import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer.js'
 import VisualizationOptionsManager from '../VisualizationOptions/VisualizationOptionsManager.js'
 import { InterpretationsButton } from './InterpretationsButton.js'
-import styles from './styles/MenuBar.module.css'
 
 const onOpen = (id) => {
     const path = `/${id}`
@@ -51,38 +51,36 @@ const filterVisTypes = [
 ]
 
 const UnconnectedMenuBar = ({ dataTest, ...props }, context) => (
-    <div className={styles.menuBar} data-test={dataTest}>
+    <>
         <UpdateVisualizationContainer
             renderComponent={(handler) => (
                 <UpdateButton
-                    className={styles.updateButton}
-                    small
                     onClick={handler}
                     dataTest={`${dataTest}-update-button`}
                 />
             )}
         />
-        <FileMenu
-            currentUser={context.d2.currentUser}
-            fileType={props.apiObjectName}
-            fileObject={props.current}
-            filterVisTypes={filterVisTypes}
-            defaultFilterVisType={VIS_TYPE_GROUP_ALL}
-            onOpen={onOpen}
-            onNew={onNew}
-            onRename={getOnRename(props)}
-            onSave={getOnSave(props)}
-            onSaveAs={getOnSaveAs(props)}
-            onDelete={getOnDelete(props)}
-            onError={getOnError(props)}
-        />
-        <VisualizationOptionsManager />
+        <HoverMenubar>
+            <FileMenu
+                currentUser={context.d2.currentUser}
+                fileType={props.apiObjectName}
+                fileObject={props.current}
+                filterVisTypes={filterVisTypes}
+                defaultFilterVisType={VIS_TYPE_GROUP_ALL}
+                onOpen={onOpen}
+                onNew={onNew}
+                onRename={getOnRename(props)}
+                onSave={getOnSave(props)}
+                onSaveAs={getOnSaveAs(props)}
+                onDelete={getOnDelete(props)}
+                onError={getOnError(props)}
+            />
+            <VisualizationOptionsManager />
 
-        <ToolbarDownloadDropdown />
-
-        <div className={styles.grow} />
+            <ToolbarDownloadDropdown />
+        </HoverMenubar>
         <InterpretationsButton />
-    </div>
+    </>
 )
 
 UnconnectedMenuBar.propTypes = {
