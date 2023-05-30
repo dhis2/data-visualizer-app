@@ -1,4 +1,4 @@
-import { visTypeDisplayNames } from '@dhis2/analytics'
+import { visTypeDisplayNames, ToolbarSidebar } from '@dhis2/analytics'
 import { useSetting } from '@dhis2/app-service-datastore'
 import i18n from '@dhis2/d2-i18n'
 import { Divider, Popper, Layer } from '@dhis2/ui'
@@ -97,20 +97,22 @@ const UnconnectedVisualizationTypeSelector = (
 
     return (
         <>
-            <div
-                onClick={toggleList}
-                ref={buttonRef}
-                className={styles.button}
-                data-test={'visualization-type-selector-button'}
-            >
-                <ListItemIcon iconType={visualizationType} />
-                <span data-test="visualization-type-selector-currently-selected-text">
-                    {visTypeDisplayNames[visualizationType]}
-                </span>
-                <span className={styles.arrowIcon}>
-                    <ArrowDown />
-                </span>
-            </div>
+            <ToolbarSidebar isHidden={false}>
+                <div
+                    onClick={toggleList}
+                    ref={buttonRef}
+                    className={styles.button}
+                    data-test={'visualization-type-selector-button'}
+                >
+                    <ListItemIcon iconType={visualizationType} />
+                    <span data-test="visualization-type-selector-currently-selected-text">
+                        {visTypeDisplayNames[visualizationType]}
+                    </span>
+                    <span className={styles.arrowIcon}>
+                        <ArrowDown />
+                    </span>
+                </div>
+            </ToolbarSidebar>
             {listIsOpen && (
                 <Layer onClick={toggleList}>
                     <Popper reference={buttonRef} placement="bottom-start">

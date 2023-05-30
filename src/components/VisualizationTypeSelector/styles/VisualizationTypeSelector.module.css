@@ -10,6 +10,7 @@
     justify-content: flex-start;
     background-color: var(--colors-white);
     cursor: pointer;
+    flex-grow: 1
 }
 
 .button > span {
