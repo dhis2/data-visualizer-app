@@ -13,8 +13,7 @@ import { useDataEngine } from '@dhis2/app-runtime'
 import { Button, IconLegend24, Layer } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useEffect, useState, useCallback, useRef } from 'react'
-import ResizeObserver from 'resize-observer-polyfill'
+import React, { useEffect, useState, useCallback } from 'react'
 import { apiFetchLegendSets } from '../../api/legendSets.js'
 import { fetchData } from '../../modules/fetchData.js'
 import ChartPlugin from './ChartPlugin.js'
@@ -45,13 +44,22 @@ export const VisualizationPlugin = ({
     const [size, setSize] = useState({ width: 0, height: 0 })
 
     const containerRef = useCallback((node) => {
-        if (node !== null) {
-            console.log('node', node)
-            setSize({
-                width: node.parentElement.clientWidth,
-                height: node.parentElement.clientHeight,
-            })
+        if (node === null) {
+            return
         }
+
+        const adjustSize = () =>
+            setSize({
+                width: node.clientWidth,
+                height: node.clientHeight,
+            })
+
+        const sizeObserver = new window.ResizeObserver(adjustSize)
+        sizeObserver.observe(node)
+
+        adjustSize()
+
+        return sizeObserver.disconnect
     }, [])
 
     useEffect(() => setRenderId(id), [id])
