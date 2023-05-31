@@ -138,6 +138,22 @@ export const clickEDIEditButton = (item) =>
         .findBySel('data-dimension-transfer-option-edit-button')
         .click()
 
+export const expectSelectableDataItemsAmountToBe = (amount) =>
+    cy.getBySelLike('transfer-sourceoptions').should(($elems) => {
+        const $container = $elems.first()
+        expect(
+            $container.find('[data-test="data-dimension-transfer-option"]')
+        ).to.have.lengthOf(amount)
+    })
+
+export const expectSelectableDataItemsAmountToBeLeast = (amount) =>
+    cy.getBySelLike('transfer-sourceoptions').should(($elems) => {
+        const $container = $elems.first()
+        expect(
+            $container.find('[data-test="data-dimension-transfer-option"]')
+        ).to.have.length.of.at.least(amount)
+    })
+
 /* TODO: Find a way to use random items
     export const replaceDataItemsWithRandomDataElements = amount => {
         expectDataDimensionModalToBeVisible()

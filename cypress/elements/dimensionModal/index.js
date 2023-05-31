@@ -97,22 +97,6 @@ export const expectSelectedItemsAmountToBeLeast = (amount) =>
         .filter('.wrapper')
         .should('have.length.least', amount)
 
-export const expectSelectableItemsAmountToBeLeast = (amount) =>
-    cy.getBySelLike('transfer-sourceoptions').should(($elems) => {
-        const $container = $elems.first()
-        expect(
-            $container.find('[data-test*="transfer-option"]')
-        ).to.have.length.of.at.least(amount)
-    })
-
-export const expectSelectableItemsAmountToBe = (amount) =>
-    cy.getBySelLike('transfer-sourceoptions').should(($elems) => {
-        const $container = $elems.first()
-        expect(
-            $container.find('[data-test*="transfer-option"]')
-        ).to.have.lengthOf(amount)
-    })
-
 export const expectSelectedItemsAmountToBe = (amount) =>
     cy
         .getBySelLike(transferSelectedItemsEl)
@@ -145,6 +129,8 @@ export {
     expectSubGroupSelectToBe,
     switchSubGroupTo,
     clickEDIEditButton,
+    expectSelectableDataItemsAmountToBeLeast,
+    expectSelectableDataItemsAmountToBe,
 } from './dataDimension.js'
 
 export {
@@ -163,6 +149,8 @@ export {
     expectRelativePeriodTypeSelectToNotContain,
     expectFixedPeriodTypeSelectToNotContain,
     expectFixedPeriodTypeToBe,
+    expectSelectablePeriodItemsAmountToBeLeast,
+    expectSelectablePeriodItemsAmountToBe,
 } from './periodDimension.js'
 
 export {
