@@ -43,7 +43,7 @@ export const VisualizationPlugin = ({
     const [renderId, setRenderId] = useState(id)
     const [size, setSize] = useState({ width: 0, height: 0 })
 
-    const containerRef = useCallback((node) => {
+    const containerCallbackRef = useCallback((node) => {
         if (node === null) {
             return
         }
@@ -363,7 +363,7 @@ export const VisualizationPlugin = ({
     }
 
     return (
-        <div className={styles.container} ref={containerRef}>
+        <div className={styles.container} ref={containerCallbackRef}>
             <div className={styles.chartWrapper}>
                 {!fetchResult.visualization.type ||
                 fetchResult.visualization.type === VIS_TYPE_PIVOT_TABLE ? (
