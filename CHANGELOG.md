@@ -1,3 +1,13 @@
+## [100.1.3](https://github.com/dhis2/data-visualizer-app/compare/v100.1.2...v100.1.3) (2023-05-31)
+
+
+### Bug Fixes
+
+* single value size and position issues (analytics@25.1.10) ([#2359](https://github.com/dhis2/data-visualizer-app/issues/2359)) ([5db256b](https://github.com/dhis2/data-visualizer-app/commit/5db256b092216c960278656c6127fdee3ea83d16))
+* **deps:** platform deps for login redirect [DHIS2-15319] ([#2300](https://github.com/dhis2/data-visualizer-app/issues/2300)) ([6158202](https://github.com/dhis2/data-visualizer-app/commit/6158202cf31ee23d87c98227116be44c4fce2acd))
+* bump cli-app-scripts to 10.3.8 for LIBS-499 fix ([#2285](https://github.com/dhis2/data-visualizer-app/issues/2285)) ([414051d](https://github.com/dhis2/data-visualizer-app/commit/414051d7b02a9480ed59040a3afd3f24ed9390f6))
+* case E7113 throws same msg as E7114 ([#2278](https://github.com/dhis2/data-visualizer-app/issues/2278)) ([bcdfbb2](https://github.com/dhis2/data-visualizer-app/commit/bcdfbb2fa9025ca8c6e634705f9f8ee6f1e475ac))
+
 ## [100.1.2](https://github.com/dhis2/data-visualizer-app/compare/v100.1.1...v100.1.2) (2023-05-31)
 
 
