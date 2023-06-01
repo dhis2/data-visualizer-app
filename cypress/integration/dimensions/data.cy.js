@@ -13,11 +13,11 @@ import {
     expectSelectedItemsAmountToBeLeast,
     expectSelectedItemsAmountToBe,
     expectItemToBeSelectable,
-    expectSelectableItemsAmountToBe,
+    expectSelectableDataItemsAmountToBe,
     inputSearchTerm,
     switchDataTypeTo,
     clearSearchTerm,
-    expectSelectableItemsAmountToBeLeast,
+    expectSelectableDataItemsAmountToBeLeast,
     expectGroupSelectToBeVisible,
     switchGroupTo,
     selectFirstDataItem,
@@ -106,7 +106,7 @@ describe('Data dimension', () => {
             expectSourceToNotBeLoading()
         })
         it('more items are fetched', () => {
-            expectSelectableItemsAmountToBeLeast(PAGE_SIZE)
+            expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
             expectItemToBeSelectable(secondPageItemName)
         })
         it('all items can be unselected', () => {
@@ -122,7 +122,7 @@ describe('Data dimension', () => {
                 expect(response.body.dataItems.length).to.eq(PAGE_SIZE)
             })
             expectSourceToNotBeLoading()
-            expectSelectableItemsAmountToBeLeast(PAGE_SIZE * 3)
+            expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE * 3)
         })
     })
     describe('global search', () => {
@@ -140,7 +140,7 @@ describe('Data dimension', () => {
         })
         // TODO: Test that the search is only called once, i.e. debounce works
         it('search result is displayed', () => {
-            expectSelectableItemsAmountToBe(1)
+            expectSelectableDataItemsAmountToBe(1)
             expectItemToBeSelectable(testSearchTerm)
         })
         it('search result is maintained when switching data type', () => {
@@ -152,7 +152,7 @@ describe('Data dimension', () => {
                 expect(response.body.dataElements.length).to.be.eq(1)
             })
             expectSourceToNotBeLoading()
-            expectSelectableItemsAmountToBe(1)
+            expectSelectableDataItemsAmountToBe(1)
             expectItemToBeSelectable(testSearchTerm)
             clearSearchTerm()
             cy.wait('@dataElements').then(({ request, response }) => {
@@ -169,7 +169,7 @@ describe('Data dimension', () => {
                 expect(response.body.dataItems.length).to.eq(PAGE_SIZE)
             })
             expectSourceToNotBeLoading()
-            expectSelectableItemsAmountToBeLeast(PAGE_SIZE)
+            expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
         })
         it('search displays a correct error message', () => {
             const testSearchTermWithNoMatch = 'nomatch'
@@ -195,7 +195,7 @@ describe('Data dimension', () => {
                 expect(response.body.dataItems.length).to.be.eq(PAGE_SIZE)
             })
             expectSourceToNotBeLoading()
-            expectSelectableItemsAmountToBeLeast(PAGE_SIZE)
+            expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
         })
         it('modal is closed', () => {
             clickDimensionModalHideButton()
@@ -289,7 +289,7 @@ describe('Data dimension', () => {
                     ).to.be.least(1)
                 })
                 expectSourceToNotBeLoading()
-                expectSelectableItemsAmountToBeLeast(PAGE_SIZE)
+                expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
             })
             it('group select is visible', () => {
                 expectGroupSelectToBeVisible()
@@ -310,7 +310,7 @@ describe('Data dimension', () => {
                         ).to.be.least(1)
                     })
                     expectSourceToNotBeLoading()
-                    expectSelectableItemsAmountToBeLeast(PAGE_SIZE + 1)
+                    expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE + 1)
                 })
             }
             it('an item can be selected', () => {
@@ -328,7 +328,7 @@ describe('Data dimension', () => {
                 })
                 expectSourceToNotBeLoading()
                 expectGroupSelectToBe(testDataType.testGroup.name)
-                expectSelectableItemsAmountToBe(
+                expectSelectableDataItemsAmountToBe(
                     testDataType.testGroup.itemAmount
                 )
                 expectItemToBeSelected(testDataType.testItem.name)
@@ -336,7 +336,7 @@ describe('Data dimension', () => {
             it('the first item can be selected', () => {
                 selectFirstDataItem()
                 expectSelectedItemsAmountToBe(2)
-                expectSelectableItemsAmountToBe(
+                expectSelectableDataItemsAmountToBe(
                     testDataType.testGroup.itemAmount - 1
                 )
             })
@@ -366,7 +366,7 @@ describe('Data dimension', () => {
                     })
                     expectSourceToNotBeLoading()
                     expectSubGroupSelectToBe(testDataType.testSubGroup.name)
-                    expectSelectableItemsAmountToBe(
+                    expectSelectableDataItemsAmountToBe(
                         testDataType.testSubGroup.itemAmount
                     )
                     expectItemToBeSelected(testDataType.testItem.name)
@@ -382,7 +382,7 @@ describe('Data dimension', () => {
                     })
                     expectSourceToNotBeLoading()
                     expectSubGroupSelectToBe(testDataType.defaultSubGroup.name)
-                    expectSelectableItemsAmountToBe(
+                    expectSelectableDataItemsAmountToBe(
                         testDataType.testGroup.itemAmount - 1
                     )
                     expectItemToBeSelected(testDataType.testItem.name)
@@ -421,7 +421,7 @@ describe('Data dimension', () => {
                     }
                 )
                 expectSourceToNotBeLoading()
-                expectSelectableItemsAmountToBe(
+                expectSelectableDataItemsAmountToBe(
                     testDataType.testGroup.itemAmount
                 )
                 switchGroupToAll()
@@ -432,7 +432,7 @@ describe('Data dimension', () => {
                     }
                 )
                 expectSourceToNotBeLoading()
-                expectSelectableItemsAmountToBeLeast(PAGE_SIZE)
+                expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
                 if (testDataType.endpoint.requestUrl !== DATA_ITEMS_URL) {
                     cy.intercept('GET', DATA_ITEMS_URL).as('**/dataItems*')
                 }
@@ -444,7 +444,7 @@ describe('Data dimension', () => {
                     expect(response.body.dataItems.length).to.eq(PAGE_SIZE)
                 })
                 expectSourceToNotBeLoading()
-                expectSelectableItemsAmountToBeLeast(PAGE_SIZE)
+                expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
             })
             it('modal is closed', () => {
                 clickDimensionModalHideButton()

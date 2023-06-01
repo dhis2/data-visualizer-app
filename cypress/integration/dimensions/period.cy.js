@@ -26,8 +26,8 @@ import {
     clickMoveUpButton,
     clickMoveDownButton,
     singleClickSelectedItem,
-    expectSelectableItemsAmountToBeLeast,
-    expectSelectableItemsAmountToBe,
+    expectSelectablePeriodItemsAmountToBeLeast,
+    expectSelectablePeriodItemsAmountToBe,
 } from '../../elements/dimensionModal/index.js'
 import { openDimension } from '../../elements/dimensionsPanel.js'
 import { goToStartPage } from '../../elements/startScreen.js'
@@ -129,7 +129,7 @@ describe('Period dimension', () => {
             it(`relative period type '${type.name}' has ${type.amountOfChildren} items`, () => {
                 openRelativePeriodsTypeSelect()
                 selectPeriodType(type.name)
-                expectSelectableItemsAmountToBe(type.amountOfChildren)
+                expectSelectablePeriodItemsAmountToBe(type.amountOfChildren)
             })
         )
         it('can switch to fixed periods', () => {
@@ -162,10 +162,12 @@ describe('Period dimension', () => {
                 openFixedPeriodsTypeSelect()
                 selectPeriodType(type.name)
                 type.amountOfChildren > 50
-                    ? expectSelectableItemsAmountToBeLeast(
+                    ? expectSelectablePeriodItemsAmountToBeLeast(
                           type.amountOfChildren
                       )
-                    : expectSelectableItemsAmountToBe(type.amountOfChildren)
+                    : expectSelectablePeriodItemsAmountToBe(
+                          type.amountOfChildren
+                      )
             })
         )
     })
