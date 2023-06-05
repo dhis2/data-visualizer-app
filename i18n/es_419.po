@@ -1,14 +1,15 @@
 # 
 # Translators:
 # Jaime Bosque <jaime.bosque@dhis2.org>, 2022
+# Enzo Nicolas Rossi <enzo@dhis2.org>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-09-23T12:57:32.255Z\n"
+"POT-Creation-Date: 2023-03-07T12:07:38.393Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Jaime Bosque <jaime.bosque@dhis2.org>, 2022\n"
-"Language-Team: Spanish (Latin America) (https://www.transifex.com/hisp-uio/teams/100509/es_419/)\n"
+"Last-Translator: Enzo Nicolas Rossi <enzo@dhis2.org>, 2023\n"
+"Language-Team: Spanish (Latin America) (https://app.transifex.com/hisp-uio/teams/100509/es_419/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -39,7 +40,7 @@ msgid ""
 msgstr ""
 
 msgid "No, cancel"
-msgstr ""
+msgstr "No, cancelar"
 
 msgid "Yes, leave"
 msgstr ""
@@ -271,7 +272,7 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr ""
 
 msgid "Min"
-msgstr ""
+msgstr "Mínimo"
 
 msgid "Max"
 msgstr "Máx"
@@ -375,6 +376,12 @@ msgid "Include cumulative"
 msgstr ""
 
 msgid "Cumulative values"
+msgstr ""
+
+msgid "Show data item icon"
+msgstr ""
+
+msgid "If the data item has an icon, display it next to the value"
 msgstr ""
 
 msgid "Digit group separator"
@@ -559,7 +566,7 @@ msgid "Outlier detection method"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr ""
+msgstr "Unidad organizativa"
 
 msgid "Parent organisation unit"
 msgstr ""
@@ -686,21 +693,6 @@ msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
 msgstr ""
 
-msgid "Reporting rate"
-msgstr ""
-
-msgid "Reporting rate on time"
-msgstr ""
-
-msgid "Actual reports"
-msgstr ""
-
-msgid "Actual reports on time"
-msgstr ""
-
-msgid "Expected reports"
-msgstr ""
-
 msgid "No data available"
 msgstr ""
 
@@ -768,8 +760,8 @@ msgid "There's a problem with the layout"
 msgstr ""
 
 msgid ""
-"A single indicator must be the only data item when using indicators as Data "
-"in Filter."
+"A single indicator or calculation must be the only data item when using "
+"indicators or calculations as Data in Filter."
 msgstr ""
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
@@ -806,6 +798,14 @@ msgid "No organization units found"
 msgstr ""
 
 msgid "The level or group selections didn't return any organization units."
+msgstr ""
+
+msgid "Invalid data type"
+msgstr ""
+
+msgid ""
+"The selected data dimensions didn't return any valid data. This "
+"visualization type can only display numerical data."
 msgstr ""
 
 msgid "Something went wrong"
@@ -854,7 +854,7 @@ msgid "Last month"
 msgstr "Mes anterior"
 
 msgid "Last 3 months"
-msgstr ""
+msgstr "Últimos 3 meses"
 
 msgid "Last 6 months"
 msgstr ""
