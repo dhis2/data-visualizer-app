@@ -7,6 +7,7 @@ import {
     DIMENSION_TYPE_INDICATOR,
     DIMENSION_TYPE_PROGRAM_INDICATOR,
     VIS_TYPE_SINGLE_VALUE,
+    visTypeDisplayNames,
 } from '@dhis2/analytics'
 import { expectVisualizationToBeVisible } from '../../elements/chart.js'
 import { clickCheckbox } from '../../elements/common.js'
@@ -72,7 +73,7 @@ const TEST_ITEMS = {
 describe('Icon', () => {
     beforeEach(() => {
         goToStartPage()
-        changeVisType(VIS_TYPE_SINGLE_VALUE)
+        changeVisType(visTypeDisplayNames[VIS_TYPE_SINGLE_VALUE])
     })
     it('no icon shows when option is disabled', () => {
         // select a data item
