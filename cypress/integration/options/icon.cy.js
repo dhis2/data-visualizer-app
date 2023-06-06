@@ -161,8 +161,8 @@ describe('Icon', () => {
         // switch to use a data item that will trigger the contrast color
         openDimension(DIMENSION_ID_DATA)
         expectDataDimensionModalToBeVisible()
-        expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
         unselectAllItemsByButton()
+        expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
         inputSearchTerm(TEST_ITEMS[DIMENSION_TYPE_DATA_ELEMENT])
         selectItemByDoubleClick(TEST_ITEMS[DIMENSION_TYPE_DATA_ELEMENT])
         expectItemToBeSelected(TEST_ITEMS[DIMENSION_TYPE_DATA_ELEMENT])
