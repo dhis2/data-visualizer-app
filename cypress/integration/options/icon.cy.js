@@ -12,6 +12,7 @@ import {
 import { expectVisualizationToBeVisible } from '../../elements/chart.js'
 import { clickCheckbox } from '../../elements/common.js'
 import {
+    expectSelectableDataItemsAmountToBeLeast,
     switchDataTypeTo,
     switchGroupTo,
     switchSubGroupTo,
@@ -70,6 +71,8 @@ const TEST_ITEMS = {
     [DIMENSION_TYPE_PROGRAM_INDICATOR]: 'Average weight (g)',
 }
 
+const PAGE_SIZE = 50
+
 describe('Icon', () => {
     beforeEach(() => {
         goToStartPage()
@@ -79,6 +82,7 @@ describe('Icon', () => {
         // select a data item
         openDimension(DIMENSION_ID_DATA)
         expectDataDimensionModalToBeVisible()
+        expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
         inputSearchTerm(TEST_ITEMS[DIMENSION_TYPE_INDICATOR])
         selectItemByDoubleClick(TEST_ITEMS[DIMENSION_TYPE_INDICATOR])
         clickDimensionModalUpdateButton()
@@ -98,6 +102,7 @@ describe('Icon', () => {
             // find the data item
             openDimension(DIMENSION_ID_DATA)
             expectDataDimensionModalToBeVisible()
+            expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
             inputSearchTerm(TEST_ITEMS[type])
 
             if (type === DIMENSION_TYPE_DATA_SET) {
@@ -139,6 +144,7 @@ describe('Icon', () => {
         // select a data item
         openDimension(DIMENSION_ID_DATA)
         expectDataDimensionModalToBeVisible()
+        expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
         inputSearchTerm(TEST_ITEMS[DIMENSION_TYPE_INDICATOR])
         selectItemByDoubleClick(TEST_ITEMS[DIMENSION_TYPE_INDICATOR])
         clickDimensionModalUpdateButton()
@@ -151,6 +157,7 @@ describe('Icon', () => {
         // switch to use a data item that will trigger the contrast color
         openDimension(DIMENSION_ID_DATA)
         expectDataDimensionModalToBeVisible()
+        expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
         unselectAllItemsByButton()
         inputSearchTerm(TEST_ITEMS[DIMENSION_TYPE_DATA_ELEMENT])
         selectItemByDoubleClick(TEST_ITEMS[DIMENSION_TYPE_DATA_ELEMENT])
