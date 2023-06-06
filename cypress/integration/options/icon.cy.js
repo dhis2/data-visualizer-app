@@ -21,6 +21,7 @@ import {
     clickDimensionModalHideButton,
     clickDimensionModalUpdateButton,
     expectDataDimensionModalToBeVisible,
+    expectItemToBeSelected,
     inputSearchTerm,
     selectItemByDoubleClick,
     selectRelativePeriods,
@@ -85,6 +86,7 @@ describe('Icon', () => {
         expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
         inputSearchTerm(TEST_ITEMS[DIMENSION_TYPE_INDICATOR])
         selectItemByDoubleClick(TEST_ITEMS[DIMENSION_TYPE_INDICATOR])
+        expectItemToBeSelected(TEST_ITEMS[DIMENSION_TYPE_INDICATOR])
         clickDimensionModalUpdateButton()
 
         // icon is hidden
@@ -115,6 +117,7 @@ describe('Icon', () => {
 
             // select the data item
             selectItemByDoubleClick(TEST_ITEMS[type])
+            expectItemToBeSelected(TEST_ITEMS[type])
             clickDimensionModalUpdateButton()
 
             // icon is shown
@@ -147,6 +150,7 @@ describe('Icon', () => {
         expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
         inputSearchTerm(TEST_ITEMS[DIMENSION_TYPE_INDICATOR])
         selectItemByDoubleClick(TEST_ITEMS[DIMENSION_TYPE_INDICATOR])
+        expectItemToBeSelected(TEST_ITEMS[DIMENSION_TYPE_INDICATOR])
         clickDimensionModalUpdateButton()
 
         // default text color is applied to icon
@@ -161,6 +165,7 @@ describe('Icon', () => {
         unselectAllItemsByButton()
         inputSearchTerm(TEST_ITEMS[DIMENSION_TYPE_DATA_ELEMENT])
         selectItemByDoubleClick(TEST_ITEMS[DIMENSION_TYPE_DATA_ELEMENT])
+        expectItemToBeSelected(TEST_ITEMS[DIMENSION_TYPE_DATA_ELEMENT])
         clickDimensionModalUpdateButton()
 
         // contrast color is applied to icon
