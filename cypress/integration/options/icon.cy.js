@@ -112,7 +112,7 @@ describe('Icon', () => {
                 switchSubGroupTo('Reporting rate')
             } else if (type === DIMENSION_TYPE_EVENT_DATA_ITEM) {
                 switchDataTypeTo('Event data items')
-                switchGroupTo('Child programme')
+                switchGroupTo('Child Programme')
             }
 
             // select the data item
