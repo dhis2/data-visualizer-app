@@ -1,21 +1,22 @@
 # 
 # Translators:
-# Pablo Pajuelo Cabezas <ppajuelo@quadram.mobi>, 2022
+# Pablo Pajuelo Cabezas <pablo@dhis2.org>, 2022
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2022
-# Janeth Cruz, 2022
 # Carlos Tejo Alonso, 2022
 # phil_dhis2, 2022
 # Prabhjot Singh, 2022
 # ericbp <ericbarredap@gmail.com>, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
+# Enzo Nicolas Rossi <enzo@dhis2.org>, 2023
+# Janeth Cruz, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-08-25T09:58:02.683Z\n"
 "PO-Revision-Date: 2022-10-15 22:30+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2022\n"
-"Language-Team: Spanish (https://www.transifex.com/hisp-uio/teams/100509/es/)\n"
+"Last-Translator: Janeth Cruz, 2023\n"
+"Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,19 +24,19 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "All items"
-msgstr ""
+msgstr "Todos los elementos"
 
 msgid "Rename successful"
-msgstr ""
+msgstr "Nombre actualizado"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr ""
+msgstr "Visualización {{visualizationType}} sin título, {{date}}"
 
 msgid "\"{{- deletedObject}}\" successfully deleted."
-msgstr ""
+msgstr "\"{{- deleteObject}}\" se eliminó con éxito."
 
 msgid "You have unsaved changes."
-msgstr ""
+msgstr "Tiene cambios sin guardar."
 
 msgid "Discard unsaved changes?"
 msgstr "¿Descartar los cambios no guardados ?"
@@ -44,12 +45,14 @@ msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
 "be lost."
 msgstr ""
+"¿Está seguro de que desea abandonar esta visualización? Cualquier cambio no "
+"guardado se perderá."
 
 msgid "No, cancel"
 msgstr "No, cancela"
 
 msgid "Yes, leave"
-msgstr ""
+msgstr "Si, salir"
 
 msgid "Add to {{axisName}}"
 msgstr "Añadir a {{Nombredeleje}}"
@@ -58,34 +61,41 @@ msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
 "first item will be used and saved."
 msgstr ""
+"'{{visualizationType}}' está destinado a mostrar un solo elemento de datos. "
+"Solo se utilizará y guardará el primer elemento."
 
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
+"'{{visualiationType}}' está diseñado para mostrar un número máximo de "
+"{{maxNumber}} elementos. Solo se usarán y guardarán los primeros "
+"{{maxNumber}} elementos."
 
 msgid ""
 "'Scatter' is intended to show a single data item per axis. Only the first "
 "item will be used and saved."
 msgstr ""
+"'Dispersión' está destinado a mostrar un solo elemento de datos por eje. "
+"Solo se utilizará y guardará el primer elemento."
 
 msgid "Vertical"
-msgstr ""
+msgstr "Vertical"
 
 msgid "Horizontal"
-msgstr ""
+msgstr "Horizontal"
 
 msgid "Main dimensions"
 msgstr ""
 
 msgid "Other dimensions"
-msgstr ""
+msgstr "Otras dimensiones"
 
 msgid "Your dimensions"
-msgstr ""
+msgstr "Dimensiones propias"
 
 msgid "Filter dimensions"
-msgstr ""
+msgstr "Dimensiones del filtro"
 
 msgid "Data value set"
 msgstr "Valor de los datos"
@@ -109,7 +119,7 @@ msgid "Plain data source"
 msgstr "Fuente de datos sin formato"
 
 msgid "Microsoft Excel"
-msgstr ""
+msgstr "Microsoft Excel"
 
 msgid "CSV"
 msgstr "CSV"
@@ -121,13 +131,13 @@ msgid "Graphics"
 msgstr "Gráficos"
 
 msgid "Image (.png)"
-msgstr ""
+msgstr "Imagen (.png)"
 
 msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Download data from this date"
-msgstr ""
+msgstr "Descargar datos a partir de esta fecha"
 
 msgid "Metadata ID scheme"
 msgstr ""
@@ -234,7 +244,7 @@ msgid "Update"
 msgstr "Actualizar"
 
 msgid "Getting started"
-msgstr ""
+msgstr "Comenzar"
 
 msgid ""
 "All dimensions that you can use to build visualizations are shown in the "
