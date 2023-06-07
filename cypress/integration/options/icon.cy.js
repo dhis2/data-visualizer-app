@@ -171,7 +171,7 @@ describe('Icon', () => {
         // contrast color is applied to icon
         expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
         expectIconToBeVisible()
-        expectSingleValueToHaveIconColor('#2166ac')
+        expectSingleValueToHaveIconColor('#ffffff')
 
         // switch to apply legend color to text
         clickMenuBarOptionsButton()
@@ -182,6 +182,6 @@ describe('Icon', () => {
         // legend color is applied to icon
         expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
         expectIconToBeVisible()
-        expectSingleValueToHaveIconColor('#ffffff')
+        expectSingleValueToHaveIconColor('#2166ac')
     })
 })
