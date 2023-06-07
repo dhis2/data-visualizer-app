@@ -173,7 +173,7 @@ describe('Icon', () => {
         expectIconToBeVisible()
         expectSingleValueToHaveIconColor('#2166ac')
 
-        // switch to apply legend to text color
+        // switch to apply legend color to text
         clickMenuBarOptionsButton()
         clickOptionsTab(OPTIONS_TAB_LEGEND)
         changeDisplayStyleToText()
