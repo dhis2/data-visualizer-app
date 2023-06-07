@@ -6,16 +6,16 @@
 # Viktor Varland <viktor@dhis2.org>, 2020
 # Pablo Pajuelo Cabezas <pablo@dhis2.org>, 2020
 # Prabhjot Singh, 2021
-# Janeth Cruz, 2021
 # Carlos Tejo Alonso, 2022
 # Enzo Nicolas Rossi <enzo@dhis2.org>, 2023
+# Janeth Cruz, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-09T14:22:42.172Z\n"
 "PO-Revision-Date: 2020-03-02 13:01+0000\n"
-"Last-Translator: Enzo Nicolas Rossi <enzo@dhis2.org>, 2023\n"
+"Last-Translator: Janeth Cruz, 2023\n"
 "Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -230,7 +230,7 @@ msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
 msgid "Getting started"
-msgstr ""
+msgstr "Comenzar"
 
 msgid ""
 "All dimensions that you can use to build visualizations are shown in the "
