@@ -89,6 +89,8 @@ export const expectGroupSelectToBe = (group) =>
 
 export const switchGroupTo = (group) => {
     cy.getBySel(groupSelectButtonEl).click()
+    cy.getBySelLike(groupSelectOptionEl).should('have.length.least', 2)
+    cy.getBySelLike('singleselect-loading').should('not.exist')
     cy.getBySelLike(groupSelectOptionEl).contains(group).click()
 }
 
