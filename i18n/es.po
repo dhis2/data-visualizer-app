@@ -6,16 +6,16 @@
 # Pablo Pajuelo Cabezas <pablo@dhis2.org>, 2020
 # Prabhjot Singh, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
-# Janeth Cruz, 2022
 # Carlos Tejo Alonso, 2022
 # Enzo Nicolas Rossi <enzo@dhis2.org>, 2023
+# Janeth Cruz, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2023-03-07T12:07:38.393Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Enzo Nicolas Rossi <enzo@dhis2.org>, 2023\n"
+"Last-Translator: Janeth Cruz, 2023\n"
 "Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -110,7 +110,7 @@ msgid "Other formats"
 msgstr "Otros formatos"
 
 msgid "JRXML"
-msgstr ""
+msgstr "JRXML"
 
 msgid "Raw data SQL"
 msgstr ""
@@ -134,7 +134,7 @@ msgid "Image (.png)"
 msgstr "Imagen (.png)"
 
 msgid "PDF (.pdf)"
-msgstr ""
+msgstr "PDF (.pdf)"
 
 msgid "Download data from this date"
 msgstr "Descargar datos a partir de esta fecha"
@@ -176,7 +176,7 @@ msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
 
 msgid "{{total}} selected"
-msgstr ""
+msgstr "{{total}} seleccionado"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
@@ -197,7 +197,7 @@ msgid "horizontal"
 msgstr ""
 
 msgid "None selected"
-msgstr ""
+msgstr "Ninguno seleccionado"
 
 msgid "Only '{{- name}}' in use"
 msgstr ""
@@ -244,7 +244,7 @@ msgid "Update"
 msgstr "Actualizar"
 
 msgid "Getting started"
-msgstr ""
+msgstr "Comenzar"
 
 msgid ""
 "All dimensions that you can use to build visualizations are shown in the "
@@ -350,7 +350,7 @@ msgid "Reset style to default"
 msgstr ""
 
 msgid "Base line"
-msgstr ""
+msgstr "Línea base"
 
 msgid "Column sub-totals"
 msgstr ""
@@ -476,7 +476,7 @@ msgid "Table subtitle"
 msgstr ""
 
 msgid "Chart subtitle"
-msgstr ""
+msgstr "Subtítulo del gráfico"
 
 msgid "Auto generated"
 msgstr ""
@@ -606,7 +606,7 @@ msgid "Linear"
 msgstr "Lineal"
 
 msgid "Polynomial"
-msgstr ""
+msgstr "Polinomio"
 
 msgid "Loess"
 msgstr ""
@@ -682,7 +682,7 @@ msgid "Add a subtitle"
 msgstr ""
 
 msgid "Target line"
-msgstr ""
+msgstr "Línea objetivo"
 
 msgid "Size"
 msgstr "Tamaño"
@@ -703,7 +703,7 @@ msgid "{{level}} level in {{orgunit}}"
 msgstr ""
 
 msgid "Open as Map"
-msgstr ""
+msgstr "Abrir como mapa"
 
 msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
@@ -888,7 +888,7 @@ msgid "Last bimonth"
 msgstr "Último bimestre"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "Últimos 6 bimestres"
 
 msgid "Bimonths this year"
 msgstr "Bimestres de este año"
@@ -1076,13 +1076,13 @@ msgid ""
 msgstr ""
 
 msgid "Weeks per year"
-msgstr ""
+msgstr "Semanas por año"
 
 msgid "Months per year"
-msgstr ""
+msgstr "Meses por año"
 
 msgid "Bimonths per year"
-msgstr ""
+msgstr "Bimestres por año"
 
 msgid "Quarters per year"
-msgstr ""
+msgstr "Trimestres por año"
