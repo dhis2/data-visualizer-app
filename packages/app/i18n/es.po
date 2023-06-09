@@ -104,7 +104,7 @@ msgid "Image (.png)"
 msgstr "Imagen (.png)"
 
 msgid "PDF (.pdf)"
-msgstr ""
+msgstr "PDF (.pdf)"
 
 msgid "Table layout"
 msgstr "Disposición de la tabla"
@@ -158,7 +158,7 @@ msgid "Other formats"
 msgstr "Otros formatos"
 
 msgid "JRXML"
-msgstr ""
+msgstr "JRXML"
 
 msgid "Raw data SQL"
 msgstr ""
@@ -176,7 +176,7 @@ msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
 
 msgid "{{total}} selected"
-msgstr ""
+msgstr "{{total}} seleccionado"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
@@ -197,7 +197,7 @@ msgid "horizontal"
 msgstr ""
 
 msgid "None selected"
-msgstr ""
+msgstr "Ninguno seleccionado"
 
 msgid "Only '{{- name}}' in use"
 msgstr ""
@@ -350,7 +350,7 @@ msgid "Reset style to default"
 msgstr ""
 
 msgid "Base line"
-msgstr ""
+msgstr "Línea base"
 
 msgid "Column sub-totals"
 msgstr ""
@@ -470,7 +470,7 @@ msgid "Table subtitle"
 msgstr ""
 
 msgid "Chart subtitle"
-msgstr ""
+msgstr "Subtítulo del gráfico"
 
 msgid "Auto generated"
 msgstr ""
@@ -600,7 +600,7 @@ msgid "Linear"
 msgstr "Lineal"
 
 msgid "Polynomial"
-msgstr ""
+msgstr "Polinomio"
 
 msgid "Loess"
 msgstr ""
@@ -676,7 +676,7 @@ msgid "Add a subtitle"
 msgstr ""
 
 msgid "Target line"
-msgstr ""
+msgstr "Línea objetivo"
 
 msgid "Size"
 msgstr "Tamaño"
@@ -691,7 +691,7 @@ msgid "Options"
 msgstr "Opciones"
 
 msgid "Open as Map"
-msgstr ""
+msgstr "Abrir como mapa"
 
 msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
@@ -883,7 +883,7 @@ msgid "Last bimonth"
 msgstr "Último bimestre"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "Últimos 6 bimestres"
 
 msgid "Bimonths this year"
 msgstr "Bimestres de este año"
@@ -1018,13 +1018,13 @@ msgid "Style"
 msgstr "Estilo"
 
 msgid "Weeks per year"
-msgstr ""
+msgstr "Semanas por año"
 
 msgid "Months per year"
-msgstr ""
+msgstr "Meses por año"
 
 msgid "Bimonths per year"
-msgstr ""
+msgstr "Bimestres por año"
 
 msgid "Quarters per year"
-msgstr ""
+msgstr "Trimestres por año"
