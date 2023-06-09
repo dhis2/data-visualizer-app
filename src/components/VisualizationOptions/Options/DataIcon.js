@@ -11,7 +11,7 @@ const DataIcon = () => (
         option={{
             name: 'icons',
         }}
-        dataTest={'option-show-data-item-icon'}
+        dataTest="option-show-data-item-icon"
     />
 )
 
