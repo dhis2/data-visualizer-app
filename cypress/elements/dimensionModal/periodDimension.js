@@ -101,3 +101,19 @@ export const openRelativePeriodsTypeSelect = () =>
 
 export const openFixedPeriodsTypeSelect = () =>
     cy.getBySel(fixedPeriodsPeriodTypeButtonEl).click()
+
+export const expectSelectablePeriodItemsAmountToBe = (amount) =>
+    cy.getBySelLike('transfer-sourceoptions').should(($elems) => {
+        const $container = $elems.first()
+        expect(
+            $container.find('[data-test="period-dimension-transfer-option"]')
+        ).to.have.lengthOf(amount)
+    })
+
+export const expectSelectablePeriodItemsAmountToBeLeast = (amount) =>
+    cy.getBySelLike('transfer-sourceoptions').should(($elems) => {
+        const $container = $elems.first()
+        expect(
+            $container.find('[data-test="period-dimension-transfer-option"]')
+        ).to.have.length.of.at.least(amount)
+    })
