@@ -4,6 +4,7 @@ const legendKeyEl = 'visualization-legend-key'
 const legendKeyContainerEl = 'legend-key-container'
 const legendKeyItemEl = 'legend-key-item'
 const singleValueTextEl = 'visualization-primary-value'
+const singleValueIconEl = 'visualization-icon'
 const singleValueOutputEl = 'visualization-container'
 const legendDisplayStrategyByDataItemEl = 'legend-display-strategy-BY_DATA_ITEM'
 const legendDisplayStrategyFixedEl = 'legend-display-strategy-FIXED'
@@ -88,6 +89,12 @@ export const expectSingleValueToHaveBackgroundColor = (color) =>
         .getBySel(singleValueOutputEl)
         .invoke('attr', 'style')
         .should('contain', `background-color: ${color}`)
+
+export const expectSingleValueToHaveIconColor = (color) =>
+    cy
+        .getBySel(singleValueIconEl)
+        .invoke('attr', 'style')
+        .should('contain', `color: ${color}`)
 
 export const toggleLegendKeyOption = () =>
     cy.getBySel(optionsModalContentEl).contains('Show legend key').click()
