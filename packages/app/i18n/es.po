@@ -116,7 +116,7 @@ msgid "Raw data SQL"
 msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
+msgstr "Ocurrió un error en la aplicación DHIS2 Visualizador de Datos"
 
 msgid "Something went wrong"
 msgstr "Algo ha ido mal"
@@ -125,25 +125,25 @@ msgid "Refresh to try again"
 msgstr ""
 
 msgid "Hide technical details"
-msgstr ""
+msgstr "Ocultar detalles técnicos"
 
 msgid "Show technical details"
-msgstr ""
+msgstr "Mostrar detalles técnicos"
 
 msgid "The following information may be requested by technical support."
-msgstr ""
+msgstr "La siguiente información puede ser solicitada por soporte técnico."
 
 msgid "Interpretations"
 msgstr "Interpretaciones"
 
 msgid "{{total}} of 1 selected"
-msgstr ""
+msgstr "{{total}} de 1 seleccionado"
 
 msgid "{{total}} selected"
 msgstr "{{total}} seleccionado"
 
 msgid "Series"
-msgstr ""
+msgstr "Series"
 
 msgid "Category"
 msgstr "Categoría"
@@ -164,10 +164,10 @@ msgid "And {{numberOfItems}} others..."
 msgstr ""
 
 msgid "Unsaved chart"
-msgstr ""
+msgstr "Gráfico no guardado"
 
 msgid "Edited"
-msgstr ""
+msgstr "Editado"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
@@ -176,13 +176,13 @@ msgid "Error validating layout"
 msgstr ""
 
 msgid "Chart error"
-msgstr ""
+msgstr "Error gráfico"
 
 msgid "Create a new visualization by adding dimensions to the layout"
 msgstr ""
 
 msgid "Error generating chart, please try again"
-msgstr ""
+msgstr "Error al generar el gráfico, inténtelo de nuevo"
 
 msgid "Aggregation type"
 msgstr "Tipo de agregación"
@@ -260,19 +260,19 @@ msgid "Show legend key"
 msgstr ""
 
 msgid "Hide subtitle"
-msgstr ""
+msgstr "Ocultar subtítulo"
 
 msgid "Hide title"
-msgstr ""
+msgstr "Ocultar título"
 
 msgid "No space between columns/bars"
-msgstr ""
+msgstr "Sin espacios entre columnas/barras"
 
 msgid "Use 100% stacked values"
 msgstr ""
 
 msgid "Auto"
-msgstr ""
+msgstr "Automático"
 
 msgid "Range axis decimals"
 msgstr ""
@@ -325,7 +325,7 @@ msgid "Target line"
 msgstr "Línea objetivo"
 
 msgid "Target line title"
-msgstr ""
+msgstr "Título de línea objetivo"
 
 msgid "Target line value"
 msgstr "Valor de la línea objetivo"
@@ -337,7 +337,7 @@ msgid "Data"
 msgstr "Datos"
 
 msgid "Axis & legend"
-msgstr ""
+msgstr "Eje & leyenda"
 
 msgid "Style"
 msgstr "Estilo"
@@ -388,13 +388,13 @@ msgid "Open as Map"
 msgstr "Abrir como mapa"
 
 msgid "Add to series"
-msgstr ""
+msgstr "Añadir a series"
 
 msgid "Add to category"
-msgstr ""
+msgstr "Añadir a la categoría"
 
 msgid "Add to filter"
-msgstr ""
+msgstr "Añadir al filtro"
 
 msgid "Move to series"
 msgstr ""
@@ -406,13 +406,13 @@ msgid "Move to filter"
 msgstr ""
 
 msgid "series"
-msgstr ""
+msgstr "series"
 
 msgid "category"
-msgstr ""
+msgstr "categoría"
 
 msgid "filter"
-msgstr ""
+msgstr "filtro"
 
 msgid "Please add at least one {{series}} dimension"
 msgstr ""
@@ -423,12 +423,13 @@ msgstr ""
 msgid ""
 "Please add at least one period as {{series}}, {{category}} or {{filter}}"
 msgstr ""
+"Añadir al menos un período como  {{series}}, {{category}} o {{filter}}"
 
 msgid "Please add {{data}} as {{category}} or {{filter}}"
-msgstr ""
+msgstr "Añadir {{data}} como {{category}} o {{filter}}"
 
 msgid "Please add at least one period as {{series}} or {{filter}}"
-msgstr ""
+msgstr "Añadir al menos un período como  {{series}} o {{filter}}"
 
 msgid "Please add at least one {{filter}} dimension"
 msgstr ""
@@ -440,13 +441,13 @@ msgid "Please add at least one period as a {{category}} dimension"
 msgstr ""
 
 msgid "Please add {{data}} as a filter dimension"
-msgstr ""
+msgstr "Añadir {{data}} como dimensión de filtro"
 
 msgid "Please add one {{series}} dimension"
 msgstr ""
 
 msgid "Please add at least one period as {{filter}}"
-msgstr ""
+msgstr "Añadir al menos un período como {{filter}}"
 
 msgid "Today"
 msgstr "Hoy"
