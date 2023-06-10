@@ -70,7 +70,7 @@ msgstr ""
 "{{maxNumber}} elementos."
 
 msgid "Main dimensions"
-msgstr ""
+msgstr "Dimensiones principales"
 
 msgid "Other dimensions"
 msgstr "Otras dimensiones"
@@ -94,13 +94,13 @@ msgid "Table layout"
 msgstr "Disposición de la tabla"
 
 msgid "Excel (.xls)"
-msgstr ""
+msgstr "Excel (.xls)"
 
 msgid "CSV (.csv)"
-msgstr ""
+msgstr "CSV (.csv)"
 
 msgid "HTML (.html)"
-msgstr ""
+msgstr "HTML (.html)"
 
 msgid "Metadata ID scheme"
 msgstr ""
@@ -127,7 +127,7 @@ msgid "XML"
 msgstr "XML"
 
 msgid "Excel"
-msgstr ""
+msgstr "Excel"
 
 msgid "CSV"
 msgstr "CSV"
@@ -172,7 +172,7 @@ msgid "Only '{{number}}' in use"
 msgstr ""
 
 msgid "Levels"
-msgstr ""
+msgstr "Niveles"
 
 msgid "Groups"
 msgstr "Grupos"
@@ -184,10 +184,10 @@ msgid "And {{numberOfItems}} others..."
 msgstr ""
 
 msgid "Select a period"
-msgstr ""
+msgstr "Seleccione un periodo"
 
 msgid "Select years"
-msgstr ""
+msgstr "Seleccionar años"
 
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
@@ -195,10 +195,10 @@ msgid ""
 msgstr ""
 
 msgid "Unsaved visualization"
-msgstr ""
+msgstr "Visualización no guardada"
 
 msgid "Edited"
-msgstr ""
+msgstr "Editado"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
@@ -296,7 +296,7 @@ msgid "Labels"
 msgstr "Etiquetas"
 
 msgid "Column sub-totals"
-msgstr ""
+msgstr "Subtotales de columna"
 
 msgid "Columns totals"
 msgstr ""
@@ -308,10 +308,10 @@ msgid "Bright"
 msgstr ""
 
 msgid "Dark"
-msgstr ""
+msgstr "Oscuro"
 
 msgid "Gray"
-msgstr ""
+msgstr "Gris"
 
 msgid "Color blind"
 msgstr ""
@@ -359,7 +359,7 @@ msgid "Axis title"
 msgstr ""
 
 msgid "Add a title"
-msgstr ""
+msgstr "Añadir un título"
 
 msgid "Font size"
 msgstr "Tamaño de fuente"
@@ -395,7 +395,7 @@ msgid "Show legend key"
 msgstr ""
 
 msgid "Table subtitle"
-msgstr ""
+msgstr "Subtítulo de la tabla"
 
 msgid "Chart subtitle"
 msgstr "Subtítulo del gráfico"
@@ -410,7 +410,7 @@ msgid "Chart title"
 msgstr "Título del gráfico"
 
 msgid "Display legend"
-msgstr ""
+msgstr "Mostrar leyenda"
 
 msgid "Legend style"
 msgstr "Estilo de la leyenda"
@@ -481,10 +481,10 @@ msgid "Stacked values add up to 100%"
 msgstr ""
 
 msgid "Decimals"
-msgstr ""
+msgstr "Decimales"
 
 msgid "Auto"
-msgstr ""
+msgstr "Automático"
 
 msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
@@ -519,10 +519,10 @@ msgid "Data item"
 msgstr ""
 
 msgid "Visualization type"
-msgstr ""
+msgstr "Tipo de visualización"
 
 msgid "Axis {{axisId}}"
-msgstr ""
+msgstr "Eje {{axisId}}"
 
 msgid "Series is empty"
 msgstr ""
@@ -566,13 +566,13 @@ msgid "High to low"
 msgstr "Mayor a menor"
 
 msgid "Add a subtitle"
-msgstr ""
+msgstr "Añadir un subtítulo"
 
 msgid "Target line"
 msgstr "Línea objetivo"
 
 msgid "Target line title"
-msgstr ""
+msgstr "Título de línea objetivo"
 
 msgid "Size"
 msgstr "Tamaño"
@@ -600,7 +600,7 @@ msgid "Reporting rate on time"
 msgstr ""
 
 msgid "Actual reports"
-msgstr ""
+msgstr "Informes reales"
 
 msgid "Actual reports on time"
 msgstr ""
@@ -617,7 +617,7 @@ msgid ""
 msgstr ""
 
 msgid "{{axisName}} is empty"
-msgstr ""
+msgstr "{{axisName}} está vacío"
 
 msgid "Add at least one item to {{axisName}}."
 msgstr ""
@@ -822,19 +822,19 @@ msgid "Horizontal (x) axis"
 msgstr ""
 
 msgid "Series"
-msgstr ""
+msgstr "Series"
 
 msgid "Style"
 msgstr "Estilo"
 
 msgid "Chart style"
-msgstr ""
+msgstr "Estilo de gráfico"
 
 msgid "Titles"
-msgstr ""
+msgstr "Títulos"
 
 msgid "Lines"
-msgstr ""
+msgstr "Líneas"
 
 msgid "Vertical (y) axis"
 msgstr ""
@@ -843,13 +843,13 @@ msgid "Totals"
 msgstr "Totales"
 
 msgid "Empty data"
-msgstr ""
+msgstr "Datos vacíos"
 
 msgid "Table title"
 msgstr "Título de la tabla"
 
 msgid "Limit values"
-msgstr ""
+msgstr "Valores límite"
 
 msgid "Limit number of values"
 msgstr ""
