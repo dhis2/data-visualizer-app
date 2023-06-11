@@ -86,7 +86,7 @@ msgid "Horizontal"
 msgstr "Horizontal"
 
 msgid "Main dimensions"
-msgstr ""
+msgstr "Dimensiones principales"
 
 msgid "Other dimensions"
 msgstr "Otras dimensiones"
@@ -104,19 +104,19 @@ msgid "Image (.png)"
 msgstr "Imagen (.png)"
 
 msgid "PDF (.pdf)"
-msgstr ""
+msgstr "PDF (.pdf)"
 
 msgid "Table layout"
 msgstr "Disposición de la tabla"
 
 msgid "Excel (.xls)"
-msgstr ""
+msgstr "Excel (.xls)"
 
 msgid "CSV (.csv)"
-msgstr ""
+msgstr "CSV (.csv)"
 
 msgid "HTML (.html)"
-msgstr ""
+msgstr "HTML (.html)"
 
 msgid "Metadata ID scheme"
 msgstr ""
@@ -143,7 +143,7 @@ msgid "XML"
 msgstr "XML"
 
 msgid "Excel"
-msgstr ""
+msgstr "Excel"
 
 msgid "CSV"
 msgstr "CSV"
@@ -158,7 +158,7 @@ msgid "Other formats"
 msgstr "Otros formatos"
 
 msgid "JRXML"
-msgstr ""
+msgstr "JRXML"
 
 msgid "Raw data SQL"
 msgstr ""
@@ -176,7 +176,7 @@ msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
 
 msgid "{{total}} selected"
-msgstr ""
+msgstr "{{total}} seleccionado"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
@@ -191,13 +191,13 @@ msgid "Swap with {{axisName}} axis"
 msgstr ""
 
 msgid "vertical"
-msgstr ""
+msgstr "vertical"
 
 msgid "horizontal"
-msgstr ""
+msgstr "horizontal"
 
 msgid "None selected"
-msgstr ""
+msgstr "Ninguno seleccionado"
 
 msgid "Only '{{- name}}' in use"
 msgstr ""
@@ -209,7 +209,7 @@ msgid "All items are selected"
 msgstr ""
 
 msgid "Levels"
-msgstr ""
+msgstr "Niveles"
 
 msgid "Groups"
 msgstr "Grupos"
@@ -221,10 +221,10 @@ msgid "And {{numberOfItems}} others..."
 msgstr ""
 
 msgid "Select a period"
-msgstr ""
+msgstr "Seleccione un periodo"
 
 msgid "Select years"
-msgstr ""
+msgstr "Seleccionar años"
 
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
@@ -232,10 +232,10 @@ msgid ""
 msgstr ""
 
 msgid "Unsaved visualization"
-msgstr ""
+msgstr "Visualización no guardada"
 
 msgid "Edited"
-msgstr ""
+msgstr "Editado"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
@@ -309,10 +309,10 @@ msgid "Loading data approval levels"
 msgstr ""
 
 msgid "Decimals"
-msgstr ""
+msgstr "Decimales"
 
 msgid "Auto"
-msgstr ""
+msgstr "Automático"
 
 msgid "Labels"
 msgstr "Etiquetas"
@@ -344,16 +344,16 @@ msgid "Custom"
 msgstr "Personalizado"
 
 msgid "Add a title"
-msgstr ""
+msgstr "Añadir un título"
 
 msgid "Reset style to default"
 msgstr ""
 
 msgid "Base line"
-msgstr ""
+msgstr "Línea base"
 
 msgid "Column sub-totals"
-msgstr ""
+msgstr "Subtotales de columna"
 
 msgid "Columns totals"
 msgstr ""
@@ -362,19 +362,19 @@ msgid "Default"
 msgstr "Predeterminado"
 
 msgid "Basic"
-msgstr ""
+msgstr "Básico"
 
 msgid "Extended"
-msgstr ""
+msgstr "Extendido"
 
 msgid "Bright"
 msgstr ""
 
 msgid "Dark"
-msgstr ""
+msgstr "Oscuro"
 
 msgid "Gray"
-msgstr ""
+msgstr "Gris"
 
 msgid "Color blind"
 msgstr ""
@@ -467,10 +467,10 @@ msgid "Hide empty rows"
 msgstr "Ocultar filas vacías"
 
 msgid "Table subtitle"
-msgstr ""
+msgstr "Subtítulo de la tabla"
 
 msgid "Chart subtitle"
-msgstr ""
+msgstr "Subtítulo del gráfico"
 
 msgid "Auto generated"
 msgstr ""
@@ -600,7 +600,7 @@ msgid "Linear"
 msgstr "Lineal"
 
 msgid "Polynomial"
-msgstr ""
+msgstr "Polinomio"
 
 msgid "Loess"
 msgstr ""
@@ -615,10 +615,10 @@ msgid "Data item"
 msgstr ""
 
 msgid "Visualization type"
-msgstr ""
+msgstr "Tipo de visualización"
 
 msgid "Axis {{axisId}}"
-msgstr ""
+msgstr "Eje {{axisId}}"
 
 msgid "Series is empty"
 msgstr ""
@@ -673,10 +673,10 @@ msgid "High to low"
 msgstr "Mayor a menor"
 
 msgid "Add a subtitle"
-msgstr ""
+msgstr "Añadir un subtítulo"
 
 msgid "Target line"
-msgstr ""
+msgstr "Línea objetivo"
 
 msgid "Size"
 msgstr "Tamaño"
@@ -691,7 +691,7 @@ msgid "Options"
 msgstr "Opciones"
 
 msgid "Open as Map"
-msgstr ""
+msgstr "Abrir como mapa"
 
 msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
@@ -704,7 +704,7 @@ msgid "Reporting rate on time"
 msgstr ""
 
 msgid "Actual reports"
-msgstr ""
+msgstr "Informes reales"
 
 msgid "Actual reports on time"
 msgstr ""
@@ -721,7 +721,7 @@ msgid ""
 msgstr ""
 
 msgid "{{axisName}} is empty"
-msgstr ""
+msgstr "{{axisName}} está vacío"
 
 msgid "Add at least one item to {{axisName}}."
 msgstr ""
@@ -883,7 +883,7 @@ msgid "Last bimonth"
 msgstr "Último bimestre"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "Últimos 6 bimestres"
 
 msgid "Bimonths this year"
 msgstr "Bimestres de este año"
@@ -948,7 +948,7 @@ msgid ""
 msgstr ""
 
 msgid "Applies to standard reports only"
-msgstr ""
+msgstr "Sólo se aplica a informes estándar"
 
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
@@ -964,13 +964,13 @@ msgid ""
 msgstr ""
 
 msgid "Chart style"
-msgstr ""
+msgstr "Estilo de gráfico"
 
 msgid "Display"
 msgstr "Mostrar"
 
 msgid "Empty data"
-msgstr ""
+msgstr "Datos vacíos"
 
 msgid "Horizontal (x) axis {{axisId}}"
 msgstr ""
@@ -979,7 +979,7 @@ msgid "Horizontal (x) axis"
 msgstr ""
 
 msgid "Lines"
-msgstr ""
+msgstr "Líneas"
 
 msgid "Totals"
 msgstr "Totales"
@@ -991,7 +991,7 @@ msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Titles"
-msgstr ""
+msgstr "Títulos"
 
 msgid "Axes"
 msgstr "Ejes"
@@ -1000,7 +1000,7 @@ msgid "Data"
 msgstr "Datos"
 
 msgid "Limit values"
-msgstr ""
+msgstr "Valores límite"
 
 msgid "Limit number of values"
 msgstr ""
@@ -1012,19 +1012,19 @@ msgid "Outliers"
 msgstr "Valores atípicos"
 
 msgid "Series"
-msgstr ""
+msgstr "Series"
 
 msgid "Style"
 msgstr "Estilo"
 
 msgid "Weeks per year"
-msgstr ""
+msgstr "Semanas por año"
 
 msgid "Months per year"
-msgstr ""
+msgstr "Meses por año"
 
 msgid "Bimonths per year"
-msgstr ""
+msgstr "Bimestres por año"
 
 msgid "Quarters per year"
-msgstr ""
+msgstr "Trimestres por año"
