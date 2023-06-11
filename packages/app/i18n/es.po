@@ -92,7 +92,7 @@ msgstr ""
 "{{maxNumber}} elementos."
 
 msgid "Main dimensions"
-msgstr ""
+msgstr "Dimensiones principales"
 
 msgid "Other dimensions"
 msgstr "Otras dimensiones"
@@ -116,13 +116,13 @@ msgid "Table layout"
 msgstr "Disposición de la tabla"
 
 msgid "Excel (.xls)"
-msgstr ""
+msgstr "Excel (.xls)"
 
 msgid "CSV (.csv)"
-msgstr ""
+msgstr "CSV (.csv)"
 
 msgid "HTML (.html)"
-msgstr ""
+msgstr "HTML (.html)"
 
 msgid "Download"
 msgstr "Descargar"
@@ -137,7 +137,7 @@ msgid "XML"
 msgstr "XML"
 
 msgid "Excel"
-msgstr ""
+msgstr "Excel"
 
 msgid "CSV"
 msgstr "CSV"
@@ -170,19 +170,19 @@ msgid "Raw data SQL"
 msgstr ""
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
-msgstr ""
+msgstr "Ocurrió un error en la aplicación DHIS2 Visualizador de Datos"
 
 msgid "Refresh to try again"
 msgstr ""
 
 msgid "Hide technical details"
-msgstr ""
+msgstr "Ocultar detalles técnicos"
 
 msgid "Show technical details"
-msgstr ""
+msgstr "Mostrar detalles técnicos"
 
 msgid "The following information may be requested by technical support."
-msgstr ""
+msgstr "La siguiente información puede ser solicitada por soporte técnico."
 
 msgid "Hide"
 msgstr "Ocultar"
@@ -209,7 +209,7 @@ msgid "Only '{{number}}' in use"
 msgstr ""
 
 msgid "Levels"
-msgstr ""
+msgstr "Niveles"
 
 msgid "Groups"
 msgstr "Grupos"
@@ -221,10 +221,10 @@ msgid "And {{numberOfItems}} others..."
 msgstr ""
 
 msgid "Unsaved visualization"
-msgstr ""
+msgstr "Visualización no guardada"
 
 msgid "Edited"
-msgstr ""
+msgstr "Editado"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
@@ -316,7 +316,7 @@ msgid "Number"
 msgstr "Número"
 
 msgid "Column sub-totals"
-msgstr ""
+msgstr "Subtotales de columna"
 
 msgid "Columns totals"
 msgstr ""
@@ -361,7 +361,7 @@ msgid "Axis title"
 msgstr ""
 
 msgid "Add a title"
-msgstr ""
+msgstr "Añadir un título"
 
 msgid "Font size"
 msgstr "Tamaño de fuente"
@@ -397,7 +397,7 @@ msgid "Show legend key"
 msgstr ""
 
 msgid "Table subtitle"
-msgstr ""
+msgstr "Subtítulo de la tabla"
 
 msgid "Chart subtitle"
 msgstr "Subtítulo del gráfico"
@@ -415,7 +415,7 @@ msgid "Chart title"
 msgstr "Título del gráfico"
 
 msgid "Display legend"
-msgstr ""
+msgstr "Mostrar leyenda"
 
 msgid "Legend style"
 msgstr "Estilo de la leyenda"
@@ -486,10 +486,10 @@ msgid "Stacked values add up to 100%"
 msgstr ""
 
 msgid "Decimals"
-msgstr ""
+msgstr "Decimales"
 
 msgid "Auto"
-msgstr ""
+msgstr "Automático"
 
 msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
@@ -542,13 +542,13 @@ msgid "High to low"
 msgstr "Mayor a menor"
 
 msgid "Add a subtitle"
-msgstr ""
+msgstr "Añadir un subtítulo"
 
 msgid "Target line"
 msgstr "Línea objetivo"
 
 msgid "Target line title"
-msgstr ""
+msgstr "Título de línea objetivo"
 
 msgid "Top limit"
 msgstr "Limite superior"
@@ -566,7 +566,7 @@ msgid "Reporting rate on time"
 msgstr ""
 
 msgid "Actual reports"
-msgstr ""
+msgstr "Informes reales"
 
 msgid "Actual reports on time"
 msgstr ""
@@ -583,7 +583,7 @@ msgid ""
 msgstr ""
 
 msgid "{{axisName}} is empty"
-msgstr ""
+msgstr "{{axisName}} está vacío"
 
 msgid "Add at least one item to {{axisName}}."
 msgstr ""
@@ -777,13 +777,13 @@ msgid "Style"
 msgstr "Estilo"
 
 msgid "Chart style"
-msgstr ""
+msgstr "Estilo de gráfico"
 
 msgid "Titles"
-msgstr ""
+msgstr "Títulos"
 
 msgid "Lines"
-msgstr ""
+msgstr "Líneas"
 
 msgid "Vertical (y) axis"
 msgstr ""
@@ -798,7 +798,7 @@ msgid "Labels"
 msgstr "Etiquetas"
 
 msgid "Limit values"
-msgstr ""
+msgstr "Valores límite"
 
 msgid "Limit number of values"
 msgstr ""
