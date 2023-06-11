@@ -114,7 +114,7 @@ msgid "Something went wrong"
 msgstr "Algo ha ido mal"
 
 msgid "Refresh to try again"
-msgstr ""
+msgstr "Actualizar e intentar de nuevo"
 
 msgid "Hide technical details"
 msgstr "Ocultar detalles técnicos"
@@ -156,13 +156,13 @@ msgid "Edited"
 msgstr "Editado"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
+msgstr "Visualización de la interpretación desde {{interpretationDate}}"
 
 msgid "Chart error"
 msgstr "Error gráfico"
 
 msgid "Create a new visualization by adding dimensions to the layout"
-msgstr ""
+msgstr "Crear una nueva visualización agregando dimensiones al diseño"
 
 msgid "Error generating chart, please try again"
 msgstr "Error al generar el gráfico, inténtelo de nuevo"
@@ -249,7 +249,7 @@ msgid "No space between columns/bars"
 msgstr "Sin espacios entre columnas/barras"
 
 msgid "Use 100% stacked values"
-msgstr ""
+msgstr "Usar valores apilados 100%"
 
 msgid "Auto"
 msgstr "Automático"
@@ -398,10 +398,10 @@ msgid "filter"
 msgstr "filtro"
 
 msgid "Please add at least one {{series}} dimension"
-msgstr ""
+msgstr "Añadir al menos una dimensión {{series}}"
 
 msgid "Please add at least one {{category}} dimension"
-msgstr ""
+msgstr "Añadir al menos una dimensión {{category}}"
 
 msgid ""
 "Please add at least one period as {{series}}, {{category}} or {{filter}}"
@@ -412,10 +412,10 @@ msgid "Please add at least one period as {{series}} or {{filter}}"
 msgstr "Añadir al menos un período como  {{series}} o {{filter}}"
 
 msgid "Please add at least one {{filter}} dimension"
-msgstr ""
+msgstr "Añadir al menos una dimensión {{filter}}"
 
 msgid "Please add at least one period as a {{series}} dimension"
-msgstr ""
+msgstr "Añadir al menos un período como una dimensión {{series}}"
 
 msgid "Please add {{data}} as a filter dimension"
 msgstr "Añadir {{data}} como dimensión de filtro"
