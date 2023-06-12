@@ -151,7 +151,7 @@ msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "Ocurrió un error en la aplicación DHIS2 Visualizador de Datos"
 
 msgid "Refresh to try again"
-msgstr ""
+msgstr "Actualizar e intentar de nuevo"
 
 msgid "Hide technical details"
 msgstr "Ocultar detalles técnicos"
@@ -169,22 +169,22 @@ msgid "Interpretations"
 msgstr "Interpretaciones"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr ""
+msgstr "{{total}} de {{axisMaxNumberOfItems}} seleccionados"
 
 msgid "{{total}} selected"
 msgstr "{{total}} seleccionado"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
-msgstr ""
+msgstr "{{dimensionName}} está bloqueado en {{axisName}} para {{visTypeName}}"
 
 msgid "None selected"
 msgstr "Ninguno seleccionado"
 
 msgid "Only '{{- name}}' in use"
-msgstr ""
+msgstr "Solo '{{- name}}' en uso"
 
 msgid "Only '{{number}}' in use"
-msgstr ""
+msgstr "Solo '{{number}}' en uso"
 
 msgid "Levels"
 msgstr "Niveles"
@@ -216,7 +216,7 @@ msgid "Edited"
 msgstr "Editado"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
+msgstr "Visualización de la interpretación desde {{interpretationDate}}"
 
 msgid "Update"
 msgstr "Actualizar"
@@ -228,6 +228,8 @@ msgid ""
 "All dimensions that you can use to build visualizations are shown in the "
 "left sidebar"
 msgstr ""
+"Todas las dimensiones que puede utilizar para crear visualizaciones se "
+"muestran en la barra lateral izquierda"
 
 msgid "Add dimensions to the layout above"
 msgstr ""
@@ -236,7 +238,7 @@ msgid "Click a dimension to add or remove items"
 msgstr ""
 
 msgid "Your most viewed charts and tables"
-msgstr ""
+msgstr "Sus gráficos y tablas más vistos"
 
 msgid "Aggregation type"
 msgstr "Tipo de agregación"
@@ -281,16 +283,16 @@ msgid "Data approved at level"
 msgstr "Datos aprobados a nivel"
 
 msgid "Select from predefined levels"
-msgstr ""
+msgstr "Seleccionar entre niveles predefinidos"
 
 msgid "Loading data approval levels"
-msgstr ""
+msgstr "Cargando niveles de aprobación de datos"
 
 msgid "Axis range"
-msgstr ""
+msgstr "Rango del eje"
 
 msgid "Values outside of the range will not be displayed"
-msgstr ""
+msgstr "Los valores fuera del rango no se mostrarán"
 
 msgid "Base line"
 msgstr "Línea base"
@@ -335,10 +337,10 @@ msgid "Patterns"
 msgstr ""
 
 msgid "Event data"
-msgstr ""
+msgstr "Datos del evento"
 
 msgid "Only include completed events"
-msgstr ""
+msgstr "Incluir solo eventos completados"
 
 msgid "Include cumulative"
 msgstr "Incluir acumulado"
@@ -371,7 +373,7 @@ msgid "Compact"
 msgstr "Compacto"
 
 msgid "Axis title"
-msgstr ""
+msgstr "Título del eje"
 
 msgid "Add a title"
 msgstr "Añadir un título"
@@ -416,7 +418,7 @@ msgid "Chart subtitle"
 msgstr "Subtítulo del gráfico"
 
 msgid "Auto generated"
-msgstr ""
+msgstr "Generado automáticamente"
 
 msgid "Custom"
 msgstr "Personalizado"
@@ -452,7 +454,7 @@ msgid "Select from legends"
 msgstr ""
 
 msgid "Loading legends"
-msgstr ""
+msgstr "Cargando leyendas"
 
 msgid ""
 "You can set a minimum or maximum value. This will apply to the entire table,"
@@ -460,16 +462,16 @@ msgid ""
 msgstr ""
 
 msgid "Minimum data value"
-msgstr ""
+msgstr "Valor mínimo de datos"
 
 msgid "Maximum data value"
-msgstr ""
+msgstr "Valor máximo de datos"
 
 msgid "Clear min/max limits"
-msgstr ""
+msgstr "Borrar límites mín/máx"
 
 msgid "No space between bars/columns"
-msgstr ""
+msgstr "Sin epacios entre barras/columnas "
 
 msgid "Number type"
 msgstr "Tipo de número"
@@ -493,7 +495,7 @@ msgid "Reporting period"
 msgstr "Período del informe"
 
 msgid "Stacked values add up to 100%"
-msgstr ""
+msgstr "Los valores apilados suman 100%"
 
 msgid "Decimals"
 msgstr "Decimales"
@@ -525,7 +527,7 @@ msgid "Loess"
 msgstr ""
 
 msgid "Row sub-totals"
-msgstr ""
+msgstr "Subtotales de fila"
 
 msgid "Row totals"
 msgstr ""
@@ -560,19 +562,19 @@ msgid ""
 msgstr ""
 
 msgid "Value labels"
-msgstr ""
+msgstr "Etiquetas de valor"
 
 msgid "Dimension labels"
-msgstr ""
+msgstr "Etiquetas de dimensión"
 
 msgid "Display organisation unit hierarchy"
-msgstr ""
+msgstr "Mostrar jerarquía de unidades organizativas"
 
 msgid "Skip rounding"
 msgstr "Evitar redondeo"
 
 msgid "Custom sort order"
-msgstr ""
+msgstr "Orden personalizado"
 
 msgid "Low to high"
 msgstr "Menor a mayor"
@@ -609,7 +611,7 @@ msgid ""
 msgstr ""
 
 msgid "Reporting rate"
-msgstr ""
+msgstr "Tasa de informes"
 
 msgid "Reporting rate on time"
 msgstr ""
@@ -621,10 +623,10 @@ msgid "Actual reports on time"
 msgstr ""
 
 msgid "Expected reports"
-msgstr ""
+msgstr "Informes esperados"
 
 msgid "No data available"
-msgstr ""
+msgstr "No hay datos disponibles"
 
 msgid ""
 "The selected dimensions didn’t return any data. There may be no data, or you"
@@ -635,7 +637,7 @@ msgid "{{axisName}} is empty"
 msgstr "{{axisName}} está vacío"
 
 msgid "Add at least one item to {{axisName}}."
-msgstr ""
+msgstr "Añadir al menos un elemento a {{axisName}}."
 
 msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
 msgstr ""
@@ -662,6 +664,7 @@ msgstr ""
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
 msgstr ""
+"{{visualizationType}} debe tener al menos un elemento de datos en {{axes}}."
 
 msgid "There's a problem with the layout"
 msgstr ""
@@ -675,23 +678,26 @@ msgid "Data Element Group Sets and Reporting Rates cannot be used together."
 msgstr ""
 
 msgid "There is a problem with this {{visualizationType}} visualization."
-msgstr ""
+msgstr "Hay un problema con esta visualización {{visualizationType}}."
 
 msgid "There was a problem getting the data from the server."
-msgstr ""
+msgstr "Hubo un problema al obtener los datos del servidor."
 
 msgid "Assigned Categories can only be used with data elements"
 msgstr ""
+"Las categorías asignadas solo se pueden utilizar con elementos de datos"
 
 msgid ""
 "Fix this problem by selecting data elements or removing Assigned Categories."
 msgstr ""
+"Solucione este problema seleccionando elementos de datos o eliminando "
+"Categorías Asignadas."
 
 msgid "Assigned Categories cannot be used as Filter"
-msgstr ""
+msgstr "Las categorías asignadas no se pueden utilizar como filtro"
 
 msgid "Fix this problem by moving or removing Assigned Categories."
-msgstr ""
+msgstr "Solucione este problema moviendo o eliminando Categorías Asignadas."
 
 msgid "Visualization not found"
 msgstr ""
@@ -828,7 +834,7 @@ msgid "Axes"
 msgstr "Ejes"
 
 msgid "Horizontal (x) axis"
-msgstr ""
+msgstr "Eje horizontal (x)"
 
 msgid "Series"
 msgstr "Series"
@@ -846,7 +852,7 @@ msgid "Lines"
 msgstr "Líneas"
 
 msgid "Vertical (y) axis"
-msgstr ""
+msgstr "Eje vertical (y)"
 
 msgid "Totals"
 msgstr "Totales"
@@ -861,10 +867,10 @@ msgid "Limit values"
 msgstr "Valores límite"
 
 msgid "Limit number of values"
-msgstr ""
+msgstr "Número límite de valores"
 
 msgid "Limit minimum/maximum values"
-msgstr ""
+msgstr "Limitar valores mínimos/máximos"
 
 msgid "Parameters"
 msgstr "Parámetros"
