@@ -30,7 +30,7 @@ msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr "Visualización {{visualizationType}} sin título, {{date}}"
 
 msgid "\"{{deletedObject}}\" successfully deleted."
-msgstr ""
+msgstr "\"{{deletedObject}}\" se eliminó con éxito."
 
 msgid "You have unsaved changes."
 msgstr "Tiene cambios sin guardar."
@@ -181,7 +181,7 @@ msgid "And 1 other..."
 msgstr ""
 
 msgid "And {{numberOfItems}} others..."
-msgstr ""
+msgstr "Y {{numberOfItems}} otros..."
 
 msgid "Select a period"
 msgstr "Seleccione un periodo"
@@ -193,6 +193,8 @@ msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
 msgstr ""
+"Esta visualización no puede ser eliminada porque es utilizada en uno o más "
+"tableros"
 
 msgid "Unsaved visualization"
 msgstr "Visualización no guardada"
@@ -217,10 +219,10 @@ msgstr ""
 "muestran en la barra lateral izquierda"
 
 msgid "Add dimensions to the layout above"
-msgstr ""
+msgstr "Añadir dimensiones al diseño de arriba"
 
 msgid "Click a dimension to add or remove items"
-msgstr ""
+msgstr "Clic en una dimensión para agregar o eliminar elementos"
 
 msgid "Your most viewed charts and tables"
 msgstr "Sus gráficos y tablas más vistos"
@@ -229,7 +231,7 @@ msgid "Aggregation type"
 msgstr "Tipo de agregación"
 
 msgid "Overrides aggregation type for all data values."
-msgstr ""
+msgstr "Sustituye el tipo de agregación para todos los valores de datos."
 
 msgid "By data element"
 msgstr "Por elemento de datos"
@@ -379,7 +381,7 @@ msgid "Hide empty categories"
 msgstr "Ocultar categorías vacías"
 
 msgid "Before first"
-msgstr ""
+msgstr "Antes del primero"
 
 msgid "After last"
 msgstr "Después del último"
@@ -394,7 +396,7 @@ msgid "Hide empty rows"
 msgstr "Ocultar filas vacías"
 
 msgid "Show legend key"
-msgstr ""
+msgstr "Mostrar clave de leyenda"
 
 msgid "Table subtitle"
 msgstr "Subtítulo de la tabla"
@@ -421,10 +423,10 @@ msgid "Legend type"
 msgstr "Tipo de leyenda"
 
 msgid "Use pre-defined legend per data item"
-msgstr ""
+msgstr "Utilizar leyenda predefinida por elemento de datos"
 
 msgid "Select a single legend for the entire visualization"
-msgstr ""
+msgstr "Seleccionar una única leyenda para toda la visualización"
 
 msgid "Legend changes background color"
 msgstr ""
@@ -445,6 +447,8 @@ msgid ""
 "You can set a minimum or maximum value. This will apply to the entire table,"
 " all values outside of the minimum/maximum range will not be displayed"
 msgstr ""
+"Puede establecer un valor mínimo o máximo. Esto se aplicará a toda la tabla,"
+" todos los valores fuera del rango mínimo/máximo no se mostrarán"
 
 msgid "Minimum data value"
 msgstr "Valor mínimo de datos"
@@ -518,7 +522,7 @@ msgid "Row totals"
 msgstr ""
 
 msgid "Data item"
-msgstr ""
+msgstr "Elemento de datos"
 
 msgid "Visualization type"
 msgstr "Tipo de visualización"
@@ -527,24 +531,27 @@ msgid "Axis {{axisId}}"
 msgstr "Eje {{axisId}}"
 
 msgid "Series is empty"
-msgstr ""
+msgstr "La serie está vacía"
 
 msgid "Options for selected items will be available here"
 msgstr ""
+"Las opciones para los elementos seleccionados estarán disponibles aquí"
 
 msgid "No Series options"
 msgstr ""
 
 msgid "There aren't any Series options for this visualization type"
-msgstr ""
+msgstr "No hay opciones de Serie para este tipo de visualización"
 
 msgid "Series options unavailable"
-msgstr ""
+msgstr "Opciones de serie no disponibles"
 
 msgid ""
 "Series options are not available when using relative selections for periods,"
 " org units or categories"
 msgstr ""
+"Las opciones de serie no están disponibles cuando se utilizan selecciones "
+"relativas para períodos, unidades organizativas o categorías"
 
 msgid "Value labels"
 msgstr "Etiquetas de valor"
@@ -617,6 +624,8 @@ msgid ""
 "The selected dimensions didn’t return any data. There may be no data, or you"
 " may not have access to it."
 msgstr ""
+"Las dimensiones seleccionadas no devolvieron ningún dato. Puede que no haya "
+"datos o que no tenga acceso a ellos."
 
 msgid "{{axisName}} is empty"
 msgstr "{{axisName}} está vacío"
@@ -625,12 +634,14 @@ msgid "Add at least one item to {{axisName}}."
 msgstr "Añadir al menos un elemento a {{axisName}}."
 
 msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
-msgstr ""
+msgstr "{{columnsAxisName}} y {{rowsAxisName}} están vacíos"
 
 msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
 " {{visualizationType}}."
 msgstr ""
+"Añadir al menos un elemento a {{columnsAxisName}} o {{rowsAxisName}} para "
+"crear un {{visualizationType}}."
 
 msgid "No period selected"
 msgstr "No hay periodo seleccionado"
@@ -638,9 +649,11 @@ msgstr "No hay periodo seleccionado"
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
 msgstr ""
+"{{visualizationType}} debe tener al menos un período seleccionado en "
+"{{axes}}."
 
 msgid "No data selected"
-msgstr ""
+msgstr "No hay datos seleccionados"
 
 msgid ""
 "{{visualizationType}} must have at least one data item or data element group"
@@ -652,18 +665,20 @@ msgstr ""
 "{{visualizationType}} debe tener al menos un elemento de datos en {{axes}}."
 
 msgid "There's a problem with the layout"
-msgstr ""
+msgstr "Hay un problema con el diseño"
 
 msgid ""
 "A single indicator must be the only data item when using indicators as Data "
 "in Filter."
 msgstr ""
+"Un solo indicador debe ser el único elemento de datos cuando se usan "
+"indicadores como Datos en el Filtro."
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
 msgstr ""
 
 msgid "There is a problem with this {{visualizationType}} visualization."
-msgstr ""
+msgstr "Hay un problema con esta visualización {{visualizationType}}."
 
 msgid "There was a problem getting the data from the server."
 msgstr "Hubo un problema al obtener los datos del servidor."
@@ -685,12 +700,14 @@ msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr "Solucione este problema moviendo o eliminando Categorías Asignadas."
 
 msgid "Visualization not found"
-msgstr ""
+msgstr "Visualización no encontrada"
 
 msgid ""
 "The visualization you are trying to view could not be found, the ID could be"
 " incorrect or it could have been deleted."
 msgstr ""
+"La visualización que esta tratando de ver no fue encontrada, el ID podría "
+"ser incorrecto o podría haberse eliminado."
 
 msgid "No organization units found"
 msgstr ""
@@ -873,10 +890,12 @@ msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 
 msgid "Lines are not supported yet when using multiple axes"
-msgstr ""
+msgstr "Las líneas aún no son soportadas cuando se utilizan varios ejes"
 
 msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
+"Las opciones de eje vertical aún no son soportadas cuando se utilizan varios"
+" ejes"
 
 msgid "Weeks per year"
 msgstr "Semanas por año"
