@@ -60,6 +60,8 @@ msgid ""
 "'Single Value' is intended to show a single data item. Only the first item "
 "will be used and saved."
 msgstr ""
+"'Valor único' está destinado a mostrar un solo elemento de datos. Solo se "
+"utilizará y guardará el primer elemento."
 
 msgid "Hide"
 msgstr "Ocultar"
@@ -161,7 +163,7 @@ msgid "And 1 other..."
 msgstr ""
 
 msgid "And {{numberOfItems}} others..."
-msgstr ""
+msgstr "Y {{numberOfItems}} otros..."
 
 msgid "Unsaved chart"
 msgstr "Gráfico no guardado"
@@ -245,7 +247,7 @@ msgid "None"
 msgstr "Ninguno"
 
 msgid "Before first"
-msgstr ""
+msgstr "Antes del primero"
 
 msgid "After last"
 msgstr "Después del último"
@@ -257,7 +259,7 @@ msgid "All"
 msgstr "Todos"
 
 msgid "Show legend key"
-msgstr ""
+msgstr "Mostrar clave de leyenda"
 
 msgid "Hide subtitle"
 msgstr "Ocultar subtítulo"
@@ -397,13 +399,13 @@ msgid "Add to filter"
 msgstr "Añadir al filtro"
 
 msgid "Move to series"
-msgstr ""
+msgstr "Mover a series"
 
 msgid "Move to category"
-msgstr ""
+msgstr "Mover a categoría"
 
 msgid "Move to filter"
-msgstr ""
+msgstr "Mover al filtro"
 
 msgid "series"
 msgstr "series"
