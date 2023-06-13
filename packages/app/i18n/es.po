@@ -147,7 +147,7 @@ msgid "And 1 other..."
 msgstr ""
 
 msgid "And {{numberOfItems}} others..."
-msgstr ""
+msgstr "Y {{numberOfItems}} otros..."
 
 msgid "Unsaved chart"
 msgstr "Gráfico no guardado"
@@ -225,10 +225,10 @@ msgid "None"
 msgstr "Ninguno"
 
 msgid "Before first"
-msgstr ""
+msgstr "Antes del primero"
 
 msgid "After first"
-msgstr ""
+msgstr "Después del primero"
 
 msgid "Before first and after last"
 msgstr "Antes del primero y después del último"
@@ -237,7 +237,7 @@ msgid "All"
 msgstr "Todos"
 
 msgid "Show legend key"
-msgstr ""
+msgstr "Mostrar clave de leyenda"
 
 msgid "Hide subtitle"
 msgstr "Ocultar subtítulo"
@@ -380,13 +380,13 @@ msgid "Add to filter"
 msgstr "Añadir al filtro"
 
 msgid "Move to series"
-msgstr ""
+msgstr "Mover a series"
 
 msgid "Move to category"
-msgstr ""
+msgstr "Mover a categoría"
 
 msgid "Move to filter"
-msgstr ""
+msgstr "Mover al filtro"
 
 msgid "series"
 msgstr "series"
