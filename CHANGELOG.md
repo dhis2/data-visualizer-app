@@ -1,3 +1,10 @@
+## [100.1.4](https://github.com/dhis2/data-visualizer-app/compare/v100.1.3...v100.1.4) (2023-06-13)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (dev) ([388259c](https://github.com/dhis2/data-visualizer-app/commit/388259cc26f5509bda59b0e81e9f3b2bcffdef60))
+
 ## [100.1.3](https://github.com/dhis2/data-visualizer-app/compare/v100.1.2...v100.1.3) (2023-05-31)
 
 
