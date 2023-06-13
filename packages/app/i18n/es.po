@@ -218,7 +218,7 @@ msgid "And 1 other..."
 msgstr ""
 
 msgid "And {{numberOfItems}} others..."
-msgstr ""
+msgstr "Y {{numberOfItems}} otros..."
 
 msgid "Unsaved visualization"
 msgstr "Visualización no guardada"
@@ -240,10 +240,10 @@ msgstr ""
 "muestran en la barra lateral izquierda"
 
 msgid "Add dimensions to the layout above"
-msgstr ""
+msgstr "Añadir dimensiones al diseño de arriba"
 
 msgid "Click a dimension to add or remove items"
-msgstr ""
+msgstr "Clic en una dimensión para agregar o eliminar elementos"
 
 msgid "Your most viewed charts and tables"
 msgstr "Sus gráficos y tablas más vistos"
@@ -252,7 +252,7 @@ msgid "Aggregation type"
 msgstr "Tipo de agregación"
 
 msgid "Overrides aggregation type for all data values."
-msgstr ""
+msgstr "Sustituye el tipo de agregación para todos los valores de datos."
 
 msgid "By data element"
 msgstr "Por elemento de datos"
@@ -381,7 +381,7 @@ msgid "Hide empty categories"
 msgstr "Ocultar categorías vacías"
 
 msgid "Before first"
-msgstr ""
+msgstr "Antes del primero"
 
 msgid "After last"
 msgstr "Después del último"
@@ -396,7 +396,7 @@ msgid "Hide empty rows"
 msgstr "Ocultar filas vacías"
 
 msgid "Show legend key"
-msgstr ""
+msgstr "Mostrar clave de leyenda"
 
 msgid "Table subtitle"
 msgstr "Subtítulo de la tabla"
@@ -426,10 +426,10 @@ msgid "Legend type"
 msgstr "Tipo de leyenda"
 
 msgid "Use pre-defined legend per data item"
-msgstr ""
+msgstr "Utilizar leyenda predefinida por elemento de datos"
 
 msgid "Select a single legend for entire table"
-msgstr ""
+msgstr "Seleccionar una única leyenda para toda la tabla"
 
 msgid "Legend changes background color"
 msgstr ""
@@ -450,6 +450,8 @@ msgid ""
 "You can set a minimum or maximum value. This will apply to the entire table,"
 " all values outside of the minimum/maximum range will not be displayed"
 msgstr ""
+"Puede establecer un valor mínimo o máximo. Esto se aplicará a toda la tabla,"
+" todos los valores fuera del rango mínimo/máximo no se mostrarán"
 
 msgid "Minimum data value"
 msgstr "Valor mínimo de datos"
@@ -583,6 +585,8 @@ msgid ""
 "The selected dimensions didn’t return any data. There may be no data, or you"
 " may not have access to it."
 msgstr ""
+"Las dimensiones seleccionadas no devolvieron ningún dato. Puede que no haya "
+"datos o que no tenga acceso a ellos."
 
 msgid "{{axisName}} is empty"
 msgstr "{{axisName}} está vacío"
@@ -591,12 +595,14 @@ msgid "Add at least one item to {{axisName}}."
 msgstr "Añadir al menos un elemento a {{axisName}}."
 
 msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
-msgstr ""
+msgstr "{{columnsAxisName}} y {{rowsAxisName}} están vacíos"
 
 msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
 " {{visualizationType}}."
 msgstr ""
+"Añadir al menos un elemento a {{columnsAxisName}} o {{rowsAxisName}} para "
+"crear un {{visualizationType}}."
 
 msgid "No period selected"
 msgstr "No hay periodo seleccionado"
@@ -604,9 +610,11 @@ msgstr "No hay periodo seleccionado"
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
 msgstr ""
+"{{visualizationType}} debe tener al menos un período seleccionado en "
+"{{axes}}."
 
 msgid "No data selected"
-msgstr ""
+msgstr "No hay datos seleccionados"
 
 msgid ""
 "{{visualizationType}} must have at least one data item or data element group"
@@ -618,18 +626,20 @@ msgstr ""
 "{{visualizationType}} debe tener al menos un elemento de datos en {{axes}}."
 
 msgid "There's a problem with the layout"
-msgstr ""
+msgstr "Hay un problema con el diseño"
 
 msgid ""
 "A single indicator must be the only data item when using indicators as Data "
 "in Filter."
 msgstr ""
+"Un solo indicador debe ser el único elemento de datos cuando se usan "
+"indicadores como Datos en el Filtro."
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
 msgstr ""
 
 msgid "There is a problem with this {{visualizationType}} visualization."
-msgstr ""
+msgstr "Hay un problema con esta visualización {{visualizationType}}."
 
 msgid "There was a problem getting the data from the server."
 msgstr "Hubo un problema al obtener los datos del servidor."
@@ -795,10 +805,10 @@ msgid "Vertical (y) axis"
 msgstr "Eje vertical (y)"
 
 msgid "Display totals"
-msgstr ""
+msgstr "Mostrar totales"
 
 msgid "Display empty data"
-msgstr ""
+msgstr "Mostrar datos vacíos"
 
 msgid "Labels"
 msgstr "Etiquetas"
@@ -816,10 +826,12 @@ msgid "Parameters"
 msgstr "Parámetros"
 
 msgid "Lines are not supported yet when using multiple axes"
-msgstr ""
+msgstr "Las líneas aún no son soportadas cuando se utilizan varios ejes"
 
 msgid "Vertical axis options are not supported yet when using multiple axes"
 msgstr ""
+"Las opciones de eje vertical aún no son soportadas cuando se utilizan varios"
+" ejes"
 
 msgid "Weeks per year"
 msgstr "Semanas por año"
