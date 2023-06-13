@@ -33,7 +33,7 @@ msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr "Visualización {{visualizationType}} sin título, {{date}}"
 
 msgid "\"{{deletedObject}}\" successfully deleted."
-msgstr ""
+msgstr "\"{{deletedObject}}\" se eliminó con éxito."
 
 msgid "You have unsaved changes."
 msgstr "Tiene cambios sin guardar."
@@ -185,7 +185,7 @@ msgid "Not available for Scatter"
 msgstr ""
 
 msgid "Add Assigned Categories"
-msgstr ""
+msgstr "Añadir categorías asignadas"
 
 msgid "Swap with {{axisName}} axis"
 msgstr ""
@@ -230,6 +230,8 @@ msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
 msgstr ""
+"Esta visualización no puede ser eliminada porque es utilizada en uno o más "
+"tableros"
 
 msgid "Unsaved visualization"
 msgstr "Visualización no guardada"
@@ -266,7 +268,7 @@ msgid "Aggregation type"
 msgstr "Tipo de agregación"
 
 msgid "Overrides aggregation type for all data values."
-msgstr ""
+msgstr "Sustituye el tipo de agregación para todos los valores de datos."
 
 msgid "By data element"
 msgstr "Por elemento de datos"
@@ -457,7 +459,7 @@ msgid "Hide empty categories"
 msgstr "Ocultar categorías vacías"
 
 msgid "Before first"
-msgstr ""
+msgstr "Antes del primero"
 
 msgid "After last"
 msgstr "Después del último"
@@ -490,7 +492,7 @@ msgid "Legend type"
 msgstr "Tipo de leyenda"
 
 msgid "Use pre-defined legend per data item"
-msgstr ""
+msgstr "Utilizar leyenda predefinida por elemento de datos"
 
 msgid "Select a single legend for the entire visualization"
 msgstr "Seleccionar una única leyenda para toda la visualización"
@@ -614,7 +616,7 @@ msgid "Row totals"
 msgstr ""
 
 msgid "Data item"
-msgstr ""
+msgstr "Elemento de datos"
 
 msgid "Visualization type"
 msgstr "Tipo de visualización"
@@ -623,24 +625,27 @@ msgid "Axis {{axisId}}"
 msgstr "Eje {{axisId}}"
 
 msgid "Series is empty"
-msgstr ""
+msgstr "La serie está vacía"
 
 msgid "Options for selected items will be available here"
 msgstr ""
+"Las opciones para los elementos seleccionados estarán disponibles aquí"
 
 msgid "No Series options"
 msgstr ""
 
 msgid "There aren't any Series options for this visualization type"
-msgstr ""
+msgstr "No hay opciones de Serie para este tipo de visualización"
 
 msgid "Series options unavailable"
-msgstr ""
+msgstr "Opciones de serie no disponibles"
 
 msgid ""
 "Series options are not available when using relative selections for periods,"
 " org units or categories"
 msgstr ""
+"Las opciones de serie no están disponibles cuando se utilizan selecciones "
+"relativas para períodos, unidades organizativas o categorías"
 
 msgid ""
 "Series options are not available when a series item has an \"All items\" "
@@ -657,7 +662,7 @@ msgid "Display organisation unit hierarchy"
 msgstr "Mostrar jerarquía de unidades organizativas"
 
 msgid "Show legend key"
-msgstr ""
+msgstr "Mostrar clave de leyenda"
 
 msgid "Show series key"
 msgstr ""
@@ -750,22 +755,22 @@ msgstr ""
 "{{axes}}."
 
 msgid "Add organisation units to {{axisName}}."
-msgstr ""
+msgstr "Añadir unidades organizativas a {{axisName}}."
 
 msgid "Vertical is empty"
-msgstr ""
+msgstr "La vertical está vacía"
 
 msgid "Add a data item to the vertical axis."
-msgstr ""
+msgstr "Agregue un elemento de datos al eje vertical."
 
 msgid "Horizontal is empty"
-msgstr ""
+msgstr "La horizontal está vacía"
 
 msgid "Add a data item to the horizontal axis."
-msgstr ""
+msgstr "Agregue un elemento de datos al eje horizontal."
 
 msgid "Axes data items are the same"
-msgstr ""
+msgstr "Los elementos de datos de los ejes son los mismos"
 
 msgid ""
 "The horizontal and vertical axes have the same data item. Scatter chart axes"
@@ -820,12 +825,14 @@ msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr "Solucione este problema moviendo o eliminando Categorías Asignadas."
 
 msgid "Visualization not found"
-msgstr ""
+msgstr "Visualización no encontrada"
 
 msgid ""
 "The visualization you are trying to view could not be found, the ID could be"
 " incorrect or it could have been deleted."
 msgstr ""
+"La visualización que esta tratando de ver no fue encontrada, el ID podría "
+"ser incorrecto o podría haberse eliminado."
 
 msgid "No organization units found"
 msgstr ""
@@ -987,7 +994,7 @@ msgid "Empty data"
 msgstr "Datos vacíos"
 
 msgid "Horizontal (x) axis {{axisId}}"
-msgstr ""
+msgstr "Eje horizontal (x) {{axisId}}"
 
 msgid "Horizontal (x) axis"
 msgstr "Eje horizontal (x)"
@@ -999,7 +1006,7 @@ msgid "Totals"
 msgstr "Totales"
 
 msgid "Vertical (y) axis {{axisId}}"
-msgstr ""
+msgstr "Eje vertical (y) {{axisId}}"
 
 msgid "Vertical (y) axis"
 msgstr "Eje vertical (y)"
