@@ -324,7 +324,7 @@ msgid "Default"
 msgstr "Predeterminado"
 
 msgid "Bright"
-msgstr ""
+msgstr "Brillante"
 
 msgid "Dark"
 msgstr "Oscuro"
@@ -333,10 +333,10 @@ msgid "Gray"
 msgstr "Gris"
 
 msgid "Color blind"
-msgstr ""
+msgstr "Daltónico"
 
 msgid "Patterns"
-msgstr ""
+msgstr "Patrones"
 
 msgid "Event data"
 msgstr "Datos del evento"
@@ -553,7 +553,7 @@ msgstr ""
 "Las opciones para los elementos seleccionados estarán disponibles aquí"
 
 msgid "No Series options"
-msgstr ""
+msgstr "Sin opciones de serie"
 
 msgid "There aren't any Series options for this visualization type"
 msgstr "No hay opciones de Serie para este tipo de visualización"
@@ -836,7 +836,7 @@ msgid "User org unit"
 msgstr "Unidad organizativa de usuario"
 
 msgid "User org unit children"
-msgstr ""
+msgstr "Hijos de la unidad organizativa del usuario"
 
 msgid "User org unit grand children"
 msgstr ""
@@ -893,10 +893,12 @@ msgid "Parameters"
 msgstr "Parámetros"
 
 msgid "Color set"
-msgstr ""
+msgstr "Conjunto de colores"
 
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
+"Los conjuntos de colores aún no son soportados cuando se utilizan varios "
+"ejes."
 
 msgid "Lines are not supported yet when using multiple axes"
 msgstr "Las líneas aún no son soportadas cuando se utilizan varios ejes"
