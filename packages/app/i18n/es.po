@@ -772,7 +772,7 @@ msgid "User org unit"
 msgstr "Unidad organizativa de usuario"
 
 msgid "User org unit children"
-msgstr ""
+msgstr "Hijos de la unidad organizativa del usuario"
 
 msgid "User org unit grand children"
 msgstr ""
