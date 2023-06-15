@@ -182,13 +182,13 @@ msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} está bloqueado en {{axisName}} para {{visTypeName}}"
 
 msgid "Not available for Scatter"
-msgstr ""
+msgstr "No disponible para Dispersión"
 
 msgid "Add Assigned Categories"
 msgstr "Añadir categorías asignadas"
 
 msgid "Swap with {{axisName}} axis"
-msgstr ""
+msgstr "Intercambiar con el eje {{axisName}}"
 
 msgid "vertical"
 msgstr "vertical"
@@ -372,7 +372,7 @@ msgid "Extended"
 msgstr "Extendido"
 
 msgid "Bright"
-msgstr ""
+msgstr "Brillante"
 
 msgid "Dark"
 msgstr "Oscuro"
@@ -381,10 +381,10 @@ msgid "Gray"
 msgstr "Gris"
 
 msgid "Color blind"
-msgstr ""
+msgstr "Daltónico"
 
 msgid "Patterns"
-msgstr ""
+msgstr "Patrones"
 
 msgid "Event data"
 msgstr "Datos del evento"
@@ -638,7 +638,7 @@ msgstr ""
 "Las opciones para los elementos seleccionados estarán disponibles aquí"
 
 msgid "No Series options"
-msgstr ""
+msgstr "Sin opciones de serie"
 
 msgid "There aren't any Series options for this visualization type"
 msgstr "No hay opciones de Serie para este tipo de visualización"
@@ -773,6 +773,8 @@ msgid ""
 "The horizontal and vertical axes have the same data item. Scatter chart axes"
 " must have different data for each axis."
 msgstr ""
+"Los ejes horizontal y vertical tienen el mismo elemento de datos. Los ejes "
+"del gráfico de dispersión deben tener datos diferentes para cada eje."
 
 msgid "No data selected"
 msgstr "No hay datos seleccionados"
@@ -978,10 +980,12 @@ msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
 
 msgid "Color set"
-msgstr ""
+msgstr "Conjunto de colores"
 
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
+"Los conjuntos de colores aún no son soportados cuando se utilizan varios "
+"ejes."
 
 msgid ""
 "Base and target lines are available on the Axes tab for multi-axis charts"
