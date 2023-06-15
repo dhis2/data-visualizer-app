@@ -220,7 +220,7 @@ msgid "Update"
 msgstr "Bijwerken"
 
 msgid "Getting started"
-msgstr ""
+msgstr "Aan de slag"
 
 msgid ""
 "All dimensions that you can use to build visualizations are shown in the "
