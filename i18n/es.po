@@ -657,6 +657,8 @@ msgid ""
 "Series options are not available when a series item has an \"All items\" "
 "selection"
 msgstr ""
+"Las opciones de serie no están disponibles cuando un elemento de serie tiene"
+" una selección \"Todos los elementos\""
 
 msgid "Value labels"
 msgstr "Etiquetas de valor"
@@ -978,6 +980,8 @@ msgstr "Sólo se aplica a informes estándar"
 
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
+"Las líneas base y objetivo están disponibles en la pestaña Ejes para los "
+"gráficos de dispersión"
 
 msgid "Color set"
 msgstr "Conjunto de colores"
