@@ -6,10 +6,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-06-17T07:32:29.449Z\n"
+"POT-Creation-Date: 2023-03-07T12:07:38.393Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2022\n"
-"Language-Team: Urdu (https://www.transifex.com/hisp-uio/teams/100509/ur/)\n"
+"Language-Team: Urdu (https://app.transifex.com/hisp-uio/teams/100509/ur/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,7 +25,7 @@ msgstr "نام تبدیل کریں"
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr ""
 
-msgid "\"{{deletedObject}}\" successfully deleted."
+msgid "\"{{- deletedObject}}\" successfully deleted."
 msgstr ""
 
 msgid "You have unsaved changes."
@@ -378,6 +378,12 @@ msgstr "مجموعی شامل کریں"
 msgid "Cumulative values"
 msgstr ""
 
+msgid "Show data item icon"
+msgstr ""
+
+msgid "If the data item has an icon, display it next to the value"
+msgstr ""
+
 msgid "Digit group separator"
 msgstr "ڈیجیٹٹ گروپ الگ الگ"
 
@@ -674,27 +680,18 @@ msgstr "اوپر کی حد"
 msgid "Options"
 msgstr "اختیارات"
 
+msgid "Change org unit"
+msgstr ""
+
+msgid "{{level}} level in {{orgunit}}"
+msgstr ""
+
 msgid "Open as Map"
 msgstr ""
 
 msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
 msgstr ""
-
-msgid "Reporting rate"
-msgstr ""
-
-msgid "Reporting rate on time"
-msgstr ""
-
-msgid "Actual reports"
-msgstr "اصل رپورٹ"
-
-msgid "Actual reports on time"
-msgstr ""
-
-msgid "Expected reports"
-msgstr "متوقع رپورٹ"
 
 msgid "No data available"
 msgstr ""
@@ -763,8 +760,8 @@ msgid "There's a problem with the layout"
 msgstr ""
 
 msgid ""
-"A single indicator must be the only data item when using indicators as Data "
-"in Filter."
+"A single indicator or calculation must be the only data item when using "
+"indicators or calculations as Data in Filter."
 msgstr ""
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
@@ -801,6 +798,14 @@ msgid "No organization units found"
 msgstr ""
 
 msgid "The level or group selections didn't return any organization units."
+msgstr ""
+
+msgid "Invalid data type"
+msgstr ""
+
+msgid ""
+"The selected data dimensions didn't return any valid data. This "
+"visualization type can only display numerical data."
 msgstr ""
 
 msgid "Something went wrong"
