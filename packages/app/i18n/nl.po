@@ -228,7 +228,7 @@ msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr "Interpretatie van {{interpretatieDatum}} aan het bezichtigen"
 
 msgid "Getting started"
-msgstr ""
+msgstr "Aan de slag"
 
 msgid ""
 "All dimensions that you can use to build visualizations are shown in the "
