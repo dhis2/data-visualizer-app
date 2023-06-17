@@ -710,7 +710,7 @@ msgstr ""
 "ser incorrecto o podría haberse eliminado."
 
 msgid "No organization units found"
-msgstr ""
+msgstr "No se han encontrado unidades organizativas"
 
 msgid "The level or group selections didn't return any organization units."
 msgstr ""
