@@ -339,7 +339,7 @@ msgid "Axis title"
 msgstr "Título del eje"
 
 msgid "Auto generated from axis items"
-msgstr ""
+msgstr "Generado automáticamente a partir de elementos del eje"
 
 msgid "None"
 msgstr "Ninguno"
@@ -351,7 +351,7 @@ msgid "Add a title"
 msgstr "Añadir un título"
 
 msgid "Reset style to default"
-msgstr ""
+msgstr "Restablecer el estilo por defecto"
 
 msgid "Base line"
 msgstr "Línea base"
@@ -432,7 +432,7 @@ msgid "Number"
 msgstr "Número"
 
 msgid "Fix column headers to top of table"
-msgstr ""
+msgstr "Fijar encabezados de columna en la parte superior de la tabla"
 
 msgid "There aren’t any column headers because Columns is empty."
 msgstr ""
@@ -839,7 +839,7 @@ msgstr ""
 "ser incorrecto o podría haberse eliminado."
 
 msgid "No organization units found"
-msgstr ""
+msgstr "No se han encontrado unidades organizativas"
 
 msgid "The level or group selections didn't return any organization units."
 msgstr ""
