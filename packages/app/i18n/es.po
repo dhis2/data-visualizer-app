@@ -321,7 +321,7 @@ msgid "Column sub-totals"
 msgstr "Subtotales de columna"
 
 msgid "Columns totals"
-msgstr ""
+msgstr "Totales de columna"
 
 msgid "Event data"
 msgstr "Datos del evento"
@@ -432,16 +432,16 @@ msgid "Select a single legend for entire table"
 msgstr "Seleccionar una única leyenda para toda la tabla"
 
 msgid "Legend changes background color"
-msgstr ""
+msgstr "La leyenda cambia el color de fondo"
 
 msgid "Legend changes text color"
-msgstr ""
+msgstr "La leyenda cambia el color del texto"
 
 msgid "Legend"
 msgstr "Set de leyendas"
 
 msgid "Select from legends"
-msgstr ""
+msgstr "Seleccionar de las leyendas"
 
 msgid "Loading legends"
 msgstr "Cargando leyendas"
@@ -522,7 +522,7 @@ msgid "Row sub-totals"
 msgstr "Subtotales de fila"
 
 msgid "Row totals"
-msgstr ""
+msgstr "Totales de fila"
 
 msgid "Value labels"
 msgstr "Etiquetas de valor"
