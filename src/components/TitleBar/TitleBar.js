@@ -50,7 +50,7 @@ const getSuffix = (titleState) => {
                         ...styles.suffix,
                         ...styles.titleDirty,
                     }}
-                    data-test="AO-title-dirty"
+                    data-test="titlebar-dirty"
                 >{`- ${getTitleDirty()}`}</div>
             )
         default:
@@ -65,7 +65,7 @@ export const UnconnectedTitleBar = ({ titleState, titleText }) => {
     }
 
     return titleText ? (
-        <div data-test="AO-title" style={styles.titleBar}>
+        <div data-test="titlebar" style={styles.titleBar}>
             <div style={titleStyle}>
                 {titleText}
                 {getSuffix(titleState)}
