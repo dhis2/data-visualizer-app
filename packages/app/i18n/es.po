@@ -146,7 +146,7 @@ msgid "Advanced"
 msgstr "Avanzado"
 
 msgid "Metadata ID scheme"
-msgstr ""
+msgstr "Esquema ID de metadatos"
 
 msgid "ID"
 msgstr "Identificador"
@@ -167,7 +167,7 @@ msgid "JRXML"
 msgstr "JRXML"
 
 msgid "Raw data SQL"
-msgstr ""
+msgstr "Datos brutos SQL"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "Ocurrió un error en la aplicación DHIS2 Visualizador de Datos"
@@ -215,7 +215,7 @@ msgid "Groups"
 msgstr "Grupos"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "y 1 más..."
 
 msgid "And {{numberOfItems}} others..."
 msgstr "Y {{numberOfItems}} otros..."
@@ -469,7 +469,7 @@ msgid "Number type"
 msgstr "Tipo de número"
 
 msgid "Display the value of percentages of the total"
-msgstr ""
+msgstr "Mostrar el valor de porcentajes del total"
 
 msgid "Percentage of row"
 msgstr "Porcentaje del total de filas"
@@ -620,6 +620,8 @@ msgid ""
 "{{visualizationType}} must have at least one data item or data element group"
 " set item in {{axes}}."
 msgstr ""
+"{{visualizationType}} debe tener al menos un elemento de datos o un elemento"
+" de conjunto de grupos de elementos de datos en {{axes}}."
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
 msgstr ""
@@ -637,6 +639,8 @@ msgstr ""
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
 msgstr ""
+"Los conjuntos de grupos de elementos de datos y las tasas de informes no "
+"pueden utilizarse conjuntamente."
 
 msgid "There is a problem with this {{visualizationType}} visualization."
 msgstr "Hay un problema con esta visualización {{visualizationType}}."
