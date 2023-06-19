@@ -28,7 +28,7 @@ msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr "Ongetitelde {{visualizationType}} visualisatie, {{date}}"
 
 msgid "\"{{- deletedObject}}\" successfully deleted."
-msgstr ""
+msgstr "\"{{- verwijderObject}}\" succesvol verwijderd."
 
 msgid "You have unsaved changes."
 msgstr "U heeft niet opgeslagen veranderingen."
@@ -114,7 +114,7 @@ msgid "Plain data source"
 msgstr "Gewone gegevensbron"
 
 msgid "Microsoft Excel"
-msgstr ""
+msgstr "Microsoft Excel"
 
 msgid "CSV"
 msgstr "CSV"
@@ -132,7 +132,7 @@ msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
 msgid "Download data from this date"
-msgstr ""
+msgstr "Download gegevens van deze datum"
 
 msgid "Metadata ID scheme"
 msgstr "Schema van metadata-id"
@@ -205,7 +205,7 @@ msgid "All items are selected"
 msgstr ""
 
 msgid "Levels"
-msgstr ""
+msgstr "Niveaus"
 
 msgid "Groups"
 msgstr "Groepen"
@@ -231,7 +231,7 @@ msgid ""
 msgstr ""
 
 msgid "Unsaved visualization"
-msgstr ""
+msgstr "Niet-opgeslagen visualisatie"
 
 msgid "Edited"
 msgstr "Bewerkt"
@@ -824,7 +824,7 @@ msgid "Something went wrong"
 msgstr "Er is iets fout gegaan."
 
 msgid "or"
-msgstr ""
+msgstr "of"
 
 msgid "Today"
 msgstr "Vandaag"
