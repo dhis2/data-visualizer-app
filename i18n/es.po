@@ -182,13 +182,13 @@ msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} está bloqueado en {{axisName}} para {{visTypeName}}"
 
 msgid "Not available for Scatter"
-msgstr ""
+msgstr "No disponible para Dispersión"
 
 msgid "Add Assigned Categories"
-msgstr ""
+msgstr "Añadir categorías asignadas"
 
 msgid "Swap with {{axisName}} axis"
-msgstr ""
+msgstr "Intercambiar con el eje {{axisName}}"
 
 msgid "vertical"
 msgstr "vertical"
@@ -218,7 +218,7 @@ msgid "And 1 other..."
 msgstr ""
 
 msgid "And {{numberOfItems}} others..."
-msgstr ""
+msgstr "Y {{numberOfItems}} otros..."
 
 msgid "Select a period"
 msgstr "Seleccione un periodo"
@@ -233,6 +233,8 @@ msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
 msgstr ""
+"Esta visualización no puede ser eliminada porque es utilizada en uno o más "
+"tableros"
 
 msgid "Unsaved visualization"
 msgstr "Visualización no guardada"
@@ -254,10 +256,10 @@ msgstr ""
 "muestran en la barra lateral izquierda"
 
 msgid "Add dimensions to the layout above"
-msgstr ""
+msgstr "Añadir dimensiones al diseño de arriba"
 
 msgid "Click a dimension to add or remove items"
-msgstr ""
+msgstr "Clic en una dimensión para agregar o eliminar elementos"
 
 msgid "Your most viewed charts and tables"
 msgstr "Sus gráficos y tablas más vistos"
@@ -266,7 +268,7 @@ msgid "Aggregation type"
 msgstr "Tipo de agregación"
 
 msgid "Overrides aggregation type for all data values."
-msgstr ""
+msgstr "Sustituye el tipo de agregación para todos los valores de datos."
 
 msgid "By data element"
 msgstr "Por elemento de datos"
@@ -370,7 +372,7 @@ msgid "Extended"
 msgstr "Extendido"
 
 msgid "Bright"
-msgstr ""
+msgstr "Brillante"
 
 msgid "Dark"
 msgstr "Oscuro"
@@ -379,10 +381,10 @@ msgid "Gray"
 msgstr "Gris"
 
 msgid "Color blind"
-msgstr ""
+msgstr "Daltónico"
 
 msgid "Patterns"
-msgstr ""
+msgstr "Patrones"
 
 msgid "Event data"
 msgstr "Datos del evento"
@@ -463,7 +465,7 @@ msgid "Hide empty categories"
 msgstr "Ocultar categorías vacías"
 
 msgid "Before first"
-msgstr ""
+msgstr "Antes del primero"
 
 msgid "After last"
 msgstr "Después del último"
@@ -496,10 +498,10 @@ msgid "Legend type"
 msgstr "Tipo de leyenda"
 
 msgid "Use pre-defined legend per data item"
-msgstr ""
+msgstr "Utilizar leyenda predefinida por elemento de datos"
 
 msgid "Select a single legend for the entire visualization"
-msgstr ""
+msgstr "Seleccionar una única leyenda para toda la visualización"
 
 msgid "Legend changes background color"
 msgstr ""
@@ -620,7 +622,7 @@ msgid "Row totals"
 msgstr ""
 
 msgid "Data item"
-msgstr ""
+msgstr "Elemento de datos"
 
 msgid "Visualization type"
 msgstr "Tipo de visualización"
@@ -629,29 +631,34 @@ msgid "Axis {{axisId}}"
 msgstr "Eje {{axisId}}"
 
 msgid "Series is empty"
-msgstr ""
+msgstr "La serie está vacía"
 
 msgid "Options for selected items will be available here"
 msgstr ""
+"Las opciones para los elementos seleccionados estarán disponibles aquí"
 
 msgid "No Series options"
-msgstr ""
+msgstr "Sin opciones de serie"
 
 msgid "There aren't any Series options for this visualization type"
-msgstr ""
+msgstr "No hay opciones de Serie para este tipo de visualización"
 
 msgid "Series options unavailable"
-msgstr ""
+msgstr "Opciones de serie no disponibles"
 
 msgid ""
 "Series options are not available when using relative selections for periods,"
 " org units or categories"
 msgstr ""
+"Las opciones de serie no están disponibles cuando se utilizan selecciones "
+"relativas para períodos, unidades organizativas o categorías"
 
 msgid ""
 "Series options are not available when a series item has an \"All items\" "
 "selection"
 msgstr ""
+"Las opciones de serie no están disponibles cuando un elemento de serie tiene"
+" una selección \"Todos los elementos\""
 
 msgid "Value labels"
 msgstr "Etiquetas de valor"
@@ -663,7 +670,7 @@ msgid "Display organisation unit hierarchy"
 msgstr "Mostrar jerarquía de unidades organizativas"
 
 msgid "Show legend key"
-msgstr ""
+msgstr "Mostrar clave de leyenda"
 
 msgid "Show series key"
 msgstr ""
@@ -699,10 +706,10 @@ msgid "Options"
 msgstr "Opciones"
 
 msgid "Change org unit"
-msgstr ""
+msgstr "Cambiar unidad organizativa"
 
 msgid "{{level}} level in {{orgunit}}"
-msgstr ""
+msgstr "{{level}} nivel en {{orgunit}}"
 
 msgid "Open as Map"
 msgstr "Abrir como mapa"
@@ -718,6 +725,8 @@ msgid ""
 "The selected dimensions didn’t return any data. There may be no data, or you"
 " may not have access to it."
 msgstr ""
+"Las dimensiones seleccionadas no devolvieron ningún dato. Puede que no haya "
+"datos o que no tenga acceso a ellos."
 
 msgid "{{axisName}} is empty"
 msgstr "{{axisName}} está vacío"
@@ -726,12 +735,14 @@ msgid "Add at least one item to {{axisName}}."
 msgstr "Añadir al menos un elemento a {{axisName}}."
 
 msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
-msgstr ""
+msgstr "{{columnsAxisName}} y {{rowsAxisName}} están vacíos"
 
 msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
 " {{visualizationType}}."
 msgstr ""
+"Añadir al menos un elemento a {{columnsAxisName}} o {{rowsAxisName}} para "
+"crear un {{visualizationType}}."
 
 msgid "No period selected"
 msgstr "No hay periodo seleccionado"
@@ -739,32 +750,36 @@ msgstr "No hay periodo seleccionado"
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
 msgstr ""
+"{{visualizationType}} debe tener al menos un período seleccionado en "
+"{{axes}}."
 
 msgid "Add organisation units to {{axisName}}."
-msgstr ""
+msgstr "Añadir unidades organizativas a {{axisName}}."
 
 msgid "Vertical is empty"
-msgstr ""
+msgstr "La vertical está vacía"
 
 msgid "Add a data item to the vertical axis."
-msgstr ""
+msgstr "Agregue un elemento de datos al eje vertical."
 
 msgid "Horizontal is empty"
-msgstr ""
+msgstr "La horizontal está vacía"
 
 msgid "Add a data item to the horizontal axis."
-msgstr ""
+msgstr "Agregue un elemento de datos al eje horizontal."
 
 msgid "Axes data items are the same"
-msgstr ""
+msgstr "Los elementos de datos de los ejes son los mismos"
 
 msgid ""
 "The horizontal and vertical axes have the same data item. Scatter chart axes"
 " must have different data for each axis."
 msgstr ""
+"Los ejes horizontal y vertical tienen el mismo elemento de datos. Los ejes "
+"del gráfico de dispersión deben tener datos diferentes para cada eje."
 
 msgid "No data selected"
-msgstr ""
+msgstr "No hay datos seleccionados"
 
 msgid ""
 "{{visualizationType}} must have at least one data item or data element group"
@@ -776,7 +791,7 @@ msgstr ""
 "{{visualizationType}} debe tener al menos un elemento de datos en {{axes}}."
 
 msgid "There's a problem with the layout"
-msgstr ""
+msgstr "Hay un problema con el diseño"
 
 msgid ""
 "A single indicator or calculation must be the only data item when using "
@@ -809,12 +824,14 @@ msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr "Solucione este problema moviendo o eliminando Categorías Asignadas."
 
 msgid "Visualization not found"
-msgstr ""
+msgstr "Visualización no encontrada"
 
 msgid ""
 "The visualization you are trying to view could not be found, the ID could be"
 " incorrect or it could have been deleted."
 msgstr ""
+"La visualización que esta tratando de ver no fue encontrada, el ID podría "
+"ser incorrecto o podría haberse eliminado."
 
 msgid "No organization units found"
 msgstr ""
@@ -963,12 +980,16 @@ msgstr "Sólo se aplica a informes estándar"
 
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
+"Las líneas base y objetivo están disponibles en la pestaña Ejes para los "
+"gráficos de dispersión"
 
 msgid "Color set"
-msgstr ""
+msgstr "Conjunto de colores"
 
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
+"Los conjuntos de colores aún no son soportados cuando se utilizan varios "
+"ejes."
 
 msgid ""
 "Base and target lines are available on the Axes tab for multi-axis charts"
@@ -984,7 +1005,7 @@ msgid "Empty data"
 msgstr "Datos vacíos"
 
 msgid "Horizontal (x) axis {{axisId}}"
-msgstr ""
+msgstr "Eje horizontal (x) {{axisId}}"
 
 msgid "Horizontal (x) axis"
 msgstr "Eje horizontal (x)"
@@ -996,7 +1017,7 @@ msgid "Totals"
 msgstr "Totales"
 
 msgid "Vertical (y) axis {{axisId}}"
-msgstr ""
+msgstr "Eje vertical (y) {{axisId}}"
 
 msgid "Vertical (y) axis"
 msgstr "Eje vertical (y)"
@@ -1075,6 +1096,8 @@ msgstr ""
 
 msgid "Display a single value. Recommend relative period to show latest data."
 msgstr ""
+"Mostrar un valor único. Se recomienda utilizar el período relativo para "
+"mostrar los datos más recientes."
 
 msgid ""
 "View the relationship between two data items at a place or time. Recommended"
