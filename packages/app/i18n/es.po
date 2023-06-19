@@ -318,7 +318,7 @@ msgid "Column sub-totals"
 msgstr "Subtotales de columna"
 
 msgid "Columns totals"
-msgstr ""
+msgstr "Totales de columna"
 
 msgid "Default"
 msgstr "Predeterminado"
@@ -444,16 +444,16 @@ msgid "Select a single legend for the entire visualization"
 msgstr "Seleccionar una única leyenda para toda la visualización"
 
 msgid "Legend changes background color"
-msgstr ""
+msgstr "La leyenda cambia el color de fondo"
 
 msgid "Legend changes text color"
-msgstr ""
+msgstr "La leyenda cambia el color del texto"
 
 msgid "Legend"
 msgstr "Set de leyendas"
 
 msgid "Select from legends"
-msgstr ""
+msgstr "Seleccionar de las leyendas"
 
 msgid "Loading legends"
 msgstr "Cargando leyendas"
@@ -534,7 +534,7 @@ msgid "Row sub-totals"
 msgstr "Subtotales de fila"
 
 msgid "Row totals"
-msgstr ""
+msgstr "Totales de fila"
 
 msgid "Data item"
 msgstr "Elemento de datos"
@@ -616,6 +616,8 @@ msgstr "Abrir como mapa"
 msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
 msgstr ""
+"Trazar visualmente los datos en un mapa mundial. Los elementos de datos usan"
+" capas de mapa separadas."
 
 msgid "Reporting rate"
 msgstr "Tasa de informes"
