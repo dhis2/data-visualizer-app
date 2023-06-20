@@ -78,7 +78,7 @@ msgid "Advanced"
 msgstr "Avanzado"
 
 msgid "Metadata ID scheme"
-msgstr ""
+msgstr "Esquema ID de metadatos"
 
 msgid "ID"
 msgstr "Identificador"
@@ -105,7 +105,7 @@ msgid "JRXML"
 msgstr "JRXML"
 
 msgid "Raw data SQL"
-msgstr ""
+msgstr "Datos brutos SQL"
 
 msgid "An error occurred in the DHIS2 Data Visualizer application."
 msgstr "Ocurrió un error en la aplicación DHIS2 Visualizador de Datos"
@@ -144,7 +144,7 @@ msgid "None selected"
 msgstr "Ninguno seleccionado"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "y 1 más..."
 
 msgid "And {{numberOfItems}} others..."
 msgstr "Y {{numberOfItems}} otros..."
