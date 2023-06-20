@@ -1,4 +1,5 @@
 import { DIMENSION_ID_DATA } from '@dhis2/analytics'
+import { EXTENDED_TIMEOUT } from '../../support/utils.js'
 import { clearInput, typeInput } from '../common.js'
 import {
     expectDimensionModalToBeVisible,
@@ -39,7 +40,9 @@ export const expectDataDimensionModalToBeVisible = () =>
     expectDimensionModalToBeVisible(DIMENSION_ID_DATA)
 
 export const expectNoDataItemsToBeSelected = () =>
-    cy.getBySel(selectedItemsEl).should('contain', 'No items selected')
+    cy
+        .getBySel(selectedItemsEl, EXTENDED_TIMEOUT)
+        .should('contain', 'No items selected')
 
 export const expectDataDimensionModalWarningToContain = (text) =>
     cy.getBySel(rightHeaderEl).should('contain', text)
