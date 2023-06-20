@@ -205,7 +205,7 @@ msgid "All items are selected"
 msgstr ""
 
 msgid "Levels"
-msgstr ""
+msgstr "Niveaus"
 
 msgid "Groups"
 msgstr "Groepen"
@@ -228,7 +228,7 @@ msgid ""
 msgstr ""
 
 msgid "Unsaved visualization"
-msgstr ""
+msgstr "Niet-opgeslagen visualisatie"
 
 msgid "Edited"
 msgstr "Bewerkt"
@@ -819,7 +819,7 @@ msgid "Something went wrong"
 msgstr "Er is iets fout gegaan."
 
 msgid "or"
-msgstr ""
+msgstr "of"
 
 msgid "Today"
 msgstr "Vandaag"
