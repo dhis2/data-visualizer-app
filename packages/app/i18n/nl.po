@@ -3,14 +3,15 @@
 # Yury Rogachev <yury@dhis2.org>, 2021
 # Cherise Beek <cherise.beek@gmail.com>, 2021
 # Rica Zamora Duchateau, 2022
+# Charel van den Elsen, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-06-07T08:29:46.003Z\n"
 "PO-Revision-Date: 2021-09-03 23:49+0000\n"
-"Last-Translator: Rica Zamora Duchateau, 2022\n"
-"Language-Team: Dutch (https://www.transifex.com/hisp-uio/teams/100509/nl/)\n"
+"Last-Translator: Charel van den Elsen, 2023\n"
+"Language-Team: Dutch (https://app.transifex.com/hisp-uio/teams/100509/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -204,7 +205,7 @@ msgid "All items are selected"
 msgstr ""
 
 msgid "Levels"
-msgstr ""
+msgstr "Niveaus"
 
 msgid "Groups"
 msgstr "Groepen"
@@ -227,7 +228,7 @@ msgid ""
 msgstr ""
 
 msgid "Unsaved visualization"
-msgstr ""
+msgstr "Niet-opgeslagen visualisatie"
 
 msgid "Edited"
 msgstr "Bewerkt"
@@ -239,7 +240,7 @@ msgid "Update"
 msgstr "Bijwerken"
 
 msgid "Getting started"
-msgstr ""
+msgstr "Aan de slag"
 
 msgid ""
 "All dimensions that you can use to build visualizations are shown in the "
@@ -420,7 +421,7 @@ msgid "Extreme line % detection"
 msgstr ""
 
 msgid "Number"
-msgstr ""
+msgstr "Nummer"
 
 msgid "Fix column headers to top of table"
 msgstr ""
@@ -812,7 +813,7 @@ msgid "Something went wrong"
 msgstr "Er is iets fout gegaan."
 
 msgid "or"
-msgstr ""
+msgstr "of"
 
 msgid "Today"
 msgstr "Vandaag"
