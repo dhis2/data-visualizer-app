@@ -1,6 +1,6 @@
 import {
     FileMenu,
-    HoverMenubar,
+    HoverMenuBar,
     VIS_TYPE_GROUP_ALL,
     VIS_TYPE_GROUP_CHARTS,
     UpdateButton,
@@ -60,7 +60,7 @@ const UnconnectedMenuBar = ({ dataTest, ...props }, context) => (
                 />
             )}
         />
-        <HoverMenubar>
+        <HoverMenuBar>
             <FileMenu
                 currentUser={context.d2.currentUser}
                 fileType={props.apiObjectName}
@@ -78,7 +78,7 @@ const UnconnectedMenuBar = ({ dataTest, ...props }, context) => (
             <VisualizationOptionsManager />
 
             <ToolbarDownloadDropdown />
-        </HoverMenubar>
+        </HoverMenuBar>
         <InterpretationsButton />
     </>
 )
