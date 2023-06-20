@@ -207,7 +207,7 @@ msgid "Only '{{number}}' in use"
 msgstr ""
 
 msgid "Levels"
-msgstr ""
+msgstr "Niveaus"
 
 msgid "Groups"
 msgstr "Groepen"
@@ -219,7 +219,7 @@ msgid "And {{numberOfItems}} others..."
 msgstr "En {{numberOfItems}} anderen..."
 
 msgid "Unsaved visualization"
-msgstr ""
+msgstr "Niet-opgeslagen visualisatie"
 
 msgid "Edited"
 msgstr "Bewerkt"
@@ -646,7 +646,7 @@ msgid "Something went wrong"
 msgstr "Er is iets fout gegaan."
 
 msgid "or"
-msgstr ""
+msgstr "of"
 
 msgid "Today"
 msgstr "Vandaag"
