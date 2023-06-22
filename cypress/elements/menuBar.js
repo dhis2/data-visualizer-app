@@ -7,10 +7,11 @@ export const clickMenuBarUpdateButton = () => cy.getBySel(updateButton).click()
 export const clickMenuBarFileButton = () =>
     cy.getBySel(menubarEl).contains('File').click()
 
-export const clickMenuBarOptionsButton = () =>
-    cy.getBySel(optionsButton).click()
+export function clickMenuBarOptionsButton() {
+    return cy.getBySel(optionsButton).click()
+}
 
 export const openOptionsModal = (section = 'Data') => {
-    clickMenubarOptionsButton()
+    clickMenuBarOptionsButton()
     return cy.getBySel('options-menu-list').contains(section).click()
 }
