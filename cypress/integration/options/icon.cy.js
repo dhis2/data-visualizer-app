@@ -129,8 +129,7 @@ describe('Icon', () => {
     })
     it('icon gets correct color when a legend is in use', () => {
         // enable the icon
-        clickMenuBarOptionsButton()
-        clickOptionsTab(OPTIONS_TAB_STYLE)
+        openOptionsModal(OPTIONS_TAB_STYLE)
         clickCheckbox('option-show-data-item-icon')
 
         // enable the legend
@@ -176,8 +175,7 @@ describe('Icon', () => {
         expectSingleValueToHaveIconColor('#ffffff')
 
         // switch to apply legend color to text
-        clickMenuBarOptionsButton()
-        clickOptionsTab(OPTIONS_TAB_LEGEND)
+        openOptionsModal(OPTIONS_TAB_LEGEND)
         changeDisplayStyleToText()
         clickOptionsModalUpdateButton()
 
