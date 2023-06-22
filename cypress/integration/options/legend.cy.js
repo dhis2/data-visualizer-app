@@ -745,7 +745,7 @@ describe('Options - Legend', () => {
             )
         })
         it('legend options are not available', () => {
-            clickMenuBarOptionsButton()
+            openOptionsModal()
             expectOptionsTabToBeHidden(OPTIONS_TAB_LEGEND)
             clickOptionsModalHideButton()
         })
