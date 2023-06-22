@@ -129,8 +129,7 @@ describe('Options - Font styles', () => {
             expectWindowConfigTitleToBeValue(CONFIG_DEFAULT_TITLE)
         })
         it('opens Options -> Style', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_STYLE)
+            openOptionsModal(OPTIONS_TAB_STYLE)
         })
         setFontStyleOptions({
             fontSize: TEST_FONT_SIZE_OPTION.input,
@@ -174,8 +173,7 @@ describe('Options - Font styles', () => {
             expectWindowConfigSubtitleToBeValue(CONFIG_DEFAULT_SUBTITLE)
         })
         it('opens Options -> Style', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_STYLE)
+            openOptionsModal(OPTIONS_TAB_STYLE)
         })
         it('sets a custom subtitle', () => {
             setCustomSubtitle(TEST_SUBTITLE_TEXT)
@@ -220,8 +218,7 @@ describe('Options - Font styles', () => {
         const prefix = TARGET_LINE_PREFIX
 
         it('opens Options -> Data', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_DATA)
+            openOptionsModal(OPTIONS_TAB_DATA)
         })
         it(`sets target line to ${TEST_VALUE}: "${TEST_LABEL}"`, () => {
             clickTargetLineCheckbox()
@@ -279,8 +276,7 @@ describe('Options - Font styles', () => {
         const prefix = BASE_LINE_PREFIX
 
         it('opens Options -> Data', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_DATA)
+            openOptionsModal(OPTIONS_TAB_DATA)
         })
         it(`sets base line to ${TEST_VALUE}: "${TEST_LABEL}"`, () => {
             clickBaseLineCheckbox()
@@ -336,8 +332,7 @@ describe('Options - Font styles', () => {
         const prefix = SERIES_KEY_PREFIX
 
         it('opens Options -> Style', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_STYLE)
+            openOptionsModal(OPTIONS_TAB_STYLE)
         })
         setFontStyleOptions({
             fontSize: TEST_FONT_SIZE_OPTION.input,
@@ -373,8 +368,7 @@ describe('Options - Font styles', () => {
         const prefix = VERTICAL_AXIS_LABELS_PREFIX
 
         it('opens Options -> Axes', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_AXES)
+            openOptionsModal(OPTIONS_TAB_AXES)
         })
         setFontStyleOptions({
             fontSize: TEST_FONT_SIZE_OPTION.input,
@@ -408,8 +402,7 @@ describe('Options - Font styles', () => {
         const prefix = HORIZONTAL_AXIS_LABELS_PREFIX
 
         it('opens Options -> Axes', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_AXES)
+            openOptionsModal(OPTIONS_TAB_AXES)
             switchAxesTabTo('Horizontal (x) axis')
         })
         setFontStyleOptions({
@@ -449,8 +442,7 @@ describe('Options - Font styles', () => {
         const prefix = HORIZONTAL_AXIS_TITLE_PREFIX
 
         it('opens Options -> Axes', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_AXES)
+            openOptionsModal(OPTIONS_TAB_AXES)
         })
         it(`sets horizontal axis title to "${TEST_TITLE}"`, () => {
             switchAxesTabTo('Horizontal (x) axis')
@@ -498,8 +490,7 @@ describe('Options - Font styles', () => {
         const prefix = VERTICAL_AXIS_TITLE_PREFIX
 
         it('opens Options -> Axes', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_AXES)
+            openOptionsModal(OPTIONS_TAB_AXES)
         })
         it(`sets vertical axis title to "${TEST_TITLE}"`, () => {
             setAxisTitleTextModeTo('Custom')

@@ -1,4 +1,4 @@
-const menubarEl = 'app-menubar'
+const menubarEl = 'dhis2-analytics-hovermenubar'
 const updateButton = 'app-menubar-update-button'
 const optionsButton = 'app-menubar-options-button'
 
@@ -9,3 +9,8 @@ export const clickMenuBarFileButton = () =>
 
 export const clickMenuBarOptionsButton = () =>
     cy.getBySel(optionsButton).click()
+
+export const openOptionsModal = (section = 'Data') => {
+    clickMenubarOptionsButton()
+    return cy.getBySel('options-menu-list').contains(section).click()
+}

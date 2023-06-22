@@ -96,8 +96,7 @@ describe('Icon', () => {
     TEST_TYPES.forEach((type) => {
         it(`icon shows when option is enabled for ${type}`, () => {
             // enable the icon
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_STYLE)
+            openOptionsModal(OPTIONS_TAB_STYLE)
             clickCheckbox('option-show-data-item-icon')
             clickOptionsModalHideButton()
 
