@@ -28,10 +28,7 @@ import {
     unselectAllItemsByButton,
 } from '../../elements/dimensionModal/index.js'
 import { openDimension } from '../../elements/dimensionsPanel.js'
-import {
-    clickMenuBarOptionsButton,
-    openOptionsModal,
-} from '../../elements/menuBar.js'
+import { openOptionsModal } from '../../elements/menuBar.js'
 import {
     OPTIONS_TAB_LEGEND,
     OPTIONS_TAB_STYLE,

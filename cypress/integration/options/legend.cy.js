@@ -31,7 +31,6 @@ import {
     openDimension,
 } from '../../elements/layout.js'
 import {
-    clickMenuBarOptionsButton,
     clickMenuBarUpdateButton,
     openOptionsModal,
 } from '../../elements/menuBar.js'
