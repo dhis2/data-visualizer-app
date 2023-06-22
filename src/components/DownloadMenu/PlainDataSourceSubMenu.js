@@ -21,7 +21,10 @@ export const PlainDataSourceSubMenu = ({
 
     return (
         <MenuItemComponent label={label} {...menuItemProps}>
-            <MenuSectionHeader label={i18n.t('Metadata ID scheme')} />
+            <MenuSectionHeader
+                label={i18n.t('Metadata ID scheme')}
+                hideDivider
+            />
             <MenuItemComponent
                 label={i18n.t('ID')}
                 onClick={() =>
