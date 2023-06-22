@@ -62,7 +62,7 @@ const VisualizationOptionsManager = ({
                 label={i18n.t('Options')}
                 dataTest={'app-menubar-options-button'}
             >
-                <HoverMenuList dataTest="file-menu-container">
+                <HoverMenuList dataTest="options-menu-list">
                     {optionsConfig.map(({ label, key }) => (
                         <HoverMenuListItem
                             key={key}
