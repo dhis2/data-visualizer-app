@@ -3,7 +3,6 @@ import { clickMenuBarFileButton } from '../menuBar.js'
 const deleteModalEl = 'file-menu-delete-modal'
 const fileMenuContainerEl = 'file-menu-container'
 const fileMenuToggleEl = 'file-menu-toggle'
-const fileMenuToggleLayerEl = 'file-menu-toggle-layer'
 
 export const FILE_MENU_BUTTON_NEW = 'New'
 export const FILE_MENU_BUTTON_OPEN = 'Open…'
@@ -16,8 +15,7 @@ export const FILE_MENU_BUTTON_SHARE = 'Share…'
 export const FILE_MENU_BUTTON_GETLINK = 'Get link…'
 export const FILE_MENU_BUTTON_DELETE = 'Delete'
 
-export const closeFileMenuWithClick = () =>
-    cy.getBySel(fileMenuToggleLayerEl).click('topLeft')
+export const closeFileMenuWithClick = () => cy.get('body').click()
 
 export const closeFileMenuWithEsc = () =>
     cy.getBySel(fileMenuToggleEl).type('{esc}', { force: true })
