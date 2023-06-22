@@ -1,4 +1,4 @@
-const menubarEl = 'dhis2-analytics-hovermenubar'
+export const menubarEl = 'dhis2-analytics-hovermenubar'
 const updateButton = 'app-menubar-update-button'
 const optionsButton = 'app-menubar-options-button'
 

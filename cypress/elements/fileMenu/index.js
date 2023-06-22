@@ -1,8 +1,7 @@
-import { clickMenuBarFileButton } from '../menuBar.js'
+import { clickMenuBarFileButton, menubarEl } from '../menuBar.js'
 
 const deleteModalEl = 'file-menu-delete-modal'
 const fileMenuContainerEl = 'file-menu-container'
-const fileMenuToggleEl = 'file-menu-toggle'
 
 export const FILE_MENU_BUTTON_NEW = 'New'
 export const FILE_MENU_BUTTON_OPEN = 'Open…'
@@ -18,8 +17,8 @@ export const FILE_MENU_BUTTON_DELETE = 'Delete'
 export const closeFileMenuWithClick = () => cy.get('body').click()
 
 export const closeFileMenuWithEsc = () =>
-    cy.getBySel(fileMenuToggleEl).type('{esc}', { force: true })
-// use force as the element that's being typed into is hidden
+    // use force as the element that's being typed into is hidden
+    cy.getBySel(menubarEl).contains('File').type('{esc}', { force: true })
 
 export const clickFileMenuButton = (buttonName) =>
     cy.getBySel(fileMenuContainerEl).contains(buttonName).click()
