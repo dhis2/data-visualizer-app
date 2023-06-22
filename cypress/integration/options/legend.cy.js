@@ -33,13 +33,13 @@ import {
 import {
     clickMenuBarOptionsButton,
     clickMenuBarUpdateButton,
+    openOptionsModal,
 } from '../../elements/menuBar.js'
 import {
     changeDisplayStrategyToFixed,
     changeDisplayStyleToText,
     changeFixedLegendSet,
     clickOptionsModalUpdateButton,
-    clickOptionsTab,
     toggleLegend,
     expectFixedLegendSetToBe,
     expectLegendDisplayStrategyToBeByDataItem,

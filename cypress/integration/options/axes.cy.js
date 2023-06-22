@@ -8,7 +8,7 @@ import {
     clickDimensionModalUpdateButton,
 } from '../../elements/dimensionModal/index.js'
 import { openDimension } from '../../elements/dimensionsPanel.js'
-import { clickMenuBarOptionsButton } from '../../elements/menuBar.js'
+import { openOptionsModal } from '../../elements/menuBar.js'
 import {
     clickOptionsModalUpdateButton,
     clickOptionsTab,
