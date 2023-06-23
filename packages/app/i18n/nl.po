@@ -314,10 +314,10 @@ msgid "Number"
 msgstr "Nummer"
 
 msgid "Column sub-totals"
-msgstr ""
+msgstr "Kolom subtotalen"
 
 msgid "Columns totals"
-msgstr ""
+msgstr "Kolommen totalen"
 
 msgid "Event data"
 msgstr ""
@@ -332,43 +332,43 @@ msgid "Cumulative values"
 msgstr ""
 
 msgid "Digit group separator"
-msgstr ""
+msgstr "Scheidingsteken voor cijfergroepen"
 
 msgid "None"
 msgstr "Geen"
 
 msgid "Space"
-msgstr ""
+msgstr "Ruimte"
 
 msgid "Comma"
-msgstr ""
+msgstr "Komma"
 
 msgid "Display density"
-msgstr ""
+msgstr "Dichtheid weergeven"
 
 msgid "Comfortable"
-msgstr ""
+msgstr "Comfortabel"
 
 msgid "Normal"
-msgstr ""
+msgstr "Normaal"
 
 msgid "Compact"
-msgstr ""
+msgstr "Compact"
 
 msgid "Axis title"
 msgstr ""
 
 msgid "Add a title"
-msgstr ""
+msgstr "Voeg een titel toe"
 
 msgid "Font size"
-msgstr ""
+msgstr "Lettertypegrootte"
 
 msgid "Large"
-msgstr ""
+msgstr "Groot"
 
 msgid "Small"
-msgstr ""
+msgstr "Klein"
 
 msgid "Hide empty columns"
 msgstr ""
@@ -389,7 +389,7 @@ msgid "All"
 msgstr "Alle"
 
 msgid "Hide empty rows"
-msgstr ""
+msgstr "Verberg lege rijen"
 
 msgid "Show legend key"
 msgstr "Toon legendasleutel"
@@ -407,7 +407,7 @@ msgid "Custom"
 msgstr ""
 
 msgid "Table title"
-msgstr ""
+msgstr "Tabel titel"
 
 msgid "Chart title"
 msgstr "Grafiektitel"
@@ -416,31 +416,31 @@ msgid "Display legend"
 msgstr ""
 
 msgid "Legend style"
-msgstr ""
+msgstr "Legenda stijl"
 
 msgid "Legend type"
-msgstr ""
+msgstr "Legenda type"
 
 msgid "Use pre-defined legend per data item"
-msgstr ""
+msgstr "Gebruik vooraf gedefinieerde legenda per gegevensitem"
 
 msgid "Select a single legend for entire table"
 msgstr ""
 
 msgid "Legend changes background color"
-msgstr ""
+msgstr "Legenda verandert achtergrondkleur"
 
 msgid "Legend changes text color"
-msgstr ""
+msgstr "Legenda verandert tekstkleur"
 
 msgid "Legend"
 msgstr "Legenda"
 
 msgid "Select from legends"
-msgstr ""
+msgstr "Kies uit legenda's"
 
 msgid "Loading legends"
-msgstr ""
+msgstr "Legenda's laden"
 
 msgid ""
 "You can set a minimum or maximum value. This will apply to the entire table,"
@@ -448,13 +448,13 @@ msgid ""
 msgstr ""
 
 msgid "Minimum data value"
-msgstr ""
+msgstr "Minimale gegevenswaarde"
 
 msgid "Maximum data value"
-msgstr ""
+msgstr "Maximale gegevenswaarde"
 
 msgid "Clear min/max limits"
-msgstr ""
+msgstr "Verwijder min/max limieten"
 
 msgid "No space between bars/columns"
 msgstr ""
@@ -513,19 +513,19 @@ msgid "Loess"
 msgstr "Löss"
 
 msgid "Row sub-totals"
-msgstr ""
+msgstr "Rij subtotalen"
 
 msgid "Row totals"
-msgstr ""
+msgstr "Rij totalen"
 
 msgid "Value labels"
 msgstr ""
 
 msgid "Dimension labels"
-msgstr ""
+msgstr "Maatlabels"
 
 msgid "Display organisation unit hierarchy"
-msgstr ""
+msgstr "Hiërarchie van organisatie-eenheden weergeven"
 
 msgid "Skip rounding"
 msgstr ""
@@ -573,12 +573,14 @@ msgid "Expected reports"
 msgstr ""
 
 msgid "No data available"
-msgstr ""
+msgstr "Geen gegevens beschikbaar"
 
 msgid ""
 "The selected dimensions didn’t return any data. There may be no data, or you"
 " may not have access to it."
 msgstr ""
+"De geselecteerde dimensies hebben geen gegevens geretourneerd. Mogelijk zijn"
+" er geen gegevens of hebt u er geen toegang toe."
 
 msgid "{{axisName}} is empty"
 msgstr ""
@@ -628,6 +630,7 @@ msgstr ""
 
 msgid "There was a problem getting the data from the server."
 msgstr ""
+"Er is een probleem opgetreden bij het ophalen van de gegevens van de server."
 
 msgid "Assigned Categories can only be used with data elements"
 msgstr ""
@@ -763,7 +766,7 @@ msgid "Data"
 msgstr "Gegevens"
 
 msgid "Display"
-msgstr ""
+msgstr "Weergave"
 
 msgid "Axes"
 msgstr ""
@@ -796,13 +799,13 @@ msgid "Labels"
 msgstr "Labels"
 
 msgid "Limit values"
-msgstr ""
+msgstr "Grenswaarden"
 
 msgid "Limit number of values"
-msgstr ""
+msgstr "Limiet aantal waarden"
 
 msgid "Limit minimum/maximum values"
-msgstr ""
+msgstr "Limiet minimum/maximum waarden"
 
 msgid "Parameters"
 msgstr ""
