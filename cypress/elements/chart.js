@@ -18,8 +18,8 @@ const highchartsSubtitleEl = '.highcharts-subtitle'
 const highchartsSeriesKeyItemEl = '.highcharts-legend-item'
 const highchartsChartItemEl = '.highcharts-series'
 const unsavedVisualizationTitleText = 'Unsaved visualization'
-const AOTitleEl = 'AO-title'
-const AOTitleDirtyEl = 'AO-title-dirty'
+const AOTitleEl = 'titlebar'
+const AOTitleDirtyEl = 'titlebar-dirty'
 const timeout = {
     timeout: 40000,
 }
