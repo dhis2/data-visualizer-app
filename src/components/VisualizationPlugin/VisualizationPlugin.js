@@ -41,6 +41,26 @@ export const VisualizationPlugin = ({
     const [contextualMenuConfig, setContextualMenuConfig] = useState({})
     const [showLegendKey, setShowLegendKey] = useState(false)
     const [renderId, setRenderId] = useState(id)
+    const [size, setSize] = useState({ width: 0, height: 0 })
+
+    const containerCallbackRef = useCallback((node) => {
+        if (node === null) {
+            return
+        }
+
+        const adjustSize = () =>
+            setSize({
+                width: node.clientWidth,
+                height: node.clientHeight,
+            })
+
+        const sizeObserver = new window.ResizeObserver(adjustSize)
+        sizeObserver.observe(node)
+
+        adjustSize()
+
+        return sizeObserver.disconnect
+    }, [])
 
     useEffect(() => setRenderId(id), [id])
 
@@ -283,7 +303,7 @@ export const VisualizationPlugin = ({
         forDashboard && hasLegendSet
             ? {
                   ...style,
-                  width: style.width - (showLegendKey ? 200 : 36),
+                  width: style.width || size.width - (showLegendKey ? 200 : 36),
                   // 200: width of legend key component with margin and scrollbar
                   // 36: width of the toggle button with margin
               }
@@ -292,7 +312,7 @@ export const VisualizationPlugin = ({
     // force height when no value available otherwise the PivotTable container sets 0 as height hiding the table content
     // and Highcharts does not render correctly the chart/legend
     if (!transformedStyle.height) {
-        transformedStyle.height = '100%'
+        transformedStyle.height = size.height || '100%'
     }
 
     const getLegendKey = () => {
@@ -343,7 +363,7 @@ export const VisualizationPlugin = ({
     }
 
     return (
-        <div className={styles.container}>
+        <div className={styles.container} ref={containerCallbackRef}>
             <div className={styles.chartWrapper}>
                 {!fetchResult.visualization.type ||
                 fetchResult.visualization.type === VIS_TYPE_PIVOT_TABLE ? (
