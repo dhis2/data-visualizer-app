@@ -1,15 +1,15 @@
 # 
 # Translators:
 # Caroline Hesthagen Holen <caroline@devotta.no>, 2022
-# Karoline Tufte Lien <karoline@dhis2.org>, 2022
+# Karoline Tufte Lien <karoline@dhis2.org>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-08-25T09:58:02.683Z\n"
+"POT-Creation-Date: 2023-03-07T12:07:38.393Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2022\n"
-"Language-Team: Norwegian Bokmål (https://www.transifex.com/hisp-uio/teams/100509/nb/)\n"
+"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2023\n"
+"Language-Team: Norwegian Bokmål (https://app.transifex.com/hisp-uio/teams/100509/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -198,7 +198,7 @@ msgid "Only '{{number}}' in use"
 msgstr "Bare '{{nummer}}' er i bruk"
 
 msgid "All items are selected"
-msgstr ""
+msgstr "Alle elementer er valgt"
 
 msgid "Levels"
 msgstr "Nivå"
@@ -391,6 +391,12 @@ msgstr "Inkluder kumulativ"
 
 msgid "Cumulative values"
 msgstr "Kumulative verdier"
+
+msgid "Show data item icon"
+msgstr ""
+
+msgid "If the data item has an icon, display it next to the value"
+msgstr ""
 
 msgid "Digit group separator"
 msgstr "Siffergruppeseparator"
@@ -694,6 +700,12 @@ msgstr "Toppgrense"
 msgid "Options"
 msgstr "Alternativer"
 
+msgid "Change org unit"
+msgstr "Bytt organisasjonsenhet"
+
+msgid "{{level}} level in {{orgunit}}"
+msgstr "{{level}} level i {{orgunit}}"
+
 msgid "Open as Map"
 msgstr "Åpne som kart"
 
@@ -701,21 +713,6 @@ msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
 msgstr ""
 "Vis data på et verdenskart visuelt. Dataelementer bruker separate kartlag."
-
-msgid "Reporting rate"
-msgstr "Rapporteringfrekvens"
-
-msgid "Reporting rate on time"
-msgstr "Rapporteringsfrekvens i tide"
-
-msgid "Actual reports"
-msgstr "Faktiske rapporter"
-
-msgid "Actual reports on time"
-msgstr "Faktiske rapporter i tide"
-
-msgid "Expected reports"
-msgstr "Forventede rapporter"
 
 msgid "No data available"
 msgstr "Ingen data tilgjengelig"
@@ -792,11 +789,9 @@ msgid "There's a problem with the layout"
 msgstr "Det er et problem med oppsettet"
 
 msgid ""
-"A single indicator must be the only data item when using indicators as Data "
-"in Filter."
+"A single indicator or calculation must be the only data item when using "
+"indicators or calculations as Data in Filter."
 msgstr ""
-"En enkelt indikator må være det eneste datapunktet når du bruker indikatorer"
-" som Data i filter."
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
 msgstr ""
@@ -837,6 +832,14 @@ msgid "No organization units found"
 msgstr ""
 
 msgid "The level or group selections didn't return any organization units."
+msgstr ""
+
+msgid "Invalid data type"
+msgstr ""
+
+msgid ""
+"The selected data dimensions didn't return any valid data. This "
+"visualization type can only display numerical data."
 msgstr ""
 
 msgid "Something went wrong"

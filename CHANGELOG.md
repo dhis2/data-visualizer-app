@@ -1,3 +1,36 @@
+## [100.0.3](https://github.com/dhis2/data-visualizer-app/compare/v100.0.2...v100.0.3) (2023-05-03)
+
+
+### Bug Fixes
+
+* plugin sends installation status ([#2277](https://github.com/dhis2/data-visualizer-app/issues/2277)) ([de989c3](https://github.com/dhis2/data-visualizer-app/commit/de989c317dcf8fa1fad2d4240f3d0381f3273b5b))
+
+## [100.0.2](https://github.com/dhis2/data-visualizer-app/compare/v100.0.1...v100.0.2) (2023-03-27)
+
+
+### Bug Fixes
+
+* remove translucent layer by using app-scripts 10.3.4 (DHIS2-15008) ([#2251](https://github.com/dhis2/data-visualizer-app/issues/2251)) ([9d62ca7](https://github.com/dhis2/data-visualizer-app/commit/9d62ca7f4946a9ec3c9db7a17cfea0f9055daeb7))
+
+## [100.0.1](https://github.com/dhis2/data-visualizer-app/compare/v100.0.0...v100.0.1) (2023-03-23)
+
+
+### Bug Fixes
+
+* set height on chart container when not defined ([#2246](https://github.com/dhis2/data-visualizer-app/issues/2246)) ([#2250](https://github.com/dhis2/data-visualizer-app/issues/2250)) ([a922569](https://github.com/dhis2/data-visualizer-app/commit/a922569cb9ca8683e602bd070c1e45cd67c87049))
+
+# [100.0.0](https://github.com/dhis2/data-visualizer-app/compare/v99.0.0...v100.0.0) (2023-02-27)
+
+
+### chore
+
+* prepare app for continuous delivery ([8db6c88](https://github.com/dhis2/data-visualizer-app/commit/8db6c88908fde153adc646cd1f13f25a55edf299))
+
+
+### BREAKING CHANGES
+
+* v100.0.0
+
 ## [39.2.15](https://github.com/dhis2/data-visualizer-app/compare/v39.2.14...v39.2.15) (2022-10-27)
 
 

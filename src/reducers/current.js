@@ -24,18 +24,19 @@ export const CLEAR_CURRENT = 'CLEAR_CURRENT'
 
 export const DEFAULT_CURRENT = null
 
-const getDefaultFromUi = (state, action) => {
+const getDefaultFromUi = (state, ui, metadata) => {
     const adaptedUi = {
-        ...action.value,
-        itemsByDimension: getItemsByDimensionFromUi(action.value),
+        ...ui,
+        itemsByDimension: getItemsByDimensionFromUi(ui),
     }
-    const axesFromUi = getAxesFromUi(adaptedUi)
+
+    const axesFromUi = getAxesFromUi(adaptedUi, metadata)
     const optionsFromUi = getOptionsFromUi(adaptedUi)
     const series = getSeriesFromUi(adaptedUi)
 
     return {
         ...state,
-        [BASE_FIELD_TYPE]: action.value.type,
+        [BASE_FIELD_TYPE]: ui.type,
         ...axesFromUi,
         ...optionsFromUi,
         series,
@@ -48,19 +49,23 @@ export default (state = DEFAULT_CURRENT, action) => {
             return action.value
         }
         case SET_CURRENT_FROM_UI: {
-            switch (action.value.type) {
+            switch (action.value.ui.type) {
                 case VIS_TYPE_PIE:
-                    return getPieCurrentFromUi(state, action)
+                    return getPieCurrentFromUi(state, action.value.ui)
                 case VIS_TYPE_SINGLE_VALUE:
                 case VIS_TYPE_GAUGE:
-                    return getSingleValueCurrentFromUi(state, action)
+                    return getSingleValueCurrentFromUi(state, action.value.ui)
                 case VIS_TYPE_YEAR_OVER_YEAR_LINE:
                 case VIS_TYPE_YEAR_OVER_YEAR_COLUMN:
-                    return getYearOverYearCurrentFromUi(state, action)
+                    return getYearOverYearCurrentFromUi(state, action.value.ui)
                 case VIS_TYPE_SCATTER:
-                    return getScatterCurrentFromUi(state, action)
+                    return getScatterCurrentFromUi(state, action.value.ui)
                 default: {
-                    return getDefaultFromUi(state, action)
+                    return getDefaultFromUi(
+                        state,
+                        action.value.ui,
+                        action.value.metadata
+                    )
                 }
             }
         }
@@ -79,17 +84,17 @@ export const sGetCurrentFromUi = (state) => {
 
     switch (ui.type) {
         case VIS_TYPE_PIE:
-            return getPieCurrentFromUi(state, { value: ui })
+            return getPieCurrentFromUi(state, ui)
         case VIS_TYPE_SINGLE_VALUE:
         case VIS_TYPE_GAUGE:
-            return getSingleValueCurrentFromUi(state, { value: ui })
+            return getSingleValueCurrentFromUi(state, ui)
         case VIS_TYPE_YEAR_OVER_YEAR_LINE:
         case VIS_TYPE_YEAR_OVER_YEAR_COLUMN:
-            return getYearOverYearCurrentFromUi(state, { value: ui })
+            return getYearOverYearCurrentFromUi(state, ui)
         case VIS_TYPE_SCATTER:
-            return getScatterCurrentFromUi(state, { value: ui })
+            return getScatterCurrentFromUi(state, ui)
         default: {
-            return getDefaultFromUi(state, { value: ui })
+            return getDefaultFromUi(state, ui)
         }
     }
 }

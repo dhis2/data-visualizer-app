@@ -79,6 +79,9 @@ export const options = {
         defaultValue: null,
     },
 
+    // only for SV
+    icons: { defaultValue: false, requestable: false, savable: true },
+
     // only for PT
     colTotals: { defaultValue: false, requestable: false, savable: true },
     colSubTotals: { defaultValue: false, requestable: false, savable: true },
@@ -197,6 +200,9 @@ export const getOptionsFromVisualization = (visualization) => {
             }
         }
     )
+
+    // if array has at least one element, convert into boolean
+    optionsFromVisualization.icons = Boolean(visualization.icons?.length)
 
     // nested options under reportingParams
     if (visualization.reportingParams) {

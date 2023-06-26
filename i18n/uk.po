@@ -9,21 +9,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-08-25T09:58:02.683Z\n"
+"POT-Creation-Date: 2023-03-07T12:07:38.393Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Éva Tamási, 2022\n"
-"Language-Team: Ukrainian (https://www.transifex.com/hisp-uio/teams/100509/uk/)\n"
+"Language-Team: Ukrainian (https://app.transifex.com/hisp-uio/teams/100509/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
-
-msgid "Change org unit"
-msgstr "Змінити організаційний підрозділ"
-
-msgid "{{level}} level in {{orgunit}}"
-msgstr "{{level}} рівень в {{orgunit}}"
 
 msgid "All items"
 msgstr "Всі елементи"
@@ -402,6 +396,12 @@ msgstr "Включити сукупне значення"
 msgid "Cumulative values"
 msgstr "Сукупні значення"
 
+msgid "Show data item icon"
+msgstr ""
+
+msgid "If the data item has an icon, display it next to the value"
+msgstr ""
+
 msgid "Digit group separator"
 msgstr "Роздільник груп цифр"
 
@@ -713,6 +713,12 @@ msgstr "Верхня межа"
 msgid "Options"
 msgstr "Опції"
 
+msgid "Change org unit"
+msgstr "Змінити організаційний підрозділ"
+
+msgid "{{level}} level in {{orgunit}}"
+msgstr "{{level}} рівень в {{orgunit}}"
+
 msgid "Open as Map"
 msgstr "Відкрити як мапу"
 
@@ -721,21 +727,6 @@ msgid ""
 msgstr ""
 "Візуально наносити дані на карту світу. Елементи даних використовують окремі"
 " шари карти."
-
-msgid "Reporting rate"
-msgstr "Частота повідомлень"
-
-msgid "Reporting rate on time"
-msgstr "Частота повідомлень у часі"
-
-msgid "Actual reports"
-msgstr "Фактичні звіти"
-
-msgid "Actual reports on time"
-msgstr "Фактичні звіти за часом"
-
-msgid "Expected reports"
-msgstr "Очікувані звіти"
 
 msgid "No data available"
 msgstr "Немає даних"
@@ -815,11 +806,9 @@ msgid "There's a problem with the layout"
 msgstr "Виникла проблема з макетом"
 
 msgid ""
-"A single indicator must be the only data item when using indicators as Data "
-"in Filter."
+"A single indicator or calculation must be the only data item when using "
+"indicators or calculations as Data in Filter."
 msgstr ""
-"Єдиний індикатор повинен бути єдиним елементом даних при використанні "
-"індикаторів як даних у фільтрі."
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
 msgstr ""
@@ -863,6 +852,14 @@ msgstr "Не знайдено організаційних підрозділі�
 
 msgid "The level or group selections didn't return any organization units."
 msgstr "Вибір рівня або групи не повернув жодного організаційного підрозділу."
+
+msgid "Invalid data type"
+msgstr ""
+
+msgid ""
+"The selected data dimensions didn't return any valid data. This "
+"visualization type can only display numerical data."
+msgstr ""
 
 msgid "Something went wrong"
 msgstr "Сталася помилка"

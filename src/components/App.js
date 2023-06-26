@@ -112,7 +112,7 @@ export class UnconnectedApp extends Component {
                 this.props.clearCurrent()
 
                 this.props.setUiFromVisualization(this.props.currentAO)
-                this.props.setCurrentFromUi(this.props.ui)
+                this.props.setCurrentFromUi()
             }
 
             if (!urlContainsCurrentAOKey && this.refetch(location)) {
@@ -198,7 +198,7 @@ export class UnconnectedApp extends Component {
             (e) =>
                 e.key === 'Enter' &&
                 e.ctrlKey === true &&
-                this.props.setCurrentFromUi(this.props.ui)
+                this.props.setCurrentFromUi()
         )
 
         window.addEventListener('beforeunload', (event) => {
@@ -346,7 +346,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-    setCurrentFromUi: fromActions.fromCurrent.acSetCurrentFromUi,
+    setCurrentFromUi: fromActions.fromCurrent.tSetCurrentFromUi,
     clearVisualization: fromActions.fromVisualization.acClear,
     clearCurrent: fromActions.fromCurrent.acClear,
     setUiFromVisualization: fromActions.fromUi.acSetUiFromVisualization,

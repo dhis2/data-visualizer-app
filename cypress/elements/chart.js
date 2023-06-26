@@ -10,6 +10,7 @@ import {
 
 const visualizationContainerEl = 'visualization-container'
 const visualizationTitleEl = 'visualization-title'
+const visualizationSubtitleEl = 'visualization-subtitle'
 const chartContainerEl = '.highcharts-container'
 const highchartsLegendEl = '.highcharts-legend'
 const highchartsTitleEl = '.highcharts-title'
@@ -17,10 +18,10 @@ const highchartsSubtitleEl = '.highcharts-subtitle'
 const highchartsSeriesKeyItemEl = '.highcharts-legend-item'
 const highchartsChartItemEl = '.highcharts-series'
 const unsavedVisualizationTitleText = 'Unsaved visualization'
-const AOTitleEl = 'AO-title'
-const AOTitleDirtyEl = 'AO-title-dirty'
+const AOTitleEl = 'titlebar'
+const AOTitleDirtyEl = 'titlebar-dirty'
 const timeout = {
-    timeout: 20000,
+    timeout: 40000,
 }
 const nonHighchartsTypes = [VIS_TYPE_PIVOT_TABLE, VIS_TYPE_SINGLE_VALUE]
 
@@ -111,3 +112,12 @@ export const clickChartItem = (index) =>
 
 export const expectChartItemsToHaveLength = (length) =>
     cy.get(highchartsChartItemEl).children().should('have.length', length)
+
+export const expectSVTitleToHaveColor = (color) =>
+    cy.getBySel(visualizationTitleEl).invoke('attr', 'fill').should('eq', color)
+
+export const expectSVSubtitleToHaveColor = (color) =>
+    cy
+        .getBySel(visualizationSubtitleEl)
+        .invoke('attr', 'fill')
+        .should('eq', color)

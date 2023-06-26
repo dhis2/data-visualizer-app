@@ -26,6 +26,15 @@ const rightHeaderEl = 'data-dimension-transfer-rightheader'
 const searchFieldEl = 'data-dimension-left-header-filter-input-field-content'
 const emptySourceEl = 'data-dimension-empty-source'
 
+const expectItemsToBeInSource = (items) => {
+    cy.getBySelLike('transfer-sourceoptions').should(($elems) => {
+        const $container = $elems.first()
+        expect($container).to.have.class('container')
+        const $options = $container.find('[data-test*="transfer-option"]')
+        items.forEach((item) => expect($options).to.contain(item))
+    })
+}
+
 export const expectDataDimensionModalToBeVisible = () =>
     expectDimensionModalToBeVisible(DIMENSION_ID_DATA)
 
@@ -46,8 +55,9 @@ export const scrollSourceToBottom = () => {
 }
 
 export const selectDataElements = (dataElements) => {
-    switchDataTypeTo('Data elements')
     expectSourceToNotBeLoading()
+    switchDataTypeTo('Data elements')
+    expectItemsToBeInSource(dataElements)
     dataElements.forEach((item) => selectItemByDoubleClick(item))
 }
 
@@ -55,8 +65,9 @@ export const selectFirstDataItem = () =>
     cy.getBySel(selectableItemsEl).findBySel(optionContentEl).eq(0).dblclick()
 
 export const selectIndicators = (indicators) => {
-    switchDataTypeTo('Indicators')
     expectSourceToNotBeLoading()
+    switchDataTypeTo('Indicators')
+    expectItemsToBeInSource(indicators)
     indicators.forEach((item) => selectItemByDoubleClick(item))
 }
 
@@ -78,6 +89,8 @@ export const expectGroupSelectToBe = (group) =>
 
 export const switchGroupTo = (group) => {
     cy.getBySel(groupSelectButtonEl).click()
+    cy.getBySelLike(groupSelectOptionEl).should('have.length.least', 2)
+    cy.getBySelLike('singleselect-loading').should('not.exist')
     cy.getBySelLike(groupSelectOptionEl).contains(group).click()
 }
 
@@ -118,6 +131,30 @@ export const clearSearchTerm = () => {
 export const expectEmptySourceMessageToBe = (message) => {
     cy.getBySel(emptySourceEl).should('contain', message)
 }
+
+export const clickEDIEditButton = (item) =>
+    cy
+        .getBySel(optionContentEl)
+        .contains(item)
+        .parent()
+        .findBySel('data-dimension-transfer-option-edit-button')
+        .click()
+
+export const expectSelectableDataItemsAmountToBe = (amount) =>
+    cy.getBySelLike('transfer-sourceoptions').should(($elems) => {
+        const $container = $elems.first()
+        expect(
+            $container.find('[data-test="data-dimension-transfer-option"]')
+        ).to.have.lengthOf(amount)
+    })
+
+export const expectSelectableDataItemsAmountToBeLeast = (amount) =>
+    cy.getBySelLike('transfer-sourceoptions').should(($elems) => {
+        const $container = $elems.first()
+        expect(
+            $container.find('[data-test="data-dimension-transfer-option"]')
+        ).to.have.length.of.at.least(amount)
+    })
 
 /* TODO: Find a way to use random items
     export const replaceDataItemsWithRandomDataElements = amount => {
