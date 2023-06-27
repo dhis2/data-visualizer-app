@@ -3,6 +3,10 @@
     margin-left: auto;
 }
 
+.arrowIcon.listIsOpen {
+    transform: rotate(180deg);
+}
+
 .button {
     padding: 7px var(--spacers-dp8);
     display: flex;
@@ -13,8 +17,15 @@
     flex-grow: 1
 }
 
-.button > span {
+.button:hover,
+.button.listIsOpen {
+    background-color: var(--colors-grey200);
+}
+
+.button > .selectedVizTypeLabel {
     font-size: 14px;
+    padding-top: 1px;
+    user-select: none;
 }
 
 .cardContainer {
