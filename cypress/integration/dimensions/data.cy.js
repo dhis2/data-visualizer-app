@@ -35,6 +35,7 @@ import {
     expectSourceToNotBeLoading,
     unselectAllItemsByButton,
     selectAllItemsByButton,
+    expectDataItemsToBeInSource,
 } from '../../elements/dimensionModal/index.js'
 import { openDimension } from '../../elements/dimensionsPanel.js'
 import { goToStartPage } from '../../elements/startScreen.js'
@@ -314,6 +315,7 @@ describe('Data dimension', () => {
                 })
             }
             it('an item can be selected', () => {
+                expectDataItemsToBeInSource([testDataType.testItem.name])
                 selectItemByDoubleClick(testDataType.testItem.name)
                 expectItemToBeSelected(testDataType.testItem.name)
             })

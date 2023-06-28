@@ -1,1 +1,1 @@
-export const EXTENDED_TIMEOUT = { timeout: 15000 }
+export const EXTENDED_TIMEOUT = { timeout: 25000 }

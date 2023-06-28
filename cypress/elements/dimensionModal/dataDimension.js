@@ -26,7 +26,7 @@ const rightHeaderEl = 'data-dimension-transfer-rightheader'
 const searchFieldEl = 'data-dimension-left-header-filter-input-field-content'
 const emptySourceEl = 'data-dimension-empty-source'
 
-const expectItemsToBeInSource = (items) => {
+export const expectDataItemsToBeInSource = (items) => {
     cy.getBySelLike('transfer-sourceoptions').should(($elems) => {
         const $container = $elems.first()
         expect($container).to.have.class('container')
@@ -57,7 +57,7 @@ export const scrollSourceToBottom = () => {
 export const selectDataElements = (dataElements) => {
     expectSourceToNotBeLoading()
     switchDataTypeTo('Data elements')
-    expectItemsToBeInSource(dataElements)
+    expectDataItemsToBeInSource(dataElements)
     dataElements.forEach((item) => selectItemByDoubleClick(item))
 }
 
@@ -67,7 +67,7 @@ export const selectFirstDataItem = () =>
 export const selectIndicators = (indicators) => {
     expectSourceToNotBeLoading()
     switchDataTypeTo('Indicators')
-    expectItemsToBeInSource(indicators)
+    expectDataItemsToBeInSource(indicators)
     indicators.forEach((item) => selectItemByDoubleClick(item))
 }
 
