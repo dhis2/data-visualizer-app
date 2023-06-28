@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import React from 'react'
 import AxisLabels from '../../components/VisualizationOptions/Options/AxisLabels.js'
 import AxisRange from '../../components/VisualizationOptions/Options/AxisRange.js'

@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import {
     FONT_STYLE_HORIZONTAL_AXIS_TITLE,
     FONT_STYLE_VERTICAL_AXIS_TITLE,
