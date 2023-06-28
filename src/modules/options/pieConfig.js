@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import React from 'react'
 import SkipRounding from '../../components/VisualizationOptions/Options/SkipRounding.js'
 import getAdvancedSection from './sections/advanced.js'

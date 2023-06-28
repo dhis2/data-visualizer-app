@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import React from 'react'
 import DataIcon from '../../components/VisualizationOptions/Options/DataIcon.js'
 import DigitGroupSeparator from '../../components/VisualizationOptions/Options/DigitGroupSeparator.js'
