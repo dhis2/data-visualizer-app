@@ -131,6 +131,7 @@ export {
     clickEDIEditButton,
     expectSelectableDataItemsAmountToBeLeast,
     expectSelectableDataItemsAmountToBe,
+    expectDataItemsToBeInSource,
 } from './dataDimension.js'
 
 export {
