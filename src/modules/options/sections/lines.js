@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import i18n from '@dhis2/d2-i18n'
 import React from 'react'
 import { InfoText } from '../../../components/VisualizationOptions/InfoText.js'
