@@ -19,6 +19,7 @@ export const TableMenu = ({ hoverable, onDownload }) => {
                 key="table-header"
                 label={i18n.t('Table layout')}
                 hideDivider
+                dense={hoverable}
             />
             <MenuItemComponent
                 key="xls"

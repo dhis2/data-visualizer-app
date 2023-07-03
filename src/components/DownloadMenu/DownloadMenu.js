@@ -32,7 +32,10 @@ const DownloadMenu = ({
                     onDownload={onDownloadImage}
                 />
             )}
-            <MenuSectionHeader label={i18n.t('Plain data source')} />
+            <MenuSectionHeader
+                label={i18n.t('Plain data source')}
+                dense={hoverable}
+            />
             <PlainDataSourceSubMenu
                 hoverable={hoverable}
                 onDownload={onDownloadData}

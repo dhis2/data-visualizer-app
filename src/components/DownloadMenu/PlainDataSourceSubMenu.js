@@ -24,6 +24,7 @@ export const PlainDataSourceSubMenu = ({
             <MenuSectionHeader
                 label={i18n.t('Metadata ID scheme')}
                 hideDivider
+                dense={hoverable}
             />
             <MenuItemComponent
                 label={i18n.t('ID')}

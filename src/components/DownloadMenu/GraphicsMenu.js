@@ -20,6 +20,7 @@ export const GraphicsMenu = ({ hoverable, onDownload }) => {
                 key="graphics-header"
                 label={i18n.t('Graphics')}
                 hideDivider
+                dense={hoverable}
             />
             <MenuItemComponent
                 key="png"

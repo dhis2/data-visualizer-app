@@ -21,7 +21,10 @@ export const AdvancedSubMenu = ({
 
     return (
         <MenuItemComponent label={label} {...menuItemProps}>
-            <MenuSectionHeader label={i18n.t('Data value set')} />
+            <MenuSectionHeader
+                label={i18n.t('Data value set')}
+                dense={hoverable}
+            />
             <MenuItemComponent
                 label={i18n.t('JSON')}
                 onClick={() =>
@@ -42,7 +45,10 @@ export const AdvancedSubMenu = ({
                     })
                 }
             />
-            <MenuSectionHeader label={i18n.t('Other formats')} />
+            <MenuSectionHeader
+                label={i18n.t('Other formats')}
+                dense={hoverable}
+            />
             <MenuItemComponent
                 label={i18n.t('JRXML')}
                 onClick={() =>
