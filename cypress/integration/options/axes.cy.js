@@ -95,13 +95,16 @@ describe('Options - Vertical axis', () => {
             clickOptionsModalUpdateButton()
             expectChartTitleToBeVisible()
         })
-        it(`config has range min value "${TEST_MIN_VALUE}"`, () => {
+        it('config has range min value', () => {
+            cy.log(`Value: ${TEST_MIN_VALUE}`)
             expectWindowConfigYAxisToHaveRangeMinValue(TEST_MIN_VALUE)
         })
-        it(`config has range max value "${TEST_MAX_VALUE}"`, () => {
+        it('config has range max value', () => {
+            cy.log(`Value: ${TEST_MAX_VALUE}`)
             expectWindowConfigYAxisToHaveRangeMaxValue(TEST_MAX_VALUE)
         })
-        it(`config has steps value "${TEST_STEPS_VALUE}"`, () => {
+        it('config has steps value', () => {
+            cy.log(`Value: ${TEST_STEPS_VALUE}`)
             expectWindowConfigYAxisToHaveStepsValue(TEST_STEPS_VALUE)
         })
         // Note: the output of setting the decimals option can't be evaluated using the config
@@ -114,10 +117,12 @@ describe('Options - Vertical axis', () => {
         it(`title is "${TEST_TITLE}"`, () => {
             expectAxisTitleToBeValue(TEST_AXIS, TEST_TITLE)
         })
-        it(`range min is "${TEST_MIN_VALUE}"`, () => {
+        it('range min is set', () => {
+            cy.log(`Value: ${TEST_MIN_VALUE}`)
             expectAxisRangeMinToBeValue(TEST_AXIS, TEST_MIN_VALUE)
         })
-        it(`range max is "${TEST_MAX_VALUE}"`, () => {
+        it('range max is set', () => {
+            cy.log(`Value: ${TEST_MAX_VALUE}`)
             expectAxisRangeMaxToBeValue(TEST_AXIS, TEST_MAX_VALUE)
         })
     })
