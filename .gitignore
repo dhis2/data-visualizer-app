@@ -6,6 +6,7 @@ build
 coverage
 cypress.env.json
 cypress/screenshots
+cypress/videos
 
 # Custom
 .vscode
