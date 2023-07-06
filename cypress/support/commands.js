@@ -1,3 +1,5 @@
+import '@dhis2/cypress-commands'
+
 Cypress.Commands.add('getReduxState', (prop) =>
     cy.window().its('store').invoke('getState').its(prop)
 )
