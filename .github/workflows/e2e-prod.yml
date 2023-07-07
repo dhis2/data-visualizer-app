@@ -26,9 +26,9 @@ on:
                 required: true
 
 env:
-    BASE_URL_INSTANCES: https://debug.dhis2.org
-    NAME_PATTERN_PROD_INSTANCES: '{version}'
-    NAME_PATTERN_DEV_INSTANCE: dev
+    BASE_URL_INSTANCES: https://test.e2e.dhis2.org
+    NAME_PATTERN_PROD_INSTANCES: 'analytics-{version}'
+    NAME_PATTERN_DEV_INSTANCE: analytics-dev
 
 concurrency:
     group: e2e-prod-${{ github.workflow}}-${{ github.ref }}
