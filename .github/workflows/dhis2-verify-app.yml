@@ -79,7 +79,7 @@ jobs:
 
     call-workflow-e2e-prod:
         needs: [build, lint, test]
-        uses: ./.github/workflows/e2e-prod.yml
+        uses: dhis2/line-listing-app/.github/workflows/e2e-prod.yml@master
         secrets:
             baseurl: ${{ secrets.CYPRESS_DHIS2_BASE_URL_DEV }}
             username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
