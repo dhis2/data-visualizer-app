@@ -1,4 +1,5 @@
 import '@dhis2/cypress-commands'
+require('@reportportal/agent-js-cypress/lib/commands/reportPortalCommands')
 
 Cypress.Commands.add('getReduxState', (prop) =>
     cy.window().its('store').invoke('getState').its(prop)

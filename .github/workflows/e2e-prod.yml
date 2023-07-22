@@ -108,6 +108,7 @@ jobs:
                   CYPRESS_dhis2Password: ${{ secrets.password }}
                   CYPRESS_networkMode: live
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  CYPRESS_RP_API_KEY: ${{ secrets.CYPRESS_RP_API_KEY }}
 
     e2e-tests-success:
         needs: e2e-prod

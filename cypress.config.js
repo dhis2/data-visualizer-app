@@ -1,4 +1,5 @@
 const { chromeAllowXSiteCookies } = require('@dhis2/cypress-plugins')
+const registerReportPortalPlugin = require('@reportportal/agent-js-cypress/lib/plugin')
 const { defineConfig } = require('cypress')
 const {
     excludeByVersionTags,
@@ -7,6 +8,7 @@ const {
 async function setupNodeEvents(on, config) {
     chromeAllowXSiteCookies(on, config)
     excludeByVersionTags(on, config)
+    registerReportPortalPlugin(on, config)
 
     if (!config.env.dhis2InstanceVersion) {
         throw new Error(
@@ -19,6 +21,23 @@ async function setupNodeEvents(on, config) {
 
 module.exports = defineConfig({
     projectId: 'sojh88',
+    reporter: '@reportportal/agent-js-cypress',
+    reporterOptions: {
+        endpoint: 'https://test.tools.dhis2.org/reportportal/api/v1',
+        apiKey: process.env.RP_API_KEY,
+        launch: 'data_visualizer_app_master',
+        project: 'dhis2_auto',
+        description: '',
+        attributes: [
+            {
+                key: 'version',
+                value: 'master',
+            },
+            {
+                value: 'data_visualizer_app',
+            },
+        ],
+    },
     e2e: {
         setupNodeEvents,
         baseUrl: 'http://localhost:3000',
