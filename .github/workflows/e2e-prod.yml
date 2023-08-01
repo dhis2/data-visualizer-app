@@ -40,7 +40,6 @@ defaults:
 
 jobs:
     compute-prod-versions:
-        if: "!github.event.push.repository.fork && (github.event.pull_request.draft == false || github.action == 'workflow_dispatch')"
         runs-on: ubuntu-latest
         outputs:
             versions: ${{ steps.prod-versions.outputs.versions }}

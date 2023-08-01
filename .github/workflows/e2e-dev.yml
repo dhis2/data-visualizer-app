@@ -22,7 +22,6 @@ defaults:
 
 jobs:
     compute-dev-version:
-        if: "!github.event.push.repository.fork && (github.event.pull_request.draft == false || github.action == 'workflow_dispatch')"
         runs-on: ubuntu-latest
         outputs:
             version: ${{ steps.instance-version.outputs.version }}
