@@ -24,7 +24,7 @@ module.exports = defineConfig({
     reporter: '@reportportal/agent-js-cypress',
     reporterOptions: {
         endpoint: 'https://test.tools.dhis2.org/reportportal/api/v1',
-        apiKey: process.env.REPORTPORTAL_API_KEY,
+        apiKey: process.env.CYPRESS_REPORTPORTAL_API_KEY,
         launch: 'data_visualizer_app_master',
         project: 'dhis2_auto',
         description: '',
