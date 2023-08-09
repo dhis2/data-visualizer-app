@@ -8,10 +8,9 @@ import {
     clickDimensionModalUpdateButton,
 } from '../../elements/dimensionModal/index.js'
 import { openDimension } from '../../elements/dimensionsPanel.js'
-import { clickMenuBarOptionsButton } from '../../elements/menuBar.js'
+import { openOptionsModal } from '../../elements/menuBar.js'
 import {
     clickOptionsModalUpdateButton,
-    clickOptionsTab,
     clickTrendLineCheckbox,
     OPTIONS_TAB_DATA,
     selectTrendLineType,
@@ -51,8 +50,7 @@ describe('Options - Lines', () => {
         trendLineTypes.forEach((trendLineType, index) => {
             describe(trendLineType.name, () => {
                 it('opens Options -> Data', () => {
-                    clickMenuBarOptionsButton()
-                    clickOptionsTab(OPTIONS_TAB_DATA)
+                    openOptionsModal(OPTIONS_TAB_DATA)
                 })
                 if (index === 0) {
                     it('enables trendline', () => {
@@ -79,7 +77,7 @@ describe('Options - Lines', () => {
             })
         })
     })
-    /*  TODO: 
+    /*  TODO:
         - Test base line and target line like trend line (above)
         - Pie, PT, SV shouldn't have the lines section in options
         - Gauge should only display base and target line (no trend line)

@@ -1,6 +1,6 @@
 import { Analytics } from '@dhis2/analytics'
 import { useConfig, useDataEngine, useDataMutation } from '@dhis2/app-runtime'
-import { useState, useCallback } from 'react'
+import { useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { sGetChart } from '../../reducers/chart.js'
 import { sGetCurrent } from '../../reducers/current.js'
@@ -53,7 +53,7 @@ const addCommonParameters = (req, visualization, options) => {
     return req
 }
 
-const useDownloadMenu = (relativePeriodDate) => {
+const useDownload = (relativePeriodDate) => {
     const visualization = useSelector(sGetCurrent)
     const visType = useSelector(sGetUiType)
     const chart = useSelector(sGetChart)
@@ -62,7 +62,6 @@ const useDownloadMenu = (relativePeriodDate) => {
     const { baseUrl } = useConfig()
     const dataEngine = useDataEngine()
     const analyticsEngine = Analytics.getAnalytics(dataEngine)
-    const [isOpen, setIsOpen] = useState(false)
 
     const openDownloadedFileInBlankTab = useCallback((blob) => {
         const url = URL.createObjectURL(blob)
@@ -94,8 +93,6 @@ const useDownloadMenu = (relativePeriodDate) => {
             format === FILE_FORMAT_PNG
                 ? getPng({ formData })
                 : getPdf({ formData })
-
-            setIsOpen(false)
         },
         [chart, getPdf, getPng, visualization]
     )
@@ -177,7 +174,6 @@ const useDownloadMenu = (relativePeriodDate) => {
             )
 
             window.open(url, target)
-            setIsOpen(false)
         },
         [
             analyticsEngine,
@@ -190,8 +186,6 @@ const useDownloadMenu = (relativePeriodDate) => {
     )
 
     return {
-        isOpen,
-        toggleOpen: () => setIsOpen(!isOpen),
         disabled: !visualization,
         doDownloadData,
         doDownloadImage,
@@ -199,4 +193,4 @@ const useDownloadMenu = (relativePeriodDate) => {
     }
 }
 
-export { useDownloadMenu }
+export { useDownload }

@@ -4,6 +4,9 @@ import {
     hasCustomAxes,
     hasRelativeItems,
     isDualAxisType,
+    HoverMenuDropdown,
+    HoverMenuList,
+    HoverMenuListItem,
     VisualizationOptions,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
@@ -17,7 +20,6 @@ import {
     sGetDimensionItemsByAxis,
     sGetUiLayout,
 } from '../../reducers/ui.js'
-import MenuButton from '../MenuButton/MenuButton.js'
 import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer.js'
 
 const VisualizationOptionsManager = ({
@@ -27,19 +29,10 @@ const VisualizationOptionsManager = ({
     columns,
     series,
 }) => {
-    const [dialogIsOpen, setDialogIsOpen] = useState(false)
-
-    const onClick = (handler) => () => {
+    const [selectedOptionConfigKey, setSelectedOptionConfigKey] = useState(null)
+    const onOptionsUpdate = (handler) => {
         handler()
-        onClose()
-    }
-
-    const onClose = () => {
-        toggleVisualizationOptionsDialog()
-    }
-
-    const toggleVisualizationOptionsDialog = () => {
-        setDialogIsOpen(!dialogIsOpen)
+        setSelectedOptionConfigKey(null)
     }
 
     const filteredSeries = series.filter((seriesItem) =>
@@ -65,19 +58,30 @@ const VisualizationOptionsManager = ({
 
     return (
         <>
-            <MenuButton
+            <HoverMenuDropdown
+                label={i18n.t('Options')}
                 dataTest={'app-menubar-options-button'}
-                onClick={toggleVisualizationOptionsDialog}
             >
-                {i18n.t('Options')}
-            </MenuButton>
-            {dialogIsOpen && (
+                <HoverMenuList dataTest="options-menu-list">
+                    {optionsConfig.map(({ label, key }) => (
+                        <HoverMenuListItem
+                            key={key}
+                            label={label}
+                            onClick={() => {
+                                setSelectedOptionConfigKey(key)
+                            }}
+                        />
+                    ))}
+                </HoverMenuList>
+            </HoverMenuDropdown>
+            {selectedOptionConfigKey && (
                 <UpdateVisualizationContainer
                     renderComponent={(handler) => (
                         <VisualizationOptions
                             optionsConfig={optionsConfig}
-                            onUpdate={onClick(handler)}
-                            onClose={onClose}
+                            onUpdate={() => onOptionsUpdate(handler)}
+                            onClose={() => setSelectedOptionConfigKey(null)}
+                            initiallyActiveTabKey={selectedOptionConfigKey}
                         />
                     )}
                 />

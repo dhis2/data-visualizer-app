@@ -37,22 +37,6 @@ body {
     height: 48px;
 }
 
-/* Toolbar */
-
-.section-toolbar {
-    height: 39px;
-}
-
-.toolbar-type {
-    width: 260px;
-    border-right: 1px solid var(--colors-grey400);
-    border-bottom: 1px solid var(--colors-grey400);
-}
-
-.toolbar-menubar {
-    background-color: var(--colors-grey400);
-}
-
 /* Main */
 .section-main {
     overflow: hidden;
