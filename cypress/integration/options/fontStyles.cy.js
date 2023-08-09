@@ -219,7 +219,8 @@ describe('Options - Font styles', () => {
         it('opens Options -> Data', () => {
             openOptionsModal(OPTIONS_TAB_DATA)
         })
-        it(`sets target line to ${TEST_VALUE}: "${TEST_LABEL}"`, () => {
+        it('sets target line', () => {
+            cy.log(`Test value: ${TEST_VALUE}`)
             clickTargetLineCheckbox()
             setTargetLineLabel(TEST_LABEL)
             setTargetLineValue(TEST_VALUE)
@@ -277,7 +278,8 @@ describe('Options - Font styles', () => {
         it('opens Options -> Data', () => {
             openOptionsModal(OPTIONS_TAB_DATA)
         })
-        it(`sets base line to ${TEST_VALUE}: "${TEST_LABEL}"`, () => {
+        it('sets base line', () => {
+            cy.log(`Test value: ${TEST_VALUE}`)
             clickBaseLineCheckbox()
             setBaseLineLabel(TEST_LABEL)
             setBaseLineValue(TEST_VALUE)
