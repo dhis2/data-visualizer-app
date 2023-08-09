@@ -27,7 +27,7 @@ import {
     unselectAllItemsByButton,
 } from '../../elements/dimensionModal/index.js'
 import { openDimension } from '../../elements/dimensionsPanel.js'
-import { clickMenuBarOptionsButton } from '../../elements/menuBar.js'
+import { openOptionsModal } from '../../elements/menuBar.js'
 import {
     OPTIONS_TAB_LEGEND,
     OPTIONS_TAB_STYLE,
@@ -97,8 +97,7 @@ describe('Icon', () => {
     TEST_TYPES.forEach((type) => {
         it(`icon shows when option is enabled for ${type}`, () => {
             // enable the icon
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_STYLE)
+            openOptionsModal(OPTIONS_TAB_STYLE)
             clickCheckbox('option-show-data-item-icon')
             clickOptionsModalHideButton()
 
@@ -129,8 +128,7 @@ describe('Icon', () => {
     // TODO: Skipped because of the same reason as the commented out tests above
     it.skip('icon gets correct color when a legend is in use', () => {
         // enable the icon
-        clickMenuBarOptionsButton()
-        clickOptionsTab(OPTIONS_TAB_STYLE)
+        openOptionsModal(OPTIONS_TAB_STYLE)
         clickCheckbox('option-show-data-item-icon')
 
         // enable the legend
@@ -176,8 +174,7 @@ describe('Icon', () => {
         expectSingleValueToHaveIconColor('#ffffff')
 
         // switch to apply legend color to text
-        clickMenuBarOptionsButton()
-        clickOptionsTab(OPTIONS_TAB_LEGEND)
+        openOptionsModal(OPTIONS_TAB_LEGEND)
         changeDisplayStyleToText()
         clickOptionsModalUpdateButton()
 

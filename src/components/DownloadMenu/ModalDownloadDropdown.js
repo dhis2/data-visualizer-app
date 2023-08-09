@@ -1,28 +1,40 @@
 import i18n from '@dhis2/d2-i18n'
 import { DropdownButton } from '@dhis2/ui'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useCallback, useState } from 'react'
 import { DownloadMenu } from './DownloadMenu.js'
 import styles from './ModalDownloadDropdown.module.css'
-import { useDownloadMenu } from './useDownloadMenu.js'
+import { useDownload } from './useDownload.js'
 
 const ModalDownloadDropdown = ({ relativePeriodDate }) => {
-    const {
-        isOpen,
-        toggleOpen,
-        disabled,
-        doDownloadData,
-        doDownloadImage,
-        visType,
-    } = useDownloadMenu(relativePeriodDate)
+    const { disabled, doDownloadData, doDownloadImage, visType } =
+        useDownload(relativePeriodDate)
+    const [isOpen, setIsOpen] = useState(false)
+    const toggleOpen = useCallback(() => {
+        setIsOpen((currentIsOpen) => !currentIsOpen)
+    }, [])
+    const onDownloadData = useCallback(
+        (payload) => {
+            doDownloadData(payload)
+            setIsOpen(false)
+        },
+        [doDownloadData]
+    )
+    const onDownloadImage = useCallback(
+        (payload) => {
+            doDownloadImage(payload)
+            setIsOpen(false)
+        },
+        [doDownloadImage]
+    )
 
     return (
         <div className={styles.container}>
             <DropdownButton
                 component={
                     <DownloadMenu
-                        onDownloadData={doDownloadData}
-                        onDownloadImage={doDownloadImage}
+                        onDownloadData={onDownloadData}
+                        onDownloadImage={onDownloadImage}
                         visType={visType}
                     />
                 }

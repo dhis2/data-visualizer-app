@@ -31,15 +31,14 @@ import {
     openDimension,
 } from '../../elements/layout.js'
 import {
-    clickMenuBarOptionsButton,
     clickMenuBarUpdateButton,
+    openOptionsModal,
 } from '../../elements/menuBar.js'
 import {
     changeDisplayStrategyToFixed,
     changeDisplayStyleToText,
     changeFixedLegendSet,
     clickOptionsModalUpdateButton,
-    clickOptionsTab,
     toggleLegend,
     expectFixedLegendSetToBe,
     expectLegendDisplayStrategyToBeByDataItem,
@@ -102,8 +101,7 @@ describe('Options - Legend', () => {
             expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
         })
         it('enables legend', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             toggleLegend()
             expectLegendToBeEnabled()
             expectLegendDisplayStrategyToBeByDataItem()
@@ -119,8 +117,7 @@ describe('Options - Legend', () => {
             )
         })
         it(`changes legend display strategy to fixed (${TEST_LEGEND_SET})`, () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             expectLegendDisplayStrategyToBeByDataItem()
             changeDisplayStrategyToFixed()
             expectLegendDisplayStrategyToBeFixed()
@@ -140,8 +137,7 @@ describe('Options - Legend', () => {
             expectLegendKeyToBeHidden()
         })
         it('verifies that options are persisted', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             expectLegendDisplayStrategyToBeFixed()
             expectFixedLegendSetToBe(TEST_LEGEND_SET)
         })
@@ -180,8 +176,7 @@ describe('Options - Legend', () => {
             expectSingleValueToNotHaveBackgroundColor()
         })
         it('enables legend', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             toggleLegend()
             expectLegendToBeEnabled()
             expectLegendDisplayStrategyToBeByDataItem()
@@ -197,8 +192,7 @@ describe('Options - Legend', () => {
             expectSVSubtitleToHaveColor(EXPECTED_STANDARD_SUBTITLE_COLOR)
         })
         it('changes legend display style to text color', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             expectLegendDisplayStrategyToBeByDataItem()
             expectLegendDisplayStyleToBeFill()
             changeDisplayStyleToText()
@@ -214,8 +208,7 @@ describe('Options - Legend', () => {
             expectSVSubtitleToHaveColor(EXPECTED_STANDARD_SUBTITLE_COLOR)
         })
         it(`changes legend display strategy to fixed (${TEST_LEGEND_SET_WITH_CONTRAST})`, () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             expectLegendDisplayStyleToBeText()
             expectLegendDisplayStrategyToBeByDataItem()
             changeDisplayStrategyToFixed()
@@ -232,8 +225,7 @@ describe('Options - Legend', () => {
             expectSVSubtitleToHaveColor(EXPECTED_STANDARD_SUBTITLE_COLOR)
         })
         it('changes legend display style to background color', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             expectLegendDisplayStrategyToBeFixed()
             expectLegendDisplayStyleToBeText()
             changeDisplayStyleToFill()
@@ -249,8 +241,7 @@ describe('Options - Legend', () => {
             expectSVSubtitleToHaveColor(EXPECTED_CONTRAST_TEXT_COLOR)
         })
         it(`changes title and subtitle colors`, () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_STYLE)
+            openOptionsModal(OPTIONS_TAB_STYLE)
             changeColor('option-chart-title', EXPECTED_CUSTOM_TITLE_COLOR)
             changeColor('option-chart-subtitle', EXPECTED_CUSTOM_SUBTITLE_COLOR)
             clickOptionsModalUpdateButton()
@@ -263,8 +254,7 @@ describe('Options - Legend', () => {
             expectSVSubtitleToHaveColor(EXPECTED_CUSTOM_SUBTITLE_COLOR)
         })
         it('changes legend display style to text color', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             expectLegendDisplayStrategyToBeFixed()
             expectLegendDisplayStyleToBeFill()
             changeDisplayStyleToText()
@@ -280,8 +270,7 @@ describe('Options - Legend', () => {
             expectSVSubtitleToHaveColor(EXPECTED_CUSTOM_SUBTITLE_COLOR)
         })
         it(`changes legend display strategy to by data item`, () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             expectLegendDisplayStyleToBeText()
             expectLegendDisplayStrategyToBeFixed()
             changeDisplayStrategyToByDataItem()
@@ -297,8 +286,7 @@ describe('Options - Legend', () => {
             expectSVSubtitleToHaveColor(EXPECTED_CUSTOM_SUBTITLE_COLOR)
         })
         it('changes legend display style to background color', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             changeDisplayStrategyToByDataItem()
             expectLegendDisplayStyleToBeText()
             changeDisplayStyleToFill()
@@ -317,8 +305,7 @@ describe('Options - Legend', () => {
             expectLegendKeyToBeHidden()
         })
         it('enables legend key option', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             toggleLegendKeyOption()
             expectLegendKeyOptionToBeEnabled()
             clickOptionsModalUpdateButton()
@@ -342,8 +329,7 @@ describe('Options - Legend', () => {
             expectVisualizationToBeVisible(VIS_TYPE_GAUGE)
         })
         it('enables legend', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             toggleLegend()
             expectLegendToBeEnabled()
             expectLegendDisplayStrategyToBeByDataItem()
@@ -355,8 +341,7 @@ describe('Options - Legend', () => {
             expectWindowConfigYAxisToHaveColor(EXPECTED_BY_DATA_COLOR)
         })
         it(`changes legend display strategy to fixed (${TEST_LEGEND_SET})`, () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             expectLegendDisplayStrategyToBeByDataItem()
             expectLegendDisplayStyleToBeFill()
             changeDisplayStrategyToFixed()
@@ -369,8 +354,7 @@ describe('Options - Legend', () => {
             expectWindowConfigYAxisToHaveColor(EXPECTED_FIXED_COLOR)
         })
         it('changes legend display style to text color', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             expectLegendDisplayStrategyToBeFixed()
             expectFixedLegendSetToBe(TEST_LEGEND_SET)
             expectLegendDisplayStyleToBeFill()
@@ -389,8 +373,7 @@ describe('Options - Legend', () => {
             expectLegendKeyToBeHidden()
         })
         it('verifies that options are persisted', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             expectLegendDisplayStrategyToBeFixed()
             expectFixedLegendSetToBe(TEST_LEGEND_SET)
         })
@@ -415,8 +398,7 @@ describe('Options - Legend', () => {
             expectVisualizationToBeVisible(VIS_TYPE_STACKED_COLUMN)
         })
         it('enables legend', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             toggleLegend()
             expectLegendToBeEnabled()
             expectLegendDisplayStrategyToBeByDataItem()
@@ -432,8 +414,7 @@ describe('Options - Legend', () => {
             )
         })
         it(`changes legend display strategy to fixed (${TEST_LEGEND_SET})`, () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             expectLegendDisplayStrategyToBeByDataItem()
             changeDisplayStrategyToFixed()
             expectLegendDisplayStrategyToBeFixed()
@@ -453,8 +434,7 @@ describe('Options - Legend', () => {
             expectLegendKeyToBeHidden()
         })
         it('verifies that options are persisted', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             expectLegendDisplayStrategyToBeFixed()
             expectFixedLegendSetToBe(TEST_LEGEND_SET)
         })
@@ -490,8 +470,7 @@ describe('Options - Legend', () => {
             })
         })
         it('enables legend', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             toggleLegend()
             expectLegendToBeEnabled()
             expectLegendDisplayStrategyToBeByDataItem()
@@ -508,8 +487,7 @@ describe('Options - Legend', () => {
             })
         })
         it('changes legend display style to text color', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             expectLegendDisplayStrategyToBeByDataItem()
             expectLegendDisplayStyleToBeFill()
             changeDisplayStyleToText()
@@ -529,8 +507,7 @@ describe('Options - Legend', () => {
             expectLegendKeyToBeHidden()
         })
         it('verifies that options are persisted', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             expectLegendDisplayStrategyToBeByDataItem()
         })
         it('enables legend key option', () => {
@@ -558,8 +535,7 @@ describe('Options - Legend', () => {
             expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
         })
         it('enables legend', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             toggleLegend()
             expectLegendToBeEnabled()
             expectLegendDisplayStrategyToBeByDataItem()
@@ -592,8 +568,7 @@ describe('Options - Legend', () => {
             )
         })
         it('verifies that options are persisted', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             expectLegendDisplayStyleToBeText()
             expectLegendDisplayStrategyToBeFixed()
         })
@@ -613,8 +588,7 @@ describe('Options - Legend', () => {
             expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
         })
         it('enables legend', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             toggleLegend()
             expectLegendToBeEnabled()
             expectLegendDisplayStrategyToBeByDataItem()
@@ -643,8 +617,7 @@ describe('Options - Legend', () => {
             expectSingleValueToHaveBackgroundColor(EXPECTED_FIXED_COLOR)
         })
         it('verifies that options are persisted', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             expectLegendDisplayStyleToBeFill()
             expectLegendDisplayStrategyToBeFixed()
         })
@@ -658,8 +631,7 @@ describe('Options - Legend', () => {
             expectVisualizationToBeVisible()
         })
         it('enables legend (Column)', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             toggleLegend()
             expectLegendToBeEnabled()
             clickOptionsModalUpdateButton()
@@ -669,8 +641,7 @@ describe('Options - Legend', () => {
             expectLegendKeyToBeHidden()
         })
         it('enables legend key option (Column)', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             toggleLegendKeyOption()
             expectLegendKeyOptionToBeEnabled()
             clickOptionsModalUpdateButton()
@@ -690,8 +661,7 @@ describe('Options - Legend', () => {
             expectLegedKeyItemAmountToBe(TEST_ITEMS.length)
         })
         it('disables legend key option (Pivot table)', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             toggleLegendKeyOption()
             expectLegendKeyOptionToBeDisabled()
             clickOptionsModalUpdateButton()
@@ -709,8 +679,7 @@ describe('Options - Legend', () => {
             expectLegendKeyToBeHidden()
         })
         it('enables legend key option (Gauge)', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             toggleLegendKeyOption()
             expectLegendKeyOptionToBeEnabled()
             clickOptionsModalUpdateButton()
@@ -730,8 +699,7 @@ describe('Options - Legend', () => {
             expectLegedKeyItemAmountToBe(1)
         })
         it('disables legend key option (Single value)', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             toggleLegendKeyOption()
             expectLegendKeyOptionToBeDisabled()
             clickOptionsModalUpdateButton()
@@ -750,8 +718,7 @@ describe('Options - Legend', () => {
             expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
         })
         it('enables legend', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             toggleLegend()
             expectLegendToBeEnabled()
             expectLegendDisplayStrategyToBeByDataItem()
@@ -777,7 +744,7 @@ describe('Options - Legend', () => {
             )
         })
         it('legend options are not available', () => {
-            clickMenuBarOptionsButton()
+            openOptionsModal()
             expectOptionsTabToBeHidden(OPTIONS_TAB_LEGEND)
             clickOptionsModalHideButton()
         })
@@ -803,7 +770,7 @@ describe('Options - Legend', () => {
             )
         })
         it('legend options are not available', () => {
-            clickMenuBarOptionsButton()
+            openOptionsModal()
             expectOptionsTabToBeHidden(OPTIONS_TAB_LEGEND)
         })
         it('legend key is hidden', () => {
@@ -825,8 +792,7 @@ describe('Options - Legend', () => {
             expectSeriesKeyToHaveSeriesKeyItems(2)
         })
         it('enables legend', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             toggleLegend()
             expectLegendToBeEnabled()
             expectLegendDisplayStrategyToBeByDataItem()
@@ -834,8 +800,7 @@ describe('Options - Legend', () => {
             expectChartTitleToBeVisible()
         })
         it(`changes legend display strategy to fixed (${TEST_ITEMS[1].legendSet})`, () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             expectLegendDisplayStrategyToBeByDataItem()
             changeDisplayStrategyToFixed()
             expectLegendDisplayStrategyToBeFixed()
@@ -852,8 +817,7 @@ describe('Options - Legend', () => {
             selectIndicators([TEST_ITEM.name])
             clickDimensionModalUpdateButton()
             expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             toggleLegend()
             expectLegendToBeEnabled()
             expectLegendDisplayStrategyToBeByDataItem()
@@ -895,8 +859,7 @@ describe('Options - Legend', () => {
             expectLegendKeyToBeHidden()
         })
         it(`changes legend display strategy to fixed (${TEST_ITEMS[1].legendSet})`, () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             expectLegendDisplayStrategyToBeByDataItem()
             changeDisplayStrategyToFixed()
             expectLegendDisplayStrategyToBeFixed()
@@ -924,8 +887,7 @@ describe('Options - Legend', () => {
             selectIndicators(TEST_ITEMS.map((item) => item.name))
             clickDimensionModalUpdateButton()
             expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_LEGEND)
+            openOptionsModal(OPTIONS_TAB_LEGEND)
             toggleLegend()
             expectLegendToBeEnabled()
             expectLegendDisplayStrategyToBeByDataItem()
@@ -943,8 +905,7 @@ describe('Options - Legend', () => {
             )
         })
         it(`changes all items to type ${VIS_TYPE_LINE}`, () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_SERIES)
+            openOptionsModal(OPTIONS_TAB_SERIES)
             TEST_ITEMS.forEach((item, index) =>
                 setItemToType(index, VIS_TYPE_LINE)
             )
@@ -964,8 +925,7 @@ describe('Options - Legend', () => {
             expectSeriesKeyToHaveSeriesKeyItems(2)
         })
         it(`changes first item (${TEST_ITEMS[0].name}) to type ${VIS_TYPE_COLUMN}`, () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_SERIES)
+            openOptionsModal(OPTIONS_TAB_SERIES)
             setItemToType(0, VIS_TYPE_COLUMN)
             clickOptionsModalUpdateButton()
             expectVisualizationToBeVisible()
@@ -995,8 +955,7 @@ describe('Options - Legend', () => {
             selectIndicators([TEST_ITEM.name])
             clickDimensionModalUpdateButton()
             expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_SERIES)
+            openOptionsModal(OPTIONS_TAB_SERIES)
             setItemToType(2, VIS_TYPE_LINE)
             clickOptionsModalUpdateButton()
             expectVisualizationToBeVisible()
