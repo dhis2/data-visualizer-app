@@ -1,4 +1,5 @@
-import { typeInput } from './common.js'
+import { EXTENDED_TIMEOUT } from '../support/utils.js'
+import { clearInput, typeInput } from './common.js'
 
 const calculationModalEl = 'calculation-modal'
 const formulaFieldEl = 'formula-field'
@@ -47,8 +48,10 @@ export const removeItemFromFormulaFieldByDoubleClick = (item) =>
         .contains(item)
         .dblclick()
 
-export const inputCalculationLabel = (label) =>
+export const inputCalculationLabel = (label) => {
+    clearInput('calculation-label')
     typeInput('calculation-label', label)
+}
 
 export const clickSaveButton = () => saveButton().click()
 
@@ -62,12 +65,13 @@ export const clickDeleteButton = () =>
         .contains('Delete calculation')
         .click()
 
-export const clickConfirmDeleteButton = () =>
-    cy
-        .getBySel('calculation-delete-modal')
+export const clickConfirmDeleteButton = () => {
+    cy.getBySel('calculation-delete-modal')
         .find('button')
         .contains('Yes, delete')
         .click()
+    cy.getBySel(calculationModalEl, EXTENDED_TIMEOUT).should('not.exist')
+}
 
 export const clickCheckFormulaButton = () =>
     cy

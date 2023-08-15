@@ -1,4 +1,4 @@
-import { apiFetchOrganisationUnitLevels } from '@dhis2/analytics'
+import { apiFetchOrganisationUnitLevels, Toolbar } from '@dhis2/analytics'
 import { useSetting } from '@dhis2/app-service-datastore'
 import i18n from '@dhis2/d2-i18n'
 import {
@@ -233,17 +233,13 @@ export class UnconnectedApp extends Component {
         return (
             <>
                 <div className="data-visualizer-app flex-ct flex-dir-col">
-                    <div className="section-toolbar flex-ct">
-                        <div className="toolbar-type">
-                            <VisualizationTypeSelector />
-                        </div>
-                        <div className="toolbar-menubar flex-grow-1">
-                            <MenuBar
-                                apiObjectName={this.apiObjectName}
-                                dataTest={'app-menubar'}
-                            />
-                        </div>
-                    </div>
+                    <Toolbar>
+                        <VisualizationTypeSelector />
+                        <MenuBar
+                            apiObjectName={this.apiObjectName}
+                            dataTest={'app-menubar'}
+                        />
+                    </Toolbar>
                     <div className="section-main flex-grow-1 flex-ct">
                         <DndContext>
                             <div className="main-left">

@@ -36,12 +36,11 @@ import {
     openDimensionOnAxis,
 } from '../../elements/layout.js'
 import {
-    clickMenuBarOptionsButton,
     clickMenuBarUpdateButton,
+    openOptionsModal,
 } from '../../elements/menuBar.js'
 import {
     clickOptionsModalUpdateButton,
-    clickOptionsTab,
     clickOutliersCheckbox,
     OPTIONS_TAB_AXES,
     OPTIONS_TAB_OUTLIERS,
@@ -166,8 +165,7 @@ describe('using a Scatter chart', () => {
                 max: 200,
             },
         ]
-        clickMenuBarOptionsButton()
-        clickOptionsTab(OPTIONS_TAB_AXES)
+        openOptionsModal(OPTIONS_TAB_AXES)
         TEST_AXES.forEach((test) => {
             switchAxesTabTo(test.label)
             setAxisRangeMinValue(test.axis, test.min)
@@ -181,8 +179,7 @@ describe('using a Scatter chart', () => {
         expectWindowConfigXAxisToHaveRangeMaxValue(TEST_AXES[1].max)
     })
     it('Options -> Outliers -> enables outliers', () => {
-        clickMenuBarOptionsButton()
-        clickOptionsTab(OPTIONS_TAB_OUTLIERS)
+        openOptionsModal(OPTIONS_TAB_OUTLIERS)
         clickOutliersCheckbox()
         // TODO: Set more outlier options
         clickOptionsModalUpdateButton()

@@ -1,10 +1,11 @@
 name: 'dhis2: nightly'
 
-# This workflow runs the e2e tests on the default branch against dev at 3:20am M-F
+# This workflow runs the e2e tests on the default branch against dev at 6:50am M-F
 
 on:
-    schedule:
-        - cron: '20 3 * * 1-5'
+    # schedule:
+    # - cron: '50 4 * * 1-5'
+    workflow_dispatch:
 
 concurrency:
     group: ${{ github.workflow}}-${{ github.ref }}
@@ -37,6 +38,6 @@ jobs:
               uses: slackapi/slack-github-action@v1.23.0
               with:
                   channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
-                  slack-message: ':x: Data-visualizer-app e2e nightly run <https://cloud.cypress.io/projects/sojh88/runs?branches=[{"label":"dev","suggested":false,"value":"dev"}]|failed>'
+                  slack-message: ':data-visualizer-app: Data-visualizer-app e2e nightly run <https://cloud.cypress.io/projects/sojh88/runs?branches=[{"label":"dev","suggested":false,"value":"dev"}]|failed>'
               env:
                   SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}

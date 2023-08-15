@@ -7,6 +7,8 @@ on:
         branches:
             - 'master'
             - 'dev'
+        tags:
+            - '*'
 
 concurrency:
     group: ${{ github.workflow}}-${{ github.ref }}
@@ -77,7 +79,7 @@ jobs:
 
     call-workflow-e2e-prod:
         needs: [build, lint, test]
-        uses: ./.github/workflows/e2e-prod.yml
+        uses: dhis2/line-listing-app/.github/workflows/e2e-prod.yml@master
         secrets:
             baseurl: ${{ secrets.CYPRESS_DHIS2_BASE_URL_DEV }}
             username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
@@ -90,7 +92,7 @@ jobs:
         if: |
             !github.event.push.repository.fork &&
             github.actor != 'dependabot[bot]' &&
-            github.ref == 'refs/heads/master'
+            github.event_name != 'pull_request'
         steps:
             - uses: actions/checkout@v3
               with:
