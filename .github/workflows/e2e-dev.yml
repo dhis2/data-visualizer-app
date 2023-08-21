@@ -74,3 +74,6 @@ jobs:
                   CYPRESS_dhis2Password: ${{ secrets.password }}
                   CYPRESS_networkMode: live
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  REPORTPORTAL_API_KEY: ${{ secrets.REPORTPORTAL_API_KEY }}
+                  REPORTPORTAL_ENDPOINT: ${{ vars.REPORTPORTAL_ENDPOINT }}
+                  REPORTPORTAL_PROJECT: ${{ vars.REPORTPORTAL_PROJECT }}

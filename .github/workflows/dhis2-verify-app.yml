@@ -76,6 +76,10 @@ jobs:
 
             - name: Test
               run: yarn d2-app-scripts test
+              env:
+                  REPORTPORTAL_API_KEY: ${{ secrets.REPORTPORTAL_API_KEY }}
+                  REPORTPORTAL_ENDPOINT: ${{ vars.REPORTPORTAL_ENDPOINT }}
+                  REPORTPORTAL_PROJECT: ${{ vars.REPORTPORTAL_PROJECT }}
 
     call-workflow-e2e-prod:
         needs: [build, lint, test]
