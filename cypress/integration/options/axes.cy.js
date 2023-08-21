@@ -8,7 +8,7 @@ import {
     clickDimensionModalUpdateButton,
 } from '../../elements/dimensionModal/index.js'
 import { openDimension } from '../../elements/dimensionsPanel.js'
-import { clickMenuBarOptionsButton } from '../../elements/menuBar.js'
+import { openOptionsModal } from '../../elements/menuBar.js'
 import {
     clickOptionsModalUpdateButton,
     clickOptionsTab,
@@ -57,8 +57,7 @@ describe('Options - Vertical axis', () => {
     })
     describe('title', () => {
         it('opens Options -> Axes', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_AXES)
+            openOptionsModal(OPTIONS_TAB_AXES)
         })
         it("sets axis title to 'Custom'", () => {
             setAxisTitleTextModeTo('Custom')
@@ -76,8 +75,7 @@ describe('Options - Vertical axis', () => {
     })
     describe('range', () => {
         it('opens Options -> Axes', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_AXES)
+            openOptionsModal(OPTIONS_TAB_AXES)
         })
         it('sets min value', () => {
             setAxisRangeMinValue(TEST_AXIS, TEST_MIN_VALUE)
@@ -111,8 +109,7 @@ describe('Options - Vertical axis', () => {
     })
     describe('options modal keeps changes when reopening', () => {
         it('opens Options -> Axes', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_AXES)
+            openOptionsModal(OPTIONS_TAB_AXES)
         })
         it(`title is "${TEST_TITLE}"`, () => {
             expectAxisTitleToBeValue(TEST_AXIS, TEST_TITLE)
@@ -141,8 +138,7 @@ describe('Options - Horizontal axis', () => {
     })
     describe('title', () => {
         it('opens Options -> Axes', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_AXES)
+            openOptionsModal(OPTIONS_TAB_AXES)
         })
         it(`switches to '${TEST_TAB}' tab`, () => {
             switchAxesTabTo(TEST_TAB)
@@ -163,8 +159,7 @@ describe('Options - Horizontal axis', () => {
     })
     describe('options modal keeps changes when reopening', () => {
         it('opens Options -> Axes', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_AXES)
+            openOptionsModal(OPTIONS_TAB_AXES)
         })
         it(`switches to '${TEST_TAB}' tab`, () => {
             switchAxesTabTo(TEST_TAB)
@@ -185,8 +180,7 @@ describe('Options - Auto-generated axis title', () => {
     })
     describe('Single item - single axis', () => {
         it('opens Options -> Axes', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_AXES)
+            openOptionsModal(OPTIONS_TAB_AXES)
         })
         it("sets axis title to 'Auto generated'", () => {
             setAxisTitleTextModeTo('Auto generated')
@@ -238,8 +232,7 @@ describe('Options - Auto-generated axis title', () => {
             expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
         })
         it('opens Options -> Series', () => {
-            clickMenuBarOptionsButton()
-            clickOptionsTab(OPTIONS_TAB_SERIES)
+            openOptionsModal(OPTIONS_TAB_SERIES)
         })
         it('enables multi axis', () => {
             setItemToAxis(1, 2)
