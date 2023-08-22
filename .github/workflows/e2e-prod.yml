@@ -24,14 +24,17 @@ on:
                 required: true
             recordkey:
                 required: true
+            reportportal_api_key:
+                required: true
+            reportportal_endpoint:
+                required: true
+            reportportal_project:
+                required: true
 
 env:
     BASE_URL_INSTANCES: https://test.e2e.dhis2.org
     NAME_PATTERN_PROD_INSTANCES: 'analytics-{version}'
     NAME_PATTERN_DEV_INSTANCE: analytics-dev
-    REPORTPORTAL_API_KEY: ${{ secrets.REPORTPORTAL_API_KEY }}
-    REPORTPORTAL_ENDPOINT: ${{ vars.REPORTPORTAL_ENDPOINT }}
-    REPORTPORTAL_PROJECT: ${{ vars.REPORTPORTAL_PROJECT }}
 
 concurrency:
     group: e2e-prod-${{ github.workflow}}-${{ github.ref }}
@@ -110,6 +113,9 @@ jobs:
                   CYPRESS_dhis2Password: ${{ secrets.password }}
                   CYPRESS_networkMode: live
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  REPORTPORTAL_API_KEY: ${{ secrets.reportportal_api_key }}
+                  REPORTPORTAL_ENDPOINT: ${{ secrets.reportportal_endpoint }}
+                  REPORTPORTAL_PROJECT: ${{ secrets.reportportal_project }}
 
     e2e-tests-success:
         needs: e2e-prod
