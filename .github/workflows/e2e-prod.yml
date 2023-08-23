@@ -25,11 +25,11 @@ on:
             recordkey:
                 required: true
             reportportal_api_key:
-                required: true
+                required: false
             reportportal_endpoint:
-                required: true
+                required: false
             reportportal_project:
-                required: true
+                required: false
 
 env:
     BASE_URL_INSTANCES: https://test.e2e.dhis2.org
