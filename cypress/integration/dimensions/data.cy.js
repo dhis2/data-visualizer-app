@@ -67,6 +67,19 @@ describe('Data dimension', () => {
             goToStartPage()
         })
         it('opens the data dimension modal', () => {
+            cy.info(
+                'Add **ReportPortal** related *metadata* before starting main test actions.'
+            )
+            cy.addTestAttributes([
+                {
+                    key: 'feature',
+                    value: 'Open Data Dimension modal: at test level - debug',
+                },
+            ])
+            cy.setTestDescription(
+                'This test suite open the Data dimension modal and check its initial state'
+            )
+
             cy.intercept('GET', DATA_ITEMS_URL).as('request')
             openDimension(DIMENSION_ID_DATA)
             cy.wait('@request').then(({ request, response }) => {
