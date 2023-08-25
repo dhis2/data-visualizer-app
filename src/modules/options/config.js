@@ -20,6 +20,7 @@ import singleValueConfig from './singleValueConfig.js'
 
 export const getOptionsByType = ({
     type,
+    hasCumulativeValuesInPt,
     hasDimensionItemsInColumns,
     hasDimensionItemsInRows,
     hasDisabledSections,
@@ -33,6 +34,7 @@ export const getOptionsByType = ({
     const isVertical = isVerticalType(type)
 
     const defaultProps = {
+        hasCumulativeValuesInPt,
         hasDisabledSections,
         isStacked,
         isColumnBased,
@@ -52,6 +54,7 @@ export const getOptionsByType = ({
             return singleValueConfig()
         case VIS_TYPE_PIVOT_TABLE:
             return pivotTableConfig({
+                hasCumulativeValuesInPt,
                 hasDimensionItemsInColumns,
                 hasDimensionItemsInRows,
             })

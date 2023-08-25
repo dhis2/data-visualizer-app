@@ -8,6 +8,7 @@ import {
     HoverMenuList,
     HoverMenuListItem,
     VisualizationOptions,
+    VIS_TYPE_PIVOT_TABLE,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
@@ -28,6 +29,7 @@ const VisualizationOptionsManager = ({
     rowDimensionItems,
     columns,
     series,
+    cumulativeValues,
 }) => {
     const [selectedOptionConfigKey, setSelectedOptionConfigKey] = useState(null)
     const onOptionsUpdate = (handler) => {
@@ -54,6 +56,8 @@ const VisualizationOptionsManager = ({
                 : [0],
         hasDimensionItemsInColumns: Boolean(columnDimensionItems.length),
         hasDimensionItemsInRows: Boolean(rowDimensionItems.length),
+        hasCumulativeValuesInPt:
+            visualizationType === VIS_TYPE_PIVOT_TABLE && cumulativeValues,
     })
 
     return (
@@ -94,6 +98,7 @@ VisualizationOptionsManager.propTypes = {
     visualizationType: PropTypes.string.isRequired,
     columnDimensionItems: PropTypes.array,
     columns: PropTypes.array,
+    cumulativeValues: PropTypes.bool,
     rowDimensionItems: PropTypes.array,
     series: PropTypes.array,
 }
@@ -104,6 +109,7 @@ const mapStateToProps = (state) => ({
     rowDimensionItems: sGetDimensionItemsByAxis(state, AXIS_ID_ROWS),
     series: sGetUiOptions(state).series,
     columns: sGetUiLayout(state).columns,
+    cumulativeValues: sGetUiOptions(state).cumulativeValues,
 })
 
 export default connect(mapStateToProps)(VisualizationOptionsManager)

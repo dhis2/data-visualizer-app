@@ -7,6 +7,7 @@ import ColSubTotals from '../../components/VisualizationOptions/Options/ColSubTo
 import ColTotals from '../../components/VisualizationOptions/Options/ColTotals.js'
 import CompletedOnly from '../../components/VisualizationOptions/Options/CompletedOnly.js'
 import Cumulative from '../../components/VisualizationOptions/Options/Cumulative.js'
+import CumulativeValues from '../../components/VisualizationOptions/Options/CumulativeValues.js'
 import DigitGroupSeparator from '../../components/VisualizationOptions/Options/DigitGroupSeparator.js'
 import DisplayDensity from '../../components/VisualizationOptions/Options/DisplayDensity.js'
 import FixColumnHeaders from '../../components/VisualizationOptions/Options/FixColumnHeaders.js'
@@ -37,20 +38,26 @@ import getLimitValuesTab from './tabs/limitValues.js'
 import getSeriesTab from './tabs/series.js'
 import getStyleTab from './tabs/style.js'
 
-export default ({ hasDimensionItemsInColumns, hasDimensionItemsInRows }) => [
+export default ({
+    hasCumulativeValuesInPt,
+    hasDimensionItemsInColumns,
+    hasDimensionItemsInRows,
+}) => [
     getDataTab([
         getDisplayTemplate({
             content: React.Children.toArray([
+                <CumulativeValues forPT={true} />,
                 <ShowDimensionLabels />,
                 <SkipRounding />,
             ]),
         }),
         getTotalsTemplate({
+            hasCumulativeValuesInPt,
             content: React.Children.toArray([
-                <ColTotals />,
-                <ColSubTotals />,
-                <RowTotals />,
-                <RowSubTotals />,
+                <ColTotals disabled={hasCumulativeValuesInPt} />,
+                <ColSubTotals disabled={hasCumulativeValuesInPt} />,
+                <RowTotals disabled={hasCumulativeValuesInPt} />,
+                <RowSubTotals disabled={hasCumulativeValuesInPt} />,
             ]),
         }),
         getEmptyDataTemplate({
@@ -62,7 +69,7 @@ export default ({ hasDimensionItemsInColumns, hasDimensionItemsInRows }) => [
         getAdvancedTemplate({
             content: React.Children.toArray([
                 <AggregationType />,
-                <NumberType />,
+                <NumberType hasCumulativeValuesInPt />,
                 <CompletedOnly />,
                 <ApprovalLevel />,
             ]),
