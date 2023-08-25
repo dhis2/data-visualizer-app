@@ -1,11 +1,19 @@
 import i18n from '@dhis2/d2-i18n'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { SelectBaseOption } from './SelectBaseOption.js'
 
-const NumberType = () => (
+const NumberType = ({ hasCumulativeValuesInPt }) => (
     <SelectBaseOption
         label={i18n.t('Number type')}
-        helpText={i18n.t('Display the value of percentages of the total')}
+        disabled={hasCumulativeValuesInPt}
+        helpText={
+            hasCumulativeValuesInPt
+                ? i18n.t(
+                      'Number type is not supported when using cumulative values in PT'
+                  )
+                : i18n.t('Display the value of percentages of the total')
+        }
         option={{
             name: 'numberType',
             items: [
@@ -22,5 +30,9 @@ const NumberType = () => (
         }}
     />
 )
+
+NumberType.propTypes = {
+    hasCumulativeValuesInPt: PropTypes.bool,
+}
 
 export default NumberType
