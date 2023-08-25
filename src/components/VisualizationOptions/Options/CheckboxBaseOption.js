@@ -19,6 +19,7 @@ export const UnconnectedCheckboxBaseOption = ({
     inverted,
     fontStyleKey,
     dataTest,
+    disabled,
 }) => (
     <div className={tabSectionOption.className}>
         <CheckboxField
@@ -29,6 +30,7 @@ export const UnconnectedCheckboxBaseOption = ({
             onChange={({ checked }) => onChange(inverted ? !checked : checked)}
             dense
             dataTest={dataTest}
+            disabled={disabled}
         />
         {((!inverted && value) || (inverted && !value)) && fontStyleKey ? (
             <div className={tabSectionOptionToggleable.className}>
@@ -43,6 +45,7 @@ export const UnconnectedCheckboxBaseOption = ({
 
 UnconnectedCheckboxBaseOption.propTypes = {
     dataTest: PropTypes.string,
+    disabled: PropTypes.bool,
     fontStyleKey: PropTypes.string,
     helpText: PropTypes.string,
     inverted: PropTypes.bool,
