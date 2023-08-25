@@ -50,6 +50,19 @@ const DATA_ITEMS_URL = '**/dataItems*'
 
 describe('Data dimension', () => {
     describe('initial state', () => {
+        cy.info(
+            'Add **ReportPortal** related *metadata* before starting main test actions.'
+        )
+        cy.addTestAttributes([
+            {
+                key: 'feature',
+                value: 'Open Data Dimension modal',
+            },
+        ])
+        cy.setTestDescription(
+            'This test suite open the Data dimension modal and check its initial state'
+        )
+
         it('navigates to the start page', () => {
             goToStartPage()
         })
@@ -94,6 +107,19 @@ describe('Data dimension', () => {
         })
     })
     describe('selecting all and fetching more', () => {
+        cy.info(
+            'Add **ReportPortal** related *metadata* before starting main test actions.'
+        )
+        cy.addTestAttributes([
+            {
+                key: 'feature',
+                value: 'Explore Data Dimension',
+            },
+        ])
+        cy.setTestDescription(
+            'This test suite explore the Data visualizer dimensions'
+        )
+
         const secondPageItemName = 'BCG doses'
         it('all items can be selected', () => {
             cy.intercept('GET', DATA_ITEMS_URL).as('request')
