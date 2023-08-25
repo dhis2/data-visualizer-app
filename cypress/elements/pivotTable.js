@@ -5,3 +5,6 @@ export const clickTableValueCell = (index) =>
 
 export const expectTableValueCellsToHaveLength = (length) =>
     cy.getBySel(valueCellEl).should('have.length', length)
+
+export const expectTableValueCellToContainValue = (index, value) =>
+    cy.getBySel(valueCellEl).eq(index).contains(value)
