@@ -41,7 +41,7 @@ export const UnconnectedSelectBaseOption = ({
                     dataTest={`${dataTest}-checkbox`}
                 />
             ) : null}
-            {(!toggleable || checked) && !disabled ? (
+            {!toggleable || checked ? (
                 <div
                     className={
                         toggleable ? tabSectionOptionToggleable.className : ''
@@ -56,6 +56,7 @@ export const UnconnectedSelectBaseOption = ({
                         inputWidth="280px"
                         dense
                         dataTest={`${dataTest}-select`}
+                        disabled={disabled}
                     >
                         {option.items.map(({ value, label }) => (
                             <SingleSelectOption
