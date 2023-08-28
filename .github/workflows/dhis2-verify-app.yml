@@ -83,7 +83,7 @@ jobs:
 
     call-workflow-e2e-prod:
         needs: [build, lint, test]
-        uses: dhis2/workflows/ci/cypress-e2e-tests.yml@20f5b87a887b0ee5f9db334a8454ba25f01e1b86
+        uses: adeldhis2/workflows/.github/workflows/cypress-e2e-tests.yml@add-cypress-e2e-test-workflow
         secrets:
             baseurl: ${{ secrets.CYPRESS_DHIS2_BASE_URL_DEV }}
             username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
