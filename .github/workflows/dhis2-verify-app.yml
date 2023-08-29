@@ -82,7 +82,7 @@ jobs:
                   REPORTPORTAL_PROJECT: ${{ vars.REPORTPORTAL_PROJECT }}
 
     call-workflow-e2e-prod:
-        needs: [build, lint, test]
+        needs: [build, lint]
         uses: adeldhis2/workflows/.github/workflows/cypress-e2e-tests.yml@add-cypress-e2e-test-workflow
         secrets:
             baseurl: ${{ secrets.CYPRESS_DHIS2_BASE_URL_DEV }}
