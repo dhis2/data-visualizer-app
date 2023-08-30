@@ -59,6 +59,7 @@ import {
 export const SET_UI = 'SET_UI'
 export const SET_UI_FROM_VISUALIZATION = 'SET_UI_FROM_VISUALIZATION'
 export const SET_UI_TYPE = 'SET_UI_TYPE'
+export const SET_UI_DISABLED_OPTIONS = 'SET_UI_DISABLED_OPTIONS'
 export const SET_UI_OPTIONS = 'SET_UI_OPTIONS'
 export const SET_UI_OPTION = 'SET_UI_OPTION'
 export const SET_UI_OPTION_FONT_STYLE = 'SET_UI_OPTION_FONT_STYLE'
@@ -82,6 +83,7 @@ export const UPDATE_UI_SERIES_ITEM = 'UPDATE_UI_SERIES_ITEM'
 export const DEFAULT_UI = {
     type: defaultVisType,
     options: getOptionsForUi(),
+    disabledOptions: {},
     layout: {
         columns: [DIMENSION_ID_DATA],
         rows: [DIMENSION_ID_PERIOD],
@@ -148,6 +150,12 @@ export default (state = DEFAULT_UI, action) => {
             return {
                 ...state,
                 type: action.value,
+            }
+        }
+        case SET_UI_DISABLED_OPTIONS: {
+            return {
+                ...state,
+                disabledOptions: action.value,
             }
         }
         case SET_UI_OPTIONS: {
@@ -665,6 +673,7 @@ export default (state = DEFAULT_UI, action) => {
 export const sGetUi = (state) => state.ui
 
 export const sGetUiType = (state) => sGetUi(state).type
+export const sGetUiDisabledOptions = (state) => sGetUi(state).disabledOptions
 export const sGetUiOptions = (state) => sGetUi(state).options
 export const sGetUiLayout = (state) => sGetUi(state).layout
 export const sGetUiLayoutRows = (state) => sGetUi(state).layout.rows
@@ -726,6 +735,12 @@ export const sGetAxisSetup = (state) => {
               axis: id in axes ? axes[id] : 0,
           }))
         : []
+}
+
+export const sGetUiDisabledOption = (state, option) => {
+    const disabledOptions = sGetUiDisabledOptions(state)
+
+    return disabledOptions[option.name]
 }
 
 export const sGetUiOption = (state, option) => {
