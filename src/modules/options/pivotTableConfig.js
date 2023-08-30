@@ -46,7 +46,7 @@ export default ({
     getDataTab([
         getDisplayTemplate({
             content: React.Children.toArray([
-                <CumulativeValues forPT={true} />,
+                <CumulativeValues />,
                 <ShowDimensionLabels />,
                 <SkipRounding />,
             ]),
@@ -54,10 +54,10 @@ export default ({
         getTotalsTemplate({
             hasCumulativeValuesInPt,
             content: React.Children.toArray([
-                <ColTotals disabled={hasCumulativeValuesInPt} />,
-                <ColSubTotals disabled={hasCumulativeValuesInPt} />,
-                <RowTotals disabled={hasCumulativeValuesInPt} />,
-                <RowSubTotals disabled={hasCumulativeValuesInPt} />,
+                <ColTotals />,
+                <ColSubTotals />,
+                <RowTotals />,
+                <RowSubTotals />,
             ]),
         }),
         getEmptyDataTemplate({
@@ -69,7 +69,7 @@ export default ({
         getAdvancedTemplate({
             content: React.Children.toArray([
                 <AggregationType />,
-                <NumberType hasCumulativeValuesInPt />,
+                <NumberType />,
                 <CompletedOnly />,
                 <ApprovalLevel />,
             ]),
