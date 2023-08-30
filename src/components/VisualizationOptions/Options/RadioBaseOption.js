@@ -3,7 +3,11 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
 import { acSetUiOption, acSetUiOptions } from '../../../actions/ui.js'
-import { sGetUiOption, sGetUiOptions } from '../../../reducers/ui.js'
+import {
+    sGetUiOption,
+    sGetUiOptions,
+    sGetUiDisabledOption,
+} from '../../../reducers/ui.js'
 
 export const RadioBaseOption = ({
     option,
@@ -39,6 +43,7 @@ RadioBaseOption.propTypes = {
 }
 
 const mapStateToProps = (state, ownProps) => ({
+    disabled: Boolean(sGetUiDisabledOption(state, ownProps.option)),
     value: ownProps.option.id
         ? sGetUiOption(state, { id: ownProps.option.id })
         : sGetUiOptions(state)[ownProps.option.name],
