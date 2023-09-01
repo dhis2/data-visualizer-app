@@ -1,4 +1,5 @@
 import { DIMENSION_ID_DATA, VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
+import cloneDeep from 'lodash-es/cloneDeep'
 import debounce from 'lodash-es/debounce'
 import PropTypes from 'prop-types'
 import React, { Component, Fragment } from 'react'
@@ -243,9 +244,13 @@ export const userSettingsSelector = createSelector(
 export const visualizationSelector = createSelector(
     [sGetCurrent, sGetUiDisabledOptions],
     (current, disabledOptions) => {
-        Object.keys(disabledOptions).forEach((option) => delete current[option])
+        const visualization = cloneDeep(current)
 
-        return current
+        Object.keys(disabledOptions).forEach(
+            (option) => delete visualization[option]
+        )
+
+        return visualization
     }
 )
 const mapStateToProps = (state) => ({
