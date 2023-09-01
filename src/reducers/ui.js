@@ -737,11 +737,8 @@ export const sGetAxisSetup = (state) => {
         : []
 }
 
-export const sGetUiDisabledOption = (state, option) => {
-    const disabledOptions = sGetUiDisabledOptions(state)
-
-    return disabledOptions[option.name]
-}
+export const sGetUiDisabledOption = (state, option) =>
+    sGetUiDisabledOptions(state)[option.name]
 
 export const sGetUiOption = (state, option) => {
     const options = sGetUi(state).options
