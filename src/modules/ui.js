@@ -14,6 +14,7 @@ import {
     VIS_TYPE_GAUGE,
     VIS_TYPE_SINGLE_VALUE,
 } from '@dhis2/analytics'
+import { getDisabledOptions } from './disabledOptions.js'
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields.js'
 import { getInverseLayout } from './layout.js'
 import { getOptionsFromVisualization } from './options.js'
@@ -25,24 +26,30 @@ export const ITEM_ATTRIBUTE_VERTICAL = 'VERTICAL'
 export const ITEM_ATTRIBUTE_HORIZONTAL = 'HORIZONTAL'
 
 // Transform from backend model to store.ui format
-export const getUiFromVisualization = (vis, currentState = {}) => ({
-    ...currentState,
-    type: vis.type || defaultVisType,
-    options: getOptionsFromVisualization(vis),
-    layout: layoutGetAxisIdDimensionIdsObject(vis),
-    itemsByDimension: layoutGetDimensionIdItemIdsObject(vis),
-    parentGraphMap:
-        vis.parentGraphMap ||
-        getParentGraphMapFromVisualization(vis) ||
-        currentState.parentGraphMap,
-    yearOverYearSeries:
-        isYearOverYear(vis.type) && vis[BASE_FIELD_YEARLY_SERIES]
-            ? vis[BASE_FIELD_YEARLY_SERIES]
-            : currentState.yearOverYearSeries,
-    yearOverYearCategory: isYearOverYear(vis.type)
-        ? vis.rows[0].items.map((item) => item.id)
-        : currentState.yearOverYearCategory,
-})
+export const getUiFromVisualization = (vis, currentState = {}) => {
+    const type = vis.type || defaultVisType
+    const options = getOptionsFromVisualization(vis)
+
+    return {
+        ...currentState,
+        type,
+        options,
+        disabledOptions: getDisabledOptions({ visType: type, options }),
+        layout: layoutGetAxisIdDimensionIdsObject(vis),
+        itemsByDimension: layoutGetDimensionIdItemIdsObject(vis),
+        parentGraphMap:
+            vis.parentGraphMap ||
+            getParentGraphMapFromVisualization(vis) ||
+            currentState.parentGraphMap,
+        yearOverYearSeries:
+            isYearOverYear(vis.type) && vis[BASE_FIELD_YEARLY_SERIES]
+                ? vis[BASE_FIELD_YEARLY_SERIES]
+                : currentState.yearOverYearSeries,
+        yearOverYearCategory: isYearOverYear(vis.type)
+            ? vis.rows[0].items.map((item) => item.id)
+            : currentState.yearOverYearCategory,
+    }
+}
 
 // Transform from store.ui to default format
 const defaultUiAdapter = (ui) => ({
@@ -100,20 +107,35 @@ const scatterUiAdapter = (ui) => {
 }
 
 export const getAdaptedUiByType = (ui) => {
+    let adaptedUi
+
     switch (ui.type) {
         case VIS_TYPE_YEAR_OVER_YEAR_LINE:
         case VIS_TYPE_YEAR_OVER_YEAR_COLUMN: {
-            return yearOverYearUiAdapter(ui)
+            adaptedUi = yearOverYearUiAdapter(ui)
+            break
         }
         case VIS_TYPE_PIVOT_TABLE:
-            return ui
+            adaptedUi = ui
+            break
         case VIS_TYPE_GAUGE:
         case VIS_TYPE_SINGLE_VALUE:
-            return singleValueUiAdapter(ui)
+            adaptedUi = singleValueUiAdapter(ui)
+            break
         case VIS_TYPE_SCATTER:
-            return scatterUiAdapter(ui)
+            adaptedUi = scatterUiAdapter(ui)
+            break
         default:
-            return defaultUiAdapter(ui)
+            adaptedUi = defaultUiAdapter(ui)
+            break
+    }
+
+    return {
+        ...adaptedUi,
+        disabledOptions: getDisabledOptions({
+            visType: adaptedUi.type,
+            options: adaptedUi.options,
+        }),
     }
 }
 
