@@ -381,8 +381,8 @@ msgstr "Include cumulative"
 msgid "Cumulative values"
 msgstr "Cumulative values"
 
-msgid "Accumulate values horizontally TODO"
-msgstr "Accumulate values horizontally TODO"
+msgid "Accumulate cell values along rows"
+msgstr "Accumulate cell values along rows"
 
 msgid "Show data item icon"
 msgstr "Show data item icon"
@@ -527,9 +527,6 @@ msgstr "No space between bars/columns"
 
 msgid "Number type"
 msgstr "Number type"
-
-msgid "Number type is not supported when using cumulative values in PT"
-msgstr "Number type is not supported when using cumulative values in PT"
 
 msgid "Display the value of percentages of the total"
 msgstr "Display the value of percentages of the total"
@@ -714,6 +711,9 @@ msgstr "Open as Map"
 
 msgid "Visually plot data on a world map. Data elements use separate map layers."
 msgstr "Visually plot data on a world map. Data elements use separate map layers."
+
+msgid "not available when cumulative values is enabled TODO"
+msgstr "not available when cumulative values is enabled TODO"
 
 msgid "No data available"
 msgstr "No data available"
