@@ -27,14 +27,14 @@ export const ITEM_ATTRIBUTE_HORIZONTAL = 'HORIZONTAL'
 
 // Transform from backend model to store.ui format
 export const getUiFromVisualization = (vis, currentState = {}) => {
-    const type = vis.type || defaultVisType
+    const visType = vis.type || defaultVisType
     const options = getOptionsFromVisualization(vis)
 
     return {
         ...currentState,
-        type,
+        type: visType,
         options,
-        disabledOptions: getDisabledOptions({ visType: type, options }),
+        disabledOptions: getDisabledOptions({ visType, options }),
         layout: layoutGetAxisIdDimensionIdsObject(vis),
         itemsByDimension: layoutGetDimensionIdItemIdsObject(vis),
         parentGraphMap:
