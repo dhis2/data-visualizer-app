@@ -18,14 +18,6 @@ export const getDisabledOptions = ({ visType, options }) => {
                             'not available when cumulative values is enabled TODO'
                         ),
                     }
-                } else {
-                    ;[
-                        'colTotals',
-                        'colSubTotals',
-                        'rowTotals',
-                        'rowSubTotals',
-                        'numberType',
-                    ].forEach((option) => delete disabledOptions[option])
                 }
 
                 break
