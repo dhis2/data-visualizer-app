@@ -256,6 +256,7 @@ export const VisualizationPlugin = ({
         case LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM:
             {
                 if (
+                    fetchResult.visualization.type !== VIS_TYPE_PIVOT_TABLE &&
                     !fetchResult.visualization.columns.some(
                         (item) => item.dimension === 'dx'
                     )
