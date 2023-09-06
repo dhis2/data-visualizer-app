@@ -19,21 +19,21 @@ import {
 
 const EQUAL_OPERATOR_ID = 'EQ'
 const GREATER_THAN_OPERATOR_ID = 'GT'
-const GREATER_THAN_OR_EQUAL_OPEARTOR_ID = 'GE'
+const GREATER_THAN_OR_EQUAL_OPERATOR_ID = 'GE'
 const LESS_THAN_OPERATOR_ID = 'LT'
-const LESS_THAN_OR_EQUAL_OPEARTOR_ID = 'LE'
+const LESS_THAN_OR_EQUAL_OPERATOR_ID = 'LE'
 const EMPTY = ''
 
 const MIN_OPERATORS = [
     { id: EQUAL_OPERATOR_ID, label: '=' },
     { id: GREATER_THAN_OPERATOR_ID, label: '>' },
-    { id: GREATER_THAN_OR_EQUAL_OPEARTOR_ID, label: '>=' },
+    { id: GREATER_THAN_OR_EQUAL_OPERATOR_ID, label: '>=' },
 ]
 
 const MAX_OPERATORS = [
     { id: EQUAL_OPERATOR_ID, label: '=' },
     { id: LESS_THAN_OPERATOR_ID, label: '<' },
-    { id: LESS_THAN_OR_EQUAL_OPEARTOR_ID, label: '<=' },
+    { id: LESS_THAN_OR_EQUAL_OPERATOR_ID, label: '<=' },
 ]
 
 const OperatorSelect = ({ name, value, onChange, operators }) => {
@@ -91,7 +91,7 @@ class MeasureCriteria extends Component {
             props.value.split(/[;:]/)
 
         if (
-            [LESS_THAN_OPERATOR_ID, LESS_THAN_OR_EQUAL_OPEARTOR_ID].includes(
+            [LESS_THAN_OPERATOR_ID, LESS_THAN_OR_EQUAL_OPERATOR_ID].includes(
                 op1
             )
         ) {
