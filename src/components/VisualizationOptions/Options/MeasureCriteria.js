@@ -17,15 +17,25 @@ import {
     tabSectionOptionComplexInline,
 } from '../styles/VisualizationOptions.style.js'
 
-const OperatorSelect = ({ name, value, onChange }) => {
-    const options = [
-        { id: 'EQ', label: '=' },
-        { id: 'GT', label: '>' },
-        { id: 'GE', label: '>=' },
-        { id: 'LT', label: '<' },
-        { id: 'LE', label: '<=' },
-    ]
+const EQUAL_OPERATOR_ID = 'EQ'
+const GREATER_THAN_OPERATOR_ID = 'GT'
+const GREATER_THAN_OR_EQUAL_OPEARTOR_ID = 'GE'
+const LESS_THAN_OPERATOR_ID = 'LT'
+const LESS_THAN_OR_EQUAL_OPEARTOR_ID = 'LE'
 
+const MIN_OPERATORS = [
+    { id: EQUAL_OPERATOR_ID, label: '=' },
+    { id: GREATER_THAN_OPERATOR_ID, label: '>' },
+    { id: GREATER_THAN_OR_EQUAL_OPEARTOR_ID, label: '>=' },
+]
+
+const MAX_OPERATORS = [
+    { id: EQUAL_OPERATOR_ID, label: '=' },
+    { id: LESS_THAN_OPERATOR_ID, label: '<' },
+    { id: LESS_THAN_OR_EQUAL_OPEARTOR_ID, label: '<=' },
+]
+
+const OperatorSelect = ({ name, value, onChange, operators }) => {
     return (
         <div style={{ width: '112px', marginRight: '8px' }}>
             <SingleSelect
@@ -38,7 +48,7 @@ const OperatorSelect = ({ name, value, onChange }) => {
                 inputMaxWidth="106px"
                 dense
             >
-                {options.map(({ id, label }) => (
+                {operators.map(({ id, label }) => (
                     <SingleSelectOption key={id} value={id} label={label} />
                 ))}
             </SingleSelect>
@@ -48,6 +58,7 @@ const OperatorSelect = ({ name, value, onChange }) => {
 
 OperatorSelect.propTypes = {
     name: PropTypes.string.isRequired,
+    operators: PropTypes.array.isRequired,
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
 }
@@ -75,7 +86,18 @@ class MeasureCriteria extends Component {
 
         this.defaultState = { op1: '', v1: '', op2: '', v2: '' }
 
-        const [op1 = '', v1 = '', op2 = '', v2 = ''] = props.value.split(/[;:]/)
+        let [op1 = '', v1 = '', op2 = '', v2 = ''] = props.value.split(/[;:]/)
+
+        if (
+            [LESS_THAN_OPERATOR_ID, LESS_THAN_OR_EQUAL_OPEARTOR_ID].includes(
+                op1
+            )
+        ) {
+            op2 = op1
+            v2 = v1
+            op1 = ''
+            v1 = ''
+        }
 
         this.state = { op1, v1, op2, v2 }
     }
@@ -119,6 +141,7 @@ class MeasureCriteria extends Component {
                                 name="op1"
                                 value={op1}
                                 onChange={this.onChange('op1')}
+                                operators={MIN_OPERATORS}
                             />
                             <ValueInput
                                 name="v1"
@@ -136,6 +159,7 @@ class MeasureCriteria extends Component {
                                 name="op2"
                                 value={op2}
                                 onChange={this.onChange('op2')}
+                                operators={MAX_OPERATORS}
                             />
                             <ValueInput
                                 name="v2"
