@@ -22,6 +22,7 @@ const GREATER_THAN_OPERATOR_ID = 'GT'
 const GREATER_THAN_OR_EQUAL_OPEARTOR_ID = 'GE'
 const LESS_THAN_OPERATOR_ID = 'LT'
 const LESS_THAN_OR_EQUAL_OPEARTOR_ID = 'LE'
+const EMPTY = ''
 
 const MIN_OPERATORS = [
     { id: EQUAL_OPERATOR_ID, label: '=' },
@@ -84,9 +85,10 @@ class MeasureCriteria extends Component {
     constructor(props) {
         super(props)
 
-        this.defaultState = { op1: '', v1: '', op2: '', v2: '' }
+        this.defaultState = { op1: EMPTY, v1: EMPTY, op2: EMPTY, v2: EMPTY }
 
-        let [op1 = '', v1 = '', op2 = '', v2 = ''] = props.value.split(/[;:]/)
+        let [op1 = EMPTY, v1 = EMPTY, op2 = EMPTY, v2 = EMPTY] =
+            props.value.split(/[;:]/)
 
         if (
             [LESS_THAN_OPERATOR_ID, LESS_THAN_OR_EQUAL_OPEARTOR_ID].includes(
@@ -95,14 +97,14 @@ class MeasureCriteria extends Component {
         ) {
             op2 = op1
             v2 = v1
-            op1 = ''
-            v1 = ''
+            op1 = EMPTY
+            v1 = EMPTY
         }
 
         this.state = { op1, v1, op2, v2 }
     }
 
-    onClear = () => this.setState(this.defaultState, this.props.onChange(''))
+    onClear = () => this.setState(this.defaultState, this.props.onChange(EMPTY))
 
     onChange = (name) => (value) => {
         this.setState({ [name]: value }, () => {
@@ -117,7 +119,7 @@ class MeasureCriteria extends Component {
                 value.push(`${op2}:${v2}`)
             }
 
-            this.props.onChange(value.length > 0 ? value.join(';') : '')
+            this.props.onChange(value.length > 0 ? value.join(';') : EMPTY)
         })
     }
 
@@ -185,7 +187,7 @@ MeasureCriteria.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-    value: sGetUiOptions(state).measureCriteria || '',
+    value: sGetUiOptions(state).measureCriteria || EMPTY,
 })
 
 const mapDispatchToProps = (dispatch) => ({
