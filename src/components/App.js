@@ -42,7 +42,8 @@ export class UnconnectedApp extends Component {
 
     interpretationsUnitRef = React.createRef()
 
-    onInterpretationUpdate = () => this.interpretationsUnitRef.current.refresh()
+    onInterpretationUpdate = () =>
+        this.interpretationsUnitRef.current?.refresh()
 
     state = {
         previousLocation: null,
