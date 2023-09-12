@@ -2,7 +2,7 @@
 # Translators:
 # ericbp <ericbarredap@gmail.com>, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
-# phil_dhis2, 2020
+# Philip Larsen Donnelly, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
 # Pablo Pajuelo Cabezas <pablo@dhis2.org>, 2020
 # Prabhjot Singh, 2021
@@ -306,7 +306,7 @@ msgid "Polynomial"
 msgstr "Polinomio"
 
 msgid "Loess"
-msgstr ""
+msgstr "Loess"
 
 msgid "Show values"
 msgstr "Mostrar valores"
