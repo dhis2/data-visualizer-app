@@ -26,10 +26,10 @@ msgid "\"{{deletedObject}}\" successfully deleted."
 msgstr ""
 
 msgid "You have unsaved changes."
-msgstr ""
+msgstr "Tiene cambios sin guardar."
 
 msgid "Discard unsaved changes?"
-msgstr ""
+msgstr "¿Descartar los cambios no guardados?"
 
 msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
