@@ -2,20 +2,20 @@
 # Translators:
 # ericbp <ericbarredap@gmail.com>, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
-# phil_dhis2, 2020
+# Philip Larsen Donnelly, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
 # Pablo Pajuelo Cabezas <pablo@dhis2.org>, 2020
 # Prabhjot Singh, 2021
 # Carlos Tejo Alonso, 2022
-# Janeth Cruz, 2023
 # Enzo Nicolas Rossi <enzo@dhis2.org>, 2023
+# Janeth Cruz, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-09T14:22:42.172Z\n"
 "PO-Revision-Date: 2020-03-02 13:01+0000\n"
-"Last-Translator: Enzo Nicolas Rossi <enzo@dhis2.org>, 2023\n"
+"Last-Translator: Janeth Cruz, 2023\n"
 "Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -333,7 +333,7 @@ msgid "Include cumulative"
 msgstr "Incluir acumulado"
 
 msgid "Cumulative values"
-msgstr ""
+msgstr "Valores acumulativos"
 
 msgid "Digit group separator"
 msgstr "Separador de grupos de dígitos"
@@ -516,7 +516,7 @@ msgid "Polynomial"
 msgstr "Polinomio"
 
 msgid "Loess"
-msgstr ""
+msgstr "Loess"
 
 msgid "Row sub-totals"
 msgstr "Subtotales de fila"
