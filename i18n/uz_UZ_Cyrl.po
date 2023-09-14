@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-03-07T12:07:38.393Z\n"
+"POT-Creation-Date: 2023-05-30T12:32:59.044Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Ibatov <ibatovk@who.int>, 2022\n"
 "Language-Team: Uzbek (Cyrillic) (https://app.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
@@ -217,9 +217,6 @@ msgstr "Даврни танланг"
 
 msgid "Select years"
 msgstr "Йилни танланг"
-
-msgid "Interpretations"
-msgstr "Талқинлар"
 
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
