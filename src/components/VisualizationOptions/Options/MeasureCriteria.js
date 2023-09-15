@@ -85,10 +85,18 @@ class MeasureCriteria extends Component {
     constructor(props) {
         super(props)
 
-        this.defaultState = { op1: EMPTY, v1: EMPTY, op2: EMPTY, v2: EMPTY }
+        const OP1_DEFAULT = GREATER_THAN_OPERATOR_ID
+        const OP2_DEFAULT = LESS_THAN_OPERATOR_ID
 
-        let [op1 = EMPTY, v1 = EMPTY, op2 = EMPTY, v2 = EMPTY] =
-            props.value.split(/[;:]/)
+        this.defaultState = {
+            op1: OP1_DEFAULT,
+            v1: EMPTY,
+            op2: OP2_DEFAULT,
+            v2: EMPTY,
+        }
+
+        let [op1 = OP1_DEFAULT, v1 = EMPTY, op2 = OP2_DEFAULT, v2 = EMPTY] =
+            props.value && props.value.split(/[;:]/)
 
         if (
             [LESS_THAN_OPERATOR_ID, LESS_THAN_OR_EQUAL_OPERATOR_ID].includes(
@@ -97,7 +105,7 @@ class MeasureCriteria extends Component {
         ) {
             op2 = op1
             v2 = v1
-            op1 = EMPTY
+            op1 = OP1_DEFAULT
             v1 = EMPTY
         }
 
