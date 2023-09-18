@@ -97,4 +97,4 @@ Pull requests (I.E. #209) are available at:
 
 `https://pr-209--dhis2-data-visualizer.netlify.app`
 
-Netlify will also add a status check to each PR which links directly to the PR deployment.
+Netlify will also add a status check to each PR which links directly to the PR deployment
