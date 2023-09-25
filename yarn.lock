@@ -2142,12 +2142,13 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^24.2.7":
-  version "24.2.7"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-24.2.7.tgz#c2e7796d909bf8e36552138a5cd6e3d414b8d09d"
-  integrity sha512-orEO14qzdTacQZdUVTOHlbZsdsGm3Q2Wjk3ELPBnsPIKq2c+9J4ve34wwc7wBcvVJP/BlW5LEs97G7DdjqurFA==
+"@dhis2/analytics@^24.9.3":
+  version "24.9.3"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-24.9.3.tgz#a8b52d89195382af553e53283b05efa9503e5a56"
+  integrity sha512-rkt3kVO4W/yZC1IxK35QNDL4Uo4X32b+gYXLOkMSSaW5IrKACwtB8zRKp2nYdHzV1jYOe9jv7lme14zlJ7v8Kg==
   dependencies:
     "@dhis2/d2-ui-rich-text" "^7.4.0"
+    "@dhis2/multi-calendar-dates" "1.0.0"
     classnames "^2.3.1"
     d2-utilizr "^0.2.16"
     d3-color "^1.2.3"
@@ -2367,6 +2368,14 @@
     babel-runtime "^6.26.0"
     markdown-it "^8.4.2"
     prop-types "^15.6.2"
+
+"@dhis2/multi-calendar-dates@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@dhis2/multi-calendar-dates/-/multi-calendar-dates-1.0.0.tgz#bf7f49aecdffa9781837a5d60d56a094b74ab4df"
+  integrity sha512-IB9a+feuS6yE4lpZj/eZ9uBmpYI7Hxitl2Op0JjoRL4tP+p6uw4ns9cjoSdUeIU9sOAxVZV7oQqSyIw+9P6YjQ==
+  dependencies:
+    "@js-temporal/polyfill" "^0.4.2"
+    classnames "^2.3.2"
 
 "@dhis2/prop-types@^3.1.2":
   version "3.1.2"
@@ -2918,6 +2927,14 @@
   dependencies:
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
+
+"@js-temporal/polyfill@^0.4.2":
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/@js-temporal/polyfill/-/polyfill-0.4.4.tgz#4c26b4a1a68c19155808363f520204712cfc2558"
+  integrity sha512-2X6bvghJ/JAoZO52lbgyAPFj8uCflhTo2g7nkFzEQdXd/D8rEeD4HtmTEpmtGCva260fcd66YNXBOYdnmHqSOg==
+  dependencies:
+    jsbi "^4.3.0"
+    tslib "^2.4.1"
 
 "@juggle/resize-observer@^3.3.1":
   version "3.3.1"
@@ -5449,6 +5466,11 @@ classnames@^2.2.6, classnames@^2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
   integrity sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
+
+classnames@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.2.tgz#351d813bf0137fcc6a76a16b88208d2560a0d924"
+  integrity sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==
 
 clean-css@^5.2.2:
   version "5.3.1"
@@ -10367,6 +10389,11 @@ js-yaml@^4.1.0:
   integrity sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==
   dependencies:
     argparse "^2.0.1"
+
+jsbi@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/jsbi/-/jsbi-4.3.0.tgz#b54ee074fb6fcbc00619559305c8f7e912b04741"
+  integrity sha512-SnZNcinB4RIcnEyZqFPdGPVgrg2AcnykiBy0sHVJQKHYeaLUvi3Exj+iaPpLnFVkDPZIV4U0yvgC9/R4uEAZ9g==
 
 jsbn@~0.1.0:
   version "0.1.1"
@@ -15511,6 +15538,11 @@ tslib@^2.0.1, tslib@^2.0.3:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.4.0.tgz#7cecaa7f073ce680a05847aa77be941098f36dc3"
   integrity sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==
+
+tslib@^2.4.1:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.6.2.tgz#703ac29425e7b37cd6fd456e92404d46d1f3e4ae"
+  integrity sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==
 
 tsutils@^3.21.0:
   version "3.21.0"
