@@ -45,7 +45,11 @@ export const VisualizationPlugin = ({
     const [size, setSize] = useState({ width: 0, height: 0 })
 
     const containerCallbackRef = useCallback((node) => {
-        if (node === null) {
+        if (
+            node === null ||
+            // This avoids a state update when closing the intepretations modal
+            (node.clientWidth === 0 && node.clientHeight === 0)
+        ) {
             return
         }
 

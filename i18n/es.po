@@ -1,7 +1,7 @@
 # 
 # Translators:
 # ericbp <ericbarredap@gmail.com>, 2020
-# phil_dhis2, 2020
+# Philip Larsen Donnelly, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
 # Pablo Pajuelo Cabezas <pablo@dhis2.org>, 2020
 # Prabhjot Singh, 2021
@@ -13,7 +13,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-03-07T12:07:38.393Z\n"
+"POT-Creation-Date: 2023-05-30T12:32:59.044Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Janeth Cruz, 2023\n"
 "Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
@@ -226,9 +226,6 @@ msgstr "Seleccione un periodo"
 msgid "Select years"
 msgstr "Seleccionar años"
 
-msgid "Interpretations"
-msgstr "Interpretaciones"
-
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
@@ -396,7 +393,7 @@ msgid "Include cumulative"
 msgstr "Incluir acumulado"
 
 msgid "Cumulative values"
-msgstr ""
+msgstr "Valores acumulativos"
 
 msgid "Show data item icon"
 msgstr "Mostrar el icono de elemento de datos"
@@ -579,10 +576,10 @@ msgid "Interquartile Range (IQR)"
 msgstr "Rango Intercuartil (IQR)"
 
 msgid "Z-score / Standard score"
-msgstr ""
+msgstr "Puntuación Z / Puntuación estándar "
 
 msgid "Modified Z-score"
-msgstr "Z-score modificado"
+msgstr "Puntuación Z modificada"
 
 msgid "Outlier analysis"
 msgstr "Análisis de valores atípicos"
@@ -625,7 +622,7 @@ msgid "Polynomial"
 msgstr "Polinomio"
 
 msgid "Loess"
-msgstr ""
+msgstr "Loess"
 
 msgid "Row sub-totals"
 msgstr "Subtotales de fila"
