@@ -1,6 +1,6 @@
 # 
 # Translators:
-# phil_dhis2, 2020
+# Philip Larsen Donnelly, 2020
 # Nadiia <semchuk@aph.org.ua>, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Wanda <wanda@frontlineaids.org>, 2021
@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-03-07T12:07:38.393Z\n"
+"POT-Creation-Date: 2023-05-30T12:32:59.044Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Éva Tamási, 2022\n"
 "Language-Team: Ukrainian (https://app.transifex.com/hisp-uio/teams/100509/uk/)\n"
@@ -221,9 +221,6 @@ msgstr "Виберіть період"
 
 msgid "Select years"
 msgstr "Виберіть роки"
-
-msgid "Interpretations"
-msgstr "Інтерпретації"
 
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
