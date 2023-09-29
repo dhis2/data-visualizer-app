@@ -20,7 +20,7 @@ _text_
 
 -   [ ] Cypress tests
 -   [ ] Update docs
--   [ ] KFMT
+-   [ ] Manual testing
 -   [ ] _task_
 
 ---
