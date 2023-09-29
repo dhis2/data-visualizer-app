@@ -96,7 +96,7 @@ class MeasureCriteria extends Component {
         }
 
         let [op1 = OP1_DEFAULT, v1 = EMPTY, op2 = OP2_DEFAULT, v2 = EMPTY] =
-            props.value && props.value.split(/[;:]/)
+            props.value.split(/[;:]/)
 
         if (
             [LESS_THAN_OPERATOR_ID, LESS_THAN_OR_EQUAL_OPERATOR_ID].includes(
