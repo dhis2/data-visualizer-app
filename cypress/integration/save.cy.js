@@ -1,5 +1,6 @@
 import {
     DIMENSION_ID_DATA,
+    DIMENSION_ID_ORGUNIT,
     visTypeDisplayNames,
     VIS_TYPE_SCATTER,
 } from '@dhis2/analytics'
@@ -16,10 +17,10 @@ import {
     selectIndicators,
     selectDataElements,
     clickDimensionModalUpdateButton,
+    deselectOrgUnitTreeItem,
 } from '../elements/dimensionModal/index.js'
 import { openDimension } from '../elements/dimensionsPanel.js'
 import {
-    //openRandomAOCreatedByOthers,
     saveNewAO,
     closeFileMenuWithClick,
     saveAOAs,
@@ -184,21 +185,36 @@ describe('saving an AO', () => {
         })
     })
 
-    /*
-    describe('"save" for a saved AO created by others', () => {
-        it('navigates to the start page', () => {
+    // Specific test for DHIS2-15722
+    describe('"save" a copied AO created by others', () => {
+        const TEST_VIS_BY_OTHERS_NAME = 'ANC: 1-3 dropout rate Yearly'
+        const TEST_VIS_BY_OTHERS_NAME_UPDATED = `${TEST_VIS_BY_OTHERS_NAME} - updated`
+
+        it('navigates to the start page and opens a random AO created by others', () => {
             goToStartPage()
+            openAOByName(TEST_VIS_BY_OTHERS_NAME)
+            expectAOTitleToBeValue(TEST_VIS_BY_OTHERS_NAME)
         })
-        it('opens a random AO created by others', () => {
-            openRandomAOCreatedByOthers()
+        it('saves AO using "Save As"', () => {
+            saveAOAs(TEST_VIS_BY_OTHERS_NAME_UPDATED)
+            expectAOTitleToBeValue(TEST_VIS_BY_OTHERS_NAME_UPDATED)
+            expectVisualizationToBeVisible()
         })
-        it('checks that Save is disabled - WIP', () => {
-            clickMenuBarFileButton()
-            expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_SAVEAS)
-            // TODO: This is not always true, as different AOs can have different sharing settings.
-            // @edoardo will add additional tests here later
-            closeFileMenuWithClick()
+        it('edits the AO', () => {
+            openDimension(DIMENSION_ID_ORGUNIT)
+            deselectOrgUnitTreeItem('Western Area')
+            clickDimensionModalUpdateButton()
+        })
+        it('saves AO using "Save"', () => {
+            saveExistingAO()
+            expectAOTitleToNotBeDirty()
+            expectAOTitleToBeValue(TEST_VIS_BY_OTHERS_NAME_UPDATED)
+            expectVisualizationToBeVisible()
+        })
+        it('deletes AO', () => {
+            deleteAO()
+            expectRouteToBeEmpty()
+            expectStartScreenToBeVisible()
         })
     })
-    */
 })
