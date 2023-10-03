@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-05-30T12:32:59.044Z\n"
+"POT-Creation-Date: 2023-09-06T13:41:14.540Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2022\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
@@ -474,10 +474,10 @@ msgstr "图例风格"
 msgid "Legend type"
 msgstr "图例类型"
 
-msgid "Use pre-defined legend per data item"
-msgstr "每个数据项使用预定义的图例"
+msgid "Use pre-defined legend by data item"
+msgstr ""
 
-msgid "Select a single legend for the entire visualization"
+msgid "Select a legend"
 msgstr ""
 
 msgid "Legend changes background color"
