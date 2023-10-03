@@ -36,7 +36,7 @@ const MAX_OPERATORS = [
     { id: LESS_THAN_OR_EQUAL_OPERATOR_ID, label: '<=' },
 ]
 
-const OperatorSelect = ({ name, value, onChange, operators }) => {
+const OperatorSelect = ({ name, value, onChange, operators, dataTest }) => {
     return (
         <div style={{ width: '112px', marginRight: '8px' }}>
             <SingleSelect
@@ -48,9 +48,15 @@ const OperatorSelect = ({ name, value, onChange, operators }) => {
                 tabIndex="0"
                 inputMaxWidth="106px"
                 dense
+                dataTest={dataTest}
             >
                 {operators.map(({ id, label }) => (
-                    <SingleSelectOption key={id} value={id} label={label} />
+                    <SingleSelectOption
+                        key={id}
+                        value={id}
+                        label={label}
+                        dataTest={`${dataTest}-option`}
+                    />
                 ))}
             </SingleSelect>
         </div>
@@ -62,9 +68,10 @@ OperatorSelect.propTypes = {
     operators: PropTypes.array.isRequired,
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
+    dataTest: PropTypes.string,
 }
 
-const ValueInput = ({ name, value, onChange }) => (
+const ValueInput = ({ name, value, onChange, dataTest }) => (
     <Input
         name={name}
         value={value}
@@ -72,6 +79,7 @@ const ValueInput = ({ name, value, onChange }) => (
         onChange={({ value }) => onChange(value)}
         width="72px"
         dense
+        dataTest={dataTest}
     />
 )
 
@@ -79,6 +87,7 @@ ValueInput.propTypes = {
     name: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
+    dataTest: PropTypes.string,
 }
 
 class MeasureCriteria extends Component {
@@ -152,11 +161,13 @@ class MeasureCriteria extends Component {
                                 value={op1}
                                 onChange={this.onChange('op1')}
                                 operators={MIN_OPERATORS}
+                                dataTest="measure-critiera-min-operator"
                             />
                             <ValueInput
                                 name="v1"
                                 value={v1}
                                 onChange={this.onChange('v1')}
+                                dataTest="measure-critiera-min-value"
                             />
                         </div>
                     </div>
@@ -170,17 +181,23 @@ class MeasureCriteria extends Component {
                                 value={op2}
                                 onChange={this.onChange('op2')}
                                 operators={MAX_OPERATORS}
+                                dataTest="measure-critiera-max-operator"
                             />
                             <ValueInput
                                 name="v2"
                                 value={v2}
                                 onChange={this.onChange('v2')}
+                                dataTest="measure-critiera-max-value"
                             />
                         </div>
                     </div>
                 </div>
                 <div style={{ paddingTop: '16px' }}>
-                    <Button small onClick={this.onClear}>
+                    <Button
+                        small
+                        onClick={this.onClear}
+                        dataTest="measure-critiera-clear-button"
+                    >
                         {i18n.t('Clear min/max limits')}
                     </Button>
                 </div>
