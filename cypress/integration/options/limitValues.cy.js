@@ -75,11 +75,11 @@ describe('limit values', () => {
         expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
 
         const expectedValues = [
-            '97 481',
-            '98 338',
-            '98 041',
-            '108 919',
-            '135 067',
+            '49 231',
+            '49 605',
+            '49 500',
+            '55 385',
+            '68 886',
         ]
         expectedValues.forEach((value, index) =>
             expectTableValueToBe(value, index)
@@ -95,13 +95,13 @@ describe('limit values', () => {
         // set limits
         changeMinOperator('>=')
         changeMaxOperator('<=')
-        setMinValue('98041')
-        setMaxValue('124494')
+        setMinValue('49500')
+        setMaxValue('55385')
         clickOptionsModalUpdateButton()
 
         // verify limits are applied
         expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
-        const expectedValues = ['', '98 338', '98 041', '108 919', '']
+        const expectedValues = ['', '49 605', '49 500', '55 385', '']
         expectedValues.forEach((value, index) =>
             expectTableValueToBe(value, index)
         )
@@ -110,8 +110,8 @@ describe('limit values', () => {
         openOptionsModal(OPTIONS_TAB_LIMIT_VALUES)
         expectMinOperatorToBeOption('>=')
         expectMaxOperatorToBeOption('<=')
-        expectMinValueToBeValue('98041')
-        expectMaxValueToBeValue('124494')
+        expectMinValueToBeValue('49500')
+        expectMaxValueToBeValue('55385')
         clickOptionsModalHideButton()
 
         // save AO, verify limits are applied
@@ -126,8 +126,8 @@ describe('limit values', () => {
         openOptionsModal(OPTIONS_TAB_LIMIT_VALUES)
         expectMinOperatorToBeOption('>=')
         expectMaxOperatorToBeOption('<=')
-        expectMinValueToBeValue('98041')
-        expectMaxValueToBeValue('124494')
+        expectMinValueToBeValue('49500')
+        expectMaxValueToBeValue('55385')
         clickOptionsModalHideButton()
 
         // clean up
@@ -137,12 +137,12 @@ describe('limit values', () => {
     it('min value only display correctly', () => {
         // set limits
         changeMinOperator('>=')
-        setMinValue('98041')
+        setMinValue('49500')
         clickOptionsModalUpdateButton()
 
         // verify limits are applied
         expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
-        const expectedValues = ['', '98 338', '98 041', '108 919', '135 067']
+        const expectedValues = ['', '49 605', '49 500', '55 385', '68 886']
         expectedValues.forEach((value, index) =>
             expectTableValueToBe(value, index)
         )
@@ -151,7 +151,7 @@ describe('limit values', () => {
         openOptionsModal(OPTIONS_TAB_LIMIT_VALUES)
         expectMinOperatorToBeOption('>=')
         expectMaxOperatorToBeOption('<')
-        expectMinValueToBeValue('98041')
+        expectMinValueToBeValue('49500')
         expectMaxValueToBeValue('')
         clickOptionsModalHideButton()
 
@@ -167,7 +167,7 @@ describe('limit values', () => {
         openOptionsModal(OPTIONS_TAB_LIMIT_VALUES)
         expectMinOperatorToBeOption('>=')
         expectMaxOperatorToBeOption('<')
-        expectMinValueToBeValue('98041')
+        expectMinValueToBeValue('49500')
         expectMaxValueToBeValue('')
         clickOptionsModalHideButton()
 
@@ -178,12 +178,12 @@ describe('limit values', () => {
     it('max value only display correctly', () => {
         // set limits
         changeMaxOperator('<=')
-        setMaxValue('124494')
+        setMaxValue('55385')
         clickOptionsModalUpdateButton()
 
         // verify limits are applied
         expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
-        const expectedValues = ['97 481', '98 338', '98 041', '108 919', '']
+        const expectedValues = ['49 231', '49 605', '49 500', '55 385', '']
         expectedValues.forEach((value, index) =>
             expectTableValueToBe(value, index)
         )
@@ -193,7 +193,7 @@ describe('limit values', () => {
         expectMinOperatorToBeOption('>')
         expectMaxOperatorToBeOption('<=')
         expectMinValueToBeValue('')
-        expectMaxValueToBeValue('124494')
+        expectMaxValueToBeValue('55385')
         clickOptionsModalHideButton()
 
         // save AO, verify limits are applied
@@ -209,7 +209,7 @@ describe('limit values', () => {
         expectMinOperatorToBeOption('>')
         expectMaxOperatorToBeOption('<=')
         expectMinValueToBeValue('')
-        expectMaxValueToBeValue('124494')
+        expectMaxValueToBeValue('55385')
         clickOptionsModalHideButton()
 
         // clean up
@@ -219,12 +219,12 @@ describe('limit values', () => {
     it('equal value display correctly', () => {
         // set limits
         changeMinOperator('=')
-        setMinValue('98041')
+        setMinValue('49500')
         clickOptionsModalUpdateButton()
 
         // verify limits are applied
         expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
-        const expectedValues = ['', '', '98 041', '', '']
+        const expectedValues = ['', '', '49 500', '', '']
         expectedValues.forEach((value, index) =>
             expectTableValueToBe(value, index)
         )
@@ -233,7 +233,7 @@ describe('limit values', () => {
         openOptionsModal(OPTIONS_TAB_LIMIT_VALUES)
         expectMinOperatorToBeOption('=')
         expectMaxOperatorToBeOption('<')
-        expectMinValueToBeValue('98041')
+        expectMinValueToBeValue('49500')
         expectMaxValueToBeValue('')
         clickOptionsModalHideButton()
 
@@ -249,7 +249,7 @@ describe('limit values', () => {
         openOptionsModal(OPTIONS_TAB_LIMIT_VALUES)
         expectMinOperatorToBeOption('=')
         expectMaxOperatorToBeOption('<')
-        expectMinValueToBeValue('98041')
+        expectMinValueToBeValue('49500')
         expectMaxValueToBeValue('')
         clickOptionsModalHideButton()
 
