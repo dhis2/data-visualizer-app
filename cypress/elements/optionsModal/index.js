@@ -9,6 +9,7 @@ export const OPTIONS_TAB_AXES = 'Axes'
 export const OPTIONS_TAB_OUTLIERS = 'Outliers'
 export const OPTIONS_TAB_SERIES = 'Series'
 export const OPTIONS_TAB_LEGEND = 'Legend'
+export const OPTIONS_TAB_LIMIT_VALUES = 'Limit values'
 
 export const clickOptionsTab = (name) =>
     cy.getBySel(tabBarEl).contains(name).click()
@@ -89,3 +90,14 @@ export {
     expectLegendKeyToBeVisible,
     expectLegedKeyItemAmountToBe,
 } from './legend.js'
+
+export {
+    setMinValue,
+    setMaxValue,
+    changeMinOperator,
+    changeMaxOperator,
+    expectMinValueToBeValue,
+    expectMaxValueToBeValue,
+    expectMinOperatorToBeOption,
+    expectMaxOperatorToBeOption,
+} from './limitValues.js'
