@@ -1,3 +1,10 @@
+## [38.3.22](https://github.com/dhis2/data-visualizer-app/compare/v38.3.21...v38.3.22) (2023-10-12)
+
+
+### Bug Fixes
+
+* avoid undefined in totals DHIS2-14511 ([#2869](https://github.com/dhis2/data-visualizer-app/issues/2869)) ([6ee4a1f](https://github.com/dhis2/data-visualizer-app/commit/6ee4a1fc32aa099dad4abc66ead7b0e7583692d1))
+
 ## [38.3.21](https://github.com/dhis2/data-visualizer-app/compare/v38.3.20...v38.3.21) (2023-10-04)
 
 
