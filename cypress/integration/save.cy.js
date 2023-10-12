@@ -185,33 +185,33 @@ describe('saving an AO', () => {
         })
     })
 
-    // Specific test for DHIS2-15722
     describe('"save" a copied AO created by others', () => {
-        const TEST_VIS_BY_OTHERS_NAME = 'ANC: 1-3 dropout rate Yearly'
-        const TEST_VIS_BY_OTHERS_NAME_UPDATED = `${TEST_VIS_BY_OTHERS_NAME} - updated`
+        it('"save" a copied AO created by others works after editing', () => {
+            const TEST_VIS_BY_OTHERS_NAME = 'ANC: 1-3 dropout rate Yearly'
+            const TEST_VIS_BY_OTHERS_NAME_UPDATED = `${TEST_VIS_BY_OTHERS_NAME} - updated`
 
-        it('navigates to the start page and opens a random AO created by others', () => {
+            // navigates to the start page and opens an AO created by others
             goToStartPage()
             openAOByName(TEST_VIS_BY_OTHERS_NAME)
             expectAOTitleToBeValue(TEST_VIS_BY_OTHERS_NAME)
-        })
-        it('saves AO using "Save As"', () => {
+
+            // saves AO using "Save As"
             saveAOAs(TEST_VIS_BY_OTHERS_NAME_UPDATED)
             expectAOTitleToBeValue(TEST_VIS_BY_OTHERS_NAME_UPDATED)
             expectVisualizationToBeVisible()
-        })
-        it('edits the AO', () => {
+
+            // edits the AO
             openDimension(DIMENSION_ID_ORGUNIT)
             deselectOrgUnitTreeItem('Western Area')
             clickDimensionModalUpdateButton()
-        })
-        it('saves AO using "Save"', () => {
+
+            // saves AO using "Save"
             saveExistingAO()
             expectAOTitleToNotBeDirty()
             expectAOTitleToBeValue(TEST_VIS_BY_OTHERS_NAME_UPDATED)
             expectVisualizationToBeVisible()
-        })
-        it('deletes AO', () => {
+
+            // deletes AO
             deleteAO()
             expectRouteToBeEmpty()
             expectStartScreenToBeVisible()
