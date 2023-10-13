@@ -5,7 +5,7 @@ import {
     acClearLoadError,
     acSetPluginLoading,
 } from '../../actions/loader.js'
-import { CURRENT_AO_KEY } from '../../api/userDataStore.js'
+import { USER_DATASTORE_CURRENT_AO_KEY } from '../../modules/currentAnalyticalObject.js'
 import { GenericClientError } from '../../modules/error.js'
 import history from '../../modules/history.js'
 import { validateLayout } from '../../modules/layoutValidation.js'
@@ -36,7 +36,7 @@ const UpdateVisualizationContainer = ({
         onUpdate()
 
         const urlContainsCurrentAOKey =
-            history.location.pathname === '/' + CURRENT_AO_KEY
+            history.location.pathname === '/' + USER_DATASTORE_CURRENT_AO_KEY
 
         const current = getCurrent()
 
