@@ -20,6 +20,8 @@ import {
     NoOrgUnitResponseError,
     NoDataError,
     ValueTypeError,
+    AnalyticsGenerationError,
+    AnalyticsRequestError,
 } from '../../modules/error.js'
 import { removeLastPathSegment } from '../../modules/orgUnit.js'
 import { sGetCurrent } from '../../reducers/current.js'
@@ -74,6 +76,12 @@ export class UnconnectedVisualization extends Component {
                             error = new GenericServerError()
                         }
                     }
+                    break
+                case 'E7144':
+                    error = new AnalyticsGenerationError()
+                    break
+                case 'E7145':
+                    error = new AnalyticsRequestError()
                     break
                 default:
                     error = response
