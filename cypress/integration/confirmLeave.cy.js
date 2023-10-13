@@ -24,7 +24,7 @@ describe('confirm leave modal', () => {
         goToStartPage()
         openAOByName(TEST_AO.name)
         expectVisualizationToBeVisible(TEST_AO.type)
-        expectAOTitleToNotBeDirty()
+        expectAOTitleToBeDirty()
     })
     it(`replaces the selected period`, () => {
         replacePeriodItems(TEST_AO.type)
