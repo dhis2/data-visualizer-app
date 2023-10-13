@@ -55,7 +55,7 @@ describe('creating a new AO', () => {
             })
             it('changes vis type', () => {
                 changeVisType(visTypeName)
-                expectVisTypeToBeValue(visTypeName)
+                expectVisTypeToBeValue('Broken')
             })
             it('adds dimensions', () => {
                 openDimension(DIMENSION_ID_DATA)
