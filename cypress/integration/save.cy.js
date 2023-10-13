@@ -186,7 +186,7 @@ describe('saving an AO', () => {
     })
 
     describe('"save" a copied AO created by others', () => {
-        it('"save" a copied AO created by others works after editing', () => {
+        it('works after editing', () => {
             const TEST_VIS_BY_OTHERS_NAME = 'ANC: 1-3 dropout rate Yearly'
             const TEST_VIS_BY_OTHERS_NAME_UPDATED = `${TEST_VIS_BY_OTHERS_NAME} - updated`
 
