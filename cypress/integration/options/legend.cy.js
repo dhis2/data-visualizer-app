@@ -311,7 +311,6 @@ describe('Options - Legend', () => {
             expectSingleValueToHaveBackgroundColor(EXPECTED_BACKGROUND_COLOR_1)
             expectSVTitleToHaveColor(EXPECTED_CUSTOM_TITLE_COLOR)
             expectSVSubtitleToHaveColor(EXPECTED_CUSTOM_SUBTITLE_COLOR)
->>>>>>> 18ad584a (feat: single value background color change based upon legend (DHIS2-13702) (#2223))
         })
         it('legend key is hidden', () => {
             expectLegendKeyToBeHidden()
