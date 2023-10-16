@@ -2,10 +2,8 @@
     "name": "data-visualizer",
     "description": "DHIS2 Data Visualizer",
     "private": true,
-    "version": "39.2.9",
-    "workspaces": [
-        "packages/*"
-    ],
+    "version": "39.2.15",
+    "workspaces": ["packages/*"],
     "license": "BSD-3-Clause",
     "devDependencies": {
         "@dhis2/cli-style": "^10.4.1",

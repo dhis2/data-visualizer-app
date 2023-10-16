@@ -1,6 +1,6 @@
 {
     "name": "data-visualizer-app",
-    "version": "39.2.9",
+    "version": "39.2.15",
     "description": "DHIS2 Data Visualizer app",
     "license": "BSD-3-Clause",
     "private": true,
@@ -47,8 +47,6 @@
         "transformIgnorePatterns": [
             "node_modules/(?!(lodash-es|@dhis2/d2-ui-[a-z-]+)/)"
         ],
-        "setupFilesAfterEnv": [
-            "../../config/testSetup.js"
-        ]
+        "setupFilesAfterEnv": ["../../config/testSetup.js"]
     }
 }
