@@ -1,3 +1,12 @@
+## [39.2.16](https://github.com/dhis2/data-visualizer-app/compare/v39.2.15...v39.2.16) (2023-10-17)
+
+
+### Bug Fixes
+
+* bump version to release 39.2.16 ([#2879](https://github.com/dhis2/data-visualizer-app/issues/2879)) ([14aec91](https://github.com/dhis2/data-visualizer-app/commit/14aec91ada79feb1e5c28432a4c1803ebde2979c))
+* trigger release of v39.2.16 ([#2882](https://github.com/dhis2/data-visualizer-app/issues/2882)) ([0bb3747](https://github.com/dhis2/data-visualizer-app/commit/0bb37473afb3eade76a70e68fea04f8d7938eefc))
+* trigger release v39.2.16 ([#2883](https://github.com/dhis2/data-visualizer-app/issues/2883)) ([93fe504](https://github.com/dhis2/data-visualizer-app/commit/93fe504651e4de4bfde32f3515ce0ca10d791019))
+
 ## [39.2.9](https://github.com/dhis2/data-visualizer-app/compare/v39.2.8...v39.2.9) (2022-09-12)
 
 
