@@ -1,3 +1,10 @@
+## [39.2.17](https://github.com/dhis2/data-visualizer-app/compare/v39.2.16...v39.2.17) (2023-10-17)
+
+
+### Bug Fixes
+
+* avoid duplicate path in get link URL DHIS2-14535 [v39] ([#2820](https://github.com/dhis2/data-visualizer-app/issues/2820)) ([2925600](https://github.com/dhis2/data-visualizer-app/commit/2925600758643a73c057737aa8209de116f41590))
+
 ## [39.2.16](https://github.com/dhis2/data-visualizer-app/compare/v39.2.15...v39.2.16) (2023-10-17)
 
 
