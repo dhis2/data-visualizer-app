@@ -6,6 +6,7 @@ import {
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
     DIMENSION_ID_ASSIGNED_CATEGORIES,
+    preparePayloadForSaveAs,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import { apiPostDataStatistics } from '../api/dataStatistics.js'
@@ -204,13 +205,13 @@ export const tDoSaveVisualization =
 
         try {
             dispatch(fromLoader.acSetPluginLoading(true))
-            const visualization = getVisualizationFromCurrent(
+            let visualization = getVisualizationFromCurrent(
                 sGetCurrent(getState())
             )
 
             // remove the id to trigger a POST request and save a new AO
             if (copy) {
-                delete visualization.id
+                visualization = preparePayloadForSaveAs(visualization)
             }
 
             visualization.name =
