@@ -1,6 +1,6 @@
 # 
 # Translators:
-# phil_dhis2, 2020
+# Philip Larsen Donnelly, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
 # 晓东 林 <13981924470@126.com>, 2022
 # easylin <lin_xd@126.com>, 2023
@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-03-07T12:07:38.393Z\n"
+"POT-Creation-Date: 2023-09-06T13:41:14.540Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2023\n"
 "Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -213,9 +213,6 @@ msgstr "选择期间"
 
 msgid "Select years"
 msgstr "选择年份"
-
-msgid "Interpretations"
-msgstr "注释"
 
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
@@ -481,11 +478,11 @@ msgstr "图例风格"
 msgid "Legend type"
 msgstr "图例类型"
 
-msgid "Use pre-defined legend per data item"
-msgstr "每个数据项使用预定义的图例"
+msgid "Use pre-defined legend by data item"
+msgstr ""
 
-msgid "Select a single legend for the entire visualization"
-msgstr "选择整个可视化图表单个图例"
+msgid "Select a legend"
+msgstr ""
 
 msgid "Legend changes background color"
 msgstr "图例改变背景色"

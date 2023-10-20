@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-03-07T12:07:38.393Z\n"
+"POT-Creation-Date: 2023-09-06T13:41:14.540Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2023\n"
 "Language-Team: Norwegian Bokmål (https://app.transifex.com/hisp-uio/teams/100509/nb/)\n"
@@ -217,9 +217,6 @@ msgstr "Velg periode"
 
 msgid "Select years"
 msgstr "Velg år"
-
-msgid "Interpretations"
-msgstr "Tolkninger"
 
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
@@ -492,11 +489,11 @@ msgstr "Tegnforklaringstil"
 msgid "Legend type"
 msgstr "Tegnforklaringtype"
 
-msgid "Use pre-defined legend per data item"
-msgstr "Bruk forhåndsdefinert tegnforklaring per datapunkt"
+msgid "Use pre-defined legend by data item"
+msgstr ""
 
-msgid "Select a single legend for the entire visualization"
-msgstr "Velg en enkel tegnforklaring for hele tabellen"
+msgid "Select a legend"
+msgstr ""
 
 msgid "Legend changes background color"
 msgstr "Tegnforklaring endrer bakgrunnsfarge"

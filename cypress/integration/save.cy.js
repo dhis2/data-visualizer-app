@@ -1,5 +1,6 @@
 import {
     DIMENSION_ID_DATA,
+    DIMENSION_ID_ORGUNIT,
     visTypeDisplayNames,
     VIS_TYPE_SCATTER,
 } from '@dhis2/analytics'
@@ -16,10 +17,10 @@ import {
     selectIndicators,
     selectDataElements,
     clickDimensionModalUpdateButton,
+    deselectOrgUnitTreeItem,
 } from '../elements/dimensionModal/index.js'
 import { openDimension } from '../elements/dimensionsPanel.js'
 import {
-    //openRandomAOCreatedByOthers,
     saveNewAO,
     closeFileMenuWithClick,
     saveAOAs,
@@ -64,6 +65,11 @@ describe('saving an AO', () => {
         it('navigates to the start page', () => {
             goToStartPage()
         })
+        it('checks that Save is disabled', () => {
+            clickMenuBarFileButton()
+            expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_SAVE_EXISTING)
+            closeFileMenuWithClick()
+        })
         it(`changes vis type to ${TEST_VIS_TYPE_NAME}`, () => {
             changeVisType(TEST_VIS_TYPE_NAME)
         })
@@ -90,6 +96,11 @@ describe('saving an AO', () => {
             expectAOTitleToBeUnsaved()
             expectRouteToBeEmpty()
         })
+        it('checks that Save is enabled', () => {
+            clickMenuBarFileButton()
+            expectFileMenuButtonToBeEnabled(FILE_MENU_BUTTON_SAVE_EXISTING)
+            closeFileMenuWithClick()
+        })
         it('checks that Save as is disabled', () => {
             clickMenuBarFileButton()
             expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_SAVEAS)
@@ -103,12 +114,11 @@ describe('saving an AO', () => {
         it('checks that the url was changed', () => {
             expectRouteToBeAOId()
         })
-        it('all File menu buttons are enabled', () => {
+        it('all File menu buttons but Save are enabled', () => {
             clickMenuBarFileButton()
             const enabledButtons = [
                 FILE_MENU_BUTTON_NEW,
                 FILE_MENU_BUTTON_OPEN,
-                FILE_MENU_BUTTON_SAVE_EXISTING,
                 FILE_MENU_BUTTON_SAVEAS,
                 FILE_MENU_BUTTON_RENAME,
                 FILE_MENU_BUTTON_TRANSLATE,
@@ -175,21 +185,36 @@ describe('saving an AO', () => {
         })
     })
 
-    /*
-    describe('"save" for a saved AO created by others', () => {
-        it('navigates to the start page', () => {
+    describe('"save" a copied AO created by others', () => {
+        it('works after editing', () => {
+            const TEST_VIS_BY_OTHERS_NAME = 'ANC: 1-3 dropout rate Yearly'
+            const TEST_VIS_BY_OTHERS_NAME_UPDATED = `${TEST_VIS_BY_OTHERS_NAME} - updated`
+
+            // navigates to the start page and opens an AO created by others
             goToStartPage()
-        })
-        it('opens a random AO created by others', () => {
-            openRandomAOCreatedByOthers()
-        })
-        it('checks that Save is disabled - WIP', () => {
-            clickMenuBarFileButton()
-            expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_SAVEAS)
-            // TODO: This is not always true, as different AOs can have different sharing settings.
-            // @edoardo will add additional tests here later
-            closeFileMenuWithClick()
+            openAOByName(TEST_VIS_BY_OTHERS_NAME)
+            expectAOTitleToBeValue(TEST_VIS_BY_OTHERS_NAME)
+
+            // saves AO using "Save As"
+            saveAOAs(TEST_VIS_BY_OTHERS_NAME_UPDATED)
+            expectAOTitleToBeValue(TEST_VIS_BY_OTHERS_NAME_UPDATED)
+            expectVisualizationToBeVisible()
+
+            // edits the AO
+            openDimension(DIMENSION_ID_ORGUNIT)
+            deselectOrgUnitTreeItem('Western Area')
+            clickDimensionModalUpdateButton()
+
+            // saves AO using "Save"
+            saveExistingAO()
+            expectAOTitleToNotBeDirty()
+            expectAOTitleToBeValue(TEST_VIS_BY_OTHERS_NAME_UPDATED)
+            expectVisualizationToBeVisible()
+
+            // deletes AO
+            deleteAO()
+            expectRouteToBeEmpty()
+            expectStartScreenToBeVisible()
         })
     })
-    */
 })
