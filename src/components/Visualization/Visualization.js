@@ -246,9 +246,11 @@ export const visualizationSelector = createSelector(
     (current, disabledOptions) => {
         const visualization = cloneDeep(current)
 
-        Object.keys(disabledOptions).forEach(
-            (option) => delete visualization[option]
-        )
+        if (visualization) {
+            Object.keys(disabledOptions).forEach(
+                (option) => delete visualization[option]
+            )
+        }
 
         return visualization
     }
