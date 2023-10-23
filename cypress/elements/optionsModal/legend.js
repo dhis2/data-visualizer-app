@@ -28,12 +28,6 @@ export const changeDisplayStrategyToByDataItem = () =>
         .contains('Use pre-defined legend by data item')
         .click()
 
-export const changeDisplayStrategyToByDataItem = () =>
-    cy
-        .getBySel(optionsModalContentEl)
-        .contains('Use pre-defined legend per data item')
-        .click()
-
 export const changeDisplayStyleToText = () =>
     cy
         .getBySel(optionsModalContentEl)
