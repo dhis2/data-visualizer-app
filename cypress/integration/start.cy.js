@@ -35,7 +35,7 @@ import { expectVisTypeToBeDefault } from '../elements/visualizationTypeSelector.
 import { expectWindowTitleToBeDefault } from '../elements/window.js'
 import { expectStoreCurrentToBeEmpty } from '../utils/store.js'
 
-test('viewing the start screen', () => {
+test('Start screen shows the correct initial state', () => {
     //navigates to the start page
     goToStartPage()
 
