@@ -62,18 +62,19 @@ const TEST_INDICATOR_NAMES = TEST_INDICATORS.slice(1, 4).map(
 
 describe('saving an AO', () => {
     describe('"save" and "save as" for a new AO', () => {
-        it('navigates to the start page', () => {
+        it('"save" and "save as" for a new AO', () => {
+            // navigates to the start page
             goToStartPage()
-        })
-        it('checks that Save is disabled', () => {
+
+            // checks that Save is disabled
             clickMenuBarFileButton()
             expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_SAVE_EXISTING)
             closeFileMenuWithClick()
-        })
-        it(`changes vis type to ${TEST_VIS_TYPE_NAME}`, () => {
+
+            // changes vis type to ${TEST_VIS_TYPE_NAME}
             changeVisType(TEST_VIS_TYPE_NAME)
-        })
-        it('adds Data dimension items', () => {
+
+            // adds Data dimension items
             if (TEST_VIS_TYPE === VIS_TYPE_SCATTER) {
                 openDimension(DIMENSION_ID_DATA)
                 switchDataTab('Vertical')
@@ -90,31 +91,31 @@ describe('saving an AO', () => {
                 )
                 clickDimensionModalUpdateButton()
             }
-        })
-        it('displays an unsaved visualization', () => {
+
+            // displays an unsaved visualization
             expectVisualizationToBeVisible(TEST_VIS_TYPE)
             expectAOTitleToBeUnsaved()
             expectRouteToBeEmpty()
-        })
-        it('checks that Save is enabled', () => {
+
+            // checks that Save is enabled
             clickMenuBarFileButton()
             expectFileMenuButtonToBeEnabled(FILE_MENU_BUTTON_SAVE_EXISTING)
             closeFileMenuWithClick()
-        })
-        it('checks that Save as is disabled', () => {
+
+            // checks that Save as is disabled
             clickMenuBarFileButton()
             expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_SAVEAS)
             closeFileMenuWithClick()
-        })
-        it('saves new AO using "Save"', () => {
+
+            // saves new AO using "Save"
             saveNewAO(TEST_VIS_NAME, TEST_VIS_DESCRIPTION)
             expectAOTitleToBeValue(TEST_VIS_NAME)
             expectVisualizationToBeVisible(TEST_VIS_TYPE)
-        })
-        it('checks that the url was changed', () => {
+
+            // checks that the url was changed
             expectRouteToBeAOId()
-        })
-        it('all File menu buttons but Save are enabled', () => {
+
+            // all File menu buttons but Save are enabled
             clickMenuBarFileButton()
             const enabledButtons = [
                 FILE_MENU_BUTTON_NEW,
@@ -130,19 +131,19 @@ describe('saving an AO', () => {
                 expectFileMenuButtonToBeEnabled(button)
             )
             closeFileMenuWithClick()
-        })
-        it(`replaces the selected period`, () => {
+
+            // replaces the selected period
             replacePeriodItems(TEST_VIS_TYPE)
             expectAOTitleToBeDirty()
             expectVisualizationToBeVisible(TEST_VIS_TYPE)
-        })
-        it('saves AO using "Save"', () => {
+
+            // saves AO using "Save"
             saveExistingAO()
             expectAOTitleToNotBeDirty()
             expectAOTitleToBeValue(TEST_VIS_NAME)
             expectVisualizationToBeVisible(TEST_VIS_TYPE)
-        })
-        it('saves AO using "Save As"', () => {
+
+            // saves AO using "Save As"
             saveAOAs(TEST_VIS_NAME_UPDATED)
             expectAOTitleToBeValue(TEST_VIS_NAME_UPDATED)
             expectVisualizationToBeVisible(TEST_VIS_TYPE)
@@ -151,6 +152,7 @@ describe('saving an AO', () => {
 
     describe('"save" and "save as" for a saved AO created by you', () => {
         it('navigates to the start page and opens a saved AO', () => {
+            // navigates to the start page and opens a saved AO
             cy.intercept(
                 /systemSettings(\S)*keyAnalysisRelativePeriod(\S)*/,
                 (req) => {
@@ -167,18 +169,18 @@ describe('saving an AO', () => {
             goToStartPage()
             openAOByName(TEST_VIS_NAME_UPDATED)
             expectAOTitleToBeValue(TEST_VIS_NAME_UPDATED)
-        })
-        it(`replaces the selected period`, () => {
+
+            // replaces the selected period
             replacePeriodItems(TEST_VIS_TYPE, { useAltData: true })
             expectAOTitleToBeDirty()
-        })
-        it('saves AO using "Save"', () => {
+
+            // saves AO using "Save"
             saveExistingAO()
             expectAOTitleToNotBeDirty()
             expectAOTitleToBeValue(TEST_VIS_NAME)
             expectVisualizationToBeVisible(TEST_VIS_TYPE)
-        })
-        it('deletes AO', () => {
+
+            // deletes AO
             deleteAO()
             expectRouteToBeEmpty()
             expectStartScreenToBeVisible()
