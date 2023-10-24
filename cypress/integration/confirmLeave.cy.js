@@ -17,7 +17,7 @@ import {
 import { TEST_AOS } from '../utils/data.js'
 import { getRandomArrayItem } from '../utils/random.js'
 
-test('confirm leave modal', () => {
+test('Confirm leave modal preserves AO changes when user cancels leave, and discards changes when user approves leave', () => {
     const TEST_AO = getRandomArrayItem(TEST_AOS)
     // navigates to the start page and loads a random saved AO
     goToStartPage()
