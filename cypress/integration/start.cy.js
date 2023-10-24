@@ -35,68 +35,65 @@ import { expectVisTypeToBeDefault } from '../elements/visualizationTypeSelector.
 import { expectWindowTitleToBeDefault } from '../elements/window.js'
 import { expectStoreCurrentToBeEmpty } from '../utils/store.js'
 
-describe('viewing the start screen', () => {
-    it('navigates to the start page', () => {
-        goToStartPage()
-    })
-    it('window has a title', () => {
-        expectWindowTitleToBeDefault()
-    })
-    it('store is empty', () => {
-        expectStoreCurrentToBeEmpty()
-    })
-    it('no chart is visible', () => {
-        expectVisualizationToNotBeVisible()
-    })
-    it('displays most viewed section', () => {
-        expectMostViewedToBeVisible()
-    })
-    it('vis type is default', () => {
-        expectVisTypeToBeDefault()
-    })
-    it('axis series has data dimension', () => {
-        expectAxisToHaveDimension(AXIS_ID_COLUMNS, DIMENSION_ID_DATA)
-    })
-    it('data dimension has no items', () => {
-        expectDimensionToNotHaveItems(DIMENSION_ID_DATA)
-    })
-    it('axis category has period dimension', () => {
-        expectAxisToHaveDimension(AXIS_ID_ROWS, DIMENSION_ID_PERIOD)
-    })
-    it('period dimension has 1 item', () => {
-        expectDimensionToHaveItemAmount(DIMENSION_ID_PERIOD, 1)
-    })
-    it('axis filter has orgunit dimension', () => {
-        expectAxisToHaveDimension(AXIS_ID_FILTERS, DIMENSION_ID_ORGUNIT)
-    })
-    it('orgunit dimension has 1 item', () => {
-        expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
-    })
-    it('primary File menu buttons are enabled and menu is closed with click', () => {
-        clickMenuBarFileButton()
-        const enabledButtons = [FILE_MENU_BUTTON_NEW, FILE_MENU_BUTTON_OPEN]
-        enabledButtons.forEach((button) =>
-            expectFileMenuButtonToBeEnabled(button)
-        )
-        closeFileMenuWithClick()
-    })
-    it('secondary File menu buttons are disabled and menu is closed with click', () => {
-        clickMenuBarFileButton()
-        const disabledButtons = [
-            FILE_MENU_BUTTON_SAVEAS,
-            FILE_MENU_BUTTON_RENAME,
-            FILE_MENU_BUTTON_TRANSLATE,
-            FILE_MENU_BUTTON_SHARE,
-            FILE_MENU_BUTTON_GETLINK,
-            FILE_MENU_BUTTON_DELETE,
-        ]
-        disabledButtons.forEach((button) =>
-            expectFileMenuButtonToBeDisabled(button)
-        )
-        closeFileMenuWithClick()
-    })
-    it('File menu is closed with Escape', () => {
-        clickMenuBarFileButton()
-        closeFileMenuWithEsc()
-    })
+test('viewing the start screen', () => {
+    //navigates to the start page
+    goToStartPage()
+
+    //window has a title
+    expectWindowTitleToBeDefault()
+
+    //store is empty
+    expectStoreCurrentToBeEmpty()
+
+    //no chart is visible
+    expectVisualizationToNotBeVisible()
+
+    //displays most viewed section
+    expectMostViewedToBeVisible()
+
+    //vis type is default
+    expectVisTypeToBeDefault()
+
+    //axis series has data dimension
+    expectAxisToHaveDimension(AXIS_ID_COLUMNS, DIMENSION_ID_DATA)
+
+    //data dimension has no items
+    expectDimensionToNotHaveItems(DIMENSION_ID_DATA)
+
+    //axis category has period dimension
+    expectAxisToHaveDimension(AXIS_ID_ROWS, DIMENSION_ID_PERIOD)
+
+    //period dimension has 1 item
+    expectDimensionToHaveItemAmount(DIMENSION_ID_PERIOD, 1)
+
+    //axis filter has orgunit dimension
+    expectAxisToHaveDimension(AXIS_ID_FILTERS, DIMENSION_ID_ORGUNIT)
+
+    //orgunit dimension has 1 item
+    expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
+
+    //primary File menu buttons are enabled and menu is closed with click
+    clickMenuBarFileButton()
+    const enabledButtons = [FILE_MENU_BUTTON_NEW, FILE_MENU_BUTTON_OPEN]
+    enabledButtons.forEach((button) => expectFileMenuButtonToBeEnabled(button))
+    closeFileMenuWithClick()
+
+    //secondary File menu buttons are disabled and menu is closed with click
+    clickMenuBarFileButton()
+    const disabledButtons = [
+        FILE_MENU_BUTTON_SAVEAS,
+        FILE_MENU_BUTTON_RENAME,
+        FILE_MENU_BUTTON_TRANSLATE,
+        FILE_MENU_BUTTON_SHARE,
+        FILE_MENU_BUTTON_GETLINK,
+        FILE_MENU_BUTTON_DELETE,
+    ]
+    disabledButtons.forEach((button) =>
+        expectFileMenuButtonToBeDisabled(button)
+    )
+    closeFileMenuWithClick()
+
+    //File menu is closed with Escape
+    clickMenuBarFileButton()
+    closeFileMenuWithEsc()
 })
