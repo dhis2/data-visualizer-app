@@ -47,17 +47,18 @@ describe('creating a new AO', () => {
     visTypes.forEach((visType) => {
         const visTypeName = visTypeDisplayNames[visType]
         describe(visTypeName, () => {
-            it('creates a new AO', () => {
+            it(`create AO of type ${visTypeName}`, () => {
+                // creates a new AO
                 createNewAO()
                 expectStoreCurrentToBeEmpty()
                 expectVisualizationToNotBeVisible()
                 expectVisTypeToBeDefault()
-            })
-            it('changes vis type', () => {
+
+                // changes vis type
                 changeVisType(visTypeName)
                 expectVisTypeToBeValue(visTypeName)
-            })
-            it('adds dimensions', () => {
+
+                // adds dimensions
                 openDimension(DIMENSION_ID_DATA)
 
                 if (visType === VIS_TYPE_SCATTER) {
@@ -90,6 +91,7 @@ describe('creating a new AO', () => {
                     )
                 }
             })
+
             if ([VIS_TYPE_SINGLE_VALUE, VIS_TYPE_GAUGE].includes(visType)) {
                 it('Data is locked to Series', () => {
                     expectDimensionOnAxisToHaveLockIcon(
