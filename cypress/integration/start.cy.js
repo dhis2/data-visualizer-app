@@ -37,43 +37,43 @@ import { expectStoreCurrentToBeEmpty } from '../utils/store.js'
 
 describe('Start screen', () => {
     it('Start screen shows the correct initial state', () => {
-        //navigates to the start page
+        // navigates to the start page
         goToStartPage()
 
-        //window has a title
+        // window has a title
         expectWindowTitleToBeDefault()
 
-        //store is empty
+        // store is empty
         expectStoreCurrentToBeEmpty()
 
-        //no chart is visible
+        // no chart is visible
         expectVisualizationToNotBeVisible()
 
-        //displays most viewed section
+        // displays most viewed section
         expectMostViewedToBeVisible()
 
-        //vis type is default
+        // vis type is default
         expectVisTypeToBeDefault()
 
-        //axis series has data dimension
+        // axis series has data dimension
         expectAxisToHaveDimension(AXIS_ID_COLUMNS, DIMENSION_ID_DATA)
 
-        //data dimension has no items
+        // data dimension has no items
         expectDimensionToNotHaveItems(DIMENSION_ID_DATA)
 
-        //axis category has period dimension
+        // axis category has period dimension
         expectAxisToHaveDimension(AXIS_ID_ROWS, DIMENSION_ID_PERIOD)
 
-        //period dimension has 1 item
+        // period dimension has 1 item
         expectDimensionToHaveItemAmount(DIMENSION_ID_PERIOD, 1)
 
-        //axis filter has orgunit dimension
+        // axis filter has orgunit dimension
         expectAxisToHaveDimension(AXIS_ID_FILTERS, DIMENSION_ID_ORGUNIT)
 
-        //orgunit dimension has 1 item
+        // orgunit dimension has 1 item
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
 
-        //primary File menu buttons are enabled and menu is closed with click
+        // primary File menu buttons are enabled and menu is closed with click
         clickMenuBarFileButton()
         const enabledButtons = [FILE_MENU_BUTTON_NEW, FILE_MENU_BUTTON_OPEN]
         enabledButtons.forEach((button) =>
@@ -81,7 +81,7 @@ describe('Start screen', () => {
         )
         closeFileMenuWithClick()
 
-        //secondary File menu buttons are disabled and menu is closed with click
+        // secondary File menu buttons are disabled and menu is closed with click
         clickMenuBarFileButton()
         const disabledButtons = [
             FILE_MENU_BUTTON_SAVEAS,
@@ -96,7 +96,7 @@ describe('Start screen', () => {
         )
         closeFileMenuWithClick()
 
-        //File menu is closed with Escape
+        // File menu is closed with Escape
         clickMenuBarFileButton()
         closeFileMenuWithEsc()
     })
