@@ -149,7 +149,7 @@ describe('saving an AO', () => {
         expectVisualizationToBeVisible(TEST_VIS_TYPE)
     })
 
-    it('navigates to the start page and opens a saved AO created by you', () => {
+    it('"save" and "save as" for a saved AO created by you', () => {
         // navigates to the start page and opens a saved AO
         cy.intercept(
             /systemSettings(\S)*keyAnalysisRelativePeriod(\S)*/,
