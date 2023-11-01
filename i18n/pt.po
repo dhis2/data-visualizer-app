@@ -1,6 +1,6 @@
 # 
 # Translators:
-# phil_dhis2, 2020
+# Philip Larsen Donnelly, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Sheila André <sandre@saudigitus.org>, 2021
@@ -11,7 +11,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-03-07T12:07:38.393Z\n"
+"POT-Creation-Date: 2023-09-06T13:41:14.540Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Emilio Mosse, 2022\n"
 "Language-Team: Portuguese (https://app.transifex.com/hisp-uio/teams/100509/pt/)\n"
@@ -223,9 +223,6 @@ msgstr "Selecionar periodos "
 
 msgid "Select years"
 msgstr "Selecionar anos "
-
-msgid "Interpretations"
-msgstr "Interpretações"
 
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
@@ -499,11 +496,11 @@ msgstr "Titulo da Legenda "
 msgid "Legend type"
 msgstr "Tipo de legenda"
 
-msgid "Use pre-defined legend per data item"
-msgstr "Use legenda predefinida por item de dados"
+msgid "Use pre-defined legend by data item"
+msgstr ""
 
-msgid "Select a single legend for the entire visualization"
-msgstr "Selecione uma única legenda para toda a visualização"
+msgid "Select a legend"
+msgstr ""
 
 msgid "Legend changes background color"
 msgstr "A legenda muda a cor do plano de fundo"

@@ -1,14 +1,14 @@
 # 
 # Translators:
 # KRG HIS <antonia.bezenchek@informa.pro>, 2020
-# phil_dhis2, 2020
+# Philip Larsen Donnelly, 2020
 # Hamza Assada <7amza.it@gmail.com>, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-03-07T12:07:38.393Z\n"
+"POT-Creation-Date: 2023-09-06T13:41:14.540Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2022\n"
 "Language-Team: Arabic (https://app.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -216,9 +216,6 @@ msgstr "حدد فترة"
 
 msgid "Select years"
 msgstr "حدد الأعوام"
-
-msgid "Interpretations"
-msgstr "التفسيرات"
 
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
@@ -488,11 +485,11 @@ msgstr "نمط وسيلة الإيضاح"
 msgid "Legend type"
 msgstr "نوع مفتاح الخريطة"
 
-msgid "Use pre-defined legend per data item"
-msgstr "استخدم مفتاح إيضاح معرف مسبقاً لكل عنصر بيانات"
+msgid "Use pre-defined legend by data item"
+msgstr ""
 
-msgid "Select a single legend for the entire visualization"
-msgstr "حدد مفتاح إيضاحي واحد للمخطط بالكامل"
+msgid "Select a legend"
+msgstr ""
 
 msgid "Legend changes background color"
 msgstr "المفتاح الإيضاحي يغير من لون الخلفية"

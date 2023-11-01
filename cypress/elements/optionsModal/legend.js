@@ -20,15 +20,12 @@ export const toggleLegend = () =>
         .click()
 
 export const changeDisplayStrategyToFixed = () =>
-    cy
-        .getBySel(optionsModalContentEl)
-        .contains('Select a single legend for the entire visualization')
-        .click()
+    cy.getBySel(optionsModalContentEl).contains('Select a legend').click()
 
 export const changeDisplayStrategyToByDataItem = () =>
     cy
         .getBySel(optionsModalContentEl)
-        .contains('Use pre-defined legend per data item')
+        .contains('Use pre-defined legend by data item')
         .click()
 
 export const changeDisplayStyleToText = () =>

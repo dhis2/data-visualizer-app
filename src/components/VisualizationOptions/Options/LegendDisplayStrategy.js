@@ -18,7 +18,7 @@ const LegendDisplayStrategy = ({ value, onChange }) => (
         <Field name={OPTION_LEGEND_DISPLAY_STRATEGY} dense>
             <Radio
                 key={LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM}
-                label={i18n.t('Use pre-defined legend per data item')}
+                label={i18n.t('Use pre-defined legend by data item')}
                 value={LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM}
                 checked={value === LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM}
                 onChange={onChange}
@@ -27,9 +27,7 @@ const LegendDisplayStrategy = ({ value, onChange }) => (
             />
             <Radio
                 key={LEGEND_DISPLAY_STRATEGY_FIXED}
-                label={i18n.t(
-                    'Select a single legend for the entire visualization'
-                )}
+                label={i18n.t('Select a legend')}
                 value={LEGEND_DISPLAY_STRATEGY_FIXED}
                 checked={value === LEGEND_DISPLAY_STRATEGY_FIXED}
                 onChange={onChange}

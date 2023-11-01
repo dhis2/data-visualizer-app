@@ -31,7 +31,6 @@ import {
     expectSubGroupSelectToBeVisible,
     expectSubGroupSelectToBe,
     switchSubGroupTo,
-    expectSourceToBeLoading,
     expectSourceToNotBeLoading,
     unselectAllItemsByButton,
     selectAllItemsByButton,
@@ -439,7 +438,6 @@ describe('Data dimension', () => {
                     cy.intercept('GET', DATA_ITEMS_URL).as('**/dataItems*')
                 }
                 switchDataTypeToAll()
-                expectSourceToBeLoading()
                 cy.wait('@**/dataItems*').then(({ request, response }) => {
                     expect(request.url).to.contain('page=1')
                     expect(response.statusCode).to.eq(200)

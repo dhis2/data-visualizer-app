@@ -17,34 +17,34 @@ import {
 import { TEST_AOS } from '../utils/data.js'
 import { getRandomArrayItem } from '../utils/random.js'
 
-describe('confirm leave modal', () => {
-    const TEST_AO = getRandomArrayItem(TEST_AOS)
-
-    it('navigates to the start page and loads a random saved AO', () => {
+describe('Confirm leave modal', () => {
+    it('Confirm leave modal preserves AO changes when user cancels leave, and discards changes when user approves leave', () => {
+        const TEST_AO = getRandomArrayItem(TEST_AOS)
+        // navigates to the start page and loads a random saved AO
         goToStartPage()
         openAOByName(TEST_AO.name)
         expectVisualizationToBeVisible(TEST_AO.type)
         expectAOTitleToNotBeDirty()
-    })
-    it(`replaces the selected period`, () => {
+
+        // replaces the selected period
         replacePeriodItems(TEST_AO.type)
         expectVisualizationToBeVisible(TEST_AO.type)
         expectAOTitleToBeDirty()
-    })
-    it('tries to open a new AO', () => {
+
+        // tries to open a new AO
         createNewAO()
         expectConfirmLeaveModalToBeVisible()
-    })
-    it('cancels leave', () => {
+
+        // cancels leave
         confirmLeave(false)
         expectVisualizationToBeVisible(TEST_AO.type)
         expectAOTitleToBeDirty()
-    })
-    it('tries to open a new AO', () => {
+
+        // tries to open a new AO
         createNewAO()
         expectConfirmLeaveModalToBeVisible()
-    })
-    it('confirms leave', () => {
+
+        // confirms leave
         confirmLeave(true)
         expectStartScreenToBeVisible()
         expectVisualizationToNotBeVisible()

@@ -8,6 +8,7 @@ import {
     LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM,
     isLegendSetType,
     VIS_TYPE_LINE,
+    DIMENSION_ID_DATA,
 } from '@dhis2/analytics'
 import { useDataEngine } from '@dhis2/app-runtime'
 import { Button, IconLegend24, Layer } from '@dhis2/ui'
@@ -260,8 +261,9 @@ export const VisualizationPlugin = ({
         case LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM:
             {
                 if (
+                    fetchResult.visualization.type !== VIS_TYPE_PIVOT_TABLE &&
                     !fetchResult.visualization.columns.some(
-                        (item) => item.dimension === 'dx'
+                        (item) => item.dimension === DIMENSION_ID_DATA
                     )
                 ) {
                     break

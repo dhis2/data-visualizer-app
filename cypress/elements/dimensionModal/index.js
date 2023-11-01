@@ -76,6 +76,7 @@ export const expectSourceToNotBeLoading = () =>
         .findBySelLike(transferLoadingEl)
         .should('not.exist')
 
+// FIXME: unused, remove?
 export const expectSourceToBeLoading = () =>
     cy
         .getBySelLike(transferLeftContainerEl)
