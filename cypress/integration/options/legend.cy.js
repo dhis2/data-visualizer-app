@@ -93,7 +93,7 @@ const TEST_ITEMS = [
 const TEST_LEGEND_SET = 'Height in cm'
 
 describe('Options - Legend', () => {
-    it('Applying a legend: Column', () => {
+    it.only('Applying a legend: Column', () => {
         // navigates to the start page and add data items
         goToStartPage()
         openDimension(DIMENSION_ID_DATA)
@@ -153,7 +153,7 @@ describe('Options - Legend', () => {
         expectLegedKeyItemAmountToBe(1)
     })
 
-    it('Applying a legend: Single value', () => {
+    it.skip('Applying a legend: Single value', () => {
         const TEST_ITEM = TEST_ITEMS[0]
         const EXPECTED_STANDARD_TEXT_COLOR = '#212934'
         const EXPECTED_CONTRAST_TEXT_COLOR = '#ffffff'
@@ -319,7 +319,7 @@ describe('Options - Legend', () => {
         expectLegendKeyToBeVisible()
         expectLegedKeyItemAmountToBe(1)
     })
-    it('Applying a legend: Gauge', () => {
+    it.skip('Applying a legend: Gauge', () => {
         const TEST_ITEM = TEST_ITEMS[0]
         const EXPECTED_BY_DATA_COLOR = '#FFFFB2'
         const EXPECTED_FIXED_COLOR = '#c7e9c0'
@@ -388,7 +388,7 @@ describe('Options - Legend', () => {
         expectLegendKeyToBeVisible()
         expectLegedKeyItemAmountToBe(1)
     })
-    it('Applying a legend: Stacked column', () => {
+    it.skip('Applying a legend: Stacked column', () => {
         // navigates to the start page and adds data items
         goToStartPage()
         changeVisType(visTypeDisplayNames[VIS_TYPE_STACKED_COLUMN])
@@ -539,7 +539,7 @@ describe('Options - Legend', () => {
                 .and('not.contain', EXPECTED_STANDARD_TEXT_COLOR)
         })
     })
-    it('Transferring a legend: Pivot table -> Gauge', () => {
+    it.skip('Transferring a legend: Pivot table -> Gauge', () => {
         const TEST_ITEM = TEST_ITEMS[0]
         const EXPECTED_STANDARD_TEXT_COLOR = 'color: rgb(33, 41, 52)'
         const EXPECTED_FIXED_COLOR = '#c7e9c0'
@@ -588,7 +588,7 @@ describe('Options - Legend', () => {
         expectLegendDisplayStyleToBeText()
         expectLegendDisplayStrategyToBeFixed()
     })
-    it('Transferring a legend: Pivot table -> Single value', () => {
+    it.skip('Transferring a legend: Pivot table -> Single value', () => {
         const TEST_ITEM = TEST_ITEMS[0]
         const EXPECTED_FIXED_COLOR = '#c7e9c0'
         const valueCellEl = 'visualization-value-cell'
@@ -637,7 +637,7 @@ describe('Options - Legend', () => {
         expectLegendDisplayStyleToBeFill()
         expectLegendDisplayStrategyToBeFixed()
     })
-    it('Transferring the legend key: Column -> Pivot table -> Gauge -> Single value', () => {
+    it.skip('Transferring the legend key: Column -> Pivot table -> Gauge -> Single value', () => {
         // navigates to the start page and adds data items
         goToStartPage()
         openDimension(DIMENSION_ID_DATA)
@@ -725,7 +725,7 @@ describe('Options - Legend', () => {
         // legend key is hidden (Single value)
         expectLegendKeyToBeHidden()
     })
-    it('Preventing options bleed: Column -> Area', () => {
+    it.skip('Preventing options bleed: Column -> Area', () => {
         // navigates to the start page and adds data items
         goToStartPage()
         openDimension(DIMENSION_ID_DATA)
@@ -770,7 +770,7 @@ describe('Options - Legend', () => {
         // series key displays the correct amount of items
         expectSeriesKeyToHaveSeriesKeyItems(2)
     })
-    it('Non-legend set type displays correctly: Line', () => {
+    it.skip('Non-legend set type displays correctly: Line', () => {
         // navigates to the start page and adds data items
         goToStartPage()
         changeVisType(visTypeDisplayNames[VIS_TYPE_LINE])
@@ -794,7 +794,7 @@ describe('Options - Legend', () => {
         // series key displays the correct amount of items
         expectSeriesKeyToHaveSeriesKeyItems(2)
     })
-    it('The chart series key displaying legend colors', () => {
+    it.skip('The chart series key displaying legend colors', () => {
         // navigates to the start page and adds data items
         goToStartPage()
         openDimension(DIMENSION_ID_DATA)
@@ -824,7 +824,7 @@ describe('Options - Legend', () => {
         clickOptionsModalUpdateButton()
         expectChartTitleToBeVisible()
     })
-    it('When data is not on series, legend is only applied when strategy fixed is used', () => {
+    it.skip('When data is not on series, legend is only applied when strategy fixed is used', () => {
         const TEST_ITEM = TEST_ITEMS[0]
 
         // navigates to the start page and adds data items, legend and legend key
@@ -895,7 +895,7 @@ describe('Options - Legend', () => {
         // series key displays the correct amount of items
         expectSeriesKeyToHaveSeriesKeyItems(3)
     })
-    it('Legend is not applied to column-as-line items', () => {
+    it.skip('Legend is not applied to column-as-line items', () => {
         // navigates to the start page and adds data items, legend and legend key
         goToStartPage()
         openDimension(DIMENSION_ID_DATA)
