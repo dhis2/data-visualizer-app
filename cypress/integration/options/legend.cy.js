@@ -1,5 +1,3 @@
-/* eslint disable */
-
 import {
     DIMENSION_ID_DATA,
     VIS_TYPE_COLUMN,
