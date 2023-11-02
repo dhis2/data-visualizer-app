@@ -13,7 +13,7 @@ import {
     // AXIS_ID_ROWS,
 } from '@dhis2/analytics'
 import {
-    // expectChartTitleToBeVisible,
+    expectChartTitleToBeVisible,
     // expectSeriesKeyToHaveSeriesKeyItems,
     // expectSVSubtitleToHaveColor,
     // expectSVTitleToHaveColor,
@@ -31,41 +31,41 @@ import {
     // openContextMenu,
     openDimension,
 } from '../../elements/layout.js'
-// import {
-//     clickMenuBarUpdateButton,
-//     openOptionsModal,
-// } from '../../elements/menuBar.js'
-// import {
-//     changeDisplayStrategyToFixed,
-//     changeDisplayStyleToText,
-//     changeFixedLegendSet,
-//     clickOptionsModalUpdateButton,
-//     toggleLegend,
-//     expectFixedLegendSetToBe,
-//     expectLegendDisplayStrategyToBeByDataItem,
-//     expectLegendDisplayStrategyToBeFixed,
-//     expectLegendDisplayStyleToBeFill,
-//     expectLegendDisplayStyleToBeText,
-//     expectLegendToBeEnabled,
-//     expectSingleValueToHaveTextColor,
-//     OPTIONS_TAB_LEGEND,
-//     toggleLegendKeyOption,
-//     expectLegendKeyOptionToBeEnabled,
-//     expectLegendKeyToBeVisible,
-//     expectLegendKeyToBeHidden,
-//     expectLegendKeyOptionToBeDisabled,
-//     expectOptionsTabToBeHidden,
-//     expectLegedKeyItemAmountToBe,
-//     OPTIONS_TAB_SERIES,
-//     setItemToType,
-//     clickOptionsModalHideButton,
-//     expectSingleValueToHaveBackgroundColor,
-//     expectSingleValueToNotHaveBackgroundColor,
-//     changeDisplayStyleToFill,
-//     changeColor,
-//     OPTIONS_TAB_STYLE,
-//     changeDisplayStrategyToByDataItem,
-// } from '../../elements/optionsModal/index.js'
+import {
+    // clickMenuBarUpdateButton,
+    openOptionsModal,
+} from '../../elements/menuBar.js'
+import {
+    //     changeDisplayStrategyToFixed,
+    //     changeDisplayStyleToText,
+    //     changeFixedLegendSet,
+    clickOptionsModalUpdateButton,
+    toggleLegend,
+    //     expectFixedLegendSetToBe,
+    expectLegendDisplayStrategyToBeByDataItem,
+    //     expectLegendDisplayStrategyToBeFixed,
+    //     expectLegendDisplayStyleToBeFill,
+    //     expectLegendDisplayStyleToBeText,
+    expectLegendToBeEnabled,
+    //     expectSingleValueToHaveTextColor,
+    OPTIONS_TAB_LEGEND,
+    //     toggleLegendKeyOption,
+    //     expectLegendKeyOptionToBeEnabled,
+    //     expectLegendKeyToBeVisible,
+    //     expectLegendKeyToBeHidden,
+    //     expectLegendKeyOptionToBeDisabled,
+    //     expectOptionsTabToBeHidden,
+    //     expectLegedKeyItemAmountToBe,
+    //     OPTIONS_TAB_SERIES,
+    //     setItemToType,
+    //     clickOptionsModalHideButton,
+    //     expectSingleValueToHaveBackgroundColor,
+    //     expectSingleValueToNotHaveBackgroundColor,
+    //     changeDisplayStyleToFill,
+    //     changeColor,
+    //     OPTIONS_TAB_STYLE,
+    //     changeDisplayStrategyToByDataItem,
+} from '../../elements/optionsModal/index.js'
 import { goToStartPage } from '../../elements/startScreen.js'
 // import { changeVisType } from '../../elements/visualizationTypeSelector.js'
 // import {
@@ -102,12 +102,12 @@ describe('Options - Legend', () => {
         expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
 
         // enables legend
-        // openOptionsModal(OPTIONS_TAB_LEGEND)
-        // toggleLegend()
-        // expectLegendToBeEnabled()
-        // expectLegendDisplayStrategyToBeByDataItem()
-        // clickOptionsModalUpdateButton()
-        // expectChartTitleToBeVisible()
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        toggleLegend()
+        expectLegendToBeEnabled()
+        expectLegendDisplayStrategyToBeByDataItem()
+        clickOptionsModalUpdateButton()
+        expectChartTitleToBeVisible()
 
         // // verifies legend by data item is applied
         // TEST_ITEMS.forEach((item) =>
