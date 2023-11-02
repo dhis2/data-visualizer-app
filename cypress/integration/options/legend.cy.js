@@ -36,26 +36,26 @@ import {
     openOptionsModal,
 } from '../../elements/menuBar.js'
 import {
-    //     changeDisplayStrategyToFixed,
+    changeDisplayStrategyToFixed,
     //     changeDisplayStyleToText,
-    //     changeFixedLegendSet,
+    changeFixedLegendSet,
     clickOptionsModalUpdateButton,
     toggleLegend,
-    //     expectFixedLegendSetToBe,
+    expectFixedLegendSetToBe,
     expectLegendDisplayStrategyToBeByDataItem,
-    //     expectLegendDisplayStrategyToBeFixed,
+    expectLegendDisplayStrategyToBeFixed,
     //     expectLegendDisplayStyleToBeFill,
     //     expectLegendDisplayStyleToBeText,
     expectLegendToBeEnabled,
     //     expectSingleValueToHaveTextColor,
     OPTIONS_TAB_LEGEND,
-    //     toggleLegendKeyOption,
-    //     expectLegendKeyOptionToBeEnabled,
-    //     expectLegendKeyToBeVisible,
-    //     expectLegendKeyToBeHidden,
+    toggleLegendKeyOption,
+    expectLegendKeyOptionToBeEnabled,
+    expectLegendKeyToBeVisible,
+    expectLegendKeyToBeHidden,
     //     expectLegendKeyOptionToBeDisabled,
     //     expectOptionsTabToBeHidden,
-    //     expectLegedKeyItemAmountToBe,
+    expectLegedKeyItemAmountToBe,
     //     OPTIONS_TAB_SERIES,
     //     setItemToType,
     //     clickOptionsModalHideButton,
@@ -68,16 +68,16 @@ import {
 } from '../../elements/optionsModal/index.js'
 import { goToStartPage } from '../../elements/startScreen.js'
 // import { changeVisType } from '../../elements/visualizationTypeSelector.js'
-// import {
-//     expectEachWindowConfigSeriesItemToHaveLegendSet,
-//     expectEachWindowConfigSeriesItemToNotHaveLegendSet,
-//     expectWindowConfigSeriesDataLabelsToHaveColor,
-//     expectWindowConfigSeriesItemToBeType,
-//     expectWindowConfigSeriesItemToHaveLegendSet,
-//     expectWindowConfigSeriesItemToNotHaveLegendSet,
-//     expectWindowConfigSeriesItemToNotHaveType,
-//     expectWindowConfigYAxisToHaveColor,
-// } from '../../utils/window.js'
+import {
+    //     expectEachWindowConfigSeriesItemToHaveLegendSet,
+    //     expectEachWindowConfigSeriesItemToNotHaveLegendSet,
+    //     expectWindowConfigSeriesDataLabelsToHaveColor,
+    //     expectWindowConfigSeriesItemToBeType,
+    expectWindowConfigSeriesItemToHaveLegendSet,
+    //     expectWindowConfigSeriesItemToNotHaveLegendSet,
+    //     expectWindowConfigSeriesItemToNotHaveType,
+    //     expectWindowConfigYAxisToHaveColor,
+} from '../../utils/window.js'
 
 const TEST_ITEMS = [
     {
@@ -90,7 +90,7 @@ const TEST_ITEMS = [
     },
 ]
 
-// const TEST_LEGEND_SET = 'Height in cm'
+const TEST_LEGEND_SET = 'Height in cm'
 
 describe('Options - Legend', () => {
     it('Applying a legend: Column', () => {
@@ -109,47 +109,47 @@ describe('Options - Legend', () => {
         clickOptionsModalUpdateButton()
         expectChartTitleToBeVisible()
 
-        // // verifies legend by data item is applied
-        // TEST_ITEMS.forEach((item) =>
-        //     expectWindowConfigSeriesItemToHaveLegendSet(
-        //         item.name,
-        //         item.legendSet
-        //     )
-        // )
+        // verifies legend by data item is applied
+        TEST_ITEMS.forEach((item) =>
+            expectWindowConfigSeriesItemToHaveLegendSet(
+                item.name,
+                item.legendSet
+            )
+        )
 
-        // cy.log(`changes legend display strategy to fixed (${TEST_LEGEND_SET})`)
-        // openOptionsModal(OPTIONS_TAB_LEGEND)
-        // expectLegendDisplayStrategyToBeByDataItem()
-        // changeDisplayStrategyToFixed()
-        // expectLegendDisplayStrategyToBeFixed()
-        // changeFixedLegendSet(TEST_LEGEND_SET)
-        // clickOptionsModalUpdateButton()
-        // expectChartTitleToBeVisible()
+        cy.log(`changes legend display strategy to fixed (${TEST_LEGEND_SET})`)
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        expectLegendDisplayStrategyToBeByDataItem()
+        changeDisplayStrategyToFixed()
+        expectLegendDisplayStrategyToBeFixed()
+        changeFixedLegendSet(TEST_LEGEND_SET)
+        clickOptionsModalUpdateButton()
+        expectChartTitleToBeVisible()
 
-        // // verifies fixed legend is applied
-        // TEST_ITEMS.forEach((item) =>
-        //     expectWindowConfigSeriesItemToHaveLegendSet(
-        //         item.name,
-        //         TEST_LEGEND_SET
-        //     )
-        // )
+        // verifies fixed legend is applied
+        TEST_ITEMS.forEach((item) =>
+            expectWindowConfigSeriesItemToHaveLegendSet(
+                item.name,
+                TEST_LEGEND_SET
+            )
+        )
 
-        // // verifies legend key is hidden
-        // expectLegendKeyToBeHidden()
+        // verifies legend key is hidden
+        expectLegendKeyToBeHidden()
 
-        // // verifies that options are persisted
-        // openOptionsModal(OPTIONS_TAB_LEGEND)
-        // expectLegendDisplayStrategyToBeFixed()
-        // expectFixedLegendSetToBe(TEST_LEGEND_SET)
+        // verifies that options are persisted
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        expectLegendDisplayStrategyToBeFixed()
+        expectFixedLegendSetToBe(TEST_LEGEND_SET)
 
-        // // enables legend key option
-        // toggleLegendKeyOption()
-        // expectLegendKeyOptionToBeEnabled()
-        // clickOptionsModalUpdateButton()
-        // expectVisualizationToBeVisible()
+        // enables legend key option
+        toggleLegendKeyOption()
+        expectLegendKeyOptionToBeEnabled()
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible()
 
-        // // verifies legend key is shown with 1 item
-        // expectLegendKeyToBeVisible()
-        // expectLegedKeyItemAmountToBe(1)
+        // verifies legend key is shown with 1 item
+        expectLegendKeyToBeVisible()
+        expectLegedKeyItemAmountToBe(1)
     })
 })
