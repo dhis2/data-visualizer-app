@@ -35,52 +35,53 @@ import { expectVisTypeToBeDefault } from '../elements/visualizationTypeSelector.
 import { expectWindowTitleToBeDefault } from '../elements/window.js'
 import { expectStoreCurrentToBeEmpty } from '../utils/store.js'
 
-describe('viewing the start screen', () => {
-    it('navigates to the start page', () => {
+describe('Start screen', () => {
+    it('Start screen shows the correct initial state', () => {
+        // navigates to the start page
         goToStartPage()
-    })
-    it('window has a title', () => {
+
+        // window has a title
         expectWindowTitleToBeDefault()
-    })
-    it('store is empty', () => {
+
+        // store is empty
         expectStoreCurrentToBeEmpty()
-    })
-    it('no chart is visible', () => {
+
+        // no chart is visible
         expectVisualizationToNotBeVisible()
-    })
-    it('displays most viewed section', () => {
+
+        // displays most viewed section
         expectMostViewedToBeVisible()
-    })
-    it('vis type is default', () => {
+
+        // vis type is default
         expectVisTypeToBeDefault()
-    })
-    it('axis series has data dimension', () => {
+
+        // axis series has data dimension
         expectAxisToHaveDimension(AXIS_ID_COLUMNS, DIMENSION_ID_DATA)
-    })
-    it('data dimension has no items', () => {
+
+        // data dimension has no items
         expectDimensionToNotHaveItems(DIMENSION_ID_DATA)
-    })
-    it('axis category has period dimension', () => {
+
+        // axis category has period dimension
         expectAxisToHaveDimension(AXIS_ID_ROWS, DIMENSION_ID_PERIOD)
-    })
-    it('period dimension has 1 item', () => {
+
+        // period dimension has 1 item
         expectDimensionToHaveItemAmount(DIMENSION_ID_PERIOD, 1)
-    })
-    it('axis filter has orgunit dimension', () => {
+
+        // axis filter has orgunit dimension
         expectAxisToHaveDimension(AXIS_ID_FILTERS, DIMENSION_ID_ORGUNIT)
-    })
-    it('orgunit dimension has 1 item', () => {
+
+        // orgunit dimension has 1 item
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
-    })
-    it('primary File menu buttons are enabled and menu is closed with click', () => {
+
+        // primary File menu buttons are enabled and menu is closed with click
         clickMenuBarFileButton()
         const enabledButtons = [FILE_MENU_BUTTON_NEW, FILE_MENU_BUTTON_OPEN]
         enabledButtons.forEach((button) =>
             expectFileMenuButtonToBeEnabled(button)
         )
         closeFileMenuWithClick()
-    })
-    it('secondary File menu buttons are disabled and menu is closed with click', () => {
+
+        // secondary File menu buttons are disabled and menu is closed with click
         clickMenuBarFileButton()
         const disabledButtons = [
             FILE_MENU_BUTTON_SAVEAS,
@@ -94,8 +95,8 @@ describe('viewing the start screen', () => {
             expectFileMenuButtonToBeDisabled(button)
         )
         closeFileMenuWithClick()
-    })
-    it('File menu is closed with Escape', () => {
+
+        // File menu is closed with Escape
         clickMenuBarFileButton()
         closeFileMenuWithEsc()
     })
