@@ -3,83 +3,83 @@
 import {
     DIMENSION_ID_DATA,
     VIS_TYPE_COLUMN,
-    VIS_TYPE_SINGLE_VALUE,
-    VIS_TYPE_GAUGE,
-    VIS_TYPE_PIVOT_TABLE,
-    VIS_TYPE_STACKED_COLUMN,
-    VIS_TYPE_LINE,
-    visTypeDisplayNames,
-    DIMENSION_ID_PERIOD,
-    AXIS_ID_COLUMNS,
-    VIS_TYPE_AREA,
-    AXIS_ID_ROWS,
+    // VIS_TYPE_SINGLE_VALUE,
+    // VIS_TYPE_GAUGE,
+    // VIS_TYPE_PIVOT_TABLE,
+    // VIS_TYPE_STACKED_COLUMN,
+    // VIS_TYPE_LINE,
+    // visTypeDisplayNames,
+    // DIMENSION_ID_PERIOD,
+    // AXIS_ID_COLUMNS,
+    // VIS_TYPE_AREA,
+    // AXIS_ID_ROWS,
 } from '@dhis2/analytics'
 import {
-    expectChartTitleToBeVisible,
-    expectSeriesKeyToHaveSeriesKeyItems,
-    expectSVSubtitleToHaveColor,
-    expectSVTitleToHaveColor,
+    // expectChartTitleToBeVisible,
+    // expectSeriesKeyToHaveSeriesKeyItems,
+    // expectSVSubtitleToHaveColor,
+    // expectSVTitleToHaveColor,
     expectVisualizationToBeVisible,
 } from '../../elements/chart.js'
 import {
     selectIndicators,
     clickDimensionModalUpdateButton,
-    selectRelativePeriods,
-    unselectAllItemsByButton,
+    // selectRelativePeriods,
+    // unselectAllItemsByButton,
 } from '../../elements/dimensionModal/index.js'
 import {
-    clickContextMenuMove,
-    expectAxisToHaveDimension,
-    openContextMenu,
+    // clickContextMenuMove,
+    // expectAxisToHaveDimension,
+    // openContextMenu,
     openDimension,
 } from '../../elements/layout.js'
-import {
-    clickMenuBarUpdateButton,
-    openOptionsModal,
-} from '../../elements/menuBar.js'
-import {
-    changeDisplayStrategyToFixed,
-    changeDisplayStyleToText,
-    changeFixedLegendSet,
-    clickOptionsModalUpdateButton,
-    toggleLegend,
-    expectFixedLegendSetToBe,
-    expectLegendDisplayStrategyToBeByDataItem,
-    expectLegendDisplayStrategyToBeFixed,
-    expectLegendDisplayStyleToBeFill,
-    expectLegendDisplayStyleToBeText,
-    expectLegendToBeEnabled,
-    expectSingleValueToHaveTextColor,
-    OPTIONS_TAB_LEGEND,
-    toggleLegendKeyOption,
-    expectLegendKeyOptionToBeEnabled,
-    expectLegendKeyToBeVisible,
-    expectLegendKeyToBeHidden,
-    expectLegendKeyOptionToBeDisabled,
-    expectOptionsTabToBeHidden,
-    expectLegedKeyItemAmountToBe,
-    OPTIONS_TAB_SERIES,
-    setItemToType,
-    clickOptionsModalHideButton,
-    expectSingleValueToHaveBackgroundColor,
-    expectSingleValueToNotHaveBackgroundColor,
-    changeDisplayStyleToFill,
-    changeColor,
-    OPTIONS_TAB_STYLE,
-    changeDisplayStrategyToByDataItem,
-} from '../../elements/optionsModal/index.js'
+// import {
+//     clickMenuBarUpdateButton,
+//     openOptionsModal,
+// } from '../../elements/menuBar.js'
+// import {
+//     changeDisplayStrategyToFixed,
+//     changeDisplayStyleToText,
+//     changeFixedLegendSet,
+//     clickOptionsModalUpdateButton,
+//     toggleLegend,
+//     expectFixedLegendSetToBe,
+//     expectLegendDisplayStrategyToBeByDataItem,
+//     expectLegendDisplayStrategyToBeFixed,
+//     expectLegendDisplayStyleToBeFill,
+//     expectLegendDisplayStyleToBeText,
+//     expectLegendToBeEnabled,
+//     expectSingleValueToHaveTextColor,
+//     OPTIONS_TAB_LEGEND,
+//     toggleLegendKeyOption,
+//     expectLegendKeyOptionToBeEnabled,
+//     expectLegendKeyToBeVisible,
+//     expectLegendKeyToBeHidden,
+//     expectLegendKeyOptionToBeDisabled,
+//     expectOptionsTabToBeHidden,
+//     expectLegedKeyItemAmountToBe,
+//     OPTIONS_TAB_SERIES,
+//     setItemToType,
+//     clickOptionsModalHideButton,
+//     expectSingleValueToHaveBackgroundColor,
+//     expectSingleValueToNotHaveBackgroundColor,
+//     changeDisplayStyleToFill,
+//     changeColor,
+//     OPTIONS_TAB_STYLE,
+//     changeDisplayStrategyToByDataItem,
+// } from '../../elements/optionsModal/index.js'
 import { goToStartPage } from '../../elements/startScreen.js'
-import { changeVisType } from '../../elements/visualizationTypeSelector.js'
-import {
-    expectEachWindowConfigSeriesItemToHaveLegendSet,
-    expectEachWindowConfigSeriesItemToNotHaveLegendSet,
-    expectWindowConfigSeriesDataLabelsToHaveColor,
-    expectWindowConfigSeriesItemToBeType,
-    expectWindowConfigSeriesItemToHaveLegendSet,
-    expectWindowConfigSeriesItemToNotHaveLegendSet,
-    expectWindowConfigSeriesItemToNotHaveType,
-    expectWindowConfigYAxisToHaveColor,
-} from '../../utils/window.js'
+// import { changeVisType } from '../../elements/visualizationTypeSelector.js'
+// import {
+//     expectEachWindowConfigSeriesItemToHaveLegendSet,
+//     expectEachWindowConfigSeriesItemToNotHaveLegendSet,
+//     expectWindowConfigSeriesDataLabelsToHaveColor,
+//     expectWindowConfigSeriesItemToBeType,
+//     expectWindowConfigSeriesItemToHaveLegendSet,
+//     expectWindowConfigSeriesItemToNotHaveLegendSet,
+//     expectWindowConfigSeriesItemToNotHaveType,
+//     expectWindowConfigYAxisToHaveColor,
+// } from '../../utils/window.js'
 
 const TEST_ITEMS = [
     {
@@ -92,7 +92,7 @@ const TEST_ITEMS = [
     },
 ]
 
-const TEST_LEGEND_SET = 'Height in cm'
+// const TEST_LEGEND_SET = 'Height in cm'
 
 describe('Options - Legend', () => {
     it('Applying a legend: Column', () => {
