@@ -9,6 +9,7 @@ import {
     visTypeDisplayNames,
     DIMENSION_ID_PERIOD,
     AXIS_ID_COLUMNS,
+    AXIS_ID_ROWS,
     VIS_TYPE_AREA,
 } from '@dhis2/analytics'
 import {
@@ -542,6 +543,25 @@ describe('Options - Legend', () => {
         it('legend key is shown with 1 item', () => {
             expectLegendKeyToBeVisible()
             expectLegedKeyItemAmountToBe(1)
+        })
+        it('legend is applied when data is in rows', () => {
+            // swap data and period
+            openContextMenu(DIMENSION_ID_PERIOD)
+            clickContextMenuMove(DIMENSION_ID_PERIOD, AXIS_ID_COLUMNS)
+            openContextMenu(DIMENSION_ID_DATA)
+            clickContextMenuMove(DIMENSION_ID_DATA, AXIS_ID_ROWS)
+            clickMenuBarUpdateButton()
+
+            // expect legend to still be applied
+            expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+            expectLegendKeyToBeVisible()
+            expectLegedKeyItemAmountToBe(1)
+            cy.getBySel(valueCellEl).each(($el) => {
+                cy.wrap($el)
+                    .invoke('attr', 'style')
+                    .should('not.contain', 'background-color')
+                    .and('not.contain', EXPECTED_STANDARD_TEXT_COLOR)
+            })
         })
     })
     describe('Transferring a legend: Pivot table -> Gauge', () => {
