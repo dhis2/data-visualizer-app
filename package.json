@@ -25,7 +25,7 @@
         "@dhis2/cli-style": "^10.5.1",
         "@dhis2/cypress-commands": "^10.0.3",
         "@dhis2/cypress-plugins": "^10.0.2",
-        "@reportportal/agent-js-cypress": "git+https://github.com/adeldhis2/agent-js-cypress.git#develop",
+        "@reportportal/agent-js-cypress": "git+https://github.com/dhis2/agent-js-cypress.git#develop",
         "@reportportal/agent-js-jest": "^5.0.6",
         "cypress": "^12.16.0",
         "cypress-tags": "^1.1.2",
