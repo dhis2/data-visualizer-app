@@ -93,7 +93,7 @@ const TEST_ITEMS = [
 const TEST_LEGEND_SET = 'Height in cm'
 
 describe('Options - Legend', () => {
-    it('Applying a legend: Column', () => {
+    it('applies different styles of legend to a Column chart', () => {
         cy.log('navigates to the start page and add data items')
         goToStartPage()
         openDimension(DIMENSION_ID_DATA)
@@ -153,7 +153,7 @@ describe('Options - Legend', () => {
         expectLegedKeyItemAmountToBe(1)
     })
 
-    it('Applying a legend: Single value', () => {
+    it('applies different styles of legend to a Single Value chart', () => {
         const TEST_ITEM = TEST_ITEMS[0]
         const EXPECTED_STANDARD_TEXT_COLOR = '#212934'
         const EXPECTED_CONTRAST_TEXT_COLOR = '#ffffff'
@@ -326,7 +326,7 @@ describe('Options - Legend', () => {
         expectLegedKeyItemAmountToBe(1)
     })
 
-    it('Applying a legend: Gauge', () => {
+    it('applies different styles of legend to a Gauge chart', () => {
         const TEST_ITEM = TEST_ITEMS[0]
         const EXPECTED_BY_DATA_COLOR = '#FFFFB2'
         const EXPECTED_FIXED_COLOR = '#c7e9c0'
@@ -396,7 +396,7 @@ describe('Options - Legend', () => {
         expectLegedKeyItemAmountToBe(1)
     })
 
-    it('Applying a legend: Stacked column', () => {
+    it('applies different styles of legend to a Stacked Column chart', () => {
         cy.log('navigates to the start page and adds data items')
         goToStartPage()
         changeVisType(visTypeDisplayNames[VIS_TYPE_STACKED_COLUMN])
@@ -457,7 +457,7 @@ describe('Options - Legend', () => {
         expectLegedKeyItemAmountToBe(1)
     })
 
-    it('Applying a legend: Pivot table', () => {
+    it('applies different styles of legend to a Pivot table', () => {
         const TEST_ITEM = TEST_ITEMS[0]
         const EXPECTED_STANDARD_TEXT_COLOR = 'color: rgb(33, 41, 52)'
         const valueCellEl = 'visualization-value-cell'
@@ -549,13 +549,15 @@ describe('Options - Legend', () => {
         })
     })
 
-    it('Transferring a legend: Pivot table -> Gauge', () => {
+    it('applies the legend when vis type is changed from Pivot table to Gauge', () => {
         const TEST_ITEM = TEST_ITEMS[0]
         const EXPECTED_STANDARD_TEXT_COLOR = 'color: rgb(33, 41, 52)'
         const EXPECTED_FIXED_COLOR = '#c7e9c0'
         const valueCellEl = 'visualization-value-cell'
 
-        cy.log('navigates to the start page and adds data items')
+        cy.log(
+            'navigates to the start page and adds data items and create Pivot'
+        )
         goToStartPage()
         changeVisType(visTypeDisplayNames[VIS_TYPE_PIVOT_TABLE])
         openDimension(DIMENSION_ID_DATA)
@@ -598,7 +600,7 @@ describe('Options - Legend', () => {
         expectLegendDisplayStyleToBeText()
         expectLegendDisplayStrategyToBeFixed()
     })
-    it('Transferring a legend: Pivot table -> Single value', () => {
+    it('applies the legend when vis type is changed from Pivot table to Single value', () => {
         const TEST_ITEM = TEST_ITEMS[0]
         const EXPECTED_FIXED_COLOR = '#c7e9c0'
         const valueCellEl = 'visualization-value-cell'
@@ -648,7 +650,7 @@ describe('Options - Legend', () => {
         expectLegendDisplayStrategyToBeFixed()
     })
 
-    it('Transferring the legend key: Column -> Pivot table -> Gauge -> Single value', () => {
+    it('applies the legend key setttings when vis type changes: Column -> Pivot table -> Gauge -> Single value', () => {
         cy.log('navigates to the start page and adds data items')
         goToStartPage()
         openDimension(DIMENSION_ID_DATA)
@@ -736,7 +738,7 @@ describe('Options - Legend', () => {
         cy.log('legend key is hidden (Single value)')
         expectLegendKeyToBeHidden()
     })
-    it('Preventing options bleed: Column -> Area', () => {
+    it('does not apply non-applicable options when Column switched to Area', () => {
         cy.log('navigates to the start page and adds data items')
         goToStartPage()
         openDimension(DIMENSION_ID_DATA)
@@ -781,7 +783,7 @@ describe('Options - Legend', () => {
         cy.log('series key displays the correct amount of items')
         expectSeriesKeyToHaveSeriesKeyItems(2)
     })
-    it('Non-legend set type displays correctly: Line', () => {
+    it('does not enable legend options for Line chart', () => {
         cy.log('navigates to the start page and adds data items')
         goToStartPage()
         changeVisType(visTypeDisplayNames[VIS_TYPE_LINE])
@@ -802,10 +804,10 @@ describe('Options - Legend', () => {
         cy.log('legend key is hidden')
         expectLegendKeyToBeHidden()
 
-        cy.log('series key displays the correct amount of items')
+        cy.log('series key displays the correct number of items')
         expectSeriesKeyToHaveSeriesKeyItems(2)
     })
-    it('The chart series key displaying legend colors', () => {
+    it('changes legend from per data item to fixed strategy for Column chart', () => {
         cy.log('navigates to the start page and adds data items')
         goToStartPage()
         openDimension(DIMENSION_ID_DATA)
@@ -813,7 +815,7 @@ describe('Options - Legend', () => {
         clickDimensionModalUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
 
-        cy.log('series key displays the correct amount of items')
+        cy.log('series key displays the correct number of items')
         expectSeriesKeyToHaveSeriesKeyItems(2)
 
         cy.log('enables legend')
@@ -835,7 +837,7 @@ describe('Options - Legend', () => {
         clickOptionsModalUpdateButton()
         expectChartTitleToBeVisible()
     })
-    it('When data is not on series, legend is only applied when strategy fixed is used', () => {
+    it('only applies legend for charts where data is not on series when legend display strategy is fixed', () => {
         const TEST_ITEM = TEST_ITEMS[0]
 
         cy.log(
@@ -908,7 +910,7 @@ describe('Options - Legend', () => {
         cy.log('series key displays the correct amount of items')
         expectSeriesKeyToHaveSeriesKeyItems(3)
     })
-    it('Legend is not applied to column-as-line items', () => {
+    it('does not apply a legend to column-as-line items', () => {
         cy.log(
             'navigates to the start page and adds data items, legend and legend key'
         )
