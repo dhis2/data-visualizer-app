@@ -23,14 +23,14 @@ module.exports = defineConfig({
     reporterOptions: {
         endpoint: process.env.REPORTPORTAL_ENDPOINT,
         apiKey: process.env.REPORTPORTAL_API_KEY,
-        launch: 'data_visualizer_app_master',
+        launch: 'data_visualizer_app',
         project: process.env.REPORTPORTAL_PROJECT,
         description: '',
         autoMerge: true,
         parallel: true,
         debug: false,
         restClientConfig: {
-            timeout: 360000,
+            timeout: 660000,
         },
         attributes: [
             {
