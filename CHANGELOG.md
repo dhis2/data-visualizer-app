@@ -1,3 +1,23 @@
+# [100.3.0](https://github.com/dhis2/data-visualizer-app/compare/v100.2.0...v100.3.0) (2023-10-20)
+
+
+### Bug Fixes
+
+* allow closing the interpretations modal when accessed via URL (DHIS2-15721) ([#2748](https://github.com/dhis2/data-visualizer-app/issues/2748)) ([f1c9e18](https://github.com/dhis2/data-visualizer-app/commit/f1c9e1874ab85acc100528d03e753d727a5dd95d))
+* change legend type description to fit SV (DHIS2-15120) ([#2757](https://github.com/dhis2/data-visualizer-app/issues/2757)) ([3828e46](https://github.com/dhis2/data-visualizer-app/commit/3828e46f968f6e623201b45e593599b153f016ff))
+* disable Save when vis not in unsaved/dirty state DHIS2-15373 ([#2758](https://github.com/dhis2/data-visualizer-app/issues/2758)) ([db83177](https://github.com/dhis2/data-visualizer-app/commit/db831776d1498ced595fb8d7c2f1351ab74731f3))
+* limit max value shifts to min value fields in PT (DHIS2-10235) ([#2756](https://github.com/dhis2/data-visualizer-app/issues/2756)) ([d4d634e](https://github.com/dhis2/data-visualizer-app/commit/d4d634ebedd7c714cb2beedaf9c25bbf6e3c901e))
+* translate dimension labels in PT DHIS2-15750 ([#2783](https://github.com/dhis2/data-visualizer-app/issues/2783)) ([3b09b0c](https://github.com/dhis2/data-visualizer-app/commit/3b09b0c23b4c421a7bf9594e2813d1710488e1c5))
+* visualization deleted when saving it after copy DHIS2-15722 ([#2778](https://github.com/dhis2/data-visualizer-app/issues/2778)) ([d9c1ed5](https://github.com/dhis2/data-visualizer-app/commit/d9c1ed53ce39556439e2dde5b7cdc16ef116421c))
+* **translations:** sync translations from transifex (dev) ([841882f](https://github.com/dhis2/data-visualizer-app/commit/841882f471fc99492a5267b6c8dc1b4a8fe40f57))
+* **translations:** sync translations from transifex (dev) ([7f611d5](https://github.com/dhis2/data-visualizer-app/commit/7f611d5c79d47fa5953f1e1d3e4877edc7d8397a))
+* **translations:** sync translations from transifex (dev) ([9d475f6](https://github.com/dhis2/data-visualizer-app/commit/9d475f6eb95cebf927dd4601de95884e379855fa))
+
+
+### Features
+
+* **deps:** bump analytics to latest to benefit from fixes and features ([#2886](https://github.com/dhis2/data-visualizer-app/issues/2886)) ([f56fd15](https://github.com/dhis2/data-visualizer-app/commit/f56fd153ef9f539e7865e0f4a2c18d9e88888a6a))
+
 # [100.2.0](https://github.com/dhis2/data-visualizer-app/compare/v100.1.4...v100.2.0) (2023-08-15)
 
 
