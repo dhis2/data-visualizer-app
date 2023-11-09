@@ -130,9 +130,12 @@ jobs:
 
     report-release-failure:
         runs-on: ubuntu-latest
-        needs: lint
+        needs: release
         if: |
-            !cancelled()
+            failure() &&
+            !cancelled() &&
+            github.ref == 'refs/heads/master' &&
+            contains(github.event.head_commit.message, 'chore(release)')
         steps:
             - name: Checkout code
               uses: actions/checkout@master
@@ -162,10 +165,12 @@ jobs:
 
     report-release-success:
         runs-on: ubuntu-latest
-        needs: lint
+        needs: release
         if: |
             success() &&
-            !cancelled()
+            !cancelled() &&
+            github.ref == 'refs/heads/master' &&
+            contains(github.event.head_commit.message, 'chore(release)')
         steps:
             - name: Checkout code
               uses: actions/checkout@master
