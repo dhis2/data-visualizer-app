@@ -93,67 +93,67 @@ const TEST_ITEMS = [
 const TEST_LEGEND_SET = 'Height in cm'
 
 describe('Options - Legend', () => {
-    describe('Applying a legend: Column', () => {
-        it('navigates to the start page and adds data items', () => {
-            goToStartPage()
-            openDimension(DIMENSION_ID_DATA)
-            selectIndicators(TEST_ITEMS.map((item) => item.name))
-            clickDimensionModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
-        })
-        it('enables legend', () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            toggleLegend()
-            expectLegendToBeEnabled()
-            expectLegendDisplayStrategyToBeByDataItem()
-            clickOptionsModalUpdateButton()
-            expectChartTitleToBeVisible()
-        })
-        it('legend by data item is applied', () => {
-            TEST_ITEMS.forEach((item) =>
-                expectWindowConfigSeriesItemToHaveLegendSet(
-                    item.name,
-                    item.legendSet
-                )
+    it('applies different styles of legend to a Column chart', () => {
+        cy.log('navigates to the start page and add data items')
+        goToStartPage()
+        openDimension(DIMENSION_ID_DATA)
+        selectIndicators(TEST_ITEMS.map((item) => item.name))
+        clickDimensionModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+
+        cy.log('enables legend')
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        toggleLegend()
+        expectLegendToBeEnabled()
+        expectLegendDisplayStrategyToBeByDataItem()
+        clickOptionsModalUpdateButton()
+        expectChartTitleToBeVisible()
+
+        cy.log('verifies legend by data item is applied')
+        TEST_ITEMS.forEach((item) =>
+            expectWindowConfigSeriesItemToHaveLegendSet(
+                item.name,
+                item.legendSet
             )
-        })
-        it(`changes legend display strategy to fixed (${TEST_LEGEND_SET})`, () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            expectLegendDisplayStrategyToBeByDataItem()
-            changeDisplayStrategyToFixed()
-            expectLegendDisplayStrategyToBeFixed()
-            changeFixedLegendSet(TEST_LEGEND_SET)
-            clickOptionsModalUpdateButton()
-            expectChartTitleToBeVisible()
-        })
-        it('fixed legend is applied', () => {
-            TEST_ITEMS.forEach((item) =>
-                expectWindowConfigSeriesItemToHaveLegendSet(
-                    item.name,
-                    TEST_LEGEND_SET
-                )
+        )
+
+        cy.log(`changes legend display strategy to fixed (${TEST_LEGEND_SET})`)
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        expectLegendDisplayStrategyToBeByDataItem()
+        changeDisplayStrategyToFixed()
+        expectLegendDisplayStrategyToBeFixed()
+        changeFixedLegendSet(TEST_LEGEND_SET)
+        clickOptionsModalUpdateButton()
+        expectChartTitleToBeVisible()
+
+        cy.log('verifies fixed legend is applied')
+        TEST_ITEMS.forEach((item) =>
+            expectWindowConfigSeriesItemToHaveLegendSet(
+                item.name,
+                TEST_LEGEND_SET
             )
-        })
-        it('legend key is hidden', () => {
-            expectLegendKeyToBeHidden()
-        })
-        it('verifies that options are persisted', () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            expectLegendDisplayStrategyToBeFixed()
-            expectFixedLegendSetToBe(TEST_LEGEND_SET)
-        })
-        it('enables legend key option', () => {
-            toggleLegendKeyOption()
-            expectLegendKeyOptionToBeEnabled()
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible()
-        })
-        it('legend key is shown with 1 item', () => {
-            expectLegendKeyToBeVisible()
-            expectLegedKeyItemAmountToBe(1)
-        })
+        )
+
+        cy.log('verifies legend key is hidden')
+        expectLegendKeyToBeHidden()
+
+        cy.log('verifies that options are persisted')
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        expectLegendDisplayStrategyToBeFixed()
+        expectFixedLegendSetToBe(TEST_LEGEND_SET)
+
+        cy.log('enables legend key option')
+        toggleLegendKeyOption()
+        expectLegendKeyOptionToBeEnabled()
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible()
+
+        cy.log('verifies legend key is shown with 1 item')
+        expectLegendKeyToBeVisible()
+        expectLegedKeyItemAmountToBe(1)
     })
-    describe('Applying a legend: Single value', () => {
+
+    it('applies different styles of legend to a Single Value chart', () => {
         const TEST_ITEM = TEST_ITEMS[0]
         const EXPECTED_STANDARD_TEXT_COLOR = '#212934'
         const EXPECTED_CONTRAST_TEXT_COLOR = '#ffffff'
@@ -166,835 +166,849 @@ describe('Options - Legend', () => {
         const TEST_LEGEND_SET_WITH_CONTRAST = 'Age 15y interval'
         const EXPECTED_STANDARD_TITLE_COLOR = '#212934'
         const EXPECTED_STANDARD_SUBTITLE_COLOR = '#4a5768'
-        it('navigates to the start page and adds data items', () => {
-            goToStartPage()
-            changeVisType(visTypeDisplayNames[VIS_TYPE_SINGLE_VALUE])
-            openDimension(DIMENSION_ID_DATA)
-            selectIndicators([TEST_ITEM.name])
-            clickDimensionModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
-            expectSingleValueToHaveTextColor(EXPECTED_STANDARD_TEXT_COLOR)
-            expectSingleValueToNotHaveBackgroundColor()
-        })
-        it('enables legend', () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            toggleLegend()
-            expectLegendToBeEnabled()
-            expectLegendDisplayStrategyToBeByDataItem()
-            expectLegendDisplayStyleToBeFill()
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
-        })
+
+        cy.log('navigates to the start page and adds data items')
+        goToStartPage()
+        changeVisType(visTypeDisplayNames[VIS_TYPE_SINGLE_VALUE])
+        openDimension(DIMENSION_ID_DATA)
+        selectIndicators([TEST_ITEM.name])
+        clickDimensionModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
+        expectSingleValueToHaveTextColor(EXPECTED_STANDARD_TEXT_COLOR)
+        expectSingleValueToNotHaveBackgroundColor()
+
+        cy.log('enables legend')
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        toggleLegend()
+        expectLegendToBeEnabled()
+        expectLegendDisplayStrategyToBeByDataItem()
+        expectLegendDisplayStyleToBeFill()
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
+
         // Legend on background, no contrast, no custom title colors
-        it('background color legend is applied', () => {
-            expectSingleValueToHaveTextColor(EXPECTED_STANDARD_TEXT_COLOR)
-            expectSingleValueToHaveBackgroundColor(EXPECTED_BACKGROUND_COLOR_1)
-            expectSVTitleToHaveColor(EXPECTED_STANDARD_TITLE_COLOR)
-            expectSVSubtitleToHaveColor(EXPECTED_STANDARD_SUBTITLE_COLOR)
-        })
-        it('changes legend display style to text color', () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            expectLegendDisplayStrategyToBeByDataItem()
-            expectLegendDisplayStyleToBeFill()
-            changeDisplayStyleToText()
-            expectLegendDisplayStyleToBeText()
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
-        })
+        cy.log('verifies background color legend is applied')
+        expectSingleValueToHaveTextColor(EXPECTED_STANDARD_TEXT_COLOR)
+        expectSingleValueToHaveBackgroundColor(EXPECTED_BACKGROUND_COLOR_1)
+        expectSVTitleToHaveColor(EXPECTED_STANDARD_TITLE_COLOR)
+        expectSVSubtitleToHaveColor(EXPECTED_STANDARD_SUBTITLE_COLOR)
+
+        cy.log('changes legend display style to text color')
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        expectLegendDisplayStrategyToBeByDataItem()
+        expectLegendDisplayStyleToBeFill()
+        changeDisplayStyleToText()
+        expectLegendDisplayStyleToBeText()
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
+
         // Legend on text, no contrast, no custom title colors
-        it('text color legend is applied', () => {
-            expectSingleValueToHaveTextColor(EXPECTED_TEXT_COLOR_1)
-            expectSingleValueToNotHaveBackgroundColor()
-            expectSVTitleToHaveColor(EXPECTED_STANDARD_TITLE_COLOR)
-            expectSVSubtitleToHaveColor(EXPECTED_STANDARD_SUBTITLE_COLOR)
-        })
-        it(`changes legend display strategy to fixed (${TEST_LEGEND_SET_WITH_CONTRAST})`, () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            expectLegendDisplayStyleToBeText()
-            expectLegendDisplayStrategyToBeByDataItem()
-            changeDisplayStrategyToFixed()
-            expectLegendDisplayStrategyToBeFixed()
-            changeFixedLegendSet(TEST_LEGEND_SET_WITH_CONTRAST)
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
-        })
-        // Legend on text, with contrast (N/A), no custom title colors
-        it('text color legend is applied', () => {
-            expectSingleValueToHaveTextColor(EXPECTED_TEXT_COLOR_2)
-            expectSingleValueToNotHaveBackgroundColor()
-            expectSVTitleToHaveColor(EXPECTED_STANDARD_TITLE_COLOR)
-            expectSVSubtitleToHaveColor(EXPECTED_STANDARD_SUBTITLE_COLOR)
-        })
-        it('changes legend display style to background color', () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            expectLegendDisplayStrategyToBeFixed()
-            expectLegendDisplayStyleToBeText()
-            changeDisplayStyleToFill()
-            expectLegendDisplayStyleToBeFill()
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
-        })
+        cy.log('verifies text color legend is applied')
+        expectSingleValueToHaveTextColor(EXPECTED_TEXT_COLOR_1)
+        expectSingleValueToNotHaveBackgroundColor()
+        expectSVTitleToHaveColor(EXPECTED_STANDARD_TITLE_COLOR)
+        expectSVSubtitleToHaveColor(EXPECTED_STANDARD_SUBTITLE_COLOR)
+
+        cy.log(
+            `changes legend display strategy to fixed ${TEST_LEGEND_SET_WITH_CONTRAST}`
+        )
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        expectLegendDisplayStyleToBeText()
+        expectLegendDisplayStrategyToBeByDataItem()
+        changeDisplayStrategyToFixed()
+        expectLegendDisplayStrategyToBeFixed()
+        changeFixedLegendSet(TEST_LEGEND_SET_WITH_CONTRAST)
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
+
+        // Legend on text, with contrast (N/, no custom title colors
+        cy.log('verifies text color legend is applied')
+        expectSingleValueToHaveTextColor(EXPECTED_TEXT_COLOR_2)
+        expectSingleValueToNotHaveBackgroundColor()
+        expectSVTitleToHaveColor(EXPECTED_STANDARD_TITLE_COLOR)
+        expectSVSubtitleToHaveColor(EXPECTED_STANDARD_SUBTITLE_COLOR)
+
+        cy.log('changees legend display style to background color')
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        expectLegendDisplayStrategyToBeFixed()
+        expectLegendDisplayStyleToBeText()
+        changeDisplayStyleToFill()
+        expectLegendDisplayStyleToBeFill()
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
+
         // Legend on background, with contrast, no custom title colors
-        it('background color legend and contrast text color is applied', () => {
-            expectSingleValueToHaveTextColor(EXPECTED_CONTRAST_TEXT_COLOR)
-            expectSingleValueToHaveBackgroundColor(EXPECTED_BACKGROUND_COLOR_2)
-            expectSVTitleToHaveColor(EXPECTED_CONTRAST_TEXT_COLOR)
-            expectSVSubtitleToHaveColor(EXPECTED_CONTRAST_TEXT_COLOR)
-        })
-        it(`changes title and subtitle colors`, () => {
-            openOptionsModal(OPTIONS_TAB_STYLE)
-            changeColor('option-chart-title', EXPECTED_CUSTOM_TITLE_COLOR)
-            changeColor('option-chart-subtitle', EXPECTED_CUSTOM_SUBTITLE_COLOR)
-            clickOptionsModalUpdateButton()
-        })
-        // Legend on background, with contrast, with custom title colors
-        it('background color legend, contrast text color and custom title colors are applied', () => {
-            expectSingleValueToHaveTextColor(EXPECTED_CONTRAST_TEXT_COLOR)
-            expectSingleValueToHaveBackgroundColor(EXPECTED_BACKGROUND_COLOR_2)
-            expectSVTitleToHaveColor(EXPECTED_CUSTOM_TITLE_COLOR)
-            expectSVSubtitleToHaveColor(EXPECTED_CUSTOM_SUBTITLE_COLOR)
-        })
-        it('changes legend display style to text color', () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            expectLegendDisplayStrategyToBeFixed()
-            expectLegendDisplayStyleToBeFill()
-            changeDisplayStyleToText()
-            expectLegendDisplayStyleToBeText()
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
-        })
-        // Legend on text, with contrast, with custom title colors
-        it('text color legend and custom title colors are applied', () => {
-            expectSingleValueToHaveTextColor(EXPECTED_TEXT_COLOR_2)
-            expectSingleValueToNotHaveBackgroundColor()
-            expectSVTitleToHaveColor(EXPECTED_CUSTOM_TITLE_COLOR)
-            expectSVSubtitleToHaveColor(EXPECTED_CUSTOM_SUBTITLE_COLOR)
-        })
-        it(`changes legend display strategy to by data item`, () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            expectLegendDisplayStyleToBeText()
-            expectLegendDisplayStrategyToBeFixed()
-            changeDisplayStrategyToByDataItem()
-            expectLegendDisplayStrategyToBeByDataItem()
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
-        })
-        // Legend on text, no contrast, with custom title colors
-        it('text color legend and custom title colors are applied', () => {
-            expectSingleValueToHaveTextColor(EXPECTED_TEXT_COLOR_1)
-            expectSingleValueToNotHaveBackgroundColor()
-            expectSVTitleToHaveColor(EXPECTED_CUSTOM_TITLE_COLOR)
-            expectSVSubtitleToHaveColor(EXPECTED_CUSTOM_SUBTITLE_COLOR)
-        })
-        it('changes legend display style to background color', () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            changeDisplayStrategyToByDataItem()
-            expectLegendDisplayStyleToBeText()
-            changeDisplayStyleToFill()
-            expectLegendDisplayStyleToBeFill()
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
-        })
+        cy.log(
+            'verifies background color legend and contrast text color is applied'
+        )
+        expectSingleValueToHaveTextColor(EXPECTED_CONTRAST_TEXT_COLOR)
+        expectSingleValueToHaveBackgroundColor(EXPECTED_BACKGROUND_COLOR_2)
+        expectSVTitleToHaveColor(EXPECTED_CONTRAST_TEXT_COLOR)
+        expectSVSubtitleToHaveColor(EXPECTED_CONTRAST_TEXT_COLOR)
+
+        cy.log('changes title and subtitle colors')
+        openOptionsModal(OPTIONS_TAB_STYLE)
+        changeColor('option-chart-title', EXPECTED_CUSTOM_TITLE_COLOR)
+        changeColor('option-chart-subtitle', EXPECTED_CUSTOM_SUBTITLE_COLOR)
+        clickOptionsModalUpdateButton()
+
+        // Legend on background, with contrast, with custom title colo
+        cy.log(
+            'verifies background color legend, contrast text color and custom title colors are applied'
+        )
+        expectSingleValueToHaveTextColor(EXPECTED_CONTRAST_TEXT_COLOR)
+        expectSingleValueToHaveBackgroundColor(EXPECTED_BACKGROUND_COLOR_2)
+        expectSVTitleToHaveColor(EXPECTED_CUSTOM_TITLE_COLOR)
+        expectSVSubtitleToHaveColor(EXPECTED_CUSTOM_SUBTITLE_COLOR)
+
+        cy.log('changes legend display style to text color')
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        expectLegendDisplayStrategyToBeFixed()
+        expectLegendDisplayStyleToBeFill()
+        changeDisplayStyleToText()
+        expectLegendDisplayStyleToBeText()
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
+
+        // Legend on text, with contrast, with custom title colo
+        cy.log('verifies text color legend and custom title colors are applied')
+        expectSingleValueToHaveTextColor(EXPECTED_TEXT_COLOR_2)
+        expectSingleValueToNotHaveBackgroundColor()
+        expectSVTitleToHaveColor(EXPECTED_CUSTOM_TITLE_COLOR)
+        expectSVSubtitleToHaveColor(EXPECTED_CUSTOM_SUBTITLE_COLOR)
+
+        cy.log('changes legend display strategy to by data item')
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        expectLegendDisplayStyleToBeText()
+        expectLegendDisplayStrategyToBeFixed()
+        changeDisplayStrategyToByDataItem()
+        expectLegendDisplayStrategyToBeByDataItem()
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
+
+        // Legend on text, no contrast, with custom title colo
+        cy.log('verifies text color legend and custom title colors are applied')
+        expectSingleValueToHaveTextColor(EXPECTED_TEXT_COLOR_1)
+        expectSingleValueToNotHaveBackgroundColor()
+        expectSVTitleToHaveColor(EXPECTED_CUSTOM_TITLE_COLOR)
+        expectSVSubtitleToHaveColor(EXPECTED_CUSTOM_SUBTITLE_COLOR)
+
+        cy.log('changes legend display style to background color')
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        changeDisplayStrategyToByDataItem()
+        expectLegendDisplayStyleToBeText()
+        changeDisplayStyleToFill()
+        expectLegendDisplayStyleToBeFill()
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
+
         // Legend on background, no contrast, with custom title colors
-        it('background color legend and custom title colors are applied', () => {
-            expectSingleValueToHaveTextColor(EXPECTED_STANDARD_TEXT_COLOR)
-            expectSingleValueToHaveBackgroundColor(EXPECTED_BACKGROUND_COLOR_1)
-            expectSVTitleToHaveColor(EXPECTED_CUSTOM_TITLE_COLOR)
-            expectSVSubtitleToHaveColor(EXPECTED_CUSTOM_SUBTITLE_COLOR)
-        })
-        it('legend key is hidden', () => {
-            expectLegendKeyToBeHidden()
-        })
-        it('enables legend key option', () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            toggleLegendKeyOption()
-            expectLegendKeyOptionToBeEnabled()
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
-        })
-        it('legend key is shown with 1 item', () => {
-            expectLegendKeyToBeVisible()
-            expectLegedKeyItemAmountToBe(1)
-        })
+        cy.log(
+            'verifies background color legend and custom title colors are applied'
+        )
+        expectSingleValueToHaveTextColor(EXPECTED_STANDARD_TEXT_COLOR)
+        expectSingleValueToHaveBackgroundColor(EXPECTED_BACKGROUND_COLOR_1)
+        expectSVTitleToHaveColor(EXPECTED_CUSTOM_TITLE_COLOR)
+        expectSVSubtitleToHaveColor(EXPECTED_CUSTOM_SUBTITLE_COLOR)
+
+        cy.log('verifies legend key is hidden')
+        expectLegendKeyToBeHidden()
+
+        cy.log('enables legend key option')
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        toggleLegendKeyOption()
+        expectLegendKeyOptionToBeEnabled()
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
+
+        cy.log('verifies legend key is shown with 1 item')
+        expectLegendKeyToBeVisible()
+        expectLegedKeyItemAmountToBe(1)
     })
-    describe('Applying a legend: Gauge', () => {
+
+    it('applies different styles of legend to a Gauge chart', () => {
         const TEST_ITEM = TEST_ITEMS[0]
         const EXPECTED_BY_DATA_COLOR = '#FFFFB2'
         const EXPECTED_FIXED_COLOR = '#c7e9c0'
-        it('navigates to the start page and adds data items', () => {
-            goToStartPage()
-            changeVisType(visTypeDisplayNames[VIS_TYPE_GAUGE])
-            openDimension(DIMENSION_ID_DATA)
-            selectIndicators([TEST_ITEM.name])
-            clickDimensionModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_GAUGE)
-        })
-        it('enables legend', () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            toggleLegend()
-            expectLegendToBeEnabled()
-            expectLegendDisplayStrategyToBeByDataItem()
-            expectLegendDisplayStyleToBeFill()
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_GAUGE)
-        })
-        it('legend by data item is applied', () => {
-            expectWindowConfigYAxisToHaveColor(EXPECTED_BY_DATA_COLOR)
-        })
-        it(`changes legend display strategy to fixed (${TEST_LEGEND_SET})`, () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            expectLegendDisplayStrategyToBeByDataItem()
-            expectLegendDisplayStyleToBeFill()
-            changeDisplayStrategyToFixed()
-            expectLegendDisplayStrategyToBeFixed()
-            changeFixedLegendSet(TEST_LEGEND_SET)
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_GAUGE)
-        })
-        it('fixed legend is applied', () => {
-            expectWindowConfigYAxisToHaveColor(EXPECTED_FIXED_COLOR)
-        })
-        it('changes legend display style to text color', () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            expectLegendDisplayStrategyToBeFixed()
-            expectFixedLegendSetToBe(TEST_LEGEND_SET)
-            expectLegendDisplayStyleToBeFill()
-            changeDisplayStyleToText()
-            expectLegendDisplayStyleToBeText()
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_GAUGE)
-        })
-        it('legend style is applied', () => {
-            expectWindowConfigSeriesDataLabelsToHaveColor(
-                0,
-                EXPECTED_FIXED_COLOR
-            )
-        })
-        it('legend key is hidden', () => {
-            expectLegendKeyToBeHidden()
-        })
-        it('verifies that options are persisted', () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            expectLegendDisplayStrategyToBeFixed()
-            expectFixedLegendSetToBe(TEST_LEGEND_SET)
-        })
-        it('enables legend key option', () => {
-            toggleLegendKeyOption()
-            expectLegendKeyOptionToBeEnabled()
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_GAUGE)
-        })
-        it('legend key is shown with 1 item', () => {
-            expectLegendKeyToBeVisible()
-            expectLegedKeyItemAmountToBe(1)
-        })
+
+        cy.log('navigates to the start page and adds data items')
+        goToStartPage()
+        changeVisType(visTypeDisplayNames[VIS_TYPE_GAUGE])
+        openDimension(DIMENSION_ID_DATA)
+        selectIndicators([TEST_ITEM.name])
+        clickDimensionModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_GAUGE)
+
+        cy.log('enables legend')
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        toggleLegend()
+        expectLegendToBeEnabled()
+        expectLegendDisplayStrategyToBeByDataItem()
+        expectLegendDisplayStyleToBeFill()
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_GAUGE)
+
+        cy.log('legend by data item is applied')
+        expectWindowConfigYAxisToHaveColor(EXPECTED_BY_DATA_COLOR)
+
+        cy.log(`changes legend display strategy to fixed (${TEST_LEGEND_SET})`)
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        expectLegendDisplayStrategyToBeByDataItem()
+        expectLegendDisplayStyleToBeFill()
+        changeDisplayStrategyToFixed()
+        expectLegendDisplayStrategyToBeFixed()
+        changeFixedLegendSet(TEST_LEGEND_SET)
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_GAUGE)
+
+        cy.log('fixed legend is applied')
+        expectWindowConfigYAxisToHaveColor(EXPECTED_FIXED_COLOR)
+
+        cy.log('changes legend display style to text color')
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        expectLegendDisplayStrategyToBeFixed()
+        expectFixedLegendSetToBe(TEST_LEGEND_SET)
+        expectLegendDisplayStyleToBeFill()
+        changeDisplayStyleToText()
+        expectLegendDisplayStyleToBeText()
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_GAUGE)
+
+        cy.log('legend style is applied')
+        expectWindowConfigSeriesDataLabelsToHaveColor(0, EXPECTED_FIXED_COLOR)
+
+        cy.log('legend key is hidden')
+        expectLegendKeyToBeHidden()
+
+        cy.log('verifies that options are persisted')
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        expectLegendDisplayStrategyToBeFixed()
+        expectFixedLegendSetToBe(TEST_LEGEND_SET)
+
+        cy.log('enables legend key option')
+        toggleLegendKeyOption()
+        expectLegendKeyOptionToBeEnabled()
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_GAUGE)
+
+        cy.log('legend key is shown with 1 item')
+        expectLegendKeyToBeVisible()
+        expectLegedKeyItemAmountToBe(1)
     })
-    describe('Applying a legend: Stacked column', () => {
-        it('navigates to the start page and adds data items', () => {
-            goToStartPage()
-            changeVisType(visTypeDisplayNames[VIS_TYPE_STACKED_COLUMN])
-            openDimension(DIMENSION_ID_DATA)
-            selectIndicators(TEST_ITEMS.map((item) => item.name))
-            clickDimensionModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_STACKED_COLUMN)
-        })
-        it('enables legend', () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            toggleLegend()
-            expectLegendToBeEnabled()
-            expectLegendDisplayStrategyToBeByDataItem()
-            clickOptionsModalUpdateButton()
-            expectChartTitleToBeVisible()
-        })
-        it('legend by data item is applied', () => {
-            TEST_ITEMS.forEach((item) =>
-                expectWindowConfigSeriesItemToHaveLegendSet(
-                    item.name,
-                    item.legendSet
-                )
+
+    it('applies different styles of legend to a Stacked Column chart', () => {
+        cy.log('navigates to the start page and adds data items')
+        goToStartPage()
+        changeVisType(visTypeDisplayNames[VIS_TYPE_STACKED_COLUMN])
+        openDimension(DIMENSION_ID_DATA)
+        selectIndicators(TEST_ITEMS.map((item) => item.name))
+        clickDimensionModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_STACKED_COLUMN)
+
+        cy.log('enables legend')
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        toggleLegend()
+        expectLegendToBeEnabled()
+        expectLegendDisplayStrategyToBeByDataItem()
+        clickOptionsModalUpdateButton()
+        expectChartTitleToBeVisible()
+
+        cy.log('legend by data item is applied')
+        TEST_ITEMS.forEach((item) =>
+            expectWindowConfigSeriesItemToHaveLegendSet(
+                item.name,
+                item.legendSet
             )
-        })
-        it(`changes legend display strategy to fixed (${TEST_LEGEND_SET})`, () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            expectLegendDisplayStrategyToBeByDataItem()
-            changeDisplayStrategyToFixed()
-            expectLegendDisplayStrategyToBeFixed()
-            changeFixedLegendSet(TEST_LEGEND_SET)
-            clickOptionsModalUpdateButton()
-            expectChartTitleToBeVisible()
-        })
-        it('fixed legend is applied', () => {
-            TEST_ITEMS.forEach((item) =>
-                expectWindowConfigSeriesItemToHaveLegendSet(
-                    item.name,
-                    TEST_LEGEND_SET
-                )
+        )
+
+        cy.log(`changes legend display strategy to fixed (${TEST_LEGEND_SET})`)
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        expectLegendDisplayStrategyToBeByDataItem()
+        changeDisplayStrategyToFixed()
+        expectLegendDisplayStrategyToBeFixed()
+        changeFixedLegendSet(TEST_LEGEND_SET)
+        clickOptionsModalUpdateButton()
+        expectChartTitleToBeVisible()
+
+        cy.log('fixed legend is applied')
+        TEST_ITEMS.forEach((item) =>
+            expectWindowConfigSeriesItemToHaveLegendSet(
+                item.name,
+                TEST_LEGEND_SET
             )
-        })
-        it('legend key is hidden', () => {
-            expectLegendKeyToBeHidden()
-        })
-        it('verifies that options are persisted', () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            expectLegendDisplayStrategyToBeFixed()
-            expectFixedLegendSetToBe(TEST_LEGEND_SET)
-        })
-        it('enables legend key option', () => {
-            toggleLegendKeyOption()
-            expectLegendKeyOptionToBeEnabled()
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible()
-        })
-        it('legend key is shown with 1 item', () => {
-            expectLegendKeyToBeVisible()
-            expectLegedKeyItemAmountToBe(1)
-        })
+        )
+
+        cy.log('legend key is hidden')
+        expectLegendKeyToBeHidden()
+
+        cy.log('verifies that options are persisted')
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        expectLegendDisplayStrategyToBeFixed()
+        expectFixedLegendSetToBe(TEST_LEGEND_SET)
+
+        cy.log('enables legend key option')
+        toggleLegendKeyOption()
+        expectLegendKeyOptionToBeEnabled()
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible()
+
+        cy.log('legend key is shown with 1 item')
+        expectLegendKeyToBeVisible()
+        expectLegedKeyItemAmountToBe(1)
     })
-    describe('Applying a legend: Pivot table', () => {
+
+    it('applies different styles of legend to a Pivot table', () => {
         const TEST_ITEM = TEST_ITEMS[0]
         const EXPECTED_STANDARD_TEXT_COLOR = 'color: rgb(33, 41, 52)'
         const valueCellEl = 'visualization-value-cell'
-        it('navigates to the start page and adds data items', () => {
-            goToStartPage()
-            changeVisType(visTypeDisplayNames[VIS_TYPE_PIVOT_TABLE])
-            openDimension(DIMENSION_ID_DATA)
-            selectIndicators([TEST_ITEM.name])
-            clickDimensionModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
-        })
-        it('no legend is applied', () => {
-            cy.getBySel(valueCellEl).each(($el) => {
-                cy.wrap($el)
-                    .invoke('attr', 'style')
-                    .should('not.contain', 'color')
-                    .and('not.contain', 'background-color')
-            })
-        })
-        it('enables legend', () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            toggleLegend()
-            expectLegendToBeEnabled()
-            expectLegendDisplayStrategyToBeByDataItem()
-            expectLegendDisplayStyleToBeFill()
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
-        })
-        it('background color legend is applied', () => {
-            cy.getBySel(valueCellEl).each(($el) => {
-                cy.wrap($el)
-                    .invoke('attr', 'style')
-                    .should('contain', 'background-color')
-                    .and('contain', EXPECTED_STANDARD_TEXT_COLOR)
-            })
-        })
-        it('changes legend display style to text color', () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            expectLegendDisplayStrategyToBeByDataItem()
-            expectLegendDisplayStyleToBeFill()
-            changeDisplayStyleToText()
-            expectLegendDisplayStyleToBeText()
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
-        })
-        it('text color legend is applied', () => {
-            cy.getBySel(valueCellEl).each(($el) => {
-                cy.wrap($el)
-                    .invoke('attr', 'style')
-                    .should('not.contain', 'background-color')
-                    .and('not.contain', EXPECTED_STANDARD_TEXT_COLOR)
-            })
-        })
-        it('legend key is hidden', () => {
-            expectLegendKeyToBeHidden()
-        })
-        it('verifies that options are persisted', () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            expectLegendDisplayStrategyToBeByDataItem()
-        })
-        it('enables legend key option', () => {
-            toggleLegendKeyOption()
-            expectLegendKeyOptionToBeEnabled()
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
-        })
-        it('legend key is shown with 1 item', () => {
-            expectLegendKeyToBeVisible()
-            expectLegedKeyItemAmountToBe(1)
-        })
-        it('legend is applied when data is in rows', () => {
-            // swap data and period
-            openContextMenu(DIMENSION_ID_PERIOD)
-            clickContextMenuMove(DIMENSION_ID_PERIOD, AXIS_ID_COLUMNS)
-            openContextMenu(DIMENSION_ID_DATA)
-            clickContextMenuMove(DIMENSION_ID_DATA, AXIS_ID_ROWS)
-            clickMenuBarUpdateButton()
 
-            // expect legend to still be applied
-            expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
-            expectLegendKeyToBeVisible()
-            expectLegedKeyItemAmountToBe(1)
-            cy.getBySel(valueCellEl).each(($el) => {
-                cy.wrap($el)
-                    .invoke('attr', 'style')
-                    .should('not.contain', 'background-color')
-                    .and('not.contain', EXPECTED_STANDARD_TEXT_COLOR)
-            })
+        cy.log('navigates to the start page and adds data items')
+        goToStartPage()
+        changeVisType(visTypeDisplayNames[VIS_TYPE_PIVOT_TABLE])
+        openDimension(DIMENSION_ID_DATA)
+        selectIndicators([TEST_ITEM.name])
+        clickDimensionModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+
+        cy.log('no legend is applied')
+        cy.getBySel(valueCellEl).each(($el) => {
+            cy.wrap($el)
+                .invoke('attr', 'style')
+                .should('not.contain', 'color')
+                .and('not.contain', 'background-color')
+        })
+
+        cy.log('enables legend')
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        toggleLegend()
+        expectLegendToBeEnabled()
+        expectLegendDisplayStrategyToBeByDataItem()
+        expectLegendDisplayStyleToBeFill()
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+
+        cy.log('background color legend is applied')
+        cy.getBySel(valueCellEl).each(($el) => {
+            cy.wrap($el)
+                .invoke('attr', 'style')
+                .should('contain', 'background-color')
+                .and('contain', EXPECTED_STANDARD_TEXT_COLOR)
+        })
+
+        cy.log('changes legend display style to text color')
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        expectLegendDisplayStrategyToBeByDataItem()
+        expectLegendDisplayStyleToBeFill()
+        changeDisplayStyleToText()
+        expectLegendDisplayStyleToBeText()
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+
+        cy.log('text color legend is applied')
+        cy.getBySel(valueCellEl).each(($el) => {
+            cy.wrap($el)
+                .invoke('attr', 'style')
+                .should('not.contain', 'background-color')
+                .and('not.contain', EXPECTED_STANDARD_TEXT_COLOR)
+        })
+
+        cy.log('legend key is hidden')
+        expectLegendKeyToBeHidden()
+
+        cy.log('verifies that options are persisted')
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        expectLegendDisplayStrategyToBeByDataItem()
+
+        cy.log('enables legend key option')
+        toggleLegendKeyOption()
+        expectLegendKeyOptionToBeEnabled()
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+
+        cy.log('legend key is shown with 1 item')
+        expectLegendKeyToBeVisible()
+        expectLegedKeyItemAmountToBe(1)
+
+        // legend is applied when data is in rows
+        cy.log('swap data and period')
+        openContextMenu(DIMENSION_ID_PERIOD)
+        clickContextMenuMove(DIMENSION_ID_PERIOD, AXIS_ID_COLUMNS)
+        openContextMenu(DIMENSION_ID_DATA)
+        clickContextMenuMove(DIMENSION_ID_DATA, AXIS_ID_ROWS)
+        clickMenuBarUpdateButton()
+
+        cy.log('expect legend to still be applied')
+        expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+        expectLegendKeyToBeVisible()
+        expectLegedKeyItemAmountToBe(1)
+        cy.getBySel(valueCellEl).each(($el) => {
+            cy.wrap($el)
+                .invoke('attr', 'style')
+                .should('not.contain', 'background-color')
+                .and('not.contain', EXPECTED_STANDARD_TEXT_COLOR)
         })
     })
-    describe('Transferring a legend: Pivot table -> Gauge', () => {
+
+    it('applies the legend when vis type is changed from Pivot table to Gauge', () => {
         const TEST_ITEM = TEST_ITEMS[0]
         const EXPECTED_STANDARD_TEXT_COLOR = 'color: rgb(33, 41, 52)'
         const EXPECTED_FIXED_COLOR = '#c7e9c0'
         const valueCellEl = 'visualization-value-cell'
-        it('navigates to the start page and adds data items', () => {
-            goToStartPage()
-            changeVisType(visTypeDisplayNames[VIS_TYPE_PIVOT_TABLE])
-            openDimension(DIMENSION_ID_DATA)
-            selectIndicators([TEST_ITEM.name])
-            clickDimensionModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+
+        cy.log(
+            'navigates to the start page and adds data items and create Pivot'
+        )
+        goToStartPage()
+        changeVisType(visTypeDisplayNames[VIS_TYPE_PIVOT_TABLE])
+        openDimension(DIMENSION_ID_DATA)
+        selectIndicators([TEST_ITEM.name])
+        clickDimensionModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+
+        cy.log('enables legend')
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        toggleLegend()
+        expectLegendToBeEnabled()
+        expectLegendDisplayStrategyToBeByDataItem()
+        expectLegendDisplayStyleToBeFill()
+        changeDisplayStyleToText()
+        expectLegendDisplayStyleToBeText()
+        changeDisplayStrategyToFixed()
+        expectLegendDisplayStrategyToBeFixed()
+        changeFixedLegendSet(TEST_LEGEND_SET)
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+
+        cy.log(`text color fixed legend (${TEST_LEGEND_SET}) is applied`)
+        cy.getBySel(valueCellEl).each(($el) => {
+            cy.wrap($el)
+                .invoke('attr', 'style')
+                .should('not.contain', 'background-color')
+                .and('not.contain', EXPECTED_STANDARD_TEXT_COLOR)
         })
-        it('enables legend', () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            toggleLegend()
-            expectLegendToBeEnabled()
-            expectLegendDisplayStrategyToBeByDataItem()
-            expectLegendDisplayStyleToBeFill()
-            changeDisplayStyleToText()
-            expectLegendDisplayStyleToBeText()
-            changeDisplayStrategyToFixed()
-            expectLegendDisplayStrategyToBeFixed()
-            changeFixedLegendSet(TEST_LEGEND_SET)
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
-        })
-        it(`text color fixed legend (${TEST_LEGEND_SET}) is applied`, () => {
-            cy.getBySel(valueCellEl).each(($el) => {
-                cy.wrap($el)
-                    .invoke('attr', 'style')
-                    .should('not.contain', 'background-color')
-                    .and('not.contain', EXPECTED_STANDARD_TEXT_COLOR)
-            })
-        })
-        it('changes vis type to Gauge', () => {
-            changeVisType(visTypeDisplayNames[VIS_TYPE_GAUGE])
-            clickMenuBarUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_GAUGE)
-        })
-        it(`text color fixed legend (${TEST_LEGEND_SET}) is applied`, () => {
-            expectWindowConfigSeriesDataLabelsToHaveColor(
-                0,
-                EXPECTED_FIXED_COLOR
-            )
-        })
-        it('verifies that options are persisted', () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            expectLegendDisplayStyleToBeText()
-            expectLegendDisplayStrategyToBeFixed()
-        })
+
+        cy.log('changes vis type to Gauge')
+        changeVisType(visTypeDisplayNames[VIS_TYPE_GAUGE])
+        clickMenuBarUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_GAUGE)
+
+        cy.log(`text color fixed legend (${TEST_LEGEND_SET}) is applied`)
+        expectWindowConfigSeriesDataLabelsToHaveColor(0, EXPECTED_FIXED_COLOR)
+
+        cy.log('verifies that options are persisted')
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        expectLegendDisplayStyleToBeText()
+        expectLegendDisplayStrategyToBeFixed()
     })
-    describe('Transferring a legend: Pivot table -> Single value', () => {
+    it('applies the legend when vis type is changed from Pivot table to Single value', () => {
         const TEST_ITEM = TEST_ITEMS[0]
         const EXPECTED_FIXED_COLOR = '#c7e9c0'
         const valueCellEl = 'visualization-value-cell'
         const EXPECTED_SV_STANDARD_TEXT_COLOR = '#212934'
         const EXPECTED_PT_STANDARD_TEXT_COLOR = 'color: rgb(33, 41, 52)'
-        it('navigates to the start page and adds data items', () => {
-            goToStartPage()
-            changeVisType(visTypeDisplayNames[VIS_TYPE_PIVOT_TABLE])
-            openDimension(DIMENSION_ID_DATA)
-            selectIndicators([TEST_ITEM.name])
-            clickDimensionModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+
+        cy.log('navigates to the start page and adds data items')
+        goToStartPage()
+        changeVisType(visTypeDisplayNames[VIS_TYPE_PIVOT_TABLE])
+        openDimension(DIMENSION_ID_DATA)
+        selectIndicators([TEST_ITEM.name])
+        clickDimensionModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+
+        cy.log('enables legend')
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        toggleLegend()
+        expectLegendToBeEnabled()
+        expectLegendDisplayStrategyToBeByDataItem()
+        expectLegendDisplayStyleToBeFill()
+        changeDisplayStrategyToFixed()
+        expectLegendDisplayStrategyToBeFixed()
+        changeFixedLegendSet(TEST_LEGEND_SET)
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+
+        cy.log(`background color fixed legend (${TEST_LEGEND_SET}) is applied`)
+        cy.getBySel(valueCellEl).each(($el) => {
+            cy.wrap($el)
+                .invoke('attr', 'style')
+                .should('contain', 'background-color')
+                .and('contain', EXPECTED_PT_STANDARD_TEXT_COLOR)
         })
-        it('enables legend', () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            toggleLegend()
-            expectLegendToBeEnabled()
-            expectLegendDisplayStrategyToBeByDataItem()
-            expectLegendDisplayStyleToBeFill()
-            changeDisplayStrategyToFixed()
-            expectLegendDisplayStrategyToBeFixed()
-            changeFixedLegendSet(TEST_LEGEND_SET)
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
-        })
-        it(`background color fixed legend (${TEST_LEGEND_SET}) is applied`, () => {
-            cy.getBySel(valueCellEl).each(($el) => {
-                cy.wrap($el)
-                    .invoke('attr', 'style')
-                    .should('contain', 'background-color')
-                    .and('contain', EXPECTED_PT_STANDARD_TEXT_COLOR)
-            })
-        })
-        it('changes vis type to Single value', () => {
-            changeVisType(visTypeDisplayNames[VIS_TYPE_SINGLE_VALUE])
-            clickMenuBarUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
-        })
-        it('legend is applied to Single value', () => {
-            expectSingleValueToHaveTextColor(EXPECTED_SV_STANDARD_TEXT_COLOR)
-            expectSingleValueToHaveBackgroundColor(EXPECTED_FIXED_COLOR)
-        })
-        it('verifies that options are persisted', () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            expectLegendDisplayStyleToBeFill()
-            expectLegendDisplayStrategyToBeFixed()
-        })
+
+        cy.log('changes vis type to Single value')
+        changeVisType(visTypeDisplayNames[VIS_TYPE_SINGLE_VALUE])
+        clickMenuBarUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
+
+        cy.log('legend is applied to Single value')
+        expectSingleValueToHaveTextColor(EXPECTED_SV_STANDARD_TEXT_COLOR)
+        expectSingleValueToHaveBackgroundColor(EXPECTED_FIXED_COLOR)
+
+        cy.log('verifies that options are persisted')
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        expectLegendDisplayStyleToBeFill()
+        expectLegendDisplayStrategyToBeFixed()
     })
-    describe('Transferring the legend key: Column -> Pivot table -> Gauge -> Single value', () => {
-        it('navigates to the start page and adds data items', () => {
-            goToStartPage()
-            openDimension(DIMENSION_ID_DATA)
-            selectIndicators(TEST_ITEMS.map((item) => item.name))
-            clickDimensionModalUpdateButton()
-            expectVisualizationToBeVisible()
-        })
-        it('enables legend (Column)', () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            toggleLegend()
-            expectLegendToBeEnabled()
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible()
-        })
-        it('legend key is hidden (Column)', () => {
-            expectLegendKeyToBeHidden()
-        })
-        it('enables legend key option (Column)', () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            toggleLegendKeyOption()
-            expectLegendKeyOptionToBeEnabled()
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible()
-        })
-        it(`legend key is shown (Column) with ${TEST_ITEMS.length} items`, () => {
-            expectLegendKeyToBeVisible()
-            expectLegedKeyItemAmountToBe(TEST_ITEMS.length)
-        })
-        it('changes vis type to Pivot table', () => {
-            changeVisType(visTypeDisplayNames[VIS_TYPE_PIVOT_TABLE])
-            clickMenuBarUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
-        })
-        it(`legend key is shown (Pivot table) with ${TEST_ITEMS.length} items`, () => {
-            expectLegendKeyToBeVisible()
-            expectLegedKeyItemAmountToBe(TEST_ITEMS.length)
-        })
-        it('disables legend key option (Pivot table)', () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            toggleLegendKeyOption()
-            expectLegendKeyOptionToBeDisabled()
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
-        })
-        it('legend key is hidden (Pivot table)', () => {
-            expectLegendKeyToBeHidden()
-        })
-        it('changes vis type to Gauge', () => {
-            changeVisType(visTypeDisplayNames[VIS_TYPE_GAUGE])
-            clickMenuBarUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_GAUGE)
-        })
-        it('legend key is hidden (Gauge)', () => {
-            expectLegendKeyToBeHidden()
-        })
-        it('enables legend key option (Gauge)', () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            toggleLegendKeyOption()
-            expectLegendKeyOptionToBeEnabled()
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_GAUGE)
-        })
-        it('legend key is shown (Gauge) with 1 item', () => {
-            expectLegendKeyToBeVisible()
-            expectLegedKeyItemAmountToBe(1)
-        })
-        it('changes vis type to Single value', () => {
-            changeVisType(visTypeDisplayNames[VIS_TYPE_SINGLE_VALUE])
-            clickMenuBarUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
-        })
-        it('legend key is shown (Single value) with 1 item', () => {
-            expectLegendKeyToBeVisible()
-            expectLegedKeyItemAmountToBe(1)
-        })
-        it('disables legend key option (Single value)', () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            toggleLegendKeyOption()
-            expectLegendKeyOptionToBeDisabled()
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
-        })
-        it('legend key is hidden (Single value)', () => {
-            expectLegendKeyToBeHidden()
-        })
+
+    it('applies the legend key setttings when vis type changes: Column -> Pivot table -> Gauge -> Single value', () => {
+        cy.log('navigates to the start page and adds data items')
+        goToStartPage()
+        openDimension(DIMENSION_ID_DATA)
+        selectIndicators(TEST_ITEMS.map((item) => item.name))
+        clickDimensionModalUpdateButton()
+        expectVisualizationToBeVisible()
+
+        cy.log('enables legend (Column)')
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        toggleLegend()
+        expectLegendToBeEnabled()
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible()
+
+        cy.log('legend key is hidden (Column)')
+        expectLegendKeyToBeHidden()
+
+        cy.log('enables legend key option (Column)')
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        toggleLegendKeyOption()
+        expectLegendKeyOptionToBeEnabled()
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible()
+
+        cy.log(`legend key is shown (Column) with ${TEST_ITEMS.length} items`)
+        expectLegendKeyToBeVisible()
+        expectLegedKeyItemAmountToBe(TEST_ITEMS.length)
+
+        cy.log('changes vis type to Pivot table')
+        changeVisType(visTypeDisplayNames[VIS_TYPE_PIVOT_TABLE])
+        clickMenuBarUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+
+        cy.log(
+            `legend key is shown (Pivot table) with ${TEST_ITEMS.length} items`
+        )
+        expectLegendKeyToBeVisible()
+        expectLegedKeyItemAmountToBe(TEST_ITEMS.length)
+
+        cy.log('disables legend key option (Pivot table)')
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        toggleLegendKeyOption()
+        expectLegendKeyOptionToBeDisabled()
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+
+        cy.log('legend key is hidden (Pivot table)')
+        expectLegendKeyToBeHidden()
+
+        cy.log('changes vis type to Gauge')
+        changeVisType(visTypeDisplayNames[VIS_TYPE_GAUGE])
+        clickMenuBarUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_GAUGE)
+
+        cy.log('legend key is hidden (Gauge)')
+        expectLegendKeyToBeHidden()
+
+        cy.log('enables legend key option (Gauge)')
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        toggleLegendKeyOption()
+        expectLegendKeyOptionToBeEnabled()
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_GAUGE)
+
+        cy.log('legend key is shown (Gauge) with 1 item')
+        expectLegendKeyToBeVisible()
+        expectLegedKeyItemAmountToBe(1)
+
+        cy.log('changes vis type to Single value')
+        changeVisType(visTypeDisplayNames[VIS_TYPE_SINGLE_VALUE])
+        clickMenuBarUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
+
+        cy.log('legend key is shown (Single value) with 1 item')
+        expectLegendKeyToBeVisible()
+        expectLegedKeyItemAmountToBe(1)
+
+        cy.log('disables legend key option (Single value)')
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        toggleLegendKeyOption()
+        expectLegendKeyOptionToBeDisabled()
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
+
+        cy.log('legend key is hidden (Single value)')
+        expectLegendKeyToBeHidden()
     })
-    describe('Preventing options bleed: Column -> Area', () => {
-        it('navigates to the start page and adds data items', () => {
-            goToStartPage()
-            openDimension(DIMENSION_ID_DATA)
-            selectIndicators(TEST_ITEMS.map((item) => item.name))
-            clickDimensionModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
-        })
-        it('enables legend', () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            toggleLegend()
-            expectLegendToBeEnabled()
-            expectLegendDisplayStrategyToBeByDataItem()
-            clickOptionsModalUpdateButton()
-            expectChartTitleToBeVisible()
-        })
-        it('legend is applied to Column', () => {
-            TEST_ITEMS.forEach((item) =>
-                expectWindowConfigSeriesItemToHaveLegendSet(
-                    item.name,
-                    item.legendSet
-                )
+    it('does not apply non-applicable options when Column switched to Area', () => {
+        cy.log('navigates to the start page and adds data items')
+        goToStartPage()
+        openDimension(DIMENSION_ID_DATA)
+        selectIndicators(TEST_ITEMS.map((item) => item.name))
+        clickDimensionModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+
+        cy.log('enables legend')
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        toggleLegend()
+        expectLegendToBeEnabled()
+        expectLegendDisplayStrategyToBeByDataItem()
+        clickOptionsModalUpdateButton()
+        expectChartTitleToBeVisible()
+
+        cy.log('legend is applied to Column')
+        TEST_ITEMS.forEach((item) =>
+            expectWindowConfigSeriesItemToHaveLegendSet(
+                item.name,
+                item.legendSet
             )
-        })
-        it('changes vis type to Area', () => {
-            changeVisType(visTypeDisplayNames[VIS_TYPE_AREA])
-            clickMenuBarUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_AREA)
-        })
-        it('legend is not applied to Area', () => {
-            TEST_ITEMS.forEach((item) =>
-                expectWindowConfigSeriesItemToNotHaveLegendSet(item.name)
-            )
-        })
-        it('legend options are not available', () => {
-            openOptionsModal()
-            expectOptionsTabToBeHidden(OPTIONS_TAB_LEGEND)
-            clickOptionsModalHideButton()
-        })
-        it('legend key is hidden', () => {
-            expectLegendKeyToBeHidden()
-        })
-        it(`series key displays the correct amount of items`, () => {
-            expectSeriesKeyToHaveSeriesKeyItems(2)
-        })
+        )
+
+        cy.log('changes vis type to Area')
+        changeVisType(visTypeDisplayNames[VIS_TYPE_AREA])
+        clickMenuBarUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_AREA)
+
+        cy.log('legend is not applied to Area')
+        TEST_ITEMS.forEach((item) =>
+            expectWindowConfigSeriesItemToNotHaveLegendSet(item.name)
+        )
+
+        cy.log('legend options are not available')
+        openOptionsModal()
+        expectOptionsTabToBeHidden(OPTIONS_TAB_LEGEND)
+        clickOptionsModalHideButton()
+
+        cy.log('legend key is hidden')
+        expectLegendKeyToBeHidden()
+
+        cy.log('series key displays the correct amount of items')
+        expectSeriesKeyToHaveSeriesKeyItems(2)
     })
-    describe('Non-legend set type displays correctly: Line', () => {
-        it('navigates to the start page and adds data items', () => {
-            goToStartPage()
-            changeVisType(visTypeDisplayNames[VIS_TYPE_LINE])
-            openDimension(DIMENSION_ID_DATA)
-            selectIndicators(TEST_ITEMS.map((item) => item.name))
-            clickDimensionModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_LINE)
-        })
-        it('legend is not applied to Line', () => {
-            TEST_ITEMS.forEach((item) =>
-                expectWindowConfigSeriesItemToNotHaveLegendSet(item.name)
-            )
-        })
-        it('legend options are not available', () => {
-            openOptionsModal()
-            expectOptionsTabToBeHidden(OPTIONS_TAB_LEGEND)
-        })
-        it('legend key is hidden', () => {
-            expectLegendKeyToBeHidden()
-        })
-        it(`series key displays the correct amount of items`, () => {
-            expectSeriesKeyToHaveSeriesKeyItems(2)
-        })
+    it('does not enable legend options for Line chart', () => {
+        cy.log('navigates to the start page and adds data items')
+        goToStartPage()
+        changeVisType(visTypeDisplayNames[VIS_TYPE_LINE])
+        openDimension(DIMENSION_ID_DATA)
+        selectIndicators(TEST_ITEMS.map((item) => item.name))
+        clickDimensionModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_LINE)
+
+        cy.log('legend is not applied to Line')
+        TEST_ITEMS.forEach((item) =>
+            expectWindowConfigSeriesItemToNotHaveLegendSet(item.name)
+        )
+
+        cy.log('legend options are not available')
+        openOptionsModal()
+        expectOptionsTabToBeHidden(OPTIONS_TAB_LEGEND)
+
+        cy.log('legend key is hidden')
+        expectLegendKeyToBeHidden()
+
+        cy.log('series key displays the correct number of items')
+        expectSeriesKeyToHaveSeriesKeyItems(2)
     })
-    describe('The chart series key displaying legend colors', () => {
-        it('navigates to the start page and adds data items', () => {
-            goToStartPage()
-            openDimension(DIMENSION_ID_DATA)
-            selectIndicators(TEST_ITEMS.map((item) => item.name))
-            clickDimensionModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
-        })
-        it(`series key displays the correct amount of items`, () => {
-            expectSeriesKeyToHaveSeriesKeyItems(2)
-        })
-        it('enables legend', () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            toggleLegend()
-            expectLegendToBeEnabled()
-            expectLegendDisplayStrategyToBeByDataItem()
-            clickOptionsModalUpdateButton()
-            expectChartTitleToBeVisible()
-        })
-        it(`changes legend display strategy to fixed (${TEST_ITEMS[1].legendSet})`, () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            expectLegendDisplayStrategyToBeByDataItem()
-            changeDisplayStrategyToFixed()
-            expectLegendDisplayStrategyToBeFixed()
-            changeFixedLegendSet(TEST_ITEMS[1].legendSet)
-            clickOptionsModalUpdateButton()
-            expectChartTitleToBeVisible()
-        })
+    it('changes legend from per data item to fixed strategy for Column chart', () => {
+        cy.log('navigates to the start page and adds data items')
+        goToStartPage()
+        openDimension(DIMENSION_ID_DATA)
+        selectIndicators(TEST_ITEMS.map((item) => item.name))
+        clickDimensionModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+
+        cy.log('series key displays the correct number of items')
+        expectSeriesKeyToHaveSeriesKeyItems(2)
+
+        cy.log('enables legend')
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        toggleLegend()
+        expectLegendToBeEnabled()
+        expectLegendDisplayStrategyToBeByDataItem()
+        clickOptionsModalUpdateButton()
+        expectChartTitleToBeVisible()
+
+        cy.log(
+            `changes legend display strategy to fixed (${TEST_ITEMS[1].legendSet})`
+        )
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        expectLegendDisplayStrategyToBeByDataItem()
+        changeDisplayStrategyToFixed()
+        expectLegendDisplayStrategyToBeFixed()
+        changeFixedLegendSet(TEST_ITEMS[1].legendSet)
+        clickOptionsModalUpdateButton()
+        expectChartTitleToBeVisible()
     })
-    describe('When data is not on series, legend is only applied when strategy fixed is used', () => {
+    it('only applies legend for charts where data is not on series when legend display strategy is fixed', () => {
         const TEST_ITEM = TEST_ITEMS[0]
-        it('navigates to the start page and adds data items, legend and legend key', () => {
-            goToStartPage()
-            openDimension(DIMENSION_ID_DATA)
-            selectIndicators([TEST_ITEM.name])
-            clickDimensionModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            toggleLegend()
-            expectLegendToBeEnabled()
-            expectLegendDisplayStrategyToBeByDataItem()
-            toggleLegendKeyOption()
-            expectLegendKeyOptionToBeEnabled()
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible()
-        })
-        it("selects period 'Last 3 months'", () => {
-            openDimension(DIMENSION_ID_PERIOD)
-            unselectAllItemsByButton()
-            selectRelativePeriods(['Last 3 months'], 'Months')
-            clickDimensionModalUpdateButton()
-        })
-        it('legend by data item is applied', () => {
-            expectWindowConfigSeriesItemToHaveLegendSet(
-                TEST_ITEM.name,
-                TEST_ITEM.legendSet
-            )
-        })
-        it('legend key is shown with 1 item', () => {
-            expectLegendKeyToBeVisible()
-            expectLegedKeyItemAmountToBe(1)
-        })
-        it(`series key displays the correct amount of items`, () => {
-            expectSeriesKeyToHaveSeriesKeyItems(1)
-        })
-        it('moves period dimension to series axis', () => {
-            openContextMenu(DIMENSION_ID_PERIOD)
-            clickContextMenuMove(DIMENSION_ID_PERIOD, AXIS_ID_COLUMNS)
-            clickMenuBarUpdateButton()
-            expectVisualizationToBeVisible()
-            expectAxisToHaveDimension(AXIS_ID_COLUMNS, DIMENSION_ID_PERIOD)
-        })
-        it('no legend is applied', () => {
-            expectEachWindowConfigSeriesItemToNotHaveLegendSet()
-        })
-        it('legend key is hidden', () => {
-            expectLegendKeyToBeHidden()
-        })
-        it(`changes legend display strategy to fixed (${TEST_ITEMS[1].legendSet})`, () => {
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            expectLegendDisplayStrategyToBeByDataItem()
-            changeDisplayStrategyToFixed()
-            expectLegendDisplayStrategyToBeFixed()
-            changeFixedLegendSet(TEST_ITEMS[1].legendSet)
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible()
-        })
-        it('fixed legend is applied', () => {
-            expectEachWindowConfigSeriesItemToHaveLegendSet(
-                TEST_ITEMS[1].legendSet
-            )
-        })
-        it('legend key is shown with 1 item', () => {
-            expectLegendKeyToBeVisible()
-            expectLegedKeyItemAmountToBe(1)
-        })
-        it(`series key displays the correct amount of items`, () => {
-            expectSeriesKeyToHaveSeriesKeyItems(3)
-        })
+
+        cy.log(
+            'navigates to the start page and adds data items, legend and legend key'
+        )
+        goToStartPage()
+        openDimension(DIMENSION_ID_DATA)
+        selectIndicators([TEST_ITEM.name])
+        clickDimensionModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        toggleLegend()
+        expectLegendToBeEnabled()
+        expectLegendDisplayStrategyToBeByDataItem()
+        toggleLegendKeyOption()
+        expectLegendKeyOptionToBeEnabled()
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible()
+
+        cy.log('selects period "Last 3 months"')
+        openDimension(DIMENSION_ID_PERIOD)
+        unselectAllItemsByButton()
+        selectRelativePeriods(['Last 3 months'], 'Months')
+        clickDimensionModalUpdateButton()
+
+        cy.log('legend by data item is applied')
+        expectWindowConfigSeriesItemToHaveLegendSet(
+            TEST_ITEM.name,
+            TEST_ITEM.legendSet
+        )
+
+        cy.log('legend key is shown with 1 item')
+        expectLegendKeyToBeVisible()
+        expectLegedKeyItemAmountToBe(1)
+
+        cy.log('series key displays the correct amount of items')
+        expectSeriesKeyToHaveSeriesKeyItems(1)
+
+        cy.log('moves period dimension to series axis')
+        openContextMenu(DIMENSION_ID_PERIOD)
+        clickContextMenuMove(DIMENSION_ID_PERIOD, AXIS_ID_COLUMNS)
+        clickMenuBarUpdateButton()
+        expectVisualizationToBeVisible()
+        expectAxisToHaveDimension(AXIS_ID_COLUMNS, DIMENSION_ID_PERIOD)
+
+        cy.log('no legend is applied')
+        expectEachWindowConfigSeriesItemToNotHaveLegendSet()
+
+        cy.log('legend key is hidden')
+        expectLegendKeyToBeHidden()
+
+        cy.log(
+            `change legend display strategy to fixed ${TEST_ITEMS[1].legendSet}`
+        )
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        expectLegendDisplayStrategyToBeByDataItem()
+        changeDisplayStrategyToFixed()
+        expectLegendDisplayStrategyToBeFixed()
+        changeFixedLegendSet(TEST_ITEMS[1].legendSet)
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible()
+
+        cy.log('fixed legend is applied')
+        expectEachWindowConfigSeriesItemToHaveLegendSet(TEST_ITEMS[1].legendSet)
+
+        cy.log('legend key is shown with 1 item')
+        expectLegendKeyToBeVisible()
+        expectLegedKeyItemAmountToBe(1)
+
+        cy.log('series key displays the correct amount of items')
+        expectSeriesKeyToHaveSeriesKeyItems(3)
     })
-    describe('Legend is not applied to column-as-line items', () => {
-        it('navigates to the start page and adds data items, legend and legend key', () => {
-            goToStartPage()
-            openDimension(DIMENSION_ID_DATA)
-            selectIndicators(TEST_ITEMS.map((item) => item.name))
-            clickDimensionModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
-            openOptionsModal(OPTIONS_TAB_LEGEND)
-            toggleLegend()
-            expectLegendToBeEnabled()
-            expectLegendDisplayStrategyToBeByDataItem()
-            toggleLegendKeyOption()
-            expectLegendKeyOptionToBeEnabled()
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible()
-        })
-        it('legend by data item is applied', () => {
-            TEST_ITEMS.forEach((item) =>
-                expectWindowConfigSeriesItemToHaveLegendSet(
-                    item.name,
-                    item.legendSet
-                )
-            )
-        })
-        it(`changes all items to type ${VIS_TYPE_LINE}`, () => {
-            openOptionsModal(OPTIONS_TAB_SERIES)
-            TEST_ITEMS.forEach((item, index) =>
-                setItemToType(index, VIS_TYPE_LINE)
-            )
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible()
-            TEST_ITEMS.forEach((item, index) =>
-                expectWindowConfigSeriesItemToBeType(index, 'line')
-            )
-        })
-        it('no legend is applied', () => {
-            expectEachWindowConfigSeriesItemToNotHaveLegendSet()
-        })
-        it('legend key is hidden', () => {
-            expectLegendKeyToBeHidden()
-        })
-        it(`series key displays the correct amount of items`, () => {
-            expectSeriesKeyToHaveSeriesKeyItems(2)
-        })
-        it(`changes first item (${TEST_ITEMS[0].name}) to type ${VIS_TYPE_COLUMN}`, () => {
-            openOptionsModal(OPTIONS_TAB_SERIES)
-            setItemToType(0, VIS_TYPE_COLUMN)
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible()
-            expectWindowConfigSeriesItemToNotHaveType(0)
-        })
-        it('legend by data item is applied to the first item', () => {
+    it('does not apply a legend to column-as-line items', () => {
+        cy.log(
+            'navigates to the start page and adds data items, legend and legend key'
+        )
+        goToStartPage()
+        openDimension(DIMENSION_ID_DATA)
+        selectIndicators(TEST_ITEMS.map((item) => item.name))
+        clickDimensionModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+        openOptionsModal(OPTIONS_TAB_LEGEND)
+        toggleLegend()
+        expectLegendToBeEnabled()
+        expectLegendDisplayStrategyToBeByDataItem()
+        toggleLegendKeyOption()
+        expectLegendKeyOptionToBeEnabled()
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible()
+
+        cy.log('legend by data item is applied')
+        TEST_ITEMS.forEach((item) =>
             expectWindowConfigSeriesItemToHaveLegendSet(
-                TEST_ITEMS[0].name,
-                TEST_ITEMS[0].legendSet
+                item.name,
+                item.legendSet
             )
-            expectWindowConfigSeriesItemToNotHaveLegendSet(TEST_ITEMS[1].name)
-        })
-        it('legend key is shown with 1 item', () => {
-            expectLegendKeyToBeVisible()
-            expectLegedKeyItemAmountToBe(1)
-        })
-        it(`series key displays the correct amount of items`, () => {
-            expectSeriesKeyToHaveSeriesKeyItems(2)
-        })
+        )
+
+        cy.log(`changes all items to type ${VIS_TYPE_LINE}`)
+        openOptionsModal(OPTIONS_TAB_SERIES)
+        TEST_ITEMS.forEach((item, index) => setItemToType(index, VIS_TYPE_LINE))
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible()
+        TEST_ITEMS.forEach((item, index) =>
+            expectWindowConfigSeriesItemToBeType(index, 'line')
+        )
+
+        cy.log('no legend is applied')
+        expectEachWindowConfigSeriesItemToNotHaveLegendSet()
+
+        cy.log('legend key is hidden')
+        expectLegendKeyToBeHidden()
+
+        cy.log('series key displays the correct amount of items')
+        expectSeriesKeyToHaveSeriesKeyItems(2)
+
+        cy.log(
+            `changes first item (${TEST_ITEMS[0].name}) to type ${VIS_TYPE_COLUMN}`
+        )
+        openOptionsModal(OPTIONS_TAB_SERIES)
+        setItemToType(0, VIS_TYPE_COLUMN)
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible()
+        expectWindowConfigSeriesItemToNotHaveType(0)
+
+        cy.log('legend by data item is applied to the first item')
+        expectWindowConfigSeriesItemToHaveLegendSet(
+            TEST_ITEMS[0].name,
+            TEST_ITEMS[0].legendSet
+        )
+        expectWindowConfigSeriesItemToNotHaveLegendSet(TEST_ITEMS[1].name)
+
+        cy.log('legend key is shown with 1 item')
+        expectLegendKeyToBeVisible()
+        expectLegedKeyItemAmountToBe(1)
+
+        cy.log('series key displays the correct amount of items')
+        expectSeriesKeyToHaveSeriesKeyItems(2)
+
         const TEST_ITEM = {
             name: 'ANC 2 Coverage',
             legendSet: 'ANC Coverage',
             legends: 7,
         }
-        it(`adds a third item (${TEST_ITEM.name} - same legendset as the first item) with type ${VIS_TYPE_LINE}`, () => {
-            openDimension(DIMENSION_ID_DATA)
-            selectIndicators([TEST_ITEM.name])
-            clickDimensionModalUpdateButton()
-            expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
-            openOptionsModal(OPTIONS_TAB_SERIES)
-            setItemToType(2, VIS_TYPE_LINE)
-            clickOptionsModalUpdateButton()
-            expectVisualizationToBeVisible()
-            expectWindowConfigSeriesItemToNotHaveType(0)
-        })
-        it('legend key is shown with 1 item', () => {
-            expectLegendKeyToBeVisible()
-            expectLegedKeyItemAmountToBe(1)
-        })
-        it('legend by data item is applied to the first item', () => {
-            expectWindowConfigSeriesItemToHaveLegendSet(
-                TEST_ITEMS[0].name,
-                TEST_ITEMS[0].legendSet
-            )
-            expectWindowConfigSeriesItemToNotHaveLegendSet(TEST_ITEMS[1].name)
-            expectWindowConfigSeriesItemToNotHaveLegendSet(TEST_ITEM.name)
-        })
-        it(`series key displays the correct amount of items`, () => {
-            expectSeriesKeyToHaveSeriesKeyItems(3)
-        })
+
+        cy.log(
+            `adds a third item (${TEST_ITEM.name} - same legendset as the first item) with type ${VIS_TYPE_LINE}`
+        )
+        openDimension(DIMENSION_ID_DATA)
+        selectIndicators([TEST_ITEM.name])
+        clickDimensionModalUpdateButton()
+        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+        openOptionsModal(OPTIONS_TAB_SERIES)
+        setItemToType(2, VIS_TYPE_LINE)
+        clickOptionsModalUpdateButton()
+        expectVisualizationToBeVisible()
+        expectWindowConfigSeriesItemToNotHaveType(0)
+
+        cy.log('legend key is shown with 1 item')
+        expectLegendKeyToBeVisible()
+        expectLegedKeyItemAmountToBe(1)
+
+        cy.log('legend by data item is applied to the first item')
+        expectWindowConfigSeriesItemToHaveLegendSet(
+            TEST_ITEMS[0].name,
+            TEST_ITEMS[0].legendSet
+        )
+        expectWindowConfigSeriesItemToNotHaveLegendSet(TEST_ITEMS[1].name)
+        expectWindowConfigSeriesItemToNotHaveLegendSet(TEST_ITEM.name)
+
+        cy.log('series key displays the correct amount of items')
+        expectSeriesKeyToHaveSeriesKeyItems(3)
     })
 })
