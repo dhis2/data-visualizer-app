@@ -1,3 +1,10 @@
+## [38.3.23](https://github.com/dhis2/data-visualizer-app/compare/v38.3.22...v38.3.23) (2023-11-09)
+
+
+### Bug Fixes
+
+* legend sets fail to load in table with data dimension in the row (DHIS2-12830) v39 ([#2900](https://github.com/dhis2/data-visualizer-app/issues/2900)) ([a4868d9](https://github.com/dhis2/data-visualizer-app/commit/a4868d9853d87566f17803d109c184c1cd22e158))
+
 ## [38.3.22](https://github.com/dhis2/data-visualizer-app/compare/v38.3.21...v38.3.22) (2023-10-12)
 
 
