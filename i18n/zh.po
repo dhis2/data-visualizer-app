@@ -479,10 +479,10 @@ msgid "Legend type"
 msgstr "图例类型"
 
 msgid "Use pre-defined legend by data item"
-msgstr ""
+msgstr "按数据项使用预定义图例"
 
 msgid "Select a legend"
-msgstr ""
+msgstr "选择图例"
 
 msgid "Legend changes background color"
 msgstr "图例改变背景色"
