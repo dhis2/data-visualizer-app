@@ -43,7 +43,9 @@ RadioBaseOption.propTypes = {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    disabled: Boolean(sGetUiDisabledOption(state, ownProps.option)),
+    disabled: Boolean(
+        sGetUiDisabledOption(state, ownProps.option) ?? ownProps.disabled
+    ),
     value: ownProps.option.id
         ? sGetUiOption(state, { id: ownProps.option.id })
         : sGetUiOptions(state)[ownProps.option.name],

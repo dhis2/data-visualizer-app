@@ -56,7 +56,9 @@ UnconnectedCheckboxBaseOption.propTypes = {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    disabled: Boolean(sGetUiDisabledOption(state, ownProps.option)),
+    disabled: Boolean(
+        sGetUiDisabledOption(state, ownProps.option) ?? ownProps.disabled
+    ),
     helpText:
         sGetUiDisabledOption(state, ownProps.option)?.helpText ||
         ownProps.helpText,
