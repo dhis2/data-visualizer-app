@@ -3,11 +3,12 @@ import {
     LEGEND_DISPLAY_STYLE_TEXT,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { OPTION_LEGEND_DISPLAY_STYLE } from '../../../modules/options.js'
 import { default as RadioBaseOption } from './RadioBaseOption.js'
 
-const LegendDisplayStyle = () => (
+const LegendDisplayStyle = ({ disabled }) => (
     <RadioBaseOption
         option={{
             id: OPTION_LEGEND_DISPLAY_STYLE,
@@ -22,8 +23,13 @@ const LegendDisplayStyle = () => (
                 },
             ],
         }}
+        disabled={disabled}
         dataTest={'legend-display-style'}
     />
 )
+
+LegendDisplayStyle.propTypes = {
+    disabled: PropTypes.bool,
+}
 
 export default LegendDisplayStyle

@@ -4,7 +4,7 @@ import {
     LEGEND_DISPLAY_STYLE_FILL,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
-import { Checkbox, FieldSet, Legend as UiCoreLegend } from '@dhis2/ui'
+import { Checkbox, FieldSet, Help, Legend as UiCoreLegend } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
@@ -15,22 +15,27 @@ import {
     OPTION_LEGEND_DISPLAY_STYLE,
     OPTION_LEGEND_SET,
 } from '../../../modules/options.js'
-import { sGetUiOption } from '../../../reducers/ui.js'
+import { sGetUiOption, sGetUiDisabledOption } from '../../../reducers/ui.js'
 import {
     tabSectionOptionToggleable,
     tabSectionOption,
     tabSectionTitle,
+    tabSectionTitleDisabled,
     tabSectionTitleMargin,
 } from '../styles/VisualizationOptions.style.js'
 import LegendDisplayStrategy from './LegendDisplayStrategy.js'
 import LegendDisplayStyle from './LegendDisplayStyle.js'
 import ShowLegendKey from './ShowLegendKey.js'
 
+const optionName = 'legend'
+
 const Legend = ({
     legendSet,
     legendDisplayStrategy,
     onChange,
+    helpText,
     hideStyleOptions,
+    disabled,
 }) => {
     const [legendEnabled, setLegendEnabled] = useState(
         !(
@@ -72,6 +77,8 @@ const Legend = ({
         <div className={tabSectionOption.className}>
             <Checkbox
                 checked={legendEnabled}
+                disabled={disabled}
+                helpText={helpText}
                 label={i18n.t('Use legend for chart colors')}
                 onChange={onCheckboxChange}
                 dense
@@ -85,14 +92,18 @@ const Legend = ({
                                     <span
                                         className={cx(
                                             tabSectionTitle.className,
-                                            tabSectionTitleMargin.className
+                                            tabSectionTitleMargin.className,
+                                            {
+                                                [tabSectionTitleDisabled.className]:
+                                                    disabled,
+                                            }
                                         )}
                                     >
                                         {i18n.t('Legend style')}
                                     </span>
                                 </UiCoreLegend>
                                 <div className={tabSectionOption.className}>
-                                    <LegendDisplayStyle />
+                                    <LegendDisplayStyle disabled={disabled} />
                                 </div>
                             </FieldSet>
                         </div>
@@ -104,33 +115,44 @@ const Legend = ({
                                     className={cx(tabSectionTitle.className, {
                                         [tabSectionTitleMargin.className]:
                                             hideStyleOptions,
+                                        [tabSectionTitleDisabled.className]:
+                                            disabled,
                                     })}
                                 >
                                     {i18n.t('Legend type')}
                                 </span>
                             </UiCoreLegend>
                             <div className={tabSectionOption.className}>
-                                <LegendDisplayStrategy />
+                                <LegendDisplayStrategy disabled={disabled} />
                             </div>
                         </FieldSet>
                     </div>
                     <div>
-                        <ShowLegendKey />
+                        <ShowLegendKey disabled={disabled} />
                     </div>
                 </div>
             ) : null}
+            {helpText && (
+                <UiCoreLegend>
+                    <Help>{helpText}</Help>
+                </UiCoreLegend>
+            )}
         </div>
     )
 }
 
 Legend.propTypes = {
     onChange: PropTypes.func.isRequired,
+    disabled: PropTypes.bool,
+    helpText: PropTypes.string,
     hideStyleOptions: PropTypes.bool,
     legendDisplayStrategy: PropTypes.string,
     legendSet: PropTypes.object,
 }
 
 const mapStateToProps = (state) => ({
+    disabled: Boolean(sGetUiDisabledOption(state, { name: optionName })),
+    helpText: sGetUiDisabledOption(state, { name: optionName })?.helpText,
     legendSet: sGetUiOption(state, { id: OPTION_LEGEND_SET }),
     legendDisplayStrategy: sGetUiOption(state, {
         id: OPTION_LEGEND_DISPLAY_STRATEGY,
