@@ -7,6 +7,10 @@ export const getDisabledOptions = ({ visType, options }) => {
     for (const [option, value] of Object.entries(options)) {
         switch (option) {
             case 'cumulativeValues': {
+                const helpText = i18n.t(
+                    'Not supported when using cumulative values'
+                )
+
                 // when checked, disabled totals and numberType options
                 if (visType === VIS_TYPE_PIVOT_TABLE && value) {
                     disabledOptions.colTotals = {}
@@ -14,9 +18,10 @@ export const getDisabledOptions = ({ visType, options }) => {
                     disabledOptions.rowTotals = {}
                     disabledOptions.rowSubTotals = {}
                     disabledOptions.numberType = {
-                        helpText: i18n.t(
-                            'not available when cumulative values is enabled TODO'
-                        ),
+                        helpText,
+                    }
+                    disabledOptions.legend = {
+                        helpText,
                     }
                 }
 
