@@ -1,13 +1,13 @@
 # 
 # Translators:
-# Ibatov <ibatovk@who.int>, 2022
+# Ibatov <ibatovk@who.int>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2023-09-06T13:41:14.540Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Ibatov <ibatovk@who.int>, 2022\n"
+"Last-Translator: Ibatov <ibatovk@who.int>, 2023\n"
 "Language-Team: Uzbek (Cyrillic) (https://app.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "All items"
-msgstr ""
+msgstr "Барча элементлар"
 
 msgid "Rename successful"
 msgstr "Муваффақиятли қайта номлаш"
@@ -25,7 +25,7 @@ msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr "Номсиз {{visualizationType}} визуализация, {{date}}"
 
 msgid "\"{{- deletedObject}}\" successfully deleted."
-msgstr ""
+msgstr "\"{{- deletedObject}}\" муваффақиятли ўчирилди."
 
 msgid "You have unsaved changes."
 msgstr "Сизда сақланмаган ўзгартиришлар мавжуд."
@@ -111,7 +111,7 @@ msgid "Plain data source"
 msgstr "Оддий маълумотлар манбаи"
 
 msgid "Microsoft Excel"
-msgstr ""
+msgstr "Microsoft Excel"
 
 msgid "CSV"
 msgstr "CSV"
@@ -129,7 +129,7 @@ msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
 msgid "Download data from this date"
-msgstr ""
+msgstr "Ушбу маълумотдагиларни юклаш"
 
 msgid "Metadata ID scheme"
 msgstr "МетаМаълумот ID схемаси"
@@ -198,7 +198,7 @@ msgid "Only '{{number}}' in use"
 msgstr "Фойдаланиш учун фақатгина '{{number}}'"
 
 msgid "All items are selected"
-msgstr ""
+msgstr "Барча элементлар танланди"
 
 msgid "Levels"
 msgstr "Босқичлар/Қаватлар"
@@ -331,7 +331,7 @@ msgid "Axis title"
 msgstr "Ўқ сарлавҳаси"
 
 msgid "Auto generated from axis items"
-msgstr ""
+msgstr "Юқори элементлардан авто яратилган"
 
 msgid "None"
 msgstr "Йўқ"
@@ -343,7 +343,7 @@ msgid "Add a title"
 msgstr "Сарлавҳа қўшиш"
 
 msgid "Reset style to default"
-msgstr ""
+msgstr "Стилни стандарт ҳолатга қайтариш"
 
 msgid "Base line"
 msgstr "Базавий чизиқ"
@@ -361,7 +361,7 @@ msgid "Basic"
 msgstr "Асосий"
 
 msgid "Extended"
-msgstr ""
+msgstr "Чўзилган"
 
 msgid "Bright"
 msgstr "Ёрқин"
@@ -391,10 +391,12 @@ msgid "Cumulative values"
 msgstr "Кумулятив қийматлар"
 
 msgid "Show data item icon"
-msgstr ""
+msgstr "Маълумотлар элементи белгисини кўрсатиш"
 
 msgid "If the data item has an icon, display it next to the value"
 msgstr ""
+"Агар маълумотлар элементида белги мавжуд булса уни қийматдан кейинги ўринда "
+"кўрсатинг"
 
 msgid "Digit group separator"
 msgstr "Рақамлар гуруҳини тақсимловчи"
@@ -430,16 +432,16 @@ msgid "Number"
 msgstr "Тартиб рақами"
 
 msgid "Fix column headers to top of table"
-msgstr ""
+msgstr "Жадвалнинг юқори қисмида устунлар сарлавҳасини тўғриланг"
 
 msgid "There aren’t any column headers because Columns is empty."
-msgstr ""
+msgstr "Устун сарлавҳалари мавжуд эмас, чунки Устунлар бўш"
 
 msgid "Fix row headers to left of table"
-msgstr ""
+msgstr "Жадвалнинг чап қисмида сатрлар сарлавҳаларини тўғриланг"
 
 msgid "There aren’t any row headers because Rows is empty."
-msgstr ""
+msgstr "Қатор сарлавҳалари мавжуд эмас, чунки Қаторлар бўш"
 
 msgid "Font size"
 msgstr "Шрифт ўлчами"
@@ -490,10 +492,10 @@ msgid "Legend type"
 msgstr "Таъриф тури"
 
 msgid "Use pre-defined legend by data item"
-msgstr ""
+msgstr "Маълумотлар элементи учун олдиндан белгиланган изоҳдан фойдаланинг"
 
 msgid "Select a legend"
-msgstr ""
+msgstr "Изоҳни танланг"
 
 msgid "Legend changes background color"
 msgstr "Таъриф фон рангини ўзгартиради"
@@ -658,6 +660,8 @@ msgid ""
 "Series options are not available when a series item has an \"All items\" "
 "selection"
 msgstr ""
+"Серия вариантларида \"Барча элементлар\" танлови мавжуд бўлса, серия "
+"параметрлари мавжуд эмас деб топилади"
 
 msgid "Value labels"
 msgstr "Қиймат ёрлиқлари"
@@ -672,7 +676,7 @@ msgid "Show legend key"
 msgstr "Калит таърифни кўрсатинг"
 
 msgid "Show series key"
-msgstr ""
+msgstr "Сериялар калитини кўрсатиш"
 
 msgid "Skip rounding"
 msgstr "Соддалаштириш ўтказиб юборилсин"
@@ -705,10 +709,10 @@ msgid "Options"
 msgstr "Вариант"
 
 msgid "Change org unit"
-msgstr ""
+msgstr "Ташкилий бирликни танланг"
 
 msgid "{{level}} level in {{orgunit}}"
-msgstr ""
+msgstr "{{level}} босқич да {{orgunit}}"
 
 msgid "Open as Map"
 msgstr "Харита сифатида очиш"
@@ -802,6 +806,8 @@ msgid ""
 "A single indicator or calculation must be the only data item when using "
 "indicators or calculations as Data in Filter."
 msgstr ""
+"Ягона индикатор ёки калькуляция фақатгина маълумот элементи бўлиши мумкин, "
+"қачонки фильтрдан маълумотлар элементидан фойдаланган бўлсангиз"
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
 msgstr ""
@@ -849,12 +855,15 @@ msgid "The level or group selections didn't return any organization units."
 msgstr "Босқич ёки гуруҳ танлаш ҳеч қандай ташкилий бўлимни олиб чиқмади."
 
 msgid "Invalid data type"
-msgstr ""
+msgstr "Маълумот тури хато"
 
 msgid ""
 "The selected data dimensions didn't return any valid data. This "
 "visualization type can only display numerical data."
 msgstr ""
+"Танланган маълумотлар қийматлари учун ҳеч қандай яроқли маълумот "
+"аниқланмади. Ушбу визуализация тури фақат рақамли маълумотларни кўрсатиши "
+"мумкин."
 
 msgid "Something went wrong"
 msgstr "Нимадир нотўғри бажарилди"
@@ -1003,6 +1012,8 @@ msgstr "Кўп ўқлардан фойдаланганда ранглар тўп
 msgid ""
 "Base and target lines are available on the Axes tab for multi-axis charts"
 msgstr ""
+"Кўп ўқли диаграммалар учун \"Ўқлар\" номланишида асосий ва мақсадли чизиқлар"
+" мавжуд"
 
 msgid "Chart style"
 msgstr "Диаграмма услуби"
@@ -1014,7 +1025,7 @@ msgid "Empty data"
 msgstr "Бўш маълумотлар"
 
 msgid "Horizontal (x) axis {{axisId}}"
-msgstr ""
+msgstr "Горизонтал (x) ўқ {{axisId}}"
 
 msgid "Horizontal (x) axis"
 msgstr "горизонтал (Х) ўқ"
@@ -1026,7 +1037,7 @@ msgid "Totals"
 msgstr "Жами"
 
 msgid "Vertical (y) axis {{axisId}}"
-msgstr ""
+msgstr "Вертикал (y) ўқ {{axisId}}"
 
 msgid "Vertical (y) axis"
 msgstr "Вертикал (y) ўқи"
@@ -1064,33 +1075,47 @@ msgstr "Бошқариладиган жадвалда индикаторлар �
 msgid ""
 "Compare sizes of related elements vertically. Recommend period as filter."
 msgstr ""
+"Тегишли элементларни ўрчамларини вертикал равишда солиштиринг. Фильтр "
+"сифатида давр тавсия этилади."
 
 msgid ""
 "Compare parts of a whole against related elements vertically. Recommend data"
 " or org. unit as series."
 msgstr ""
+"Тегишли элементларни қисмларини вертикал равишда солиштиринг. Серияси "
+"сифатида давр ёки ташкилий бирлик фильтр сифатида тавсия этилади. "
 
 msgid ""
 "Compare sizes of related elements horizontally. Recommend period as filter."
 msgstr ""
+"Тегишли элементларни ўрчамларини горизонтал равишда солиштиринг. Фильтр "
+"сифатида давр тавсия этилади."
 
 msgid ""
 "Compare parts of a whole against related elements horizontally. Recommend "
 "data or org. unit as series."
 msgstr ""
+"Тегишли элементларни қисмларини горизонтал равишда солиштиринг. Серияси "
+"сифатида давр ёки ташкилий бирлик фильтр сифатида тавсия этилади. "
 
 msgid "Track or compare changes over time. Recommend period as category."
 msgstr ""
+"Доимий равишда кузатинг ва солиштиринг. Даврни категория сифатида тавсия "
+"этинг."
 
 msgid ""
 "Track or compare parts of a whole over time. Recommend data as series and "
 "period as category."
 msgstr ""
+"Даврий равишда бутуннинг қисмларини кузатиб боринг ёки таққосланг. Категория"
+" учун серия ва даврни тавсия этинг."
 
 msgid ""
 "Compare parts of a whole at a single point in time. Recommend period as "
 "filter."
 msgstr ""
+"Яхлитликнинг қисмларини айни бир вақт нуқтасида таққосланг. Фильтр учун "
+"даврни тавсия этинг."
 
 msgid "Compare several items against multiple variables."
 msgstr "Бир неча элементлар ва бир неча ўзгарувчиларга нисбатан таққосланг."
@@ -1099,6 +1124,8 @@ msgid ""
 "Compare a percentage indicator against a 100% scale. Recommend period as "
 "filter."
 msgstr ""
+"100 фоизлик шкала асосида фоизлар нисбатини таққосланг. Фильтр учун даврни "
+"тавсия этинг."
 
 msgid "Compare changes over time between multiple time periods."
 msgstr "Вақт ўтиши билан бир неча вақт оралиғидаги ўзгаришларни таққосланг."
