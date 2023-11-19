@@ -1,13 +1,13 @@
 # 
 # Translators:
-# Ibatov <ibatovk@who.int>, 2022
+# Ibatov <ibatovk@who.int>, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-06-07T08:24:31.117Z\n"
 "PO-Revision-Date: 2022-04-20 10:06+0000\n"
-"Last-Translator: Ibatov <ibatovk@who.int>, 2022\n"
+"Last-Translator: Ibatov <ibatovk@who.int>, 2023\n"
 "Language-Team: Uzbek (Cyrillic) (https://app.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "All items"
-msgstr ""
+msgstr "Барча элементлар"
 
 msgid "Rename successful"
 msgstr "Муваффақиятли қайта номлаш"
@@ -198,7 +198,7 @@ msgid "Only '{{number}}' in use"
 msgstr "Фойдаланиш учун фақатгина '{{number}}'"
 
 msgid "All items are selected"
-msgstr ""
+msgstr "Барча элементлар танланди"
 
 msgid "Levels"
 msgstr "Босқичлар/Қаватлар"
@@ -334,7 +334,7 @@ msgid "Axis title"
 msgstr "Ўқ сарлавҳаси"
 
 msgid "Auto generated from axis items"
-msgstr ""
+msgstr "Юқори элементлардан авто яратилган"
 
 msgid "None"
 msgstr "Йўқ"
@@ -346,7 +346,7 @@ msgid "Add a title"
 msgstr "Сарлавҳа қўшиш"
 
 msgid "Reset style to default"
-msgstr ""
+msgstr "Стилни стандарт ҳолатга қайтариш"
 
 msgid "Base line"
 msgstr "Базавий чизиқ"
@@ -364,7 +364,7 @@ msgid "Basic"
 msgstr "Асосий"
 
 msgid "Extended"
-msgstr ""
+msgstr "Чўзилган"
 
 msgid "Bright"
 msgstr "Ёрқин"
@@ -427,16 +427,16 @@ msgid "Number"
 msgstr "Тартиб рақами"
 
 msgid "Fix column headers to top of table"
-msgstr ""
+msgstr "Жадвалнинг юқори қисмида устунлар сарлавҳасини тўғриланг"
 
 msgid "There aren’t any column headers because Columns is empty."
-msgstr ""
+msgstr "Устун сарлавҳалари мавжуд эмас, чунки Устунлар бўш"
 
 msgid "Fix row headers to left of table"
-msgstr ""
+msgstr "Жадвалнинг чап қисмида сатрлар сарлавҳаларини тўғриланг"
 
 msgid "There aren’t any row headers because Rows is empty."
-msgstr ""
+msgstr "Қатор сарлавҳалари мавжуд эмас, чунки Қаторлар бўш"
 
 msgid "Font size"
 msgstr "Шрифт ҳажми"
@@ -655,6 +655,8 @@ msgid ""
 "Series options are not available when a series item has an \"All items\" "
 "selection"
 msgstr ""
+"Серия вариантларида \"Барча элементлар\" танлови мавжуд бўлса, серия "
+"параметрлари мавжуд эмас деб топилади"
 
 msgid "Value labels"
 msgstr "Қиймат ёрлиқлари"
@@ -669,7 +671,7 @@ msgid "Show legend key"
 msgstr "Калит таърифни кўрсатинг"
 
 msgid "Show series key"
-msgstr ""
+msgstr "Сериялар калитини кўрсатиш"
 
 msgid "Skip rounding"
 msgstr "Соддалаштириш ўтказиб юборилсин"
@@ -1003,6 +1005,8 @@ msgstr "Кўп ўқлардан фойдаланганда ранглар тўп
 msgid ""
 "Base and target lines are available on the Axes tab for multi-axis charts"
 msgstr ""
+"Кўп ўқли диаграммалар учун \"Ўқлар\" номланишида асосий ва мақсадли чизиқлар"
+" мавжуд"
 
 msgid "Chart style"
 msgstr "Диаграмма услуби"
@@ -1014,7 +1018,7 @@ msgid "Empty data"
 msgstr "Бўш маълумотлар"
 
 msgid "Horizontal (x) axis {{axisId}}"
-msgstr ""
+msgstr "Горизонтал (x) ўқ {{axisId}}"
 
 msgid "Horizontal (x) axis"
 msgstr "горизонтал (Х) ўқ"
@@ -1026,7 +1030,7 @@ msgid "Totals"
 msgstr "Жами"
 
 msgid "Vertical (y) axis {{axisId}}"
-msgstr ""
+msgstr "Вертикал (y) ўқ {{axisId}}"
 
 msgid "Vertical (y) axis"
 msgstr "Вертикал (y) ўқи"
