@@ -1,5 +1,4 @@
 import { DIMENSION_ID_DATA, VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
-import cloneDeep from 'lodash-es/cloneDeep'
 import debounce from 'lodash-es/debounce'
 import PropTypes from 'prop-types'
 import React, { Component, Fragment } from 'react'
@@ -26,10 +25,7 @@ import { removeLastPathSegment } from '../../modules/orgUnit.js'
 import { sGetCurrent } from '../../reducers/current.js'
 import { sGetLoadError, sGetIsPluginLoading } from '../../reducers/loader.js'
 import { sGetSettingsDisplayProperty } from '../../reducers/settings.js'
-import {
-    sGetUiRightSidebarOpen,
-    sGetUiDisabledOptions,
-} from '../../reducers/ui.js'
+import { sGetUiRightSidebarOpen } from '../../reducers/ui.js'
 import LoadingMask from '../../widgets/LoadingMask.js'
 import { VisualizationPlugin } from '../VisualizationPlugin/VisualizationPlugin.js'
 import StartScreen from './StartScreen.js'
@@ -241,22 +237,8 @@ export const userSettingsSelector = createSelector(
     })
 )
 
-export const visualizationSelector = createSelector(
-    [sGetCurrent, sGetUiDisabledOptions],
-    (current, disabledOptions) => {
-        const visualization = cloneDeep(current)
-
-        if (visualization) {
-            Object.keys(disabledOptions).forEach(
-                (option) => delete visualization[option]
-            )
-        }
-
-        return visualization
-    }
-)
 const mapStateToProps = (state) => ({
-    visualization: visualizationSelector(state),
+    visualization: sGetCurrent(state),
     rightSidebarOpen: sGetUiRightSidebarOpen(state),
     error: sGetLoadError(state),
     isLoading: sGetIsPluginLoading(state),

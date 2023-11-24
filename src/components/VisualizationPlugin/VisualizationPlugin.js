@@ -16,7 +16,9 @@ import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState, useCallback } from 'react'
 import { apiFetchLegendSets } from '../../api/legendSets.js'
+import { getDisabledOptions } from '../../modules/disabledOptions.js'
 import { fetchData } from '../../modules/fetchData.js'
+import { getOptionsFromVisualization } from '../../modules/options.js'
 import ChartPlugin from './ChartPlugin.js'
 import ContextualMenu from './ContextualMenu.js'
 import PivotPlugin from './PivotPlugin.js'
@@ -169,6 +171,16 @@ export const VisualizationPlugin = ({
 
     useEffect(() => {
         setFetchResult(null)
+
+        // filter out disabled options
+        const disabledOptions = getDisabledOptions({
+            visType: visualization.type,
+            options: getOptionsFromVisualization(visualization),
+        })
+
+        Object.keys(disabledOptions).forEach(
+            (option) => delete visualization[option]
+        )
 
         const doFetchAll = async () => {
             const { responses, extraOptions } = await doFetchData(
