@@ -13,6 +13,7 @@ import {
 import { useDataEngine } from '@dhis2/app-runtime'
 import { Button, IconLegend24, Layer } from '@dhis2/ui'
 import cx from 'classnames'
+import cloneDeep from 'lodash-es/cloneDeep'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState, useCallback } from 'react'
 import { apiFetchLegendSets } from '../../api/legendSets.js'
@@ -25,7 +26,7 @@ import PivotPlugin from './PivotPlugin.js'
 import styles from './styles/VisualizationPlugin.module.css'
 
 export const VisualizationPlugin = ({
-    visualization,
+    visualization: originalVisualization,
     displayProperty,
     filters,
     forDashboard,
@@ -38,6 +39,7 @@ export const VisualizationPlugin = ({
     onDrill,
 }) => {
     const engine = useDataEngine()
+    const [visualization, setVisualization] = useState(undefined)
     const [ouLevels, setOuLevels] = useState(undefined)
     const [fetchResult, setFetchResult] = useState(null)
     const [contextualMenuRef, setContextualMenuRef] = useState(undefined)
@@ -123,28 +125,24 @@ export const VisualizationPlugin = ({
         onDrill(args)
     }
 
-    const doFetchData = useCallback(async () => {
-        const result = await fetchData({
-            dataEngine: engine,
-            visualization,
-            filters,
-            forDashboard,
-            displayProperty,
-        })
+    const doFetchData = useCallback(
+        async (visualization, filters, forDashboard) => {
+            const result = await fetchData({
+                dataEngine: engine,
+                visualization,
+                filters,
+                forDashboard,
+                displayProperty,
+            })
 
-        if (result.responses.length) {
-            onResponsesReceived(result.responses)
-        }
+            if (result.responses.length) {
+                onResponsesReceived(result.responses)
+            }
 
-        return result
-    }, [
-        engine,
-        filters,
-        forDashboard,
-        displayProperty,
-        onResponsesReceived,
-        visualization,
-    ])
+            return result
+        },
+        [engine, displayProperty, onResponsesReceived]
+    )
 
     const doFetchLegendSets = useCallback(
         async (legendSetIds) => {
@@ -174,17 +172,21 @@ export const VisualizationPlugin = ({
 
         // filter out disabled options
         const disabledOptions = getDisabledOptions({
-            visType: visualization.type,
-            options: getOptionsFromVisualization(visualization),
+            visType: originalVisualization.type,
+            options: getOptionsFromVisualization(originalVisualization),
         })
 
+        const filteredVisualization = cloneDeep(originalVisualization)
+
         Object.keys(disabledOptions).forEach(
-            (option) => delete visualization[option]
+            (option) => delete filteredVisualization[option]
         )
+
+        setVisualization(filteredVisualization)
 
         const doFetchAll = async () => {
             const { responses, extraOptions } = await doFetchData(
-                visualization,
+                filteredVisualization,
                 filters,
                 forDashboard
             )
@@ -198,7 +200,7 @@ export const VisualizationPlugin = ({
             // DHIS2-10496: show icon on the side of the single value if an icon is assigned in Maintenance app and
             // the "Show data item icon" option is set in DV options
             if (
-                Boolean(visualization.icons?.length) &&
+                Boolean(filteredVisualization.icons?.length) &&
                 dxIds[0] &&
                 responses[0].metaData.items[dxIds[0]]?.style?.icon
             ) {
@@ -219,10 +221,10 @@ export const VisualizationPlugin = ({
 
             const legendSetIds = []
 
-            switch (visualization.legend?.strategy) {
+            switch (filteredVisualization.legend?.strategy) {
                 case LEGEND_DISPLAY_STRATEGY_FIXED:
-                    if (visualization.legend?.set?.id) {
-                        legendSetIds.push(visualization.legend.set.id)
+                    if (filteredVisualization.legend?.set?.id) {
+                        legendSetIds.push(filteredVisualization.legend.set.id)
                     }
                     break
                 case LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM: {
@@ -242,12 +244,12 @@ export const VisualizationPlugin = ({
             const legendSets = await doFetchLegendSets(legendSetIds)
 
             setFetchResult({
-                visualization,
+                visualization: filteredVisualization,
                 legendSets,
                 responses,
                 extraOptions,
             })
-            setShowLegendKey(visualization.legend?.showKey)
+            setShowLegendKey(filteredVisualization.legend?.showKey)
             onLoadingComplete()
         }
 
@@ -256,7 +258,7 @@ export const VisualizationPlugin = ({
         })
 
         /* eslint-disable-next-line react-hooks/exhaustive-deps */
-    }, [visualization, filters, forDashboard])
+    }, [originalVisualization, filters, forDashboard])
 
     if (!fetchResult || !ouLevels) {
         return null
@@ -269,7 +271,7 @@ export const VisualizationPlugin = ({
         : null
 
     let legendSets = []
-    switch (visualization.legend?.strategy) {
+    switch (fetchResult.visualization.legend?.strategy) {
         case LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM:
             {
                 if (
@@ -293,7 +295,9 @@ export const VisualizationPlugin = ({
                         legendSet: item.legendSet,
                     }))
 
-                const unsupportedDimensions = (visualization.series || [])
+                const unsupportedDimensions = (
+                    fetchResult.visualization.series || []
+                )
                     .filter((serie) => serie.type === VIS_TYPE_LINE)
                     .map((item) => item.dimensionItem)
 
