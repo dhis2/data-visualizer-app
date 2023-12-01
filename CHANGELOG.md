@@ -1,3 +1,11 @@
+## [100.3.1](https://github.com/dhis2/data-visualizer-app/compare/v100.3.0...v100.3.1) (2023-11-08)
+
+
+### Bug Fixes
+
+* color set update (DHIS2-16108) ([#2906](https://github.com/dhis2/data-visualizer-app/issues/2906)) ([276e741](https://github.com/dhis2/data-visualizer-app/commit/276e741aa3dbc40298155d4e93530a3e8495aaaf))
+* legend sets fail to load in table with data dimension in the row (DHIS2-12830) ([#2753](https://github.com/dhis2/data-visualizer-app/issues/2753)) ([8666fbb](https://github.com/dhis2/data-visualizer-app/commit/8666fbb0cfed72a966db49cf7263f608b763795a))
+
 # [100.3.0](https://github.com/dhis2/data-visualizer-app/compare/v100.2.0...v100.3.0) (2023-10-20)
 
 
