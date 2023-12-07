@@ -91,6 +91,8 @@ export const fieldsByType = {
         getFieldObject('displayDescription'),
         getFieldObject('displayName'),
         getFieldObject('displayShortName'),
+        getFieldObject('displaySubtitle'),
+        getFieldObject('displayTitle'),
         getFieldObject('externalAccess', { excluded: true }),
         getFieldObject('favorite'),
         getFieldObject('favorites'),
