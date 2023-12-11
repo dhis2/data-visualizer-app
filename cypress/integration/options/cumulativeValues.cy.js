@@ -151,7 +151,7 @@ describe('Options - Cumulative values', () => {
             clickNewCalculationButton()
             selectOperatorFromListByDoubleClick('Number')
             typeInNumberField(1, 1)
-            inputCalculationLabel('test data for cumulativeValues sorting')
+            inputCalculationLabel('test data for cumulativeValues')
             clickSaveButton()
 
             clickDimensionModalUpdateButton()
@@ -171,10 +171,12 @@ describe('Options - Cumulative values', () => {
             openContextMenu(DIMENSION_ID_PERIOD)
             clickContextMenuMove(DIMENSION_ID_PERIOD, AXIS_ID_COLUMNS)
 
+            const year = new Date().getFullYear().toString()
+
             openDimension(DIMENSION_ID_PERIOD)
             unselectAllItemsByButton()
             selectFixedPeriods(
-                ['October 2023', 'November 2023', 'December 2023'],
+                [`October ${year}`, `November ${year}`, `December ${year}`],
                 'Monthly'
             )
             clickDimensionModalHideButton()
@@ -184,7 +186,9 @@ describe('Options - Cumulative values', () => {
             clickNewCalculationButton()
             selectOperatorFromListByDoubleClick('Number')
             typeInNumberField(1, 6000)
-            inputCalculationLabel('test data for sorting cumulative values')
+            inputCalculationLabel(
+                'test data for sorting cumulative values sorting'
+            )
             clickSaveButton()
 
             selectDataElements([TEST_DATA_ELEMENTS[4].name])
@@ -195,7 +199,7 @@ describe('Options - Cumulative values', () => {
             expectTableValueCellToContainValue(2, '6 000')
             expectTableValueCellToContainValue(5, '5 266')
 
-            clickTableHeaderCell('December 2023')
+            clickTableHeaderCell(`December ${year}`)
 
             expectTableValueCellToContainValue(2, '5 266')
             expectTableValueCellToContainValue(5, '6 000')
@@ -208,7 +212,7 @@ describe('Options - Cumulative values', () => {
             expectTableValueCellToContainValue(2, '18 000')
             expectTableValueCellToContainValue(5, '18 488')
 
-            clickTableHeaderCell('December 2023')
+            clickTableHeaderCell(`December ${year}`)
 
             expectTableValueCellToContainValue(2, '18 000')
             expectTableValueCellToContainValue(5, '18 488')
