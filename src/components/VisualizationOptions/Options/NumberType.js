@@ -6,6 +6,7 @@ const NumberType = () => (
     <SelectBaseOption
         label={i18n.t('Number type')}
         helpText={i18n.t('Display the value of percentages of the total')}
+        dataTest={'option-number-type'}
         option={{
             name: 'numberType',
             items: [

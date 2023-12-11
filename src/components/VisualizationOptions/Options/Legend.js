@@ -74,7 +74,7 @@ const Legend = ({
     }
 
     return (
-        <div className={tabSectionOption.className}>
+        <div className={tabSectionOption.className} data-test="option-legend">
             <Checkbox
                 checked={legendEnabled}
                 disabled={disabled}
