@@ -1,13 +1,8 @@
-.chipWrapper {
-    display: flex;
-    margin: 4px;
-    background-color: var(--colors-teal100);
-    border-radius: 2px;
-    align-items: center;
-    max-width: 400px;
-    border: 1px solid var(--colors-teal200);
-}
 .chip {
+    max-width: 400px;
+    display: flex;
+    align-items: center;
+    background-color: var(--colors-teal100);
     padding: 1px 2px 1px 4px;
     font-size: 13px;
     line-height: 15px;
@@ -21,25 +16,38 @@
     text-overflow: ellipsis;
     margin: 2px;
     border-radius: 2px;
-    border-color: var(--colors-teal200);
+    border: 1px solid var(--colors-teal200);
 }
+
+.chip:hover {
+    background: #9fdbd5;
+}
+
 .chipEmpty {
     background-color: var(--colors-grey100);
     border-color: var(--colors-grey400);
     color: var(--colors-grey900);
 }
+
+.chipEmpty:hover {
+    background-color: var(--colors-grey400);
+}
+
 .fixedDimensionIcon {
     padding-right: 6px;
 }
+
 .leftIconWrapper {
     padding-right: 6px;
     display: flex;
     align-items: center;
 }
+
 .rightIconWrapper {
     padding-left: 6px;
     margin-top: 2px;
 }
+
 .label {
     white-space: nowrap;
     overflow: hidden;

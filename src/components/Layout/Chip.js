@@ -152,7 +152,7 @@ const Chip = ({
 
     return (
         <div
-            className={cx(styles.chipWrapper, {
+            className={cx(styles.chip, {
                 [styles.chipEmpty]:
                     !getPredefinedDimensionProp(
                         dimensionId,
