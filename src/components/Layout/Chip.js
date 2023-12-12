@@ -141,6 +141,7 @@ const Chip = ({
                 className={cx({
                     [styles.label]: !isSplitAxis,
                 })}
+                data-test="chip-suffix"
             >
                 {renderChipLabelSuffix()}
             </span>
