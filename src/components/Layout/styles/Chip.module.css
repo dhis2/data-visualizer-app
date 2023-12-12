@@ -1,0 +1,64 @@
+.chipWrapper {
+    display: flex;
+    margin: 4px;
+    background-color: var(--colors-teal100);
+    border-radius: 2px;
+    align-items: center;
+    max-width: 400px;
+    border: 1px solid var(--colors-teal200);
+}
+.chip {
+    padding: 1px 2px 1px 4px;
+    font-size: 13px;
+    line-height: 15px;
+    font-weight: 400;
+    color: var(--colors-teal900);
+    cursor: pointer;
+    min-height: 24;
+    user-select: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 2px;
+    border-radius: 2px;
+    border-color: var(--colors-teal200);
+}
+.chipEmpty {
+    background-color: var(--colors-grey100);
+    border-color: var(--colors-grey400);
+    color: var(--colors-grey900);
+}
+.fixedDimensionIcon {
+    padding-right: 6px;
+}
+.leftIconWrapper {
+    padding-right: 6px;
+    display: flex;
+    align-items: center;
+}
+.rightIconWrapper {
+    padding-left: 6px;
+    margin-top: 2px;
+}
+.label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chipLeft {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    align-items: center;
+}
+
+.chipRight {
+    padding-left: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    display: flex;
+}

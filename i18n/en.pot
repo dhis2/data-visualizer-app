@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-09-06T13:41:14.540Z\n"
-"PO-Revision-Date: 2023-09-06T13:41:14.540Z\n"
+"POT-Creation-Date: 2023-12-12T09:39:19.198Z\n"
+"PO-Revision-Date: 2023-12-12T09:39:19.199Z\n"
 
 msgid "All items"
 msgstr "All items"
@@ -153,14 +153,8 @@ msgstr "Download"
 msgid "Hide"
 msgstr "Hide"
 
-msgid "All"
-msgstr "All"
-
-msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr "{{total}} of {{axisMaxNumberOfItems}} selected"
-
-msgid "{{total}} selected"
-msgstr "{{total}} selected"
+msgid "all"
+msgstr "all"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
@@ -455,6 +449,9 @@ msgstr "After last"
 
 msgid "Before first and after last"
 msgstr "Before first and after last"
+
+msgid "All"
+msgstr "All"
 
 msgid "Hide empty rows"
 msgstr "Hide empty rows"
