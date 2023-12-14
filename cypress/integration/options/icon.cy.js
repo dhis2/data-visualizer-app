@@ -9,7 +9,7 @@ import {
     visTypeDisplayNames,
 } from '@dhis2/analytics'
 import { expectVisualizationToBeVisible } from '../../elements/chart.js'
-import { clickCheckbox } from '../../elements/common.js'
+import { checkCheckbox } from '../../elements/common.js'
 import {
     expectSelectableDataItemsAmountToBeLeast,
     switchDataTypeTo,
@@ -98,7 +98,7 @@ describe('Icon', () => {
         it(`icon shows when option is enabled for ${type}`, () => {
             // enable the icon
             openOptionsModal(OPTIONS_TAB_STYLE)
-            clickCheckbox('option-show-data-item-icon')
+            checkCheckbox('option-show-data-item-icon')
             clickOptionsModalHideButton()
 
             // find the data item
@@ -129,7 +129,7 @@ describe('Icon', () => {
     it.skip('icon gets correct color when a legend is in use', () => {
         // enable the icon
         openOptionsModal(OPTIONS_TAB_STYLE)
-        clickCheckbox('option-show-data-item-icon')
+        checkCheckbox('option-show-data-item-icon')
 
         // enable the legend
         clickOptionsTab(OPTIONS_TAB_LEGEND)

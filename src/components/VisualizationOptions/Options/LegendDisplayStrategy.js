@@ -13,13 +13,14 @@ import { sGetUiOption } from '../../../reducers/ui.js'
 import { tabSectionOptionToggleable } from '../styles/VisualizationOptions.style.js'
 import LegendSet from './LegendSet.js'
 
-const LegendDisplayStrategy = ({ value, onChange }) => (
+const LegendDisplayStrategy = ({ value, onChange, disabled }) => (
     <Fragment>
         <Field name={OPTION_LEGEND_DISPLAY_STRATEGY} dense>
             <Radio
                 key={LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM}
                 label={i18n.t('Use pre-defined legend by data item')}
                 value={LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM}
+                disabled={disabled}
                 checked={value === LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM}
                 onChange={onChange}
                 dense
@@ -29,6 +30,7 @@ const LegendDisplayStrategy = ({ value, onChange }) => (
                 key={LEGEND_DISPLAY_STRATEGY_FIXED}
                 label={i18n.t('Select a legend')}
                 value={LEGEND_DISPLAY_STRATEGY_FIXED}
+                disabled={disabled}
                 checked={value === LEGEND_DISPLAY_STRATEGY_FIXED}
                 onChange={onChange}
                 dense
@@ -37,7 +39,7 @@ const LegendDisplayStrategy = ({ value, onChange }) => (
         </Field>
         {value === LEGEND_DISPLAY_STRATEGY_FIXED ? (
             <div className={tabSectionOptionToggleable.className}>
-                <LegendSet dataTest="fixed-legend-set" />
+                <LegendSet disabled={disabled} dataTest="fixed-legend-set" />
             </div>
         ) : null}
     </Fragment>
@@ -46,6 +48,7 @@ const LegendDisplayStrategy = ({ value, onChange }) => (
 LegendDisplayStrategy.propTypes = {
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
+    disabled: PropTypes.bool,
 }
 
 const mapStateToProps = (state) => ({

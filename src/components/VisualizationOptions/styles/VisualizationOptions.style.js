@@ -42,6 +42,12 @@ export const tabSectionTitle = css.resolve`
     }
 `
 
+export const tabSectionTitleDisabled = css.resolve`
+    span {
+        color: ${colors.grey600};
+    }
+`
+
 export const tabSectionTitleMargin = css.resolve`
     span {
         margin-top: ${spacers.dp8};
