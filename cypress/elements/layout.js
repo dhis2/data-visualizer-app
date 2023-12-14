@@ -8,7 +8,7 @@ const chipMenuRemoveOptionEl = 'layout-chip-menu-dimension-menu-item-remove'
 const chipMenuActionOptionEl = 'layout-chip-menu-dimension-menu-item-action'
 const chipMenuSubMenuOptionEl =
     'layout-chip-menu-dimension-menu-item-DIMENSIONID-menu'
-const chipSelectedBackgroundColor = 'rgb(178, 223, 219)'
+const chipSelectedBackgroundColor = 'rgb(224, 242, 241)'
 
 const getAxisEl = (axisId) => `${axisId}-axis`
 const getDimensionChipEl = (dimensionId) => `${chipEl}-${dimensionId}`
