@@ -64,6 +64,18 @@ const Chip = ({
     const isSplitAxis =
         type === VIS_TYPE_SCATTER && dimensionId === DIMENSION_ID_DATA
 
+    let chipLabelSuffix
+
+    if (items.length > 0) {
+        if (items.includes(ALL_DYNAMIC_DIMENSION_ITEMS)) {
+            chipLabelSuffix = i18n.t('all')
+        } else if (isSplitAxis) {
+            chipLabelSuffix = i18n.t(metadata[items[0]]?.name || null)
+        } else {
+            chipLabelSuffix = items.length
+        }
+    }
+
     const getMaxNumberOfItems = () => getAxisMaxNumberOfItems(type, axisId)
 
     const handleClick = () => {
@@ -74,19 +86,6 @@ const Chip = ({
 
     const getDragStartHandler = () => (event) => {
         setDataTransfer(event, axisId)
-    }
-
-    const renderChipLabelSuffix = () => {
-        const numberOfItems = items.length
-        let itemsLabel
-        if (items.includes(ALL_DYNAMIC_DIMENSION_ITEMS)) {
-            itemsLabel = i18n.t('all')
-        } else if (isSplitAxis) {
-            itemsLabel = i18n.t(metadata[items[0]]?.name || null)
-        } else {
-            itemsLabel = numberOfItems
-        }
-        return items.length > 0 ? itemsLabel : null
     }
 
     const renderChipIcon = () => {
@@ -138,14 +137,16 @@ const Chip = ({
             >
                 {dimensionName}
             </span>
-            <span
-                className={cx({
-                    [styles.suffix]: !isSplitAxis,
-                })}
-                data-test="chip-suffix"
-            >
-                {renderChipLabelSuffix()}
-            </span>
+            {chipLabelSuffix && (
+                <span
+                    className={cx({
+                        [styles.suffix]: !isSplitAxis,
+                    })}
+                    data-test="chip-suffix"
+                >
+                    {chipLabelSuffix}
+                </span>
+            )}
             {hasAxisTooManyItems(type, axisId, items.length) &&
                 WarningIconWrapper}
             {isLocked && LockIconWrapper}
