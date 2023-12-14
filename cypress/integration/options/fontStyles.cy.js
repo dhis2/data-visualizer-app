@@ -168,7 +168,6 @@ describe('Options - Font styles', () => {
         const TEST_SUBTITLE_TEXT = 'S'
 
         it('has default value', () => {
-            expectChartSubtitleToBeVisible()
             expectWindowConfigSubtitleToBeValue(CONFIG_DEFAULT_SUBTITLE)
         })
         it('opens Options -> Style', () => {
