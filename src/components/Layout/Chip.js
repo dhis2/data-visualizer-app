@@ -13,7 +13,7 @@ import {
     ALL_DYNAMIC_DIMENSION_ITEMS,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
-import { Tooltip, IconLock16, IconWarning16 } from '@dhis2/ui'
+import { Tooltip, IconWarning16 } from '@dhis2/ui'
 import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
@@ -45,16 +45,28 @@ const Chip = ({
 
     const LockIconWrapper = (
         <div
-            className={styles.rightIconWrapper}
+            className={styles.lockIconWrapper}
             data-test={`${dataTest}-lock-icon`}
         >
-            <IconLock16 />
+            <svg
+                width="7"
+                height="9"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M3.5 1A1.5 1.5 0 0 0 2 2.5V3h3v-.5A1.5 1.5 0 0 0 3.5 1ZM1 2.5V3H0v6h7V3H6v-.5a2.5 2.5 0 0 0-5 0ZM1 8V4h5v4H1Zm3-1V5H3v2h1Z"
+                    fill="none"
+                />
+            </svg>
         </div>
     )
 
     const WarningIconWrapper = (
         <div
-            className={styles.rightIconWrapper}
+            className={styles.warningIconWrapper}
             data-test={`${dataTest}-warning-icon`}
         >
             <IconWarning16 color={colors.yellow700} />
@@ -138,18 +150,12 @@ const Chip = ({
                 {dimensionName}
             </span>
             {chipLabelSuffix && (
-                <span
-                    className={cx({
-                        [styles.suffix]: !isSplitAxis,
-                    })}
-                    data-test="chip-suffix"
-                >
+                <span className={styles.suffix} data-test="chip-suffix">
                     {chipLabelSuffix}
                 </span>
             )}
             {hasAxisTooManyItems(type, axisId, items.length) &&
                 WarningIconWrapper}
-            {isLocked && LockIconWrapper}
         </>
     )
 
@@ -194,6 +200,11 @@ const Chip = ({
             )}
             {contextMenu && (
                 <div className={styles.chipRight}> {contextMenu}</div>
+            )}
+            {isLocked && (
+                <Tooltip content={renderTooltipContent()} placement="bottom">
+                    {LockIconWrapper}
+                </Tooltip>
             )}
         </div>
     )

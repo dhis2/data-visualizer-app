@@ -3,13 +3,12 @@
     display: flex;
     align-items: center;
     background-color: var(--colors-teal100);
-    padding: 0 0 0 4px;
+    padding: 0;
     font-size: 13px;
     line-height: 15px;
     font-weight: 400;
     color: var(--colors-teal900);
     cursor: pointer;
-    /* height: 20px; */
     user-select: none;
     white-space: nowrap;
     overflow: hidden;
@@ -37,18 +36,42 @@
 }
 
 .fixedDimensionIcon {
-    padding-right: 4px;
+    padding: 0 4px;
 }
 
 .leftIconWrapper {
-    padding-right: 4px;
+    padding: 0 4px;
     display: flex;
     align-items: center;
 }
 
-.rightIconWrapper {
-    padding-left: 6px;
-    margin-top: 2px;
+.warningIconWrapper {
+    padding-left: 2px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.lockIconWrapper {
+    background: #cbe7e5;
+    height: 20px;
+    padding: 0 1px 0 2px;
+    margin: 0 0 0 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lockIconWrapper svg path {
+    fill: var(--colors-teal900);
+}
+
+.chipEmpty .lockIconWrapper {
+    background: var(--colors-grey300);
+}
+
+.chipEmpty .lockIconWrapper svg path {
+    fill: var(--colors-grey800);
 }
 
 .label {
@@ -77,9 +100,11 @@
     height: 20px;
 }
 
+.chipRight + .lockIconWrapper {
+    margin: 0;
+}
+
 .suffix {
-    white-space: nowrap;
-    flex-shrink: 0;
     font-family: monospace;
     font-size: 11px;
     background: #c5e4e3;
@@ -88,4 +113,7 @@
     min-width: 12px;
     text-align: center;
     padding: 2px 2px 1px 2px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
