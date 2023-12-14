@@ -13,7 +13,8 @@ import {
     ALL_DYNAMIC_DIMENSION_ITEMS,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
-import { Tooltip, IconLock16, IconWarningFilled16 } from '@dhis2/ui'
+import { Tooltip, IconLock16, IconWarning16 } from '@dhis2/ui'
+import { colors } from '@dhis2/ui-constants'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -56,7 +57,7 @@ const Chip = ({
             className={styles.rightIconWrapper}
             data-test={`${dataTest}-warning-icon`}
         >
-            <IconWarningFilled16 />
+            <IconWarning16 color={colors.yellow700} />
         </div>
     )
 
@@ -81,11 +82,11 @@ const Chip = ({
         if (items.includes(ALL_DYNAMIC_DIMENSION_ITEMS)) {
             itemsLabel = i18n.t('all')
         } else if (isSplitAxis) {
-            itemsLabel = i18n.t(metadata[items[0]]?.name || '')
+            itemsLabel = i18n.t(metadata[items[0]]?.name || null)
         } else {
             itemsLabel = numberOfItems
         }
-        return items.length > 0 ? itemsLabel : ''
+        return items.length > 0 ? itemsLabel : null
     }
 
     const renderChipIcon = () => {
@@ -139,7 +140,7 @@ const Chip = ({
             </span>
             <span
                 className={cx({
-                    [styles.label]: !isSplitAxis,
+                    [styles.suffix]: !isSplitAxis,
                 })}
                 data-test="chip-suffix"
             >

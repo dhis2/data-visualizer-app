@@ -3,13 +3,13 @@
     display: flex;
     align-items: center;
     background-color: var(--colors-teal100);
-    padding: 1px 2px 1px 4px;
+    padding: 0 0 0 4px;
     font-size: 13px;
     line-height: 15px;
     font-weight: 400;
     color: var(--colors-teal900);
     cursor: pointer;
-    min-height: 24;
+    /* height: 20px; */
     user-select: none;
     white-space: nowrap;
     overflow: hidden;
@@ -20,7 +20,9 @@
 }
 
 .chip:hover {
-    background: #9fdbd5;
+    background: #cdeae8;
+    border: 1px solid #93c4bf;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 }
 
 .chipEmpty {
@@ -30,15 +32,16 @@
 }
 
 .chipEmpty:hover {
-    background-color: var(--colors-grey400);
+    background-color: var(--colors-grey200);
+    border-color: var(--colors-grey400);
 }
 
 .fixedDimensionIcon {
-    padding-right: 6px;
+    padding-right: 4px;
 }
 
 .leftIconWrapper {
-    padding-right: 6px;
+    padding-right: 4px;
     display: flex;
     align-items: center;
 }
@@ -62,6 +65,8 @@
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
     align-items: center;
+    min-height: 20px;
+    margin: 0 2px 0 0;
 }
 
 .chipRight {
@@ -69,4 +74,18 @@
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
     display: flex;
+    height: 20px;
+}
+
+.suffix {
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-family: monospace;
+    font-size: 11px;
+    background: #c5e4e3;
+    border-radius: 2px;
+    margin-left: 4px;
+    min-width: 12px;
+    text-align: center;
+    padding: 2px 2px 1px 2px;
 }
