@@ -1,8 +1,10 @@
+import { getDisabledOptions } from '../modules/disabledOptions.js'
 import {
     SET_UI,
     CLEAR_UI,
     SET_UI_FROM_VISUALIZATION,
     SET_UI_TYPE,
+    SET_UI_DISABLED_OPTIONS,
     SET_UI_OPTIONS,
     SET_UI_LAYOUT,
     ADD_UI_LAYOUT_DIMENSIONS,
@@ -21,6 +23,8 @@ import {
     UPDATE_UI_SERIES_ITEM,
     SET_UI_OPTION,
     SET_UI_OPTION_FONT_STYLE,
+    sGetUiType,
+    sGetUiOptions,
 } from '../reducers/ui.js'
 
 export const acSetUi = (value) => ({
@@ -40,6 +44,11 @@ export const acSetUiFromVisualization = (value) => ({
 
 export const acSetUiType = (value) => ({
     type: SET_UI_TYPE,
+    value,
+})
+
+export const acSetUiDisabledOptions = (value) => ({
+    type: SET_UI_DISABLED_OPTIONS,
     value,
 })
 
@@ -129,3 +138,15 @@ export const acSetUiRightSidebarOpen = () => ({
 export const acClearSeriesType = () => ({
     type: CLEAR_SERIES_TYPE,
 })
+
+export const tSetUiOptionAndDisabledOptions =
+    (option) => (dispatch, getState) => {
+        dispatch(acSetUiOption(option))
+
+        const visType = sGetUiType(getState())
+        const options = sGetUiOptions(getState())
+
+        dispatch(
+            acSetUiDisabledOptions(getDisabledOptions({ visType, options }))
+        )
+    }
