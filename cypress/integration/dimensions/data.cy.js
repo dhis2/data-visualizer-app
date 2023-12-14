@@ -329,6 +329,9 @@ describe('Data dimension', () => {
                 })
                 expectSourceToNotBeLoading()
                 expectGroupSelectToBe(testDataType.testGroup.name)
+                cy.getBySel('data-dimension-transfer-sourceoptions').trigger(
+                    'mouseover'
+                ) // seems to trigger Cypress to refretch the list and update the result so it's no longer stale
                 expectSelectableDataItemsAmountToBe(
                     testDataType.testGroup.itemAmount
                 )
