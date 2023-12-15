@@ -11,7 +11,7 @@ import { openDimension } from '../../elements/dimensionsPanel.js'
 import { openOptionsModal } from '../../elements/menuBar.js'
 import {
     clickOptionsModalUpdateButton,
-    clickTrendLineCheckbox,
+    checkTrendLineCheckbox,
     OPTIONS_TAB_DATA,
     selectTrendLineType,
 } from '../../elements/optionsModal/index.js'
@@ -54,7 +54,7 @@ describe('Options - Lines', () => {
                 })
                 if (index === 0) {
                     it('enables trendline', () => {
-                        clickTrendLineCheckbox()
+                        checkTrendLineCheckbox()
                     })
                 }
                 it('selects trendline type', () => {

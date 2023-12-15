@@ -20,10 +20,10 @@ import {
     OPTIONS_TAB_STYLE,
     OPTIONS_TAB_DATA,
     OPTIONS_TAB_AXES,
-    clickTargetLineCheckbox,
+    checkTargetLineCheckbox,
     setTargetLineValue,
     setTargetLineLabel,
-    clickBaseLineCheckbox,
+    checkBaseLineCheckbox,
     setBaseLineLabel,
     setBaseLineValue,
     setAxisTitleText,
@@ -220,7 +220,7 @@ describe('Options - Font styles', () => {
         })
         it('sets target line', () => {
             cy.log(`Test value: ${TEST_VALUE}`)
-            clickTargetLineCheckbox()
+            checkTargetLineCheckbox()
             setTargetLineLabel(TEST_LABEL)
             setTargetLineValue(TEST_VALUE)
         })
@@ -279,7 +279,7 @@ describe('Options - Font styles', () => {
         })
         it('sets base line', () => {
             cy.log(`Test value: ${TEST_VALUE}`)
-            clickBaseLineCheckbox()
+            checkBaseLineCheckbox()
             setBaseLineLabel(TEST_LABEL)
             setBaseLineValue(TEST_VALUE)
         })
