@@ -41,7 +41,7 @@ import {
 } from '../../elements/menuBar.js'
 import {
     clickOptionsModalUpdateButton,
-    clickOutliersCheckbox,
+    checkOutliersCheckbox,
     OPTIONS_TAB_AXES,
     OPTIONS_TAB_OUTLIERS,
     setAxisRangeMaxValue,
@@ -180,7 +180,7 @@ describe('using a Scatter chart', () => {
     })
     it('Options -> Outliers -> enables outliers', () => {
         openOptionsModal(OPTIONS_TAB_OUTLIERS)
-        clickOutliersCheckbox()
+        checkOutliersCheckbox()
         // TODO: Set more outlier options
         clickOptionsModalUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_SCATTER)

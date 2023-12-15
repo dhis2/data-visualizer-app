@@ -51,19 +51,19 @@ export {
 } from './axes.js'
 
 export {
-    clickTrendLineCheckbox,
+    checkTrendLineCheckbox,
     selectTrendLineType,
-    clickTargetLineCheckbox,
+    checkTargetLineCheckbox,
     setTargetLineValue,
     setTargetLineLabel,
-    clickBaseLineCheckbox,
+    checkBaseLineCheckbox,
     setBaseLineLabel,
     setBaseLineValue,
 } from './lines.js'
 
 export { setCustomSubtitle } from './subtitle.js'
 
-export { clickOutliersCheckbox } from './outliers.js'
+export { checkOutliersCheckbox } from './outliers.js'
 
 export { setItemToAxis, setItemToType } from './series.js'
 

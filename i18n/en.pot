@@ -375,6 +375,9 @@ msgstr "Include cumulative"
 msgid "Cumulative values"
 msgstr "Cumulative values"
 
+msgid "Accumulate cell values along rows"
+msgstr "Accumulate cell values along rows"
+
 msgid "Show data item icon"
 msgstr "Show data item icon"
 
@@ -706,6 +709,9 @@ msgstr "Open as Map"
 msgid "Visually plot data on a world map. Data elements use separate map layers."
 msgstr "Visually plot data on a world map. Data elements use separate map layers."
 
+msgid "Not supported when using cumulative values"
+msgstr "Not supported when using cumulative values"
+
 msgid "No data available"
 msgstr "No data available"
 
@@ -998,6 +1004,9 @@ msgstr "Lines"
 
 msgid "Totals"
 msgstr "Totals"
+
+msgid "Totals are not supported when using cumulative values"
+msgstr "Totals are not supported when using cumulative values"
 
 msgid "Vertical (y) axis {{axisId}}"
 msgstr "Vertical (y) axis {{axisId}}"

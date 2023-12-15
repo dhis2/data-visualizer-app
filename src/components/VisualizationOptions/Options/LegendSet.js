@@ -29,10 +29,12 @@ const LegendSetSelect = ({
     onFocus,
     onChange,
     dataTest,
+    disabled,
 }) => (
     <SingleSelectField
         name="legendSetSelect"
         label={i18n.t('Legend')}
+        disabled={disabled}
         selected={value?.id}
         inputWidth="280px"
         placeholder={i18n.t('Select from legends')}
@@ -62,6 +64,7 @@ const LegendSetSelect = ({
 
 LegendSetSelect.propTypes = {
     dataTest: PropTypes.string,
+    disabled: PropTypes.bool,
     loading: PropTypes.bool,
     options: PropTypes.array,
     value: PropTypes.object,
@@ -69,7 +72,7 @@ LegendSetSelect.propTypes = {
     onFocus: PropTypes.func,
 }
 
-const LegendSet = ({ value, onChange, dataTest }) => {
+const LegendSet = ({ value, onChange, disabled, dataTest }) => {
     const engine = useDataEngine()
 
     const [options, setOptions] = useState([])
@@ -103,6 +106,7 @@ const LegendSet = ({ value, onChange, dataTest }) => {
 
     return (
         <LegendSetSelect
+            disabled={disabled}
             loading={!isLoaded}
             value={value}
             options={options}
@@ -116,6 +120,7 @@ const LegendSet = ({ value, onChange, dataTest }) => {
 LegendSet.propTypes = {
     onChange: PropTypes.func.isRequired,
     dataTest: PropTypes.string,
+    disabled: PropTypes.bool,
     value: PropTypes.object,
 }
 

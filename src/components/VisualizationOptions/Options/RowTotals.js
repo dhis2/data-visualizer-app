@@ -8,6 +8,7 @@ const RowTotals = () => (
         option={{
             name: 'rowTotals',
         }}
+        dataTest="option-row-totals"
     />
 )
 
