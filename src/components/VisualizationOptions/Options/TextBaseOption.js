@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
 import { acSetUiOption } from '../../../actions/ui.js'
-import { sGetUiOption } from '../../../reducers/ui.js'
+import { sGetUiOption, sGetUiDisabledOption } from '../../../reducers/ui.js'
 import {
     tabSectionOption,
     tabSectionOptionToggleable,
@@ -112,6 +112,10 @@ UnconnectedTextBaseOption.propTypes = {
 }
 
 const mapStateToProps = (state, ownProps) => ({
+    disabled: Boolean(sGetUiDisabledOption(state, ownProps.option)),
+    helpText:
+        sGetUiDisabledOption(state, ownProps.option)?.helpText ||
+        ownProps.helpText,
     value: sGetUiOption(state, ownProps.option) || '',
     checked:
         sGetUiOption(state, {

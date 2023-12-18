@@ -48,159 +48,162 @@ const PAGE_SIZE = 50
 const DATA_ITEMS_URL = '**/dataItems*'
 
 describe('Data dimension', () => {
-    describe('initial state', () => {
-        it('navigates to the start page', () => {
-            goToStartPage()
+    it('has correct initial state', () => {
+        // navigates to the start page
+        goToStartPage()
+
+        // opens the data dimension modal
+        cy.intercept('GET', DATA_ITEMS_URL).as('request')
+        openDimension(DIMENSION_ID_DATA)
+        cy.wait('@request').then(({ request, response }) => {
+            expect(request.url).to.contain('page=1')
+            expect(response.statusCode).to.eq(200)
+            expect(response.body.dataItems.length).to.eq(PAGE_SIZE)
         })
-        it('opens the data dimension modal', () => {
-            cy.intercept('GET', DATA_ITEMS_URL).as('request')
-            openDimension(DIMENSION_ID_DATA)
-            cy.wait('@request').then(({ request, response }) => {
-                expect(request.url).to.contain('page=1')
-                expect(response.statusCode).to.eq(200)
-                expect(response.body.dataItems.length).to.eq(PAGE_SIZE)
-            })
-            expectDataDimensionModalToBeVisible()
-        })
-        it('modal has a title', () => {
-            expectDimensionModalToContain('Data')
-        })
-        it('no items are selected', () => {
-            expectNoDataItemsToBeSelected()
-        })
-        it("data type is 'All'", () => {
-            expectDataTypeToBe('All')
-        })
-        it('group select is not visible', () => {
-            expectGroupSelectToNotBeVisible()
-        })
+        expectDataDimensionModalToBeVisible()
+
+        // modal has a title
+        expectDimensionModalToContain('Data')
+
+        // no items are selected
+        expectNoDataItemsToBeSelected()
+
+        // data type is 'All'
+        expectDataTypeToBe('All')
+
+        // group select is not visible
+        expectGroupSelectToNotBeVisible()
+
+        // an item can be selected by double click
         const firstPageItemName = TEST_INDICATORS[0].name
-        it('an item can be selected by double click', () => {
-            selectItemByDoubleClick(firstPageItemName)
-            expectItemToBeSelected(firstPageItemName)
-        })
-        it('an item can be unselected by double click', () => {
-            unselectItemByDoubleClick(firstPageItemName)
-            expectNoDataItemsToBeSelected()
-        })
-        it('an item can be selected by button', () => {
-            selectItemByButton(firstPageItemName)
-            expectItemToBeSelected(firstPageItemName)
-        })
-        it('an item can be unselected by button', () => {
-            unselectItemByButton(firstPageItemName)
-            expectNoDataItemsToBeSelected()
-        })
+        selectItemByDoubleClick(firstPageItemName)
+        expectItemToBeSelected(firstPageItemName)
+
+        // an item can be unselected by double click
+        unselectItemByDoubleClick(firstPageItemName)
+        expectNoDataItemsToBeSelected()
+
+        // an item can be selected by button
+        selectItemByButton(firstPageItemName)
+        expectItemToBeSelected(firstPageItemName)
+
+        // an item can be unselected by button
+        unselectItemByButton(firstPageItemName)
+        expectNoDataItemsToBeSelected()
     })
-    describe('selecting all and fetching more', () => {
+    it('can select all and fetch more', () => {
+        goToStartPage()
+        openDimension(DIMENSION_ID_DATA)
+        expectDataDimensionModalToBeVisible()
+        expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
+
         const secondPageItemName = 'BCG doses'
-        it('all items can be selected', () => {
-            cy.intercept('GET', DATA_ITEMS_URL).as('request')
-            selectAllItemsByButton()
-            expectSelectedItemsAmountToBeLeast(PAGE_SIZE)
-            cy.wait('@request').then(({ request, response }) => {
-                expect(request.url).to.contain('page=2')
-                expect(response.statusCode).to.eq(200)
-                expect(response.body.dataItems.length).to.eq(PAGE_SIZE)
-            })
-            expectSourceToNotBeLoading()
+        // all items can be selected
+        cy.intercept('GET', DATA_ITEMS_URL).as('request')
+        selectAllItemsByButton()
+        expectSelectedItemsAmountToBeLeast(PAGE_SIZE)
+        cy.wait('@request').then(({ request, response }) => {
+            expect(request.url).to.contain('page=2')
+            expect(response.statusCode).to.eq(200)
+            expect(response.body.dataItems.length).to.eq(PAGE_SIZE)
         })
-        it('more items are fetched', () => {
-            expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
-            expectItemToBeSelectable(secondPageItemName)
+        expectSourceToNotBeLoading()
+
+        // more items are fetched
+        expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
+        expectItemToBeSelectable(secondPageItemName)
+
+        // all items can be unselected
+        unselectAllItemsByButton()
+        expectNoDataItemsToBeSelected()
+
+        // more items are fetched when scrolling down
+        cy.intercept('GET', DATA_ITEMS_URL).as('request')
+        scrollSourceToBottom()
+        cy.wait('@request').then(({ request, response }) => {
+            expect(request.url).to.contain('page=3')
+            expect(response.statusCode).to.eq(200)
+            expect(response.body.dataItems.length).to.eq(PAGE_SIZE)
         })
-        it('all items can be unselected', () => {
-            unselectAllItemsByButton()
-            expectNoDataItemsToBeSelected()
-        })
-        it('more items are fetched when scrolling down', () => {
-            cy.intercept('GET', DATA_ITEMS_URL).as('request')
-            scrollSourceToBottom()
-            cy.wait('@request').then(({ request, response }) => {
-                expect(request.url).to.contain('page=3')
-                expect(response.statusCode).to.eq(200)
-                expect(response.body.dataItems.length).to.eq(PAGE_SIZE)
-            })
-            expectSourceToNotBeLoading()
-            expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE * 3)
-        })
+        expectSourceToNotBeLoading()
+        expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE * 3)
     })
-    describe('global search', () => {
+    it('can use global search', () => {
+        goToStartPage()
+        openDimension(DIMENSION_ID_DATA)
+        expectDataDimensionModalToBeVisible()
+        expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
+
         const testSearchTerm = 'Dispenser' // Use a data element for the third step to work
-        it('receives a search term', () => {
-            cy.intercept('GET', DATA_ITEMS_URL).as('request')
-            inputSearchTerm(testSearchTerm)
-            cy.wait('@request').then(({ request, response }) => {
-                expect(request.url).to.contain('page=1')
-                expect(request.url).to.contain(testSearchTerm)
-                expect(response.statusCode).to.eq(200)
-                expect(response.body.dataItems.length).to.eq(1)
-            })
-            expectSourceToNotBeLoading()
+        // receives a search term
+        cy.intercept('GET', DATA_ITEMS_URL).as('request')
+        inputSearchTerm(testSearchTerm)
+        cy.wait('@request').then(({ request, response }) => {
+            expect(request.url).to.contain('page=1')
+            expect(request.url).to.contain(testSearchTerm)
+            expect(response.statusCode).to.eq(200)
+            expect(response.body.dataItems.length).to.eq(1)
         })
+        expectSourceToNotBeLoading()
+
         // TODO: Test that the search is only called once, i.e. debounce works
-        it('search result is displayed', () => {
-            expectSelectableDataItemsAmountToBe(1)
-            expectItemToBeSelectable(testSearchTerm)
+        // search result is displayed
+        expectSelectableDataItemsAmountToBe(1)
+        expectItemToBeSelectable(testSearchTerm)
+
+        // search result is maintained when switching data type
+        cy.intercept('GET', '**/dataElements*').as('dataElements')
+        switchDataTypeTo('Data elements')
+        cy.wait('@dataElements').then(({ request, response }) => {
+            expect(request.url).to.contain('page=1')
+            expect(response.statusCode).to.eq(200)
+            expect(response.body.dataElements.length).to.be.eq(1)
         })
-        it('search result is maintained when switching data type', () => {
-            cy.intercept('GET', '**/dataElements*').as('dataElements')
-            switchDataTypeTo('Data elements')
-            cy.wait('@dataElements').then(({ request, response }) => {
-                expect(request.url).to.contain('page=1')
-                expect(response.statusCode).to.eq(200)
-                expect(response.body.dataElements.length).to.be.eq(1)
-            })
-            expectSourceToNotBeLoading()
-            expectSelectableDataItemsAmountToBe(1)
-            expectItemToBeSelectable(testSearchTerm)
-            clearSearchTerm()
-            cy.wait('@dataElements').then(({ request, response }) => {
-                expect(request.url).to.contain('page=1')
-                expect(response.statusCode).to.eq(200)
-                expect(response.body.dataElements.length).to.be.eq(PAGE_SIZE)
-            })
-            expectSourceToNotBeLoading()
-            cy.intercept('GET', DATA_ITEMS_URL).as('dataItems')
-            switchDataTypeToAll()
-            cy.wait('@dataItems').then(({ request, response }) => {
-                expect(request.url).to.contain('page=1')
-                expect(response.statusCode).to.eq(200)
-                expect(response.body.dataItems.length).to.eq(PAGE_SIZE)
-            })
-            expectSourceToNotBeLoading()
-            expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
+        expectSourceToNotBeLoading()
+        expectSelectableDataItemsAmountToBe(1)
+        expectItemToBeSelectable(testSearchTerm)
+        clearSearchTerm()
+        cy.wait('@dataElements').then(({ request, response }) => {
+            expect(request.url).to.contain('page=1')
+            expect(response.statusCode).to.eq(200)
+            expect(response.body.dataElements.length).to.be.eq(PAGE_SIZE)
         })
-        it('search displays a correct error message', () => {
-            const testSearchTermWithNoMatch = 'nomatch'
-            cy.intercept('GET', DATA_ITEMS_URL).as('request')
-            inputSearchTerm(testSearchTermWithNoMatch)
-            cy.wait('@request').then(({ request, response }) => {
-                expect(request.url).to.contain('page=1')
-                expect(request.url).to.contain(testSearchTermWithNoMatch)
-                expect(response.statusCode).to.eq(200)
-                expect(response.body.dataItems.length).to.eq(0)
-            })
-            expectSourceToNotBeLoading()
-            expectEmptySourceMessageToBe(
-                `Nothing found for "${testSearchTermWithNoMatch}"`
-            )
+        expectSourceToNotBeLoading()
+        cy.intercept('GET', DATA_ITEMS_URL).as('dataItems')
+        switchDataTypeToAll()
+        cy.wait('@dataItems').then(({ request, response }) => {
+            expect(request.url).to.contain('page=1')
+            expect(response.statusCode).to.eq(200)
+            expect(response.body.dataItems.length).to.eq(PAGE_SIZE)
         })
-        it('search result can be cleared', () => {
-            cy.intercept('GET', DATA_ITEMS_URL).as('request')
-            clearSearchTerm()
-            cy.wait('@request').then(({ request, response }) => {
-                expect(request.url).to.contain('page=1')
-                expect(response.statusCode).to.eq(200)
-                expect(response.body.dataItems.length).to.be.eq(PAGE_SIZE)
-            })
-            expectSourceToNotBeLoading()
-            expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
+        expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
+        expectSourceToNotBeLoading()
+
+        // search displays a correct error message
+        const testSearchTermWithNoMatch = 'nomatch'
+        cy.intercept('GET', DATA_ITEMS_URL).as('requestNoMatch')
+        inputSearchTerm(testSearchTermWithNoMatch)
+        cy.wait('@requestNoMatch').then(({ request, response }) => {
+            expect(request.url).to.contain('page=1')
+            expect(request.url).to.contain(testSearchTermWithNoMatch)
+            expect(response.statusCode).to.eq(200)
+            expect(response.body.dataItems.length).to.eq(0)
         })
-        it('modal is closed', () => {
-            clickDimensionModalHideButton()
-            expectDimensionModalToNotBeVisible()
+        expectSourceToNotBeLoading()
+        expectEmptySourceMessageToBe(
+            `Nothing found for "${testSearchTermWithNoMatch}"`
+        )
+
+        // search result can be cleared
+        cy.intercept('GET', DATA_ITEMS_URL).as('requestClear')
+        clearSearchTerm()
+        cy.wait('@requestClear').then(({ request, response }) => {
+            expect(request.url).to.contain('page=1')
+            expect(response.statusCode).to.eq(200)
+            expect(response.body.dataItems.length).to.be.eq(PAGE_SIZE)
         })
+        expectSourceToNotBeLoading()
+        expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
     })
     const testDataTypes = [
         {
@@ -272,89 +275,92 @@ describe('Data dimension', () => {
         },
     ]
     testDataTypes.forEach((testDataType) => {
-        describe(`${testDataType.name}`, () => {
-            it('opens the data dimension modal', () => {
-                openDimension(DIMENSION_ID_DATA)
-                expectDataDimensionModalToBeVisible()
+        it(`displays ${testDataType.name} correctly`, () => {
+            // opens the data dimension modal
+            goToStartPage()
+            openDimension(DIMENSION_ID_DATA)
+            expectDataDimensionModalToBeVisible()
+
+            // switches to type
+            cy.log(`type: ${testDataType.name}`)
+            cy.intercept('GET', testDataType.endpoint.requestUrl).as('request')
+            switchDataTypeTo(testDataType.name)
+            cy.wait('@request').then(({ response }) => {
+                expect(response.statusCode).to.eq(200)
+                expect(
+                    response.body[testDataType.endpoint.responseBody].length
+                ).to.be.least(1)
             })
-            it(`switches to ${testDataType.name}`, () => {
+            expectSourceToNotBeLoading()
+            expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
+
+            // group select is visible
+            expectGroupSelectToBeVisible()
+            expectGroupSelectToBe(testDataType.defaultGroup.name)
+
+            if (testDataType.endpoint.hasMultiplePages) {
+                // more items are fetched when scrolling down
                 cy.intercept('GET', testDataType.endpoint.requestUrl).as(
                     'request'
                 )
-                switchDataTypeTo(testDataType.name)
-                cy.wait('@request').then(({ response }) => {
+                scrollSourceToBottom()
+                cy.wait('@request').then(({ request, response }) => {
+                    expect(request.url).to.contain('page=2')
                     expect(response.statusCode).to.eq(200)
                     expect(
                         response.body[testDataType.endpoint.responseBody].length
                     ).to.be.least(1)
                 })
                 expectSourceToNotBeLoading()
-                expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
-            })
-            it('group select is visible', () => {
-                expectGroupSelectToBeVisible()
-                expectGroupSelectToBe(testDataType.defaultGroup.name)
-            })
-            if (testDataType.endpoint.hasMultiplePages) {
-                it('more items are fetched when scrolling down', () => {
-                    cy.intercept('GET', testDataType.endpoint.requestUrl).as(
-                        'request'
-                    )
-                    scrollSourceToBottom()
-                    cy.wait('@request').then(({ request, response }) => {
-                        expect(request.url).to.contain('page=2')
-                        expect(response.statusCode).to.eq(200)
-                        expect(
-                            response.body[testDataType.endpoint.responseBody]
-                                .length
-                        ).to.be.least(1)
-                    })
-                    expectSourceToNotBeLoading()
-                    expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE + 1)
-                })
+                expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE + 1)
             }
-            it('an item can be selected', () => {
-                expectDataItemsToBeInSource([testDataType.testItem.name])
-                selectItemByDoubleClick(testDataType.testItem.name)
-                expectItemToBeSelected(testDataType.testItem.name)
-            })
-            it(`group can be changed to "${testDataType.testGroup.name}"`, () => {
-                cy.intercept('GET', testDataType.endpoint.requestUrl).as(
-                    'request'
-                )
-                switchGroupTo(testDataType.testGroup.name)
-                cy.wait('@request').then(({ request, response }) => {
-                    expect(request.url).to.contain('page=1')
-                    expect(response.statusCode).to.eq(200)
-                })
-                expectSourceToNotBeLoading()
-                expectGroupSelectToBe(testDataType.testGroup.name)
-                expectSelectableDataItemsAmountToBe(
-                    testDataType.testGroup.itemAmount
-                )
-                expectItemToBeSelected(testDataType.testItem.name)
-            })
-            it('the first item can be selected', () => {
-                selectFirstDataItem()
-                expectSelectedItemsAmountToBe(2)
-                expectSelectableDataItemsAmountToBe(
-                    testDataType.testGroup.itemAmount - 1
-                )
-            })
-            if (['Data elements', 'Data sets'].includes(testDataType.name)) {
-                it('sub group select is visible', () => {
-                    expectSubGroupSelectToBeVisible()
-                    expectSubGroupSelectToBe(testDataType.defaultSubGroup.name)
-                })
+            // an item can be selected
+            expectDataItemsToBeInSource([testDataType.testItem.name])
+            selectItemByDoubleClick(testDataType.testItem.name)
+            expectItemToBeSelected(testDataType.testItem.name)
 
-                it(`sub group can be changed to "${testDataType.testSubGroup.name}"`, () => {
-                    cy.intercept(
-                        'GET',
-                        testDataType.testSubGroup.endpoint?.requestUrl ||
-                            testDataType.endpoint.requestUrl
-                    ).as('request')
-                    switchSubGroupTo(testDataType.testSubGroup.name)
-                    cy.wait('@request').then(({ request, response }) => {
+            // group can be changed
+            cy.log(`group: ${testDataType.testGroup.name}`)
+            cy.intercept('GET', testDataType.endpoint.requestUrl).as(
+                'requestWithGroup'
+            )
+            switchGroupTo(testDataType.testGroup.name)
+            cy.wait('@requestWithGroup').then(({ request, response }) => {
+                expect(request.url).to.contain('page=1')
+                expect(response.statusCode).to.eq(200)
+            })
+            expectSourceToNotBeLoading()
+            expectGroupSelectToBe(testDataType.testGroup.name)
+            cy.getBySel('data-dimension-transfer-sourceoptions').trigger(
+                'mouseover'
+            ) // seems to trigger Cypress to refretch the list and update the result so it's no longer stale
+            expectSelectableDataItemsAmountToBe(
+                testDataType.testGroup.itemAmount
+            )
+            expectItemToBeSelected(testDataType.testItem.name)
+
+            // the first item can be selected
+            selectFirstDataItem()
+            expectSelectedItemsAmountToBe(2)
+            expectSelectableDataItemsAmountToBe(
+                testDataType.testGroup.itemAmount - 1
+            )
+
+            if (['Data elements', 'Data sets'].includes(testDataType.name)) {
+                // sub group select is visible
+                expectSubGroupSelectToBeVisible()
+                expectSubGroupSelectToBe(testDataType.defaultSubGroup.name)
+
+                // sub group can be changed
+                cy.log(`sub group: ${testDataType.testSubGroup.name}`)
+                cy.intercept(
+                    'GET',
+                    testDataType.testSubGroup.endpoint?.requestUrl ||
+                        testDataType.endpoint.requestUrl
+                ).as('requestWithSubGroup')
+                switchSubGroupTo(testDataType.testSubGroup.name)
+                cy.wait('@requestWithSubGroup').then(
+                    ({ request, response }) => {
                         expect(request.url).to.contain('page=1')
                         expect(response.statusCode).to.eq(200)
                         expect(
@@ -364,92 +370,94 @@ describe('Data dimension', () => {
                                     testDataType.endpoint.responseBody
                             ].length
                         ).to.be.eq(testDataType.testSubGroup.itemAmount)
-                    })
-                    expectSourceToNotBeLoading()
-                    expectSubGroupSelectToBe(testDataType.testSubGroup.name)
-                    expectSelectableDataItemsAmountToBe(
-                        testDataType.testSubGroup.itemAmount
-                    )
-                    expectItemToBeSelected(testDataType.testItem.name)
-                })
-                it(`sub group can be changed back to "${testDataType.defaultSubGroup.name}"`, () => {
-                    cy.intercept('GET', testDataType.endpoint.requestUrl).as(
-                        'request'
-                    )
-                    switchSubGroupTo(testDataType.defaultSubGroup.name)
-                    cy.wait('@request').then(({ request, response }) => {
-                        expect(request.url).to.contain('page=1')
-                        expect(response.statusCode).to.eq(200)
-                    })
-                    expectSourceToNotBeLoading()
-                    expectSubGroupSelectToBe(testDataType.defaultSubGroup.name)
-                    expectSelectableDataItemsAmountToBe(
-                        testDataType.testGroup.itemAmount - 1
-                    )
-                    expectItemToBeSelected(testDataType.testItem.name)
-                })
-            }
-            it('search displays a correct error message', () => {
-                const testSearchTermWithNoMatch = 'nomatch'
+                    }
+                )
+                expectSourceToNotBeLoading()
+                expectSubGroupSelectToBe(testDataType.testSubGroup.name)
+                expectSelectableDataItemsAmountToBe(
+                    testDataType.testSubGroup.itemAmount
+                )
+                expectItemToBeSelected(testDataType.testItem.name)
+
+                // sub group can be changed back to default
+                cy.log(
+                    `default sub group: ${testDataType.defaultSubGroup.name}`
+                )
                 cy.intercept('GET', testDataType.endpoint.requestUrl).as(
                     'request'
                 )
-                inputSearchTerm(testSearchTermWithNoMatch)
+                switchSubGroupTo(testDataType.defaultSubGroup.name)
                 cy.wait('@request').then(({ request, response }) => {
                     expect(request.url).to.contain('page=1')
-                    expect(request.url).to.contain(testSearchTermWithNoMatch)
                     expect(response.statusCode).to.eq(200)
-                    expect(
-                        response.body[testDataType.endpoint.responseBody].length
-                    ).to.eq(0)
                 })
                 expectSourceToNotBeLoading()
-                expectEmptySourceMessageToBe(
-                    `No ${testDataType.name.toLowerCase()} found for "${testSearchTermWithNoMatch}"`
-                )
-            })
-            it('selection and filter can be reset', () => {
-                unselectAllItemsByButton()
-                expectNoDataItemsToBeSelected()
-                cy.intercept('GET', testDataType.endpoint.requestUrl).as(
-                    testDataType.endpoint.requestUrl
-                )
-                clearSearchTerm()
-                cy.wait(`@${testDataType.endpoint.requestUrl}`).then(
-                    ({ request, response }) => {
-                        expect(request.url).to.contain('page=1')
-                        expect(response.statusCode).to.eq(200)
-                    }
-                )
-                expectSourceToNotBeLoading()
+                expectSubGroupSelectToBe(testDataType.defaultSubGroup.name)
                 expectSelectableDataItemsAmountToBe(
-                    testDataType.testGroup.itemAmount
+                    testDataType.testGroup.itemAmount - 1
                 )
-                switchGroupToAll()
-                cy.wait(`@${testDataType.endpoint.requestUrl}`).then(
-                    ({ request, response }) => {
-                        expect(request.url).to.contain('page=1')
-                        expect(response.statusCode).to.eq(200)
-                    }
-                )
-                expectSourceToNotBeLoading()
-                expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
-                if (testDataType.endpoint.requestUrl !== DATA_ITEMS_URL) {
-                    cy.intercept('GET', DATA_ITEMS_URL).as('**/dataItems*')
-                }
-                switchDataTypeToAll()
-                cy.wait('@**/dataItems*').then(({ request, response }) => {
+                expectItemToBeSelected(testDataType.testItem.name)
+            }
+            // search displays a correct error message
+            const testSearchTermWithNoMatch = 'nomatch'
+            cy.intercept('GET', testDataType.endpoint.requestUrl).as(
+                'requestNoMatch'
+            )
+            inputSearchTerm(testSearchTermWithNoMatch)
+            cy.wait('@requestNoMatch').then(({ request, response }) => {
+                expect(request.url).to.contain('page=1')
+                expect(request.url).to.contain(testSearchTermWithNoMatch)
+                expect(response.statusCode).to.eq(200)
+                expect(
+                    response.body[testDataType.endpoint.responseBody].length
+                ).to.eq(0)
+            })
+            expectSourceToNotBeLoading()
+            expectEmptySourceMessageToBe(
+                `No ${testDataType.name.toLowerCase()} found for "${testSearchTermWithNoMatch}"`
+            )
+
+            // selection and filter can be reset
+            unselectAllItemsByButton()
+            expectNoDataItemsToBeSelected()
+            cy.intercept('GET', testDataType.endpoint.requestUrl).as(
+                testDataType.endpoint.requestUrl
+            )
+            clearSearchTerm()
+            cy.wait(`@${testDataType.endpoint.requestUrl}`).then(
+                ({ request, response }) => {
                     expect(request.url).to.contain('page=1')
                     expect(response.statusCode).to.eq(200)
-                    expect(response.body.dataItems.length).to.eq(PAGE_SIZE)
-                })
-                expectSourceToNotBeLoading()
-                expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
+                }
+            )
+            expectSourceToNotBeLoading()
+            expectSelectableDataItemsAmountToBe(
+                testDataType.testGroup.itemAmount
+            )
+            switchGroupToAll()
+            cy.wait(`@${testDataType.endpoint.requestUrl}`).then(
+                ({ request, response }) => {
+                    expect(request.url).to.contain('page=1')
+                    expect(response.statusCode).to.eq(200)
+                }
+            )
+            expectSourceToNotBeLoading()
+            expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
+            if (testDataType.endpoint.requestUrl !== DATA_ITEMS_URL) {
+                cy.intercept('GET', DATA_ITEMS_URL).as('**/dataItems*')
+            }
+            switchDataTypeToAll()
+            cy.wait('@**/dataItems*').then(({ request, response }) => {
+                expect(request.url).to.contain('page=1')
+                expect(response.statusCode).to.eq(200)
+                expect(response.body.dataItems.length).to.eq(PAGE_SIZE)
             })
-            it('modal is closed', () => {
-                clickDimensionModalHideButton()
-                expectDimensionModalToNotBeVisible()
-            })
+            expectSourceToNotBeLoading()
+            expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
+
+            // modal is closed
+            clickDimensionModalHideButton()
+            expectDimensionModalToNotBeVisible()
         })
     })
 })

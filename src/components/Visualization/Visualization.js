@@ -3,7 +3,6 @@ import debounce from 'lodash-es/debounce'
 import PropTypes from 'prop-types'
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { createSelector } from 'reselect'
 import { acSetChart } from '../../actions/chart.js'
 import { tSetCurrentFromUi } from '../../actions/current.js'
 import { acSetLoadError, acSetPluginLoading } from '../../actions/loader.js'
@@ -191,7 +190,7 @@ export class UnconnectedVisualization extends Component {
     render() {
         const {
             visualization,
-            userSettings,
+            displayProperty,
             error,
             isLoading,
             onLoadingComplete,
@@ -216,7 +215,7 @@ export class UnconnectedVisualization extends Component {
                     onError={this.onError}
                     onDrill={this.onDrill}
                     style={styles.chartCanvas}
-                    displayProperty={userSettings.displayProperty}
+                    displayProperty={displayProperty}
                 />
             </Fragment>
         )
@@ -226,6 +225,7 @@ export class UnconnectedVisualization extends Component {
 UnconnectedVisualization.propTypes = {
     addMetadata: PropTypes.func,
     addParentGraphMap: PropTypes.func,
+    displayProperty: PropTypes.string,
     error: PropTypes.object,
     isLoading: PropTypes.bool,
     rightSidebarOpen: PropTypes.bool,
@@ -233,24 +233,16 @@ UnconnectedVisualization.propTypes = {
     setCurrent: PropTypes.func,
     setLoadError: PropTypes.func,
     setUiItems: PropTypes.func,
-    userSettings: PropTypes.object,
     visualization: PropTypes.object,
     onLoadingComplete: PropTypes.func,
 }
-
-export const userSettingsSelector = createSelector(
-    [sGetSettingsDisplayProperty],
-    (displayProperty) => ({
-        displayProperty,
-    })
-)
 
 const mapStateToProps = (state) => ({
     visualization: sGetCurrent(state),
     rightSidebarOpen: sGetUiRightSidebarOpen(state),
     error: sGetLoadError(state),
     isLoading: sGetIsPluginLoading(state),
-    userSettings: userSettingsSelector(state),
+    displayProperty: sGetSettingsDisplayProperty(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({

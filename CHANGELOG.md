@@ -1,3 +1,16 @@
+# [100.4.0](https://github.com/dhis2/data-visualizer-app/compare/v100.3.1...v100.4.0) (2023-12-14)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (dev) ([65441f2](https://github.com/dhis2/data-visualizer-app/commit/65441f2b454a6e0f74567b8b7107cad63d594a04))
+* **translations:** sync translations from transifex (dev) ([005be59](https://github.com/dhis2/data-visualizer-app/commit/005be599f7dd4382f0086861d74064aedc49ac29))
+
+
+### Features
+
+* cumulative values in PT (DHIS2-5497) ([#2746](https://github.com/dhis2/data-visualizer-app/issues/2746)) ([bff69ab](https://github.com/dhis2/data-visualizer-app/commit/bff69ab9cec7685adad823197de8508e9ae83636)), closes [#1946](https://github.com/dhis2/data-visualizer-app/issues/1946)
+
 ## [100.3.1](https://github.com/dhis2/data-visualizer-app/compare/v100.3.0...v100.3.1) (2023-11-08)
 
 

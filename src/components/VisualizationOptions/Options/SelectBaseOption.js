@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { acSetUiOptions } from '../../../actions/ui.js'
-import { sGetUiOptions } from '../../../reducers/ui.js'
+import { sGetUiOption, sGetUiDisabledOption } from '../../../reducers/ui.js'
 import {
     tabSectionOption,
     tabSectionOptionToggleable,
@@ -41,7 +41,7 @@ export const UnconnectedSelectBaseOption = ({
                     dataTest={`${dataTest}-checkbox`}
                 />
             ) : null}
-            {(!toggleable || checked) && !disabled ? (
+            {!toggleable || checked ? (
                 <div
                     className={
                         toggleable ? tabSectionOptionToggleable.className : ''
@@ -56,6 +56,7 @@ export const UnconnectedSelectBaseOption = ({
                         inputWidth="280px"
                         dense
                         dataTest={`${dataTest}-select`}
+                        disabled={disabled}
                     >
                         {option.items.map(({ value, label }) => (
                             <SingleSelectOption
@@ -84,7 +85,11 @@ UnconnectedSelectBaseOption.propTypes = {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    value: sGetUiOptions(state)[ownProps.option.name],
+    disabled: Boolean(sGetUiDisabledOption(state, ownProps.option)),
+    helpText:
+        sGetUiDisabledOption(state, ownProps.option)?.helpText ||
+        ownProps.helpText,
+    value: sGetUiOption(state, ownProps.option),
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
