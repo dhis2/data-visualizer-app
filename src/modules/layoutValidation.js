@@ -8,6 +8,7 @@ import {
     VIS_TYPE_SINGLE_VALUE,
     VIS_TYPE_PIVOT_TABLE,
     VIS_TYPE_SCATTER,
+    VIS_TYPE_OUTLIER_TABLE,
     getPredefinedDimensionProp,
     dimensionIsValid,
     layoutGetDimension,
@@ -128,6 +129,18 @@ const validateScatterLayout = (layout) => {
     )
 }
 
+const validateOutlierTableLayout = (layout) => {
+    validateDimension(
+        layoutGetDimension(layout, DIMENSION_ID_DATA),
+        new NoDataError(layout.type)
+    )
+
+    validateDimension(
+        layoutGetDimension(layout, DIMENSION_ID_PERIOD),
+        new NoPeriodError(layout.type)
+    )
+}
+
 export const validateLayout = (layout) => {
     switch (layout.type) {
         case VIS_TYPE_PIE:
@@ -142,6 +155,8 @@ export const validateLayout = (layout) => {
             return validatePivotTableLayout(layout)
         case VIS_TYPE_SCATTER:
             return validateScatterLayout(layout)
+        case VIS_TYPE_OUTLIER_TABLE:
+            return validateOutlierTableLayout(layout)
         default:
             return validateDefaultLayout(layout)
     }

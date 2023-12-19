@@ -14,6 +14,7 @@ import {
     VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
     VIS_TYPE_SINGLE_VALUE,
     VIS_TYPE_SCATTER,
+    VIS_TYPE_OUTLIER_TABLE,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import { DEFAULT_CURRENT } from '../reducers/current.js'
@@ -36,6 +37,7 @@ export const visTypes = [
     VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
     VIS_TYPE_SINGLE_VALUE,
     VIS_TYPE_SCATTER,
+    VIS_TYPE_OUTLIER_TABLE,
 ]
 
 export const getVisTypeDescriptions = () => ({
@@ -83,6 +85,9 @@ export const getVisTypeDescriptions = () => ({
     ),
     [VIS_TYPE_SCATTER]: i18n.t(
         'View the relationship between two data items at a place or time. Recommended for finding outliers.'
+    ),
+    [VIS_TYPE_OUTLIER_TABLE]: i18n.t(
+        'Automatically identify extreme outliers in the data'
     ),
 })
 
