@@ -1,13 +1,16 @@
 import {
     Analytics,
-    VIS_TYPE_PIVOT_TABLE,
     layoutGetDimensionItems,
+    VIS_TYPE_PIVOT_TABLE,
     DIMENSION_ID_PERIOD,
     DAILY,
     WEEKLY,
     WEEKS_THIS_YEAR,
 } from '@dhis2/analytics'
-import { getRelativePeriodTypeUsed } from '../modules/analytics.js'
+import {
+    getRelativePeriodTypeUsed,
+    getOutlierDetectionHeadersMap,
+} from '../modules/analytics.js'
 
 const periodId = DIMENSION_ID_PERIOD
 
@@ -20,6 +23,46 @@ export const apiFetchAnalytics = async (dataEngine, visualization, options) => {
         .withIncludeNumDen(visualization.type === VIS_TYPE_PIVOT_TABLE)
 
     const rawResponse = await analyticsEngine.aggregate.get(req)
+
+    return [new analyticsEngine.response(rawResponse)]
+}
+
+export const apiFetchAnalyticsForOutlierTable = async (
+    dataEngine,
+    visualization,
+    options
+) => {
+    const headersMap = getOutlierDetectionHeadersMap(options)
+
+    const parameters = { ...options }
+
+    const columns = visualization.columns || []
+    const headers = []
+
+    columns.forEach(({ dimension, items }) => {
+        parameters[dimension] = items.map(({ id }) => id).join(',')
+
+        headers.push(headersMap[dimension])
+    })
+
+    // TODO
+    //    // additional headers depending on the outlier method option
+    //    if (options.outlierAnalysis.outlierMethod === 'MOD_Z_SCORE') {
+    //        headers.push('modifiedzscore', 'median', 'medianabsdeviation')
+    //    } else if (options.outlierAnalysis.outlierMethod === 'Z_SCORE') {
+    //        headers.push('zscore', 'mean', 'stddev')
+    //    }
+
+    // XXX check order for these headers
+    headers.push('value', 'lowerbound', 'upperbound')
+
+    parameters.headers = headers.join(',')
+
+    const analyticsEngine = Analytics.getAnalytics(dataEngine)
+
+    const req = new analyticsEngine.request().withParameters(parameters)
+
+    const rawResponse = await analyticsEngine.aggregate.getOutliersData(req)
 
     return [new analyticsEngine.response(rawResponse)]
 }

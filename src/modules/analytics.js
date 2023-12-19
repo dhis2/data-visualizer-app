@@ -1,4 +1,27 @@
-import { getRelativePeriodsOptionsById, WEEKLY, DAILY } from '@dhis2/analytics'
+import {
+    getRelativePeriodsOptionsById,
+    DIMENSION_ID_DATA,
+    DIMENSION_ID_ORGUNIT,
+    DIMENSION_ID_PERIOD,
+    WEEKLY,
+    DAILY,
+} from '@dhis2/analytics'
+
+export const outlierDetectionHeadersMap = {
+    [DIMENSION_ID_DATA]: 'dxname',
+    [DIMENSION_ID_ORGUNIT]: 'ouname',
+    [DIMENSION_ID_PERIOD]: 'pename',
+}
+
+export const getOutlierDetectionHeadersMap = ({ showHierarchy }) => {
+    const map = Object.assign({}, outlierDetectionHeadersMap)
+
+    if (showHierarchy) {
+        map[DIMENSION_ID_ORGUNIT] = 'ounamehierarchy'
+    }
+
+    return map
+}
 
 export const computeYoYMatrix = (responses, relativePeriodTypeUsed) => {
     const periodGroups = responses.reduce((list, res) => {
