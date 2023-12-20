@@ -7,14 +7,14 @@ import {
     DAILY,
 } from '@dhis2/analytics'
 
-export const outlierDetectionHeadersMap = {
+export const outlierTableHeadersMap = {
     [DIMENSION_ID_DATA]: 'dxname',
     [DIMENSION_ID_ORGUNIT]: 'ouname',
     [DIMENSION_ID_PERIOD]: 'pename',
 }
 
-export const getOutlierDetectionHeadersMap = ({ showHierarchy }) => {
-    const map = Object.assign({}, outlierDetectionHeadersMap)
+export const getOutlierTableHeadersMap = ({ showHierarchy }) => {
+    const map = Object.assign({}, outlierTableHeadersMap)
 
     if (showHierarchy) {
         map[DIMENSION_ID_ORGUNIT] = 'ounamehierarchy'

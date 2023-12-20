@@ -1,4 +1,5 @@
 import {
+    VIS_TYPE_OUTLIER_TABLE,
     VIS_TYPE_PIVOT_TABLE,
     apiFetchOrganisationUnitLevels,
     convertOuLevelsToUids,
@@ -22,6 +23,7 @@ import { fetchData } from '../../modules/fetchData.js'
 import { getOptionsFromVisualization } from '../../modules/options.js'
 import ChartPlugin from './ChartPlugin.js'
 import ContextualMenu from './ContextualMenu.js'
+import OutlierTablePlugin from './OutlierTablePlugin.js'
 import PivotPlugin from './PivotPlugin.js'
 import styles from './styles/VisualizationPlugin.module.css'
 
@@ -384,42 +386,63 @@ export const VisualizationPlugin = ({
         }
     }
 
+    const renderPlugin = () => {
+        if (
+            !fetchResult.visualization.type ||
+            fetchResult.visualization.type === VIS_TYPE_PIVOT_TABLE
+        ) {
+            return (
+                <PivotPlugin
+                    visualization={convertOuLevelsToUids(
+                        ouLevels,
+                        fetchResult.visualization
+                    )}
+                    responses={fetchResult.responses}
+                    legendSets={legendSets}
+                    onToggleContextualMenu={
+                        onDrill ? onToggleContextualMenu : undefined
+                    }
+                    id={id}
+                    style={transformedStyle}
+                />
+            )
+        } else if (fetchResult.visualization.type === VIS_TYPE_OUTLIER_TABLE) {
+            return (
+                <OutlierTablePlugin
+                    visualization={convertOuLevelsToUids(
+                        ouLevels,
+                        fetchResult.visualization
+                    )}
+                    responses={fetchResult.responses}
+                    legendSets={legendSets}
+                    id={id}
+                    style={transformedStyle}
+                />
+            )
+        } else {
+            return (
+                <ChartPlugin
+                    visualization={convertOuLevelsToUids(
+                        ouLevels,
+                        fetchResult.visualization
+                    )}
+                    responses={fetchResult.responses}
+                    extraOptions={fetchResult.extraOptions}
+                    legendSets={legendSets}
+                    onToggleContextualMenu={
+                        onDrill ? onToggleContextualMenu : undefined
+                    }
+                    id={forDashboard ? renderId : id}
+                    onChartGenerated={onChartGenerated}
+                    style={transformedStyle}
+                />
+            )
+        }
+    }
+
     return (
         <div className={styles.container} ref={containerCallbackRef}>
-            <div className={styles.chartWrapper}>
-                {!fetchResult.visualization.type ||
-                fetchResult.visualization.type === VIS_TYPE_PIVOT_TABLE ? (
-                    <PivotPlugin
-                        visualization={convertOuLevelsToUids(
-                            ouLevels,
-                            fetchResult.visualization
-                        )}
-                        responses={fetchResult.responses}
-                        legendSets={legendSets}
-                        onToggleContextualMenu={
-                            onDrill ? onToggleContextualMenu : undefined
-                        }
-                        id={id}
-                        style={transformedStyle}
-                    />
-                ) : (
-                    <ChartPlugin
-                        visualization={convertOuLevelsToUids(
-                            ouLevels,
-                            fetchResult.visualization
-                        )}
-                        responses={fetchResult.responses}
-                        extraOptions={fetchResult.extraOptions}
-                        legendSets={legendSets}
-                        onToggleContextualMenu={
-                            onDrill ? onToggleContextualMenu : undefined
-                        }
-                        id={forDashboard ? renderId : id}
-                        onChartGenerated={onChartGenerated}
-                        style={transformedStyle}
-                    />
-                )}
-            </div>
+            <div className={styles.chartWrapper}>{renderPlugin()}</div>
             {getLegendKey()}
             {contextualMenuRect && (
                 <Layer

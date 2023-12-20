@@ -8,8 +8,15 @@ import {
     WEEKS_THIS_YEAR,
 } from '@dhis2/analytics'
 import {
+    METHOD_MODIFIED_Z_SCORE,
+    METHOD_STANDARD_Z_SCORE,
+    OUTLIER_METHOD_PROP,
+    OUTLIER_THRESHOLD_PROP,
+} from '../components/VisualizationOptions/Options/OutliersForOutlierTable.js'
+import { OUTLIER_MAX_RESULTS_PROP } from '../components/VisualizationOptions/Options/OutliersMaxResults.js'
+import {
     getRelativePeriodTypeUsed,
-    getOutlierDetectionHeadersMap,
+    getOutlierTableHeadersMap,
 } from '../modules/analytics.js'
 
 const periodId = DIMENSION_ID_PERIOD
@@ -32,9 +39,18 @@ export const apiFetchAnalyticsForOutlierTable = async (
     visualization,
     options
 ) => {
-    const headersMap = getOutlierDetectionHeadersMap(options)
+    const headersMap = getOutlierTableHeadersMap(options)
 
-    const parameters = { ...options }
+    const parameters = {
+        ...options,
+        maxResults: visualization.outlierAnalysis[OUTLIER_MAX_RESULTS_PROP],
+        algorithm:
+            visualization.outlierAnalysis[OUTLIER_METHOD_PROP] ===
+            METHOD_STANDARD_Z_SCORE
+                ? 'Z_SCORE'
+                : visualization.outlierAnalysis[OUTLIER_METHOD_PROP],
+        threshold: visualization.outlierAnalysis[OUTLIER_THRESHOLD_PROP],
+    }
 
     const columns = visualization.columns || []
     const headers = []
@@ -45,16 +61,17 @@ export const apiFetchAnalyticsForOutlierTable = async (
         headers.push(headersMap[dimension])
     })
 
-    // TODO
-    //    // additional headers depending on the outlier method option
-    //    if (options.outlierAnalysis.outlierMethod === 'MOD_Z_SCORE') {
-    //        headers.push('modifiedzscore', 'median', 'medianabsdeviation')
-    //    } else if (options.outlierAnalysis.outlierMethod === 'Z_SCORE') {
-    //        headers.push('zscore', 'mean', 'stddev')
-    //    }
+    headers.push('value')
 
-    // XXX check order for these headers
-    headers.push('value', 'lowerbound', 'upperbound')
+    switch (visualization.outlierAnalysis.outlierMethod) {
+        case METHOD_MODIFIED_Z_SCORE:
+            headers.push('median', 'modifiedzscore', 'medianabsdeviation')
+            break
+        case METHOD_STANDARD_Z_SCORE:
+            headers.push('mean', 'zscore', 'stddev')
+    }
+
+    headers.push('lowerbound', 'upperbound')
 
     parameters.headers = headers.join(',')
 

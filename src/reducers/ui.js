@@ -16,6 +16,7 @@ import {
     FONT_STYLE_VERTICAL_AXIS_TITLE,
     FONT_STYLE_REGRESSION_LINE_LABEL,
     USER_ORG_UNIT,
+    VIS_TYPE_OUTLIER_TABLE,
 } from '@dhis2/analytics'
 import objectClean from 'd2-utilizr/lib/objectClean'
 import castArray from 'lodash-es/castArray'
@@ -23,6 +24,8 @@ import {
     TITLE_AUTO,
     TITLE_CUSTOM,
 } from '../components/VisualizationOptions/Options/AxisTitle.js'
+import { DEFAULT_STATE as OUTLIER_METHOD_THRESHOLD_DEFAULT_STATE } from '../components/VisualizationOptions/Options/OutliersForOutlierTable.js'
+import { DEFAULT_STATE as OUTLIER_MAX_RESULTS_DEFAULT_STATE } from '../components/VisualizationOptions/Options/OutliersMaxResults.js'
 import {
     getFilteredLayout,
     getInverseLayout,
@@ -99,7 +102,6 @@ export const DEFAULT_UI = {
     parentGraphMap: {},
     activeModalDialog: null,
     rightSidebarOpen: false,
-    outlierAnalysis: null,
 }
 
 export const PRESELECTED_YEAR_OVER_YEAR_SERIES = ['THIS_YEAR', 'LAST_YEAR']
@@ -134,12 +136,32 @@ const getPreselectedUi = (options) => {
     }
 }
 
+const getDefaultUiByType = (ui) => {
+    switch (ui.type) {
+        case VIS_TYPE_OUTLIER_TABLE: {
+            return {
+                ...ui,
+                options: {
+                    ...ui.options,
+                    outlierAnalysis: {
+                        ...(ui.options.outlierAnalysis ?? {
+                            ...OUTLIER_METHOD_THRESHOLD_DEFAULT_STATE,
+                            ...OUTLIER_MAX_RESULTS_DEFAULT_STATE,
+                        }),
+                    },
+                },
+            }
+        }
+        default: {
+            return { ...ui }
+        }
+    }
+}
+
 export default (state = DEFAULT_UI, action) => {
     switch (action.type) {
         case SET_UI: {
-            return {
-                ...action.value,
-            }
+            return getDefaultUiByType(action.value)
         }
         case SET_UI_FROM_VISUALIZATION: {
             return getAdaptedUiByType(
