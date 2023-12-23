@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-12-19T14:19:00.918Z\n"
-"PO-Revision-Date: 2023-12-19T14:19:00.918Z\n"
+"POT-Creation-Date: 2024-01-24T10:18:06.443Z\n"
+"PO-Revision-Date: 2024-01-24T10:18:06.443Z\n"
 
 msgid "All items"
 msgstr "All items"
@@ -581,6 +581,9 @@ msgstr ""
 msgid "Outlier detection method"
 msgstr "Outlier detection method"
 
+msgid "Max results"
+msgstr "Max results"
+
 msgid "Organisation unit"
 msgstr "Organisation unit"
 
@@ -705,6 +708,9 @@ msgstr "Change org unit"
 
 msgid "{{level}} level in {{orgunit}}"
 msgstr "{{level}} level in {{orgunit}}"
+
+msgid "Sort descending by {{column}} and update"
+msgstr "Sort descending by {{column}} and update"
 
 msgid "Open as Map"
 msgstr "Open as Map"
