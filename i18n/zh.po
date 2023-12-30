@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-09-06T13:41:14.540Z\n"
+"POT-Creation-Date: 2023-11-13T12:11:28.959Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2023\n"
 "Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -379,6 +379,9 @@ msgstr "包括累计"
 msgid "Cumulative values"
 msgstr "汇总值"
 
+msgid "Accumulate cell values along rows"
+msgstr "沿行累积单元格的值"
+
 msgid "Show data item icon"
 msgstr "显示数据项图标"
 
@@ -694,6 +697,9 @@ msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
 msgstr "在世界地图上直观地绘制数据。数据元素使用单独的地图图层。"
 
+msgid "Not supported when using cumulative values"
+msgstr "使用累积值时不支持"
+
 msgid "No data available"
 msgstr "没有值"
 
@@ -975,6 +981,9 @@ msgstr "线"
 
 msgid "Totals"
 msgstr "总共"
+
+msgid "Totals are not supported when using cumulative values"
+msgstr "使用累积值时不支持总计"
 
 msgid "Vertical (y) axis {{axisId}}"
 msgstr "垂直 (y) 轴 {{axisId}}"
