@@ -845,6 +845,16 @@ msgstr ""
 msgid "Something went wrong"
 msgstr "Something went wrong"
 
+msgid ""
+"There's a problem with the generated analytics. Contact a system "
+"administrator."
+msgstr ""
+"There's a problem with the generated analytics. Contact a system "
+"administrator."
+
+msgid "There's a syntax problem with the analytics request."
+msgstr "There's a syntax problem with the analytics request."
+
 msgid "or"
 msgstr "or"
 
