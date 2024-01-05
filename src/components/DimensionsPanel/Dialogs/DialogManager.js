@@ -7,6 +7,7 @@ import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
+    getDimensionMaxNumberOfItems,
     getAxisMaxNumberOfItems,
     getDisplayNameByVisType,
     filterOutPredefinedDimensions,
@@ -272,21 +273,27 @@ export class DialogManager extends Component {
             const visType = type
             const numberOfItems = selectedItems.length
 
+            const dimensionMaxNumberOfItems = getDimensionMaxNumberOfItems(
+                visType,
+                dialogId
+            )
+
             const axisMaxNumberOfItems = getAxisMaxNumberOfItems(
                 visType,
                 axisId
             )
 
-            const hasMaxNumberOfItemsRule = !!axisMaxNumberOfItems
+            const hasMaxNumberOfItemsRule = Boolean(
+                axisMaxNumberOfItems || dimensionMaxNumberOfItems
+            )
+            const maxNumberOfItems =
+                axisMaxNumberOfItems || dimensionMaxNumberOfItems
 
-            if (
-                hasMaxNumberOfItemsRule &&
-                numberOfItems > axisMaxNumberOfItems
-            ) {
+            if (hasMaxNumberOfItemsRule && numberOfItems > maxNumberOfItems) {
                 infoBoxMessage =
-                    axisMaxNumberOfItems === 1
+                    maxNumberOfItems === 1
                         ? i18n.t(
-                              `'{{visualizationType}}' is intended to show a single data item. Only the first item will be used and saved.`,
+                              `'{{visualizationType}}' is intended to show a single item for this type of dimension. Only the first item will be used and saved.`,
                               {
                                   visualizationType:
                                       getDisplayNameByVisType(visType),
@@ -297,12 +304,12 @@ export class DialogManager extends Component {
                               {
                                   visualiationType:
                                       getDisplayNameByVisType(visType),
-                                  maxNumber: axisMaxNumberOfItems,
+                                  maxNumber: maxNumberOfItems,
                               }
                           )
 
                 selectedItems.forEach((item, index) => {
-                    item.isActive = index < axisMaxNumberOfItems
+                    item.isActive = index < maxNumberOfItems
                 })
             } else if (isScatterAttribute(dialogId) && numberOfItems > 1) {
                 infoBoxMessage = i18n.t(
@@ -380,6 +387,7 @@ export class DialogManager extends Component {
                 content = (
                     <PeriodDimension
                         selectedPeriods={selectedItems}
+                        infoBoxMessage={infoBoxMessage}
                         onSelect={dimensionProps.onSelect}
                         excludedPeriodTypes={getExcludedPeriodTypes(
                             this.props.settings

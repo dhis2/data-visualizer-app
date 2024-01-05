@@ -6,6 +6,7 @@ import {
     AXIS_ID_FILTERS,
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
+    VIS_TYPE_OUTLIER_TABLE,
     VIS_TYPE_SINGLE_VALUE,
     VIS_TYPE_PIE,
     dimensionCreate,
@@ -136,6 +137,33 @@ export const getItemsByDimensionFromUi = (ui) => {
                 : ui.itemsByDimension[key])
     )
     return result
+}
+
+export const getOutlierTableCurrentFromUi = (state, value) => {
+    const ui = {
+        ...value,
+        layout: {
+            ...getAdaptedUiLayoutByType(value.layout, VIS_TYPE_OUTLIER_TABLE),
+        },
+        itemsByDimension: getItemsByDimensionFromUi(value),
+    }
+
+    const axesFromUi = getAxesFromUi(ui)
+
+    // only save the first pe item
+    const peItems = layoutGetDimensionItems(axesFromUi, DIMENSION_ID_PERIOD)
+    const outlierTableAxesFromUi = layoutReplaceDimension(
+        axesFromUi,
+        DIMENSION_ID_PERIOD,
+        [peItems[0]]
+    )
+
+    return {
+        ...state,
+        [BASE_FIELD_TYPE]: ui.type,
+        ...outlierTableAxesFromUi,
+        ...getOptionsFromUi(ui),
+    }
 }
 
 export const getSingleValueCurrentFromUi = (state, value) => {

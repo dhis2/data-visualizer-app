@@ -1,8 +1,10 @@
 // TODO: Refactor chip to contain less logic
 import {
     getPredefinedDimensionProp,
+    getDimensionMaxNumberOfItems,
     getAxisMaxNumberOfItems,
     hasAxisTooManyItems,
+    hasDimensionTooManyItems,
     getDisplayNameByVisType,
     getAxisNameByLayoutType,
     getLayoutTypeByVisType,
@@ -62,7 +64,9 @@ const Chip = ({
     const isSplitAxis =
         type === VIS_TYPE_SCATTER && dimensionId === DIMENSION_ID_DATA
 
-    const getMaxNumberOfItems = () => getAxisMaxNumberOfItems(type, axisId)
+    const getMaxNumberOfItems = () =>
+        getAxisMaxNumberOfItems(type, axisId) ||
+        getDimensionMaxNumberOfItems(type, dimensionId)
 
     const handleClick = () => {
         if (!getPredefinedDimensionProp(dimensionId, DIMENSION_PROP_NO_ITEMS)) {
@@ -158,7 +162,8 @@ const Chip = ({
             <span style={isSplitAxis ? styles.label : {}}>
                 {renderChipLabelSuffix()}
             </span>
-            {hasAxisTooManyItems(type, axisId, items.length) &&
+            {(hasAxisTooManyItems(type, axisId, items.length) ||
+                hasDimensionTooManyItems(type, dimensionId, items.length)) &&
                 WarningIconWrapper}
             {isLocked && LockIconWrapper}
         </>
