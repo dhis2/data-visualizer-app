@@ -16,6 +16,7 @@ import {
     VIS_TYPE_SCATTER,
     VIS_TYPE_OUTLIER_TABLE,
 } from '@dhis2/analytics'
+import { useConfig } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { DEFAULT_CURRENT } from '../reducers/current.js'
 import { DEFAULT_VISUALIZATION } from '../reducers/visualization.js'
@@ -142,4 +143,15 @@ export const getDimensionMetadataFromVisualization = (visualization) => {
     })
 
     return metadata
+}
+
+export const useVisTypesFilterByVersion = () => {
+    const { serverVersion } = useConfig()
+
+    const filterVisTypesByVersion = (visType) =>
+        serverVersion.minor < 41 && visType === VIS_TYPE_OUTLIER_TABLE
+            ? false
+            : true
+
+    return filterVisTypesByVersion
 }
