@@ -335,6 +335,28 @@ export class ValueTypeError extends VisualizationError {
     }
 }
 
+export class AnalyticsGenerationError extends VisualizationError {
+    constructor() {
+        super(
+            GenericError,
+            i18n.t('Something went wrong'),
+            i18n.t(
+                "There's a problem with the generated analytics. Contact a system administrator."
+            )
+        )
+    }
+}
+
+export class AnalyticsRequestError extends VisualizationError {
+    constructor() {
+        super(
+            GenericError,
+            i18n.t('Something went wrong'),
+            i18n.t("There's a syntax problem with the analytics request.")
+        )
+    }
+}
+
 export const genericErrorTitle = i18n.t('Something went wrong')
 
 const getAvailableAxesDescription = (visType) => {
