@@ -5,7 +5,6 @@ module.exports = {
     setupFilesAfterEnv: ['./config/testSetup.js'],
 
     testRunner: 'jest-circus/runner',
-    testRegex: ['/src/modules/__tests__/.*.spec.js?$'],
     reporters: [
         'default',
         [
