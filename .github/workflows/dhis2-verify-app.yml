@@ -82,6 +82,7 @@ jobs:
                   REPORTPORTAL_PROJECT: ${{ vars.REPORTPORTAL_PROJECT }}
 
     call-workflow-e2e-prod:
+        if: "!contains(github.event.head_commit.message, '[skip ci]')"
         needs: [build, lint, test]
         uses: dhis2/workflows/.github/workflows/analytics-e2e-tests-prod.yml@master
         secrets:
@@ -133,13 +134,70 @@ jobs:
         if: |
             failure() &&
             !cancelled() &&
-            github.ref == 'refs/heads/master'
+            github.ref == 'refs/heads/master' &&
+            contains(github.event.head_commit.message, 'chore(release)')
         steps:
+            - name: Checkout code
+              uses: actions/checkout@master
+
+            - name: Extract version
+              id: extract_version
+              uses: Saionaro/extract-package-version@v1.2.1
+
             - name: Send failure message to analytics-internal-bot slack channel
               id: slack
               uses: slackapi/slack-github-action@v1.23.0
               with:
                   channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
-                  slack-message: ':small_red_triangle_down: Data-visualizer-app release <https://github.com/dhis2/data-visualizer-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Afailure>'
+                  payload: |
+                      {
+                        "text": ":small_red_triangle_down: :data-visualizer-app: DV release <https://github.com/dhis2/data-visualizer-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Afailure|failed>",
+                        "blocks": [
+                          {
+                            "type": "section",
+                            "text": {
+                              "type": "mrkdwn",
+                              "text": ":small_red_triangle_down: :data-visualizer-app: DV release <https://github.com/dhis2/maps-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Afailure|failed>"
+                            }
+                          }
+                        ]
+                      }
+              env:
+                  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
+    report-release-success:
+        runs-on: ubuntu-latest
+        needs: release
+        if: |
+            success() &&
+            !cancelled() &&
+            github.ref == 'refs/heads/master' &&
+            contains(github.event.head_commit.message, 'chore(release)')
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@master
+
+            - name: Extract version
+              id: extract_version
+              uses: Saionaro/extract-package-version@v1.2.1
+
+            - name: Send success message to analytics-internal-bot slack channel
+              id: slack
+              uses: slackapi/slack-github-action@v1.23.0
+              with:
+                  channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
+                  payload: |
+                      {
+                        "text": ":large_green_circle: :data-visualizer-app: :tada: DV app release succeeded for version: ${{ steps.extract_version.outputs.version }}",
+                        "blocks": [
+                          {
+                            "type": "section",
+                            "text": {
+                              "type": "mrkdwn",
+                              "text": ":large_green_circle: :data-visualizer-app: :tada: DV version ${{ steps.extract_version.outputs.version }} released <https://github.com/dhis2/data-visualizer-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Asuccess|successfully>"
+                            }
+                          }
+                        ]
+                      }
               env:
                   SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
