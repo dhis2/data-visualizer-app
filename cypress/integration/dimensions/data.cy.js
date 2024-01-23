@@ -301,10 +301,10 @@ describe('Data dimension', () => {
             if (testDataType.endpoint.hasMultiplePages) {
                 // more items are fetched when scrolling down
                 cy.intercept('GET', testDataType.endpoint.requestUrl).as(
-                    'request'
+                    'requestSecondPage'
                 )
                 scrollSourceToBottom()
-                cy.wait('@request').then(({ request, response }) => {
+                cy.wait('@requestSecondPage').then(({ request, response }) => {
                     expect(request.url).to.contain('page=2')
                     expect(response.statusCode).to.eq(200)
                     expect(
@@ -384,13 +384,15 @@ describe('Data dimension', () => {
                     `default sub group: ${testDataType.defaultSubGroup.name}`
                 )
                 cy.intercept('GET', testDataType.endpoint.requestUrl).as(
-                    'request'
+                    'requestDefaultSubGroup'
                 )
                 switchSubGroupTo(testDataType.defaultSubGroup.name)
-                cy.wait('@request').then(({ request, response }) => {
-                    expect(request.url).to.contain('page=1')
-                    expect(response.statusCode).to.eq(200)
-                })
+                cy.wait('@requestDefaultSubGroup').then(
+                    ({ request, response }) => {
+                        expect(request.url).to.contain('page=1')
+                        expect(response.statusCode).to.eq(200)
+                    }
+                )
                 expectSourceToNotBeLoading()
                 expectSubGroupSelectToBe(testDataType.defaultSubGroup.name)
                 expectSelectableDataItemsAmountToBe(

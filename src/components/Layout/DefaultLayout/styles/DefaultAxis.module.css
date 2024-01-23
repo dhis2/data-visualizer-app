@@ -4,7 +4,7 @@
     align-items: flex-start;
     align-content: flex-start;
     flex-wrap: wrap;
-    min-height: 32px;
+    min-height: 26px;
 }
 
 .content > div {

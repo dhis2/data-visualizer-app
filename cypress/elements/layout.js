@@ -1,3 +1,5 @@
+import { EXTENDED_TIMEOUT } from '../support/utils.js'
+
 const yoyCategorySelectEl = 'yoy-layout-rows-select'
 const youCategorySelectOptionEl = 'yoy-layout-rows-select-option'
 const chipEl = 'layout-chip'
@@ -6,7 +8,7 @@ const chipMenuRemoveOptionEl = 'layout-chip-menu-dimension-menu-item-remove'
 const chipMenuActionOptionEl = 'layout-chip-menu-dimension-menu-item-action'
 const chipMenuSubMenuOptionEl =
     'layout-chip-menu-dimension-menu-item-DIMENSIONID-menu'
-const chipSelectedBackgroundColor = 'rgb(178, 223, 219)'
+const chipSelectedBackgroundColor = 'rgb(224, 242, 241)'
 
 const getAxisEl = (axisId) => `${axisId}-axis`
 const getDimensionChipEl = (dimensionId) => `${chipEl}-${dimensionId}`
@@ -54,13 +56,14 @@ export const expectDimensionToHaveItemAmount = (
         itemAmount
             ? cy
                   .getBySel(getDimensionChipEl(dimensionId))
-                  .contains(`${itemAmount} selected`)
-                  .should('have.length', 1)
-                  .and('be.visible')
+                  .parent()
+                  .findBySelLike('chip-suffix')
+                  .contains(itemAmount, EXTENDED_TIMEOUT)
             : cy
                   .getBySel(getDimensionChipEl(dimensionId))
-                  .contains(`selected`)
-                  .should('have.length', 0)
+                  .parent()
+                  .findBySelLike('chip-suffix')
+                  .should('not.exist')
     } else {
         throw new Error('dimensionId not provided')
     }
@@ -69,9 +72,9 @@ export const expectDimensionToHaveItemAmount = (
 export const expectDimensionToHaveAllItemsSelected = (dimensionId) =>
     cy
         .getBySel(getDimensionChipEl(dimensionId))
-        .contains(`: All`)
-        .should('have.length', 1)
-        .and('be.visible')
+        .parent()
+        .findBySelLike('chip-suffix')
+        .contains('all', EXTENDED_TIMEOUT)
 
 export const expectDimensionOnAxisToHaveLockIcon = (dimensionId, axisId) =>
     cy
