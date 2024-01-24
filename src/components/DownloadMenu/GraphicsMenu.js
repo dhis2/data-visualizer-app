@@ -27,7 +27,7 @@ export const GraphicsMenu = ({ hoverable, onDownload }) => {
                 icon={<IconImage24 color={colors.grey600} />}
                 label={i18n.t('Image (.png)')}
                 onClick={() => onDownload({ format: FILE_FORMAT_PNG })}
-                className="download-menuitemn"
+                className="push-analytics-download-menu-item"
             />
             <MenuItemComponent
                 key="pdf"
