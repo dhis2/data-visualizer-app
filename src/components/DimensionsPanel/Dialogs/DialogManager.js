@@ -4,9 +4,11 @@ import {
     PeriodDimension,
     OrgUnitDimension,
     ouIdHelper,
+    dataTypeMap,
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
+    DIMENSION_TYPE_DATA_ELEMENT,
     getDimensionMaxNumberOfItems,
     getAxisMaxNumberOfItems,
     getDisplayNameByVisType,
@@ -22,6 +24,7 @@ import {
     MONTHLY,
     BIMONTHLY,
     ALL_DYNAMIC_DIMENSION_ITEMS,
+    VIS_TYPE_OUTLIER_TABLE,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import {
@@ -259,7 +262,7 @@ export class DialogManager extends Component {
     }
 
     renderDialogContent = () => {
-        const { displayNameProperty, dialogId, type } = this.props
+        const { displayNameProperty, dialogId, type: visType } = this.props
 
         const dimensionProps = {
             onSelect: this.selectUiItems,
@@ -270,7 +273,6 @@ export class DialogManager extends Component {
             let infoBoxMessage
 
             const axisId = this.props.getAxisIdByDimensionId(dialogId)
-            const visType = type
             const numberOfItems = selectedItems.length
 
             const dimensionMaxNumberOfItems = getDimensionMaxNumberOfItems(
@@ -324,6 +326,16 @@ export class DialogManager extends Component {
                 dialogId === DIMENSION_ID_DATA ||
                 isScatterAttribute(dialogId)
             ) {
+                const dataTypes = Object.values(dataTypeMap).filter(
+                    ({ id }) => {
+                        if (visType === VIS_TYPE_OUTLIER_TABLE) {
+                            return id === DIMENSION_TYPE_DATA_ELEMENT
+                        }
+
+                        return true
+                    }
+                )
+
                 const onSelect = isScatterAttribute(dialogId)
                     ? (defaultProps) =>
                           this.selectUiItems({
@@ -343,11 +355,13 @@ export class DialogManager extends Component {
                 }
                 const dimensionSelector = (
                     <DataDimension
+                        enabledDataTypes={dataTypes}
                         displayNameProp={displayNameProperty}
                         selectedDimensions={selectedItems}
                         infoBoxMessage={infoBoxMessage}
                         onSelect={onSelect}
                         onCalculationSave={onCalculationSave}
+                        visType={visType}
                     />
                 )
                 const dataTabs = isScatterAttribute(dialogId) ? (
