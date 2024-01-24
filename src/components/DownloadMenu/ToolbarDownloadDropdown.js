@@ -8,7 +8,11 @@ const ToolbarDownloadDropdown = () => {
     const { disabled, doDownloadData, doDownloadImage, visType } = useDownload()
 
     return (
-        <HoverMenuDropdown label={i18n.t('Download')} disabled={disabled}>
+        <HoverMenuDropdown
+            label={i18n.t('Download')}
+            disabled={disabled}
+            className="download-dropdownmenu-button"
+        >
             <DownloadMenu
                 hoverable
                 onDownloadData={doDownloadData}

@@ -44,6 +44,7 @@ export const TableMenu = ({ hoverable, onDownload }) => {
             <MenuItemComponent
                 key="html"
                 label={i18n.t('HTML (.html)')}
+                className="download-menuitem"
                 onClick={() =>
                     onDownload({
                         type: DOWNLOAD_TYPE_TABLE,
