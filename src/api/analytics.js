@@ -18,6 +18,7 @@ import {
     getRelativePeriodTypeUsed,
     getOutlierTableHeadersMap,
 } from '../modules/analytics.js'
+import { getSortingFromVisualization } from '../modules/ui.js'
 
 const periodId = DIMENSION_ID_PERIOD
 
@@ -74,6 +75,14 @@ export const apiFetchAnalyticsForOutlierTable = async (
     headers.push('lowerbound', 'upperbound')
 
     parameters.headers = headers.join(',')
+
+    // sorting
+    const sorting = getSortingFromVisualization(visualization)
+
+    if (sorting) {
+        parameters.orderBy = sorting.dimension
+        parameters.sortOrder = sorting.direction
+    }
 
     const analyticsEngine = Analytics.getAnalytics(dataEngine)
 

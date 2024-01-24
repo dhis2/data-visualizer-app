@@ -25,6 +25,11 @@ export const SERIES_ITEM_AXIS_PROP = 'axis'
 export const ITEM_ATTRIBUTE_VERTICAL = 'VERTICAL'
 export const ITEM_ATTRIBUTE_HORIZONTAL = 'HORIZONTAL'
 
+export const getDefaultSorting = () => ({
+    dimension: 'value',
+    direction: 'desc',
+})
+
 // Transform from backend model to store.ui format
 export const getUiFromVisualization = (vis, currentState = {}) => {
     const visType = vis.type || defaultVisType
@@ -177,4 +182,13 @@ export const mergeUiMaps = (destinationMap, sourceMap, propName) => {
 
         destinationMap[key][propName] = sourceMap[key]
     })
+}
+
+export const getSortingFromVisualization = (visualization) => {
+    return visualization.sorting?.length
+        ? {
+              dimension: visualization.sorting[0].dimension,
+              direction: visualization.sorting[0].direction.toLowerCase(),
+          }
+        : undefined
 }

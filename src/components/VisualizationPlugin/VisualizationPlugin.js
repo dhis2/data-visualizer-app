@@ -37,6 +37,7 @@ export const VisualizationPlugin = ({
     onChartGenerated,
     onError,
     onLoadingComplete,
+    onOutlierTableSort,
     onResponsesReceived,
     onDrill,
 }) => {
@@ -197,7 +198,7 @@ export const VisualizationPlugin = ({
             // multiple responses are only for YOY which does not support legends or custom icon
             // safe to use only the 1st
             // dx dimensions might not be present, the empty array covers that case
-            const dxIds = responses[0].metaData.dimensions.dx || []
+            const dxIds = responses[0].metaData.dimensions?.dx || []
 
             // DHIS2-10496: show icon on the side of the single value if an icon is assigned in Maintenance app and
             // the "Show data item icon" option is set in DV options
@@ -414,9 +415,9 @@ export const VisualizationPlugin = ({
                         fetchResult.visualization
                     )}
                     responses={fetchResult.responses}
-                    legendSets={legendSets}
                     id={id}
                     style={transformedStyle}
+                    onDataSorted={onOutlierTableSort}
                 />
             )
         } else {
@@ -469,6 +470,7 @@ VisualizationPlugin.defaultProps = {
     onChartGenerated: Function.prototype,
     onError: Function.prototype,
     onLoadingComplete: Function.prototype,
+    onOutlierTableSort: Function.prototype,
     onResponsesReceived: Function.prototype,
     style: {},
     visualization: {},
@@ -484,5 +486,6 @@ VisualizationPlugin.propTypes = {
     onDrill: PropTypes.func,
     onError: PropTypes.func,
     onLoadingComplete: PropTypes.func,
+    onOutlierTableSort: PropTypes.func,
     onResponsesReceived: PropTypes.func,
 }

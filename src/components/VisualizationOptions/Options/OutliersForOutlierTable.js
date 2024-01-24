@@ -1,10 +1,10 @@
 import i18n from '@dhis2/d2-i18n'
 import { FieldSet, Legend } from '@dhis2/ui'
-import PropTypes from 'prop-types'
 import React from 'react'
-import { connect } from 'react-redux'
-import { acSetUiOptions } from '../../../actions/ui.js'
-import { sGetUiOptions } from '../../../reducers/ui.js'
+import { useDispatch, useSelector } from 'react-redux'
+import { acSetUiDataSorting, acSetUiOptions } from '../../../actions/ui.js'
+import { getDefaultSorting } from '../../../modules/ui.js'
+import { sGetUi, sGetUiOptions } from '../../../reducers/ui.js'
 import {
     tabSectionOption,
     tabSectionTitle,
@@ -37,9 +37,50 @@ export const DEFAULT_STATE = {
     [OUTLIER_THRESHOLD_PROP]: 3,
 }
 
-const Outliers = ({ outlierAnalysis, onChange }) => {
-    const storeProp = (prop, value) =>
-        onChange({ ...outlierAnalysis, [prop]: value })
+const Outliers = () => {
+    const dispatch = useDispatch()
+
+    const outlierAnalysis = useSelector(sGetUiOptions)[
+        OUTLIER_ANALYSIS_OPTION_NAME
+    ] || {
+        ...OUTLIER_MAX_RESULTS_DEFAULT_STATE,
+        ...DEFAULT_STATE,
+    }
+
+    const sorting = useSelector(sGetUi).sorting
+
+    const onMethodChange = (value) => {
+        dispatch(
+            acSetUiOptions({
+                [OUTLIER_ANALYSIS_OPTION_NAME]: {
+                    ...outlierAnalysis,
+                    [OUTLIER_METHOD_PROP]: value,
+                    [OUTLIER_THRESHOLD_PROP]: methods.find(
+                        (item) => item.id === value
+                    ).defaultThreshold,
+                },
+            })
+        )
+
+        // reset sorting to avoid sorting on non existing column
+        // in case the sorting was on a column specific to a method
+        if (
+            sorting?.dimension &&
+            !['value', 'lowerbound', 'upperbound'].includes(sorting.dimension)
+        ) {
+            dispatch(acSetUiDataSorting(getDefaultSorting()))
+        }
+    }
+
+    const onThresholdChange = (value) =>
+        dispatch(
+            acSetUiOptions({
+                [OUTLIER_ANALYSIS_OPTION_NAME]: {
+                    ...outlierAnalysis,
+                    [OUTLIER_THRESHOLD_PROP]: value,
+                },
+            })
+        )
 
     return (
         <div className={tabSectionOption.className}>
@@ -52,18 +93,8 @@ const Outliers = ({ outlierAnalysis, onChange }) => {
                 <div className={tabSectionOption.className}>
                     <OutlierDetectionMethod
                         methods={methods}
-                        onMethodChange={(value) =>
-                            onChange({
-                                ...outlierAnalysis,
-                                [OUTLIER_METHOD_PROP]: value,
-                                [OUTLIER_THRESHOLD_PROP]: methods.find(
-                                    (item) => item.id === value
-                                ).defaultThreshold,
-                            })
-                        }
-                        onThresholdChange={(value) =>
-                            storeProp(OUTLIER_THRESHOLD_PROP, value)
-                        }
+                        onMethodChange={onMethodChange}
+                        onThresholdChange={onThresholdChange}
                         currentMethodId={outlierAnalysis[OUTLIER_METHOD_PROP]}
                         currentThreshold={
                             outlierAnalysis[OUTLIER_THRESHOLD_PROP]
@@ -75,22 +106,4 @@ const Outliers = ({ outlierAnalysis, onChange }) => {
     )
 }
 
-Outliers.propTypes = {
-    outlierAnalysis: PropTypes.object.isRequired,
-    onChange: PropTypes.func.isRequired,
-}
-
-const mapStateToProps = (state) => ({
-    // OutliersMaxResults is part of the root option name, so we need to merge the default states
-    outlierAnalysis: sGetUiOptions(state)[OUTLIER_ANALYSIS_OPTION_NAME] || {
-        ...DEFAULT_STATE,
-        ...OUTLIER_MAX_RESULTS_DEFAULT_STATE,
-    },
-})
-
-const mapDispatchToProps = (dispatch) => ({
-    onChange: (value) =>
-        dispatch(acSetUiOptions({ [OUTLIER_ANALYSIS_OPTION_NAME]: value })),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Outliers)
+export default Outliers

@@ -7,7 +7,11 @@ import { acSetChart } from '../../actions/chart.js'
 import { tSetCurrentFromUi } from '../../actions/current.js'
 import { acSetLoadError, acSetPluginLoading } from '../../actions/loader.js'
 import { acAddMetadata } from '../../actions/metadata.js'
-import { acSetUiItems, acAddParentGraphMap } from '../../actions/ui.js'
+import {
+    acSetUiItems,
+    acSetUiDataSorting,
+    acAddParentGraphMap,
+} from '../../actions/ui.js'
 import {
     AssignedCategoriesDataElementsError,
     GenericServerError,
@@ -94,6 +98,15 @@ export class UnconnectedVisualization extends Component {
 
     onChartGenerated = (svg) => this.props.setChart(svg)
 
+    onOutlierTableSort = (sorting) => {
+        this.props.onLoadingStart()
+
+        this.props.setUiDataSorting(sorting)
+
+        // simulate an update for refreshing the visualization
+        this.props.setCurrent()
+    }
+
     onResponsesReceived = (responses) => {
         const forMetadata = {}
 
@@ -109,14 +122,16 @@ export class UnconnectedVisualization extends Component {
                 throw new ValueTypeError()
             }
 
-            Object.entries(response.metaData.items).forEach(([id, item]) => {
-                forMetadata[id] = {
-                    id,
-                    name: item.name || item.displayName,
-                    displayName: item.displayName,
-                    dimensionItemType: item.dimensionItemType,
+            Object.entries(response?.metaData?.items || []).forEach(
+                ([id, item]) => {
+                    forMetadata[id] = {
+                        id,
+                        name: item.name || item.displayName,
+                        displayName: item.displayName,
+                        dimensionItemType: item.dimensionItemType,
+                    }
                 }
-            })
+            )
         })
 
         this.props.addMetadata(forMetadata)
@@ -211,6 +226,7 @@ export class UnconnectedVisualization extends Component {
                     visualization={visualization}
                     onChartGenerated={this.onChartGenerated}
                     onLoadingComplete={onLoadingComplete}
+                    onOutlierTableSort={this.onOutlierTableSort}
                     onResponsesReceived={this.onResponsesReceived}
                     onError={this.onError}
                     onDrill={this.onDrill}
@@ -232,9 +248,11 @@ UnconnectedVisualization.propTypes = {
     setChart: PropTypes.func,
     setCurrent: PropTypes.func,
     setLoadError: PropTypes.func,
+    setUiDataSorting: PropTypes.func,
     setUiItems: PropTypes.func,
     visualization: PropTypes.object,
     onLoadingComplete: PropTypes.func,
+    onLoadingStart: PropTypes.func,
 }
 
 const mapStateToProps = (state) => ({
@@ -247,12 +265,14 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     onLoadingComplete: () => dispatch(acSetPluginLoading(false)),
+    onLoadingStart: () => dispatch(acSetPluginLoading(true)),
     addMetadata: (metadata) => dispatch(acAddMetadata(metadata)),
     addParentGraphMap: (parentGraphMap) =>
         dispatch(acAddParentGraphMap(parentGraphMap)),
     setChart: (chart) => dispatch(acSetChart(chart)),
     setLoadError: (error) => dispatch(acSetLoadError(error)),
     setUiItems: (data) => dispatch(acSetUiItems(data)),
+    setUiDataSorting: (sorting) => dispatch(acSetUiDataSorting(sorting)),
     setCurrent: () => dispatch(tSetCurrentFromUi()),
 })
 

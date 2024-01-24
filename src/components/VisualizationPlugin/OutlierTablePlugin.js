@@ -1,4 +1,5 @@
 import { getFixedDimensions } from '@dhis2/analytics'
+import i18n from '@dhis2/d2-i18n'
 import {
     DataTable,
     DataTableBody,
@@ -9,7 +10,7 @@ import {
 } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useCallback, useMemo } from 'react'
 import { getOutlierTableHeadersMap } from '../../modules/analytics.js'
 import {
     DISPLAY_DENSITY_COMFORTABLE,
@@ -18,6 +19,10 @@ import {
     FONT_SIZE_NORMAL,
     FONT_SIZE_SMALL,
 } from '../../modules/options.js'
+import {
+    getDefaultSorting,
+    getSortingFromVisualization,
+} from '../../modules/ui.js'
 import styles from './styles/OutlierTablePlugin.module.css'
 
 const getFontSizeClass = (fontSize) => {
@@ -48,13 +53,32 @@ const OutlierTablePlugin = ({
     visualization,
     //style,
     //id: renderCounter,
-    //onToggleContextualMenu,
+    onDataSorted,
 }) => {
     const data = responses[0]
     const headersMap = getOutlierTableHeadersMap({
         showHierarchy: visualization.showHierarchy,
     })
     const fixedDimensions = getFixedDimensions()
+
+    //    const isInModal = false // TODO !!filters?.relativePeriodDate
+
+    const defaultSorting = useMemo(() => getDefaultSorting(), [])
+
+    const getSorting = useCallback(
+        (visualization) => {
+            const sorting =
+                getSortingFromVisualization(visualization) || defaultSorting
+
+            return {
+                sortField: sorting.dimension,
+                sortDirection: sorting.direction,
+            }
+        },
+        [defaultSorting]
+    )
+
+    const { sortField, sortDirection } = getSorting(visualization)
 
     const sizeClass = getSizeClass(visualization.displayDensity)
     const fontSizeClass = getFontSizeClass(visualization.fontSize)
@@ -71,7 +95,7 @@ const OutlierTablePlugin = ({
         return undefined
     }
 
-    const renderHeaderCell = ({ name, column }) => {
+    const renderHeaderCell = ({ name, column, valueType }) => {
         const columnName = lookupColumnName(name) || column
 
         return (
@@ -80,6 +104,25 @@ const OutlierTablePlugin = ({
                 top="0"
                 key={name}
                 name={name}
+                onSortIconClick={valueType !== 'NUMBER' ? undefined : sortData}
+                sortDirection={
+                    valueType !== 'NUMBER'
+                        ? undefined
+                        : name === sortField
+                        ? sortDirection
+                        : 'default'
+                }
+                sortIconTitle={
+                    name === sortField && sortDirection === 'desc'
+                        ? i18n.t(
+                              'Sort ascending by {{columnName}} and update',
+                              { columnName }
+                          )
+                        : i18n.t(
+                              'Sort descending by {{columnName}} and update',
+                              { columnName }
+                          )
+                }
                 className={cx(
                     styles.headerCell,
                     fontSizeClass,
@@ -102,6 +145,17 @@ const OutlierTablePlugin = ({
             {value}
         </DataTableCell>
     )
+
+    const sortData = ({ name }) => {
+        const direction =
+            sortField === name
+                ? sortDirection === 'desc'
+                    ? 'asc'
+                    : 'desc'
+                : 'desc'
+
+        onDataSorted({ dimension: name, direction })
+    }
 
     return (
         <div className={styles.pluginContainer}>
@@ -135,6 +189,7 @@ const OutlierTablePlugin = ({
 
 OutlierTablePlugin.defaultProps = {
     style: {},
+    onDataSorted: Function.prototype,
 }
 
 OutlierTablePlugin.propTypes = {
@@ -142,8 +197,7 @@ OutlierTablePlugin.propTypes = {
     //style: PropTypes.object,
     visualization: PropTypes.object.isRequired,
     //    id: PropTypes.number,
-    //style: PropTypes.object,
-    //    onToggleContextualMenu: PropTypes.func,
+    onDataSorted: PropTypes.func,
 }
 
 export default OutlierTablePlugin

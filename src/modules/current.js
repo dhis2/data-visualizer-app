@@ -163,6 +163,14 @@ export const getOutlierTableCurrentFromUi = (state, value) => {
         [BASE_FIELD_TYPE]: ui.type,
         ...outlierTableAxesFromUi,
         ...getOptionsFromUi(ui),
+        sorting: ui.sorting
+            ? [
+                  {
+                      dimension: ui.sorting.dimension,
+                      direction: ui.sorting.direction.toUpperCase(),
+                  },
+              ]
+            : undefined,
     }
 }
 

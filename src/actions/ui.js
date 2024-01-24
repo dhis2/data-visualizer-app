@@ -2,6 +2,7 @@ import { getDisabledOptions } from '../modules/disabledOptions.js'
 import {
     SET_UI,
     CLEAR_UI,
+    CLEAR_UI_DATA_SORTING,
     SET_UI_FROM_VISUALIZATION,
     SET_UI_TYPE,
     SET_UI_DISABLED_OPTIONS,
@@ -23,6 +24,7 @@ import {
     UPDATE_UI_SERIES_ITEM,
     SET_UI_OPTION,
     SET_UI_OPTION_FONT_STYLE,
+    SET_UI_DATA_SORTING,
     sGetUiType,
     sGetUiOptions,
 } from '../reducers/ui.js'
@@ -64,6 +66,15 @@ export const acSetUiOption = (value) => ({
 
 export const acSetUiOptionFontStyle = (value) => ({
     type: SET_UI_OPTION_FONT_STYLE,
+    value,
+})
+
+export const acClearUiDataSorting = () => ({
+    type: CLEAR_UI_DATA_SORTING,
+})
+
+export const acSetUiDataSorting = (value) => ({
+    type: SET_UI_DATA_SORTING,
     value,
 })
 

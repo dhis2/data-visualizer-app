@@ -55,6 +55,7 @@ import {
 } from '../modules/options.js'
 import {
     getAdaptedUiByType,
+    getDefaultSorting,
     getUiFromVisualization,
     SERIES_ITEM_TYPE_PROP,
 } from '../modules/ui.js'
@@ -66,6 +67,8 @@ export const SET_UI_DISABLED_OPTIONS = 'SET_UI_DISABLED_OPTIONS'
 export const SET_UI_OPTIONS = 'SET_UI_OPTIONS'
 export const SET_UI_OPTION = 'SET_UI_OPTION'
 export const SET_UI_OPTION_FONT_STYLE = 'SET_UI_OPTION_FONT_STYLE'
+export const SET_UI_DATA_SORTING = 'SET_UI_DATA_SORTING'
+export const CLEAR_UI_DATA_SORTING = 'CLEAR_UI_DATA_SORTING'
 export const SET_UI_LAYOUT = 'SET_UI_LAYOUT'
 export const ADD_UI_LAYOUT_DIMENSIONS = 'ADD_UI_LAYOUT_DIMENSIONS'
 export const REMOVE_UI_LAYOUT_DIMENSIONS = 'REMOVE_UI_LAYOUT_DIMENSIONS'
@@ -149,6 +152,9 @@ const getDefaultUiByType = (ui) => {
                             ...OUTLIER_MAX_RESULTS_DEFAULT_STATE,
                         }),
                     },
+                },
+                sorting: {
+                    ...(ui.sorting ?? getDefaultSorting()),
                 },
             }
         }
@@ -473,6 +479,20 @@ export default (state = DEFAULT_UI, action) => {
                 options: {
                     ...state.options,
                     ...options,
+                },
+            }
+        }
+        case CLEAR_UI_DATA_SORTING: {
+            return {
+                ...state,
+                sorting: undefined,
+            }
+        }
+        case SET_UI_DATA_SORTING: {
+            return {
+                ...state,
+                sorting: {
+                    ...action.value,
                 },
             }
         }
