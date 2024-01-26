@@ -1,4 +1,8 @@
-import { VIS_TYPE_PIVOT_TABLE, HoverMenuList } from '@dhis2/analytics'
+import {
+    VIS_TYPE_PIVOT_TABLE,
+    VIS_TYPE_OUTLIER_TABLE,
+    HoverMenuList,
+} from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import { FlyoutMenu, MenuSectionHeader } from '@dhis2/ui'
 import PropTypes from 'prop-types'
@@ -26,15 +30,16 @@ const DownloadMenu = ({
         <MenuComponent>
             {visType === VIS_TYPE_PIVOT_TABLE ? (
                 <TableMenu hoverable={hoverable} onDownload={onDownloadData} />
-            ) : (
+            ) : visType !== VIS_TYPE_OUTLIER_TABLE ? (
                 <GraphicsMenu
                     hoverable={hoverable}
                     onDownload={onDownloadImage}
                 />
-            )}
+            ) : null}
             <MenuSectionHeader
                 label={i18n.t('Plain data source')}
                 dense={hoverable}
+                hideDivider={visType === VIS_TYPE_OUTLIER_TABLE}
             />
             <PlainDataSourceSubMenu
                 hoverable={hoverable}
@@ -42,12 +47,14 @@ const DownloadMenu = ({
                 label={i18n.t('JSON')}
                 format={FILE_FORMAT_JSON}
             />
-            <PlainDataSourceSubMenu
-                hoverable={hoverable}
-                onDownload={onDownloadData}
-                label={i18n.t('XML')}
-                format={FILE_FORMAT_XML}
-            />
+            {visType !== VIS_TYPE_OUTLIER_TABLE && (
+                <PlainDataSourceSubMenu
+                    hoverable={hoverable}
+                    onDownload={onDownloadData}
+                    label={i18n.t('XML')}
+                    format={FILE_FORMAT_XML}
+                />
+            )}
             <PlainDataSourceSubMenu
                 hoverable={hoverable}
                 onDownload={onDownloadData}
@@ -60,11 +67,13 @@ const DownloadMenu = ({
                 label={i18n.t('CSV')}
                 format={FILE_FORMAT_CSV}
             />
-            <AdvancedSubMenu
-                hoverable={hoverable}
-                onDownload={onDownloadData}
-                label={i18n.t('Advanced')}
-            />
+            {visType !== VIS_TYPE_OUTLIER_TABLE && (
+                <AdvancedSubMenu
+                    hoverable={hoverable}
+                    onDownload={onDownloadData}
+                    label={i18n.t('Advanced')}
+                />
+            )}
         </MenuComponent>
     )
 }

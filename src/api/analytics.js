@@ -35,11 +35,12 @@ export const apiFetchAnalytics = async (dataEngine, visualization, options) => {
     return [new analyticsEngine.response(rawResponse)]
 }
 
-export const apiFetchAnalyticsForOutlierTable = async (
-    dataEngine,
+export const getAnalyticsRequestForOutlierTable = ({
+    analyticsEngine,
     visualization,
-    options
-) => {
+    options,
+    forDownload = false,
+}) => {
     const headersMap = getOutlierTableHeadersMap(options)
 
     const parameters = {
@@ -59,7 +60,7 @@ export const apiFetchAnalyticsForOutlierTable = async (
     columns.forEach(({ dimension, items }) => {
         parameters[dimension] = items.map(({ id }) => id).join(',')
 
-        headers.push(headersMap[dimension])
+        headers.push(forDownload ? dimension : headersMap[dimension])
     })
 
     headers.push('value')
@@ -84,9 +85,21 @@ export const apiFetchAnalyticsForOutlierTable = async (
         parameters.sortOrder = sorting.direction
     }
 
+    return new analyticsEngine.request().withParameters(parameters)
+}
+
+export const apiFetchAnalyticsForOutlierTable = async (
+    dataEngine,
+    visualization,
+    options
+) => {
     const analyticsEngine = Analytics.getAnalytics(dataEngine)
 
-    const req = new analyticsEngine.request().withParameters(parameters)
+    const req = getAnalyticsRequestForOutlierTable({
+        analyticsEngine,
+        visualization,
+        options,
+    })
 
     const rawResponse = await analyticsEngine.aggregate.getOutliersData(req)
 
