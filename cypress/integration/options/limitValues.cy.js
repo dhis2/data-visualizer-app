@@ -18,13 +18,14 @@ import {
     deleteAO,
     saveNewAO,
 } from '../../elements/fileMenu/index.js'
-import { openOptionsModal } from '../../elements/menuBar.js'
+import { clickMenuBarOptionsButton } from '../../elements/menuBar.js'
 import {
     OPTIONS_TAB_LIMIT_VALUES,
     changeMaxOperator,
     changeMinOperator,
     clickOptionsModalHideButton,
     clickOptionsModalUpdateButton,
+    clickOptionsTab,
     expectMaxOperatorToBeOption,
     expectMaxValueToBeValue,
     expectMinOperatorToBeOption,
@@ -85,7 +86,8 @@ describe('limit values', () => {
             expectTableValueToBe(value, index)
         )
 
-        openOptionsModal(OPTIONS_TAB_LIMIT_VALUES)
+        clickMenuBarOptionsButton()
+        clickOptionsTab(OPTIONS_TAB_LIMIT_VALUES)
         expectMinOperatorToBeOption('>')
         expectMaxOperatorToBeOption('<')
         expectMinValueToBeValue('')
@@ -107,7 +109,8 @@ describe('limit values', () => {
         )
 
         // verify options are present when reopening modal
-        openOptionsModal(OPTIONS_TAB_LIMIT_VALUES)
+        clickMenuBarOptionsButton()
+        clickOptionsTab(OPTIONS_TAB_LIMIT_VALUES)
         expectMinOperatorToBeOption('>=')
         expectMaxOperatorToBeOption('<=')
         expectMinValueToBeValue('49500')
@@ -123,7 +126,8 @@ describe('limit values', () => {
         )
 
         // verify options are present when reopening modal
-        openOptionsModal(OPTIONS_TAB_LIMIT_VALUES)
+        clickMenuBarOptionsButton()
+        clickOptionsTab(OPTIONS_TAB_LIMIT_VALUES)
         expectMinOperatorToBeOption('>=')
         expectMaxOperatorToBeOption('<=')
         expectMinValueToBeValue('49500')
@@ -148,7 +152,8 @@ describe('limit values', () => {
         )
 
         // verify options are present when reopening modal
-        openOptionsModal(OPTIONS_TAB_LIMIT_VALUES)
+        clickMenuBarOptionsButton()
+        clickOptionsTab(OPTIONS_TAB_LIMIT_VALUES)
         expectMinOperatorToBeOption('>=')
         expectMaxOperatorToBeOption('<')
         expectMinValueToBeValue('49500')
@@ -164,7 +169,8 @@ describe('limit values', () => {
         )
 
         // verify options are present when reopening modal
-        openOptionsModal(OPTIONS_TAB_LIMIT_VALUES)
+        clickMenuBarOptionsButton()
+        clickOptionsTab(OPTIONS_TAB_LIMIT_VALUES)
         expectMinOperatorToBeOption('>=')
         expectMaxOperatorToBeOption('<')
         expectMinValueToBeValue('49500')
@@ -189,7 +195,8 @@ describe('limit values', () => {
         )
 
         // verify options are present when reopening modal
-        openOptionsModal(OPTIONS_TAB_LIMIT_VALUES)
+        clickMenuBarOptionsButton()
+        clickOptionsTab(OPTIONS_TAB_LIMIT_VALUES)
         expectMinOperatorToBeOption('>')
         expectMaxOperatorToBeOption('<=')
         expectMinValueToBeValue('')
@@ -205,7 +212,8 @@ describe('limit values', () => {
         )
 
         // verify options are present when reopening modal
-        openOptionsModal(OPTIONS_TAB_LIMIT_VALUES)
+        clickMenuBarOptionsButton()
+        clickOptionsTab(OPTIONS_TAB_LIMIT_VALUES)
         expectMinOperatorToBeOption('>')
         expectMaxOperatorToBeOption('<=')
         expectMinValueToBeValue('')
@@ -230,7 +238,8 @@ describe('limit values', () => {
         )
 
         // verify options are present when reopening modal
-        openOptionsModal(OPTIONS_TAB_LIMIT_VALUES)
+        clickMenuBarOptionsButton()
+        clickOptionsTab(OPTIONS_TAB_LIMIT_VALUES)
         expectMinOperatorToBeOption('=')
         expectMaxOperatorToBeOption('<')
         expectMinValueToBeValue('49500')
@@ -246,7 +255,8 @@ describe('limit values', () => {
         )
 
         // verify options are present when reopening modal
-        openOptionsModal(OPTIONS_TAB_LIMIT_VALUES)
+        clickMenuBarOptionsButton()
+        clickOptionsTab(OPTIONS_TAB_LIMIT_VALUES)
         expectMinOperatorToBeOption('=')
         expectMaxOperatorToBeOption('<')
         expectMinValueToBeValue('49500')
