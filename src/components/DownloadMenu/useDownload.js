@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import { getAnalyticsRequestForOutlierTable } from '../../api/analytics.js'
 import { sGetChart } from '../../reducers/chart.js'
 import { sGetCurrent } from '../../reducers/current.js'
+import { sGetSettingsDisplayProperty } from '../../reducers/settings.js'
 import {
     sGetUiType,
     sGetUiLayoutColumns,
@@ -55,6 +56,7 @@ const addCommonParameters = (req, visualization, options) => {
 }
 
 const useDownload = (relativePeriodDate) => {
+    const displayProperty = useSelector(sGetSettingsDisplayProperty)
     const visualization = useSelector(sGetCurrent)
     const visType = useSelector(sGetUiType)
     const chart = useSelector(sGetChart)
@@ -121,7 +123,13 @@ const useDownload = (relativePeriodDate) => {
                     forDownload: true,
                 })
 
-                // TODO withRelativePeriodDate
+                if (relativePeriodDate) {
+                    req = req.withRelativePeriodDate(relativePeriodDate)
+                }
+
+                if (displayProperty) {
+                    req = req.withDisplayProperty(displayProperty)
+                }
 
                 req = req
                     .withFormat(format)
@@ -205,6 +213,7 @@ const useDownload = (relativePeriodDate) => {
             analyticsEngine,
             baseUrl,
             columns,
+            displayProperty,
             relativePeriodDate,
             rows,
             visualization,
