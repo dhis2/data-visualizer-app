@@ -88,7 +88,7 @@ export const getVisTypeDescriptions = () => ({
         'View the relationship between two data items at a place or time. Recommended for finding outliers.'
     ),
     [VIS_TYPE_OUTLIER_TABLE]: i18n.t(
-        'Automatically identify extreme outliers in the data'
+        'Automatically identify extreme outliers in the data.'
     ),
 })
 
