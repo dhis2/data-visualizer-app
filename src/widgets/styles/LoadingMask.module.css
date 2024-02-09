@@ -1,6 +1,6 @@
 .progress {
     margin: var(--spacers-dp12);
-    max-width: 200;
+    max-inline-size: 200;
     text-align: center;
     align-self: center;
 }
@@ -8,5 +8,5 @@
 .outer {
     display: flex;
     justify-content: center;
-    height: 100%;
+    block-size: 100%;
 }
