@@ -1,5 +1,5 @@
 .chip {
-    max-width: 400px;
+    max-inline-size: 400px;
     display: flex;
     align-items: center;
     background-color: var(--colors-teal100);
@@ -46,15 +46,15 @@
 }
 
 .warningIconWrapper {
-    padding-left: 2px;
-    height: 20px;
+    padding-inline-start: 2px;
+    block-size: 20px;
     display: flex;
     align-items: center;
 }
 
 .lockIconWrapper {
     background: #cbe7e5;
-    height: 20px;
+    block-size: 20px;
     padding: 0 2px 0 3px;
     margin: 0 0 0 2px;
     display: flex;
@@ -85,19 +85,19 @@
     overflow: hidden;
     text-overflow: ellipsis;
     display: flex;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
+    border-start-end-radius: 0px;
+    border-end-end-radius: 0px;
     align-items: center;
-    min-height: 20px;
+    min-block-size: 20px;
     margin: 0 2px 0 0;
 }
 
 .chipRight {
-    padding-left: 0px;
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
+    padding-inline-start: 0px;
+    border-start-start-radius: 0px;
+    border-end-start-radius: 0px;
     display: flex;
-    height: 20px;
+    block-size: 20px;
 }
 
 .chipRight + .lockIconWrapper {
@@ -109,8 +109,8 @@
     font-size: 11px;
     background: #c5e4e3;
     border-radius: 2px;
-    margin-left: 4px;
-    min-width: 12px;
+    margin-inline-start: 4px;
+    min-inline-size: 12px;
     text-align: center;
     padding: 2px 2px 1px 2px;
     overflow: hidden;
