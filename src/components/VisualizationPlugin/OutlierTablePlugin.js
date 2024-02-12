@@ -1,4 +1,18 @@
-import { getFixedDimensions } from '@dhis2/analytics'
+import {
+    formatValue,
+    getFixedDimensions,
+    VALUE_TYPE_NUMBER,
+    VALUE_TYPE_INTEGER,
+    VALUE_TYPE_INTEGER_POSITIVE,
+    VALUE_TYPE_INTEGER_NEGATIVE,
+    VALUE_TYPE_INTEGER_ZERO_OR_POSITIVE,
+    VALUE_TYPE_PERCENTAGE,
+    VALUE_TYPE_UNIT_INTERVAL,
+    VALUE_TYPE_TIME,
+    VALUE_TYPE_DATE,
+    VALUE_TYPE_DATETIME,
+    VALUE_TYPE_TEXT,
+} from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import {
     DataTable,
@@ -95,6 +109,20 @@ const OutlierTablePlugin = ({
         return undefined
     }
 
+    const cellValueShouldNotWrap = (header) =>
+        [
+            VALUE_TYPE_NUMBER,
+            VALUE_TYPE_INTEGER,
+            VALUE_TYPE_INTEGER_POSITIVE,
+            VALUE_TYPE_INTEGER_NEGATIVE,
+            VALUE_TYPE_INTEGER_ZERO_OR_POSITIVE,
+            VALUE_TYPE_PERCENTAGE,
+            VALUE_TYPE_UNIT_INTERVAL,
+            VALUE_TYPE_TIME,
+            VALUE_TYPE_DATE,
+            VALUE_TYPE_DATETIME,
+        ].includes(header.valueType)
+
     const renderHeaderCell = ({ name, column, valueType }) => {
         const columnName = lookupColumnName(name) || column
 
@@ -104,9 +132,11 @@ const OutlierTablePlugin = ({
                 top="0"
                 key={name}
                 name={name}
-                onSortIconClick={valueType !== 'NUMBER' ? undefined : sortData}
+                onSortIconClick={
+                    valueType !== VALUE_TYPE_NUMBER ? undefined : sortData
+                }
                 sortDirection={
-                    valueType !== 'NUMBER'
+                    valueType !== VALUE_TYPE_NUMBER
                         ? undefined
                         : name === sortField
                         ? sortDirection
@@ -136,15 +166,17 @@ const OutlierTablePlugin = ({
         )
     }
 
-    const renderValueCell = ({ columnIndex, value }) => (
-        <DataTableCell
-            key={columnIndex}
-            className={cx(styles.cell, fontSizeClass, sizeClass, 'bordered')}
-            dataTest={'table-cell'}
-        >
-            {value}
-        </DataTableCell>
-    )
+    const formatValueCell = (value, header) =>
+        formatValue(
+            value,
+            header.valueType || VALUE_TYPE_TEXT,
+            header.optionSet
+                ? {}
+                : {
+                      digitGroupSeparator: visualization.digitGroupSeparator,
+                      skipRounding: false,
+                  }
+        )
 
     const sortData = ({ name }) => {
         const direction =
@@ -173,12 +205,29 @@ const OutlierTablePlugin = ({
                 <DataTableBody dataTest={'table-body'}>
                     {data.rows.map((row, rowIndex) => (
                         <DataTableRow key={rowIndex} dataTest={'table-row'}>
-                            {row.map((value, columnIndex) =>
-                                renderValueCell({
-                                    columnIndex,
-                                    value,
-                                })
-                            )}
+                            {row.map((value, columnIndex) => (
+                                <DataTableCell
+                                    key={columnIndex}
+                                    className={cx(
+                                        styles.cell,
+                                        fontSizeClass,
+                                        sizeClass,
+                                        {
+                                            [styles.nowrap]:
+                                                cellValueShouldNotWrap(
+                                                    data.headers[columnIndex]
+                                                ),
+                                        },
+                                        'bordered'
+                                    )}
+                                    dataTest={'table-cell'}
+                                >
+                                    {formatValueCell(
+                                        value,
+                                        data.headers[columnIndex]
+                                    )}
+                                </DataTableCell>
+                            ))}
                         </DataTableRow>
                     ))}
                 </DataTableBody>

@@ -43,6 +43,9 @@
     font-size: 11px;
     line-height: 12px;
 }
+.dataTable .cell.nowrap {
+    white-space: nowrap;
+}
 .dataTable .cell.sizeComfortable {
     padding: 10px 8px 8px;
 }
