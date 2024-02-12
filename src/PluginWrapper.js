@@ -3,8 +3,8 @@ import { CssVariables, CenteredContent, CircularLoader, Layer } from '@dhis2/ui'
 import postRobot from '@krakenjs/post-robot'
 import debounce from 'lodash-es/debounce'
 import PropTypes from 'prop-types'
-import React, { useCallback, useEffect, useLayoutEffect, useState } from 'react'
-import { VisualizationPlugin } from './components/VisualizationPlugin/VisualizationPlugin.js'
+import React, { useEffect, useLayoutEffect, useState } from 'react'
+import { VisualizationPluginWrapper } from './components/VisualizationPlugin/VisualizationPluginWrapper.js'
 import { getPWAInstallationStatus } from './modules/getPWAInstallationStatus.js'
 
 const LoadingMask = () => {
@@ -79,24 +79,6 @@ const PluginWrapper = () => {
 
     const receivePropsFromParent = (event) => setPropsFromParent(event.data)
 
-    const onOutlierTableSort = useCallback(
-        (sorting) => {
-            const newSorting = {
-                dimension: sorting.dimension,
-                direction: sorting.direction.toUpperCase(),
-            }
-
-            setPropsFromParent({
-                ...propsFromParent,
-                visualization: {
-                    ...propsFromParent.visualization,
-                    sorting: [newSorting],
-                },
-            })
-        },
-        [propsFromParent]
-    )
-
     useEffect(() => {
         postRobot
             .send(window.parent, 'getProps')
@@ -146,10 +128,9 @@ const PluginWrapper = () => {
                 cacheNow={propsFromParent.recordOnNextLoad}
                 isParentCached={propsFromParent.isParentCached}
             >
-                <VisualizationPlugin
+                <VisualizationPluginWrapper
                     id={renderId}
                     {...propsFromParent}
-                    onOutlierTableSort={onOutlierTableSort}
                 />
             </CacheableSectionWrapper>
             <CssVariables colors spacers elevations />

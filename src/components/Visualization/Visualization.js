@@ -98,7 +98,7 @@ export class UnconnectedVisualization extends Component {
 
     onChartGenerated = (svg) => this.props.setChart(svg)
 
-    onOutlierTableSort = (sorting) => {
+    onDataSorted = (sorting) => {
         this.props.onLoadingStart()
 
         this.props.setUiDataSorting(sorting)
@@ -226,7 +226,7 @@ export class UnconnectedVisualization extends Component {
                     visualization={visualization}
                     onChartGenerated={this.onChartGenerated}
                     onLoadingComplete={onLoadingComplete}
-                    onOutlierTableSort={this.onOutlierTableSort}
+                    onDataSorted={this.onDataSorted}
                     onResponsesReceived={this.onResponsesReceived}
                     onError={this.onError}
                     onDrill={this.onDrill}

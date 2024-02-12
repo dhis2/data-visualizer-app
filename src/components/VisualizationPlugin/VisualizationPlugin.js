@@ -37,7 +37,7 @@ export const VisualizationPlugin = ({
     onChartGenerated,
     onError,
     onLoadingComplete,
-    onOutlierTableSort,
+    onDataSorted,
     onResponsesReceived,
     onDrill,
 }) => {
@@ -417,7 +417,7 @@ export const VisualizationPlugin = ({
                     responses={fetchResult.responses}
                     id={id}
                     style={transformedStyle}
-                    onDataSorted={onOutlierTableSort}
+                    onDataSorted={onDataSorted}
                 />
             )
         } else {
@@ -470,7 +470,7 @@ VisualizationPlugin.defaultProps = {
     onChartGenerated: Function.prototype,
     onError: Function.prototype,
     onLoadingComplete: Function.prototype,
-    onOutlierTableSort: Function.prototype,
+    onDataSorted: Function.prototype,
     onResponsesReceived: Function.prototype,
     style: {},
     visualization: {},
@@ -483,9 +483,9 @@ VisualizationPlugin.propTypes = {
     id: PropTypes.number,
     style: PropTypes.object,
     onChartGenerated: PropTypes.func,
+    onDataSorted: PropTypes.func,
     onDrill: PropTypes.func,
     onError: PropTypes.func,
     onLoadingComplete: PropTypes.func,
-    onOutlierTableSort: PropTypes.func,
     onResponsesReceived: PropTypes.func,
 }
