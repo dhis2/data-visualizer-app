@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-02-09T13:14:55.751Z\n"
-"PO-Revision-Date: 2024-02-09T13:14:55.751Z\n"
+"POT-Creation-Date: 2024-02-13T15:33:28.483Z\n"
+"PO-Revision-Date: 2024-02-13T15:33:28.483Z\n"
 
 msgid "All items"
 msgstr "All items"
@@ -863,6 +863,12 @@ msgstr ""
 
 msgid "There's a syntax problem with the analytics request."
 msgstr "There's a syntax problem with the analytics request."
+
+msgid "No outliers found"
+msgstr "No outliers found"
+
+msgid "There were no outliers found for the selected data items and options."
+msgstr "There were no outliers found for the selected data items and options."
 
 msgid "or"
 msgstr "or"
