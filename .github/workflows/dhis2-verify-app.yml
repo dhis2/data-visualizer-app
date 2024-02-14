@@ -99,7 +99,7 @@ jobs:
         if: |
             !github.event.push.repository.fork &&
             github.actor != 'dependabot[bot]' &&
-            github.event_name != 'pull_request'
+            github.ref == 'refs/heads/master'
         steps:
             - uses: actions/checkout@v3
               with:
@@ -151,13 +151,13 @@ jobs:
                   channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
                   payload: |
                       {
-                        "text": ":small_red_triangle_down: :data-visualizer-app: DV release <https://github.com/dhis2/data-visualizer-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Afailure|failed>",
+                        "text": ":small_red_triangle_down: :data-visualizer-app: Data Visualizer release <https://github.com/dhis2/data-visualizer-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Afailure|failed>",
                         "blocks": [
                           {
                             "type": "section",
                             "text": {
                               "type": "mrkdwn",
-                              "text": ":small_red_triangle_down: :data-visualizer-app: DV release <https://github.com/dhis2/maps-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Afailure|failed>"
+                              "text": ":small_red_triangle_down: :data-visualizer-app: Data Visualizer release <https://github.com/dhis2/data-visualizer-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Afailure|failed>"
                             }
                           }
                         ]
@@ -188,13 +188,41 @@ jobs:
                   channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
                   payload: |
                       {
-                        "text": ":large_green_circle: :data-visualizer-app: :tada: DV app release succeeded for version: ${{ steps.extract_version.outputs.version }}",
+                        "text": "Data Visualizer app release ${{ steps.extract_version.outputs.version }} succeeded",
                         "blocks": [
+                          {
+                            "type": "header",
+                            "text": {
+                                "type": "plain_text",
+                                "text": ":large_green_circle: :data-visualizer-app: Data Visualizer version ${{ steps.extract_version.outputs.version }} released :tada:",
+                                "emoji": true
+                            }
+                          },
+                          {
+                            "type": "divider"
+                          },
                           {
                             "type": "section",
                             "text": {
-                              "type": "mrkdwn",
-                              "text": ":large_green_circle: :data-visualizer-app: :tada: DV version ${{ steps.extract_version.outputs.version }} released <https://github.com/dhis2/data-visualizer-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Asuccess|successfully>"
+                                "type": "mrkdwn",
+                                "text": "*Release Notes*"
+                            }
+                          },
+                          {
+                            "type": "section",
+                            "text": {
+                                "type": "mrkdwn",
+                                "text": ${{ toJSON(github.event.head_commit.message) }}
+                            }
+                          },
+                          {
+                            "type": "divider"
+                          },
+                          {
+                            "type": "section",
+                            "text": {
+                                "type": "mrkdwn",
+                                "text": "Link to <https://github.com/dhis2/data-visualizer-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Asuccess|build>"
                             }
                           }
                         ]
