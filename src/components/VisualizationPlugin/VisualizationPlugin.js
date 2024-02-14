@@ -415,6 +415,7 @@ export const VisualizationPlugin = ({
                         fetchResult.visualization
                     )}
                     responses={fetchResult.responses}
+                    filters={filters}
                     id={id}
                     style={transformedStyle}
                     onDataSorted={onDataSorted}

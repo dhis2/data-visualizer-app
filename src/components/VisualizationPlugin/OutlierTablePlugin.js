@@ -63,6 +63,7 @@ const getSizeClass = (displayDensity) => {
 }
 
 const OutlierTablePlugin = ({
+    filters,
     responses,
     visualization,
     //style,
@@ -74,8 +75,6 @@ const OutlierTablePlugin = ({
         showHierarchy: visualization.showHierarchy,
     })
     const fixedDimensions = getFixedDimensions()
-
-    //    const isInModal = false // TODO !!filters?.relativePeriodDate
 
     const defaultSorting = useMemo(() => getDefaultSorting(), [])
 
@@ -96,6 +95,11 @@ const OutlierTablePlugin = ({
 
     const sizeClass = getSizeClass(visualization.displayDensity)
     const fontSizeClass = getFontSizeClass(visualization.fontSize)
+
+    const isInModal = !!filters?.relativePeriodDate
+
+    const getDataTableScrollHeight = (isInModal) =>
+        isInModal ? 'calc(100vh - 285px)' : '100%'
 
     const lookupColumnName = (name) => {
         const dimensionId = Object.entries(headersMap).find(
@@ -192,6 +196,7 @@ const OutlierTablePlugin = ({
     return (
         <div className={styles.pluginContainer}>
             <DataTable
+                scrollHeight={getDataTableScrollHeight(isInModal)}
                 scrollWidth="100%"
                 width="auto"
                 className={styles.dataTable}
@@ -245,6 +250,7 @@ OutlierTablePlugin.propTypes = {
     responses: PropTypes.arrayOf(PropTypes.object).isRequired,
     //style: PropTypes.object,
     visualization: PropTypes.object.isRequired,
+    filters: PropTypes.object,
     //    id: PropTypes.number,
     onDataSorted: PropTypes.func,
 }

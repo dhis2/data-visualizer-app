@@ -6,6 +6,7 @@
 }
 
 .chartWrapper {
+    display: flex;
     flex-grow: 1;
 }
 
