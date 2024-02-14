@@ -2,6 +2,7 @@ import {
     Analytics,
     layoutGetDimensionItems,
     VIS_TYPE_PIVOT_TABLE,
+    DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DAILY,
     WEEKLY,
@@ -16,7 +17,7 @@ import {
 import { OUTLIER_MAX_RESULTS_PROP } from '../components/VisualizationOptions/Options/OutliersMaxResults.js'
 import {
     getRelativePeriodTypeUsed,
-    getOutlierTableHeadersMap,
+    getOutlierTableDimensionIdHeaderMap,
 } from '../modules/analytics.js'
 import { getSortingFromVisualization } from '../modules/ui.js'
 
@@ -41,7 +42,7 @@ export const getAnalyticsRequestForOutlierTable = ({
     options,
     forDownload = false,
 }) => {
-    const headersMap = getOutlierTableHeadersMap(options)
+    const dimensionIdHeaderMap = getOutlierTableDimensionIdHeaderMap(options)
 
     const parameters = {
         ...options,
@@ -60,7 +61,11 @@ export const getAnalyticsRequestForOutlierTable = ({
     columns.forEach(({ dimension, items }) => {
         parameters[dimension] = items.map(({ id }) => id).join(',')
 
-        headers.push(forDownload ? dimension : headersMap[dimension])
+        headers.push(forDownload ? dimension : dimensionIdHeaderMap[dimension])
+
+        if (dimension === DIMENSION_ID_DATA) {
+            headers.push('cocname')
+        }
     })
 
     headers.push('value')

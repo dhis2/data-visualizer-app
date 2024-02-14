@@ -1,4 +1,5 @@
 import {
+    getFixedDimensions,
     getRelativePeriodsOptionsById,
     DIMENSION_ID_DATA,
     DIMENSION_ID_ORGUNIT,
@@ -6,6 +7,7 @@ import {
     WEEKLY,
     DAILY,
 } from '@dhis2/analytics'
+import i18n from '@dhis2/d2-i18n'
 
 export const outlierTableHeadersMap = {
     [DIMENSION_ID_DATA]: 'dxname',
@@ -13,14 +15,73 @@ export const outlierTableHeadersMap = {
     [DIMENSION_ID_PERIOD]: 'pename',
 }
 
-export const getOutlierTableHeadersMap = ({ showHierarchy }) => {
-    const map = Object.assign({}, outlierTableHeadersMap)
+export const getOutlierTableDimensionIdHeaderMap = ({ showHierarchy }) => ({
+    [DIMENSION_ID_DATA]: 'dxname',
+    [DIMENSION_ID_ORGUNIT]: showHierarchy ? 'ounamehierarchy' : 'ouname',
+    [DIMENSION_ID_PERIOD]: 'pename',
+})
 
-    if (showHierarchy) {
-        map[DIMENSION_ID_ORGUNIT] = 'ounamehierarchy'
+export const getOutlierTableHeadersDetails = () => {
+    const fixedDimensions = getFixedDimensions()
+
+    return {
+        dxname: {
+            label: fixedDimensions[DIMENSION_ID_DATA]?.name,
+        },
+        ouname: {
+            label: fixedDimensions[DIMENSION_ID_ORGUNIT]?.name,
+        },
+        ounamehierarchy: {
+            label: fixedDimensions[DIMENSION_ID_ORGUNIT]?.name,
+        },
+        pename: {
+            label: fixedDimensions[DIMENSION_ID_PERIOD]?.name,
+        },
+        cocname: {
+            label: i18n.t('Category option combination'),
+            tooltip: 'TODO',
+        },
+        value: {
+            label: i18n.t('Value'),
+            tooltip: i18n.t('Value'),
+        },
+        absdev: {
+            label: i18n.t('Absolute deviation'),
+            tooltip: 'TODO',
+        },
+        modifiedzscore: {
+            label: i18n.t('Modified Z-score'),
+            tooltip: i18n.t('Modified Z-score'),
+        },
+        median: {
+            label: i18n.t('Median'),
+            tooltip: i18n.t('Median'),
+        },
+        medianabsdeviation: {
+            label: i18n.t('Median absolute deviation'),
+            tooltip: 'TODO',
+        },
+        zscore: {
+            label: i18n.t('Z-score'),
+            tooltip: 'TODO',
+        },
+        mean: {
+            label: i18n.t('Mean'),
+            tooltip: i18n.t('Mean'),
+        },
+        stddev: {
+            label: i18n.t('Standard deviation'),
+            tooltip: 'TODO',
+        },
+        lowerbound: {
+            label: i18n.t('Min'),
+            tooltip: i18n.t('The lower boundary'),
+        },
+        upperbound: {
+            label: i18n.t('Max'),
+            tooltip: i18n.t('The upper boundary'),
+        },
     }
-
-    return map
 }
 
 export const computeYoYMatrix = (responses, relativePeriodTypeUsed) => {

@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-02-13T15:33:28.483Z\n"
-"PO-Revision-Date: 2024-02-13T15:33:28.483Z\n"
+"POT-Creation-Date: 2024-02-16T10:12:05.207Z\n"
+"PO-Revision-Date: 2024-02-16T10:12:05.207Z\n"
 
 msgid "All items"
 msgstr "All items"
@@ -720,6 +720,30 @@ msgstr "Open as Map"
 
 msgid "Visually plot data on a world map. Data elements use separate map layers."
 msgstr "Visually plot data on a world map. Data elements use separate map layers."
+
+msgid "Category option combination"
+msgstr "Category option combination"
+
+msgid "Absolute deviation"
+msgstr "Absolute deviation"
+
+msgid "Median"
+msgstr "Median"
+
+msgid "Median absolute deviation"
+msgstr "Median absolute deviation"
+
+msgid "Z-score"
+msgstr "Z-score"
+
+msgid "Mean"
+msgstr "Mean"
+
+msgid "The lower boundary"
+msgstr "The lower boundary"
+
+msgid "The upper boundary"
+msgstr "The upper boundary"
 
 msgid "Not supported when using cumulative values"
 msgstr "Not supported when using cumulative values"

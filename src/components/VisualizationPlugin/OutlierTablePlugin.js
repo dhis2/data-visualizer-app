@@ -1,6 +1,5 @@
 import {
     formatValue,
-    getFixedDimensions,
     VALUE_TYPE_NUMBER,
     VALUE_TYPE_INTEGER,
     VALUE_TYPE_INTEGER_POSITIVE,
@@ -21,11 +20,12 @@ import {
     DataTableColumnHeader,
     DataTableHead,
     DataTableRow,
+    Tooltip,
 } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useCallback, useMemo } from 'react'
-import { getOutlierTableHeadersMap } from '../../modules/analytics.js'
+import { getOutlierTableHeadersDetails } from '../../modules/analytics.js'
 import {
     DISPLAY_DENSITY_COMFORTABLE,
     DISPLAY_DENSITY_COMPACT,
@@ -71,11 +71,9 @@ const OutlierTablePlugin = ({
     onDataSorted,
 }) => {
     const data = responses[0]
-    const headersMap = getOutlierTableHeadersMap({
+    const headersDetails = getOutlierTableHeadersDetails({
         showHierarchy: visualization.showHierarchy,
     })
-    const fixedDimensions = getFixedDimensions()
-
     const defaultSorting = useMemo(() => getDefaultSorting(), [])
 
     const getSorting = useCallback(
@@ -101,18 +99,6 @@ const OutlierTablePlugin = ({
     const getDataTableScrollHeight = (isInModal) =>
         isInModal ? 'calc(100vh - 285px)' : '100%'
 
-    const lookupColumnName = (name) => {
-        const dimensionId = Object.entries(headersMap).find(
-            (entry) => entry[1] === name
-        )?.[0]
-
-        if (dimensionId) {
-            return fixedDimensions[dimensionId]?.name
-        }
-
-        return undefined
-    }
-
     const cellValueShouldNotWrap = (header) =>
         [
             VALUE_TYPE_NUMBER,
@@ -127,8 +113,9 @@ const OutlierTablePlugin = ({
             VALUE_TYPE_DATETIME,
         ].includes(header.valueType)
 
-    const renderHeaderCell = ({ name, column, valueType }) => {
-        const columnName = lookupColumnName(name) || column
+    const renderHeaderCell = ({ name, valueType }) => {
+        const columnName = headersDetails[name]?.label
+        const tooltipContent = headersDetails[name]?.tooltip
 
         return (
             <DataTableColumnHeader
@@ -165,7 +152,11 @@ const OutlierTablePlugin = ({
                 )}
                 dataTest="table-header"
             >
-                {columnName}
+                {tooltipContent ? (
+                    <Tooltip content={tooltipContent}>{columnName}</Tooltip>
+                ) : (
+                    columnName
+                )}
             </DataTableColumnHeader>
         )
     }
