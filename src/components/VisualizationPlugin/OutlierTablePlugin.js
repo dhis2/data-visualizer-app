@@ -24,7 +24,7 @@ import {
 } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
-import React, { useCallback, useMemo } from 'react'
+import React, { useCallback, useMemo, useRef, useState } from 'react'
 import { getOutlierTableHeadersDetails } from '../../modules/analytics.js'
 import {
     DISPLAY_DENSITY_COMFORTABLE,
@@ -66,16 +66,21 @@ const OutlierTablePlugin = ({
     filters,
     responses,
     visualization,
-    //style,
-    //id: renderCounter,
     onDataSorted,
 }) => {
     const data = responses[0]
     const headersDetails = getOutlierTableHeadersDetails({
         showHierarchy: visualization.showHierarchy,
     })
-    const defaultSorting = useMemo(() => getDefaultSorting(), [])
 
+    const containerRef = useRef(null)
+    const [measuredDimensions, setMeasuredDimensions] = useState({
+        containerMaxWidth: 0,
+        paginationMaxWidth: 0,
+        noticeBoxMaxWidth: 0,
+    })
+
+    const defaultSorting = useMemo(() => getDefaultSorting(), [])
     const getSorting = useCallback(
         (visualization) => {
             const sorting =
@@ -95,6 +100,41 @@ const OutlierTablePlugin = ({
     const fontSizeClass = getFontSizeClass(visualization.fontSize)
 
     const isInModal = !!filters?.relativePeriodDate
+
+    const onResize = useCallback(() => {
+        if (!containerRef?.current || containerRef.current.clientWidth === 0) {
+            return
+        }
+        const containerInnerWidth = containerRef.current.clientWidth
+        const scrollBox = containerRef.current.querySelector('.tablescrollbox')
+        const scrollbarWidth = scrollBox.offsetWidth - scrollBox.clientWidth
+        const containerMaxWidth = containerInnerWidth - scrollbarWidth
+
+        setMeasuredDimensions({
+            containerMaxWidth,
+            paginationMaxWidth: containerMaxWidth - scrollbarWidth,
+            noticeBoxMaxWidth: scrollBox.offsetWidth,
+        })
+    }, [])
+
+    const sizeObserver = useMemo(
+        () => new window.ResizeObserver(onResize),
+        [onResize]
+    )
+
+    const mountAndObserveContainerRef = useCallback(
+        (node) => {
+            if (node === null) {
+                return
+            }
+
+            containerRef.current = node
+            sizeObserver.observe(node)
+
+            return sizeObserver.disconnect
+        },
+        [sizeObserver]
+    )
 
     const getDataTableScrollHeight = (isInModal) =>
         isInModal ? 'calc(100vh - 285px)' : '100%'
@@ -185,49 +225,61 @@ const OutlierTablePlugin = ({
     }
 
     return (
-        <div className={styles.pluginContainer}>
-            <DataTable
-                scrollHeight={getDataTableScrollHeight(isInModal)}
-                scrollWidth="100%"
-                width="auto"
-                className={styles.dataTable}
-                dataTest="outlier-table"
+        <div
+            className={styles.pluginContainer}
+            ref={mountAndObserveContainerRef}
+        >
+            <div
+                className={styles.visualizationContainer}
+                style={{ maxWidth: measuredDimensions.containerMaxWidth }}
             >
-                <DataTableHead>
-                    <DataTableRow>
-                        {data.headers.map((header) => renderHeaderCell(header))}
-                    </DataTableRow>
-                </DataTableHead>
-                <DataTableBody dataTest={'table-body'}>
-                    {data.rows.map((row, rowIndex) => (
-                        <DataTableRow key={rowIndex} dataTest={'table-row'}>
-                            {row.map((value, columnIndex) => (
-                                <DataTableCell
-                                    key={columnIndex}
-                                    className={cx(
-                                        styles.cell,
-                                        fontSizeClass,
-                                        sizeClass,
-                                        {
-                                            [styles.nowrap]:
-                                                cellValueShouldNotWrap(
-                                                    data.headers[columnIndex]
-                                                ),
-                                        },
-                                        'bordered'
-                                    )}
-                                    dataTest={'table-cell'}
-                                >
-                                    {formatValueCell(
-                                        value,
-                                        data.headers[columnIndex]
-                                    )}
-                                </DataTableCell>
-                            ))}
+                <DataTable
+                    scrollHeight={getDataTableScrollHeight(isInModal)}
+                    scrollWidth="100%"
+                    width="auto"
+                    className={styles.dataTable}
+                    dataTest="outlier-table"
+                >
+                    <DataTableHead>
+                        <DataTableRow>
+                            {data.headers.map((header) =>
+                                renderHeaderCell(header)
+                            )}
                         </DataTableRow>
-                    ))}
-                </DataTableBody>
-            </DataTable>
+                    </DataTableHead>
+                    <DataTableBody dataTest={'table-body'}>
+                        {data.rows.map((row, rowIndex) => (
+                            <DataTableRow key={rowIndex} dataTest={'table-row'}>
+                                {row.map((value, columnIndex) => (
+                                    <DataTableCell
+                                        key={columnIndex}
+                                        className={cx(
+                                            styles.cell,
+                                            fontSizeClass,
+                                            sizeClass,
+                                            {
+                                                [styles.nowrap]:
+                                                    cellValueShouldNotWrap(
+                                                        data.headers[
+                                                            columnIndex
+                                                        ]
+                                                    ),
+                                            },
+                                            'bordered'
+                                        )}
+                                        dataTest={'table-cell'}
+                                    >
+                                        {formatValueCell(
+                                            value,
+                                            data.headers[columnIndex]
+                                        )}
+                                    </DataTableCell>
+                                ))}
+                            </DataTableRow>
+                        ))}
+                    </DataTableBody>
+                </DataTable>
+            </div>
         </div>
     )
 }
@@ -239,10 +291,8 @@ OutlierTablePlugin.defaultProps = {
 
 OutlierTablePlugin.propTypes = {
     responses: PropTypes.arrayOf(PropTypes.object).isRequired,
-    //style: PropTypes.object,
     visualization: PropTypes.object.isRequired,
     filters: PropTypes.object,
-    //    id: PropTypes.number,
     onDataSorted: PropTypes.func,
 }
 

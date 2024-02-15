@@ -2,7 +2,13 @@
     display: flex;
     gap: var(--spacers-dp4);
     min-width: 0;
+    width: 100%;
     margin: 0 var(--spacers-dp4) var(--spacers-dp4);
+}
+.visualizationContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
 }
 
 /* Table header cells in various sizes */
