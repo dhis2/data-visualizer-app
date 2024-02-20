@@ -9,6 +9,7 @@ import { styles } from './styles/Tooltip.style.js'
 
 const labels = {
     noneSelected: () => i18n.t('None selected'),
+    noneInUse: () => i18n.t('None in use'),
     onlyOneInUse: (name) => i18n.t("Only '{{- name}}' in use", { name }),
     onlyLimitedNumberInUse: (number) =>
         i18n.t("Only '{{number}}' in use", { number }),
@@ -25,7 +26,9 @@ export const TooltipContent = ({
     const hasAllItemsSelected = itemIds.includes(ALL_DYNAMIC_DIMENSION_ITEMS)
     const getWarningLabel = () => {
         const warningLabel =
-            itemIds.length === 1
+            itemIds.length === 0
+                ? labels.noneInUse()
+                : itemIds.length === 1
                 ? labels.onlyOneInUse(
                       metadata[itemIds[0]]
                           ? metadata[itemIds[0]].name

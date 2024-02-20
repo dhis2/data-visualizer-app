@@ -6,6 +6,8 @@ import {
     AXIS_ID_FILTERS,
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
+    DIMENSION_TYPE_DATA_ELEMENT,
+    DIMENSION_TYPE_DATA_ELEMENT_OPERAND,
     VIS_TYPE_OUTLIER_TABLE,
     VIS_TYPE_SINGLE_VALUE,
     VIS_TYPE_PIE,
@@ -139,7 +141,7 @@ export const getItemsByDimensionFromUi = (ui) => {
     return result
 }
 
-export const getOutlierTableCurrentFromUi = (state, value) => {
+export const getOutlierTableCurrentFromUi = (state, value, metadata) => {
     const ui = {
         ...value,
         layout: {
@@ -150,13 +152,26 @@ export const getOutlierTableCurrentFromUi = (state, value) => {
 
     const axesFromUi = getAxesFromUi(ui)
 
-    // only save the first pe item
     const peItems = layoutGetDimensionItems(axesFromUi, DIMENSION_ID_PERIOD)
-    const outlierTableAxesFromUi = layoutReplaceDimension(
-        axesFromUi,
-        DIMENSION_ID_PERIOD,
-        [peItems[0]]
-    )
+    const dxItems = layoutGetDimensionItems(axesFromUi, DIMENSION_ID_DATA)
+
+    const outlierTableAxesFromUi =
+        // only save the first pe item
+        layoutReplaceDimension(
+            // only save data element and data element operand dx items
+            layoutReplaceDimension(
+                axesFromUi,
+                DIMENSION_ID_DATA,
+                dxItems.filter(({ id }) =>
+                    [
+                        DIMENSION_TYPE_DATA_ELEMENT,
+                        DIMENSION_TYPE_DATA_ELEMENT_OPERAND,
+                    ].includes(metadata[id]?.dimensionItemType)
+                )
+            ),
+            DIMENSION_ID_PERIOD,
+            [peItems[0]]
+        )
 
     return {
         ...state,

@@ -63,7 +63,11 @@ export default (state = DEFAULT_CURRENT, action) => {
                 case VIS_TYPE_SCATTER:
                     return getScatterCurrentFromUi(state, action.value.ui)
                 case VIS_TYPE_OUTLIER_TABLE:
-                    return getOutlierTableCurrentFromUi(state, action.value.ui)
+                    return getOutlierTableCurrentFromUi(
+                        state,
+                        action.value.ui,
+                        action.value.metadata
+                    )
                 default: {
                     return getDefaultFromUi(
                         state,

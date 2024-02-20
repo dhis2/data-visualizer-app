@@ -9,6 +9,7 @@ import {
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
     DIMENSION_TYPE_DATA_ELEMENT,
+    DIMENSION_TYPE_DATA_ELEMENT_OPERAND,
     getDimensionMaxNumberOfItems,
     getAxisMaxNumberOfItems,
     getDisplayNameByVisType,
@@ -321,6 +322,7 @@ export class DialogManager extends Component {
                     item.isActive = index < 1
                 })
             }
+
             let content = null
             if (
                 dialogId === DIMENSION_ID_DATA ||
@@ -353,6 +355,29 @@ export class DialogManager extends Component {
                         },
                     })
                 }
+
+                if (visType === VIS_TYPE_OUTLIER_TABLE) {
+                    let showInfo = false
+
+                    selectedItems.forEach((item) => {
+                        if (
+                            ![
+                                DIMENSION_TYPE_DATA_ELEMENT,
+                                DIMENSION_TYPE_DATA_ELEMENT_OPERAND,
+                            ].includes(item.type)
+                        ) {
+                            item.isActive = false
+                            showInfo = true
+                        }
+                    })
+
+                    if (showInfo) {
+                        infoBoxMessage = i18n.t(
+                            `'Outlier table' can only use data elements. Only data elements will be used and saved.`
+                        )
+                    }
+                }
+
                 const dimensionSelector = (
                     <DataDimension
                         enabledDataTypes={dataTypes}
