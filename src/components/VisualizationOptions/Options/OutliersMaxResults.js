@@ -53,6 +53,9 @@ const OutliersMaxResults = () => {
                     value={outlierAnalysis[
                         OUTLIER_MAX_RESULTS_PROP
                     ]?.toString()}
+                    helpText={i18n.t(
+                        'The maximum number of outlier values to show in the table. Must be between 1-500.'
+                    )}
                     min={MIN_VALUE.toString()}
                     max={MAX_VALUE.toString()}
                     step={'1'}
