@@ -119,7 +119,10 @@ const useDownload = (relativePeriodDate) => {
                 req = getAnalyticsRequestForOutlierTable({
                     analyticsEngine,
                     visualization,
-                    options: { showHierarchy: visualization.showHierarchy },
+                    options: {
+                        showHierarchy: visualization.showHierarchy,
+                        skipRounding: visualization.skipRounding,
+                    },
                     forDownload: true,
                 })
 
