@@ -34,6 +34,8 @@ export const visTypes = [
     VIS_TYPE_SCATTER,
 ]
 
+// TODO: update to fit the new database
+
 /*
     TODO:   Generate all content in this file based on endpoint results instead of hardcoding
             e.g. TEST_AOS could be generated like this:
