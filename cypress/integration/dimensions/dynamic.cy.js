@@ -59,7 +59,7 @@ describe(`Dynamic dimension - ${TEST_DYNAMIC_DIMENSION.name}`, () => {
         expectWindowConfigSeriesToHaveLength(TEST_DYNAMIC_DIMENSION.itemAmount)
         expectDimensionToHaveAllItemsSelected(TEST_DYNAMIC_DIMENSION.id)
 
-        cy.log('switches back to manual and previous item is presisted')
+        cy.log('switches back to manual and previous item is persisted')
         openDimension(TEST_DYNAMIC_DIMENSION.id)
         expectDimensionModalToBeVisible(TEST_DYNAMIC_DIMENSION.id)
         expectAutomaticSelectionToBeChecked()
@@ -71,7 +71,7 @@ describe(`Dynamic dimension - ${TEST_DYNAMIC_DIMENSION.name}`, () => {
         expectWindowConfigSeriesToHaveLength(1)
         expectDimensionToHaveItemAmount(TEST_DYNAMIC_DIMENSION.id, 1)
 
-        cy.log('switches back to automatic, saving, the selection is presisted')
+        cy.log('switches back to automatic, saving, the selection is persisted')
         openDimension(TEST_DYNAMIC_DIMENSION.id)
         expectDimensionModalToBeVisible(TEST_DYNAMIC_DIMENSION.id)
         expectManualSelectionToBeChecked()
