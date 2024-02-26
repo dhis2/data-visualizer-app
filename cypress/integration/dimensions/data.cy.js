@@ -251,7 +251,7 @@ describe('Data dimension', () => {
         {
             name: 'Event data items',
             testGroup: { name: 'Information Campaign', itemAmount: 6 },
-            testItem: { name: 'Diagnosis (ICD-10)' },
+            testItem: { name: 'E2E TE program 1 First name' },
             defaultGroup: { name: 'All programs' },
             endpoint: {
                 hasMultiplePages: true,
