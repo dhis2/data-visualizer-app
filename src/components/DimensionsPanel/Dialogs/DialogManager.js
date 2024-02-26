@@ -373,7 +373,7 @@ export class DialogManager extends Component {
 
                     if (showInfo) {
                         infoBoxMessage = i18n.t(
-                            `'Outlier table' can only use data elements. Only data elements will be used and saved.`
+                            `'Outlier table' shows values from data elements only. Only data elements will be used and saved.`
                         )
                     }
                 }

@@ -39,47 +39,57 @@ export const getOutlierTableHeadersDetails = () => {
         },
         cocname: {
             label: i18n.t('Category option combination'),
-            tooltip: 'TODO',
         },
         value: {
             label: i18n.t('Value'),
-            tooltip: i18n.t('Value'),
         },
         absdev: {
             label: i18n.t('Absolute deviation'),
-            tooltip: 'TODO',
+            tooltip: i18n.t(
+                'A measure of the absolute difference between each data point and a central value, usually the mean or median, providing a straightforward understanding of dispersion in the dataset.'
+            ),
         },
         modifiedzscore: {
             label: i18n.t('Modified Z-score'),
-            tooltip: i18n.t('Modified Z-score'),
+            tooltip: i18n.t(
+                'A measure of how far a data point deviates from the median, using the median absolute deviation instead of the standard deviation, making it robust against outliers.'
+            ),
         },
         median: {
             label: i18n.t('Median'),
-            tooltip: i18n.t('Median'),
+            tooltip: i18n.t(
+                "The middle value in a dataset when the values are arranged in ascending or descending order. It's a robust measure of central tendency that is less affected by outliers compared to the mean."
+            ),
         },
         medianabsdeviation: {
             label: i18n.t('Median absolute deviation'),
-            tooltip: 'TODO',
+            tooltip: i18n.t(
+                "A robust measure of variability, found by calculating the median of the absolute differences between each data point and the overall median. It's less influenced by outliers compared to other measures like the standard deviation."
+            ),
         },
         zscore: {
             label: i18n.t('Z-score'),
-            tooltip: 'TODO',
+            tooltip: i18n.t(
+                'A measure of how many standard deviations a data point is from the mean of a dataset, providing insight into how unusual or typical that data point is relative to the rest of the distribution.'
+            ),
         },
         mean: {
             label: i18n.t('Mean'),
-            tooltip: i18n.t('Mean'),
+            tooltip: i18n.t('Average of the value over time.'),
         },
         stddev: {
             label: i18n.t('Standard deviation'),
-            tooltip: 'TODO',
+            tooltip: i18n.t(
+                'A measure of how dispersed the data is in relation to the mean. Low standard deviation indicates data are clustered tightly around the mean, and high standard deviation indicates data are more spread out.'
+            ),
         },
         lowerbound: {
             label: i18n.t('Min'),
-            tooltip: i18n.t('The lower boundary'),
+            tooltip: i18n.t('Minimum score threshold'),
         },
         upperbound: {
             label: i18n.t('Max'),
-            tooltip: i18n.t('The upper boundary'),
+            tooltip: i18n.t('Maximum score threshold'),
         },
     }
 }

@@ -85,10 +85,10 @@ export const getVisTypeDescriptions = () => ({
         'Display a single value. Recommend relative period to show latest data.'
     ),
     [VIS_TYPE_SCATTER]: i18n.t(
-        'View the relationship between two data items at a place or time. Recommended for finding outliers.'
+        'Compare the relationship between two data items across multiple places. Recommended for visualizing outliers.'
     ),
     [VIS_TYPE_OUTLIER_TABLE]: i18n.t(
-        'Automatically identify extreme outliers in the data.'
+        'Automatically identify extreme outliers based on historical data.'
     ),
 })
 

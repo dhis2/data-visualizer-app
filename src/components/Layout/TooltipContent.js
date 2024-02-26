@@ -12,7 +12,7 @@ const labels = {
     noneInUse: () => i18n.t('None in use'),
     onlyOneInUse: (name) => i18n.t("Only '{{- name}}' in use", { name }),
     onlyLimitedNumberInUse: (number) =>
-        i18n.t("Only '{{number}}' in use", { number }),
+        i18n.t('Only {{number}} in use', { number }),
     allItems: () => i18n.t('All items are selected'),
 }
 
