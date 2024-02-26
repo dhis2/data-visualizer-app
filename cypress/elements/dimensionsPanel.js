@@ -75,6 +75,7 @@ export const expectDimensionToNotHaveSelectedStyle = (dimensionId) =>
 export const expectRecommendedIconToBeVisible = (dimensionId) =>
     cy
         .getBySel(getDimensionButtonById(dimensionId))
+        .scrollIntoView()
         .findBySel(recommendedIconEl)
         .should('have.length', 1)
         .and('be.visible')
