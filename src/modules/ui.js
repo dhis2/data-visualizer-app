@@ -6,6 +6,7 @@ import {
     layoutGetDimensionIdItemIdsObject,
     VIS_TYPE_YEAR_OVER_YEAR_LINE,
     VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
+    VIS_TYPE_OUTLIER_TABLE,
     VIS_TYPE_PIVOT_TABLE,
     VIS_TYPE_SCATTER,
     defaultVisType,
@@ -14,6 +15,14 @@ import {
     VIS_TYPE_GAUGE,
     VIS_TYPE_SINGLE_VALUE,
 } from '@dhis2/analytics'
+import {
+    DEFAULT_STATE as OUTLIER_METHOD_THRESHOLD_DEFAULT_STATE,
+    METHOD_MODIFIED_Z_SCORE,
+    METHOD_STANDARD_Z_SCORE,
+    OUTLIER_ANALYSIS_OPTION_NAME,
+    OUTLIER_METHOD_PROP,
+} from '../components/VisualizationOptions/Options/OutliersForOutlierTable.js'
+import { DEFAULT_STATE as OUTLIER_MAX_RESULTS_DEFAULT_STATE } from '../components/VisualizationOptions/Options/OutliersMaxResults.js'
 import { getDisabledOptions } from './disabledOptions.js'
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields.js'
 import { getInverseLayout } from './layout.js'
@@ -111,6 +120,27 @@ const scatterUiAdapter = (ui) => {
     return adaptedUi
 }
 
+// Transform from store.ui to outlier table format
+const outlierTableUiAdapter = (ui) => {
+    const adaptedUi = defaultUiAdapter(ui)
+    console.log('outlier ui adapter')
+    const outlierAnalysis = ui.options?.[OUTLIER_ANALYSIS_OPTION_NAME]
+
+    if (
+        !outlierAnalysis ||
+        ![METHOD_STANDARD_Z_SCORE, METHOD_MODIFIED_Z_SCORE].includes(
+            outlierAnalysis[OUTLIER_METHOD_PROP]
+        )
+    ) {
+        adaptedUi.options[OUTLIER_ANALYSIS_OPTION_NAME] = {
+            ...OUTLIER_METHOD_THRESHOLD_DEFAULT_STATE,
+            ...OUTLIER_MAX_RESULTS_DEFAULT_STATE,
+        }
+    }
+
+    return adaptedUi
+}
+
 export const getAdaptedUiByType = (ui) => {
     let adaptedUi
 
@@ -129,6 +159,9 @@ export const getAdaptedUiByType = (ui) => {
             break
         case VIS_TYPE_SCATTER:
             adaptedUi = scatterUiAdapter(ui)
+            break
+        case VIS_TYPE_OUTLIER_TABLE:
+            adaptedUi = outlierTableUiAdapter(ui)
             break
         default:
             adaptedUi = defaultUiAdapter(ui)

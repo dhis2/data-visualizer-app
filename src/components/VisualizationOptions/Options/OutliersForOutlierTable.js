@@ -15,7 +15,7 @@ import { DEFAULT_STATE as OUTLIER_MAX_RESULTS_DEFAULT_STATE } from './OutliersMa
 export const OUTLIER_METHOD_PROP = 'outlierMethod'
 export const OUTLIER_THRESHOLD_PROP = 'thresholdFactor'
 
-const OUTLIER_ANALYSIS_OPTION_NAME = 'outlierAnalysis'
+export const OUTLIER_ANALYSIS_OPTION_NAME = 'outlierAnalysis'
 
 export const METHOD_STANDARD_Z_SCORE = 'STANDARD_Z_SCORE'
 export const METHOD_MODIFIED_Z_SCORE = 'MODIFIED_Z_SCORE'
@@ -40,11 +40,25 @@ export const DEFAULT_STATE = {
 const Outliers = () => {
     const dispatch = useDispatch()
 
-    const outlierAnalysis = useSelector(sGetUiOptions)[
-        OUTLIER_ANALYSIS_OPTION_NAME
-    ] || {
-        ...OUTLIER_MAX_RESULTS_DEFAULT_STATE,
-        ...DEFAULT_STATE,
+    let outlierAnalysis =
+        useSelector(sGetUiOptions)[OUTLIER_ANALYSIS_OPTION_NAME]
+
+    if (
+        !outlierAnalysis ||
+        !methods
+            .map(({ id }) => id)
+            .includes(outlierAnalysis[OUTLIER_METHOD_PROP])
+    ) {
+        outlierAnalysis = {
+            ...OUTLIER_MAX_RESULTS_DEFAULT_STATE,
+            ...DEFAULT_STATE,
+        }
+
+        dispatch(
+            acSetUiOptions({
+                [OUTLIER_ANALYSIS_OPTION_NAME]: outlierAnalysis,
+            })
+        )
     }
 
     const sorting = useSelector(sGetUi).sorting
