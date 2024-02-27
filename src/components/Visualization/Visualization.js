@@ -91,6 +91,9 @@ export class UnconnectedVisualization extends Component {
                 case 'E7145':
                     error = new AnalyticsRequestError()
                     break
+                case 'E2200':
+                    error = new NoDataError(this.props.visualization.type)
+                    break
                 default:
                     error = response
             }
