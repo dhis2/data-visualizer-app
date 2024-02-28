@@ -2,13 +2,14 @@
 # Translators:
 # 晓东 林 <13981924470@126.com>, 2020
 # easylin <lin_xd@126.com>, 2022
+# Philip Larsen Donnelly, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-09-06T13:41:14.540Z\n"
+"POT-Creation-Date: 2023-11-13T12:11:28.959Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2022\n"
+"Last-Translator: Philip Larsen Donnelly, 2024\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +27,7 @@ msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr ""
 
 msgid "\"{{- deletedObject}}\" successfully deleted."
-msgstr ""
+msgstr "“{{- deletedObject}}”已成功删除。"
 
 msgid "You have unsaved changes."
 msgstr "你没有保存修改"
@@ -375,6 +376,9 @@ msgstr "包括累计"
 msgid "Cumulative values"
 msgstr "汇总值"
 
+msgid "Accumulate cell values along rows"
+msgstr ""
+
 msgid "Show data item icon"
 msgstr ""
 
@@ -690,6 +694,9 @@ msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
 msgstr ""
 
+msgid "Not supported when using cumulative values"
+msgstr ""
+
 msgid "No data available"
 msgstr "没有值"
 
@@ -809,6 +816,14 @@ msgstr ""
 
 msgid "Something went wrong"
 msgstr "出了些问题"
+
+msgid ""
+"There's a problem with the generated analytics. Contact a system "
+"administrator."
+msgstr ""
+
+msgid "There's a syntax problem with the analytics request."
+msgstr ""
 
 msgid "or"
 msgstr "或"
@@ -971,6 +986,9 @@ msgstr "线"
 
 msgid "Totals"
 msgstr "总共"
+
+msgid "Totals are not supported when using cumulative values"
+msgstr ""
 
 msgid "Vertical (y) axis {{axisId}}"
 msgstr ""

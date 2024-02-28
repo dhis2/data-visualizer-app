@@ -1,14 +1,14 @@
 # 
 # Translators:
 # Jaime Bosque <jaime.bosque@dhis2.org>, 2022
-# Enzo Nicolas Rossi <enzo@dhis2.org>, 2023
+# Enzo Nicolas Rossi <enzo@dhis2.org>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-05-30T12:32:59.044Z\n"
+"POT-Creation-Date: 2023-11-13T12:11:28.959Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Enzo Nicolas Rossi <enzo@dhis2.org>, 2023\n"
+"Last-Translator: Enzo Nicolas Rossi <enzo@dhis2.org>, 2024\n"
 "Language-Team: Spanish (Latin America) (https://app.transifex.com/hisp-uio/teams/100509/es_419/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,7 +46,7 @@ msgid "Yes, leave"
 msgstr ""
 
 msgid "Add to {{axisName}}"
-msgstr ""
+msgstr "Añadir a {{axisName}}"
 
 msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
@@ -375,6 +375,9 @@ msgstr ""
 msgid "Cumulative values"
 msgstr ""
 
+msgid "Accumulate cell values along rows"
+msgstr ""
+
 msgid "Show data item icon"
 msgstr ""
 
@@ -474,10 +477,10 @@ msgstr ""
 msgid "Legend type"
 msgstr ""
 
-msgid "Use pre-defined legend per data item"
+msgid "Use pre-defined legend by data item"
 msgstr ""
 
-msgid "Select a single legend for the entire visualization"
+msgid "Select a legend"
 msgstr ""
 
 msgid "Legend changes background color"
@@ -690,6 +693,9 @@ msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
 msgstr ""
 
+msgid "Not supported when using cumulative values"
+msgstr ""
+
 msgid "No data available"
 msgstr ""
 
@@ -807,6 +813,14 @@ msgstr ""
 
 msgid "Something went wrong"
 msgstr "Algo ha ido mal"
+
+msgid ""
+"There's a problem with the generated analytics. Contact a system "
+"administrator."
+msgstr ""
+
+msgid "There's a syntax problem with the analytics request."
+msgstr ""
 
 msgid "or"
 msgstr ""
@@ -968,6 +982,9 @@ msgid "Lines"
 msgstr ""
 
 msgid "Totals"
+msgstr ""
+
+msgid "Totals are not supported when using cumulative values"
 msgstr ""
 
 msgid "Vertical (y) axis {{axisId}}"
