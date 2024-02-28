@@ -1,13 +1,14 @@
 # 
 # Translators:
 # Yury Rogachev <yury@dhis2.org>, 2022
+# Philip Larsen Donnelly, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2020-09-21T14:48:25.130Z\n"
 "PO-Revision-Date: 2022-08-21 23:46+0000\n"
-"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2022\n"
+"Last-Translator: Philip Larsen Donnelly, 2024\n"
 "Language-Team: Uzbek (Latin) (https://app.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -210,7 +211,7 @@ msgid "Edited"
 msgstr "Tahrirlangan"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr "{{TalqinVaqt}} dan talqinni koʼrish"
+msgstr "{{interpretationDate}} dan talqinni koʼrish"
 
 msgid "Update"
 msgstr "Янгилаш"
