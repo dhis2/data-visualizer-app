@@ -1,0 +1,85 @@
+{
+    "version": "0.0.1",
+    "showVisualization": {
+        "strategy": "navigateToUrl",
+        "steps": [
+            { "goto": "{{appUrl}}/#/{{id}}" },
+            {
+                "waitForSelectorConditionally": [
+                    {
+                        "dashboardItemProperty": "visualization.type",
+                        "value": "PIVOT_TABLE",
+                        "selector": ".pivot-table-container > table"
+                    },
+                    {
+                        "dashboardItemProperty": "visualization.type",
+                        "value": [
+                            "COLUMN",
+                            "STACKED_COLUMN",
+                            "BAR",
+                            "STACKED_BAR",
+                            "LINE",
+                            "AREA",
+                            "STACKED_AREA",
+                            "PIE",
+                            "RADAR",
+                            "GAUGE",
+                            "YEAR_OVER_YEAR_LINE",
+                            "YEAR_OVER_YEAR_COLUMN",
+                            "SCATTER",
+                            "BUBBLE",
+                            "SINGLE_VALUE",
+                            "PIVOT_TABLE",
+                            "OUTLIER_TABLE"
+                        ],
+                        "selector": ".highcharts-container"
+                    }
+                ]
+            }
+        ]
+    },
+    "triggerDownload": {
+        "strategy": "useUiElements",
+        "steps": [
+            { "click": ".push-analytics-download-dropdown-menu-button" },
+            { "click": ".push-analytics-download-menu-item" }
+        ]
+    },
+    "obtainDownloadArtifactConditionally": [
+        {
+            "dashboardItemProperty": "visualization.type",
+            "value": "PIVOT_TABLE",
+            "strategy": "scrapeDownloadPage",
+            "htmlSelector": "body",
+            "cssSelector": "style"
+        },
+        {
+            "dashboardItemProperty": "visualization.type",
+            "value": [
+                "COLUMN",
+                "STACKED_COLUMN",
+                "BAR",
+                "STACKED_BAR",
+                "LINE",
+                "AREA",
+                "STACKED_AREA",
+                "PIE",
+                "RADAR",
+                "GAUGE",
+                "YEAR_OVER_YEAR_LINE",
+                "YEAR_OVER_YEAR_COLUMN",
+                "SCATTER",
+                "BUBBLE",
+                "SINGLE_VALUE",
+                "PIVOT_TABLE",
+                "OUTLIER_TABLE"
+            ],
+            "strategy": "screenShotImgOnDownloadPage",
+            "htmlSelector": "img"
+        }
+    ],
+    "clearVisualization": {
+        "strategy": "navigateToUrl",
+        "steps": [{ "goto": "{{appUrl}}/#/new" }]
+    }
+}
