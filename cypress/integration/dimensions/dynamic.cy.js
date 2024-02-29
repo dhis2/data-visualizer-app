@@ -20,11 +20,8 @@ import {
     expectDimensionToHaveItemAmount,
 } from '../../elements/layout.js'
 import { goToStartPage } from '../../elements/startScreen.js'
-import { TEST_DATA_ELEMENTS } from '../../utils/data.js'
-import { getRandomArrayItem } from '../../utils/random.js'
 import { expectWindowConfigSeriesToHaveLength } from '../../utils/window.js'
 
-const TEST_DATA_ELEMENT_NAME = getRandomArrayItem(TEST_DATA_ELEMENTS).name
 const TEST_DYNAMIC_DIMENSION = {
     id: 'J5jldMd8OHv',
     name: 'Facility type',
@@ -32,15 +29,16 @@ const TEST_DYNAMIC_DIMENSION = {
 }
 
 describe(`Dynamic dimension - ${TEST_DYNAMIC_DIMENSION.name}`, () => {
-    it('navigates to the start page and adds a data item', () => {
+    it('can add and remove items, which persist after saving', () => {
+        cy.log('navigates to the start page and adds a data item')
         goToStartPage()
         openDimension(DIMENSION_ID_DATA)
-        selectDataElements([TEST_DATA_ELEMENT_NAME])
+        selectDataElements(['ANC 2nd visit'])
         clickDimensionModalUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
-    })
-    const TEST_ITEM = 'Hospital'
-    it('adds an item manually', () => {
+
+        const TEST_ITEM = 'Hospital'
+        cy.log('adds an item manually')
         openDimension(TEST_DYNAMIC_DIMENSION.id)
         expectDimensionModalToBeVisible(TEST_DYNAMIC_DIMENSION.id)
         expectManualSelectionToBeChecked()
@@ -49,8 +47,8 @@ describe(`Dynamic dimension - ${TEST_DYNAMIC_DIMENSION.name}`, () => {
         expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
         expectWindowConfigSeriesToHaveLength(1)
         expectDimensionToHaveItemAmount(TEST_DYNAMIC_DIMENSION.id, 1)
-    })
-    it('adds all items automatically', () => {
+
+        cy.log('adds all items automatically')
         openDimension(TEST_DYNAMIC_DIMENSION.id)
         expectDimensionModalToBeVisible(TEST_DYNAMIC_DIMENSION.id)
         expectManualSelectionToBeChecked()
@@ -60,8 +58,8 @@ describe(`Dynamic dimension - ${TEST_DYNAMIC_DIMENSION.name}`, () => {
         expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
         expectWindowConfigSeriesToHaveLength(TEST_DYNAMIC_DIMENSION.itemAmount)
         expectDimensionToHaveAllItemsSelected(TEST_DYNAMIC_DIMENSION.id)
-    })
-    it('switches back to manual and previous item is presisted', () => {
+
+        cy.log('switches back to manual and previous item is persisted')
         openDimension(TEST_DYNAMIC_DIMENSION.id)
         expectDimensionModalToBeVisible(TEST_DYNAMIC_DIMENSION.id)
         expectAutomaticSelectionToBeChecked()
@@ -72,8 +70,8 @@ describe(`Dynamic dimension - ${TEST_DYNAMIC_DIMENSION.name}`, () => {
         expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
         expectWindowConfigSeriesToHaveLength(1)
         expectDimensionToHaveItemAmount(TEST_DYNAMIC_DIMENSION.id, 1)
-    })
-    it('switches back to automatic, saving, the selection is presisted', () => {
+
+        cy.log('switches back to automatic, saving, the selection is persisted')
         openDimension(TEST_DYNAMIC_DIMENSION.id)
         expectDimensionModalToBeVisible(TEST_DYNAMIC_DIMENSION.id)
         expectManualSelectionToBeChecked()

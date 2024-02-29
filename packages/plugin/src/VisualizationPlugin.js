@@ -267,6 +267,12 @@ export const VisualizationPlugin = ({
               }
             : style
 
+    // force height when no value available otherwise the PivotTable container sets 0 as height hiding the table content
+    // and Highcharts does not render correctly the chart/legend
+    if (!transformedStyle.height) {
+        transformedStyle.height = '100%'
+    }
+
     const getLegendKey = () => {
         if (hasLegendSet && forDashboard) {
             return (
@@ -330,8 +336,7 @@ export const VisualizationPlugin = ({
                             onDrill ? onToggleContextualMenu : undefined
                         }
                         id={id}
-                        // force height otherwise the PivotTable container sets 0 as height hiding the table content
-                        style={{ ...transformedStyle, height: '100%' }}
+                        style={transformedStyle}
                     />
                 ) : (
                     <ChartPlugin
