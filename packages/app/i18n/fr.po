@@ -2,20 +2,20 @@
 # Translators:
 # Djibril Dione <dione.djibril@gmail.com>, 2022
 # Karoline Tufte Lien <karoline@dhis2.org>, 2022
-# phil_dhis2, 2022
-# Edem Kossi <ekossi@hispwca.org>, 2022
 # Yayra Gomado <ygomado@hispwca.org>, 2022
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
 # Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2022
+# Edem Kossi <ekossi@hispwca.org>, 2023
+# Philip Larsen Donnelly, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-08-25T09:58:02.683Z\n"
+"POT-Creation-Date: 2023-02-27T12:26:43.652Z\n"
 "PO-Revision-Date: 2022-10-15 22:30+0000\n"
-"Last-Translator: Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2022\n"
-"Language-Team: French (https://www.transifex.com/hisp-uio/teams/100509/fr/)\n"
+"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Language-Team: French (https://app.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -54,7 +54,7 @@ msgid "Yes, leave"
 msgstr "Oui, quitter"
 
 msgid "Add to {{axisName}}"
-msgstr "Ajouter à {{nomdel'axe}} "
+msgstr "Ajouter à {{axisName}} "
 
 msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
@@ -1085,47 +1085,48 @@ msgstr "Affichez les données et les indicateurs dans un tableau manipulable."
 msgid ""
 "Compare sizes of related elements vertically. Recommend period as filter."
 msgstr ""
-"Comparez les tailles des éléments connexes verticalement. Recommander la "
-"période comme filtre."
+"Comparez les tailles des éléments connexes verticalement. Il est recommandé "
+"d'utiliser la période comme filtre."
 
 msgid ""
 "Compare parts of a whole against related elements vertically. Recommend data"
 " or org. unit as series."
 msgstr ""
-"Comparez les parties d'un tout avec des éléments connexes verticalement. "
-"Recommander des données ou une unité d'organisation en série."
+"Comparez les parties d'un tout avec des éléments connexes verticalement. Il "
+"est recommandé d'utiliser les données ou unités d'organisation comme série."
 
 msgid ""
 "Compare sizes of related elements horizontally. Recommend period as filter."
 msgstr ""
-"Comparez les tailles des éléments connexes horizontalement. Recommander la "
-"période comme filtre."
+"Comparez les tailles des éléments connexes horizontalement. Il est "
+"recommandé d'utiliser la période comme filtre."
 
 msgid ""
 "Compare parts of a whole against related elements horizontally. Recommend "
 "data or org. unit as series."
 msgstr ""
 "Comparez les parties d'un tout avec des éléments connexes horizontalement. "
-"Recommander des données ou une unité d'organisation en série."
+"Il est recommandé d'utiliser les données ou unités d'organisation comme "
+"série."
 
 msgid "Track or compare changes over time. Recommend period as category."
 msgstr ""
-"Suivez ou comparez les changements au fil du temps. Recommander la période "
-"comme catégorie."
+"Suivez ou comparez les changements au fil du temps. Il est recommandé "
+"d'utiliser la période comme catégorie."
 
 msgid ""
 "Track or compare parts of a whole over time. Recommend data as series and "
 "period as category."
 msgstr ""
-"Suivez ou comparez des parties d'un tout au fil du temps. Recommander les "
-"données comme séries et la période comme catégorie."
+"Suivez ou comparez des parties d'un tout au fil du temps. Il est recommandé "
+"d'utiliser les données comme séries et la période comme catégorie."
 
 msgid ""
 "Compare parts of a whole at a single point in time. Recommend period as "
 "filter."
 msgstr ""
-"Comparez des parties d'un tout à un moment ponctuel. Recommander la période "
-"comme filtre."
+"Comparez des parties d'un tout à un moment ponctuel. Il est recommandé "
+"d'utiliser la période comme filtre."
 
 msgid "Compare several items against multiple variables."
 msgstr "Comparez plusieurs éléments à plusieurs variables."
@@ -1134,23 +1135,23 @@ msgid ""
 "Compare a percentage indicator against a 100% scale. Recommend period as "
 "filter."
 msgstr ""
-"Comparez un indicateur de pourcentage à une échelle de 100%. Recommander la "
-"période comme filtre."
+"Comparez un indicateur de pourcentage à une échelle de 100%. Il est "
+"recommandé d'utiliser la période comme filtre."
 
 msgid "Compare changes over time between multiple time periods."
 msgstr "Comparez les changements au fil du temps entre plusieurs périodes."
 
 msgid "Display a single value. Recommend relative period to show latest data."
 msgstr ""
-"Afficher une valeur unique. Recommander la période relative pour afficher "
-"les dernières données."
+"Afficher une valeur unique. Il est recommandé d'utiliser la période relative"
+" pour afficher les dernières données."
 
 msgid ""
 "View the relationship between two data items at a place or time. Recommended"
 " for finding outliers."
 msgstr ""
 "Affichez la relation entre deux éléments de données à un endroit ou à un "
-"temps. Recommandé pour trouver des valeurs atypiques"
+"temps. Ceci est recommandé pour trouver des valeurs atypiques"
 
 msgid "Weeks per year"
 msgstr "Semaines par an"

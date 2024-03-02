@@ -1,17 +1,17 @@
 # 
 # Translators:
 # KRG HIS <antonia.bezenchek@informa.pro>, 2022
-# phil_dhis2, 2022
 # Hamza Assada <7amza.it@gmail.com>, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
+# Philip Larsen Donnelly, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-08-25T09:58:02.683Z\n"
+"POT-Creation-Date: 2023-02-27T12:26:43.652Z\n"
 "PO-Revision-Date: 2022-10-15 22:30+0000\n"
-"Last-Translator: Viktor Varland <viktor@dhis2.org>, 2022\n"
-"Language-Team: Arabic (https://www.transifex.com/hisp-uio/teams/100509/ar/)\n"
+"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Language-Team: Arabic (https://app.transifex.com/hisp-uio/teams/100509/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -194,7 +194,7 @@ msgid "Only '{{- name}}' in use"
 msgstr "قيد الإستخدام '{{- name}}' فقط"
 
 msgid "Only '{{number}}' in use"
-msgstr "قيد الإستخدام '{{- name}}' فقط"
+msgstr "قيد الإستخدام '{{number}}' فقط"
 
 msgid "All items are selected"
 msgstr ""
