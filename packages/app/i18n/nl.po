@@ -5,13 +5,14 @@
 # Rica Zamora Duchateau, 2022
 # Charel van den Elsen, 2023
 # Enzo Nicolas Rossi <enzo@dhis2.org>, 2023
+# Philip Larsen Donnelly, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-08-25T09:58:02.683Z\n"
+"POT-Creation-Date: 2023-02-27T12:26:43.652Z\n"
 "PO-Revision-Date: 2022-10-15 22:30+0000\n"
-"Last-Translator: Enzo Nicolas Rossi <enzo@dhis2.org>, 2023\n"
+"Last-Translator: Philip Larsen Donnelly, 2024\n"
 "Language-Team: Dutch (https://app.transifex.com/hisp-uio/teams/100509/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,7 +30,7 @@ msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr "Ongetitelde {{visualizationType}} visualisatie, {{date}}"
 
 msgid "\"{{- deletedObject}}\" successfully deleted."
-msgstr "\"{{- verwijderObject}}\" succesvol verwijderd."
+msgstr "\"{{- deletedObject}}\" succesvol verwijderd."
 
 msgid "You have unsaved changes."
 msgstr "U heeft niet opgeslagen veranderingen."
@@ -64,8 +65,8 @@ msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
-"'{{visualizationType}}' is bedoeld om het maximum {{maxNumber}} aantal items"
-" te tonen. Alleen de eerste {{maxNumber}} items worden gebruikt en "
+"'{{visualiationType}}' is bedoeld om het maximum {{maxNumber}} aantal items "
+"te tonen. Alleen de eerste {{maxNumber}} items worden gebruikt en "
 "opgeslagen."
 
 msgid ""
