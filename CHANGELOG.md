@@ -1,3 +1,11 @@
+## [39.2.21](https://github.com/dhis2/data-visualizer-app/compare/v39.2.20...v39.2.21) (2024-03-03)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (39.x) ([624835b](https://github.com/dhis2/data-visualizer-app/commit/624835b28bbd2258872705cbbdaa3e692adb9698))
+* keep original item height to avoid PT not showing up (DHIS2-16888) v39 ([#2983](https://github.com/dhis2/data-visualizer-app/issues/2983)) ([a16b4b5](https://github.com/dhis2/data-visualizer-app/commit/a16b4b5c2d610822c1f6141cb561ee2fa99151fa))
+
 ## [39.2.20](https://github.com/dhis2/data-visualizer-app/compare/v39.2.19...v39.2.20) (2024-01-21)
 
 
