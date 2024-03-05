@@ -123,7 +123,7 @@ const scatterUiAdapter = (ui) => {
 // Transform from store.ui to outlier table format
 const outlierTableUiAdapter = (ui) => {
     const adaptedUi = defaultUiAdapter(ui)
-    console.log('outlier ui adapter')
+
     const outlierAnalysis = ui.options?.[OUTLIER_ANALYSIS_OPTION_NAME]
 
     if (
