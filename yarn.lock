@@ -2028,10 +2028,10 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^26.3.0":
-  version "26.3.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-26.3.0.tgz#ada2fe27442f19704fa704e334546416c85ea1d6"
-  integrity sha512-B/pUh8K8wyivL4yBiwqPoQ94pMWwCqh0xu3Uak4jmJqS+jO0slUlyDLtAmXU/jqRlRgRg1nR4u18npjd511Q7A==
+"@dhis2/analytics@999.9.9-outlier-table.alpha.4":
+  version "999.9.9-outlier-table.alpha.4"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-999.9.9-outlier-table.alpha.4.tgz#a5ca4dc5cc8d1e819d9462c69a1d12149b9351c7"
+  integrity sha512-JtvJxqRQSEDoo2+Jq+bo0NIb2gq0hqCQfCpnTpET08uwkYFAwu6YKma2Z0rmK3A9IM0wwqSJNx3a7Cje7Px9BQ==
   dependencies:
     "@dhis2/d2-ui-rich-text" "^7.4.1"
     "@dhis2/multi-calendar-dates" "1.0.0"
