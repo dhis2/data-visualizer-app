@@ -13,6 +13,8 @@ export const OPTION_BASE_LINE_ENABLED = 'baseLineEnabled'
 export const OPTION_BASE_LINE_TITLE = 'baseLineTitle'
 export const OPTION_BASE_LINE_VALUE = 'baseLineValue'
 export const OPTION_BASE_LINE_TITLE_FONT_STYLE = 'baseLineTitleFontStyle'
+export const OPTION_DISPLAY_DENSITY = 'displayDensity'
+export const OPTION_FONT_SIZE = 'fontSize'
 export const OPTION_TARGET_LINE_ENABLED = 'targetLineEnabled'
 export const OPTION_TARGET_LINE_TITLE = 'targetLineTitle'
 export const OPTION_TARGET_LINE_VALUE = 'targetLineValue'
@@ -20,6 +22,13 @@ export const OPTION_TARGET_LINE_TITLE_FONT_STYLE = 'targetLineTitleFontStyle'
 export const OPTION_LEGEND_DISPLAY_STRATEGY = 'legendDisplayStrategy'
 export const OPTION_LEGEND_DISPLAY_STYLE = 'legendDisplayStyle'
 export const OPTION_LEGEND_SET = 'legendSet'
+
+export const DISPLAY_DENSITY_COMFORTABLE = 'COMFORTABLE'
+export const DISPLAY_DENSITY_NORMAL = 'NORMAL'
+export const DISPLAY_DENSITY_COMPACT = 'COMPACT'
+export const FONT_SIZE_LARGE = 'LARGE'
+export const FONT_SIZE_NORMAL = 'NORMAL'
+export const FONT_SIZE_SMALL = 'SMALL'
 
 export const options = {
     axes: { requestable: false, savable: true, defaultValue: [] },
@@ -102,11 +111,15 @@ export const options = {
     numberType: { defaultValue: 'VALUE', requestable: false, savable: true },
     showHierarchy: { defaultValue: false, requestable: true, savable: true },
     displayDensity: {
-        defaultValue: 'NORMAL',
+        defaultValue: DISPLAY_DENSITY_NORMAL,
         requestable: false,
         savable: true,
     },
-    fontSize: { defaultValue: 'NORMAL', requestable: false, savable: true },
+    fontSize: {
+        defaultValue: FONT_SIZE_NORMAL,
+        requestable: false,
+        savable: true,
+    },
     digitGroupSeparator: {
         defaultValue: 'SPACE',
         requestable: false,

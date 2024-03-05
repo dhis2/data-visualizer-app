@@ -16,6 +16,7 @@ import { getAdaptedUiByType } from '../../modules/ui.js'
 import {
     visTypes,
     getVisTypeDescriptions,
+    useVisTypesFilterByVersion,
 } from '../../modules/visualization.js'
 import { sGetCurrent } from '../../reducers/current.js'
 import { sGetMetadata } from '../../reducers/metadata.js'
@@ -31,6 +32,7 @@ const UnconnectedVisualizationTypeSelector = (
     context
 ) => {
     const baseUrl = context.baseUrl
+    const filterVisTypesByVersion = useVisTypesFilterByVersion()
 
     const [, /* actual value not used */ { set }] = useSetting(
         USER_DATASTORE_CURRENT_AO_KEY
@@ -66,7 +68,7 @@ const UnconnectedVisualizationTypeSelector = (
         <div data-test="visualization-type-selector-card">
             <div className={styles.listContainer}>
                 <div className={styles.listSection}>
-                    {visTypes.map((visType) => (
+                    {visTypes.filter(filterVisTypesByVersion).map((visType) => (
                         <VisualizationTypeListItem
                             key={visType}
                             iconType={visType}
@@ -107,7 +109,10 @@ const UnconnectedVisualizationTypeSelector = (
                     })}
                     data-test={'visualization-type-selector-button'}
                 >
-                    <ListItemIcon iconType={visualizationType} />
+                    <ListItemIcon
+                        iconType={visualizationType}
+                        style={{ width: 24, height: 24 }}
+                    />
                     <span
                         className={styles.selectedVizTypeLabel}
                         data-test="visualization-type-selector-currently-selected-text"

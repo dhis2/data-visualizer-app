@@ -1,13 +1,25 @@
 import {
     Analytics,
-    VIS_TYPE_PIVOT_TABLE,
     layoutGetDimensionItems,
+    VIS_TYPE_PIVOT_TABLE,
+    DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DAILY,
     WEEKLY,
     WEEKS_THIS_YEAR,
 } from '@dhis2/analytics'
-import { getRelativePeriodTypeUsed } from '../modules/analytics.js'
+import {
+    METHOD_MODIFIED_Z_SCORE,
+    METHOD_STANDARD_Z_SCORE,
+    OUTLIER_METHOD_PROP,
+    OUTLIER_THRESHOLD_PROP,
+} from '../components/VisualizationOptions/Options/OutliersForOutlierTable.js'
+import { OUTLIER_MAX_RESULTS_PROP } from '../components/VisualizationOptions/Options/OutliersMaxResults.js'
+import {
+    getRelativePeriodTypeUsed,
+    getOutlierTableDimensionIdHeaderMap,
+} from '../modules/analytics.js'
+import { getSortingFromVisualization } from '../modules/ui.js'
 
 const periodId = DIMENSION_ID_PERIOD
 
@@ -20,6 +32,81 @@ export const apiFetchAnalytics = async (dataEngine, visualization, options) => {
         .withIncludeNumDen(visualization.type === VIS_TYPE_PIVOT_TABLE)
 
     const rawResponse = await analyticsEngine.aggregate.get(req)
+
+    return [new analyticsEngine.response(rawResponse)]
+}
+
+export const getAnalyticsRequestForOutlierTable = ({
+    analyticsEngine,
+    visualization,
+    options,
+    forDownload = false,
+}) => {
+    const dimensionIdHeaderMap = getOutlierTableDimensionIdHeaderMap(options)
+
+    const parameters = {
+        ...options,
+        maxResults: visualization.outlierAnalysis[OUTLIER_MAX_RESULTS_PROP],
+        algorithm:
+            visualization.outlierAnalysis[OUTLIER_METHOD_PROP] ===
+            METHOD_STANDARD_Z_SCORE
+                ? 'Z_SCORE'
+                : visualization.outlierAnalysis[OUTLIER_METHOD_PROP],
+        threshold: visualization.outlierAnalysis[OUTLIER_THRESHOLD_PROP],
+    }
+
+    const columns = visualization.columns || []
+    const headers = []
+
+    columns.forEach(({ dimension, items }) => {
+        parameters[dimension] = items.map(({ id }) => id).join(',')
+
+        headers.push(forDownload ? dimension : dimensionIdHeaderMap[dimension])
+
+        if (dimension === DIMENSION_ID_DATA) {
+            headers.push('cocname')
+        }
+    })
+
+    headers.push('value')
+
+    switch (visualization.outlierAnalysis.outlierMethod) {
+        case METHOD_MODIFIED_Z_SCORE:
+            headers.push('median', 'modifiedzscore', 'medianabsdeviation')
+            break
+        case METHOD_STANDARD_Z_SCORE:
+            headers.push('mean', 'zscore', 'stddev')
+    }
+
+    headers.push('lowerbound', 'upperbound')
+
+    parameters.headers = headers.join(',')
+
+    // sorting
+    const sorting = getSortingFromVisualization(visualization)
+
+    if (sorting) {
+        parameters.orderBy = sorting.dimension
+        parameters.sortOrder = sorting.direction
+    }
+
+    return new analyticsEngine.request().withParameters(parameters)
+}
+
+export const apiFetchAnalyticsForOutlierTable = async (
+    dataEngine,
+    visualization,
+    options
+) => {
+    const analyticsEngine = Analytics.getAnalytics(dataEngine)
+
+    const req = getAnalyticsRequestForOutlierTable({
+        analyticsEngine,
+        visualization,
+        options,
+    })
+
+    const rawResponse = await analyticsEngine.aggregate.getOutliersData(req)
 
     return [new analyticsEngine.response(rawResponse)]
 }

@@ -1,9 +1,11 @@
-import { Analytics } from '@dhis2/analytics'
+import { Analytics, VIS_TYPE_OUTLIER_TABLE } from '@dhis2/analytics'
 import { useConfig, useDataEngine, useDataMutation } from '@dhis2/app-runtime'
 import { useCallback } from 'react'
 import { useSelector } from 'react-redux'
+import { getAnalyticsRequestForOutlierTable } from '../../api/analytics.js'
 import { sGetChart } from '../../reducers/chart.js'
 import { sGetCurrent } from '../../reducers/current.js'
+import { sGetSettingsDisplayProperty } from '../../reducers/settings.js'
 import {
     sGetUiType,
     sGetUiLayoutColumns,
@@ -54,6 +56,7 @@ const addCommonParameters = (req, visualization, options) => {
 }
 
 const useDownload = (relativePeriodDate) => {
+    const displayProperty = useSelector(sGetSettingsDisplayProperty)
     const visualization = useSelector(sGetCurrent)
     const visType = useSelector(sGetUiType)
     const chart = useSelector(sGetChart)
@@ -106,62 +109,96 @@ const useDownload = (relativePeriodDate) => {
             let req = new analyticsEngine.request()
             let target = '_top'
 
-            switch (type) {
-                case DOWNLOAD_TYPE_TABLE:
-                    req = req
-                        .fromVisualization(visualization)
-                        .withFormat(format)
-                        .withTableLayout()
-                        .withColumns(columns.join(';'))
-                        .withRows(rows.join(';'))
+            if (visType === VIS_TYPE_OUTLIER_TABLE) {
+                // only DOWNLOAD_TYPE_PLAIN is enabled
+                // open JSON in new tab
+                target = [FILE_FORMAT_CSV, FILE_FORMAT_XLS].includes(format)
+                    ? '_top'
+                    : '_blank'
 
-                    req = addCommonParameters(req, visualization, {
-                        relativePeriodDate,
-                    })
+                req = getAnalyticsRequestForOutlierTable({
+                    analyticsEngine,
+                    visualization,
+                    options: {
+                        showHierarchy: visualization.showHierarchy,
+                        skipRounding: visualization.skipRounding,
+                    },
+                    forDownload: true,
+                })
 
-                    if (visualization.hideEmptyColumns) {
-                        req = req.withHideEmptyColumns()
-                    }
+                if (relativePeriodDate) {
+                    req = req.withRelativePeriodDate(relativePeriodDate)
+                }
 
-                    if (visualization.hideEmptyRows) {
-                        req = req.withHideEmptyRows()
-                    }
+                if (displayProperty) {
+                    req = req.withDisplayProperty(displayProperty)
+                }
 
-                    if (visualization.showHierarchy) {
-                        req = req.withShowHierarchy()
-                    }
+                req = req
+                    .withFormat(format)
+                    .withOutputIdScheme(idScheme)
+                    .withPath('outlierDetection')
+            } else {
+                switch (type) {
+                    case DOWNLOAD_TYPE_TABLE:
+                        req = req
+                            .fromVisualization(visualization)
+                            .withFormat(format)
+                            .withTableLayout()
+                            .withColumns(columns.join(';'))
+                            .withRows(rows.join(';'))
 
-                    target = format === FILE_FORMAT_HTML_CSS ? '_blank' : '_top'
+                        req = addCommonParameters(req, visualization, {
+                            relativePeriodDate,
+                        })
 
-                    break
-                case DOWNLOAD_TYPE_PLAIN:
-                    req = req
-                        .fromVisualization(
-                            visualization,
-                            path === 'dataValueSet'
+                        if (visualization.hideEmptyColumns) {
+                            req = req.withHideEmptyColumns()
+                        }
+
+                        if (visualization.hideEmptyRows) {
+                            req = req.withHideEmptyRows()
+                        }
+
+                        if (visualization.showHierarchy) {
+                            req = req.withShowHierarchy()
+                        }
+
+                        target =
+                            format === FILE_FORMAT_HTML_CSS ? '_blank' : '_top'
+
+                        break
+                    case DOWNLOAD_TYPE_PLAIN:
+                        req = req
+                            .fromVisualization(
+                                visualization,
+                                path === 'dataValueSet'
+                            )
+                            .withFormat(format)
+                            .withShowHierarchy(visualization.showHierarchy)
+                            .withHierarchyMeta(visualization.showHierarchy)
+                            .withIncludeMetadataDetails(true)
+                            .withIncludeNumDen()
+
+                        req = addCommonParameters(req, visualization, {
+                            relativePeriodDate,
+                        })
+
+                        if (path) {
+                            req = req.withPath(path)
+                        }
+
+                        if (idScheme) {
+                            req = req.withOutputIdScheme(idScheme)
+                        }
+
+                        target = [FILE_FORMAT_CSV, FILE_FORMAT_XLS].includes(
+                            format
                         )
-                        .withFormat(format)
-                        .withShowHierarchy(visualization.showHierarchy)
-                        .withHierarchyMeta(visualization.showHierarchy)
-                        .withIncludeMetadataDetails(true)
-                        .withIncludeNumDen()
-
-                    req = addCommonParameters(req, visualization, {
-                        relativePeriodDate,
-                    })
-
-                    if (path) {
-                        req = req.withPath(path)
-                    }
-
-                    if (idScheme) {
-                        req = req.withOutputIdScheme(idScheme)
-                    }
-
-                    target = [FILE_FORMAT_CSV, FILE_FORMAT_XLS].includes(format)
-                        ? '_top'
-                        : '_blank'
-                    break
+                            ? '_top'
+                            : '_blank'
+                        break
+                }
             }
 
             const url = new URL(
@@ -179,9 +216,11 @@ const useDownload = (relativePeriodDate) => {
             analyticsEngine,
             baseUrl,
             columns,
+            displayProperty,
             relativePeriodDate,
             rows,
             visualization,
+            visType,
         ]
     )
 

@@ -14,7 +14,7 @@
     justify-content: flex-start;
     background-color: var(--colors-white);
     cursor: pointer;
-    flex-grow: 1
+    flex-grow: 1;
 }
 
 .button:hover,
@@ -26,6 +26,8 @@
     font-size: 14px;
     padding-top: 1px;
     user-select: none;
+    color: var(--colors-grey900);
+    margin-left: 4px;
 }
 
 .cardContainer {

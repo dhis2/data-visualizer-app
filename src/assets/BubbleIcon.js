@@ -1,9 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const BubbleIcon = ({
-    style = { paddingRight: '8px', width: 24, height: 24 },
-}) => (
+const BubbleIcon = ({ style }) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0,0,48,48" style={style}>
         <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
             <circle fill="#63A4FF" cx="18" cy="25" r="12" />
