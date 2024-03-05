@@ -14,7 +14,9 @@ import {
     VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
     VIS_TYPE_SINGLE_VALUE,
     VIS_TYPE_SCATTER,
+    VIS_TYPE_OUTLIER_TABLE,
 } from '@dhis2/analytics'
+import { useConfig } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { DEFAULT_CURRENT } from '../reducers/current.js'
 import { DEFAULT_VISUALIZATION } from '../reducers/visualization.js'
@@ -36,6 +38,7 @@ export const visTypes = [
     VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
     VIS_TYPE_SINGLE_VALUE,
     VIS_TYPE_SCATTER,
+    VIS_TYPE_OUTLIER_TABLE,
 ]
 
 export const getVisTypeDescriptions = () => ({
@@ -82,7 +85,10 @@ export const getVisTypeDescriptions = () => ({
         'Display a single value. Recommend relative period to show latest data.'
     ),
     [VIS_TYPE_SCATTER]: i18n.t(
-        'View the relationship between two data items at a place or time. Recommended for finding outliers.'
+        'Compare the relationship between two data items across multiple places. Recommended for visualizing outliers.'
+    ),
+    [VIS_TYPE_OUTLIER_TABLE]: i18n.t(
+        'Automatically identify extreme outliers based on historical data.'
     ),
 })
 
@@ -137,4 +143,15 @@ export const getDimensionMetadataFromVisualization = (visualization) => {
     })
 
     return metadata
+}
+
+export const useVisTypesFilterByVersion = () => {
+    const { serverVersion } = useConfig()
+
+    const filterVisTypesByVersion = (visType) =>
+        serverVersion.minor < 41 && visType === VIS_TYPE_OUTLIER_TABLE
+            ? false
+            : true
+
+    return filterVisTypesByVersion
 }

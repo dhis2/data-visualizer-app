@@ -4,6 +4,7 @@ import {
     getFixedDimensions,
     getDynamicDimensions,
     getPredefinedDimensions,
+    VIS_TYPE_OUTLIER_TABLE,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
@@ -24,8 +25,17 @@ export class DndDimensionList extends Component {
             .toLowerCase()
             .includes(this.props.filterText.toLowerCase())
 
+    getFilteredDimensions = (filter) =>
+        this.props.dimensions.filter(filter).filter(this.nameContainsFilterText)
+
     isSelected = (id) => this.props.selectedIds.includes(id)
-    isDisabledDimension = (id) => this.props.disallowedDimensions.includes(id)
+    isDisabledDimension = (id) =>
+        // all dimensions in YOUR DIMENSIONS section need to be disabled for Outlier table
+        this.props.visType === VIS_TYPE_OUTLIER_TABLE
+            ? this.props.disallowedDimensions
+                  .concat(this.yourDimensions.map((d) => d.id))
+                  .includes(id)
+            : this.props.disallowedDimensions.includes(id)
     isLockedDimension = (id) => this.props.lockedDimensions.includes(id)
     isRecommendedDimension = (id) => this.props.recommendedIds.includes(id)
 
@@ -51,25 +61,22 @@ export class DndDimensionList extends Component {
         )
     }
 
-    getDimensionItemsByFilter = (filter) =>
-        this.props.dimensions
-            .filter(filter)
-            .filter(this.nameContainsFilterText)
-            .map(this.renderItem)
+    getDimensionItemsFromList = (dimensionList) =>
+        dimensionList.map(this.renderItem)
 
     render() {
         this.dndIndex = 0
-        const fixedDimensions = this.getDimensionItemsByFilter((dimension) =>
+        this.mainDimensions = this.getFilteredDimensions((dimension) =>
             Object.values(getFixedDimensions()).some(
                 (fixedDim) => fixedDim.id === dimension.id
             )
         )
-        const dynamicDimensions = this.getDimensionItemsByFilter((dimension) =>
+        this.otherDimensions = this.getFilteredDimensions((dimension) =>
             Object.values(getDynamicDimensions()).some(
                 (dynDim) => dynDim.id === dimension.id
             )
         )
-        const nonPredefinedDimensions = this.getDimensionItemsByFilter(
+        this.yourDimensions = this.getFilteredDimensions(
             (dimension) =>
                 !Object.values(getPredefinedDimensions()).some(
                     (predefDim) => predefDim.id === dimension.id
@@ -94,7 +101,9 @@ export class DndDimensionList extends Component {
                                     className={styles.list}
                                     data-test={`${this.props.dataTest}-fixed-dimensions`}
                                 >
-                                    {fixedDimensions}
+                                    {this.getDimensionItemsFromList(
+                                        this.mainDimensions
+                                    )}
                                 </ul>
                             </div>
                             <div className={styles.section}>
@@ -105,7 +114,9 @@ export class DndDimensionList extends Component {
                                     className={styles.list}
                                     data-test={`${this.props.dataTest}-dynamic-dimensions`}
                                 >
-                                    {dynamicDimensions}
+                                    {this.getDimensionItemsFromList(
+                                        this.otherDimensions
+                                    )}
                                 </ul>
                             </div>
                             <div className={styles.section}>
@@ -116,7 +127,9 @@ export class DndDimensionList extends Component {
                                     className={styles.list}
                                     data-test={`${this.props.dataTest}-non-predefined-dimensions`}
                                 >
-                                    {nonPredefinedDimensions}
+                                    {this.getDimensionItemsFromList(
+                                        this.yourDimensions
+                                    )}
                                 </ul>
                             </div>
                         </div>
@@ -136,6 +149,7 @@ DndDimensionList.propTypes = {
     lockedDimensions: PropTypes.array,
     recommendedIds: PropTypes.array,
     selectedIds: PropTypes.array,
+    visType: PropTypes.string,
     onDimensionClick: PropTypes.func,
     onDimensionOptionsClick: PropTypes.func,
 }
@@ -158,6 +172,7 @@ const mapStateToProps = (state) => ({
     recommendedIds: fromReducers.fromRecommendedIds.sGetRecommendedIds(state),
     disallowedDimensions: getDisallowedDimensionsMemo(state),
     lockedDimensions: getisLockedDimensionsMemo(state),
+    visType: fromReducers.fromUi.sGetUiType(state),
 })
 
 export default connect(mapStateToProps)(DndDimensionList)

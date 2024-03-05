@@ -119,6 +119,7 @@ export const fieldsByType = {
         getFieldObject('relativePeriods', { excluded: true }),
         getFieldObject('rows'),
         getFieldObject('shortName'),
+        getFieldObject('sorting'),
         getFieldObject('sortOrder', { option: true }),
         getFieldObject('subscribed'),
         getFieldObject('subscribers'),
