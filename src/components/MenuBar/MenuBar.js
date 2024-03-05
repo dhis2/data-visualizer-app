@@ -15,6 +15,7 @@ import history from '../../modules/history.js'
 import {
     visTypes,
     getVisualizationState,
+    useVisTypesFilterByVersion,
     STATE_UNSAVED,
     STATE_DIRTY,
 } from '../../modules/visualization.js'
@@ -48,55 +49,59 @@ const getOnSaveAs = (props) => (details) =>
 const getOnDelete = (props) => () => props.onDeleteVisualization()
 const getOnError = (props) => (error) => props.onError(error)
 
-const filterVisTypes = [
-    { type: VIS_TYPE_GROUP_ALL },
-    { type: VIS_TYPE_GROUP_CHARTS, insertDivider: true },
-    ...visTypes.map((visType) => ({
-        type: visType,
-    })),
-]
+const UnconnectedMenuBar = ({ dataTest, ...props }, context) => {
+    const filterVisTypesByVersion = useVisTypesFilterByVersion()
 
-const UnconnectedMenuBar = ({ dataTest, ...props }, context) => (
-    <>
-        <UpdateVisualizationContainer
-            renderComponent={(handler) => (
-                <UpdateButton
-                    onClick={handler}
-                    dataTest={`${dataTest}-update-button`}
-                />
-            )}
-        />
-        <HoverMenuBar>
-            <FileMenu
-                currentUser={context.d2.currentUser}
-                fileType={props.apiObjectName}
-                fileObject={props.current}
-                filterVisTypes={filterVisTypes}
-                defaultFilterVisType={VIS_TYPE_GROUP_ALL}
-                onOpen={onOpen}
-                onNew={onNew}
-                onRename={getOnRename(props)}
-                onSave={
-                    [STATE_UNSAVED, STATE_DIRTY].includes(
-                        getVisualizationState(
-                            props.visualization,
-                            props.current
-                        )
-                    )
-                        ? getOnSave(props)
-                        : undefined
-                }
-                onSaveAs={getOnSaveAs(props)}
-                onDelete={getOnDelete(props)}
-                onError={getOnError(props)}
+    const filterVisTypes = [
+        { type: VIS_TYPE_GROUP_ALL },
+        { type: VIS_TYPE_GROUP_CHARTS, insertDivider: true },
+        ...visTypes.filter(filterVisTypesByVersion).map((visType) => ({
+            type: visType,
+        })),
+    ]
+
+    return (
+        <>
+            <UpdateVisualizationContainer
+                renderComponent={(handler) => (
+                    <UpdateButton
+                        onClick={handler}
+                        dataTest={`${dataTest}-update-button`}
+                    />
+                )}
             />
-            <VisualizationOptionsManager />
+            <HoverMenuBar>
+                <FileMenu
+                    currentUser={context.d2.currentUser}
+                    fileType={props.apiObjectName}
+                    fileObject={props.current}
+                    filterVisTypes={filterVisTypes}
+                    defaultFilterVisType={VIS_TYPE_GROUP_ALL}
+                    onOpen={onOpen}
+                    onNew={onNew}
+                    onRename={getOnRename(props)}
+                    onSave={
+                        [STATE_UNSAVED, STATE_DIRTY].includes(
+                            getVisualizationState(
+                                props.visualization,
+                                props.current
+                            )
+                        )
+                            ? getOnSave(props)
+                            : undefined
+                    }
+                    onSaveAs={getOnSaveAs(props)}
+                    onDelete={getOnDelete(props)}
+                    onError={getOnError(props)}
+                />
+                <VisualizationOptionsManager />
 
-            <ToolbarDownloadDropdown />
-        </HoverMenuBar>
-        <InterpretationsButton />
-    </>
-)
+                <ToolbarDownloadDropdown />
+            </HoverMenuBar>
+            <InterpretationsButton />
+        </>
+    )
+}
 
 UnconnectedMenuBar.propTypes = {
     apiObjectName: PropTypes.string,
