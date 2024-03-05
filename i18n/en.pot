@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2023-09-06T13:41:14.540Z\n"
-"PO-Revision-Date: 2023-09-06T13:41:14.540Z\n"
+"POT-Creation-Date: 2023-11-13T12:11:28.959Z\n"
+"PO-Revision-Date: 2023-11-13T12:11:28.959Z\n"
 
 msgid "All items"
 msgstr "All items"
@@ -381,6 +381,9 @@ msgstr "Include cumulative"
 msgid "Cumulative values"
 msgstr "Cumulative values"
 
+msgid "Accumulate cell values along rows"
+msgstr "Accumulate cell values along rows"
+
 msgid "Show data item icon"
 msgstr "Show data item icon"
 
@@ -709,6 +712,9 @@ msgstr "Open as Map"
 msgid "Visually plot data on a world map. Data elements use separate map layers."
 msgstr "Visually plot data on a world map. Data elements use separate map layers."
 
+msgid "Not supported when using cumulative values"
+msgstr "Not supported when using cumulative values"
+
 msgid "No data available"
 msgstr "No data available"
 
@@ -838,6 +844,16 @@ msgstr ""
 
 msgid "Something went wrong"
 msgstr "Something went wrong"
+
+msgid ""
+"There's a problem with the generated analytics. Contact a system "
+"administrator."
+msgstr ""
+"There's a problem with the generated analytics. Contact a system "
+"administrator."
+
+msgid "There's a syntax problem with the analytics request."
+msgstr "There's a syntax problem with the analytics request."
 
 msgid "or"
 msgstr "or"
@@ -1001,6 +1017,9 @@ msgstr "Lines"
 
 msgid "Totals"
 msgstr "Totals"
+
+msgid "Totals are not supported when using cumulative values"
+msgstr "Totals are not supported when using cumulative values"
 
 msgid "Vertical (y) axis {{axisId}}"
 msgstr "Vertical (y) axis {{axisId}}"

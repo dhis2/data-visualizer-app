@@ -4,19 +4,19 @@
 # Matthieu Pinard <matthieu@dhis2.org>, 2019
 # Karoline Tufte Lien <karoline@dhis2.org>, 2020
 # Djibril Dione <dione.djibril@gmail.com>, 2020
-# Philip Larsen Donnelly, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Yayra Gomado <ygomado@hispwca.org>, 2022
 # Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2022
 # Edem Kossi <ekossi@hispwca.org>, 2023
+# Philip Larsen Donnelly, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-09-06T13:41:14.540Z\n"
+"POT-Creation-Date: 2023-11-13T12:11:28.959Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Edem Kossi <ekossi@hispwca.org>, 2023\n"
+"Last-Translator: Philip Larsen Donnelly, 2024\n"
 "Language-Team: French (https://app.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -56,7 +56,7 @@ msgid "Yes, leave"
 msgstr "Oui, quitter"
 
 msgid "Add to {{axisName}}"
-msgstr "Ajouter à {{nomdel'axe}} "
+msgstr "Ajouter à {{axisName}}"
 
 msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
@@ -400,6 +400,9 @@ msgstr "Inclure cumulatif"
 msgid "Cumulative values"
 msgstr "Valeurs cumulées"
 
+msgid "Accumulate cell values along rows"
+msgstr ""
+
 msgid "Show data item icon"
 msgstr ""
 
@@ -725,7 +728,7 @@ msgid "Change org unit"
 msgstr "Changer d'unité d'organisation"
 
 msgid "{{level}} level in {{orgunit}}"
-msgstr "{niveau}} niveau dans {{unité d'org.}}"
+msgstr "{{level}} niveau dans {{orgunit}}"
 
 msgid "Open as Map"
 msgstr "Ouvrir comme carte"
@@ -735,6 +738,9 @@ msgid ""
 msgstr ""
 "Tracez graphiquement les données sur une carte du monde. Les éléments de "
 "données utilisent des couches de carte distinctes."
+
+msgid "Not supported when using cumulative values"
+msgstr ""
 
 msgid "No data available"
 msgstr "Pas de données disponibles"
@@ -876,6 +882,14 @@ msgstr ""
 
 msgid "Something went wrong"
 msgstr "Quelque chose a mal tourné"
+
+msgid ""
+"There's a problem with the generated analytics. Contact a system "
+"administrator."
+msgstr ""
+
+msgid "There's a syntax problem with the analytics request."
+msgstr ""
 
 msgid "or"
 msgstr "ou"
@@ -1047,6 +1061,9 @@ msgstr "Lignes"
 
 msgid "Totals"
 msgstr "Totaux"
+
+msgid "Totals are not supported when using cumulative values"
+msgstr ""
 
 msgid "Vertical (y) axis {{axisId}}"
 msgstr "Axe vertical (y) {{axisId}}"
