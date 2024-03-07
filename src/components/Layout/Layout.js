@@ -3,14 +3,16 @@ import {
     LAYOUT_TYPE_PIE,
     LAYOUT_TYPE_YEAR_OVER_YEAR,
     LAYOUT_TYPE_PIVOT_TABLE,
-    getLayoutTypeByVisType,
     LAYOUT_TYPE_SCATTER,
+    LAYOUT_TYPE_OUTLIER_TABLE,
+    getLayoutTypeByVisType,
 } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
 import { sGetUiType } from '../../reducers/ui.js'
 import DefaultLayout from './DefaultLayout/DefaultLayout.js'
+import OutlierTableLayout from './OutlierTable/OutlierTableLayout.js'
 import PieLayout from './PieLayout/PieLayout.js'
 import PivotTableLayout from './PivotTableLayout/PivotTableLayout.js'
 import ScatterLayout from './ScatterLayout/ScatterLayout.js'
@@ -22,6 +24,7 @@ const componentMap = {
     [LAYOUT_TYPE_YEAR_OVER_YEAR]: YearOverYearLayout,
     [LAYOUT_TYPE_PIVOT_TABLE]: PivotTableLayout,
     [LAYOUT_TYPE_SCATTER]: ScatterLayout,
+    [LAYOUT_TYPE_OUTLIER_TABLE]: OutlierTableLayout,
 }
 
 const Layout = ({ visType }) => {

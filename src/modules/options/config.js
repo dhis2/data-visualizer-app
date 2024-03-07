@@ -4,6 +4,7 @@ import {
     VIS_TYPE_GAUGE,
     VIS_TYPE_SINGLE_VALUE,
     VIS_TYPE_SCATTER,
+    VIS_TYPE_OUTLIER_TABLE,
     isStacked as isStackedType,
     isLegendSetType,
     isMultiType,
@@ -13,6 +14,7 @@ import {
 } from '@dhis2/analytics'
 import defaultConfig from './defaultConfig.js'
 import gaugeConfig from './gaugeConfig.js'
+import outlierTableConfig from './outlierTableConfig.js'
 import pieConfig from './pieConfig.js'
 import pivotTableConfig from './pivotTableConfig.js'
 import scatterConfig from './scatterConfig.js'
@@ -60,6 +62,8 @@ export const getOptionsByType = ({
             })
         case VIS_TYPE_SCATTER:
             return scatterConfig()
+        case VIS_TYPE_OUTLIER_TABLE:
+            return outlierTableConfig(defaultProps)
         default:
             return defaultConfig(defaultProps)
     }

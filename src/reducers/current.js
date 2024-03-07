@@ -3,6 +3,7 @@ import {
     VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
     VIS_TYPE_PIE,
     VIS_TYPE_GAUGE,
+    VIS_TYPE_OUTLIER_TABLE,
     VIS_TYPE_SINGLE_VALUE,
     VIS_TYPE_SCATTER,
 } from '@dhis2/analytics'
@@ -11,6 +12,7 @@ import {
     getOptionsFromUi,
     getPieCurrentFromUi,
     getYearOverYearCurrentFromUi,
+    getOutlierTableCurrentFromUi,
     getSingleValueCurrentFromUi,
     getSeriesFromUi,
     getScatterCurrentFromUi,
@@ -60,6 +62,12 @@ export default (state = DEFAULT_CURRENT, action) => {
                     return getYearOverYearCurrentFromUi(state, action.value.ui)
                 case VIS_TYPE_SCATTER:
                     return getScatterCurrentFromUi(state, action.value.ui)
+                case VIS_TYPE_OUTLIER_TABLE:
+                    return getOutlierTableCurrentFromUi(
+                        state,
+                        action.value.ui,
+                        action.value.metadata
+                    )
                 default: {
                     return getDefaultFromUi(
                         state,

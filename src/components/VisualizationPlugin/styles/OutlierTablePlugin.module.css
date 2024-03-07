@@ -1,0 +1,64 @@
+.pluginContainer {
+    display: flex;
+    gap: var(--spacers-dp4);
+    min-width: 0;
+    width: 100%;
+    margin: 0 var(--spacers-dp4) var(--spacers-dp4);
+}
+.visualizationContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+}
+
+/* Table header cells in various sizes */
+.dataTable .headerCell.dimensionModalHandler {
+    cursor: pointer;
+}
+.dataTable .headerCell.fontSizeLarge {
+    font-size: 14px;
+    line-height: 15px;
+}
+.dataTable .headerCell.fontSizeNormal {
+    font-size: 12px;
+    line-height: 13px;
+}
+.dataTable .headerCell.fontSizeSmall {
+    font-size: 11px;
+    line-height: 12px;
+}
+.dataTable .headerCell.sizeComfortable {
+    padding: 8px 4px 6px 8px;
+}
+.dataTable .headerCell.sizeNormal {
+    padding: 4px 4px 2px 6px;
+}
+.dataTable .headerCell.sizeCompact {
+    padding: 3px 2px 1px 6px;
+}
+
+/* Table body cells in various sizes */
+.dataTable .cell.fontSizeLarge {
+    font-size: 14px;
+    line-height: 15px;
+}
+.dataTable .cell.fontSizeNormal {
+    font-size: 12px;
+    line-height: 13px;
+}
+.dataTable .cell.fontSizeSmall {
+    font-size: 11px;
+    line-height: 12px;
+}
+.dataTable .cell.nowrap {
+    white-space: nowrap;
+}
+.dataTable .cell.sizeComfortable {
+    padding: 10px 8px 8px;
+}
+.dataTable .cell.sizeNormal {
+    padding: 7px 6px 5px;
+}
+.dataTable .cell.sizeCompact {
+    padding: 6px 6px 4px;
+}

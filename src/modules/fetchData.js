@@ -1,11 +1,13 @@
 import {
     isYearOverYear,
+    isOutlierTable,
     DIMENSION_ID_PERIOD,
     layoutGetDimensionItems,
     ALL_DYNAMIC_DIMENSION_ITEMS,
 } from '@dhis2/analytics'
 import {
     apiFetchAnalyticsForYearOverYear,
+    apiFetchAnalyticsForOutlierTable,
     apiFetchAnalytics,
 } from '../api/analytics.js'
 import {
@@ -91,6 +93,17 @@ export const fetchData = async ({
                 xAxisLabels,
                 periodKeyAxisIndexMap,
             },
+        }
+    }
+
+    if (isOutlierTable(adaptedVisualization.type)) {
+        return {
+            responses: await apiFetchAnalyticsForOutlierTable(
+                dataEngine,
+                adaptedVisualization,
+                options
+            ),
+            extraOptions,
         }
     }
 

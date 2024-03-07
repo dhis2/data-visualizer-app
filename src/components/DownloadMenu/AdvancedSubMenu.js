@@ -24,6 +24,7 @@ export const AdvancedSubMenu = ({
             <MenuSectionHeader
                 label={i18n.t('Data value set')}
                 dense={hoverable}
+                hideDivider
             />
             <MenuItemComponent
                 label={i18n.t('JSON')}

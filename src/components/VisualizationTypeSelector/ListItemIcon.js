@@ -14,6 +14,7 @@ import {
     VIS_TYPE_SINGLE_VALUE,
     VIS_TYPE_PIVOT_TABLE,
     VIS_TYPE_SCATTER,
+    VIS_TYPE_OUTLIER_TABLE,
 } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -23,6 +24,7 @@ import ColumnIcon from '../../assets/ColumnIcon.js'
 import GaugeIcon from '../../assets/GaugeIcon.js'
 import GlobeIcon from '../../assets/GlobeIcon.js'
 import LineIcon from '../../assets/LineIcon.js'
+import OutlierTableIcon from '../../assets/OutlierTableIcon.js'
 import PieIcon from '../../assets/PieIcon.js'
 import PivotTableIcon from '../../assets/PivotTableIcon.js'
 import RadarIcon from '../../assets/RadarIcon.js'
@@ -66,6 +68,8 @@ const ListItemIcon = ({ iconType, style }) => {
             return <PivotTableIcon style={style} />
         case VIS_TYPE_SCATTER:
             return <ScatterIcon style={style} />
+        case VIS_TYPE_OUTLIER_TABLE:
+            return <OutlierTableIcon style={style} />
         case VIS_TYPE_COLUMN:
         default:
             return <ColumnIcon style={style} />
