@@ -6,6 +6,9 @@ import {
     AXIS_ID_FILTERS,
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
+    DIMENSION_TYPE_DATA_ELEMENT,
+    DIMENSION_TYPE_DATA_ELEMENT_OPERAND,
+    VIS_TYPE_OUTLIER_TABLE,
     VIS_TYPE_SINGLE_VALUE,
     VIS_TYPE_PIE,
     dimensionCreate,
@@ -136,6 +139,54 @@ export const getItemsByDimensionFromUi = (ui) => {
                 : ui.itemsByDimension[key])
     )
     return result
+}
+
+export const getOutlierTableCurrentFromUi = (state, value, metadata) => {
+    const ui = {
+        ...value,
+        layout: {
+            ...getAdaptedUiLayoutByType(value.layout, VIS_TYPE_OUTLIER_TABLE),
+        },
+        itemsByDimension: getItemsByDimensionFromUi(value),
+    }
+
+    const axesFromUi = getAxesFromUi(ui)
+
+    const peItems = layoutGetDimensionItems(axesFromUi, DIMENSION_ID_PERIOD)
+    const dxItems = layoutGetDimensionItems(axesFromUi, DIMENSION_ID_DATA)
+
+    const outlierTableAxesFromUi =
+        // only save the first pe item
+        layoutReplaceDimension(
+            // only save data element and data element operand dx items
+            layoutReplaceDimension(
+                axesFromUi,
+                DIMENSION_ID_DATA,
+                dxItems.filter(({ id }) =>
+                    [
+                        DIMENSION_TYPE_DATA_ELEMENT,
+                        DIMENSION_TYPE_DATA_ELEMENT_OPERAND,
+                    ].includes(metadata[id]?.dimensionItemType)
+                )
+            ),
+            DIMENSION_ID_PERIOD,
+            [peItems[0]]
+        )
+
+    return {
+        ...state,
+        [BASE_FIELD_TYPE]: ui.type,
+        ...outlierTableAxesFromUi,
+        ...getOptionsFromUi(ui),
+        sorting: ui.sorting
+            ? [
+                  {
+                      dimension: ui.sorting.dimension,
+                      direction: ui.sorting.direction.toUpperCase(),
+                  },
+              ]
+            : undefined,
+    }
 }
 
 export const getSingleValueCurrentFromUi = (state, value) => {

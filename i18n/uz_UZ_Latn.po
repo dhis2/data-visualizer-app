@@ -1,13 +1,14 @@
 # 
 # Translators:
 # Yury Rogachev <yury@dhis2.org>, 2022
+# Philip Larsen Donnelly, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-09-06T13:41:14.540Z\n"
+"POT-Creation-Date: 2023-11-13T12:11:28.959Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2022\n"
+"Last-Translator: Philip Larsen Donnelly, 2024\n"
 "Language-Team: Uzbek (Latin) (https://app.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -180,7 +181,7 @@ msgid "Add Assigned Categories"
 msgstr "Belgilangan kategoriyalar qoʼshilsin"
 
 msgid "Swap with {{axisName}} axis"
-msgstr "{{AxisName}} oʼqlari joyini almashtirish"
+msgstr "{{axisName}} oʼqlari joyini almashtirish"
 
 msgid "vertical"
 msgstr ""
@@ -390,6 +391,9 @@ msgstr "Kumulyatsiyani oʼz ichiga oladi"
 
 msgid "Cumulative values"
 msgstr "Kumulyativ qiymatlar"
+
+msgid "Accumulate cell values along rows"
+msgstr ""
 
 msgid "Show data item icon"
 msgstr ""
@@ -710,6 +714,9 @@ msgstr ""
 "Jahon xaritasiga maʼlumotlarni vizual kiriting. Maʼlumotlar elementlari "
 "xaritaning alohida qavatlaridan foydalanadi."
 
+msgid "Not supported when using cumulative values"
+msgstr ""
+
 msgid "No data available"
 msgstr ""
 
@@ -746,7 +753,7 @@ msgstr ""
 " {{axes}}."
 
 msgid "Add organisation units to {{axisName}}."
-msgstr "{{AxisName}} oʼqiga tashkiliy boʼlimlar qoʼshish"
+msgstr "{{axisName}} oʼqiga tashkiliy boʼlimlar qoʼshish"
 
 msgid "Vertical is empty"
 msgstr "Vertikal oʼq boʼsh"
@@ -850,6 +857,14 @@ msgstr ""
 
 msgid "Something went wrong"
 msgstr "Nimadir notoʼgʼri bajarildi"
+
+msgid ""
+"There's a problem with the generated analytics. Contact a system "
+"administrator."
+msgstr ""
+
+msgid "There's a syntax problem with the analytics request."
+msgstr ""
 
 msgid "or"
 msgstr "yoki"
@@ -1013,6 +1028,9 @@ msgstr "Qatorlar"
 
 msgid "Totals"
 msgstr "Jami"
+
+msgid "Totals are not supported when using cumulative values"
+msgstr ""
 
 msgid "Vertical (y) axis {{axisId}}"
 msgstr ""

@@ -38,7 +38,7 @@ const OutlierDetectionMethod = ({
             label={i18n.t('Threshold factor')}
             min="0"
             step="0.5"
-            onChange={({ value }) => onThresholdChange(Number(value))}
+            onChange={({ value }) => onThresholdChange(value)}
             value={currentThreshold?.toString() || ''}
             helpText={i18n.t(
                 'A high value is more sensitive so fewer data items will be identified as outliers'
