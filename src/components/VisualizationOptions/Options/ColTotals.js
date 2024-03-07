@@ -8,6 +8,7 @@ const ColTotals = () => (
         option={{
             name: 'colTotals',
         }}
+        dataTest="option-col-totals"
     />
 )
 
