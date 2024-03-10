@@ -17,15 +17,26 @@ import {
     tabSectionOptionComplexInline,
 } from '../styles/VisualizationOptions.style.js'
 
-const OperatorSelect = ({ name, value, onChange }) => {
-    const options = [
-        { id: 'EQ', label: '=' },
-        { id: 'GT', label: '>' },
-        { id: 'GE', label: '>=' },
-        { id: 'LT', label: '<' },
-        { id: 'LE', label: '<=' },
-    ]
+const EQUAL_OPERATOR_ID = 'EQ'
+const GREATER_THAN_OPERATOR_ID = 'GT'
+const GREATER_THAN_OR_EQUAL_OPERATOR_ID = 'GE'
+const LESS_THAN_OPERATOR_ID = 'LT'
+const LESS_THAN_OR_EQUAL_OPERATOR_ID = 'LE'
+const EMPTY = ''
 
+const MIN_OPERATORS = [
+    { id: EQUAL_OPERATOR_ID, label: '=' },
+    { id: GREATER_THAN_OPERATOR_ID, label: '>' },
+    { id: GREATER_THAN_OR_EQUAL_OPERATOR_ID, label: '>=' },
+]
+
+const MAX_OPERATORS = [
+    { id: EQUAL_OPERATOR_ID, label: '=' },
+    { id: LESS_THAN_OPERATOR_ID, label: '<' },
+    { id: LESS_THAN_OR_EQUAL_OPERATOR_ID, label: '<=' },
+]
+
+const OperatorSelect = ({ name, value, onChange, operators, dataTest }) => {
     return (
         <div style={{ width: '112px' }}>
             <SingleSelect
@@ -37,9 +48,15 @@ const OperatorSelect = ({ name, value, onChange }) => {
                 tabIndex="0"
                 inputMaxWidth="106px"
                 dense
+                dataTest={dataTest}
             >
-                {options.map(({ id, label }) => (
-                    <SingleSelectOption key={id} value={id} label={label} />
+                {operators.map(({ id, label }) => (
+                    <SingleSelectOption
+                        key={id}
+                        value={id}
+                        label={label}
+                        dataTest={`${dataTest}-option`}
+                    />
                 ))}
             </SingleSelect>
         </div>
@@ -48,11 +65,13 @@ const OperatorSelect = ({ name, value, onChange }) => {
 
 OperatorSelect.propTypes = {
     name: PropTypes.string.isRequired,
+    operators: PropTypes.array.isRequired,
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
+    dataTest: PropTypes.string,
 }
 
-const ValueInput = ({ name, value, onChange }) => (
+const ValueInput = ({ name, value, onChange, dataTest }) => (
     <Input
         name={name}
         value={value}
@@ -60,6 +79,7 @@ const ValueInput = ({ name, value, onChange }) => (
         onChange={({ value }) => onChange(value)}
         width="72px"
         dense
+        dataTest={dataTest}
     />
 )
 
@@ -67,20 +87,41 @@ ValueInput.propTypes = {
     name: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
+    dataTest: PropTypes.string,
 }
 
 class MeasureCriteria extends Component {
     constructor(props) {
         super(props)
 
-        this.defaultState = { op1: '', v1: '', op2: '', v2: '' }
+        const OP1_DEFAULT = GREATER_THAN_OPERATOR_ID
+        const OP2_DEFAULT = LESS_THAN_OPERATOR_ID
 
-        const [op1 = '', v1 = '', op2 = '', v2 = ''] = props.value.split(/[;:]/)
+        this.defaultState = {
+            op1: OP1_DEFAULT,
+            v1: EMPTY,
+            op2: OP2_DEFAULT,
+            v2: EMPTY,
+        }
+
+        let [op1 = OP1_DEFAULT, v1 = EMPTY, op2 = OP2_DEFAULT, v2 = EMPTY] =
+            props.value && props.value.split(/[;:]/)
+
+        if (
+            [LESS_THAN_OPERATOR_ID, LESS_THAN_OR_EQUAL_OPERATOR_ID].includes(
+                op1
+            )
+        ) {
+            op2 = op1
+            v2 = v1
+            op1 = OP1_DEFAULT
+            v1 = EMPTY
+        }
 
         this.state = { op1, v1, op2, v2 }
     }
 
-    onClear = () => this.setState(this.defaultState, this.props.onChange(''))
+    onClear = () => this.setState(this.defaultState, this.props.onChange(EMPTY))
 
     onChange = (name) => (value) => {
         this.setState({ [name]: value }, () => {
@@ -95,7 +136,7 @@ class MeasureCriteria extends Component {
                 value.push(`${op2}:${v2}`)
             }
 
-            this.props.onChange(value.length > 0 ? value.join(';') : '')
+            this.props.onChange(value.length > 0 ? value.join(';') : EMPTY)
         })
     }
 
@@ -119,11 +160,14 @@ class MeasureCriteria extends Component {
                                 name="op1"
                                 value={op1}
                                 onChange={this.onChange('op1')}
+                                operators={MIN_OPERATORS}
+                                dataTest="measure-critiera-min-operator"
                             />
                             <ValueInput
                                 name="v1"
                                 value={v1}
                                 onChange={this.onChange('v1')}
+                                dataTest="measure-critiera-min-value"
                             />
                         </div>
                     </div>
@@ -136,17 +180,24 @@ class MeasureCriteria extends Component {
                                 name="op2"
                                 value={op2}
                                 onChange={this.onChange('op2')}
+                                operators={MAX_OPERATORS}
+                                dataTest="measure-critiera-max-operator"
                             />
                             <ValueInput
                                 name="v2"
                                 value={v2}
                                 onChange={this.onChange('v2')}
+                                dataTest="measure-critiera-max-value"
                             />
                         </div>
                     </div>
                 </div>
                 <div style={{ paddingTop: '16px' }}>
-                    <Button small onClick={this.onClear}>
+                    <Button
+                        small
+                        onClick={this.onClear}
+                        dataTest="measure-critiera-clear-button"
+                    >
                         {i18n.t('Clear min/max limits')}
                     </Button>
                 </div>
@@ -161,7 +212,7 @@ MeasureCriteria.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-    value: sGetUiOptions(state).measureCriteria || '',
+    value: sGetUiOptions(state).measureCriteria || EMPTY,
 })
 
 const mapDispatchToProps = (dispatch) => ({
