@@ -1,14 +1,14 @@
 # 
 # Translators:
-# Yury Rogachev <yury@dhis2.org>, 2022
 # Philip Larsen Donnelly, 2024
+# Yury Rogachev <yury@dhis2.org>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-11-13T12:11:28.959Z\n"
+"POT-Creation-Date: 2024-03-01T08:28:43.727Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2024\n"
 "Language-Team: Uzbek (Latin) (https://app.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,11 +51,9 @@ msgid "Add to {{axisName}}"
 msgstr "{{axisName}} ga qoʼshing"
 
 msgid ""
-"'{{visualizationType}}' is intended to show a single data item. Only the "
-"first item will be used and saved."
+"'{{visualizationType}}' is intended to show a single item for this type of "
+"dimension. Only the first item will be used and saved."
 msgstr ""
-"{{visualizationType}}' bitta maʼlumot elementini koʼrsatishga moʼljallangan."
-" Faqat birinchi element ishlatiladi va saqlanadi."
 
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
@@ -71,6 +69,11 @@ msgid ""
 msgstr ""
 "Taqsimlovchi har bir oʼqda yagona maʼlumotlar elementini koʼrsatish uchun "
 "moʼljallangan. Faqat birinchi elementdan foydalaniladi va saqlanadi"
+
+msgid ""
+"'Outlier table' shows values from data elements only. Only data elements "
+"will be used and saved."
+msgstr ""
 
 msgid "Vertical"
 msgstr "Vertikal"
@@ -192,11 +195,14 @@ msgstr ""
 msgid "None selected"
 msgstr "Biror nima tanlanmagan"
 
+msgid "None in use"
+msgstr ""
+
 msgid "Only '{{- name}}' in use"
 msgstr "Foydalanish uchun faqatgina '{{- name}}'"
 
-msgid "Only '{{number}}' in use"
-msgstr "Foydalanish uchun faqatgina '{{number}}'"
+msgid "Only {{number}} in use"
+msgstr ""
 
 msgid "All items are selected"
 msgstr ""
@@ -582,6 +588,14 @@ msgstr ""
 msgid "Outlier detection method"
 msgstr ""
 
+msgid "Max results"
+msgstr ""
+
+msgid ""
+"The maximum number of outlier values to show in the table. Must be between "
+"1-500."
+msgstr ""
+
 msgid "Organisation unit"
 msgstr "Tashkiliy birlik"
 
@@ -705,6 +719,12 @@ msgstr ""
 msgid "{{level}} level in {{orgunit}}"
 msgstr ""
 
+msgid "Sort ascending by {{columnName}} and update"
+msgstr ""
+
+msgid "Sort descending by {{columnName}} and update"
+msgstr ""
+
 msgid "Open as Map"
 msgstr "Xarita sifatida ochish"
 
@@ -713,6 +733,70 @@ msgid ""
 msgstr ""
 "Jahon xaritasiga maʼlumotlarni vizual kiriting. Maʼlumotlar elementlari "
 "xaritaning alohida qavatlaridan foydalanadi."
+
+msgid "Category option combination"
+msgstr "Kategoriya variantlari kombinatsiyasi"
+
+msgid "Absolute deviation"
+msgstr ""
+
+msgid ""
+"A measure of the absolute difference between each data point and a central "
+"value, usually the mean or median, providing a straightforward understanding"
+" of dispersion in the dataset."
+msgstr ""
+
+msgid ""
+"A measure of how far a data point deviates from the median, using the median"
+" absolute deviation instead of the standard deviation, making it robust "
+"against outliers."
+msgstr ""
+
+msgid "Median"
+msgstr ""
+
+msgid ""
+"The middle value in a dataset when the values are arranged in ascending or "
+"descending order. It's a robust measure of central tendency that is less "
+"affected by outliers compared to the mean."
+msgstr ""
+
+msgid "Median absolute deviation"
+msgstr ""
+
+msgid ""
+"A robust measure of variability, found by calculating the median of the "
+"absolute differences between each data point and the overall median. It's "
+"less influenced by outliers compared to other measures like the standard "
+"deviation."
+msgstr ""
+
+msgid "Z-score"
+msgstr ""
+
+msgid ""
+"A measure of how many standard deviations a data point is from the mean of a"
+" dataset, providing insight into how unusual or typical that data point is "
+"relative to the rest of the distribution."
+msgstr ""
+
+msgid "Mean"
+msgstr ""
+
+msgid "Average of the value over time."
+msgstr ""
+
+msgid ""
+"A measure of how dispersed the data is in relation to the mean. Low standard"
+" deviation indicates data are clustered tightly around the mean, and high "
+"standard deviation indicates data are more spread out."
+msgstr ""
+
+msgid "Minimum score threshold"
+msgstr ""
+
+msgid "Maximum score threshold"
+msgstr ""
 
 msgid "Not supported when using cumulative values"
 msgstr ""
@@ -864,6 +948,12 @@ msgid ""
 msgstr ""
 
 msgid "There's a syntax problem with the analytics request."
+msgstr ""
+
+msgid "No outliers found"
+msgstr ""
+
+msgid "There were no outliers found for the selected data items and options."
 msgstr ""
 
 msgid "or"
@@ -1119,11 +1209,12 @@ msgstr ""
 "davrni taqqoslang."
 
 msgid ""
-"View the relationship between two data items at a place or time. Recommended"
-" for finding outliers."
+"Compare the relationship between two data items across multiple places. "
+"Recommended for visualizing outliers."
 msgstr ""
-"Joy va vaqt sifatidagi ikki maʼlumotlar orasidagi oʼzaro munosabatlarni "
-"koʼrish. ortiqcha natijalarni topish uchun tavsiya etiladi."
+
+msgid "Automatically identify extreme outliers based on historical data."
+msgstr ""
 
 msgid "Weeks per year"
 msgstr "Yil ichida haftalar"

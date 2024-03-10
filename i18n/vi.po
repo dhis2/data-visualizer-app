@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-11-13T12:11:28.959Z\n"
+"POT-Creation-Date: 2024-03-01T08:28:43.727Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Philip Larsen Donnelly, 2024\n"
 "Language-Team: Vietnamese (https://app.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -52,11 +52,9 @@ msgid "Add to {{axisName}}"
 msgstr "Thêm {{axisName}}"
 
 msgid ""
-"'{{visualizationType}}' is intended to show a single data item. Only the "
-"first item will be used and saved."
+"'{{visualizationType}}' is intended to show a single item for this type of "
+"dimension. Only the first item will be used and saved."
 msgstr ""
-"'{{visualizationType}}' nhằm hiển thị một mục dữ liệu. Chỉ mục đầu tiên sẽ "
-"được sử dụng và lưu."
 
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
@@ -71,6 +69,11 @@ msgid ""
 msgstr ""
 "'Phân tán' nhằm hiển thị một mục dữ liệu duy nhất trên mỗi trục. Chỉ mục đầu"
 " tiên sẽ được sử dụng và lưu."
+
+msgid ""
+"'Outlier table' shows values from data elements only. Only data elements "
+"will be used and saved."
+msgstr ""
 
 msgid "Vertical"
 msgstr "Dọc"
@@ -192,11 +195,14 @@ msgstr "ngang"
 msgid "None selected"
 msgstr "Chưa lựa chọn"
 
+msgid "None in use"
+msgstr ""
+
 msgid "Only '{{- name}}' in use"
 msgstr "Chỉ sử dụng tên"
 
-msgid "Only '{{number}}' in use"
-msgstr "Chỉ  '{{number}}' được sử dụng"
+msgid "Only {{number}} in use"
+msgstr ""
 
 msgid "All items are selected"
 msgstr ""
@@ -580,6 +586,14 @@ msgstr ""
 msgid "Outlier detection method"
 msgstr ""
 
+msgid "Max results"
+msgstr ""
+
+msgid ""
+"The maximum number of outlier values to show in the table. Must be between "
+"1-500."
+msgstr ""
+
 msgid "Organisation unit"
 msgstr "Đơn vị"
 
@@ -703,6 +717,12 @@ msgstr ""
 msgid "{{level}} level in {{orgunit}}"
 msgstr ""
 
+msgid "Sort ascending by {{columnName}} and update"
+msgstr ""
+
+msgid "Sort descending by {{columnName}} and update"
+msgstr ""
+
 msgid "Open as Map"
 msgstr "Mở dưới dạng bản đồ"
 
@@ -711,6 +731,70 @@ msgid ""
 msgstr ""
 "Vẽ dữ liệu trực quan trên bản đồ thế giới. Các phần tử dữ liệu sử dụng các "
 "lớp bản đồ riêng biệt."
+
+msgid "Category option combination"
+msgstr "Phân loại tùy chọn kết hợp"
+
+msgid "Absolute deviation"
+msgstr ""
+
+msgid ""
+"A measure of the absolute difference between each data point and a central "
+"value, usually the mean or median, providing a straightforward understanding"
+" of dispersion in the dataset."
+msgstr ""
+
+msgid ""
+"A measure of how far a data point deviates from the median, using the median"
+" absolute deviation instead of the standard deviation, making it robust "
+"against outliers."
+msgstr ""
+
+msgid "Median"
+msgstr ""
+
+msgid ""
+"The middle value in a dataset when the values are arranged in ascending or "
+"descending order. It's a robust measure of central tendency that is less "
+"affected by outliers compared to the mean."
+msgstr ""
+
+msgid "Median absolute deviation"
+msgstr ""
+
+msgid ""
+"A robust measure of variability, found by calculating the median of the "
+"absolute differences between each data point and the overall median. It's "
+"less influenced by outliers compared to other measures like the standard "
+"deviation."
+msgstr ""
+
+msgid "Z-score"
+msgstr ""
+
+msgid ""
+"A measure of how many standard deviations a data point is from the mean of a"
+" dataset, providing insight into how unusual or typical that data point is "
+"relative to the rest of the distribution."
+msgstr ""
+
+msgid "Mean"
+msgstr ""
+
+msgid "Average of the value over time."
+msgstr ""
+
+msgid ""
+"A measure of how dispersed the data is in relation to the mean. Low standard"
+" deviation indicates data are clustered tightly around the mean, and high "
+"standard deviation indicates data are more spread out."
+msgstr ""
+
+msgid "Minimum score threshold"
+msgstr ""
+
+msgid "Maximum score threshold"
+msgstr ""
 
 msgid "Not supported when using cumulative values"
 msgstr ""
@@ -855,6 +939,12 @@ msgid ""
 msgstr ""
 
 msgid "There's a syntax problem with the analytics request."
+msgstr ""
+
+msgid "No outliers found"
+msgstr ""
+
+msgid "There were no outliers found for the selected data items and options."
 msgstr ""
 
 msgid "or"
@@ -1122,11 +1212,12 @@ msgstr ""
 "liệu mới nhất."
 
 msgid ""
-"View the relationship between two data items at a place or time. Recommended"
-" for finding outliers."
+"Compare the relationship between two data items across multiple places. "
+"Recommended for visualizing outliers."
 msgstr ""
-"Xem mối quan hệ giữa hai mục dữ liệu tại một địa điểm hoặc thời gian. Đề "
-"xuất để tìm ra những điểm khác biệt."
+
+msgid "Automatically identify extreme outliers based on historical data."
+msgstr ""
 
 msgid "Weeks per year"
 msgstr "Hàng tuần mỗi năm"
