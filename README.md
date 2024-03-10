@@ -3,7 +3,7 @@
 [![Test Coverage](https://codeclimate.com/github/dhis2/data-visualizer-app/badges/coverage.svg)](https://codeclimate.com/github/dhis2/data-visualizer-app/coverage)
 [![Code Climate](https://codeclimate.com/github/dhis2/data-visualizer-app/badges/gpa.svg)](https://codeclimate.com/github/dhis2/data-visualizer-app)
 
-This is a repo that contains the data-visualizer-app and its plugin used both internally and built as a separate entrypoint so it can be used in other apps such as the dashboard app
+This is a repo that contains the data-visualizer-app and its plugin used both internally and built as a separate entrypoint so it can be used in other apps such as the dashboard app.
 
 ## Getting started
 
