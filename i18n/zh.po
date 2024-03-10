@@ -2,15 +2,15 @@
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2020
 # 晓东 林 <13981924470@126.com>, 2022
-# easylin <lin_xd@126.com>, 2024
 # Philip Larsen Donnelly, 2024
+# easylin <lin_xd@126.com>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-11-13T12:11:28.959Z\n"
+"POT-Creation-Date: 2024-03-01T08:28:43.727Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2024\n"
 "Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,9 +51,9 @@ msgid "Add to {{axisName}}"
 msgstr "添加到 {{axisName}}"
 
 msgid ""
-"'{{visualizationType}}' is intended to show a single data item. Only the "
-"first item will be used and saved."
-msgstr "'{{visualizationType}}' 打算显示单个数据项，仅仅第一个条目将被使用和保存。"
+"'{{visualizationType}}' is intended to show a single item for this type of "
+"dimension. Only the first item will be used and saved."
+msgstr ""
 
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
@@ -66,6 +66,11 @@ msgid ""
 "'Scatter' is intended to show a single data item per axis. Only the first "
 "item will be used and saved."
 msgstr "“散点图”用于在每个轴上显示单个数据项。仅第一项将被使用和保存。"
+
+msgid ""
+"'Outlier table' shows values from data elements only. Only data elements "
+"will be used and saved."
+msgstr ""
 
 msgid "Vertical"
 msgstr "垂直"
@@ -187,11 +192,14 @@ msgstr "水平的"
 msgid "None selected"
 msgstr "没有选择"
 
+msgid "None in use"
+msgstr ""
+
 msgid "Only '{{- name}}' in use"
 msgstr "仅'{{- name}}' 在使用"
 
-msgid "Only '{{number}}' in use"
-msgstr "仅 '{{number}}' 在使用"
+msgid "Only {{number}} in use"
+msgstr ""
 
 msgid "All items are selected"
 msgstr "所有条目都被选中"
@@ -569,6 +577,14 @@ msgstr "离群值分析检测并突出显示与其余数据明显不同的数据
 msgid "Outlier detection method"
 msgstr "离群值检测方法"
 
+msgid "Max results"
+msgstr "最大结果"
+
+msgid ""
+"The maximum number of outlier values to show in the table. Must be between "
+"1-500."
+msgstr ""
+
 msgid "Organisation unit"
 msgstr "组织机构"
 
@@ -690,12 +706,82 @@ msgstr "更改组织机构"
 msgid "{{level}} level in {{orgunit}}"
 msgstr "{{orgunit}} 中的 {{level}} 级"
 
+msgid "Sort ascending by {{columnName}} and update"
+msgstr ""
+
+msgid "Sort descending by {{columnName}} and update"
+msgstr ""
+
 msgid "Open as Map"
 msgstr "打开为地图"
 
 msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
 msgstr "在世界地图上直观地绘制数据。数据元素使用单独的地图图层。"
+
+msgid "Category option combination"
+msgstr "分类组合选项"
+
+msgid "Absolute deviation"
+msgstr ""
+
+msgid ""
+"A measure of the absolute difference between each data point and a central "
+"value, usually the mean or median, providing a straightforward understanding"
+" of dispersion in the dataset."
+msgstr ""
+
+msgid ""
+"A measure of how far a data point deviates from the median, using the median"
+" absolute deviation instead of the standard deviation, making it robust "
+"against outliers."
+msgstr ""
+
+msgid "Median"
+msgstr ""
+
+msgid ""
+"The middle value in a dataset when the values are arranged in ascending or "
+"descending order. It's a robust measure of central tendency that is less "
+"affected by outliers compared to the mean."
+msgstr ""
+
+msgid "Median absolute deviation"
+msgstr ""
+
+msgid ""
+"A robust measure of variability, found by calculating the median of the "
+"absolute differences between each data point and the overall median. It's "
+"less influenced by outliers compared to other measures like the standard "
+"deviation."
+msgstr ""
+
+msgid "Z-score"
+msgstr "Z-分数"
+
+msgid ""
+"A measure of how many standard deviations a data point is from the mean of a"
+" dataset, providing insight into how unusual or typical that data point is "
+"relative to the rest of the distribution."
+msgstr ""
+
+msgid "Mean"
+msgstr "平均 "
+
+msgid "Average of the value over time."
+msgstr ""
+
+msgid ""
+"A measure of how dispersed the data is in relation to the mean. Low standard"
+" deviation indicates data are clustered tightly around the mean, and high "
+"standard deviation indicates data are more spread out."
+msgstr ""
+
+msgid "Minimum score threshold"
+msgstr ""
+
+msgid "Maximum score threshold"
+msgstr ""
 
 msgid "Not supported when using cumulative values"
 msgstr "使用累积值时不支持"
@@ -827,6 +913,12 @@ msgstr "生成的分析存在问题。联系系统管理员。"
 
 msgid "There's a syntax problem with the analytics request."
 msgstr "分析请求存在语法问题。"
+
+msgid "No outliers found"
+msgstr ""
+
+msgid "There were no outliers found for the selected data items and options."
+msgstr ""
 
 msgid "or"
 msgstr "或"
@@ -1075,9 +1167,12 @@ msgid "Display a single value. Recommend relative period to show latest data."
 msgstr "显示单个值。推荐相对时期以显示最新数据。"
 
 msgid ""
-"View the relationship between two data items at a place or time. Recommended"
-" for finding outliers."
-msgstr "查看某个地点或时间的两个数据项之间的关系。推荐用于发现异常值。"
+"Compare the relationship between two data items across multiple places. "
+"Recommended for visualizing outliers."
+msgstr ""
+
+msgid "Automatically identify extreme outliers based on historical data."
+msgstr ""
 
 msgid "Weeks per year"
 msgstr "每年的周"
