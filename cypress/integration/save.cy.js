@@ -64,6 +64,11 @@ describe('saving an AO', () => {
         it('navigates to the start page', () => {
             goToStartPage()
         })
+        it('checks that Save is disabled', () => {
+            clickMenuBarFileButton()
+            expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_SAVE_EXISTING)
+            closeFileMenuWithClick()
+        })
         it(`changes vis type to ${TEST_VIS_TYPE_NAME}`, () => {
             changeVisType(TEST_VIS_TYPE_NAME)
         })
@@ -90,6 +95,11 @@ describe('saving an AO', () => {
             expectAOTitleToBeUnsaved()
             expectRouteToBeEmpty()
         })
+        it('checks that Save is enabled', () => {
+            clickMenuBarFileButton()
+            expectFileMenuButtonToBeEnabled(FILE_MENU_BUTTON_SAVE_EXISTING)
+            closeFileMenuWithClick()
+        })
         it('checks that Save as is disabled', () => {
             clickMenuBarFileButton()
             expectFileMenuButtonToBeDisabled(FILE_MENU_BUTTON_SAVEAS)
@@ -103,12 +113,11 @@ describe('saving an AO', () => {
         it('checks that the url was changed', () => {
             expectRouteToBeAOId()
         })
-        it('all File menu buttons are enabled', () => {
+        it('all File menu buttons but Save are enabled', () => {
             clickMenuBarFileButton()
             const enabledButtons = [
                 FILE_MENU_BUTTON_NEW,
                 FILE_MENU_BUTTON_OPEN,
-                FILE_MENU_BUTTON_SAVE_EXISTING,
                 FILE_MENU_BUTTON_SAVEAS,
                 FILE_MENU_BUTTON_RENAME,
                 FILE_MENU_BUTTON_TRANSLATE,
