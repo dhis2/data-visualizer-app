@@ -1,13 +1,14 @@
 # 
 # Translators:
 # Yury Rogachev <yury@dhis2.org>, 2022
+# Philip Larsen Donnelly, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-06-07T08:24:31.117Z\n"
 "PO-Revision-Date: 2022-04-20 10:06+0000\n"
-"Last-Translator: Yury Rogachev <yury@dhis2.org>, 2022\n"
+"Last-Translator: Philip Larsen Donnelly, 2024\n"
 "Language-Team: Uzbek (Latin) (https://app.transifex.com/hisp-uio/teams/100509/uz@Latn/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -180,7 +181,7 @@ msgid "Add Assigned Categories"
 msgstr "Belgilangan kategoriyalar qoʼshilsin"
 
 msgid "Swap with {{axisName}} axis"
-msgstr "{{AxisName}} oʼqlari joyini almashtirish"
+msgstr "{{axisName}} oʼqlari joyini almashtirish"
 
 msgid "vertical"
 msgstr ""
@@ -232,7 +233,7 @@ msgid "Edited"
 msgstr "Tahrirlangan"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr "{{TalqinVaqt}} dan talqinni koʼrish"
+msgstr "{{interpretationDate}} dan talqinni koʼrish"
 
 msgid "Update"
 msgstr "Янгилаш"
@@ -752,7 +753,7 @@ msgstr ""
 " {{axes}}."
 
 msgid "Add organisation units to {{axisName}}."
-msgstr "{{AxisName}} oʼqiga tashkiliy boʼlimlar qoʼshish"
+msgstr "{{axisName}} oʼqiga tashkiliy boʼlimlar qoʼshish"
 
 msgid "Vertical is empty"
 msgstr "Vertikal oʼq boʼsh"
