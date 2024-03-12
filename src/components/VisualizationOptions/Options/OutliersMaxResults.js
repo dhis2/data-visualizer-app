@@ -27,7 +27,7 @@ const OutliersMaxResults = () => {
     }
 
     const onChange = ({ value }) => {
-        const parsedValue = parseInt(value, 10)
+        const parsedValue = parseInt(value || MIN_VALUE, 10)
 
         dispatch(
             acSetUiOptions({
