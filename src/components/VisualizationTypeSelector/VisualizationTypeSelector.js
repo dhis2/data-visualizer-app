@@ -109,7 +109,10 @@ const UnconnectedVisualizationTypeSelector = (
                     })}
                     data-test={'visualization-type-selector-button'}
                 >
-                    <ListItemIcon iconType={visualizationType} />
+                    <ListItemIcon
+                        iconType={visualizationType}
+                        style={{ width: 24, height: 24 }}
+                    />
                     <span
                         className={styles.selectedVizTypeLabel}
                         data-test="visualization-type-selector-currently-selected-text"

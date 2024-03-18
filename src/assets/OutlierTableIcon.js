@@ -1,9 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const OutlierTableIcon = ({
-    style = { paddingRight: '8px', width: 24, height: 24 },
-}) => (
+const OutlierTableIcon = ({ style }) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0,0,48,48" style={style}>
         <path
             fillRule="evenodd"
