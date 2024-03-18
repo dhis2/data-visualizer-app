@@ -1,11 +1,11 @@
-import { CenteredContent, CircularLoader, Layer } from '@dhis2/ui'
+import { CenteredContent, CircularLoader, ComponentCover } from '@dhis2/ui'
 import React, { useCallback, useEffect, useState } from 'react'
 import { VisualizationPlugin } from '../VisualizationPlugin/VisualizationPlugin.js'
 
 // handle internal state for features that need to work without the app's Redux store
 const VisualizationPluginWrapper = (props) => {
     const [pluginProps, setPluginProps] = useState(props)
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
 
     const onDataSorted = useCallback(
         (sorting) => {
@@ -34,11 +34,11 @@ const VisualizationPluginWrapper = (props) => {
     return (
         <>
             {isLoading && (
-                <Layer>
+                <ComponentCover>
                     <CenteredContent>
                         <CircularLoader />
                     </CenteredContent>
-                </Layer>
+                </ComponentCover>
             )}
             <VisualizationPlugin
                 {...pluginProps}
