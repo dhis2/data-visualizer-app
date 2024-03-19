@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-09-06T13:41:14.540Z\n"
+"POT-Creation-Date: 2024-03-01T08:28:43.727Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Viktor Varland <viktor@dhis2.org>, 2022\n"
 "Language-Team: Arabic (https://app.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -52,11 +52,9 @@ msgid "Add to {{axisName}}"
 msgstr "إضافة إلى {{axisName}}"
 
 msgid ""
-"'{{visualizationType}}' is intended to show a single data item. Only the "
-"first item will be used and saved."
+"'{{visualizationType}}' is intended to show a single item for this type of "
+"dimension. Only the first item will be used and saved."
 msgstr ""
-"'{{visualizationType}}' يهدف إلى إظهار عنصر بيانات واحد. سيتم استخدام وحفظ "
-"العنصر الأول فقط."
 
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
@@ -68,6 +66,11 @@ msgstr ""
 msgid ""
 "'Scatter' is intended to show a single data item per axis. Only the first "
 "item will be used and saved."
+msgstr ""
+
+msgid ""
+"'Outlier table' shows values from data elements only. Only data elements "
+"will be used and saved."
 msgstr ""
 
 msgid "Vertical"
@@ -190,11 +193,14 @@ msgstr ""
 msgid "None selected"
 msgstr "غير محدد"
 
+msgid "None in use"
+msgstr ""
+
 msgid "Only '{{- name}}' in use"
 msgstr "قيد الإستخدام '{{- name}}' فقط"
 
-msgid "Only '{{number}}' in use"
-msgstr "قيد الإستخدام '{{- name}}' فقط"
+msgid "Only {{number}} in use"
+msgstr ""
 
 msgid "All items are selected"
 msgstr ""
@@ -386,6 +392,9 @@ msgstr "تضمين التراكم"
 msgid "Cumulative values"
 msgstr "قيم تراكمية"
 
+msgid "Accumulate cell values along rows"
+msgstr ""
+
 msgid "Show data item icon"
 msgstr ""
 
@@ -573,6 +582,14 @@ msgstr ""
 msgid "Outlier detection method"
 msgstr ""
 
+msgid "Max results"
+msgstr ""
+
+msgid ""
+"The maximum number of outlier values to show in the table. Must be between "
+"1-500."
+msgstr ""
+
 msgid "Organisation unit"
 msgstr "الوحدة التنظيمية"
 
@@ -696,6 +713,12 @@ msgstr ""
 msgid "{{level}} level in {{orgunit}}"
 msgstr ""
 
+msgid "Sort ascending by {{columnName}} and update"
+msgstr ""
+
+msgid "Sort descending by {{columnName}} and update"
+msgstr ""
+
 msgid "Open as Map"
 msgstr "فتح كخريطة"
 
@@ -704,6 +727,73 @@ msgid ""
 msgstr ""
 "رسم البيانات بصريًا على خريطة العالم. تستخدم عناصر البيانات طبقات خريطة "
 "منفصلة."
+
+msgid "Category option combination"
+msgstr ""
+
+msgid "Absolute deviation"
+msgstr ""
+
+msgid ""
+"A measure of the absolute difference between each data point and a central "
+"value, usually the mean or median, providing a straightforward understanding"
+" of dispersion in the dataset."
+msgstr ""
+
+msgid ""
+"A measure of how far a data point deviates from the median, using the median"
+" absolute deviation instead of the standard deviation, making it robust "
+"against outliers."
+msgstr ""
+
+msgid "Median"
+msgstr ""
+
+msgid ""
+"The middle value in a dataset when the values are arranged in ascending or "
+"descending order. It's a robust measure of central tendency that is less "
+"affected by outliers compared to the mean."
+msgstr ""
+
+msgid "Median absolute deviation"
+msgstr ""
+
+msgid ""
+"A robust measure of variability, found by calculating the median of the "
+"absolute differences between each data point and the overall median. It's "
+"less influenced by outliers compared to other measures like the standard "
+"deviation."
+msgstr ""
+
+msgid "Z-score"
+msgstr ""
+
+msgid ""
+"A measure of how many standard deviations a data point is from the mean of a"
+" dataset, providing insight into how unusual or typical that data point is "
+"relative to the rest of the distribution."
+msgstr ""
+
+msgid "Mean"
+msgstr ""
+
+msgid "Average of the value over time."
+msgstr ""
+
+msgid ""
+"A measure of how dispersed the data is in relation to the mean. Low standard"
+" deviation indicates data are clustered tightly around the mean, and high "
+"standard deviation indicates data are more spread out."
+msgstr ""
+
+msgid "Minimum score threshold"
+msgstr ""
+
+msgid "Maximum score threshold"
+msgstr ""
+
+msgid "Not supported when using cumulative values"
+msgstr ""
 
 msgid "No data available"
 msgstr "لا توجد بيانات متاحة"
@@ -834,6 +924,20 @@ msgstr ""
 
 msgid "Something went wrong"
 msgstr "هناك خطأ ما"
+
+msgid ""
+"There's a problem with the generated analytics. Contact a system "
+"administrator."
+msgstr ""
+
+msgid "There's a syntax problem with the analytics request."
+msgstr ""
+
+msgid "No outliers found"
+msgstr ""
+
+msgid "There were no outliers found for the selected data items and options."
+msgstr ""
 
 msgid "or"
 msgstr "أو"
@@ -997,6 +1101,9 @@ msgstr "الخطوط"
 msgid "Totals"
 msgstr "الإجمالي"
 
+msgid "Totals are not supported when using cumulative values"
+msgstr ""
+
 msgid "Vertical (y) axis {{axisId}}"
 msgstr ""
 
@@ -1079,8 +1186,11 @@ msgid "Display a single value. Recommend relative period to show latest data."
 msgstr "اعرض قيمة واحدة. يوصي الفترة النسبية لإظهار أحدث البيانات."
 
 msgid ""
-"View the relationship between two data items at a place or time. Recommended"
-" for finding outliers."
+"Compare the relationship between two data items across multiple places. "
+"Recommended for visualizing outliers."
+msgstr ""
+
+msgid "Automatically identify extreme outliers based on historical data."
 msgstr ""
 
 msgid "Weeks per year"

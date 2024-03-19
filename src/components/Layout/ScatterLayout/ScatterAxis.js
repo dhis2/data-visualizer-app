@@ -133,7 +133,7 @@ const Axis = ({
         ) : (
             <HorizontalIcon />
         )
-    console.log('ScatterBrain')
+
     return (
         <div
             id={label}

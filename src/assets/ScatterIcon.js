@@ -1,9 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const ScatterIcon = ({
-    style = { paddingRight: '8px', width: 24, height: 24 },
-}) => (
+const ScatterIcon = ({ style }) => (
     <svg
         height="48"
         viewBox="0 0 48 48"
