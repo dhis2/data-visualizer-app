@@ -237,7 +237,10 @@ const OutlierTablePlugin = ({
                     scrollHeight={getDataTableScrollHeight(isInModal)}
                     scrollWidth="100%"
                     width="auto"
-                    className={styles.dataTable}
+                    className={cx(
+                        styles.dataTable,
+                        'push-analytics-outlier-table'
+                    )}
                     dataTest="outlier-table"
                 >
                     <DataTableHead>
