@@ -33,5 +33,8 @@
         "cypress:start": "BROWSER=none yarn start",
         "cy:open": "d2-utils-cypress open --appStart 'yarn cypress:start'",
         "cy:run": "d2-utils-cypress run --appStart 'yarn cypress:start'"
+    },
+    "dependencies": {
+        "@dhis2/analytics": "^24.10.3"
     }
 }
