@@ -77,7 +77,7 @@
         },
         {
             "dashboardItemProperty": "visualization.type",
-            "value": "OULIER_TABLE",
+            "value": "OUTLIER_TABLE",
             "strategy": "noop"
         }
     ],
@@ -91,7 +91,7 @@
         },
         {
             "dashboardItemProperty": "visualization.type",
-            "value": "OULIER_TABLE",
+            "value": "OUTLIER_TABLE",
             "strategy": "interceptRequest",
             "urlReg": "*/analytics/outlierDetection?displayProperty=NAME&*"
         },
