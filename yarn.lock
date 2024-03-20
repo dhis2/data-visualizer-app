@@ -2229,22 +2229,6 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^24.10.3":
-  version "24.10.3"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-24.10.3.tgz#850264c9ed2516c1e9b6778e896ebff5138728ec"
-  integrity sha512-+PMowfhETRGZ6+WhYRG2bs+vBV1J82d/p1kC+IxcXycJH9YWyxWJl10P0RP8pdKJdXJ9gywoQgq8S+fw88Fdxw==
-  dependencies:
-    "@dhis2/d2-ui-rich-text" "^7.4.0"
-    "@dhis2/multi-calendar-dates" "1.0.0"
-    classnames "^2.3.1"
-    d2-utilizr "^0.2.16"
-    d3-color "^1.2.3"
-    highcharts "^10.2.0"
-    lodash "^4.17.21"
-    mathjs "^9.4.2"
-    react-beautiful-dnd "^10.1.1"
-    resize-observer-polyfill "^1.5.1"
-
 "@dhis2/analytics@^24.9.3":
   version "24.10.1"
   resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-24.10.1.tgz#ad595451b724044448c22a413875f0d36df20e8d"
