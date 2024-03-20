@@ -92,7 +92,7 @@
         {
             "dashboardItemProperty": "visualization.type",
             "value": "OUTLIER_TABLE",
-            "strategy": "interceptRequest",
+            "strategy": "interceptResponse",
             "urlGlob": "**/analytics/outlierDetection?displayProperty=NAME&**"
         },
         {
