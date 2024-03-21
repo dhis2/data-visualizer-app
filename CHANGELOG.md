@@ -1,3 +1,10 @@
+## [100.5.2](https://github.com/dhis2/data-visualizer-app/compare/v100.5.1...v100.5.2) (2024-03-21)
+
+
+### Bug Fixes
+
+* add classnames and update json instructions file for outlier tables ([#3000](https://github.com/dhis2/data-visualizer-app/issues/3000)) ([bd95afe](https://github.com/dhis2/data-visualizer-app/commit/bd95afe3ce5ccc1d1e400d4a2531bfb8a9910ee2))
+
 ## [100.5.1](https://github.com/dhis2/data-visualizer-app/compare/v100.5.0...v100.5.1) (2024-03-21)
 
 
