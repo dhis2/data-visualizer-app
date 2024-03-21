@@ -27,7 +27,10 @@ const VisualizationPluginWrapper = (props) => {
         [pluginProps]
     )
 
-    useEffect(() => setPluginProps(props), [props])
+    useEffect(() => {
+        setIsLoading(true)
+        setPluginProps(props)
+    }, [props])
 
     const onLoadingComplete = () => setIsLoading(false)
 
