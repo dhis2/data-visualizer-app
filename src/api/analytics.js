@@ -59,7 +59,11 @@ export const getAnalyticsRequestForOutlierTable = ({
     const headers = []
 
     columns.forEach(({ dimension, items }) => {
-        parameters[dimension] = items.map(({ id }) => id).join(',')
+        // only use the first period, this accommodates for the dashboard filter scenario
+        parameters[dimension] =
+            dimension === DIMENSION_ID_PERIOD
+                ? items[0].id
+                : items.map(({ id }) => id).join(',')
 
         headers.push(forDownload ? dimension : dimensionIdHeaderMap[dimension])
 
