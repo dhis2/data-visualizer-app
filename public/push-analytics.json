@@ -1,5 +1,12 @@
 {
     "version": "0.0.1",
+    "clearVisualization": {
+        "strategy": "navigateToUrl",
+        "steps": [
+            { "goto": "{{appUrl}}/#/" },
+            { "waitForSelector": ".push-analytics-start-screen" }
+        ]
+    },
     "showVisualization": {
         "strategy": "navigateToUrl",
         "steps": [
@@ -10,6 +17,11 @@
                         "dashboardItemProperty": "visualization.type",
                         "value": "PIVOT_TABLE",
                         "selector": ".pivot-table-container > table"
+                    },
+                    {
+                        "dashboardItemProperty": "visualization.type",
+                        "value": "OUTLIER_TABLE",
+                        "selector": ".push-analytics-outlier-table"
                     },
                     {
                         "dashboardItemProperty": "visualization.type",
@@ -27,24 +39,52 @@
                             "YEAR_OVER_YEAR_LINE",
                             "YEAR_OVER_YEAR_COLUMN",
                             "SCATTER",
-                            "BUBBLE",
-                            "SINGLE_VALUE",
-                            "PIVOT_TABLE",
-                            "OUTLIER_TABLE"
+                            "BUBBLE"
                         ],
-                        "selector": ".highcharts-container"
+                        "selector": ".highcharts-container > svg"
+                    },
+                    {
+                        "dashboardItemProperty": "visualization.type",
+                        "value": "SINGLE_VALUE",
+                        "selector": "[data-test='visualization-container']"
                     }
                 ]
             }
         ]
     },
-    "triggerDownload": {
-        "strategy": "useUiElements",
-        "steps": [
-            { "click": ".push-analytics-download-dropdown-menu-button" },
-            { "click": ".push-analytics-download-menu-item" }
-        ]
-    },
+    "triggerDownloadConditionally": [
+        {
+            "dashboardItemProperty": "visualization.type",
+            "value": [
+                "COLUMN",
+                "STACKED_COLUMN",
+                "BAR",
+                "STACKED_BAR",
+                "LINE",
+                "AREA",
+                "STACKED_AREA",
+                "PIE",
+                "RADAR",
+                "GAUGE",
+                "YEAR_OVER_YEAR_LINE",
+                "YEAR_OVER_YEAR_COLUMN",
+                "SCATTER",
+                "BUBBLE",
+                "SINGLE_VALUE",
+                "PIVOT_TABLE"
+            ],
+            "strategy": "useUiElements",
+            "steps": [
+                { "click": ".push-analytics-download-dropdown-menu-button" },
+                { "click": ".push-analytics-download-menu-item" }
+            ]
+        },
+        {
+            "dashboardItemProperty": "visualization.type",
+            "value": "OUTLIER_TABLE",
+            "strategy": "noop"
+        }
+    ],
     "obtainDownloadArtifactConditionally": [
         {
             "dashboardItemProperty": "visualization.type",
@@ -52,6 +92,12 @@
             "strategy": "scrapeDownloadPage",
             "htmlSelector": "body",
             "cssSelector": "style"
+        },
+        {
+            "dashboardItemProperty": "visualization.type",
+            "value": "OUTLIER_TABLE",
+            "strategy": "interceptResponse",
+            "urlGlob": "**/analytics/outlierDetection**"
         },
         {
             "dashboardItemProperty": "visualization.type",
@@ -77,9 +123,5 @@
             "strategy": "screenShotImgOnDownloadPage",
             "htmlSelector": "img"
         }
-    ],
-    "clearVisualization": {
-        "strategy": "navigateToUrl",
-        "steps": [{ "goto": "{{appUrl}}/#/new" }]
-    }
+    ]
 }
