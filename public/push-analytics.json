@@ -39,10 +39,14 @@
                             "YEAR_OVER_YEAR_LINE",
                             "YEAR_OVER_YEAR_COLUMN",
                             "SCATTER",
-                            "BUBBLE",
-                            "SINGLE_VALUE"
+                            "BUBBLE"
                         ],
                         "selector": ".highcharts-container > svg"
+                    },
+                    {
+                        "dashboardItemProperty": "visualization.type",
+                        "value": "SINGLE_VALUE",
+                        "selector": "[data-test='visualization-container']"
                     }
                 ]
             }
