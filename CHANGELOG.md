@@ -1,3 +1,10 @@
+## [100.5.1](https://github.com/dhis2/data-visualizer-app/compare/v100.5.0...v100.5.1) (2024-03-21)
+
+
+### Bug Fixes
+
+* fix period filter and loading spinner when filtering in dashboard ([#3002](https://github.com/dhis2/data-visualizer-app/issues/3002)) ([8a54037](https://github.com/dhis2/data-visualizer-app/commit/8a5403754353d8531decc5cdf73129d38219e322))
+
 # [100.5.0](https://github.com/dhis2/data-visualizer-app/compare/v100.4.0...v100.5.0) (2024-03-19)
 
 
