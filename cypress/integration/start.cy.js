@@ -13,7 +13,6 @@ import {
     expectFileMenuButtonToBeDisabled,
     FILE_MENU_BUTTON_NEW,
     FILE_MENU_BUTTON_OPEN,
-    FILE_MENU_BUTTON_SAVE_NEW,
     FILE_MENU_BUTTON_SAVEAS,
     FILE_MENU_BUTTON_GETLINK,
     FILE_MENU_BUTTON_SHARE,
@@ -75,11 +74,7 @@ describe('viewing the start screen', () => {
     })
     it('primary File menu buttons are enabled and menu is closed with click', () => {
         clickMenuBarFileButton()
-        const enabledButtons = [
-            FILE_MENU_BUTTON_NEW,
-            FILE_MENU_BUTTON_OPEN,
-            FILE_MENU_BUTTON_SAVE_NEW,
-        ]
+        const enabledButtons = [FILE_MENU_BUTTON_NEW, FILE_MENU_BUTTON_OPEN]
         enabledButtons.forEach((button) =>
             expectFileMenuButtonToBeEnabled(button)
         )

@@ -10,8 +10,14 @@ import { connect } from 'react-redux'
 import * as fromActions from '../../actions/index.js'
 import { getErrorVariantByStatusCode } from '../../modules/error.js'
 import history from '../../modules/history.js'
-import { visTypes } from '../../modules/visualization.js'
+import {
+    visTypes,
+    getVisualizationState,
+    STATE_UNSAVED,
+    STATE_DIRTY,
+} from '../../modules/visualization.js'
 import { sGetCurrent } from '../../reducers/current.js'
+import { sGetVisualization } from '../../reducers/visualization.js'
 import { ToolbarDownloadDropdown } from '../DownloadMenu/ToolbarDownloadDropdown.js'
 import UpdateButton from '../UpdateButton/UpdateButton.js'
 import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer.js'
@@ -71,7 +77,13 @@ const UnconnectedMenuBar = ({ dataTest, ...props }, context) => (
             onOpen={onOpen}
             onNew={onNew}
             onRename={getOnRename(props)}
-            onSave={getOnSave(props)}
+            onSave={
+                [STATE_UNSAVED, STATE_DIRTY].includes(
+                    getVisualizationState(props.visualization, props.current)
+                )
+                    ? getOnSave(props)
+                    : undefined
+            }
             onSaveAs={getOnSaveAs(props)}
             onDelete={getOnDelete(props)}
             onError={getOnError(props)}
@@ -89,6 +101,7 @@ UnconnectedMenuBar.propTypes = {
     apiObjectName: PropTypes.string,
     current: PropTypes.object,
     dataTest: PropTypes.string,
+    visualization: PropTypes.object,
 }
 
 UnconnectedMenuBar.contextTypes = {
@@ -97,6 +110,7 @@ UnconnectedMenuBar.contextTypes = {
 
 const mapStateToProps = (state) => ({
     current: sGetCurrent(state),
+    visualization: sGetVisualization(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({
