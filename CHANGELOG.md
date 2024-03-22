@@ -1,3 +1,10 @@
+## [39.2.22](https://github.com/dhis2/data-visualizer-app/compare/v39.2.21...v39.2.22) (2024-03-22)
+
+
+### Bug Fixes
+
+* about AO showed wrong datetime, newlines in interpretations and replies [v39] ([#3003](https://github.com/dhis2/data-visualizer-app/issues/3003)) ([9b13adc](https://github.com/dhis2/data-visualizer-app/commit/9b13adc38db16eba1d21465f9d22d394be568057))
+
 ## [39.2.21](https://github.com/dhis2/data-visualizer-app/compare/v39.2.20...v39.2.21) (2024-03-03)
 
 
