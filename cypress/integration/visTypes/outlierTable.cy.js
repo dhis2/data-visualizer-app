@@ -7,7 +7,11 @@ import {
     AXIS_ID_COLUMNS,
 } from '@dhis2/analytics'
 import { expectVisualizationToBeVisible } from '../../elements/chart.js'
-import { clearInput, typeInput } from '../../elements/common.js'
+import {
+    clearInput,
+    typeInput,
+    expectAppToNotBeLoading,
+} from '../../elements/common.js'
 import {
     selectDataElements,
     clickDimensionModalHideButton,
@@ -306,6 +310,7 @@ describe('using an Outlier table visualization', () => {
     it('saves and all options are preserved', () => {
         saveNewAO(TEST_VIS_NAME)
 
+        expectAppToNotBeLoading()
         expectVisualizationToBeVisible(VIS_TYPE_OUTLIER_TABLE)
 
         openOptionsModal(OPTIONS_TAB_DATA)
