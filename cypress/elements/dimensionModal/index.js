@@ -113,6 +113,7 @@ export {
     expectDataItemToBeInactive,
     expectDataDimensionModalToBeVisible,
     expectDataTypeToBe,
+    expectDataTypeSelectHelpToContain,
     expectGroupSelectToNotBeVisible,
     expectNoDataItemsToBeSelected,
     inputSearchTerm,
@@ -153,6 +154,8 @@ export {
     expectFixedPeriodTypeToBe,
     expectSelectablePeriodItemsAmountToBeLeast,
     expectSelectablePeriodItemsAmountToBe,
+    expectPeriodItemToBeInactive,
+    expectPeriodDimensionModalWarningToContain,
 } from './periodDimension.js'
 
 export {

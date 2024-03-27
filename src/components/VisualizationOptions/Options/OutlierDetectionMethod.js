@@ -13,7 +13,7 @@ const OutlierDetectionMethod = ({
 }) => (
     <>
         <div className={tabSectionOption.className}>
-            <Field dense>
+            <Field dataTest="options-outliers-detection-method" dense>
                 {methods.map(({ id, label }) => (
                     <Radio
                         key={id}
@@ -46,6 +46,7 @@ const OutlierDetectionMethod = ({
             placeholder={i18n.t('Number')}
             inputWidth="96px"
             dense
+            dataTest="options-outliers-threshold"
         />
     </>
 )
