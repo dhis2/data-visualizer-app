@@ -61,61 +61,64 @@ const newDetectionMethodSelector = `input[value=STANDARD_${NEW_DETECTION_METHOD}
 const thresholdEl = 'options-outliers-threshold-content'
 const NEW_THRESHOLD = 2
 
-describe('using an Outlier table visualization', () => {
-    it('navigates to a new Outlier table visualization', () => {
+describe(['>=41'], 'using an Outlier table visualization', () => {
+    it('creates, edits, saves it correctly', () => {
+        cy.log('navigates to a new Outlier table visualization')
         goToStartPage()
         changeVisType(visTypeDisplayNames[VIS_TYPE_OUTLIER_TABLE])
-    })
-    it('Data is locked to Columns', () => {
+
+        cy.log('Data is locked to Columns')
         expectDimensionOnAxisToHaveLockIcon(DIMENSION_ID_DATA, AXIS_ID_COLUMNS)
-    })
-    it('Period is locked to Columns', () => {
+
+        cy.log('Period is locked to Columns')
         expectDimensionOnAxisToHaveLockIcon(
             DIMENSION_ID_PERIOD,
             AXIS_ID_COLUMNS
         )
-    })
-    it('Org unit is locked to Columns', () => {
+
+        cy.log('Org unit is locked to Columns')
         expectDimensionOnAxisToHaveLockIcon(
             DIMENSION_ID_ORGUNIT,
             AXIS_ID_COLUMNS
         )
-    })
-    it('Other dimensions section is disabled', () => {
+
+        cy.log('Other dimensions section is disabled')
         cy.getBySel('dimensions-panel-list-dynamic-dimensions')
             .findBySel('dimensions-panel-list-dimension-item')
             .should('not.have.css', 'cursor', 'pointer')
-    })
-    it('Your dimensions section is disabled', () => {
+
+        cy.log('Your dimensions section is disabled')
         cy.getBySel('dimensions-panel-list-non-predefined-dimensions')
             .findBySel('dimensions-panel-list-dimension-item')
             .should('not.have.css', 'cursor', 'pointer')
-    })
-    it('shows a disabled data type selector with preselected Data elements', () => {
+
+        cy.log(
+            'shows a disabled data type selector with preselected Data elements'
+        )
         openDimension(DIMENSION_ID_DATA)
         expectDataTypeToBe('Data elements')
         expectDataTypeSelectHelpToContain(
             'Only Data elements can be used in Outlier table'
         )
         clickDimensionModalHideButton()
-    })
-    it('shows error if no data element selected', () => {
+
+        cy.log('shows error if no data element selected')
         clickMenuBarUpdateButton()
         expectErrorToContainTitle('No data selected')
-    })
-    it('selects 2 data elements', () => {
+
+        cy.log('selects 2 data elements')
         openDimension(DIMENSION_ID_DATA)
         selectDataElements(TEST_DATA_ELEMENT_NAMES)
         clickDimensionModalHideButton()
         expectDimensionToHaveItemAmount(DIMENSION_ID_DATA, 2)
-    })
-    it('shows error if no period is selected', () => {
+
+        cy.log('shows error if no period is selected')
         openDimension(DIMENSION_ID_PERIOD)
         unselectAllItemsByButton()
         clickDimensionModalUpdateButton()
         expectErrorToContainTitle('No period selected')
-    })
-    it('adds 2 periods and displays a warning message', () => {
+
+        cy.log('adds 2 periods and displays a warning message')
         openDimension(DIMENSION_ID_PERIOD)
         selectRelativePeriods(['Last 12 months', 'This month'], 'Months')
         expectPeriodItemToBeInactive('THIS_MONTH')
@@ -127,13 +130,13 @@ describe('using an Outlier table visualization', () => {
             DIMENSION_ID_PERIOD,
             AXIS_ID_COLUMNS
         )
-    })
-    it('shows an outlier table', () => {
+
+        cy.log('shows an outlier table')
         clickMenuBarUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_OUTLIER_TABLE)
-    })
-    it('has the correct headers in the table', () => {
-        const headerLabels = [
+
+        cy.log('has the correct headers in the table')
+        const modZScoreHeaderLabels = [
             'Data',
             'Category option combination',
             'Period',
@@ -149,23 +152,23 @@ describe('using an Outlier table visualization', () => {
         cy.getBySel('outlier-table')
             .findBySel('table-header')
             .each(($el, index) => {
-                expect($el).to.contain(headerLabels[index])
+                expect($el).to.contain(modZScoreHeaderLabels[index])
             })
-    })
-    it('has the correct default number of rows', () => {
+
+        cy.log('has the correct default number of rows')
         cy.getBySel('outlier-table')
             .findBySel('table-row')
             .should('have.length', 20)
-    })
-    it('has default sorting on Value descending', () => {
+
+        cy.log('has default sorting on Value descending')
         cy.getBySel('outlier-table')
             .findBySel('table-header')
             .contains('Value')
             .closest('[data-test="table-header"]')
             .find('button')
             .should('have.attr', 'title', 'Sort ascending by Value and update')
-    })
-    it('can be sorted on a different column', () => {
+
+        cy.log('can be sorted on a different column')
         cy.getBySel('outlier-table')
             .findBySel('table-header')
             .find('button[title="Sort descending by Min and update"]')
@@ -186,8 +189,8 @@ describe('using an Outlier table visualization', () => {
             .closest('[data-test="table-header"]')
             .find('button')
             .should('have.attr', 'title', 'Sort ascending by Min and update')
-    })
-    it('Options -> Data -> change max results', () => {
+
+        cy.log('Options -> Data -> change max results')
         openOptionsModal(OPTIONS_TAB_DATA)
 
         cy.intercept('GET', '**/analytics/outlierDetection?*').as(
@@ -223,13 +226,9 @@ describe('using an Outlier table visualization', () => {
         cy.getBySel('outlier-table')
             .findBySel('table-row')
             .should('have.length', NEW_MAX_RESULTS)
-    })
-    it('Options -> Outliers -> change detection method', () => {
-        openOptionsModal(OPTIONS_TAB_OUTLIERS)
 
-        cy.intercept('GET', '**/analytics/outlierDetection?*').as(
-            'analyticsRequest'
-        )
+        cy.log('Options -> Outliers -> change detection method')
+        openOptionsModal(OPTIONS_TAB_OUTLIERS)
 
         cy.getBySel(detectionMethodEl).find(newDetectionMethodSelector).click()
 
@@ -246,7 +245,7 @@ describe('using an Outlier table visualization', () => {
 
         expectVisualizationToBeVisible(VIS_TYPE_OUTLIER_TABLE)
 
-        const headerLabels = [
+        const headerLabelsZScore = [
             'Data',
             'Category option combination',
             'Period',
@@ -262,15 +261,11 @@ describe('using an Outlier table visualization', () => {
         cy.getBySel('outlier-table')
             .findBySel('table-header')
             .each(($el, index) => {
-                expect($el).to.contain(headerLabels[index])
+                expect($el).to.contain(headerLabelsZScore[index])
             })
-    })
-    it('Options -> Outliers -> change threshold', () => {
-        openOptionsModal(OPTIONS_TAB_OUTLIERS)
 
-        cy.intercept('GET', '**/analytics/outlierDetection?*').as(
-            'analyticsRequest'
-        )
+        cy.log('Options -> Outliers -> change threshold')
+        openOptionsModal(OPTIONS_TAB_OUTLIERS)
 
         clearInput(thresholdEl)
         typeInput(thresholdEl, NEW_THRESHOLD)
@@ -287,8 +282,8 @@ describe('using an Outlier table visualization', () => {
         })
 
         expectVisualizationToBeVisible(VIS_TYPE_OUTLIER_TABLE)
-    })
-    it('shows a custom error screen if no data returned', () => {
+
+        cy.log('shows a custom error screen if no data returned')
         openOptionsModal(OPTIONS_TAB_OUTLIERS)
 
         clearInput(thresholdEl)
@@ -306,8 +301,8 @@ describe('using an Outlier table visualization', () => {
         clickOptionsModalUpdateButton()
 
         expectVisualizationToBeVisible(VIS_TYPE_OUTLIER_TABLE)
-    })
-    it('saves and all options are preserved', () => {
+
+        cy.log('saves and all options are preserved')
         saveNewAO(TEST_VIS_NAME)
 
         expectAppToNotBeLoading()
@@ -330,8 +325,8 @@ describe('using an Outlier table visualization', () => {
             .should('have.value', NEW_THRESHOLD)
 
         clickOptionsModalHideButton()
-    })
-    it('deletes saved Outlier table AO', () => {
+
+        cy.log('deletes saved Outlier table AO')
         deleteAO()
         expectStartScreenToBeVisible()
         expectRouteToBeEmpty()
