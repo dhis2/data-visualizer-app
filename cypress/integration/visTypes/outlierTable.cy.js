@@ -61,7 +61,7 @@ const newDetectionMethodSelector = `input[value=STANDARD_${NEW_DETECTION_METHOD}
 const thresholdEl = 'options-outliers-threshold-content'
 const NEW_THRESHOLD = 2
 
-describe('using an Outlier table visualization', () => {
+describe(['>=41'], 'using an Outlier table visualization', () => {
     it('navigates to a new Outlier table visualization', () => {
         goToStartPage()
         changeVisType(visTypeDisplayNames[VIS_TYPE_OUTLIER_TABLE])
