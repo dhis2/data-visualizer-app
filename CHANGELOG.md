@@ -1,3 +1,10 @@
+## [39.2.23](https://github.com/dhis2/data-visualizer-app/compare/v39.2.22...v39.2.23) (2024-04-03)
+
+
+### Bug Fixes
+
+* upgrade analytics for interpretations like/unlike flashing [v39] ([#3012](https://github.com/dhis2/data-visualizer-app/issues/3012)) ([58ca653](https://github.com/dhis2/data-visualizer-app/commit/58ca65351817d2343892026daaa2131146d7362f)), closes [dhis2/analytics#1643](https://github.com/dhis2/analytics/issues/1643) [dhis2/analytics#1600](https://github.com/dhis2/analytics/issues/1600)
+
 ## [39.2.22](https://github.com/dhis2/data-visualizer-app/compare/v39.2.21...v39.2.22) (2024-03-22)
 
 
