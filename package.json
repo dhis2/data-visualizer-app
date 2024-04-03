@@ -68,6 +68,7 @@
         "whatwg-fetch": "^3.6.2"
     },
     "resolutions": {
-        "@dhis2/ui": "^9.2.0"
+        "@dhis2/ui": "^9.2.0",
+        "highcharts": "10.2.0"
     }
 }
