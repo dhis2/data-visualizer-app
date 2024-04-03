@@ -81,7 +81,7 @@ export const expectDataTypeToBe = (type) =>
     cy.getBySel(dataTypesSelectButtonEl).should('contain', type)
 
 export const expectDataTypeSelectHelpToContain = (text) =>
-    cy.getBySel(dataTypesSelectHelpEl).should('contain', text)
+    cy.getBySel(dataTypesSelectHelpEl).should('have.text', text)
 
 export const expectGroupSelectToNotBeVisible = () =>
     cy.getBySel(groupSelectButtonEl).should('not.exist')
