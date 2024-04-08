@@ -1,3 +1,10 @@
+## [39.2.24](https://github.com/dhis2/data-visualizer-app/compare/v39.2.23...v39.2.24) (2024-04-08)
+
+
+### Bug Fixes
+
+* limit max value shifts to min value fields in PT (DHIS2-10235) v39 ([#2970](https://github.com/dhis2/data-visualizer-app/issues/2970)) ([9086ad1](https://github.com/dhis2/data-visualizer-app/commit/9086ad13d8adb25e72b192589a99aa83a83e4d03))
+
 ## [39.2.23](https://github.com/dhis2/data-visualizer-app/compare/v39.2.22...v39.2.23) (2024-04-03)
 
 
