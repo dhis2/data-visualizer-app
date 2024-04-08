@@ -18,6 +18,9 @@ _text_
 
 ### TODO
 
+-   [ ] Cypress tests
+-   [ ] Update docs
+-   [ ] Manual testing
 -   [ ] _task_
 
 ---
