@@ -1,3 +1,10 @@
+## [39.2.25](https://github.com/dhis2/data-visualizer-app/compare/v39.2.24...v39.2.25) (2024-04-09)
+
+
+### Bug Fixes
+
+* disable Save when vis not in unsaved/dirty state DHIS2-15373 ([#2972](https://github.com/dhis2/data-visualizer-app/issues/2972)) ([e05b5b1](https://github.com/dhis2/data-visualizer-app/commit/e05b5b178db9675fc61df6de416ba55d138df8a7))
+
 ## [39.2.24](https://github.com/dhis2/data-visualizer-app/compare/v39.2.23...v39.2.24) (2024-04-08)
 
 
