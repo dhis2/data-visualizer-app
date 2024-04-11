@@ -61,12 +61,11 @@ export const VisualizationPlugin = ({
             return
         }
 
-        const adjustSize = () => {
-            return setSize({
+        const adjustSize = () =>
+            setSize({
                 width: node.clientWidth,
                 height: node.clientHeight,
             })
-        }
 
         const sizeObserver = new window.ResizeObserver(adjustSize)
         sizeObserver.observe(node)
