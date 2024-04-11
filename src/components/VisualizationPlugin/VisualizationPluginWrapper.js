@@ -30,18 +30,28 @@ const VisualizationPluginWrapper = (props) => {
 
     useEffect(() => {
         setPluginProps({
-            filters: props.filters,
             displayProperty: props.displayProperty,
             visualization: props.visualization,
-            onResponsesReceived: props.onResponsesReceived,
+            filters: props.filters,
+            forDashboard: props.forDashboard,
+            id: props.id,
             style: props.style,
+            onChartGenerated: props.onChartGenerated,
+            onDrill: props.onDrill,
+            onError: props.onError,
+            onResponsesReceived: props.onResponsesReceived,
         })
     }, [
-        props.filters,
         props.displayProperty,
         props.visualization,
-        props.onResponsesReceived,
+        props.filters,
+        props.forDashboard,
+        props.id,
         props.style,
+        props.onChartGenerated,
+        props.onDrill,
+        props.onError,
+        props.onResponsesReceived,
     ])
 
     useEffect(() => {
@@ -70,11 +80,16 @@ const VisualizationPluginWrapper = (props) => {
 }
 
 VisualizationPluginWrapper.propTypes = {
+    displayProperty: PropTypes.string.isRequired,
+    visualization: PropTypes.object.isRequired,
     className: PropTypes.string,
-    displayProperty: PropTypes.string,
     filters: PropTypes.object,
+    forDashboard: PropTypes.bool,
+    id: PropTypes.number,
     style: PropTypes.object,
-    visualization: PropTypes.object,
+    onChartGenerated: PropTypes.func,
+    onDrill: PropTypes.func,
+    onError: PropTypes.func,
     onResponsesReceived: PropTypes.func,
 }
 
