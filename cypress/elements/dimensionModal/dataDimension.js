@@ -11,6 +11,8 @@ const selectableItemsEl = 'data-dimension-transfer-sourceoptions'
 const selectedItemsEl = 'data-dimension-transfer-pickedoptions'
 const dataTypesSelectButtonEl =
     'data-dimension-left-header-data-types-select-field-content'
+const dataTypesSelectHelpEl =
+    'data-dimension-left-header-data-types-select-field-help'
 const dataTypeSelectOptionEl =
     'data-dimension-left-header-data-types-select-field-option'
 const groupSelectButtonEl =
@@ -78,6 +80,9 @@ export const switchDataTab = (tabName) => {
 export const expectDataTypeToBe = (type) =>
     cy.getBySel(dataTypesSelectButtonEl).should('contain', type)
 
+export const expectDataTypeSelectHelpToContain = (text) =>
+    cy.getBySel(dataTypesSelectHelpEl).should('have.text', text)
+
 export const expectGroupSelectToNotBeVisible = () =>
     cy.getBySel(groupSelectButtonEl).should('not.exist')
 
@@ -111,8 +116,13 @@ export const switchSubGroupTo = (group) => {
 }
 
 export const switchDataTypeTo = (dataType) => {
-    cy.getBySel(dataTypesSelectButtonEl).click()
-    cy.getBySelLike(dataTypeSelectOptionEl).contains(dataType).click()
+    cy.getBySel(dataTypesSelectButtonEl).then(($typesSelect) => {
+        // account for disabled type selector with preselected item
+        if (!$typesSelect.text().includes(dataType)) {
+            cy.getBySel(dataTypesSelectButtonEl).click()
+            cy.getBySelLike(dataTypeSelectOptionEl).contains(dataType).click()
+        }
+    })
 }
 
 export const switchDataTypeToAll = () => {
