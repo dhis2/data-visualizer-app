@@ -32,6 +32,7 @@ export const VisualizationPlugin = ({
     displayProperty,
     filters,
     forDashboard,
+    fromWrapper,
     id,
     style,
     onChartGenerated,
@@ -60,11 +61,12 @@ export const VisualizationPlugin = ({
             return
         }
 
-        const adjustSize = () =>
-            setSize({
+        const adjustSize = () => {
+            return setSize({
                 width: node.clientWidth,
                 height: node.clientHeight,
             })
+        }
 
         const sizeObserver = new window.ResizeObserver(adjustSize)
         sizeObserver.observe(node)
@@ -324,15 +326,22 @@ export const VisualizationPlugin = ({
     const hasLegendSet =
         legendSets?.length > 0 &&
         isLegendSetType(fetchResult.visualization.type)
-    const transformedStyle =
-        forDashboard && hasLegendSet
-            ? {
-                  ...style,
-                  width: style.width || size.width - (showLegendKey ? 200 : 36),
-                  // 200: width of legend key component with margin and scrollbar
-                  // 36: width of the toggle button with margin
-              }
-            : style
+
+    let transformedStyle = style
+    if (forDashboard && hasLegendSet) {
+        transformedStyle = {
+            ...style,
+            width: style.width || size.width - (showLegendKey ? 200 : 36),
+            // 200: width of legend key component with margin and scrollbar
+            // 36: width of the toggle button with margin
+        }
+    } else if (fromWrapper) {
+        transformedStyle = {
+            ...style,
+            width: style.width || size.width,
+            height: style.height || size.height,
+        }
+    }
 
     // force wdth and height when no value available otherwise the PivotTable container sets 0 as height hiding the table content
     // and Highcharts does not render correctly the chart/legend
@@ -472,6 +481,7 @@ VisualizationPlugin.defaultProps = {
     displayProperty: 'name',
     filters: {},
     forDashboard: false,
+    fromWrapper: false,
     onChartGenerated: Function.prototype,
     onError: Function.prototype,
     onLoadingComplete: Function.prototype,
@@ -485,6 +495,7 @@ VisualizationPlugin.propTypes = {
     visualization: PropTypes.object.isRequired,
     filters: PropTypes.object,
     forDashboard: PropTypes.bool,
+    fromWrapper: PropTypes.bool,
     id: PropTypes.number,
     style: PropTypes.object,
     onChartGenerated: PropTypes.func,

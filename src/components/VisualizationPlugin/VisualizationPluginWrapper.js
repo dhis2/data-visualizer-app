@@ -1,4 +1,5 @@
 import { CenteredContent, CircularLoader, ComponentCover } from '@dhis2/ui'
+import PropTypes from 'prop-types'
 import React, { useCallback, useEffect, useState } from 'react'
 import { VisualizationPlugin } from '../VisualizationPlugin/VisualizationPlugin.js'
 
@@ -28,11 +29,28 @@ const VisualizationPluginWrapper = (props) => {
     )
 
     useEffect(() => {
-        setIsLoading(true)
-        setPluginProps(props)
-    }, [props])
+        setPluginProps({
+            filters: props.filters,
+            displayProperty: props.displayProperty,
+            visualization: props.visualization,
+            onResponsesReceived: props.onResponsesReceived,
+            style: props.style,
+        })
+    }, [
+        props.filters,
+        props.displayProperty,
+        props.visualization,
+        props.onResponsesReceived,
+        props.style,
+    ])
 
-    const onLoadingComplete = () => setIsLoading(false)
+    useEffect(() => {
+        setIsLoading(true)
+    }, [props.filters, props.displayProperty, props.visualization])
+
+    const onLoadingComplete = () => {
+        return setIsLoading(false)
+    }
 
     return (
         <>
@@ -47,9 +65,19 @@ const VisualizationPluginWrapper = (props) => {
                 {...pluginProps}
                 onDataSorted={onDataSorted}
                 onLoadingComplete={onLoadingComplete}
+                fromWrapper={true}
             />
         </>
     )
+}
+
+VisualizationPluginWrapper.propTypes = {
+    className: PropTypes.string,
+    displayProperty: PropTypes.string,
+    filters: PropTypes.object,
+    style: PropTypes.object,
+    visualization: PropTypes.object,
+    onResponsesReceived: PropTypes.func,
 }
 
 export { VisualizationPluginWrapper }
