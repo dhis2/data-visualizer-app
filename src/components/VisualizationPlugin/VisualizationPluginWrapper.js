@@ -48,9 +48,7 @@ const VisualizationPluginWrapper = (props) => {
         setIsLoading(true)
     }, [props.filters, props.displayProperty, props.visualization])
 
-    const onLoadingComplete = () => {
-        return setIsLoading(false)
-    }
+    const onLoadingComplete = () => setIsLoading(false)
 
     return (
         <>
