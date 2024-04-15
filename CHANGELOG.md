@@ -1,3 +1,10 @@
+## [39.2.26](https://github.com/dhis2/data-visualizer-app/compare/v39.2.25...v39.2.26) (2024-04-15)
+
+
+### Bug Fixes
+
+* error message for non-numeric data types (DHIS2-10067) v39 ([#3021](https://github.com/dhis2/data-visualizer-app/issues/3021)) ([26a8b11](https://github.com/dhis2/data-visualizer-app/commit/26a8b11898b94057d927c04ce382fd64f58bbdeb))
+
 ## [39.2.25](https://github.com/dhis2/data-visualizer-app/compare/v39.2.24...v39.2.25) (2024-04-09)
 
 
