@@ -2028,10 +2028,10 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@999.99.9-flashing-fix-alpha.1":
-  version "999.99.9-flashing-fix-alpha.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-999.99.9-flashing-fix-alpha.1.tgz#41b4ad3a017c0c8c303fdb3eca6b34adec3db83e"
-  integrity sha512-vz7CIszIhRdEwCWfcnW9E/dUENeqebpdcCkVWX/VsJXJmjEYqvcBZm9mO+3izlI4s7cvgPHDGrVNF6u01N72ug==
+"@dhis2/analytics@999.99.9-flashing-fix-alpha.2":
+  version "999.99.9-flashing-fix-alpha.2"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-999.99.9-flashing-fix-alpha.2.tgz#e3d24f6faae820933a78d6a1b74331e443b8b678"
+  integrity sha512-0z0Os5X0sskUv6M0wgVN+4y+CMi7RoZ0huZ72p5maXoNumw3geg3OqbojMFGSX1ShChR/ip+qkUgoLEAwoUseA==
   dependencies:
     "@dhis2/d2-ui-rich-text" "^7.4.1"
     "@dhis2/multi-calendar-dates" "1.0.0"
