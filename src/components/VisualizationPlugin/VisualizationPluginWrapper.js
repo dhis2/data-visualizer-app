@@ -77,7 +77,6 @@ const VisualizationPluginWrapper = (props) => {
                 {...pluginProps}
                 onDataSorted={onDataSorted}
                 onLoadingComplete={onLoadingComplete}
-                fromWrapper={true}
             />
         </>
     )

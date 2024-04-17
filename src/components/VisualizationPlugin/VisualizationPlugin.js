@@ -32,7 +32,6 @@ export const VisualizationPlugin = ({
     displayProperty,
     filters,
     forDashboard,
-    fromWrapper,
     id,
     isInModal,
     style,
@@ -335,7 +334,7 @@ export const VisualizationPlugin = ({
             // 200: width of legend key component with margin and scrollbar
             // 36: width of the toggle button with margin
         }
-    } else if (fromWrapper) {
+    } else if (isInModal) {
         transformedStyle = {
             ...style,
             width: style.width || size.width,
@@ -455,6 +454,7 @@ export const VisualizationPlugin = ({
         }
     }
 
+    console.log('jj visPlugin isInModal', { isInModal })
     return (
         <div
             className={cx(styles.container, {
@@ -486,7 +486,6 @@ VisualizationPlugin.defaultProps = {
     displayProperty: 'name',
     filters: {},
     forDashboard: false,
-    fromWrapper: false,
     onChartGenerated: Function.prototype,
     onError: Function.prototype,
     onLoadingComplete: Function.prototype,
@@ -500,7 +499,6 @@ VisualizationPlugin.propTypes = {
     visualization: PropTypes.object.isRequired,
     filters: PropTypes.object,
     forDashboard: PropTypes.bool,
-    fromWrapper: PropTypes.bool,
     id: PropTypes.number,
     isInModal: PropTypes.bool,
     style: PropTypes.object,
