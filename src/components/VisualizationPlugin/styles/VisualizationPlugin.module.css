@@ -4,7 +4,7 @@
     height: 100%;
     display: flex;
 }
-.modalHeight {
+.modal {
     max-height: calc(-285px + 100vh);
 }
 

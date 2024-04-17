@@ -457,7 +457,7 @@ export const VisualizationPlugin = ({
     return (
         <div
             className={cx(styles.container, {
-                [styles.modalHeight]: isInModal,
+                [styles.modal]: isInModal,
             })}
             ref={containerCallbackRef}
         >
