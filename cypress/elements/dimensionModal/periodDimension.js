@@ -9,13 +9,14 @@ const fixedPeriodsPeriodTypeButtonEl =
     'period-dimension-fixed-period-filter-period-type-content'
 const periodTypeMenuEl = 'dhis2-uicore-select-menu-menuwrapper'
 //const fixedPeriodsYearEl = 'period-dimension-fixed-period-filter-year-content'
+const optionContentEl = 'period-dimension-transfer-option-content'
 const selectableItemsEl = 'period-dimension-transfer-sourceoptions'
 const selectedItemsEl = 'period-dimension-transfer-pickedoptions'
 const relativePeriodTypeSelectOptionEl =
     'period-dimension-relative-period-filter-option'
-
 const fixedPeriodTypeSelectOptionEl =
     'period-dimension-fixed-period-filter-period-type-option'
+const rightHeaderEl = 'period-dimension-transfer-rightheader'
 
 export const expectPeriodDimensionModalToBeVisible = () =>
     expectDimensionModalToBeVisible(DIMENSION_ID_PERIOD)
@@ -96,6 +97,12 @@ export const expectFixedPeriodTypeSelectToNotContain = (periodType) => {
     )
 }
 
+export const expectPeriodItemToBeInactive = (id) =>
+    cy
+        .get(`[data-value="${id}"]`)
+        .findBySel(optionContentEl)
+        .should('have.class', 'inactive')
+
 export const openRelativePeriodsTypeSelect = () =>
     cy.getBySel(relativePeriodsPeriodTypeButtonEl).click()
 
@@ -117,3 +124,6 @@ export const expectSelectablePeriodItemsAmountToBeLeast = (amount) =>
             $container.find('[data-test="period-dimension-transfer-option"]')
         ).to.have.length.of.at.least(amount)
     })
+
+export const expectPeriodDimensionModalWarningToContain = (text) =>
+    cy.getBySel(rightHeaderEl).should('contain', text)
