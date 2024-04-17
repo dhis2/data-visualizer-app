@@ -34,6 +34,7 @@ export const VisualizationPlugin = ({
     forDashboard,
     fromWrapper,
     id,
+    isInModal,
     style,
     onChartGenerated,
     onError,
@@ -455,7 +456,12 @@ export const VisualizationPlugin = ({
     }
 
     return (
-        <div className={styles.container} ref={containerCallbackRef}>
+        <div
+            className={cx(styles.container, {
+                [styles.modalHeight]: isInModal,
+            })}
+            ref={containerCallbackRef}
+        >
             <div className={styles.chartWrapper}>{renderPlugin()}</div>
             {getLegendKey()}
             {contextualMenuRect && (
@@ -496,6 +502,7 @@ VisualizationPlugin.propTypes = {
     forDashboard: PropTypes.bool,
     fromWrapper: PropTypes.bool,
     id: PropTypes.number,
+    isInModal: PropTypes.bool,
     style: PropTypes.object,
     onChartGenerated: PropTypes.func,
     onDataSorted: PropTypes.func,
