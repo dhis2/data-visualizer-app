@@ -454,7 +454,6 @@ export const VisualizationPlugin = ({
         }
     }
 
-    console.log('jj visPlugin isInModal', { isInModal })
     return (
         <div
             className={cx(styles.container, {
