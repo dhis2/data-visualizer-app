@@ -2,6 +2,7 @@ import {
     DIMENSION_ID_DATA,
     VIS_TYPE_OUTLIER_TABLE,
     VIS_TYPE_PIVOT_TABLE,
+    useCachedDataQuery,
 } from '@dhis2/analytics'
 import debounce from 'lodash-es/debounce'
 import PropTypes from 'prop-types'

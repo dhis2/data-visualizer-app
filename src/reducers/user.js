@@ -4,15 +4,13 @@ export const SET_USER_AUTHORITY = 'SET_USER_AUTHORITY'
 export const DEFAULT_USER = {
     id: '',
     username: '',
-    uiLocale: '',
-    isSuperuser: false,
     authorities: {},
 }
 
 export default (state = DEFAULT_USER, action) => {
     switch (action.type) {
         case RECEIVED_USER: {
-            return fromD2ToUserObj(action.value)
+            return formatUserObject(action.value)
         }
         case SET_USER_AUTHORITY: {
             return {
@@ -28,12 +26,10 @@ export default (state = DEFAULT_USER, action) => {
     }
 }
 
-function fromD2ToUserObj(d2Object) {
+function formatUserObject(userObject) {
     return {
-        id: d2Object.id,
-        username: d2Object.username,
-        uiLocale: d2Object.settings.keyUiLocale,
-        isSuperuser: d2Object.authorities.has('ALL'),
+        id: userObject.id,
+        username: userObject.username,
     }
 }
 
@@ -43,6 +39,5 @@ export const sGetUser = (state) => state.user
 
 export const sGetUserId = (state) => sGetUser(state).id
 export const sGetUsername = (state) => sGetUser(state).username
-export const sGetIsSuperuser = (state) => sGetUser(state).isSuperuser
-export const sGetUiLocale = (state) => sGetUser(state).uiLocale
+export const sGetIsSuperuser = (state) => sGetUser(state).authoritie.has('ALL')
 export const sGetUserAuthorities = (state) => sGetUser(state).authorities
