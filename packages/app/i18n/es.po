@@ -6,16 +6,16 @@
 # Viktor Varland <viktor@dhis2.org>, 2022
 # ericbp <ericbarredap@gmail.com>, 2022
 # Carlos Tejo Alonso, 2022
-# Janeth Cruz, 2023
 # Enzo Nicolas Rossi <enzo@dhis2.org>, 2024
 # Philip Larsen Donnelly, 2024
+# Janeth Cruz, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-06-07T08:24:31.117Z\n"
 "PO-Revision-Date: 2022-04-20 10:06+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Last-Translator: Janeth Cruz, 2024\n"
 "Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -864,6 +864,16 @@ msgstr "No se han encontrado unidades organizativas"
 msgid "The level or group selections didn't return any organization units."
 msgstr ""
 "El nivel o grupo seleccionado no devolvió ninguna unidad organizativa."
+
+msgid "Invalid data type"
+msgstr "Tipo de datos no válido"
+
+msgid ""
+"The selected data dimensions didn't return any valid data. This "
+"visualization type can only display numerical data."
+msgstr ""
+"Las dimensiones de datos seleccionadas no han devuelto ningún dato válido. "
+"Este tipo de visualización sólo puede mostrar datos numéricos."
 
 msgid "Something went wrong"
 msgstr "Algo ha ido mal"
