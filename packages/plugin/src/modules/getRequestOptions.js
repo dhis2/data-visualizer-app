@@ -21,9 +21,11 @@ export const getRequestOptions = (visualization, filters, userSettings) => {
     if (userSettings?.displayProperty) {
         switch (userSettings.displayProperty) {
             case 'displayShortName':
+            case 'shortName':
                 options.displayProperty = 'SHORTNAME'
                 break
             case 'displayName':
+            case 'name':
                 options.displayProperty = 'NAME'
                 break
         }
