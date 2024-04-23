@@ -27,6 +27,7 @@ export const VisualizationPlugin = ({
     filters,
     forDashboard,
     id,
+    isInModal,
     style,
     userSettings,
     onChartGenerated,
@@ -42,6 +43,30 @@ export const VisualizationPlugin = ({
     const [contextualMenuConfig, setContextualMenuConfig] = useState({})
     const [showLegendKey, setShowLegendKey] = useState(false)
     const [renderId, setRenderId] = useState(0)
+    const [size, setSize] = useState({ width: 0, height: 0 })
+
+    const containerCallbackRef = useCallback((node) => {
+        if (
+            node === null ||
+            // This avoids a state update when closing the intepretations modal
+            (node.clientWidth === 0 && node.clientHeight === 0)
+        ) {
+            return
+        }
+
+        const adjustSize = () =>
+            setSize({
+                width: node.clientWidth,
+                height: node.clientHeight,
+            })
+
+        const sizeObserver = new window.ResizeObserver(adjustSize)
+        sizeObserver.observe(node)
+
+        adjustSize()
+
+        return sizeObserver.disconnect
+    }, [])
 
     const incremementRenderId = () => setRenderId(renderId + 1)
 
@@ -257,20 +282,31 @@ export const VisualizationPlugin = ({
     const hasLegendSet =
         legendSets?.length > 0 &&
         isLegendSetType(fetchResult.visualization.type)
-    const transformedStyle =
-        forDashboard && hasLegendSet
-            ? {
-                  ...style,
-                  width: style.width - (showLegendKey ? 200 : 36),
-                  // 200: width of legend key component with margin and scrollbar
-                  // 36: width of the toggle button with margin
-              }
-            : style
+
+    let transformedStyle = style
+    if (forDashboard && hasLegendSet) {
+        transformedStyle = {
+            ...style,
+            width: style.width - (showLegendKey ? 200 : 36),
+            // 200: width of legend key component with margin and scrollbar
+            // 36: width of the toggle button with margin
+        }
+    } else if (isInModal) {
+        transformedStyle = {
+            ...style,
+            width: style.width || size.width,
+            height: style.height || size.height,
+        }
+    }
 
     // force height when no value available otherwise the PivotTable container sets 0 as height hiding the table content
     // and Highcharts does not render correctly the chart/legend
     if (!transformedStyle.height) {
         transformedStyle.height = '100%'
+    }
+
+    if (!transformedStyle.width) {
+        transformedStyle.width = size.width || '100%'
     }
 
     const getLegendKey = () => {
@@ -321,7 +357,12 @@ export const VisualizationPlugin = ({
     }
 
     return (
-        <div className={styles.container}>
+        <div
+            className={cx(styles.container, {
+                [styles.modal]: isInModal,
+            })}
+            ref={containerCallbackRef}
+        >
             <div className={styles.chartWrapper}>
                 {!fetchResult.visualization.type ||
                 fetchResult.visualization.type === VIS_TYPE_PIVOT_TABLE ? (
@@ -391,6 +432,7 @@ VisualizationPlugin.propTypes = {
     filters: PropTypes.object,
     forDashboard: PropTypes.bool,
     id: PropTypes.number,
+    isInModal: PropTypes.bool,
     style: PropTypes.object,
     userSettings: PropTypes.object,
     onChartGenerated: PropTypes.func,

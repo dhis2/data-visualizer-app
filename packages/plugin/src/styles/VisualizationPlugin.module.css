@@ -5,6 +5,10 @@
     display: flex;
 }
 
+.modal {
+    height: calc(-285px + 100vh);
+    max-height: calc(-285px + 100vh);
+}
 .chartWrapper {
     flex-grow: 1;
 }

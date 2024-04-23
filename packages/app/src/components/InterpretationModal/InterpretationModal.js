@@ -1,7 +1,7 @@
 import { InterpretationModal as AnalyticsInterpretationModal } from '@dhis2/analytics'
 import VisualizationPlugin from '@dhis2/data-visualizer-plugin'
 import PropTypes from 'prop-types'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { sGetCurrent } from '../../reducers/current.js'
 import { ModalDownloadDropdown } from '../DownloadMenu/index.js'
@@ -19,6 +19,11 @@ const InterpretationModal = ({ onInterpretationUpdate }, context) => {
         setIsVisualizationLoading(!!interpretationId)
     }, [interpretationId])
 
+    const onResponsesReceived = useCallback(
+        () => setIsVisualizationLoading(false),
+        []
+    )
+
     return interpretationId ? (
         <AnalyticsInterpretationModal
             currentUser={context.d2.currentUser}
@@ -27,7 +32,7 @@ const InterpretationModal = ({ onInterpretationUpdate }, context) => {
             interpretationId={interpretationId}
             isVisualizationLoading={isVisualizationLoading}
             onClose={removeInterpretationQueryParams}
-            onResponsesReceived={() => setIsVisualizationLoading(false)}
+            onResponsesReceived={onResponsesReceived}
             visualization={visualization}
             downloadMenuComponent={ModalDownloadDropdown}
             pluginComponent={VisualizationPlugin}

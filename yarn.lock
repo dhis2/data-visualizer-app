@@ -1177,9 +1177,9 @@
     source-map-support "^0.5.16"
 
 "@babel/runtime-corejs2@^7.4.2":
-  version "7.24.1"
-  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs2/-/runtime-corejs2-7.24.1.tgz#2799e168a20a54a4029d162278aca26c719e726f"
-  integrity sha512-De0q0utpUPiXnc7+B7Ku86mJ0eDItC/v3uFa/lQkq63XnHyZiytDHeCIvechlnVwwpU2ChjGF7c3I+mBrTudwg==
+  version "7.24.4"
+  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs2/-/runtime-corejs2-7.24.4.tgz#3dac044ea9989e46b99b5f5ac038dbdd12e20e10"
+  integrity sha512-ZCKqyUKt/Coimg+3Kafu43yNetgYnTXzNbEGAgxc81J5sI0qFNbQ613w7PNny+SmijAmGVroL0GDvx5rG/JI5Q==
   dependencies:
     core-js "^2.6.12"
     regenerator-runtime "^0.14.0"
@@ -1199,7 +1199,14 @@
   dependencies:
     regenerator-runtime "^0.12.0"
 
-"@babel/runtime@^7.1.2", "@babel/runtime@^7.10.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.5", "@babel/runtime@^7.15.4", "@babel/runtime@^7.16.3", "@babel/runtime@^7.18.9", "@babel/runtime@^7.3.1", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.2", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.1.2", "@babel/runtime@^7.15.4", "@babel/runtime@^7.9.2":
+  version "7.24.4"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.24.4.tgz#de795accd698007a66ba44add6cc86542aff1edd"
+  integrity sha512-dkxf7+hn8mFBwKjs9bvBlArzLVxVbS8usaPUDd5p2a9JCL9tB8OaOVN1isD4+Xyk4ns89/xeOmbQvgdK7IIVdA==
+  dependencies:
+    regenerator-runtime "^0.14.0"
+
+"@babel/runtime@^7.10.0", "@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.1", "@babel/runtime@^7.12.5", "@babel/runtime@^7.16.3", "@babel/runtime@^7.18.9", "@babel/runtime@^7.3.1", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.2", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4":
   version "7.24.1"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.24.1.tgz#431f9a794d173b53720e69a6464abc6f0e2a5c57"
   integrity sha512-+BIznRzyqBf+2wCTxcKE3wDjfGeCoVE61KSHGpkzqrLi8qxqFwBeUFyId2cxkTmm55fzDGnm0+yCxaxygrLUnQ==
@@ -2138,10 +2145,10 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^24.10.5":
-  version "24.10.5"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-24.10.5.tgz#1520c20fce10739039ddffb8078eac8319c21bba"
-  integrity sha512-MM0owzVmFkJr1LYSnfd6Du+j8yM/v5482iAOs6mLStL54JB1jxt3SW5V7LTc8rT8X7Vp55Vj0ZG7pLipEz9bng==
+"@dhis2/analytics@^24.10.7":
+  version "24.10.7"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-24.10.7.tgz#dcb8c265e4fa97952e9ae0dae7becb5f0c2d2687"
+  integrity sha512-yE3blq2L4IbmGt2ypNORgwIaTb1yvjCjdyxJA5/xH30aNDTqYPJQoyzo+U/KN1v8r495W39+C/s6GDbFBZ7j0A==
   dependencies:
     "@dhis2/d2-ui-rich-text" "^7.4.0"
     "@dhis2/multi-calendar-dates" "1.0.0"

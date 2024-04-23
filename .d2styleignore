@@ -6,3 +6,4 @@
 /packages/plugin/build/*
 /packages/app/src/locales/*
 /packages/plugin/src/locales/*
+.vscode
