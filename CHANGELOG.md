@@ -1,3 +1,10 @@
+## [39.2.28](https://github.com/dhis2/data-visualizer-app/compare/v39.2.27...v39.2.28) (2024-04-23)
+
+
+### Bug Fixes
+
+* plugin flashes when interacting with Interpretations modal [DHIS2-15570] [39.x] ([#3024](https://github.com/dhis2/data-visualizer-app/issues/3024)) ([91b1fad](https://github.com/dhis2/data-visualizer-app/commit/91b1fad4321e54494098f29b56e2cd22117450ed))
+
 ## [39.2.27](https://github.com/dhis2/data-visualizer-app/compare/v39.2.26...v39.2.27) (2024-04-21)
 
 
