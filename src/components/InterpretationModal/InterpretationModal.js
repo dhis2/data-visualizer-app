@@ -3,7 +3,7 @@ import {
     useCachedDataQuery,
 } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { sGetCurrent } from '../../reducers/current.js'
 import { ModalDownloadDropdown } from '../DownloadMenu/index.js'
@@ -23,6 +23,10 @@ const InterpretationModal = ({ onInterpretationUpdate }) => {
         setIsVisualizationLoading(!!interpretationId)
     }, [interpretationId])
 
+    const onResponsesReceived = useCallback(() => {
+        setIsVisualizationLoading(false)
+    }, [])
+
     return interpretationId ? (
         <AnalyticsInterpretationModal
             currentUser={currentUser}
@@ -31,7 +35,7 @@ const InterpretationModal = ({ onInterpretationUpdate }) => {
             interpretationId={interpretationId}
             isVisualizationLoading={isVisualizationLoading}
             onClose={removeInterpretationQueryParams}
-            onResponsesReceived={() => setIsVisualizationLoading(false)}
+            onResponsesReceived={onResponsesReceived}
             visualization={visualization}
             downloadMenuComponent={ModalDownloadDropdown}
             pluginComponent={VisualizationPluginWrapper}
