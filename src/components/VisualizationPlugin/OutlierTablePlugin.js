@@ -230,6 +230,7 @@ const OutlierTablePlugin = ({
             ref={mountAndObserveContainerRef}
         >
             <div
+                data-test="visualization-container"
                 className={styles.visualizationContainer}
                 style={{ maxWidth: measuredDimensions.containerMaxWidth }}
             >

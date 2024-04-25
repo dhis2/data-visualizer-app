@@ -2,6 +2,7 @@ import {
     VIS_TYPE_COLUMN,
     VIS_TYPE_GAUGE,
     VIS_TYPE_PIE,
+    VIS_TYPE_OUTLIER_TABLE,
     VIS_TYPE_PIVOT_TABLE,
     VIS_TYPE_SINGLE_VALUE,
     VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
@@ -23,7 +24,11 @@ const AOTitleDirtyEl = 'titlebar-dirty'
 const timeout = {
     timeout: 40000,
 }
-const nonHighchartsTypes = [VIS_TYPE_PIVOT_TABLE, VIS_TYPE_SINGLE_VALUE]
+const nonHighchartsTypes = [
+    VIS_TYPE_OUTLIER_TABLE,
+    VIS_TYPE_PIVOT_TABLE,
+    VIS_TYPE_SINGLE_VALUE,
+]
 
 export const expectVisualizationToBeVisible = (visType = VIS_TYPE_COLUMN) =>
     nonHighchartsTypes.includes(visType)
