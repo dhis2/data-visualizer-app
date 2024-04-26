@@ -116,8 +116,6 @@ const Chip = ({
         }
     }
 
-    const getMaxNumberOfItems = () => getAxisMaxNumberOfItems(type, axisId)
-    
     const handleClick = () => {
         if (!getPredefinedDimensionProp(dimensionId, DIMENSION_PROP_NO_ITEMS)) {
             onClick()
@@ -174,11 +172,12 @@ const Chip = ({
             >
                 {dimensionName}
             </span>
-            <span style={isSplitAxis ? styles.label : {}}>
-                {renderChipLabelSuffix()}
-            </span>
+            {chipLabelSuffix && (
+                <span className={styles.suffix} data-test="chip-suffix">
+                    {chipLabelSuffix}
+                </span>
+            )}
             {hasWarning && WarningIconWrapper}
-            {isLocked && LockIconWrapper}
         </>
     )
 
