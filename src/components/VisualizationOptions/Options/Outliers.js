@@ -56,6 +56,9 @@ const DEFAULT_STATE = {
 const dataTest = 'option-outliers'
 
 const Outliers = ({ outlierAnalysis, onChange }) => {
+    // initialise extremeLines if empty (ie. option saved in Outlier table)
+    outlierAnalysis.extremeLines ??= DEFAULT_STATE.extremeLines
+
     const storeProp = (prop, value) =>
         onChange({ ...outlierAnalysis, [prop]: value })
 

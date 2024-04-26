@@ -1,16 +1,16 @@
 # 
 # Translators:
-# Philip Larsen Donnelly, 2020
 # Viktor Varland <viktor@dhis2.org>, 2020
 # 晓东 林 <13981924470@126.com>, 2022
-# easylin <lin_xd@126.com>, 2023
+# Philip Larsen Donnelly, 2024
+# easylin <lin_xd@126.com>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-09-06T13:41:14.540Z\n"
+"POT-Creation-Date: 2024-03-01T08:28:43.727Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: easylin <lin_xd@126.com>, 2023\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2024\n"
 "Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,21 +51,26 @@ msgid "Add to {{axisName}}"
 msgstr "添加到 {{axisName}}"
 
 msgid ""
-"'{{visualizationType}}' is intended to show a single data item. Only the "
-"first item will be used and saved."
-msgstr "'{{visualizationType}}' 打算显示单个数据项，仅仅第一个条目将被使用和保存。"
+"'{{visualizationType}}' is intended to show a single item for this type of "
+"dimension. Only the first item will be used and saved."
+msgstr "“{{visualizationType}}”旨在显示此类维度的单个项目。仅第一个项目将被使用和保存。"
 
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
-"'{{visualizationType}}' 打算显示最多{{maxNumber}}个数据项，仅{{maxNumber}} "
+"'{{visualiationType}}' 打算显示最多{{maxNumber}}个数据项，仅{{maxNumber}} "
 "个中第一个条目将被使用和保存。"
 
 msgid ""
 "'Scatter' is intended to show a single data item per axis. Only the first "
 "item will be used and saved."
 msgstr "“散点图”用于在每个轴上显示单个数据项。仅第一项将被使用和保存。"
+
+msgid ""
+"'Outlier table' shows values from data elements only. Only data elements "
+"will be used and saved."
+msgstr "“离群值表”仅显示数据元素的值。仅数据元素将被使用和保存。"
 
 msgid "Vertical"
 msgstr "垂直"
@@ -187,11 +192,14 @@ msgstr "水平的"
 msgid "None selected"
 msgstr "没有选择"
 
+msgid "None in use"
+msgstr "没有在使用中"
+
 msgid "Only '{{- name}}' in use"
 msgstr "仅'{{- name}}' 在使用"
 
-msgid "Only '{{number}}' in use"
-msgstr "仅 '{{number}}' 在使用"
+msgid "Only {{number}} in use"
+msgstr "仅使用 {{number}}"
 
 msgid "All items are selected"
 msgstr "所有条目都被选中"
@@ -378,6 +386,9 @@ msgstr "包括累计"
 
 msgid "Cumulative values"
 msgstr "汇总值"
+
+msgid "Accumulate cell values along rows"
+msgstr "沿行累积单元格的值"
 
 msgid "Show data item icon"
 msgstr "显示数据项图标"
@@ -566,6 +577,14 @@ msgstr "离群值分析检测并突出显示与其余数据明显不同的数据
 msgid "Outlier detection method"
 msgstr "离群值检测方法"
 
+msgid "Max results"
+msgstr "最大结果"
+
+msgid ""
+"The maximum number of outlier values to show in the table. Must be between "
+"1-500."
+msgstr "表中显示的离群值的最大数量。必须在 1-500 之间。"
+
 msgid "Organisation unit"
 msgstr "组织机构"
 
@@ -687,12 +706,85 @@ msgstr "更改组织机构"
 msgid "{{level}} level in {{orgunit}}"
 msgstr "{{orgunit}} 中的 {{level}} 级"
 
+msgid "Sort ascending by {{columnName}} and update"
+msgstr "按 {{columnName}} 升序排序并更新"
+
+msgid "Sort descending by {{columnName}} and update"
+msgstr "按 {{columnName}} 降序排序并更新"
+
 msgid "Open as Map"
 msgstr "打开为地图"
 
 msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
 msgstr "在世界地图上直观地绘制数据。数据元素使用单独的地图图层。"
+
+msgid "Category option combination"
+msgstr "分类组合选项"
+
+msgid "Absolute deviation"
+msgstr "绝对偏差"
+
+msgid ""
+"A measure of the absolute difference between each data point and a central "
+"value, usually the mean or median, providing a straightforward understanding"
+" of dispersion in the dataset."
+msgstr "每个数据点与中心值（通常是平均值或中位数）之间的绝对差的度量，提供对数据集中分散度的直接理解。"
+
+msgid ""
+"A measure of how far a data point deviates from the median, using the median"
+" absolute deviation instead of the standard deviation, making it robust "
+"against outliers."
+msgstr "使用中值绝对偏差而不是标准偏差来衡量数据点偏离中值的程度，使其对异常值具有鲁棒性。"
+
+msgid "Median"
+msgstr "中位数"
+
+msgid ""
+"The middle value in a dataset when the values are arranged in ascending or "
+"descending order. It's a robust measure of central tendency that is less "
+"affected by outliers compared to the mean."
+msgstr "当值按升序或降序排列时，数据集中的中间值。它是集中趋势的稳健衡量标准，与平均值相比，受异常值的影响较小。"
+
+msgid "Median absolute deviation"
+msgstr "中位绝对偏差"
+
+msgid ""
+"A robust measure of variability, found by calculating the median of the "
+"absolute differences between each data point and the overall median. It's "
+"less influenced by outliers compared to other measures like the standard "
+"deviation."
+msgstr "通过计算每个数据点与总体中值之间绝对差的中值来发现变异性的稳健度量。与标准差等其他度量相比，它受异常值的影响较小。"
+
+msgid "Z-score"
+msgstr "Z-分数"
+
+msgid ""
+"A measure of how many standard deviations a data point is from the mean of a"
+" dataset, providing insight into how unusual or typical that data point is "
+"relative to the rest of the distribution."
+msgstr "衡量数据点与数据集平均值的标准差的量度，可深入了解该数据点相对于其余分布的异常或典型程度。"
+
+msgid "Mean"
+msgstr "平均 "
+
+msgid "Average of the value over time."
+msgstr "一段时间内的平均值。"
+
+msgid ""
+"A measure of how dispersed the data is in relation to the mean. Low standard"
+" deviation indicates data are clustered tightly around the mean, and high "
+"standard deviation indicates data are more spread out."
+msgstr "衡量数据相对于平均值的分散程度的指标。低标准差表明数据紧密聚集在平均值周围，高标准差表明数据更加分散。"
+
+msgid "Minimum score threshold"
+msgstr "最低分数阈值"
+
+msgid "Maximum score threshold"
+msgstr "最高分数阈值"
+
+msgid "Not supported when using cumulative values"
+msgstr "使用累积值时不支持"
 
 msgid "No data available"
 msgstr "没有值"
@@ -813,6 +905,20 @@ msgstr "所选数据维度未返回任何有效数据。这种可视化类型只
 
 msgid "Something went wrong"
 msgstr "出了些问题"
+
+msgid ""
+"There's a problem with the generated analytics. Contact a system "
+"administrator."
+msgstr "生成的分析存在问题。联系系统管理员。"
+
+msgid "There's a syntax problem with the analytics request."
+msgstr "分析请求存在语法问题。"
+
+msgid "No outliers found"
+msgstr "未发现异常值"
+
+msgid "There were no outliers found for the selected data items and options."
+msgstr "所选数据项和选项没有发现异常值。"
 
 msgid "or"
 msgstr "或"
@@ -976,6 +1082,9 @@ msgstr "线"
 msgid "Totals"
 msgstr "总共"
 
+msgid "Totals are not supported when using cumulative values"
+msgstr "使用累积值时不支持总计"
+
 msgid "Vertical (y) axis {{axisId}}"
 msgstr "垂直 (y) 轴 {{axisId}}"
 
@@ -1058,9 +1167,12 @@ msgid "Display a single value. Recommend relative period to show latest data."
 msgstr "显示单个值。推荐相对时期以显示最新数据。"
 
 msgid ""
-"View the relationship between two data items at a place or time. Recommended"
-" for finding outliers."
-msgstr "查看某个地点或时间的两个数据项之间的关系。推荐用于发现异常值。"
+"Compare the relationship between two data items across multiple places. "
+"Recommended for visualizing outliers."
+msgstr "比较多个位置的两个数据项之间的关系。推荐用于可视化异常值。"
+
+msgid "Automatically identify extreme outliers based on historical data."
+msgstr "根据历史数据自动识别极端异常值。"
 
 msgid "Weeks per year"
 msgstr "每年的周"

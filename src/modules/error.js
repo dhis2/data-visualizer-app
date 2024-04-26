@@ -357,6 +357,18 @@ export class AnalyticsRequestError extends VisualizationError {
     }
 }
 
+export class NoOutliersError extends VisualizationError {
+    constructor() {
+        super(
+            EmptyBox,
+            i18n.t('No outliers found'),
+            i18n.t(
+                'There were no outliers found for the selected data items and options.'
+            )
+        )
+    }
+}
+
 export const genericErrorTitle = i18n.t('Something went wrong')
 
 const getAvailableAxesDescription = (visType) => {

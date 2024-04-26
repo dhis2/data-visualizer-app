@@ -13,7 +13,7 @@ const OutlierDetectionMethod = ({
 }) => (
     <>
         <div className={tabSectionOption.className}>
-            <Field dense>
+            <Field dataTest="options-outliers-detection-method" dense>
                 {methods.map(({ id, label }) => (
                     <Radio
                         key={id}
@@ -38,7 +38,7 @@ const OutlierDetectionMethod = ({
             label={i18n.t('Threshold factor')}
             min="0"
             step="0.5"
-            onChange={({ value }) => onThresholdChange(Number(value))}
+            onChange={({ value }) => onThresholdChange(value)}
             value={currentThreshold?.toString() || ''}
             helpText={i18n.t(
                 'A high value is more sensitive so fewer data items will be identified as outliers'
@@ -46,6 +46,7 @@ const OutlierDetectionMethod = ({
             placeholder={i18n.t('Number')}
             inputWidth="96px"
             dense
+            dataTest="options-outliers-threshold"
         />
     </>
 )

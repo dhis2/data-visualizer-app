@@ -46,7 +46,10 @@ const StartScreen = ({ error, username }) => {
         error ? (
             getErrorContent()
         ) : (
-            <div data-test="start-screen">
+            <div
+                data-test="start-screen"
+                className="push-analytics-start-screen"
+            >
                 <div className={styles.section}>
                     <h3
                         className={styles.title}

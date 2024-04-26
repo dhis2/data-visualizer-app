@@ -1,9 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const StackedBarIcon = ({
-    style = { paddingRight: '8px', width: 24, height: 24 },
-}) => (
+const StackedBarIcon = ({ style }) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0,0,48,48" style={style}>
         <g fill="none" fillRule="evenodd" transform="matrix(0 -1 -1 0 48 48)">
             <polygon points="0 0 48 0 48 48 0 48" />

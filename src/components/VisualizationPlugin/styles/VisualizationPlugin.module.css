@@ -4,8 +4,12 @@
     height: 100%;
     display: flex;
 }
+.modal {
+    max-height: calc(-285px + 100vh);
+}
 
 .chartWrapper {
+    display: flex;
     flex-grow: 1;
 }
 

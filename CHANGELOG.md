@@ -1,3 +1,36 @@
+## [100.5.2](https://github.com/dhis2/data-visualizer-app/compare/v100.5.1...v100.5.2) (2024-03-21)
+
+
+### Bug Fixes
+
+* add classnames and update json instructions file for outlier tables ([#3000](https://github.com/dhis2/data-visualizer-app/issues/3000)) ([bd95afe](https://github.com/dhis2/data-visualizer-app/commit/bd95afe3ce5ccc1d1e400d4a2531bfb8a9910ee2))
+
+## [100.5.1](https://github.com/dhis2/data-visualizer-app/compare/v100.5.0...v100.5.1) (2024-03-21)
+
+
+### Bug Fixes
+
+* fix period filter and loading spinner when filtering in dashboard ([#3002](https://github.com/dhis2/data-visualizer-app/issues/3002)) ([8a54037](https://github.com/dhis2/data-visualizer-app/commit/8a5403754353d8531decc5cdf73129d38219e322))
+
+# [100.5.0](https://github.com/dhis2/data-visualizer-app/compare/v100.4.0...v100.5.0) (2024-03-19)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (dev) ([dbb683f](https://github.com/dhis2/data-visualizer-app/commit/dbb683fc66525a20d1831cfa5c0c70ff8e702bd5))
+* fetch displayTitle and displaySubtitle for translations DHIS2-16216 ([#2929](https://github.com/dhis2/data-visualizer-app/issues/2929)) ([d6f327a](https://github.com/dhis2/data-visualizer-app/commit/d6f327ab0238e06527e2f07f78817b31c6522496))
+* **push-analytics:** add push analytics instructions ([#2985](https://github.com/dhis2/data-visualizer-app/issues/2985)) ([77c5bcd](https://github.com/dhis2/data-visualizer-app/commit/77c5bcd3dcd4daed14e66a7dc7c20175ae4b86a0))
+* **translations:** sync translations from transifex (dev) ([476e8a8](https://github.com/dhis2/data-visualizer-app/commit/476e8a8e0190731e81a32c00d7c620bc7c196b4e))
+* **translations:** sync translations from transifex (dev) ([459c53c](https://github.com/dhis2/data-visualizer-app/commit/459c53c1b1d655596a7ccdaac99731b433ce5307))
+* **translations:** sync translations from transifex (dev) ([2966187](https://github.com/dhis2/data-visualizer-app/commit/2966187e5fa05208836b6d7bb42529e14ede0440))
+* add custom errors for analytics requests ([#2874](https://github.com/dhis2/data-visualizer-app/issues/2874)) ([cc3fcd1](https://github.com/dhis2/data-visualizer-app/commit/cc3fcd1cc61c6b08f84cb8954cbde3955499aa6a))
+
+
+### Features
+
+* add class-names for push-analytics ([#2966](https://github.com/dhis2/data-visualizer-app/issues/2966)) ([5872a5a](https://github.com/dhis2/data-visualizer-app/commit/5872a5a20e6c04642d2e3e6ea88210999a805235))
+* support Outlier table visualization type (DHIS2-13858) ([#2942](https://github.com/dhis2/data-visualizer-app/issues/2942)) ([e9c31a7](https://github.com/dhis2/data-visualizer-app/commit/e9c31a7f2459c976f7d63860dd63cc97e3c8f09c))
+
 # [100.4.0](https://github.com/dhis2/data-visualizer-app/compare/v100.3.1...v100.4.0) (2023-12-14)
 
 

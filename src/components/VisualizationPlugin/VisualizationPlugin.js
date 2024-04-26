@@ -1,4 +1,5 @@
 import {
+    VIS_TYPE_OUTLIER_TABLE,
     VIS_TYPE_PIVOT_TABLE,
     apiFetchOrganisationUnitLevels,
     convertOuLevelsToUids,
@@ -22,6 +23,7 @@ import { fetchData } from '../../modules/fetchData.js'
 import { getOptionsFromVisualization } from '../../modules/options.js'
 import ChartPlugin from './ChartPlugin.js'
 import ContextualMenu from './ContextualMenu.js'
+import OutlierTablePlugin from './OutlierTablePlugin.js'
 import PivotPlugin from './PivotPlugin.js'
 import styles from './styles/VisualizationPlugin.module.css'
 
@@ -31,10 +33,12 @@ export const VisualizationPlugin = ({
     filters,
     forDashboard,
     id,
+    isInModal,
     style,
     onChartGenerated,
     onError,
     onLoadingComplete,
+    onDataSorted,
     onResponsesReceived,
     onDrill,
 }) => {
@@ -195,7 +199,7 @@ export const VisualizationPlugin = ({
             // multiple responses are only for YOY which does not support legends or custom icon
             // safe to use only the 1st
             // dx dimensions might not be present, the empty array covers that case
-            const dxIds = responses[0].metaData.dimensions.dx || []
+            const dxIds = responses[0].metaData.dimensions?.dx || []
 
             // DHIS2-10496: show icon on the side of the single value if an icon is assigned in Maintenance app and
             // the "Show data item icon" option is set in DV options
@@ -321,20 +325,31 @@ export const VisualizationPlugin = ({
     const hasLegendSet =
         legendSets?.length > 0 &&
         isLegendSetType(fetchResult.visualization.type)
-    const transformedStyle =
-        forDashboard && hasLegendSet
-            ? {
-                  ...style,
-                  width: style.width || size.width - (showLegendKey ? 200 : 36),
-                  // 200: width of legend key component with margin and scrollbar
-                  // 36: width of the toggle button with margin
-              }
-            : style
 
-    // force height when no value available otherwise the PivotTable container sets 0 as height hiding the table content
+    let transformedStyle = style
+    if (forDashboard && hasLegendSet) {
+        transformedStyle = {
+            ...style,
+            width: style.width || size.width - (showLegendKey ? 200 : 36),
+            // 200: width of legend key component with margin and scrollbar
+            // 36: width of the toggle button with margin
+        }
+    } else if (isInModal) {
+        transformedStyle = {
+            ...style,
+            width: style.width || size.width,
+            height: style.height || size.height,
+        }
+    }
+
+    // force wdth and height when no value available otherwise the PivotTable container sets 0 as height hiding the table content
     // and Highcharts does not render correctly the chart/legend
     if (!transformedStyle.height) {
         transformedStyle.height = size.height || '100%'
+    }
+
+    if (!transformedStyle.width) {
+        transformedStyle.width = size.width || '100%'
     }
 
     const getLegendKey = () => {
@@ -384,42 +399,69 @@ export const VisualizationPlugin = ({
         }
     }
 
+    const renderPlugin = () => {
+        if (
+            !fetchResult.visualization.type ||
+            fetchResult.visualization.type === VIS_TYPE_PIVOT_TABLE
+        ) {
+            return (
+                <PivotPlugin
+                    visualization={convertOuLevelsToUids(
+                        ouLevels,
+                        fetchResult.visualization
+                    )}
+                    responses={fetchResult.responses}
+                    legendSets={legendSets}
+                    onToggleContextualMenu={
+                        onDrill ? onToggleContextualMenu : undefined
+                    }
+                    id={id}
+                    style={transformedStyle}
+                />
+            )
+        } else if (fetchResult.visualization.type === VIS_TYPE_OUTLIER_TABLE) {
+            return (
+                <OutlierTablePlugin
+                    visualization={convertOuLevelsToUids(
+                        ouLevels,
+                        fetchResult.visualization
+                    )}
+                    responses={fetchResult.responses}
+                    filters={filters}
+                    id={id}
+                    style={transformedStyle}
+                    onDataSorted={onDataSorted}
+                />
+            )
+        } else {
+            return (
+                <ChartPlugin
+                    visualization={convertOuLevelsToUids(
+                        ouLevels,
+                        fetchResult.visualization
+                    )}
+                    responses={fetchResult.responses}
+                    extraOptions={fetchResult.extraOptions}
+                    legendSets={legendSets}
+                    onToggleContextualMenu={
+                        onDrill ? onToggleContextualMenu : undefined
+                    }
+                    id={forDashboard ? renderId : id}
+                    onChartGenerated={onChartGenerated}
+                    style={transformedStyle}
+                />
+            )
+        }
+    }
+
     return (
-        <div className={styles.container} ref={containerCallbackRef}>
-            <div className={styles.chartWrapper}>
-                {!fetchResult.visualization.type ||
-                fetchResult.visualization.type === VIS_TYPE_PIVOT_TABLE ? (
-                    <PivotPlugin
-                        visualization={convertOuLevelsToUids(
-                            ouLevels,
-                            fetchResult.visualization
-                        )}
-                        responses={fetchResult.responses}
-                        legendSets={legendSets}
-                        onToggleContextualMenu={
-                            onDrill ? onToggleContextualMenu : undefined
-                        }
-                        id={id}
-                        style={transformedStyle}
-                    />
-                ) : (
-                    <ChartPlugin
-                        visualization={convertOuLevelsToUids(
-                            ouLevels,
-                            fetchResult.visualization
-                        )}
-                        responses={fetchResult.responses}
-                        extraOptions={fetchResult.extraOptions}
-                        legendSets={legendSets}
-                        onToggleContextualMenu={
-                            onDrill ? onToggleContextualMenu : undefined
-                        }
-                        id={forDashboard ? renderId : id}
-                        onChartGenerated={onChartGenerated}
-                        style={transformedStyle}
-                    />
-                )}
-            </div>
+        <div
+            className={cx(styles.container, {
+                [styles.modal]: isInModal,
+            })}
+            ref={containerCallbackRef}
+        >
+            <div className={styles.chartWrapper}>{renderPlugin()}</div>
             {getLegendKey()}
             {contextualMenuRect && (
                 <Layer
@@ -446,6 +488,7 @@ VisualizationPlugin.defaultProps = {
     onChartGenerated: Function.prototype,
     onError: Function.prototype,
     onLoadingComplete: Function.prototype,
+    onDataSorted: Function.prototype,
     onResponsesReceived: Function.prototype,
     style: {},
     visualization: {},
@@ -456,8 +499,10 @@ VisualizationPlugin.propTypes = {
     filters: PropTypes.object,
     forDashboard: PropTypes.bool,
     id: PropTypes.number,
+    isInModal: PropTypes.bool,
     style: PropTypes.object,
     onChartGenerated: PropTypes.func,
+    onDataSorted: PropTypes.func,
     onDrill: PropTypes.func,
     onError: PropTypes.func,
     onLoadingComplete: PropTypes.func,

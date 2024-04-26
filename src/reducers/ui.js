@@ -16,6 +16,7 @@ import {
     FONT_STYLE_VERTICAL_AXIS_TITLE,
     FONT_STYLE_REGRESSION_LINE_LABEL,
     USER_ORG_UNIT,
+    VIS_TYPE_OUTLIER_TABLE,
 } from '@dhis2/analytics'
 import objectClean from 'd2-utilizr/lib/objectClean'
 import castArray from 'lodash-es/castArray'
@@ -23,6 +24,8 @@ import {
     TITLE_AUTO,
     TITLE_CUSTOM,
 } from '../components/VisualizationOptions/Options/AxisTitle.js'
+import { DEFAULT_STATE as OUTLIER_METHOD_THRESHOLD_DEFAULT_STATE } from '../components/VisualizationOptions/Options/OutliersForOutlierTable.js'
+import { DEFAULT_STATE as OUTLIER_MAX_RESULTS_DEFAULT_STATE } from '../components/VisualizationOptions/Options/OutliersMaxResults.js'
 import {
     getFilteredLayout,
     getInverseLayout,
@@ -52,6 +55,7 @@ import {
 } from '../modules/options.js'
 import {
     getAdaptedUiByType,
+    getDefaultSorting,
     getUiFromVisualization,
     SERIES_ITEM_TYPE_PROP,
 } from '../modules/ui.js'
@@ -63,6 +67,8 @@ export const SET_UI_DISABLED_OPTIONS = 'SET_UI_DISABLED_OPTIONS'
 export const SET_UI_OPTIONS = 'SET_UI_OPTIONS'
 export const SET_UI_OPTION = 'SET_UI_OPTION'
 export const SET_UI_OPTION_FONT_STYLE = 'SET_UI_OPTION_FONT_STYLE'
+export const SET_UI_DATA_SORTING = 'SET_UI_DATA_SORTING'
+export const CLEAR_UI_DATA_SORTING = 'CLEAR_UI_DATA_SORTING'
 export const SET_UI_LAYOUT = 'SET_UI_LAYOUT'
 export const ADD_UI_LAYOUT_DIMENSIONS = 'ADD_UI_LAYOUT_DIMENSIONS'
 export const REMOVE_UI_LAYOUT_DIMENSIONS = 'REMOVE_UI_LAYOUT_DIMENSIONS'
@@ -99,7 +105,6 @@ export const DEFAULT_UI = {
     parentGraphMap: {},
     activeModalDialog: null,
     rightSidebarOpen: false,
-    outlierAnalysis: null,
 }
 
 export const PRESELECTED_YEAR_OVER_YEAR_SERIES = ['THIS_YEAR', 'LAST_YEAR']
@@ -134,12 +139,35 @@ const getPreselectedUi = (options) => {
     }
 }
 
+const getDefaultUiByType = (ui) => {
+    switch (ui.type) {
+        case VIS_TYPE_OUTLIER_TABLE: {
+            return {
+                ...ui,
+                options: {
+                    ...ui.options,
+                    outlierAnalysis: {
+                        ...(ui.options.outlierAnalysis ?? {
+                            ...OUTLIER_METHOD_THRESHOLD_DEFAULT_STATE,
+                            ...OUTLIER_MAX_RESULTS_DEFAULT_STATE,
+                        }),
+                    },
+                },
+                sorting: {
+                    ...(ui.sorting ?? getDefaultSorting()),
+                },
+            }
+        }
+        default: {
+            return { ...ui }
+        }
+    }
+}
+
 export default (state = DEFAULT_UI, action) => {
     switch (action.type) {
         case SET_UI: {
-            return {
-                ...action.value,
-            }
+            return getDefaultUiByType(action.value)
         }
         case SET_UI_FROM_VISUALIZATION: {
             return getAdaptedUiByType(
@@ -451,6 +479,20 @@ export default (state = DEFAULT_UI, action) => {
                 options: {
                     ...state.options,
                     ...options,
+                },
+            }
+        }
+        case CLEAR_UI_DATA_SORTING: {
+            return {
+                ...state,
+                sorting: undefined,
+            }
+        }
+        case SET_UI_DATA_SORTING: {
+            return {
+                ...state,
+                sorting: {
+                    ...action.value,
                 },
             }
         }

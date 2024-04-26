@@ -1,13 +1,18 @@
 // TODO: Refactor chip to contain less logic
 import {
     getPredefinedDimensionProp,
+    getDimensionMaxNumberOfItems,
     getAxisMaxNumberOfItems,
     hasAxisTooManyItems,
+    hasDimensionTooManyItems,
     getDisplayNameByVisType,
     getAxisNameByLayoutType,
     getLayoutTypeByVisType,
     DIMENSION_ID_ASSIGNED_CATEGORIES,
     DIMENSION_PROP_NO_ITEMS,
+    DIMENSION_TYPE_DATA_ELEMENT,
+    DIMENSION_TYPE_DATA_ELEMENT_OPERAND,
+    VIS_TYPE_OUTLIER_TABLE,
     VIS_TYPE_SCATTER,
     DIMENSION_ID_DATA,
     ALL_DYNAMIC_DIMENSION_ITEMS,
@@ -73,6 +78,29 @@ const Chip = ({
         </div>
     )
 
+    const getMaxNumberOfItems = () =>
+        getAxisMaxNumberOfItems(type, axisId) ||
+        getDimensionMaxNumberOfItems(type, dimensionId)
+
+    let activeItemIds = getMaxNumberOfItems()
+        ? items.slice(0, getMaxNumberOfItems())
+        : items
+
+    // filter out non DATA_ELEMENT types for Outlier table vis type
+    if (type === VIS_TYPE_OUTLIER_TABLE && dimensionId === DIMENSION_ID_DATA) {
+        activeItemIds = activeItemIds.filter((id) =>
+            [
+                DIMENSION_TYPE_DATA_ELEMENT,
+                DIMENSION_TYPE_DATA_ELEMENT_OPERAND,
+            ].includes(metadata[id]?.dimensionItemType)
+        )
+    }
+
+    const hasWarning =
+        hasAxisTooManyItems(type, axisId, items.length) ||
+        hasDimensionTooManyItems(type, dimensionId, items.length) ||
+        items.length > activeItemIds.length
+
     const isSplitAxis =
         type === VIS_TYPE_SCATTER && dimensionId === DIMENSION_ID_DATA
 
@@ -89,7 +117,7 @@ const Chip = ({
     }
 
     const getMaxNumberOfItems = () => getAxisMaxNumberOfItems(type, axisId)
-
+    
     const handleClick = () => {
         if (!getPredefinedDimensionProp(dimensionId, DIMENSION_PROP_NO_ITEMS)) {
             onClick()
@@ -110,9 +138,6 @@ const Chip = ({
     }
 
     const renderTooltipContent = () => {
-        const activeItemIds = getMaxNumberOfItems()
-            ? items.slice(0, getMaxNumberOfItems())
-            : items
         const lockedLabel = isLocked
             ? i18n.t(
                   `{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}`,
@@ -149,13 +174,11 @@ const Chip = ({
             >
                 {dimensionName}
             </span>
-            {chipLabelSuffix && (
-                <span className={styles.suffix} data-test="chip-suffix">
-                    {chipLabelSuffix}
-                </span>
-            )}
-            {hasAxisTooManyItems(type, axisId, items.length) &&
-                WarningIconWrapper}
+            <span style={isSplitAxis ? styles.label : {}}>
+                {renderChipLabelSuffix()}
+            </span>
+            {hasWarning && WarningIconWrapper}
+            {isLocked && LockIconWrapper}
         </>
     )
 

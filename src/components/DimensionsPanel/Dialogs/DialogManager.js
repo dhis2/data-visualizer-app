@@ -4,9 +4,13 @@ import {
     PeriodDimension,
     OrgUnitDimension,
     ouIdHelper,
+    dataTypeMap,
     DIMENSION_ID_DATA,
     DIMENSION_ID_PERIOD,
     DIMENSION_ID_ORGUNIT,
+    DIMENSION_TYPE_DATA_ELEMENT,
+    DIMENSION_TYPE_DATA_ELEMENT_OPERAND,
+    getDimensionMaxNumberOfItems,
     getAxisMaxNumberOfItems,
     getDisplayNameByVisType,
     filterOutPredefinedDimensions,
@@ -21,6 +25,7 @@ import {
     MONTHLY,
     BIMONTHLY,
     ALL_DYNAMIC_DIMENSION_ITEMS,
+    VIS_TYPE_OUTLIER_TABLE,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import {
@@ -258,7 +263,7 @@ export class DialogManager extends Component {
     }
 
     renderDialogContent = () => {
-        const { displayNameProperty, dialogId, type } = this.props
+        const { displayNameProperty, dialogId, type: visType } = this.props
 
         const dimensionProps = {
             onSelect: this.selectUiItems,
@@ -269,24 +274,29 @@ export class DialogManager extends Component {
             let infoBoxMessage
 
             const axisId = this.props.getAxisIdByDimensionId(dialogId)
-            const visType = type
             const numberOfItems = selectedItems.length
+
+            const dimensionMaxNumberOfItems = getDimensionMaxNumberOfItems(
+                visType,
+                dialogId
+            )
 
             const axisMaxNumberOfItems = getAxisMaxNumberOfItems(
                 visType,
                 axisId
             )
 
-            const hasMaxNumberOfItemsRule = !!axisMaxNumberOfItems
+            const hasMaxNumberOfItemsRule = Boolean(
+                axisMaxNumberOfItems || dimensionMaxNumberOfItems
+            )
+            const maxNumberOfItems =
+                axisMaxNumberOfItems || dimensionMaxNumberOfItems
 
-            if (
-                hasMaxNumberOfItemsRule &&
-                numberOfItems > axisMaxNumberOfItems
-            ) {
+            if (hasMaxNumberOfItemsRule && numberOfItems > maxNumberOfItems) {
                 infoBoxMessage =
-                    axisMaxNumberOfItems === 1
+                    maxNumberOfItems === 1
                         ? i18n.t(
-                              `'{{visualizationType}}' is intended to show a single data item. Only the first item will be used and saved.`,
+                              `'{{visualizationType}}' is intended to show a single item for this type of dimension. Only the first item will be used and saved.`,
                               {
                                   visualizationType:
                                       getDisplayNameByVisType(visType),
@@ -297,12 +307,12 @@ export class DialogManager extends Component {
                               {
                                   visualiationType:
                                       getDisplayNameByVisType(visType),
-                                  maxNumber: axisMaxNumberOfItems,
+                                  maxNumber: maxNumberOfItems,
                               }
                           )
 
                 selectedItems.forEach((item, index) => {
-                    item.isActive = index < axisMaxNumberOfItems
+                    item.isActive = index < maxNumberOfItems
                 })
             } else if (isScatterAttribute(dialogId) && numberOfItems > 1) {
                 infoBoxMessage = i18n.t(
@@ -312,11 +322,22 @@ export class DialogManager extends Component {
                     item.isActive = index < 1
                 })
             }
+
             let content = null
             if (
                 dialogId === DIMENSION_ID_DATA ||
                 isScatterAttribute(dialogId)
             ) {
+                const dataTypes = Object.values(dataTypeMap).filter(
+                    ({ id }) => {
+                        if (visType === VIS_TYPE_OUTLIER_TABLE) {
+                            return id === DIMENSION_TYPE_DATA_ELEMENT
+                        }
+
+                        return true
+                    }
+                )
+
                 const onSelect = isScatterAttribute(dialogId)
                     ? (defaultProps) =>
                           this.selectUiItems({
@@ -334,13 +355,38 @@ export class DialogManager extends Component {
                         },
                     })
                 }
+
+                if (visType === VIS_TYPE_OUTLIER_TABLE) {
+                    let showInfo = false
+
+                    selectedItems.forEach((item) => {
+                        if (
+                            ![
+                                DIMENSION_TYPE_DATA_ELEMENT,
+                                DIMENSION_TYPE_DATA_ELEMENT_OPERAND,
+                            ].includes(item.type)
+                        ) {
+                            item.isActive = false
+                            showInfo = true
+                        }
+                    })
+
+                    if (showInfo) {
+                        infoBoxMessage = i18n.t(
+                            `'Outlier table' shows values from data elements only. Only data elements will be used and saved.`
+                        )
+                    }
+                }
+
                 const dimensionSelector = (
                     <DataDimension
+                        enabledDataTypes={dataTypes}
                         displayNameProp={displayNameProperty}
                         selectedDimensions={selectedItems}
                         infoBoxMessage={infoBoxMessage}
                         onSelect={onSelect}
                         onCalculationSave={onCalculationSave}
+                        visType={visType}
                     />
                 )
                 const dataTabs = isScatterAttribute(dialogId) ? (
@@ -380,6 +426,7 @@ export class DialogManager extends Component {
                 content = (
                     <PeriodDimension
                         selectedPeriods={selectedItems}
+                        infoBoxMessage={infoBoxMessage}
                         onSelect={dimensionProps.onSelect}
                         excludedPeriodTypes={getExcludedPeriodTypes(
                             this.props.settings
