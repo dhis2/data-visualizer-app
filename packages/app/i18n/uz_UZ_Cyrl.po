@@ -1,14 +1,14 @@
 # 
 # Translators:
-# Ibatov <ibatovk@who.int>, 2023
 # Philip Larsen Donnelly, 2024
+# Ibatov <ibatovk@who.int>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-06-07T08:24:31.117Z\n"
 "PO-Revision-Date: 2022-04-20 10:06+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Last-Translator: Ibatov <ibatovk@who.int>, 2024\n"
 "Language-Team: Uzbek (Cyrillic) (https://app.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -858,6 +858,17 @@ msgstr "Ташкилий бўлим топилмади"
 
 msgid "The level or group selections didn't return any organization units."
 msgstr "Босқич ёки гуруҳ танлаш ҳеч қандай ташкилий бўлимни олиб чиқмади."
+
+msgid "Invalid data type"
+msgstr "Маълумот тури хато"
+
+msgid ""
+"The selected data dimensions didn't return any valid data. This "
+"visualization type can only display numerical data."
+msgstr ""
+"Танланган маълумотлар қийматлари учун ҳеч қандай яроқли маълумот "
+"аниқланмади. Ушбу визуализация тури фақат рақамли маълумотларни кўрсатиши "
+"мумкин."
 
 msgid "Something went wrong"
 msgstr "Нимадир нотўғри бажарилди"
