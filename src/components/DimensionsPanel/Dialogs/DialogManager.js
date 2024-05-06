@@ -234,7 +234,7 @@ export class DialogManager extends Component {
 
     // The OU content is persisted as mounted in order
     // to cache the org unit tree data
-    renderPersistedContent = (dimensionProps) => {
+    renderPersistedContent = (dimensionProps, displayNameProperty) => {
         const { ouIds, metadata, parentGraphMap, dialogId } = this.props
 
         if (this.state.ouMounted) {
@@ -253,6 +253,7 @@ export class DialogManager extends Component {
                         roots={this.props.rootOrgUnits.map(
                             (rootOrgUnit) => rootOrgUnit.id
                         )}
+                        displayNameProp={displayNameProperty}
                         {...dimensionProps}
                     />
                 </div>
@@ -455,7 +456,10 @@ export class DialogManager extends Component {
 
         return (
             <Fragment>
-                {this.renderPersistedContent(dimensionProps)}
+                {this.renderPersistedContent(
+                    dimensionProps,
+                    displayNameProperty
+                )}
                 {dialogId && dynamicContent()}
             </Fragment>
         )
