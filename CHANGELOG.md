@@ -1,3 +1,11 @@
+## [100.5.3](https://github.com/dhis2/data-visualizer-app/compare/v100.5.2...v100.5.3) (2024-04-25)
+
+
+### Bug Fixes
+
+* plugin flashes when interacting with Interpretations modal ([#3017](https://github.com/dhis2/data-visualizer-app/issues/3017)) ([827ef37](https://github.com/dhis2/data-visualizer-app/commit/827ef3712a5a83687451a5545bae475d02ce601a))
+* **translations:** sync translations from transifex (dev) ([43f89be](https://github.com/dhis2/data-visualizer-app/commit/43f89bebd0786f088859766a391e98e9492696db))
+
 ## [100.5.2](https://github.com/dhis2/data-visualizer-app/compare/v100.5.1...v100.5.2) (2024-03-21)
 
 
