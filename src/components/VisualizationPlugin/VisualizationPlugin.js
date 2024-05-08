@@ -43,7 +43,7 @@ export const VisualizationPlugin = ({
     onDrill,
 }) => {
     const engine = useDataEngine()
-    const [visualization, setVisualization] = useState(undefined)
+    const [visualization, setVisualization] = useState(null)
     const [ouLevels, setOuLevels] = useState(undefined)
     const [fetchResult, setFetchResult] = useState(null)
     const [contextualMenuRef, setContextualMenuRef] = useState(undefined)
@@ -173,6 +173,7 @@ export const VisualizationPlugin = ({
 
     useEffect(() => {
         setFetchResult(null)
+        setVisualization(null)
 
         // filter out disabled options
         const disabledOptions = getDisabledOptions({
@@ -185,8 +186,6 @@ export const VisualizationPlugin = ({
         Object.keys(disabledOptions).forEach(
             (option) => delete filteredVisualization[option]
         )
-
-        setVisualization(filteredVisualization)
 
         const doFetchAll = async () => {
             const { responses, extraOptions } = await doFetchData(
@@ -254,6 +253,7 @@ export const VisualizationPlugin = ({
                 extraOptions,
             })
             setShowLegendKey(filteredVisualization.legend?.showKey)
+
             onLoadingComplete()
         }
 
@@ -264,7 +264,15 @@ export const VisualizationPlugin = ({
         /* eslint-disable-next-line react-hooks/exhaustive-deps */
     }, [originalVisualization, filters, forDashboard])
 
-    if (!fetchResult || !ouLevels) {
+    useEffect(() => {
+        if (fetchResult?.visualization && ouLevels) {
+            setVisualization(
+                convertOuLevelsToUids(ouLevels, fetchResult.visualization)
+            )
+        }
+    }, [fetchResult?.visualization, ouLevels])
+
+    if (!fetchResult || !visualization || !ouLevels) {
         return null
     }
 
@@ -406,10 +414,7 @@ export const VisualizationPlugin = ({
         ) {
             return (
                 <PivotPlugin
-                    visualization={convertOuLevelsToUids(
-                        ouLevels,
-                        fetchResult.visualization
-                    )}
+                    visualization={visualization}
                     responses={fetchResult.responses}
                     legendSets={legendSets}
                     onToggleContextualMenu={
@@ -422,10 +427,7 @@ export const VisualizationPlugin = ({
         } else if (fetchResult.visualization.type === VIS_TYPE_OUTLIER_TABLE) {
             return (
                 <OutlierTablePlugin
-                    visualization={convertOuLevelsToUids(
-                        ouLevels,
-                        fetchResult.visualization
-                    )}
+                    visualization={visualization}
                     responses={fetchResult.responses}
                     filters={filters}
                     id={id}
@@ -436,10 +438,7 @@ export const VisualizationPlugin = ({
         } else {
             return (
                 <ChartPlugin
-                    visualization={convertOuLevelsToUids(
-                        ouLevels,
-                        fetchResult.visualization
-                    )}
+                    visualization={visualization}
                     responses={fetchResult.responses}
                     extraOptions={fetchResult.extraOptions}
                     legendSets={legendSets}
