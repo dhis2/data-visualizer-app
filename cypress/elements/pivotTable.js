@@ -1,6 +1,9 @@
 const valueCellEl = 'visualization-value-cell'
 const headerCellEl = 'visualization-column-header'
 
+export const expectTableToBeVisible = () =>
+    cy.get('.pivot-table-container').should('have.length', 1).and('be.visible')
+
 export const clickTableValueCell = (index) =>
     cy.getBySel(valueCellEl).eq(index).click()
 
