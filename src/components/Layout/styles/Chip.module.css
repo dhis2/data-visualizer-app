@@ -1,0 +1,119 @@
+.chip {
+    max-width: 400px;
+    display: flex;
+    align-items: center;
+    background-color: var(--colors-teal100);
+    padding: 0;
+    font-size: 13px;
+    line-height: 15px;
+    font-weight: 400;
+    color: var(--colors-teal900);
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 2px;
+    border-radius: 2px;
+    border: 1px solid var(--colors-teal200);
+}
+
+.chip:hover {
+    background: #cdeae8;
+    border: 1px solid #93c4bf;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.chipEmpty {
+    background-color: var(--colors-grey100);
+    border-color: var(--colors-grey400);
+    color: var(--colors-grey900);
+}
+
+.chipEmpty:hover {
+    background-color: var(--colors-grey200);
+    border-color: var(--colors-grey400);
+}
+
+.fixedDimensionIcon {
+    padding: 0 4px;
+}
+
+.leftIconWrapper {
+    padding: 0 4px;
+    display: flex;
+    align-items: center;
+}
+
+.warningIconWrapper {
+    padding-left: 2px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.lockIconWrapper {
+    background: #cbe7e5;
+    height: 20px;
+    padding: 0 2px 0 3px;
+    margin: 0 0 0 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lockIconWrapper svg path {
+    fill: var(--colors-teal900);
+}
+
+.chipEmpty .lockIconWrapper {
+    background: var(--colors-grey300);
+}
+
+.chipEmpty .lockIconWrapper svg path {
+    fill: var(--colors-grey800);
+}
+
+.label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chipLeft {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    align-items: center;
+    min-height: 20px;
+    margin: 0 2px 0 0;
+}
+
+.chipRight {
+    padding-left: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    display: flex;
+    height: 20px;
+}
+
+.chipRight + .lockIconWrapper {
+    margin: 0;
+}
+
+.suffix {
+    font-family: monospace;
+    font-size: 11px;
+    background: #c5e4e3;
+    border-radius: 2px;
+    margin-left: 4px;
+    min-width: 12px;
+    text-align: center;
+    padding: 2px 2px 1px 2px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
