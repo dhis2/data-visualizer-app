@@ -18,7 +18,9 @@ import {
     ALL_DYNAMIC_DIMENSION_ITEMS,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
-import { Tooltip, IconLock16, IconWarningFilled16 } from '@dhis2/ui'
+import { Tooltip, IconWarning16 } from '@dhis2/ui'
+import { colors } from '@dhis2/ui-constants'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
@@ -27,7 +29,7 @@ import { setDataTransfer } from '../../modules/dnd.js'
 import { sGetDimensions } from '../../reducers/dimensions.js'
 import { sGetMetadata } from '../../reducers/metadata.js'
 import { sGetUiType } from '../../reducers/ui.js'
-import { styles } from './styles/Chip.style.js'
+import styles from './styles/Chip.module.css'
 import { default as TooltipContent } from './TooltipContent.js'
 
 const Chip = ({
@@ -48,19 +50,31 @@ const Chip = ({
 
     const LockIconWrapper = (
         <div
-            style={styles.rightIconWrapper}
+            className={styles.lockIconWrapper}
             data-test={`${dataTest}-lock-icon`}
         >
-            <IconLock16 />
+            <svg
+                width="7"
+                height="9"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    fillRule="evenodd"
+                    clipRule="evenodd"
+                    d="M3.5 1A1.5 1.5 0 0 0 2 2.5V3h3v-.5A1.5 1.5 0 0 0 3.5 1ZM1 2.5V3H0v6h7V3H6v-.5a2.5 2.5 0 0 0-5 0ZM1 8V4h5v4H1Zm3-1V5H3v2h1Z"
+                    fill="none"
+                />
+            </svg>
         </div>
     )
 
     const WarningIconWrapper = (
         <div
-            style={styles.rightIconWrapper}
+            className={styles.warningIconWrapper}
             data-test={`${dataTest}-warning-icon`}
         >
-            <IconWarningFilled16 />
+            <IconWarning16 color={colors.yellow700} />
         </div>
     )
 
@@ -90,6 +104,18 @@ const Chip = ({
     const isSplitAxis =
         type === VIS_TYPE_SCATTER && dimensionId === DIMENSION_ID_DATA
 
+    let chipLabelSuffix
+
+    if (items.length > 0) {
+        if (items.includes(ALL_DYNAMIC_DIMENSION_ITEMS)) {
+            chipLabelSuffix = i18n.t('all')
+        } else if (isSplitAxis) {
+            chipLabelSuffix = i18n.t(metadata[items[0]]?.name || null)
+        } else {
+            chipLabelSuffix = items.length
+        }
+    }
+
     const handleClick = () => {
         if (!getPredefinedDimensionProp(dimensionId, DIMENSION_PROP_NO_ITEMS)) {
             onClick()
@@ -100,48 +126,12 @@ const Chip = ({
         setDataTransfer(event, axisId)
     }
 
-    const getWrapperStyles = () => ({
-        ...styles.chipWrapper,
-        ...(!getPredefinedDimensionProp(dimensionId, DIMENSION_PROP_NO_ITEMS) &&
-        !items.length
-            ? styles.chipEmpty
-            : {}),
-    })
-
-    const renderChipLabelSuffix = () => {
-        const numberOfItems = items.length
-        let itemsLabel
-        if (items.includes(ALL_DYNAMIC_DIMENSION_ITEMS)) {
-            itemsLabel = i18n.t('All')
-        } else if (
-            !!getMaxNumberOfItems() &&
-            numberOfItems > getMaxNumberOfItems()
-        ) {
-            itemsLabel = i18n.t(
-                `{{total}} of {{axisMaxNumberOfItems}} selected`,
-                {
-                    total: numberOfItems,
-                    axisMaxNumberOfItems: getMaxNumberOfItems(),
-                }
-            )
-        } else {
-            if (isSplitAxis) {
-                itemsLabel = i18n.t(metadata[items[0]]?.name || '')
-            } else {
-                itemsLabel = i18n.t('{{total}} selected', {
-                    total: numberOfItems,
-                })
-            }
-        }
-        return items.length > 0 ? `: ${itemsLabel}` : ''
-    }
-
     const renderChipIcon = () => {
         const Icon = getPredefinedDimensionProp(dimensionId, 'icon')
         return Icon ? (
-            <Icon style={styles.fixedDimensionIcon} />
+            <Icon className={styles.fixedDimensionIcon} />
         ) : (
-            <DynamicDimensionIcon style={styles.dynamicDimensionIcon} />
+            <DynamicDimensionIcon className={styles.dynamicDimensionIcon} />
         )
     }
 
@@ -174,21 +164,32 @@ const Chip = ({
 
     const renderChipContent = () => (
         <>
-            <div style={styles.leftIconWrapper}>{renderChipIcon()}</div>
-            <span style={!isSplitAxis ? styles.label : {}}>
+            <div className={styles.leftIconWrapper}>{renderChipIcon()}</div>
+            <span
+                className={cx({
+                    [styles.label]: !isSplitAxis,
+                })}
+            >
                 {dimensionName}
             </span>
-            <span style={isSplitAxis ? styles.label : {}}>
-                {renderChipLabelSuffix()}
-            </span>
+            {chipLabelSuffix && (
+                <span className={styles.suffix} data-test="chip-suffix">
+                    {chipLabelSuffix}
+                </span>
+            )}
             {hasWarning && WarningIconWrapper}
-            {isLocked && LockIconWrapper}
         </>
     )
 
     return (
         <div
-            style={getWrapperStyles()}
+            className={cx(styles.chip, {
+                [styles.chipEmpty]:
+                    !getPredefinedDimensionProp(
+                        dimensionId,
+                        DIMENSION_PROP_NO_ITEMS
+                    ) && !items.length,
+            })}
             data-dimensionid={dimensionId}
             draggable={!isLocked}
             onDragStart={getDragStartHandler()}
@@ -199,7 +200,7 @@ const Chip = ({
                         <div
                             data-test={dataTest}
                             id={id}
-                            style={styles.chipLeft}
+                            className={styles.chipLeft}
                             onClick={handleClick}
                             ref={ref}
                             onMouseOver={onMouseOver}
@@ -212,14 +213,21 @@ const Chip = ({
             ) : (
                 <div
                     id={id}
-                    style={styles.chipLeft}
+                    className={styles.chipLeft}
                     data-test={dataTest}
                     onClick={handleClick}
                 >
                     {renderChipContent()}
                 </div>
             )}
-            {contextMenu && <div style={styles.chipRight}> {contextMenu}</div>}
+            {contextMenu && (
+                <div className={styles.chipRight}> {contextMenu}</div>
+            )}
+            {isLocked && (
+                <Tooltip content={renderTooltipContent()} placement="bottom">
+                    {LockIconWrapper}
+                </Tooltip>
+            )}
         </div>
     )
 }
