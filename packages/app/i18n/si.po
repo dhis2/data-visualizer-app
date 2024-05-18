@@ -1,21 +1,19 @@
 # 
 # Translators:
-# Philip Larsen Donnelly, 2021
-# Viktor Varland <viktor@dhis2.org>, 2021
-# channara rin, 2023
+# Malinda Wijeratne, 2023
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-04-23T09:26:03.770Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: channara rin, 2023\n"
-"Language-Team: Khmer (https://app.transifex.com/hisp-uio/teams/100509/km/)\n"
+"Last-Translator: Malinda Wijeratne, 2023\n"
+"Language-Team: Sinhala (https://app.transifex.com/hisp-uio/teams/100509/si/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: km\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: si\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Rename successful"
 msgstr ""
@@ -104,16 +102,16 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr "​លេខ​សម្គាល់"
+msgstr ""
 
 msgid "Code"
-msgstr ""
+msgstr "කේත කරන්න"
 
 msgid "Name"
-msgstr "ឈ្មោះ"
+msgstr "නම"
 
 msgid "Download"
-msgstr ""
+msgstr "බාගත කරන්න"
 
 msgid "Plain data source"
 msgstr ""
@@ -149,7 +147,7 @@ msgid "Hide"
 msgstr ""
 
 msgid "Interpretations"
-msgstr "កន្លែងសន្ទនារ"
+msgstr ""
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
@@ -217,7 +215,7 @@ msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
 msgid "Update"
-msgstr "ធ្វើ​បច្ចុប្បន្នភាព"
+msgstr ""
 
 msgid "Getting started"
 msgstr ""
@@ -246,16 +244,16 @@ msgid "By data element"
 msgstr ""
 
 msgid "Count"
-msgstr "ផលរាប់"
+msgstr "ගණන"
 
 msgid "Average"
-msgstr "ផលមធ្យម"
+msgstr "සාමාන්‍ය"
 
 msgid "Average (sum in org unit hierarchy)"
 msgstr ""
 
 msgid "Sum"
-msgstr "ផល​បូក"
+msgstr "එකතුව"
 
 msgid "Last value"
 msgstr ""
@@ -264,10 +262,10 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr ""
 
 msgid "Min"
-msgstr "អប្បបរមា"
+msgstr "අවම"
 
 msgid "Max"
-msgstr "អតិបរមា"
+msgstr "උපරිම"
 
 msgid "Standard deviation"
 msgstr ""
@@ -323,7 +321,7 @@ msgid "Columns totals"
 msgstr ""
 
 msgid "Default"
-msgstr "​លំនាំដើម"
+msgstr ""
 
 msgid "Bright"
 msgstr ""
@@ -356,7 +354,7 @@ msgid "Digit group separator"
 msgstr ""
 
 msgid "None"
-msgstr "គ្មាន"
+msgstr ""
 
 msgid "Space"
 msgstr ""
@@ -386,16 +384,16 @@ msgid "Extreme line % detection"
 msgstr ""
 
 msgid "Number"
-msgstr "តួរលេខ"
+msgstr ""
 
 msgid "Font size"
 msgstr ""
 
 msgid "Large"
-msgstr ""
+msgstr "ලොකු"
 
 msgid "Small"
-msgstr ""
+msgstr "කුඩා"
 
 msgid "Hide empty columns"
 msgstr ""
@@ -413,7 +411,7 @@ msgid "Before first and after last"
 msgstr ""
 
 msgid "All"
-msgstr "ទាំងអស់"
+msgstr "සියල්ල"
 
 msgid "Hide empty rows"
 msgstr ""
@@ -491,7 +489,7 @@ msgid "Display the value of percentages of the total"
 msgstr ""
 
 msgid "Value"
-msgstr "តម្លៃ"
+msgstr "අගය"
 
 msgid "Percentage of row"
 msgstr ""
@@ -534,10 +532,10 @@ msgid "Outlier detection method"
 msgstr ""
 
 msgid "Organisation unit"
-msgstr "ផ្នែក​នៃ​អង្គការ"
+msgstr ""
 
 msgid "Parent organisation unit"
-msgstr "Parent organisation unit"
+msgstr ""
 
 msgid "Reporting period"
 msgstr ""
@@ -549,7 +547,7 @@ msgid "Include regression"
 msgstr ""
 
 msgid "Title"
-msgstr "ចំណងជើង"
+msgstr ""
 
 msgid "Trend line"
 msgstr ""
@@ -770,55 +768,55 @@ msgid "Something went wrong"
 msgstr ""
 
 msgid "or"
-msgstr ""
+msgstr "හෝ"
 
 msgid "Today"
-msgstr ""
+msgstr "අද"
 
 msgid "Yesterday"
-msgstr "កាលពីម្សិលមិញ"
+msgstr "ඊයේ"
 
 msgid "Last 3 days"
-msgstr ""
+msgstr "පසුගිය දින 3"
 
 msgid "Last 7 days"
-msgstr ""
+msgstr "පසුගිය දින 7"
 
 msgid "Last 14 days"
-msgstr ""
+msgstr "පසුගිය දින 14"
 
 msgid "This week"
-msgstr ""
+msgstr "මෙම සතිය"
 
 msgid "Last week"
-msgstr ""
+msgstr "පසුගිය සතිය"
 
 msgid "Last 4 weeks"
-msgstr ""
+msgstr "පසුගිය සති 4"
 
 msgid "Last 12 weeks"
-msgstr ""
+msgstr "පසුගිය සති 12"
 
 msgid "Last 52 weeks"
-msgstr ""
+msgstr "පසුගිය සති 52"
 
 msgid "Weeks this year"
 msgstr ""
 
 msgid "This month"
-msgstr ""
+msgstr "මෙම මාසය"
 
 msgid "Last month"
-msgstr ""
+msgstr "පසුගිය මාසය"
 
 msgid "Last 3 months"
-msgstr ""
+msgstr "පසුගිය මාස 3"
 
 msgid "Last 6 months"
-msgstr ""
+msgstr "පසුගිය මාස 6"
 
 msgid "Last 12 months"
-msgstr ""
+msgstr "පසුගිය මාස 12"
 
 msgid "Months this year"
 msgstr ""
@@ -866,13 +864,13 @@ msgid "Last 5 financial years"
 msgstr ""
 
 msgid "This year"
-msgstr ""
+msgstr "මෙම වසර"
 
 msgid "Last year"
-msgstr ""
+msgstr "පසුගිය වසර"
 
 msgid "Last 5 years"
-msgstr ""
+msgstr "පසුගිය 5 වසර"
 
 msgid "User org unit"
 msgstr ""
@@ -931,7 +929,7 @@ msgid "Lines"
 msgstr ""
 
 msgid "Totals"
-msgstr ""
+msgstr "එකතු"
 
 msgid "Vertical (y) axis"
 msgstr ""
@@ -946,7 +944,7 @@ msgid "Axes"
 msgstr ""
 
 msgid "Data"
-msgstr "Data"
+msgstr "දත්ත"
 
 msgid "Limit values"
 msgstr ""
@@ -964,7 +962,7 @@ msgid "Series"
 msgstr ""
 
 msgid "Style"
-msgstr "​រចនាបទ"
+msgstr ""
 
 msgid "Weeks per year"
 msgstr ""
