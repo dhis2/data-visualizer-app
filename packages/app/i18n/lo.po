@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "All items"
-msgstr ""
+msgstr "ລາຍການທັງໝົດ"
 
 msgid "Rename successful"
 msgstr ""
@@ -74,16 +74,16 @@ msgid "Horizontal"
 msgstr ""
 
 msgid "Main dimensions"
-msgstr ""
+msgstr "ຕົວຕອງທີ່ສຳຄັນ"
 
 msgid "Other dimensions"
 msgstr ""
 
 msgid "Your dimensions"
-msgstr ""
+msgstr "ຂະໜາດຂອງທ່ານ"
 
 msgid "Filter dimensions"
-msgstr ""
+msgstr "ຂະໜາດຕົວຕອງ"
 
 msgid "Graphics"
 msgstr "ກຣາບຟິກ"
@@ -606,7 +606,7 @@ msgid "Visualization type"
 msgstr ""
 
 msgid "Axis {{axisId}}"
-msgstr ""
+msgstr "ແກນ {{axisId}}"
 
 msgid "Series is empty"
 msgstr ""
@@ -686,19 +686,19 @@ msgid ""
 msgstr ""
 
 msgid "Reporting rate"
-msgstr ""
+msgstr "ອັດຕາການລາຍງານ"
 
 msgid "Reporting rate on time"
-msgstr ""
+msgstr "ອັດຕາການລາຍງານຕົງເວລາ"
 
 msgid "Actual reports"
-msgstr ""
+msgstr "ບົດລາຍງານຕົວຈິງ"
 
 msgid "Actual reports on time"
-msgstr ""
+msgstr "ລາຍງານຕົວຈິງຕົງເວລາ"
 
 msgid "Expected reports"
-msgstr ""
+msgstr "ລາຍງານທີ່ຄາດໄວ້"
 
 msgid "No data available"
 msgstr ""
@@ -924,7 +924,7 @@ msgid "Last 5 years"
 msgstr "5 ປີຍ້ອນຫຼັງ"
 
 msgid "User organisation unit"
-msgstr ""
+msgstr "ຫນ່ວຍງານອົງການຈັດຕັ້ງຂອງຜູ້ໃຊ້"
 
 msgid "User sub-units"
 msgstr "ຫົວໜ່ວຍຍ່ອຍຂອງທ່ານ"
