@@ -164,14 +164,8 @@ msgstr "Stáhnout"
 msgid "Hide"
 msgstr "Skrýt"
 
-msgid "All"
-msgstr "Vše"
-
-msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr "Je vybráno {{total}} z {{axisMaxNumberOfItems}}"
-
-msgid "{{total}} selected"
-msgstr "Vybráno: {{total}}"
+msgid "all"
+msgstr "vše"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} je pro {{visTypeName}} uzamčen na {{axisName}}"
@@ -472,6 +466,9 @@ msgstr "Po poslední"
 msgid "Before first and after last"
 msgstr "Před první a po poslední"
 
+msgid "All"
+msgstr "Vše"
+
 msgid "Hide empty rows"
 msgstr "Skrýt prázdné řádky"
 
@@ -761,7 +758,7 @@ msgid ""
 msgstr ""
 
 msgid "Median"
-msgstr ""
+msgstr "Medián"
 
 msgid ""
 "The middle value in a dataset when the values are arranged in ascending or "
@@ -780,7 +777,7 @@ msgid ""
 msgstr ""
 
 msgid "Z-score"
-msgstr ""
+msgstr "Z-score"
 
 msgid ""
 "A measure of how many standard deviations a data point is from the mean of a"
@@ -789,7 +786,7 @@ msgid ""
 msgstr ""
 
 msgid "Mean"
-msgstr ""
+msgstr "Střední"
 
 msgid "Average of the value over time."
 msgstr ""

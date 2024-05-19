@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "All items"
-msgstr ""
+msgstr "ລາຍການທັງໝົດ"
 
 msgid "Rename successful"
 msgstr ""
@@ -79,16 +79,16 @@ msgid "Horizontal"
 msgstr ""
 
 msgid "Main dimensions"
-msgstr ""
+msgstr "ຕົວຕອງທີ່ສຳຄັນ"
 
 msgid "Other dimensions"
 msgstr ""
 
 msgid "Your dimensions"
-msgstr ""
+msgstr "ຂະໜາດຂອງທ່ານ"
 
 msgid "Filter dimensions"
-msgstr ""
+msgstr "ຂະໜາດຕົວຕອງ"
 
 msgid "Data value set"
 msgstr "ການຕັ້ງຄ່າຂໍ້ມູນ"
@@ -162,13 +162,7 @@ msgstr "ດາວໂຫຼດ"
 msgid "Hide"
 msgstr "ເຊື່ອງ"
 
-msgid "All"
-msgstr "ທັງໝົດ"
-
-msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr ""
-
-msgid "{{total}} selected"
+msgid "all"
 msgstr ""
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
@@ -465,6 +459,9 @@ msgstr "ຫຼັງຈາກສຸດທ້າຍ"
 msgid "Before first and after last"
 msgstr "ກ່ອນໜ້າທໍາອິດ ແລະ ຫຼັງຈາກສຸດທ້າຍ"
 
+msgid "All"
+msgstr "ທັງໝົດ"
+
 msgid "Hide empty rows"
 msgstr "ເຊື່ອງແຖວທີ່ເປົ່າຫວ່າງ"
 
@@ -628,7 +625,7 @@ msgid "Visualization type"
 msgstr ""
 
 msgid "Axis {{axisId}}"
-msgstr ""
+msgstr "ແກນ {{axisId}}"
 
 msgid "Series is empty"
 msgstr ""
@@ -1024,7 +1021,7 @@ msgid "Last 5 years"
 msgstr "5 ປີຍ້ອນຫຼັງ"
 
 msgid "User organisation unit"
-msgstr ""
+msgstr "ຫນ່ວຍງານອົງການຈັດຕັ້ງຂອງຜູ້ໃຊ້"
 
 msgid "User sub-units"
 msgstr "ຫົວໜ່ວຍຍ່ອຍຂອງທ່ານ"
