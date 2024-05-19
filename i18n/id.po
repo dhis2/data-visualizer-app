@@ -169,14 +169,8 @@ msgstr "Unduh"
 msgid "Hide"
 msgstr "Sembunyikan"
 
-msgid "All"
-msgstr "Semua"
-
-msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr "{{total}} dari {{axisMaxNumberOfItems}} terpilih"
-
-msgid "{{total}} selected"
-msgstr "{{total}} terpilih"
+msgid "all"
+msgstr ""
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} dikunci sebagai {{axisName}} untuk {{visTypeName}}"
@@ -478,6 +472,9 @@ msgstr "Setelah terakhir"
 
 msgid "Before first and after last"
 msgstr "Sebelum yang pertama dan sesudah yang terakhir"
+
+msgid "All"
+msgstr "Semua"
 
 msgid "Hide empty rows"
 msgstr "Sembunyikan baris kosong"

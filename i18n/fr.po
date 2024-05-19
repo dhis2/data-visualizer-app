@@ -2,21 +2,22 @@
 # Translators:
 # Bram Piot <bram.piot@gmail.com>, 2019
 # Matthieu Pinard <matthieu@dhis2.org>, 2019
-# Karoline Tufte Lien <karoline@dhis2.org>, 2020
 # Djibril Dione <dione.djibril@gmail.com>, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
 # Viktor Varland <viktor@dhis2.org>, 2021
-# Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2022
 # Edem Kossi <ekossi@hispwca.org>, 2023
 # Philip Larsen Donnelly, 2024
 # Yayra Gomado <ygomado@hispwca.org>, 2024
+# Karoline Tufte Lien <karoline@dhis2.org>, 2024
+# Yury Rogachev <yury@dhis2.org>, 2024
+# Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2024-03-01T08:28:43.727Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Yayra Gomado <ygomado@hispwca.org>, 2024\n"
+"Last-Translator: Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2024\n"
 "Language-Team: French (https://app.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -173,14 +174,8 @@ msgstr "Télécharger"
 msgid "Hide"
 msgstr "Masquer"
 
-msgid "All"
+msgid "all"
 msgstr "Tout"
-
-msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr "{{total}} de {{axisMaxNumberOfItems}} choisis"
-
-msgid "{{total}} selected"
-msgstr "{{total}} choisis"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
@@ -486,6 +481,9 @@ msgstr "Après dernier"
 msgid "Before first and after last"
 msgstr "Avant premier et après dernier "
 
+msgid "All"
+msgstr "Tout"
+
 msgid "Hide empty rows"
 msgstr "Masquer lignes vides"
 
@@ -760,7 +758,7 @@ msgstr ""
 "données utilisent des couches de carte distinctes."
 
 msgid "Category option combination"
-msgstr ""
+msgstr "Combinaison d'option de catégorie"
 
 msgid "Absolute deviation"
 msgstr ""
@@ -778,7 +776,7 @@ msgid ""
 msgstr ""
 
 msgid "Median"
-msgstr ""
+msgstr "Médian"
 
 msgid ""
 "The middle value in a dataset when the values are arranged in ascending or "
@@ -797,7 +795,7 @@ msgid ""
 msgstr ""
 
 msgid "Z-score"
-msgstr ""
+msgstr "Z-score"
 
 msgid ""
 "A measure of how many standard deviations a data point is from the mean of a"
@@ -806,7 +804,7 @@ msgid ""
 msgstr ""
 
 msgid "Mean"
-msgstr ""
+msgstr "Moyenne"
 
 msgid "Average of the value over time."
 msgstr ""
