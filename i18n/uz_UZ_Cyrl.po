@@ -165,14 +165,8 @@ msgstr "Юклаш"
 msgid "Hide"
 msgstr "Беркитиш"
 
-msgid "All"
-msgstr "Барчаси"
-
-msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr "{{total}} / {{axisMaxNumberOfItems}} дан танланди"
-
-msgid "{{total}} selected"
-msgstr "{{total}} танланди"
+msgid "all"
+msgstr ""
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} {{visTypeName}} учун {{axisName}} да қулфланган"
@@ -476,6 +470,9 @@ msgstr "Охиргидан кейинги"
 
 msgid "Before first and after last"
 msgstr "Биринчидан олдинги ва охиргидан кейинги"
+
+msgid "All"
+msgstr "Барчаси"
 
 msgid "Hide empty rows"
 msgstr "Бўш қаторларни беркитиш"
