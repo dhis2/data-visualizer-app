@@ -90,7 +90,11 @@ ColorSet.propTypes = {
 
 const ColorSetPreview = ({ colorSet, disabled }) => (
     <div
-        style={{ display: 'flex', marginInlineStart: 4, opacity: disabled ? 0.3 : 1 }}
+        style={{
+            display: 'flex',
+            marginInlineStart: 4,
+            opacity: disabled ? 0.3 : 1,
+        }}
     >
         {colorSet?.patterns &&
             colorSet.patterns.map((pattern, index) => (
