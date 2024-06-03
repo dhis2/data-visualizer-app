@@ -22,13 +22,13 @@ export const pivotTableStyles = css.global`
 
     .pivot-value {
         background-color: #fff;
-        text-align: right;
+        text-align: end;
     }
 
     .pivot-value-total-subgrandtotal {
         background-color: #d8d8d8;
         white-space: nowrap;
-        text-align: right;
+        text-align: end;
     }
 
     .pointer {

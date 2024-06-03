@@ -1,11 +1,10 @@
 .tabs {
-    width: 200px;
+    inline-size: 200px;
     position: absolute;
-    top: 136px; /* modal title + horizontal tab bar height */
-    bottom: 84px; /* modal actions section height */
+    inset-block: 136px 84px; /* modal title + horizontal tab bar height */ /* modal actions section height */
     z-index: 1;
 }
 
 .content {
-    margin-left: 200px;
+    margin-inline-start: 200px;
 }

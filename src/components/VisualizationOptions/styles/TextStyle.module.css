@@ -6,28 +6,34 @@
 .buttonStrip {
     display: flex;
     position: relative;
-    margin: var(--spacers-dp4) 0;
+    margin-block-start: var(--spacers-dp4);
+    margin-block-end: var(--spacers-dp4);
+    margin-inline-start: 0;
+    margin-inline-end: 0;
 }
 
 .container,
 .buttonStrip > *:not(:last-child) {
-    margin-right: var(--spacers-dp4);
+    margin-inline-end: var(--spacers-dp4);
 }
 
 .fontSizeSelect,
 .textAlignSelect {
-    min-width: 180px;
-    margin-right: var(--spacers-dp8);
+    min-inline-size: 180px;
+    margin-inline-end: var(--spacers-dp8);
 }
 
 .textColorLabel {
-    height: 28px;
+    block-size: 28px;
     font-size: 14px;
     line-height: 16px;
     border: 1px solid var(--colors-grey400);
     border-radius: 4px;
     cursor: pointer;
-    padding: 0 1px;
+    padding-block-start: 0;
+    padding-block-end: 0;
+    padding-inline-start: 1px;
+    padding-inline-end: 1px;
 }
 
 .textColorInput {
@@ -37,7 +43,7 @@
 }
 
 .textColorIcon {
-    margin-top: 1px;
+    margin-block-start: 1px;
 }
 
 .disabled {

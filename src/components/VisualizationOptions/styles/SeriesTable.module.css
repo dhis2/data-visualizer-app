@@ -1,9 +1,9 @@
 .nameColumn {
-    width: 45%;
+    inline-size: 45%;
 }
 
 .typeColumn {
-    width: 25%;
+    inline-size: 25%;
 }
 
 .tableHead {
@@ -13,13 +13,13 @@
 .tableHead .tableCell {
     padding: var(--spacers-dp8);
     line-height: normal;
-    height: auto;
+    block-size: auto;
     vertical-align: unset;
 }
 
 .tableBody .itemName {
-    padding-left: var(--spacers-dp8);
-    padding-right: var(--spacers-dp8);
+    padding-inline-start: var(--spacers-dp8);
+    padding-inline-end: var(--spacers-dp8);
 }
 
 .typeContainer {
@@ -27,25 +27,25 @@
 }
 
 .typeContainer:not(:last-child) {
-    margin-right: var(--spacers-dp16);
+    margin-inline-end: var(--spacers-dp16);
 }
 
 .visIcon {
-    height: 16px;
+    block-size: 16px;
 }
 
 .visIcon svg {
-    height: 16px;
+    block-size: 16px;
 }
 
 .axisIcon {
     display: flex;
     justify-content: center;
-    padding-top: var(--spacers-dp4);
+    padding-block-start: var(--spacers-dp4);
 }
 
 .errorContainer {
-    min-height: 450px;
+    min-block-size: 450px;
     justify-content: center;
     display: flex;
     flex-direction: column;
@@ -54,9 +54,12 @@
 }
 
 .errorIcon {
-    width: 136px;
-    height: 136px;
-    margin: 0 auto var(--spacers-dp24);
+    inline-size: 136px;
+    block-size: 136px;
+    margin-block-start: 0;
+    margin-block-end: var(--spacers-dp24);
+    margin-inline-start: auto;
+    margin-inline-end: auto;
 }
 
 .errorTitle {
@@ -65,8 +68,11 @@
     color: var(--colors-grey800);
     letter-spacing: 0.15px;
     line-height: 24px;
-    width: 360px;
-    margin: 0 auto var(--spacers-dp12);
+    inline-size: 360px;
+    margin-block-start: 0;
+    margin-block-end: var(--spacers-dp12);
+    margin-inline-start: auto;
+    margin-inline-end: auto;
 }
 
 .errorDescription {
@@ -74,6 +80,9 @@
     font-size: 14px;
     color: var(--colors-grey700);
     line-height: 19px;
-    width: 360px;
-    margin: 0 auto;
+    inline-size: 360px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
 }

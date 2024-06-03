@@ -1,6 +1,6 @@
 .container {
     position: fixed;
-    bottom: 0;
-    left: 50%;
+    inset-block-end: 0;
+    inset-inline-start: 50%;
     transform: translateX(-50%);
 }
