@@ -1,3 +1,12 @@
+## [100.5.4](https://github.com/dhis2/data-visualizer-app/compare/v100.5.3...v100.5.4) (2024-05-13)
+
+
+### Bug Fixes
+
+* avoid flashing when ou levels are used (DHIS2-17136) ([#3032](https://github.com/dhis2/data-visualizer-app/issues/3032)) ([b1b6148](https://github.com/dhis2/data-visualizer-app/commit/b1b614827bd5d14e2762a54463db52dbeb598683))
+* fix a crash when row totals is enabled (DHIS2-17297) ([#3042](https://github.com/dhis2/data-visualizer-app/issues/3042)) ([4004455](https://github.com/dhis2/data-visualizer-app/commit/4004455a145df5f793f392a5910c084adb9688ef))
+* **translations:** sync translations from transifex (dev) ([f1a14b8](https://github.com/dhis2/data-visualizer-app/commit/f1a14b82b75320d4e28af55eb1a11d483d07317b))
+
 ## [100.5.3](https://github.com/dhis2/data-visualizer-app/compare/v100.5.2...v100.5.3) (2024-04-25)
 
 
