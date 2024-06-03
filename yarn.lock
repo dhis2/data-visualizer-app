@@ -2029,10 +2029,10 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@999.9.9-value-align-alpha.1":
-  version "999.9.9-value-align-alpha.1"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-999.9.9-value-align-alpha.1.tgz#a7aec8216fe19d270333dba5eadc47d6b5ef84cb"
-  integrity sha512-i1K4apVON6QOvBaKvnkTA9mnn0yx0vbBFUO+WDSkG76QK3ChEtCF4MywsfBFZbPA73TP2pn/SZdU4K6KtEk/XA==
+"@dhis2/analytics@^26.6.14":
+  version "26.6.14"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-26.6.14.tgz#a16aa03830f3a58b9ce3c881a88b0b3077466754"
+  integrity sha512-+Pxu7z6uIlwN1GuQVnoyd18jyzoqTRwAYnKrAZGj5oG9EHVpl024uU+frMdpkaMfDi9IUujgBDI7zxKm7Ax+zQ==
   dependencies:
     "@dhis2/d2-ui-rich-text" "^7.4.1"
     "@dhis2/multi-calendar-dates" "1.0.0"
