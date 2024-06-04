@@ -1,3 +1,10 @@
+## [39.2.33](https://github.com/dhis2/data-visualizer-app/compare/v39.2.32...v39.2.33) (2024-06-04)
+
+
+### Bug Fixes
+
+* numbers are misaligned in pivot table (DHIS2-16900) v39 ([#3081](https://github.com/dhis2/data-visualizer-app/issues/3081)) ([1959548](https://github.com/dhis2/data-visualizer-app/commit/19595482559810ec2031484c25480d5949a22555))
+
 ## [39.2.32](https://github.com/dhis2/data-visualizer-app/compare/v39.2.31...v39.2.32) (2024-06-02)
 
 
