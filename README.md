@@ -46,7 +46,16 @@ $ yarn coverage
 
 #### e2e tests
 
-Cypress is used for e2e browser tests. This automatically runs on CI for PRs, the result can be seen on the [Cypress dashboard](https://dashboard.cypress.io/projects/sojh88/). To run the tests locally, define the following in a local `cypress.env.json` file, e.g.:
+Cypress is used for e2e browser tests. This automatically runs on CI for PRs, the result can be seen on the [Cypress Cloud](https://dashboard.cypress.io/projects/sojh88/).
+
+To record tests in Cypress Cloud, you can use one of the following methods based on your needs:
+
+-   **Commit Message**: Include `[e2e record]` in your commit messages to activate recording.
+-   **GitHub Labels**: Apply the `e2e record` label to your pull request to trigger recording.
+
+This setup helps in managing Cypress Cloud credits more efficiently, ensuring recordings are only made when explicitly required.
+
+To run the tests locally, define the following in a local `cypress.env.json` file, e.g.:
 
 ```sh
 {
