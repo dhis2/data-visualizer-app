@@ -2,7 +2,7 @@ name: 'dhis2: verify (app)'
 
 on:
     pull_request:
-        types: ['opened', 'edited', 'reopened', 'synchronize']
+        types: ['opened', 'labeled', 'reopened', 'synchronize']
     push:
         branches:
             - 'master'
@@ -21,6 +21,16 @@ env:
     D2_VERBOSE: true
 
 jobs:
+    setup-matrix:
+        runs-on: ubuntu-latest
+        outputs:
+            matrix: ${{ steps.set-matrix.outputs.specs }}
+        steps:
+            - uses: actions/checkout@v3
+            - name: Generate test matrix
+              id: set-matrix
+              run: echo "::set-output name=specs::$(node cypress/support/generateTestMatrix.js)"
+
     build:
         runs-on: ubuntu-latest
         steps:
@@ -83,8 +93,11 @@ jobs:
 
     call-workflow-e2e-prod:
         if: "!contains(github.event.head_commit.message, '[skip ci]')"
-        needs: [build, lint, test]
+        needs: [build, lint, test, setup-matrix]
         uses: dhis2/workflows/.github/workflows/analytics-e2e-tests-prod.yml@master
+        with:
+            should_record: ${{ contains(github.event.head_commit.message, '[e2e record]') || contains(join(github.event.pull_request.labels.*.name), 'e2e record')}}
+            spec-group: ${{ needs.setup-matrix.outputs.matrix }}
         secrets:
             username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
             password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
@@ -99,7 +112,7 @@ jobs:
         if: |
             !github.event.push.repository.fork &&
             github.actor != 'dependabot[bot]' &&
-            (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev' || startsWith(github.ref, 'refs/tags/'))
+            (github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/tags/'))
         steps:
             - uses: actions/checkout@v3
               with:

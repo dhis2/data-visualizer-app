@@ -2,15 +2,15 @@
 # Translators:
 # Caroline Hesthagen Holen <caroline@devotta.no>, 2022
 # Jan Henrik Øverland, 2024
-# Karoline Tufte Lien <karoline@dhis2.org>, 2024
 # Martin <martin@moid.se>, 2024
+# Karoline Tufte Lien <karoline@dhis2.org>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2024-03-01T08:28:43.727Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Martin <martin@moid.se>, 2024\n"
+"Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2024\n"
 "Language-Team: Norwegian Bokmål (https://app.transifex.com/hisp-uio/teams/100509/nb/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -166,14 +166,8 @@ msgstr "Last ned"
 msgid "Hide"
 msgstr "Skjul"
 
-msgid "All"
-msgstr "Alt"
-
-msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr "{{total}} av {{axisMaxNumberOfItems}} valgt"
-
-msgid "{{total}} selected"
-msgstr "{{total}} valgt"
+msgid "all"
+msgstr "alle"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} er låst til {{axisName}} for {{visTypeName}}"
@@ -475,6 +469,9 @@ msgstr "Etter siste"
 
 msgid "Before first and after last"
 msgstr "Før første og etter siste"
+
+msgid "All"
+msgstr "Alt"
 
 msgid "Hide empty rows"
 msgstr "Skjul tomme rader"

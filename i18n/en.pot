@@ -160,14 +160,8 @@ msgstr "Download"
 msgid "Hide"
 msgstr "Hide"
 
-msgid "All"
-msgstr "All"
-
-msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr "{{total}} of {{axisMaxNumberOfItems}} selected"
-
-msgid "{{total}} selected"
-msgstr "{{total}} selected"
+msgid "all"
+msgstr "all"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
@@ -468,6 +462,9 @@ msgstr "After last"
 
 msgid "Before first and after last"
 msgstr "Before first and after last"
+
+msgid "All"
+msgstr "All"
 
 msgid "Hide empty rows"
 msgstr "Hide empty rows"
