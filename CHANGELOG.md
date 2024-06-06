@@ -1,3 +1,14 @@
+## [100.5.5](https://github.com/dhis2/data-visualizer-app/compare/v100.5.4...v100.5.5) (2024-06-06)
+
+
+### Bug Fixes
+
+* dimension chip design updates (DHIS2-16272) ([#2934](https://github.com/dhis2/data-visualizer-app/issues/2934)) ([9b23fbd](https://github.com/dhis2/data-visualizer-app/commit/9b23fbd48a69ba52da6fcc219ea161eabd6540dd))
+* non-existing AO blocks new AOs from being created (DHIS2-13167) ([#3056](https://github.com/dhis2/data-visualizer-app/issues/3056)) ([2bf0d53](https://github.com/dhis2/data-visualizer-app/commit/2bf0d53a855bd89b682abab60cda0f01b314a2f9))
+* numbers are misaligned in pivot table (DHIS2-16900) ([#3072](https://github.com/dhis2/data-visualizer-app/issues/3072)) ([3ee3a83](https://github.com/dhis2/data-visualizer-app/commit/3ee3a83e9454d5d36ddd39e8eb59e7cf8dea1a41))
+* **translations:** sync translations from transifex (dev) ([8dd390b](https://github.com/dhis2/data-visualizer-app/commit/8dd390b37d67093f1c18992514f933fc80b9ab8c))
+* system / user setting for display name not respected in Org Unit tree (DHIS2-15000) ([#3051](https://github.com/dhis2/data-visualizer-app/issues/3051)) ([4a79d5b](https://github.com/dhis2/data-visualizer-app/commit/4a79d5be6e415c55828ad6abe99e450c1ff293dd))
+
 ## [100.5.4](https://github.com/dhis2/data-visualizer-app/compare/v100.5.3...v100.5.4) (2024-05-13)
 
 
