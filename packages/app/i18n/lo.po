@@ -600,7 +600,7 @@ msgid "Row totals"
 msgstr ""
 
 msgid "Data item"
-msgstr ""
+msgstr "ລາຍການຂໍ້ມູນ"
 
 msgid "Visualization type"
 msgstr ""
