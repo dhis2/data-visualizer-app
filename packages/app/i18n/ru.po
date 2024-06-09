@@ -509,7 +509,7 @@ msgid "Row totals"
 msgstr ""
 
 msgid "Data item"
-msgstr ""
+msgstr "Переменная"
 
 msgid "Visualization type"
 msgstr ""
@@ -631,7 +631,7 @@ msgid ""
 msgstr ""
 
 msgid "No data selected"
-msgstr ""
+msgstr "Данные не выбраны"
 
 msgid ""
 "{{visualizationType}} must have at least one data item or data element group"
