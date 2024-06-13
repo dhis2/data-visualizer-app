@@ -1,3 +1,10 @@
+## [39.2.35](https://github.com/dhis2/data-visualizer-app/compare/v39.2.34...v39.2.35) (2024-06-13)
+
+
+### Bug Fixes
+
+* separator for hundreds, thousands and millions is missing in the Pie charts (DHIS2-16172) v39 ([82b6e03](https://github.com/dhis2/data-visualizer-app/commit/82b6e033d1d415a2ce15992f0d9512d549a6e9e5))
+
 ## [39.2.34](https://github.com/dhis2/data-visualizer-app/compare/v39.2.33...v39.2.34) (2024-06-09)
 
 
