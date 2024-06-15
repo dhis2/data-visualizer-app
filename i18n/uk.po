@@ -168,14 +168,8 @@ msgstr "Завантажити"
 msgid "Hide"
 msgstr "Приховати"
 
-msgid "All"
-msgstr "Всі"
-
-msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr "Вибрано {{total}} з {{axisMaxNumberOfItems}}"
-
-msgid "{{total}} selected"
-msgstr "Вибрано {{total}}"
+msgid "all"
+msgstr ""
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} заблоковано на {{axisName}} для {{visTypeName}}"
@@ -477,6 +471,9 @@ msgstr "Після останнього"
 
 msgid "Before first and after last"
 msgstr "До першого та після останнього"
+
+msgid "All"
+msgstr "Всі"
 
 msgid "Hide empty rows"
 msgstr "Сховати порожні рядки"
