@@ -212,7 +212,7 @@ msgid "Update"
 msgstr "Обновить"
 
 msgid "Getting started"
-msgstr ""
+msgstr "Начало работы"
 
 msgid ""
 "All dimensions that you can use to build visualizations are shown in the "
