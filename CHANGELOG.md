@@ -1,3 +1,11 @@
+## [100.5.6](https://github.com/dhis2/data-visualizer-app/compare/v100.5.5...v100.5.6) (2024-06-17)
+
+
+### Bug Fixes
+
+* separator for hundreds, thousands and millions missing in Pie charts (DHIS2-16172) ([#3093](https://github.com/dhis2/data-visualizer-app/issues/3093)) ([286de25](https://github.com/dhis2/data-visualizer-app/commit/286de250ce4758e4387bc3f3bd8e497e6c407d97))
+* use improved rich text editor from analytics (DHIS2-15522) ([03069f1](https://github.com/dhis2/data-visualizer-app/commit/03069f1128a9613f9db694c715f3c2e165b46e25))
+
 ## [100.5.5](https://github.com/dhis2/data-visualizer-app/compare/v100.5.4...v100.5.5) (2024-06-06)
 
 
