@@ -1,3 +1,10 @@
+## [39.2.37-alpha.1](https://github.com/dhis2/data-visualizer-app/compare/v39.2.36...v39.2.37-alpha.1) (2024-06-19)
+
+
+### Bug Fixes
+
+* upgrade analytics dependency to branch ci bundle ([07aae89](https://github.com/dhis2/data-visualizer-app/commit/07aae89aa8beb68fdddc65d8c11ebc66f60b3091))
+
 ## [39.2.36](https://github.com/dhis2/data-visualizer-app/compare/v39.2.35...v39.2.36) (2024-06-16)
 
 
