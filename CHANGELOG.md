@@ -1,3 +1,10 @@
+## [39.2.37](https://github.com/dhis2/data-visualizer-app/compare/v39.2.36...v39.2.37) (2024-06-21)
+
+
+### Bug Fixes
+
+* upgrade @dhis2/analytics for scoped pivot table styles v39 ([#3104](https://github.com/dhis2/data-visualizer-app/issues/3104)) ([4f0b159](https://github.com/dhis2/data-visualizer-app/commit/4f0b1597eeeb585487ab6ef48e4dc9995a9065df)), closes [#3103](https://github.com/dhis2/data-visualizer-app/issues/3103) [#3103](https://github.com/dhis2/data-visualizer-app/issues/3103)
+
 ## [39.2.36](https://github.com/dhis2/data-visualizer-app/compare/v39.2.35...v39.2.36) (2024-06-16)
 
 
