@@ -25,7 +25,7 @@
         "@dhis2/cypress-plugins": "^10.0.2",
         "@reportportal/agent-js-cypress": "git+https://github.com/dhis2/agent-js-cypress.git#develop",
         "@reportportal/agent-js-jest": "^5.0.6",
-        "cypress": "^13.6.1",
+        "cypress": "^13.12.0",
         "cypress-tags": "^1.1.2",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.7",
