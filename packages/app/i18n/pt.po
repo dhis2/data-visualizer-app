@@ -1,19 +1,19 @@
 # 
 # Translators:
-# phil_dhis2, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
 # Sheila André <sandre@saudigitus.org>, 2021
 # Fernando Jorge Bade, 2021
 # Ge Joao <gsimango@saudigitus.org>, 2022
+# Philip Larsen Donnelly, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-06-07T08:29:46.003Z\n"
 "PO-Revision-Date: 2021-09-03 23:49+0000\n"
-"Last-Translator: Ge Joao <gsimango@saudigitus.org>, 2022\n"
-"Language-Team: Portuguese (https://www.transifex.com/hisp-uio/teams/100509/pt/)\n"
+"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Language-Team: Portuguese (https://app.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,10 +27,10 @@ msgid "Rename successful"
 msgstr "Renomeado com sucesso"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr "Sem título {{visualizaçãoTipo}} visualização, {{date}}"
+msgstr "Sem título {{visualizationType}} visualização, {{date}}"
 
 msgid "\"{{deletedObject}}\" successfully deleted."
-msgstr "\"{{deleteObject}}\" apagado com sucesso."
+msgstr "\"{{deletedObject}}\" apagado com sucesso."
 
 msgid "You have unsaved changes."
 msgstr "Tem alterações não gravadas."
@@ -52,7 +52,7 @@ msgid "Yes, leave"
 msgstr "Sim, sair"
 
 msgid "Add to {{axisName}}"
-msgstr "Adicionar à {{Nomedoeixo}}"
+msgstr "Adicionar à {{axisName}}"
 
 msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
@@ -172,11 +172,11 @@ msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr "{{total}} of {{axisMaxNumberOfItems}} selected"
 
 msgid "{{total}} selected"
-msgstr "{{Total}} selecionados "
+msgstr "{{total}} selecionados "
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
-"{{dimension Name}} está bloqueado para {{axisName}} para {{visTypeName}}"
+"{{dimensionName}} está bloqueado para {{axisName}} para {{visTypeName}}"
 
 msgid "Not available for Scatter"
 msgstr "Não disponível para Dispersão"
@@ -197,10 +197,10 @@ msgid "None selected"
 msgstr "Nenhum selecionado"
 
 msgid "Only '{{- name}}' in use"
-msgstr "Apenas '{{- nome}}' em uso"
+msgstr "Apenas '{{- name}}' em uso"
 
 msgid "Only '{{number}}' in use"
-msgstr "Somente '{{numero}}' em uso"
+msgstr "Somente '{{number}}' em uso"
 
 msgid "All items are selected"
 msgstr "Todos os itens são selecionados"
@@ -215,7 +215,7 @@ msgid "And 1 other..."
 msgstr "E mais 1 ..."
 
 msgid "And {{numberOfItems}} others..."
-msgstr "E mais {{númerodeítens}} outros ..."
+msgstr "E mais {{numberOfItems}} outros ..."
 
 msgid "Select a period"
 msgstr "Selecionar periodos "
@@ -237,7 +237,7 @@ msgid "Edited"
 msgstr "Editada"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr "Visualizando interpretação de {{interpretaçãoDados}}"
+msgstr "Visualizando interpretação de {{interpretationDate}}"
 
 msgid "Update"
 msgstr "Actualizar"
@@ -626,7 +626,7 @@ msgid "Visualization type"
 msgstr "Tipo de visualização"
 
 msgid "Axis {{axisId}}"
-msgstr "Eixo {{eixoId}}"
+msgstr "Eixo {{axisId}}"
 
 msgid "Series is empty"
 msgstr "A série está vazia."
@@ -743,13 +743,13 @@ msgid "Add at least one item to {{axisName}}."
 msgstr "Adicione pelo menos um item ao {{axisName}}."
 
 msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
-msgstr "{{columnAxisName}} e {{linesAxisName}} estão vazias"
+msgstr "{{columnsAxisName}} e {{rowsAxisName}} estão vazias"
 
 msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
 " {{visualizationType}}."
 msgstr ""
-"Adicione pelo menos um item a {{columnAxisName}} ou {{linesAxisName}} para "
+"Adicione pelo menos um item a {{columnsAxisName}} ou {{rowsAxisName}} para "
 "criar um {{visualizationType}}."
 
 msgid "No period selected"
@@ -762,7 +762,7 @@ msgstr ""
 "{{axes}}. "
 
 msgid "Add organisation units to {{axisName}}."
-msgstr "Adicione unidades de organização a {{nome eixo}}}"
+msgstr "Adicione unidades de organização a {{axisName}}}"
 
 msgid "Vertical is empty"
 msgstr "Vertical está vazio"
@@ -1015,7 +1015,7 @@ msgid "Empty data"
 msgstr "Dados vazios"
 
 msgid "Horizontal (x) axis {{axisId}}"
-msgstr "Horizontal (x) eixo {{eixoId}}"
+msgstr "Horizontal (x) eixo {{axisId}}"
 
 msgid "Horizontal (x) axis"
 msgstr "Eixo Horizontal (x) "
@@ -1027,7 +1027,7 @@ msgid "Totals"
 msgstr "Totais"
 
 msgid "Vertical (y) axis {{axisId}}"
-msgstr "Eixo vertical (y) {{eixoId}}"
+msgstr "Eixo vertical (y) {{axisId}}"
 
 msgid "Vertical (y) axis"
 msgstr "Eixo vertical (y)"
