@@ -2,7 +2,7 @@ import { InterpretationModal as AnalyticsInterpretationModal } from '@dhis2/anal
 import PropTypes from 'prop-types'
 import React, { useState, useEffect, useCallback } from 'react'
 import { useSelector } from 'react-redux'
-import { sGetCurrent } from '../../reducers/current.js'
+import { sGetVisualization } from '../../reducers/visualization.js'
 import { ModalDownloadDropdown } from '../DownloadMenu/index.js'
 import { VisualizationPluginWrapper } from '../VisualizationPlugin/VisualizationPluginWrapper.js'
 import {
@@ -13,7 +13,7 @@ import {
 const InterpretationModal = ({ onInterpretationUpdate }, context) => {
     const { interpretationId, initialFocus } = useInterpretationQueryParams()
     const [isVisualizationLoading, setIsVisualizationLoading] = useState(false)
-    const visualization = useSelector(sGetCurrent)
+    const visualization = useSelector(sGetVisualization)
 
     useEffect(() => {
         setIsVisualizationLoading(!!interpretationId)
