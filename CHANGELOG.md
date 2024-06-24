@@ -1,3 +1,10 @@
+## [39.2.38](https://github.com/dhis2/data-visualizer-app/compare/v39.2.37...v39.2.38) (2024-06-24)
+
+
+### Bug Fixes
+
+* use saved visualization in interpretation modal [v39] ([#3122](https://github.com/dhis2/data-visualizer-app/issues/3122)) ([82907ee](https://github.com/dhis2/data-visualizer-app/commit/82907ee24912e95b9f8c381bc87cd4bd3579c7f9))
+
 ## [39.2.37](https://github.com/dhis2/data-visualizer-app/compare/v39.2.36...v39.2.37) (2024-06-21)
 
 
