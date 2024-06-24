@@ -1,3 +1,10 @@
+## [100.5.7](https://github.com/dhis2/data-visualizer-app/compare/v100.5.6...v100.5.7) (2024-06-24)
+
+
+### Bug Fixes
+
+* use saved visualization in interpretation modal ([#3121](https://github.com/dhis2/data-visualizer-app/issues/3121)) ([1853a62](https://github.com/dhis2/data-visualizer-app/commit/1853a62d3eb3a744c4728491d624453cd6150d4e))
+
 ## [100.5.6](https://github.com/dhis2/data-visualizer-app/compare/v100.5.5...v100.5.6) (2024-06-17)
 
 
