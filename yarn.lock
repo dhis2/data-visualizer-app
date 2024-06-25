@@ -2138,9 +2138,10 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@git+https://github.com/d2-ci/analytics.git#f58938b1f6f5289a5d5c30d1e6819abc1f6a2c68":
-  version "24.10.11"
-  resolved "git+https://github.com/d2-ci/analytics.git#f58938b1f6f5289a5d5c30d1e6819abc1f6a2c68"
+"@dhis2/analytics@^24.10.12":
+  version "24.10.12"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-24.10.12.tgz#2eb0a466570aff572defc77aafd4710359079250"
+  integrity sha512-eqDCD1Is2XOdRTuDjnpoRImgVO8sa3AgqN8G0RSPnkrvg/ohqBvAkpir0RECDjLGkmYNuxTXkA/zCjc+m32RWQ==
   dependencies:
     "@dhis2/d2-ui-rich-text" "^7.4.0"
     "@dhis2/multi-calendar-dates" "^1.2.2"
