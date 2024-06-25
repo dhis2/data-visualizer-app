@@ -1,3 +1,10 @@
+## [39.2.39](https://github.com/dhis2/data-visualizer-app/compare/v39.2.38...v39.2.39) (2024-06-25)
+
+
+### Bug Fixes
+
+* bump analytics with fix for DHIS2-16904 v39 ([#3127](https://github.com/dhis2/data-visualizer-app/issues/3127)) ([12b4d10](https://github.com/dhis2/data-visualizer-app/commit/12b4d101c7af93ec77ab6a996d6666a555dcb6db))
+
 ## [39.2.38](https://github.com/dhis2/data-visualizer-app/compare/v39.2.37...v39.2.38) (2024-06-24)
 
 
