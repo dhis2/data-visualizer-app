@@ -1,3 +1,10 @@
+## [100.5.8](https://github.com/dhis2/data-visualizer-app/compare/v100.5.7...v100.5.8) (2024-06-25)
+
+
+### Bug Fixes
+
+* bump analytics with fix for DHIS2-16904 ([#3124](https://github.com/dhis2/data-visualizer-app/issues/3124)) ([4996f7a](https://github.com/dhis2/data-visualizer-app/commit/4996f7a194e4bbe77a50510dd000b21ac1c1b066))
+
 ## [100.5.7](https://github.com/dhis2/data-visualizer-app/compare/v100.5.6...v100.5.7) (2024-06-24)
 
 
