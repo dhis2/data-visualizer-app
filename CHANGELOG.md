@@ -1,3 +1,10 @@
+## [100.5.9](https://github.com/dhis2/data-visualizer-app/compare/v100.5.8...v100.5.9) (2024-06-27)
+
+
+### Bug Fixes
+
+* analytics@26.7.6 apply legend to all numeric and boolean types ([#3128](https://github.com/dhis2/data-visualizer-app/issues/3128)) ([7ba8ae0](https://github.com/dhis2/data-visualizer-app/commit/7ba8ae01fc624bd769b82ac41e97b9bc6eeec916))
+
 ## [100.5.8](https://github.com/dhis2/data-visualizer-app/compare/v100.5.7...v100.5.8) (2024-06-25)
 
 
