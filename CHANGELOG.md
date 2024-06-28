@@ -1,3 +1,10 @@
+## [39.2.40](https://github.com/dhis2/data-visualizer-app/compare/v39.2.39...v39.2.40) (2024-06-28)
+
+
+### Bug Fixes
+
+* analytics@24.10.13 apply legend to all numeric and boolean types ([#3130](https://github.com/dhis2/data-visualizer-app/issues/3130)) ([4ab25a4](https://github.com/dhis2/data-visualizer-app/commit/4ab25a468756126cbdbf698fde6a294e3fddf6c4))
+
 ## [39.2.39](https://github.com/dhis2/data-visualizer-app/compare/v39.2.38...v39.2.39) (2024-06-25)
 
 
