@@ -19,7 +19,7 @@
         "cy:run": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress run --browser chrome headless --env networkMode=live'"
     },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^11.5.0",
+        "@dhis2/cli-app-scripts": "^11.5.1",
         "@dhis2/cli-style": "^10.5.1",
         "@dhis2/cypress-commands": "^10.0.3",
         "@dhis2/cypress-plugins": "^10.0.2",
