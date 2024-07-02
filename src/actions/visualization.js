@@ -14,6 +14,6 @@ export const acSetVisualization = (visualization) => {
     }
 }
 
-export const acClear = () => ({
+export const acClearVisualization = () => ({
     type: CLEAR_VISUALIZATION,
 })
