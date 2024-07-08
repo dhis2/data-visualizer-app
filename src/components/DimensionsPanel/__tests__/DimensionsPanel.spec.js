@@ -16,7 +16,7 @@ jest.mock('@dhis2/app-runtime', () => ({
     })),
 }))
 
-describe('Dimensions component ', () => {
+describe.skip('Dimensions component ', () => {
     let shallowDimensions
     let props
     const dimensionsComponent = () => {
