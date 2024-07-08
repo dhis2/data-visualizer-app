@@ -3,6 +3,19 @@ import React from 'react'
 import { Dimensions } from '../DimensionsPanel.js'
 import { DndDimensionsPanel } from '../DndDimensionsPanel.js'
 
+jest.mock('@dhis2/app-runtime', () => ({
+    useDataEngine: jest.fn(() => ({
+        query: Function.prototype,
+    })),
+    useCachedDataQuery: jest.fn(() => ({
+        currentUser: {
+            settings: {
+                DERIVED_USER_SETTINGS_DISPLAY_NAME_PROPERTY: 'displayName',
+            },
+        },
+    })),
+}))
+
 describe('Dimensions component ', () => {
     let shallowDimensions
     let props
