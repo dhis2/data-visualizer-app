@@ -6,8 +6,8 @@ const throwIfNotInitialized = () => {
 }
 
 export const ChartContext = createContext({
-    getChart: throwIfNotInitialized,
-    setChart: throwIfNotInitialized,
+    getChartInstance: throwIfNotInitialized,
+    setChartInstance: throwIfNotInitialized,
     isHighchartsChartInstance: throwIfNotInitialized,
 })
 
