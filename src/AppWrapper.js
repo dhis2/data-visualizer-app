@@ -5,6 +5,7 @@ import React from 'react'
 import { Provider as ReduxProvider } from 'react-redux'
 import thunk from 'redux-thunk'
 import { App } from './components/App.js'
+import { HighchartsChartProvider } from './components/HighchartsChartProvider.js'
 import UserSettingsProvider, {
     UserSettingsCtx,
 } from './components/UserSettingsProvider.js'
@@ -33,37 +34,43 @@ const AppWrapper = () => {
 
     return (
         <ReduxProvider store={store}>
-            <DataStoreProvider namespace={USER_DATASTORE_NAMESPACE}>
-                <UserSettingsProvider>
-                    <UserSettingsCtx.Consumer>
-                        {({ userSettings }) => {
-                            return userSettings?.uiLocale ? (
-                                <D2Shim
-                                    d2Config={d2Config}
-                                    locale={userSettings.uiLocale}
-                                >
-                                    {({ d2 }) => {
-                                        if (!d2) {
-                                            // TODO: Handle errors in d2 initialization
-                                            return null
-                                        } else {
-                                            return (
-                                                <App
-                                                    d2={d2}
-                                                    location={history.location}
-                                                    baseUrl={baseUrl}
-                                                    dataEngine={engine}
-                                                    userSettings={userSettings}
-                                                />
-                                            )
-                                        }
-                                    }}
-                                </D2Shim>
-                            ) : null
-                        }}
-                    </UserSettingsCtx.Consumer>
-                </UserSettingsProvider>
-            </DataStoreProvider>
+            <HighchartsChartProvider>
+                <DataStoreProvider namespace={USER_DATASTORE_NAMESPACE}>
+                    <UserSettingsProvider>
+                        <UserSettingsCtx.Consumer>
+                            {({ userSettings }) => {
+                                return userSettings?.uiLocale ? (
+                                    <D2Shim
+                                        d2Config={d2Config}
+                                        locale={userSettings.uiLocale}
+                                    >
+                                        {({ d2 }) => {
+                                            if (!d2) {
+                                                // TODO: Handle errors in d2 initialization
+                                                return null
+                                            } else {
+                                                return (
+                                                    <App
+                                                        d2={d2}
+                                                        location={
+                                                            history.location
+                                                        }
+                                                        baseUrl={baseUrl}
+                                                        dataEngine={engine}
+                                                        userSettings={
+                                                            userSettings
+                                                        }
+                                                    />
+                                                )
+                                            }
+                                        }}
+                                    </D2Shim>
+                                ) : null
+                            }}
+                        </UserSettingsCtx.Consumer>
+                    </UserSettingsProvider>
+                </DataStoreProvider>
+            </HighchartsChartProvider>
         </ReduxProvider>
     )
 }

@@ -41,7 +41,8 @@ const ChartPlugin = ({
                     visualizationConfig.visualization.getSVGForExport({
                         sourceHeight: 768,
                         sourceWidth: 1024,
-                    })
+                    }),
+                    visualizationConfig.visualization
                 )
             }
         },

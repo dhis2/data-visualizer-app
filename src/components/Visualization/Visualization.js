@@ -32,6 +32,7 @@ import { sGetLoadError, sGetIsPluginLoading } from '../../reducers/loader.js'
 import { sGetSettingsDisplayProperty } from '../../reducers/settings.js'
 import { sGetUiRightSidebarOpen } from '../../reducers/ui.js'
 import LoadingMask from '../../widgets/LoadingMask.js'
+import { HighchartsChartContext } from '../HighchartsChartProvider.js'
 import { VisualizationPlugin } from '../VisualizationPlugin/VisualizationPlugin.js'
 import StartScreen from './StartScreen.js'
 import styles from './styles/Visualization.style.js'
@@ -99,7 +100,10 @@ export class UnconnectedVisualization extends Component {
         this.props.setLoadError(error)
     }
 
-    onChartGenerated = (svg) => this.props.setChart(svg)
+    onChartGenerated = (svg, highchartsChart) => {
+        this.props.setChart(svg)
+        this.context.setChartInstance(highchartsChart)
+    }
 
     onDataSorted = (sorting) => {
         this.props.onLoadingStart()
@@ -256,6 +260,8 @@ UnconnectedVisualization.propTypes = {
     onLoadingComplete: PropTypes.func,
     onLoadingStart: PropTypes.func,
 }
+
+UnconnectedVisualization.contextType = HighchartsChartContext
 
 const mapStateToProps = (state) => ({
     visualization: sGetCurrent(state),
