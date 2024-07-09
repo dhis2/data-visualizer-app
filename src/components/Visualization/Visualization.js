@@ -36,7 +36,7 @@ import { sGetLoadError, sGetIsPluginLoading } from '../../reducers/loader.js'
 import { sGetSettingsDisplayProperty } from '../../reducers/settings.js'
 import { sGetUiRightSidebarOpen } from '../../reducers/ui.js'
 import LoadingMask from '../../widgets/LoadingMask.js'
-import { ChartContext } from '../ChartProvider.js'
+import { HighchartsChartContext } from '../HighchartsChartProvider.js'
 import { VisualizationPlugin } from '../VisualizationPlugin/VisualizationPlugin.js'
 import StartScreen from './StartScreen.js'
 import styles from './styles/Visualization.style.js'
@@ -104,8 +104,9 @@ export class UnconnectedVisualization extends Component {
         this.props.setLoadError(error)
     }
 
-    onChartGenerated = (chart) => {
-        this.context.setChart(chart)
+    onChartGenerated = (svg, highchartsChart) => {
+        this.props.setChart(svg)
+        this.context.setChartInstance(highchartsChart)
     }
 
     onDataSorted = (sorting) => {
@@ -268,13 +269,7 @@ UnconnectedVisualization.propTypes = {
     onLoadingStart: PropTypes.func,
 }
 
-UnconnectedVisualization.contextType = ChartContext
-// Needed for Jest/Enzyme context mocking to work
-UnconnectedVisualization.contextTypes = {
-    getChart: PropTypes.func,
-    setChart: PropTypes.func,
-    isHighchartsChartInstance: PropTypes.func,
-}
+UnconnectedVisualization.contextType = HighchartsChartContext
 
 const mapStateToProps = (state) => ({
     visualization: sGetCurrent(state),
