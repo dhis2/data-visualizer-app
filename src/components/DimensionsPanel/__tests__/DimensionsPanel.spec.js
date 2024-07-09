@@ -7,6 +7,10 @@ jest.mock('@dhis2/app-runtime', () => ({
     useDataEngine: jest.fn(() => ({
         query: Function.prototype,
     })),
+}))
+
+jest.mock('@dhis2/analytics', () => ({
+    ...jest.requireActual('@dhis2/analytics'),
     useCachedDataQuery: jest.fn(() => ({
         currentUser: {
             settings: {
@@ -14,9 +18,10 @@ jest.mock('@dhis2/app-runtime', () => ({
             },
         },
     })),
+    CachedDataQueryProvider: () => <div className="CachedDataQueryProvider" />,
 }))
 
-describe.skip('Dimensions component ', () => {
+describe('Dimensions component ', () => {
     let shallowDimensions
     let props
     const dimensionsComponent = () => {
