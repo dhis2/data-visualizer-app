@@ -3,7 +3,6 @@ import { useConfig, useDataEngine, useDataMutation } from '@dhis2/app-runtime'
 import { useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { getAnalyticsRequestForOutlierTable } from '../../api/analytics.js'
-import { sGetChart } from '../../reducers/chart.js'
 import { sGetCurrent } from '../../reducers/current.js'
 import { sGetSettingsDisplayProperty } from '../../reducers/settings.js'
 import {
@@ -11,7 +10,7 @@ import {
     sGetUiLayoutColumns,
     sGetUiLayoutRows,
 } from '../../reducers/ui.js'
-import { useHighchartsChartContext } from '../HighchartsChartProvider.js'
+import { useChartContext } from '../ChartProvider.js'
 import {
     DOWNLOAD_TYPE_PLAIN,
     DOWNLOAD_TYPE_TABLE,
@@ -60,12 +59,11 @@ const useDownload = (relativePeriodDate) => {
     const displayProperty = useSelector(sGetSettingsDisplayProperty)
     const visualization = useSelector(sGetCurrent)
     const visType = useSelector(sGetUiType)
-    const chart = useSelector(sGetChart)
     const columns = useSelector(sGetUiLayoutColumns)
     const rows = useSelector(sGetUiLayoutRows)
     const { baseUrl } = useConfig()
     const dataEngine = useDataEngine()
-    const { getChartInstance } = useHighchartsChartContext()
+    const { getChart, isHighchartsChartInstance } = useChartContext()
     const analyticsEngine = Analytics.getAnalytics(dataEngine)
 
     const openDownloadedFileInBlankTab = useCallback((blob) => {
@@ -83,24 +81,38 @@ const useDownload = (relativePeriodDate) => {
 
     const doDownloadImage = useCallback(
         ({ format }) => {
-            console.log('getChartInstance()', getChartInstance())
-            if (!visualization) {
+            const chart = getChart()
+
+            if (!visualization || !chart) {
                 return false
             }
 
-            const formData = {
-                filename: visualization.name,
-            }
+            if (isHighchartsChartInstance()) {
+                console.log('client side download', chart)
+                /* Ensure to set dimensions, as we did before
+                 * {
+                        sourceHeight: 768,
+                        sourceWidth: 1024,
+                    }
+                 */
+            } else {
+                /* Single value visualizations are not produced via
+                 * Highcharts and they still need to be exported using
+                 * the legacy conversion endpoints */
+                const formData = {
+                    filename: visualization.name,
+                }
 
-            if (chart) {
-                formData.svg = chart
-            }
+                if (chart) {
+                    formData.svg = chart
+                }
 
-            format === FILE_FORMAT_PNG
-                ? getPng({ formData })
-                : getPdf({ formData })
+                format === FILE_FORMAT_PNG
+                    ? getPng({ formData })
+                    : getPdf({ formData })
+            }
         },
-        [chart, getChartInstance, getPdf, getPng, visualization]
+        [getChart, getPdf, getPng, visualization, isHighchartsChartInstance]
     )
 
     const doDownloadData = useCallback(
