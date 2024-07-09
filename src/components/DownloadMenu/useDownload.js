@@ -87,14 +87,29 @@ const useDownload = (relativePeriodDate) => {
                 return false
             }
 
+            const isPng = format === FILE_FORMAT_PNG
+
             if (isHighchartsChartInstance()) {
                 console.log('client side download', chart)
-                /* Ensure to set dimensions, as we did before
-                 * {
-                        sourceHeight: 768,
-                        sourceWidth: 1024,
-                    }
-                 */
+                chart.exportChartLocal({
+                    sourceHeight: 768,
+                    sourceWidth: 1024,
+                    scale: 1,
+                    fallbackToExportServer: false,
+                    filename: visualization.name,
+                    showExportInProgress: true,
+                    type: isPng ? 'image/png' : 'application/pdf',
+                    /* Setting the pdfFont property does not have the desired effect.
+                     * The PDF is now showing some sort of serif font type. According
+                     * to the docs this should work */
+                    pdfFont: {
+                        normal: 'https://www.highcharts.com/samples/data/fonts/NotoSans-Regular.ttf',
+                        bold: 'https://www.highcharts.com/samples/data/fonts/NotoSans-Bold.ttf',
+                        bolditalic:
+                            'https://www.highcharts.com/samples/data/fonts/NotoSans-BoldItalic.ttf',
+                        italic: 'https://www.highcharts.com/samples/data/fonts/NotoSans-Italic.ttf',
+                    },
+                })
             } else {
                 /* Single value visualizations are not produced via
                  * Highcharts and they still need to be exported using
@@ -107,9 +122,7 @@ const useDownload = (relativePeriodDate) => {
                     formData.svg = chart
                 }
 
-                format === FILE_FORMAT_PNG
-                    ? getPng({ formData })
-                    : getPdf({ formData })
+                isPng ? getPng({ formData }) : getPdf({ formData })
             }
         },
         [getChart, getPdf, getPng, visualization, isHighchartsChartInstance]
