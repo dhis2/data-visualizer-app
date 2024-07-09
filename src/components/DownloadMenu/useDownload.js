@@ -3,7 +3,6 @@ import { useConfig, useDataEngine, useDataMutation } from '@dhis2/app-runtime'
 import { useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { getAnalyticsRequestForOutlierTable } from '../../api/analytics.js'
-import { getNotoFontVariantsForLocale } from '../../modules/notoFontForLocale/index.js'
 import { sGetCurrent } from '../../reducers/current.js'
 import { sGetSettingsDisplayProperty } from '../../reducers/settings.js'
 import {
@@ -11,7 +10,7 @@ import {
     sGetUiLayoutColumns,
     sGetUiLayoutRows,
 } from '../../reducers/ui.js'
-import { useHighchartsChartContext } from '../HighchartsChartProvider.js'
+import { useChartContext } from '../ChartProvider.js'
 import {
     DOWNLOAD_TYPE_PLAIN,
     DOWNLOAD_TYPE_TABLE,
@@ -65,7 +64,7 @@ const useDownload = (relativePeriodDate) => {
     const { baseUrl } = useConfig()
     const { dbLocale } = useUserSettings()
     const dataEngine = useDataEngine()
-    const { getChartInstance } = useHighchartsChartContext()
+    const { getChart, isHighchartsChartInstance } = useChartContext()
     const analyticsEngine = Analytics.getAnalytics(dataEngine)
 
     const openDownloadedFileInBlankTab = useCallback((blob) => {
@@ -83,24 +82,20 @@ const useDownload = (relativePeriodDate) => {
 
     const doDownloadImage = useCallback(
         ({ format }) => {
-            console.log('getChartInstance()', getChartInstance())
-            if (!visualization) {
+            const chart = getChart()
+
+            if (!visualization || !chart) {
                 return false
             }
 
-            const isPng = format === FILE_FORMAT_PNG
-
             if (isHighchartsChartInstance()) {
-                chart.exportChartLocal({
-                    sourceHeight: 768,
-                    sourceWidth: 1024,
-                    scale: 1,
-                    fallbackToExportServer: false,
-                    filename: visualization.name,
-                    showExportInProgress: true,
-                    type: isPng ? 'image/png' : 'application/pdf',
-                    pdfFont: getNotoFontVariantsForLocale(dbLocale),
-                })
+                console.log('client side download', chart)
+                /* Ensure to set dimensions, as we did before
+                 * {
+                        sourceHeight: 768,
+                        sourceWidth: 1024,
+                    }
+                 */
             } else {
                 /* Single value visualizations are not produced via
                  * Highcharts and they still need to be exported using
@@ -113,10 +108,12 @@ const useDownload = (relativePeriodDate) => {
                     formData.svg = chart
                 }
 
-                isPng ? getPng({ formData }) : getPdf({ formData })
+                format === FILE_FORMAT_PNG
+                    ? getPng({ formData })
+                    : getPdf({ formData })
             }
         },
-        [chart, getChartInstance, getPdf, getPng, visualization]
+        [getChart, getPdf, getPng, visualization, isHighchartsChartInstance]
     )
 
     const doDownloadData = useCallback(
