@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux'
-import chart, * as fromChart from './chart.js'
 import current, * as fromCurrent from './current.js'
 import dimensions, * as fromDimensions from './dimensions.js'
 import loader, * as fromLoader from './loader.js'
@@ -24,7 +23,6 @@ export default combineReducers({
     user,
     snackbar,
     loader,
-    chart,
 })
 
 // Selectors
@@ -40,7 +38,6 @@ export {
     fromUser,
     fromSnackbar,
     fromLoader,
-    fromChart,
 }
 
 export const sGetSeriesSetupItems = (state) =>

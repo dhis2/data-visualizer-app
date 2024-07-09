@@ -5,7 +5,7 @@ import React from 'react'
 import { Provider as ReduxProvider } from 'react-redux'
 import thunk from 'redux-thunk'
 import { App } from './components/App.js'
-import { HighchartsChartProvider } from './components/HighchartsChartProvider.js'
+import { ChartProvider } from './components/ChartProvider.js'
 import UserSettingsProvider, {
     UserSettingsCtx,
 } from './components/UserSettingsProvider.js'
@@ -34,7 +34,7 @@ const AppWrapper = () => {
 
     return (
         <ReduxProvider store={store}>
-            <HighchartsChartProvider>
+            <ChartProvider>
                 <DataStoreProvider namespace={USER_DATASTORE_NAMESPACE}>
                     <UserSettingsProvider>
                         <UserSettingsCtx.Consumer>
@@ -70,7 +70,7 @@ const AppWrapper = () => {
                         </UserSettingsCtx.Consumer>
                     </UserSettingsProvider>
                 </DataStoreProvider>
-            </HighchartsChartProvider>
+            </ChartProvider>
         </ReduxProvider>
     )
 }
