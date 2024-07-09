@@ -34,7 +34,17 @@ const ChartPlugin = ({
                 isSingleValue(visualization.type) ? 'dhis' : 'highcharts' // output format
             )
 
-            onChartGenerated(visualizationConfig.visualization)
+            if (isSingleValue(visualization.type)) {
+                onChartGenerated(visualizationConfig.visualization)
+            } else {
+                onChartGenerated(
+                    visualizationConfig.visualization.getSVGForExport({
+                        sourceHeight: 768,
+                        sourceWidth: 1024,
+                    }),
+                    visualizationConfig.visualization
+                )
+            }
         },
         [
             canvasRef,
