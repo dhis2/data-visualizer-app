@@ -11,6 +11,7 @@ import {
     sGetUiLayoutColumns,
     sGetUiLayoutRows,
 } from '../../reducers/ui.js'
+import { useHighchartsChartContext } from '../HighchartsChartProvider.js'
 import {
     DOWNLOAD_TYPE_PLAIN,
     DOWNLOAD_TYPE_TABLE,
@@ -64,6 +65,7 @@ const useDownload = (relativePeriodDate) => {
     const rows = useSelector(sGetUiLayoutRows)
     const { baseUrl } = useConfig()
     const dataEngine = useDataEngine()
+    const { getChartInstance } = useHighchartsChartContext()
     const analyticsEngine = Analytics.getAnalytics(dataEngine)
 
     const openDownloadedFileInBlankTab = useCallback((blob) => {
@@ -81,6 +83,7 @@ const useDownload = (relativePeriodDate) => {
 
     const doDownloadImage = useCallback(
         ({ format }) => {
+            console.log('getChartInstance()', getChartInstance())
             if (!visualization) {
                 return false
             }
@@ -97,7 +100,7 @@ const useDownload = (relativePeriodDate) => {
                 ? getPng({ formData })
                 : getPdf({ formData })
         },
-        [chart, getPdf, getPng, visualization]
+        [chart, getChartInstance, getPdf, getPng, visualization]
     )
 
     const doDownloadData = useCallback(
