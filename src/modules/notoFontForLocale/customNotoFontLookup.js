@@ -29,7 +29,7 @@
  * corresponds to multiple non-ASCII scripts then choosing the
  * correct font bundle based on a language code is technicaly
  * impossible. The only way to ensure the correct font bundle for
- * PDF generation is be ensuring that the locale string contains a
+ * PDF generation is by ensuring that the locale string contains a
  * script section. In the lookup below these ambiguous languaes
  * have been disabled, because it is better to serve the base Noto
  * font in these cases */
