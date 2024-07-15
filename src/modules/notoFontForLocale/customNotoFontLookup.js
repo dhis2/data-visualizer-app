@@ -4,20 +4,16 @@
  * https://unicode.org/iso15924/iso15924-codes.html
  * An overview of scripts commonly used with different languages:
  * https://www.unicode.org/cldr/charts/44/supplemental/languages_and_scripts.html
- * We have identified the following languages/scripts which
+ * We have identified the following countries which
  * require a custom Noto font bundle:
  * - Arabic
- * - Bengali/Bangla
  * - Ethiopic
  * - Hewbrew
  * - Japanese
- * - Khmer
  * - Korean
  * - Lao
  * - Myanmar
- * - Odia
  * - Simplified Chinese
- * - Sinhala
  * - Thai
  * The lookup below describes the scripts and languages per
  * custom font bundle. It's likely that this lookup is not
@@ -33,7 +29,7 @@
  * corresponds to multiple non-ASCII scripts then choosing the
  * correct font bundle based on a language code is technicaly
  * impossible. The only way to ensure the correct font bundle for
- * PDF generation is by ensuring that the locale string contains a
+ * PDF generation is be ensuring that the locale string contains a
  * script section. In the lookup below these ambiguous languaes
  * have been disabled, because it is better to serve the base Noto
  * font in these cases */
@@ -185,53 +181,6 @@ export const customNotoFontLookup = new Map([
         {
             scripts: new Set(['Mymr']),
             languages: new Set(['my', 'kht', 'mnw', 'shn']),
-        },
-    ],
-    [
-        'NotoSansBengali',
-        {
-            scripts: new Set(['Beng']),
-            languages: new Set([
-                'as',
-                'bn',
-                'bpy',
-                // 'ccp', (Beng + Cakm)
-                'grt',
-                'kha',
-                // 'mni', (Beng, Mtei)
-                'lus',
-                // 'unx' (Beng + Deva),
-                // 'unr' (Beng + Deva),
-                'rkt',
-                // 'sat' (Beng + Deva + Orya + Olck)
-                // 'syl' (Beng + Sylo)
-            ]),
-        },
-    ],
-    [
-        'NotoSansKhmer',
-        { scripts: new Set(['Khmr']), languages: new Set(['km']) },
-    ],
-    [
-        'NotoSansOriya',
-        {
-            scripts: new Set(['Orya']),
-            languages: new Set([
-                // 'kxv', (Orya + Deva + Telu)
-                'or',
-                // 'sat' (Orya + Beng + Deva + Olck)
-            ]),
-        },
-    ],
-    [
-        'NotoSansSinhala',
-        {
-            scripts: new Set(['Sinh']),
-            languages: new Set([
-                'si',
-                // 'pi', (Sihn + Deva + Thai)
-                // 'sa', (Sihn + Deva + Gran + Shrd + Sidd)
-            ]),
         },
     ],
 ])
