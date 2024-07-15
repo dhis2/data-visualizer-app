@@ -3,6 +3,7 @@ import { useConfig, useDataEngine, useDataMutation } from '@dhis2/app-runtime'
 import { useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { getAnalyticsRequestForOutlierTable } from '../../api/analytics.js'
+import { getNotoFontVariantsForLocale } from '../../modules/notoFontForLocale/index.js'
 import { sGetCurrent } from '../../reducers/current.js'
 import { sGetSettingsDisplayProperty } from '../../reducers/settings.js'
 import {
@@ -11,6 +12,7 @@ import {
     sGetUiLayoutRows,
 } from '../../reducers/ui.js'
 import { useChartContext } from '../ChartProvider.js'
+import { useUserSettings } from '../UserSettingsProvider.js'
 import {
     DOWNLOAD_TYPE_PLAIN,
     DOWNLOAD_TYPE_TABLE,
@@ -91,7 +93,6 @@ const useDownload = (relativePeriodDate) => {
             const isPng = format === FILE_FORMAT_PNG
 
             if (isHighchartsChartInstance()) {
-                console.log('client side download', chart)
                 chart.exportChartLocal({
                     sourceHeight: 768,
                     sourceWidth: 1024,
@@ -100,16 +101,7 @@ const useDownload = (relativePeriodDate) => {
                     filename: visualization.name,
                     showExportInProgress: true,
                     type: isPng ? 'image/png' : 'application/pdf',
-                    /* Setting the pdfFont property does not have the desired effect.
-                     * The PDF is now showing some sort of serif font type. According
-                     * to the docs this should work */
-                    pdfFont: {
-                        normal: 'https://www.highcharts.com/samples/data/fonts/NotoSans-Regular.ttf',
-                        bold: 'https://www.highcharts.com/samples/data/fonts/NotoSans-Bold.ttf',
-                        bolditalic:
-                            'https://www.highcharts.com/samples/data/fonts/NotoSans-BoldItalic.ttf',
-                        italic: 'https://www.highcharts.com/samples/data/fonts/NotoSans-Italic.ttf',
-                    },
+                    pdfFont: getNotoFontVariantsForLocale(dbLocale),
                 })
             } else {
                 /* Single value visualizations are not produced via
@@ -126,7 +118,14 @@ const useDownload = (relativePeriodDate) => {
                 isPng ? getPng({ formData }) : getPdf({ formData })
             }
         },
-        [getChart, getPdf, getPng, visualization, isHighchartsChartInstance]
+        [
+            dbLocale,
+            getChart,
+            getPdf,
+            getPng,
+            visualization,
+            isHighchartsChartInstance,
+        ]
     )
 
     const doDownloadData = useCallback(
