@@ -38,7 +38,7 @@ const AppWrapper = () => {
                 <DataStoreProvider namespace={USER_DATASTORE_NAMESPACE}>
                     <UserSettingsProvider>
                         <UserSettingsCtx.Consumer>
-                            {({ userSettings }) => {
+                            {(userSettings) => {
                                 return userSettings?.uiLocale ? (
                                     <D2Shim
                                         d2Config={d2Config}
