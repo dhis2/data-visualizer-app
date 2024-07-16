@@ -1,3 +1,5 @@
+console.log('JEST CONFIG', process.env)
+
 module.exports = {
     transformIgnorePatterns: [
         'node_modules/(?!(lodash-es|@dhis2/d2-ui-[a-z-]+)/)',
@@ -6,7 +8,7 @@ module.exports = {
 
     testRunner: 'jest-circus/runner',
     reporters: [
-        'default',
+        'github-actions',
         [
             '@reportportal/agent-js-jest',
             {
