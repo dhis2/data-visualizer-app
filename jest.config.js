@@ -4,7 +4,7 @@ const reportPortalConfig = [
         apiKey: process.env.REPORTPORTAL_API_KEY,
         endpoint: process.env.REPORTPORTAL_ENDPOINT,
         project: process.env.REPORTPORTAL_PROJECT,
-        launch: 'maps_app',
+        launch: 'data-visualizer-app',
         attributes: [
             {
                 key: 'dhis2_version',
