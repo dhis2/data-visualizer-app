@@ -4,16 +4,20 @@
  * https://unicode.org/iso15924/iso15924-codes.html
  * An overview of scripts commonly used with different languages:
  * https://www.unicode.org/cldr/charts/44/supplemental/languages_and_scripts.html
- * We have identified the following countries which
+ * We have identified the following languages/scripts which
  * require a custom Noto font bundle:
  * - Arabic
+ * - Bengali/Bangla
  * - Ethiopic
  * - Hewbrew
  * - Japanese
+ * - Khmer
  * - Korean
  * - Lao
  * - Myanmar
+ * - Odia
  * - Simplified Chinese
+ * - Sinhala
  * - Thai
  * The lookup below describes the scripts and languages per
  * custom font bundle. It's likely that this lookup is not
