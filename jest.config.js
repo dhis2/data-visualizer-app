@@ -32,7 +32,7 @@ const reportPortalConfig = [
             },
         ],
         description: '',
-        debug: true,
+        debug: false,
     },
 ]
 
