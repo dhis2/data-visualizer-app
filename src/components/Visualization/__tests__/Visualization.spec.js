@@ -10,9 +10,14 @@ describe('Visualization', () => {
     describe('component', () => {
         let props
         let shallowVisualization
+        const setChart = jest.fn()
         const vis = () => {
             if (!shallowVisualization) {
-                shallowVisualization = shallow(<Visualization {...props} />)
+                shallowVisualization = shallow(<Visualization {...props} />, {
+                    context: {
+                        setChart,
+                    },
+                })
             }
             return shallowVisualization
         }
@@ -26,7 +31,6 @@ describe('Visualization', () => {
                 error: null,
                 rightSidebarOpen: false,
                 addMetadata: jest.fn(),
-                setChart: jest.fn(),
                 clearLoadError: jest.fn(),
                 setLoadError: jest.fn(),
                 onLoadingComplete: jest.fn(),
@@ -71,12 +75,12 @@ describe('Visualization', () => {
         })
 
         it('triggers setChart action when chart has been generated', () => {
-            const svg = 'coolChart'
+            const highChartChartInstanceMock = {}
 
-            vis().instance().onChartGenerated(svg)
+            vis().instance().onChartGenerated(highChartChartInstanceMock)
 
-            expect(props.setChart).toHaveBeenCalled()
-            expect(props.setChart).toHaveBeenCalledWith(svg)
+            expect(setChart).toHaveBeenCalled()
+            expect(setChart).toHaveBeenCalledWith(highChartChartInstanceMock)
         })
 
         it('renders visualization with new id when rightSidebarOpen prop changes', () => {

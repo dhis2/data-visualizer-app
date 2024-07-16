@@ -259,6 +259,12 @@ UnconnectedVisualization.propTypes = {
 }
 
 UnconnectedVisualization.contextType = ChartContext
+// Needed for Jest/Enzyme context mocking to work
+UnconnectedVisualization.contextTypes = {
+    getChart: PropTypes.func,
+    setChart: PropTypes.func,
+    isHighchartsChartInstance: PropTypes.func,
+}
 
 const mapStateToProps = (state) => ({
     visualization: sGetCurrent(state),

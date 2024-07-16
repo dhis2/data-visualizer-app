@@ -72,7 +72,7 @@ class MockAnalyticsResponse {
 
 const createVisualizationMock = {
     visualization: {
-        getSVGForExport: () => '<svg />',
+        exportChartLocal: jest.fn(),
     },
     config: {
         getConfig: () => {},
@@ -148,7 +148,7 @@ describe('ChartPlugin', () => {
             setTimeout(() => {
                 expect(props.onChartGenerated).toHaveBeenCalled()
                 expect(props.onChartGenerated).toHaveBeenCalledWith(
-                    createVisualizationMock.visualization.getSVGForExport()
+                    createVisualizationMock.visualization
                 )
                 done()
             })
