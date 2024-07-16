@@ -183,4 +183,51 @@ export const customNotoFontLookup = new Map([
             languages: new Set(['my', 'kht', 'mnw', 'shn']),
         },
     ],
+    [
+        'NotoSansBengali',
+        {
+            scripts: new Set(['Beng']),
+            languages: new Set([
+                'as',
+                'bn',
+                'bpy',
+                // 'ccp', (Beng + Cakm)
+                'grt',
+                'kha',
+                // 'mni', (Beng, Mtei)
+                'lus',
+                // 'unx' (Beng + Deva),
+                // 'unr' (Beng + Deva),
+                'rkt',
+                // 'sat' (Beng + Deva + Orya + Olck)
+                // 'syl' (Beng + Sylo)
+            ]),
+        },
+    ],
+    [
+        'NotoSansKhmer',
+        { scripts: new Set(['Khmr']), languages: new Set(['km']) },
+    ],
+    [
+        'NotoSansOriya',
+        {
+            scripts: new Set(['Orya']),
+            languages: new Set([
+                // 'kxv', (Orya + Deva + Telu)
+                'or',
+                // 'sat' (Orya + Beng + Deva + Olck)
+            ]),
+        },
+    ],
+    [
+        'NotoSansSinhala',
+        {
+            scripts: new Set(['Sinh']),
+            languages: new Set([
+                'si',
+                // 'pi', (Sihn + Deva + Thai)
+                // 'sa', (Sihn + Deva + Gran + Shrd + Sidd)
+            ]),
+        },
+    ],
 ])
