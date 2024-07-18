@@ -189,6 +189,7 @@ const Chip = ({
                         dimensionId,
                         DIMENSION_PROP_NO_ITEMS
                     ) && !items.length,
+                [styles.assignedCategories]: dimensionId === 'co',
             })}
             data-dimensionid={dimensionId}
             draggable={!isLocked}
