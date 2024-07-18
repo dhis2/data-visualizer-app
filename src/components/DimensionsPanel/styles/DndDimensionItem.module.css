@@ -1,5 +1,5 @@
 /*
-This keeps the dimension item clone from causing 
+This keeps the dimension item clone from causing
 a ripple effect in the Dimension list during drag
 */
 
@@ -10,4 +10,7 @@ a ripple effect in the Dimension list during drag
 .dragging {
     background-color: #e8edf2;
     border-radius: 2px;
+}
+.assignedCategories {
+    cursor: grab !important;
 }

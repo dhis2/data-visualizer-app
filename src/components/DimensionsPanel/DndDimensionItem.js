@@ -1,4 +1,5 @@
 import { DimensionItem } from '@dhis2/analytics'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { Draggable } from 'react-beautiful-dnd'
@@ -41,11 +42,11 @@ export class DndDimensionItem extends Component {
                             innerRef={provided.innerRef}
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
-                            className={
-                                snapshot.isDragging
-                                    ? styles.dragging
-                                    : styles.notDragging
-                            }
+                            className={cx({
+                                [styles.dragging]: snapshot.isDragging,
+                                [styles.notDragging]: !snapshot.isDragging,
+                                [styles.assignedCategories]: id === 'co',
+                            })}
                             onClick={onClick}
                             onOptionsClick={onOptionsClick}
                             {...itemCommonProps}
