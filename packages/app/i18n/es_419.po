@@ -394,7 +394,7 @@ msgid "Large"
 msgstr ""
 
 msgid "Small"
-msgstr ""
+msgstr "Pequeña"
 
 msgid "Hide empty columns"
 msgstr ""
