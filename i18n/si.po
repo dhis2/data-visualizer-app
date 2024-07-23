@@ -1,13 +1,13 @@
 # 
 # Translators:
-# Malinda Wijeratne, 2023
+# Malinda Wijeratne, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-03-07T12:07:38.393Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Malinda Wijeratne, 2023\n"
+"POT-Creation-Date: 2024-03-01T08:28:43.727Z\n"
+"PO-Revision-Date: 2024-07-23 22:28+0000\n"
+"Last-Translator: Malinda Wijeratne, 2024\n"
 "Language-Team: Sinhala (https://app.transifex.com/hisp-uio/teams/100509/si/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,8 +48,8 @@ msgid "Add to {{axisName}}"
 msgstr ""
 
 msgid ""
-"'{{visualizationType}}' is intended to show a single data item. Only the "
-"first item will be used and saved."
+"'{{visualizationType}}' is intended to show a single item for this type of "
+"dimension. Only the first item will be used and saved."
 msgstr ""
 
 msgid ""
@@ -60,6 +60,11 @@ msgstr ""
 msgid ""
 "'Scatter' is intended to show a single data item per axis. Only the first "
 "item will be used and saved."
+msgstr ""
+
+msgid ""
+"'Outlier table' shows values from data elements only. Only data elements "
+"will be used and saved."
 msgstr ""
 
 msgid "Vertical"
@@ -129,7 +134,7 @@ msgid "ID"
 msgstr ""
 
 msgid "Code"
-msgstr "කේත කරන්න"
+msgstr ""
 
 msgid "Name"
 msgstr "නම"
@@ -147,18 +152,12 @@ msgid "HTML (.html)"
 msgstr ""
 
 msgid "Download"
-msgstr "බාගත කරන්න"
+msgstr ""
 
 msgid "Hide"
 msgstr ""
 
-msgid "All"
-msgstr "සියල්ල"
-
-msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr ""
-
-msgid "{{total}} selected"
+msgid "all"
 msgstr ""
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
@@ -182,10 +181,13 @@ msgstr ""
 msgid "None selected"
 msgstr ""
 
+msgid "None in use"
+msgstr ""
+
 msgid "Only '{{- name}}' in use"
 msgstr ""
 
-msgid "Only '{{number}}' in use"
+msgid "Only {{number}} in use"
 msgstr ""
 
 msgid "All items are selected"
@@ -207,9 +209,6 @@ msgid "Select a period"
 msgstr ""
 
 msgid "Select years"
-msgstr ""
-
-msgid "Interpretations"
 msgstr ""
 
 msgid ""
@@ -253,7 +252,7 @@ msgid "By data element"
 msgstr ""
 
 msgid "Count"
-msgstr "ගණන"
+msgstr ""
 
 msgid "Average"
 msgstr "සාමාන්‍ය"
@@ -271,10 +270,10 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr ""
 
 msgid "Min"
-msgstr "අවම"
+msgstr ""
 
 msgid "Max"
-msgstr "උපරිම"
+msgstr ""
 
 msgid "Standard deviation"
 msgstr ""
@@ -377,6 +376,9 @@ msgstr ""
 msgid "Cumulative values"
 msgstr ""
 
+msgid "Accumulate cell values along rows"
+msgstr ""
+
 msgid "Show data item icon"
 msgstr ""
 
@@ -432,10 +434,10 @@ msgid "Font size"
 msgstr ""
 
 msgid "Large"
-msgstr "ලොකු"
+msgstr ""
 
 msgid "Small"
-msgstr "කුඩා"
+msgstr ""
 
 msgid "Hide empty columns"
 msgstr ""
@@ -451,6 +453,9 @@ msgstr ""
 
 msgid "Before first and after last"
 msgstr ""
+
+msgid "All"
+msgstr "සියල්ල"
 
 msgid "Hide empty rows"
 msgstr ""
@@ -476,10 +481,10 @@ msgstr ""
 msgid "Legend type"
 msgstr ""
 
-msgid "Use pre-defined legend per data item"
+msgid "Use pre-defined legend by data item"
 msgstr ""
 
-msgid "Select a single legend for the entire visualization"
+msgid "Select a legend"
 msgstr ""
 
 msgid "Legend changes background color"
@@ -522,7 +527,7 @@ msgid "Display the value of percentages of the total"
 msgstr ""
 
 msgid "Value"
-msgstr "අගය"
+msgstr ""
 
 msgid "Percentage of row"
 msgstr ""
@@ -562,6 +567,14 @@ msgid ""
 msgstr ""
 
 msgid "Outlier detection method"
+msgstr ""
+
+msgid "Max results"
+msgstr ""
+
+msgid ""
+"The maximum number of outlier values to show in the table. Must be between "
+"1-500."
 msgstr ""
 
 msgid "Organisation unit"
@@ -685,11 +698,84 @@ msgstr ""
 msgid "{{level}} level in {{orgunit}}"
 msgstr ""
 
+msgid "Sort ascending by {{columnName}} and update"
+msgstr ""
+
+msgid "Sort descending by {{columnName}} and update"
+msgstr ""
+
 msgid "Open as Map"
 msgstr ""
 
 msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
+msgstr ""
+
+msgid "Category option combination"
+msgstr ""
+
+msgid "Absolute deviation"
+msgstr ""
+
+msgid ""
+"A measure of the absolute difference between each data point and a central "
+"value, usually the mean or median, providing a straightforward understanding"
+" of dispersion in the dataset."
+msgstr ""
+
+msgid ""
+"A measure of how far a data point deviates from the median, using the median"
+" absolute deviation instead of the standard deviation, making it robust "
+"against outliers."
+msgstr ""
+
+msgid "Median"
+msgstr ""
+
+msgid ""
+"The middle value in a dataset when the values are arranged in ascending or "
+"descending order. It's a robust measure of central tendency that is less "
+"affected by outliers compared to the mean."
+msgstr ""
+
+msgid "Median absolute deviation"
+msgstr ""
+
+msgid ""
+"A robust measure of variability, found by calculating the median of the "
+"absolute differences between each data point and the overall median. It's "
+"less influenced by outliers compared to other measures like the standard "
+"deviation."
+msgstr ""
+
+msgid "Z-score"
+msgstr ""
+
+msgid ""
+"A measure of how many standard deviations a data point is from the mean of a"
+" dataset, providing insight into how unusual or typical that data point is "
+"relative to the rest of the distribution."
+msgstr ""
+
+msgid "Mean"
+msgstr ""
+
+msgid "Average of the value over time."
+msgstr ""
+
+msgid ""
+"A measure of how dispersed the data is in relation to the mean. Low standard"
+" deviation indicates data are clustered tightly around the mean, and high "
+"standard deviation indicates data are more spread out."
+msgstr ""
+
+msgid "Minimum score threshold"
+msgstr ""
+
+msgid "Maximum score threshold"
+msgstr ""
+
+msgid "Not supported when using cumulative values"
 msgstr ""
 
 msgid "No data available"
@@ -810,29 +896,43 @@ msgstr ""
 msgid "Something went wrong"
 msgstr ""
 
+msgid ""
+"There's a problem with the generated analytics. Contact a system "
+"administrator."
+msgstr ""
+
+msgid "There's a syntax problem with the analytics request."
+msgstr ""
+
+msgid "No outliers found"
+msgstr ""
+
+msgid "There were no outliers found for the selected data items and options."
+msgstr ""
+
 msgid "or"
 msgstr "හෝ"
 
 msgid "Today"
-msgstr "අද"
+msgstr ""
 
 msgid "Yesterday"
-msgstr "ඊයේ"
+msgstr ""
 
 msgid "Last 3 days"
-msgstr "පසුගිය දින 3"
+msgstr ""
 
 msgid "Last 7 days"
 msgstr "පසුගිය දින 7"
 
 msgid "Last 14 days"
-msgstr "පසුගිය දින 14"
+msgstr ""
 
 msgid "This week"
-msgstr "මෙම සතිය"
+msgstr ""
 
 msgid "Last week"
-msgstr "පසුගිය සතිය"
+msgstr ""
 
 msgid "Last 4 weeks"
 msgstr "පසුගිය සති 4"
@@ -841,16 +941,16 @@ msgid "Last 12 weeks"
 msgstr "පසුගිය සති 12"
 
 msgid "Last 52 weeks"
-msgstr "පසුගිය සති 52"
+msgstr ""
 
 msgid "Weeks this year"
 msgstr ""
 
 msgid "This month"
-msgstr "මෙම මාසය"
+msgstr ""
 
 msgid "Last month"
-msgstr "පසුගිය මාසය"
+msgstr ""
 
 msgid "Last 3 months"
 msgstr "පසුගිය මාස 3"
@@ -859,7 +959,7 @@ msgid "Last 6 months"
 msgstr "පසුගිය මාස 6"
 
 msgid "Last 12 months"
-msgstr "පසුගිය මාස 12"
+msgstr ""
 
 msgid "Months this year"
 msgstr ""
@@ -907,13 +1007,13 @@ msgid "Last 5 financial years"
 msgstr ""
 
 msgid "This year"
-msgstr "මෙම වසර"
+msgstr ""
 
 msgid "Last year"
-msgstr "පසුගිය වසර"
+msgstr ""
 
 msgid "Last 5 years"
-msgstr "පසුගිය 5 වසර"
+msgstr ""
 
 msgid "User organisation unit"
 msgstr ""
@@ -970,7 +1070,10 @@ msgid "Lines"
 msgstr ""
 
 msgid "Totals"
-msgstr "එකතු"
+msgstr ""
+
+msgid "Totals are not supported when using cumulative values"
+msgstr ""
 
 msgid "Vertical (y) axis {{axisId}}"
 msgstr ""
@@ -985,7 +1088,7 @@ msgid "Axes"
 msgstr ""
 
 msgid "Data"
-msgstr "දත්ත"
+msgstr ""
 
 msgid "Limit values"
 msgstr ""
@@ -1054,8 +1157,11 @@ msgid "Display a single value. Recommend relative period to show latest data."
 msgstr ""
 
 msgid ""
-"View the relationship between two data items at a place or time. Recommended"
-" for finding outliers."
+"Compare the relationship between two data items across multiple places. "
+"Recommended for visualizing outliers."
+msgstr ""
+
+msgid "Automatically identify extreme outliers based on historical data."
 msgstr ""
 
 msgid "Weeks per year"

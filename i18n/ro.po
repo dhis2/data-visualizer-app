@@ -1,14 +1,14 @@
 # 
 # Translators:
-# Valeriu Plesca <vplesca@gmail.com>, 2022
+# Valeriu Plesca <vplesca@gmail.com>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2022-06-17T07:32:29.449Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Valeriu Plesca <vplesca@gmail.com>, 2022\n"
-"Language-Team: Romanian (https://www.transifex.com/hisp-uio/teams/100509/ro/)\n"
+"POT-Creation-Date: 2024-03-01T08:28:43.727Z\n"
+"PO-Revision-Date: 2024-07-23 22:28+0000\n"
+"Last-Translator: Valeriu Plesca <vplesca@gmail.com>, 2024\n"
+"Language-Team: Romanian (https://app.transifex.com/hisp-uio/teams/100509/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr ""
 
-msgid "\"{{deletedObject}}\" successfully deleted."
+msgid "\"{{- deletedObject}}\" successfully deleted."
 msgstr ""
 
 msgid "You have unsaved changes."
@@ -39,7 +39,7 @@ msgid ""
 msgstr ""
 
 msgid "No, cancel"
-msgstr "Nu, anulare"
+msgstr ""
 
 msgid "Yes, leave"
 msgstr ""
@@ -48,8 +48,8 @@ msgid "Add to {{axisName}}"
 msgstr ""
 
 msgid ""
-"'{{visualizationType}}' is intended to show a single data item. Only the "
-"first item will be used and saved."
+"'{{visualizationType}}' is intended to show a single item for this type of "
+"dimension. Only the first item will be used and saved."
 msgstr ""
 
 msgid ""
@@ -60,6 +60,11 @@ msgstr ""
 msgid ""
 "'Scatter' is intended to show a single data item per axis. Only the first "
 "item will be used and saved."
+msgstr ""
+
+msgid ""
+"'Outlier table' shows values from data elements only. Only data elements "
+"will be used and saved."
 msgstr ""
 
 msgid "Vertical"
@@ -152,13 +157,7 @@ msgstr ""
 msgid "Hide"
 msgstr ""
 
-msgid "All"
-msgstr ""
-
-msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr ""
-
-msgid "{{total}} selected"
+msgid "all"
 msgstr ""
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
@@ -182,10 +181,13 @@ msgstr ""
 msgid "None selected"
 msgstr ""
 
+msgid "None in use"
+msgstr ""
+
 msgid "Only '{{- name}}' in use"
 msgstr ""
 
-msgid "Only '{{number}}' in use"
+msgid "Only {{number}} in use"
 msgstr ""
 
 msgid "All items are selected"
@@ -209,9 +211,6 @@ msgstr ""
 msgid "Select years"
 msgstr ""
 
-msgid "Interpretations"
-msgstr ""
-
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
@@ -224,7 +223,7 @@ msgid "Edited"
 msgstr ""
 
 msgid "Update"
-msgstr "Actualizare"
+msgstr ""
 
 msgid "Getting started"
 msgstr ""
@@ -271,10 +270,10 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr ""
 
 msgid "Min"
-msgstr "Min"
+msgstr ""
 
 msgid "Max"
-msgstr "Max"
+msgstr ""
 
 msgid "Standard deviation"
 msgstr ""
@@ -377,6 +376,15 @@ msgstr ""
 msgid "Cumulative values"
 msgstr ""
 
+msgid "Accumulate cell values along rows"
+msgstr ""
+
+msgid "Show data item icon"
+msgstr ""
+
+msgid "If the data item has an icon, display it next to the value"
+msgstr ""
+
 msgid "Digit group separator"
 msgstr ""
 
@@ -446,6 +454,9 @@ msgstr ""
 msgid "Before first and after last"
 msgstr ""
 
+msgid "All"
+msgstr ""
+
 msgid "Hide empty rows"
 msgstr ""
 
@@ -470,10 +481,10 @@ msgstr ""
 msgid "Legend type"
 msgstr ""
 
-msgid "Use pre-defined legend per data item"
+msgid "Use pre-defined legend by data item"
 msgstr ""
 
-msgid "Select a single legend for the entire visualization"
+msgid "Select a legend"
 msgstr ""
 
 msgid "Legend changes background color"
@@ -558,11 +569,19 @@ msgstr ""
 msgid "Outlier detection method"
 msgstr ""
 
+msgid "Max results"
+msgstr ""
+
+msgid ""
+"The maximum number of outlier values to show in the table. Must be between "
+"1-500."
+msgstr ""
+
 msgid "Organisation unit"
-msgstr "Unitate organizațională"
+msgstr ""
 
 msgid "Parent organisation unit"
-msgstr "Organizația părinte"
+msgstr ""
 
 msgid "Reporting period"
 msgstr "Perioadă de raportare"
@@ -571,7 +590,7 @@ msgid "Stacked values add up to 100%"
 msgstr ""
 
 msgid "Include regression"
-msgstr "Includere regresia"
+msgstr ""
 
 msgid "Title"
 msgstr ""
@@ -653,7 +672,7 @@ msgid "Low to high"
 msgstr "De la mic spre mare"
 
 msgid "High to low"
-msgstr "De la mare spre mic"
+msgstr ""
 
 msgid "Add a subtitle"
 msgstr ""
@@ -668,9 +687,21 @@ msgid "Position"
 msgstr ""
 
 msgid "Top limit"
-msgstr "Limită superioară"
+msgstr ""
 
 msgid "Options"
+msgstr ""
+
+msgid "Change org unit"
+msgstr ""
+
+msgid "{{level}} level in {{orgunit}}"
+msgstr ""
+
+msgid "Sort ascending by {{columnName}} and update"
+msgstr ""
+
+msgid "Sort descending by {{columnName}} and update"
 msgstr ""
 
 msgid "Open as Map"
@@ -680,19 +711,71 @@ msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
 msgstr ""
 
-msgid "Reporting rate"
+msgid "Category option combination"
 msgstr ""
 
-msgid "Reporting rate on time"
+msgid "Absolute deviation"
 msgstr ""
 
-msgid "Actual reports"
+msgid ""
+"A measure of the absolute difference between each data point and a central "
+"value, usually the mean or median, providing a straightforward understanding"
+" of dispersion in the dataset."
 msgstr ""
 
-msgid "Actual reports on time"
+msgid ""
+"A measure of how far a data point deviates from the median, using the median"
+" absolute deviation instead of the standard deviation, making it robust "
+"against outliers."
 msgstr ""
 
-msgid "Expected reports"
+msgid "Median"
+msgstr ""
+
+msgid ""
+"The middle value in a dataset when the values are arranged in ascending or "
+"descending order. It's a robust measure of central tendency that is less "
+"affected by outliers compared to the mean."
+msgstr ""
+
+msgid "Median absolute deviation"
+msgstr ""
+
+msgid ""
+"A robust measure of variability, found by calculating the median of the "
+"absolute differences between each data point and the overall median. It's "
+"less influenced by outliers compared to other measures like the standard "
+"deviation."
+msgstr ""
+
+msgid "Z-score"
+msgstr ""
+
+msgid ""
+"A measure of how many standard deviations a data point is from the mean of a"
+" dataset, providing insight into how unusual or typical that data point is "
+"relative to the rest of the distribution."
+msgstr ""
+
+msgid "Mean"
+msgstr ""
+
+msgid "Average of the value over time."
+msgstr ""
+
+msgid ""
+"A measure of how dispersed the data is in relation to the mean. Low standard"
+" deviation indicates data are clustered tightly around the mean, and high "
+"standard deviation indicates data are more spread out."
+msgstr ""
+
+msgid "Minimum score threshold"
+msgstr ""
+
+msgid "Maximum score threshold"
+msgstr ""
+
+msgid "Not supported when using cumulative values"
 msgstr ""
 
 msgid "No data available"
@@ -762,8 +845,8 @@ msgid "There's a problem with the layout"
 msgstr ""
 
 msgid ""
-"A single indicator must be the only data item when using indicators as Data "
-"in Filter."
+"A single indicator or calculation must be the only data item when using "
+"indicators or calculations as Data in Filter."
 msgstr ""
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
@@ -802,32 +885,54 @@ msgstr ""
 msgid "The level or group selections didn't return any organization units."
 msgstr ""
 
+msgid "Invalid data type"
+msgstr ""
+
+msgid ""
+"The selected data dimensions didn't return any valid data. This "
+"visualization type can only display numerical data."
+msgstr ""
+
 msgid "Something went wrong"
+msgstr ""
+
+msgid ""
+"There's a problem with the generated analytics. Contact a system "
+"administrator."
+msgstr ""
+
+msgid "There's a syntax problem with the analytics request."
+msgstr ""
+
+msgid "No outliers found"
+msgstr ""
+
+msgid "There were no outliers found for the selected data items and options."
 msgstr ""
 
 msgid "or"
 msgstr ""
 
 msgid "Today"
-msgstr "Astăzi"
+msgstr ""
 
 msgid "Yesterday"
-msgstr "Ieri"
+msgstr ""
 
 msgid "Last 3 days"
-msgstr "Ultimele 3 zile"
+msgstr ""
 
 msgid "Last 7 days"
 msgstr "Ultimele 7 zile"
 
 msgid "Last 14 days"
-msgstr "Ultimele 14 zile"
+msgstr ""
 
 msgid "This week"
-msgstr "Săptămâna aceasta"
+msgstr ""
 
 msgid "Last week"
-msgstr "Săptămâna trecută"
+msgstr ""
 
 msgid "Last 4 weeks"
 msgstr "Ultimele 4 săptămâni"
@@ -836,16 +941,16 @@ msgid "Last 12 weeks"
 msgstr "Ultimele 12 săptămâni"
 
 msgid "Last 52 weeks"
-msgstr "Ultimele 52 de săptămâni"
+msgstr ""
 
 msgid "Weeks this year"
-msgstr "Săptămâni în anul curent"
+msgstr ""
 
 msgid "This month"
-msgstr "Luna aceasta"
+msgstr ""
 
 msgid "Last month"
-msgstr "Luna trecută"
+msgstr ""
 
 msgid "Last 3 months"
 msgstr "Ultimele 3 luni"
@@ -854,10 +959,10 @@ msgid "Last 6 months"
 msgstr "Ultimele 6 luni"
 
 msgid "Last 12 months"
-msgstr "Ultimele 12 luni"
+msgstr ""
 
 msgid "Months this year"
-msgstr "Luni în anul curent"
+msgstr ""
 
 msgid "This bimonth"
 msgstr ""
@@ -878,19 +983,19 @@ msgid "Last quarter"
 msgstr "Ultimul trimestru"
 
 msgid "Last 4 quarters"
-msgstr "Ultimele 4 trimestre"
+msgstr ""
 
 msgid "Quarters this year"
-msgstr "Trimestre în anul curent"
+msgstr ""
 
 msgid "This six-month"
 msgstr ""
 
 msgid "Last six-month"
-msgstr "Ultimele șase luni"
+msgstr ""
 
 msgid "Last 2 six-months"
-msgstr "Ultimele 2 șase luni"
+msgstr ""
 
 msgid "This financial year"
 msgstr ""
@@ -899,16 +1004,16 @@ msgid "Last financial year"
 msgstr "Ultimul an financiar"
 
 msgid "Last 5 financial years"
-msgstr "Ultimii 5 ani financiari"
+msgstr ""
 
 msgid "This year"
 msgstr ""
 
 msgid "Last year"
-msgstr "Anul trecut"
+msgstr ""
 
 msgid "Last 5 years"
-msgstr "Ultimii 5 ani"
+msgstr ""
 
 msgid "User organisation unit"
 msgstr ""
@@ -950,7 +1055,7 @@ msgid "Chart style"
 msgstr ""
 
 msgid "Display"
-msgstr "Afişare"
+msgstr ""
 
 msgid "Empty data"
 msgstr ""
@@ -965,6 +1070,9 @@ msgid "Lines"
 msgstr ""
 
 msgid "Totals"
+msgstr ""
+
+msgid "Totals are not supported when using cumulative values"
 msgstr ""
 
 msgid "Vertical (y) axis {{axisId}}"
@@ -1049,8 +1157,11 @@ msgid "Display a single value. Recommend relative period to show latest data."
 msgstr ""
 
 msgid ""
-"View the relationship between two data items at a place or time. Recommended"
-" for finding outliers."
+"Compare the relationship between two data items across multiple places. "
+"Recommended for visualizing outliers."
+msgstr ""
+
+msgid "Automatically identify extreme outliers based on historical data."
 msgstr ""
 
 msgid "Weeks per year"
