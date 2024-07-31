@@ -159,14 +159,8 @@ msgstr "下载"
 msgid "Hide"
 msgstr "隐藏"
 
-msgid "All"
-msgstr "全部"
-
-msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr "选择了 {{axisMaxNumberOfItems}} 中的{{total}} "
-
-msgid "{{total}} selected"
-msgstr "选择了 {{total}} "
+msgid "all"
+msgstr ""
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} 被 {{axisName}} 为 {{visTypeName}} 锁住"
@@ -461,6 +455,9 @@ msgstr "最后一个后面"
 
 msgid "Before first and after last"
 msgstr "第一个前和最后一个后面"
+
+msgid "All"
+msgstr "全部"
 
 msgid "Hide empty rows"
 msgstr "隐藏空行"

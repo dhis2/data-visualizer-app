@@ -166,14 +166,8 @@ msgstr "Tải về"
 msgid "Hide"
 msgstr "Ẩn"
 
-msgid "All"
-msgstr "Tất cả"
-
-msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr "{{total}} / {{axisMaxNumberOfItems}}Đã chọn "
-
-msgid "{{total}} selected"
-msgstr "Đã chọn {{total}}"
+msgid "all"
+msgstr ""
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} bị khóa với {{axisName}} cho {{visTypeName}}"
@@ -474,6 +468,9 @@ msgstr "Sau giá trị cuối cùng"
 
 msgid "Before first and after last"
 msgstr "Trước giá trị đầu tiên và sau giá trị cuối cùng"
+
+msgid "All"
+msgstr "Tất cả"
 
 msgid "Hide empty rows"
 msgstr "Ẩn dòng rỗng"

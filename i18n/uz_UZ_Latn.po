@@ -165,14 +165,8 @@ msgstr "Yuklash"
 msgid "Hide"
 msgstr "Berkitish"
 
-msgid "All"
-msgstr "Barchasi"
-
-msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr "{{total}} / {{axisMaxNumberOfItems}} dan tanlandi"
-
-msgid "{{total}} selected"
-msgstr "{{total}} tanlandi"
+msgid "all"
+msgstr ""
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} {{visTypeName}} uchun {{axisName}} da qulflangan"
@@ -475,6 +469,9 @@ msgstr "Oxirgidan keyingi"
 
 msgid "Before first and after last"
 msgstr "Birinchidan oldingi va oxirgidan keyingi"
+
+msgid "All"
+msgstr "Barchasi"
 
 msgid "Hide empty rows"
 msgstr "Boʼsh qatorlarni berkitish"
