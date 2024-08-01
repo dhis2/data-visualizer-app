@@ -1,3 +1,5 @@
+import { defaultVisType } from "@dhis2/analytics"
+
 const vstCardEl = 'visualization-type-selector-card'
 const vstButtonEl = 'visualization-type-selector-button'
 const vstButtonTextEl = 'visualization-type-selector-currently-selected-text'

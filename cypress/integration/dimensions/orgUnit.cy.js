@@ -3,6 +3,7 @@ import {
     VIS_TYPE_COLUMN,
     DIMENSION_ID_ORGUNIT,
     AXIS_ID_COLUMNS,
+    defaultVisType,
 } from '@dhis2/analytics'
 import { expectVisualizationToBeVisible } from '../../elements/chart.js'
 import {
@@ -47,7 +48,7 @@ describe(`Org unit dimension`, () => {
         openContextMenu(DIMENSION_ID_ORGUNIT)
         clickContextMenuMove(DIMENSION_ID_ORGUNIT, AXIS_ID_COLUMNS)
         clickMenuBarUpdateButton()
-        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+        expectVisualizationToBeVisible(defaultVisType)
         expectWindowConfigSeriesToHaveLength(1)
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
     })
@@ -61,7 +62,7 @@ describe(`Org unit dimension`, () => {
         selectOrgUnitTreeItem(TEST_ROOT)
         selectOrgUnitTreeItem(TEST_DISTRICT_1)
         clickDimensionModalUpdateButton()
-        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+        expectVisualizationToBeVisible(defaultVisType)
         expectWindowConfigSeriesToHaveLength(2)
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 2)
     })
@@ -77,7 +78,7 @@ describe(`Org unit dimension`, () => {
         expectOrgUnitDimensionToNotBeLoading()
         selectOrgUnitTreeItem(TEST_CHIEFDOM)
         clickDimensionModalUpdateButton()
-        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+        expectVisualizationToBeVisible(defaultVisType)
         expectWindowConfigSeriesToHaveLength(3)
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 3)
     })
@@ -91,7 +92,7 @@ describe(`Org unit dimension`, () => {
         deselectOrgUnitTreeItem(TEST_DISTRICT_1)
         deselectOrgUnitTreeItem(TEST_CHIEFDOM)
         clickDimensionModalUpdateButton()
-        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+        expectVisualizationToBeVisible(defaultVisType)
         expectWindowConfigSeriesToHaveLength(1)
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
     })
@@ -103,7 +104,7 @@ describe(`Org unit dimension`, () => {
         expectOrgUnitTreeToBeEnabled()
         toggleOrgUnitLevel(TEST_LEVEL)
         clickDimensionModalUpdateButton()
-        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+        expectVisualizationToBeVisible(defaultVisType)
         expectWindowConfigSeriesToHaveLength(13) // number of districts in Sierra Leone
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 2)
     })
@@ -113,7 +114,7 @@ describe(`Org unit dimension`, () => {
         expectOrgUnitDimensionToNotBeLoading()
         toggleOrgUnitLevel(TEST_LEVEL)
         clickDimensionModalUpdateButton()
-        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+        expectVisualizationToBeVisible(defaultVisType)
         expectWindowConfigSeriesToHaveLength(1)
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
     })
@@ -125,7 +126,7 @@ describe(`Org unit dimension`, () => {
         expectOrgUnitItemToBeSelected(TEST_ROOT)
         toggleOrgUnitGroup(TEST_GROUP)
         clickDimensionModalUpdateButton()
-        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+        expectVisualizationToBeVisible(defaultVisType)
         expectWindowConfigSeriesToHaveLength(3) // number of items in group
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 2)
     })
@@ -135,7 +136,7 @@ describe(`Org unit dimension`, () => {
         expectOrgUnitDimensionToNotBeLoading()
         toggleOrgUnitGroup(TEST_GROUP)
         clickDimensionModalUpdateButton()
-        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+        expectVisualizationToBeVisible(defaultVisType)
         expectWindowConfigSeriesToHaveLength(1)
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
     })
@@ -149,7 +150,7 @@ describe(`Org unit dimension`, () => {
         selectUserOrgUnit(TEST_USER_ORG_UNIT)
         expectOrgUnitTreeToBeDisabled()
         clickDimensionModalUpdateButton()
-        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+        expectVisualizationToBeVisible(defaultVisType)
         expectWindowConfigSeriesToHaveLength(13) // number of items in user org unit
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
     })
@@ -163,7 +164,7 @@ describe(`Org unit dimension`, () => {
         selectOrgUnitTreeItem(TEST_ROOT)
         expectOrgUnitItemToBeSelected(TEST_ROOT)
         clickDimensionModalUpdateButton()
-        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
+        expectVisualizationToBeVisible(defaultVisType)
         expectWindowConfigSeriesToHaveLength(1)
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
     })
