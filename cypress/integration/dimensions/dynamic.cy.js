@@ -21,6 +21,7 @@ import {
 } from '../../elements/layout.js'
 import { goToStartPage } from '../../elements/startScreen.js'
 import { expectWindowConfigSeriesToHaveLength } from '../../utils/window.js'
+import { changeVisType } from '../../elements/visualizationTypeSelector.js'
 
 const TEST_DYNAMIC_DIMENSION = {
     id: 'J5jldMd8OHv',
@@ -32,6 +33,7 @@ describe(`Dynamic dimension - ${TEST_DYNAMIC_DIMENSION.name}`, () => {
     it('can add and remove items, which persist after saving', () => {
         cy.log('navigates to the start page and adds a data item')
         goToStartPage()
+        changeVisType('Column')
         openDimension(DIMENSION_ID_DATA)
         selectDataElements(['ANC 2nd visit'])
         clickDimensionModalUpdateButton()
