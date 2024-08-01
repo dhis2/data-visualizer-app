@@ -1,7 +1,7 @@
 const vstCardEl = 'visualization-type-selector-card'
 const vstButtonEl = 'visualization-type-selector-button'
 const vstButtonTextEl = 'visualization-type-selector-currently-selected-text'
-const defaultVisTypeName = 'Column'
+const defaultVisTypeName = 'Pivot table'
 
 export const clickVisTypeSelector = () => cy.getBySel(vstButtonEl).click()
 
