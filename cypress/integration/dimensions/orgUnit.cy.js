@@ -1,6 +1,5 @@
 import {
     DIMENSION_ID_DATA,
-    VIS_TYPE_COLUMN,
     DIMENSION_ID_ORGUNIT,
     AXIS_ID_COLUMNS,
     defaultVisType,
