@@ -1,4 +1,4 @@
-import { DIMENSION_ID_DATA, VIS_TYPE_COLUMN } from '@dhis2/analytics'
+import { DIMENSION_ID_DATA, VIS_TYPE_COLUMN, getDisplayNameByVisType } from '@dhis2/analytics'
 import { expectVisualizationToBeVisible } from '../../elements/chart.js'
 import { expectAppToNotBeLoading } from '../../elements/common.js'
 import {
@@ -33,7 +33,7 @@ describe(`Dynamic dimension - ${TEST_DYNAMIC_DIMENSION.name}`, () => {
     it('can add and remove items, which persist after saving', () => {
         cy.log('navigates to the start page and adds a data item')
         goToStartPage()
-        changeVisType('Column')
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_COLUMN))
         openDimension(DIMENSION_ID_DATA)
         selectDataElements(['ANC 2nd visit'])
         clickDimensionModalUpdateButton()

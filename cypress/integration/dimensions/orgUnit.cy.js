@@ -3,6 +3,7 @@ import {
     DIMENSION_ID_ORGUNIT,
     AXIS_ID_COLUMNS,
     VIS_TYPE_COLUMN,
+    getDisplayNameByVisType,
 } from '@dhis2/analytics'
 import { expectVisualizationToBeVisible } from '../../elements/chart.js'
 import {
@@ -42,7 +43,7 @@ describe(`Org unit dimension`, () => {
     const TEST_DEFAULT_ORG_UNIT = 'User organisation unit'
     it('navigates to the start page, adds a data item, moves Org Unit to Series', () => {
         goToStartPage()
-        changeVisType('Column')
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_COLUMN))
         openDimension(DIMENSION_ID_DATA)
         selectDataElements([TEST_DATA_ELEMENT_NAME])
         clickDimensionModalHideButton()
