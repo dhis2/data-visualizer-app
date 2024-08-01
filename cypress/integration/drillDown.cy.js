@@ -5,8 +5,8 @@ import {
     DIMENSION_ID_ORGUNIT,
     AXIS_ID_FILTERS,
     AXIS_ID_ROWS,
-    visTypeDisplayNames,
     VIS_TYPE_PIVOT_TABLE,
+    getDisplayNameByVisType,
 } from '@dhis2/analytics'
 import {
     clickChartItem,
@@ -43,6 +43,7 @@ import { TEST_INDICATORS } from '../utils/data.js'
 describe('Drill-down: Column', () => {
     it('navigates to the start page and adds a data item', () => {
         goToStartPage()
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_COLUMN))
         openDimension(DIMENSION_ID_DATA)
         selectIndicators([TEST_INDICATORS[2].name])
         clickDimensionModalUpdateButton()
@@ -87,7 +88,7 @@ describe('Drill-down: Column', () => {
 describe('Drill-down: Pivot table', () => {
     it('navigates to the start page, changes vis type to Pivot table and adds a data item', () => {
         goToStartPage()
-        changeVisType(visTypeDisplayNames[VIS_TYPE_PIVOT_TABLE])
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_PIVOT_TABLE))
         clickMenuBarUpdateButton()
         openDimension(DIMENSION_ID_DATA)
         selectIndicators([TEST_INDICATORS[2].name])
