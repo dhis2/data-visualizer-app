@@ -38,6 +38,7 @@ import {
 import { openDimension } from '../../elements/dimensionsPanel.js'
 import { saveNewAO } from '../../elements/fileMenu/save.js'
 import { goToStartPage } from '../../elements/startScreen.js'
+import { changeVisType } from '../../elements/visualizationTypeSelector.js'
 
 const PAGE_SIZE = 50
 const DATA_ELEMENTS_URL = '**/dataElements?*'
@@ -47,6 +48,7 @@ const dataChipEl = 'layout-chip-dx'
 describe('Calculations', () => {
     beforeEach(() => {
         goToStartPage()
+        changeVisType('Column')
     })
     it('initial state loads correctly', () => {
         openDimension(DIMENSION_ID_DATA)

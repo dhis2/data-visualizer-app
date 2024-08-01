@@ -2,7 +2,7 @@ import {
     DIMENSION_ID_DATA,
     DIMENSION_ID_ORGUNIT,
     AXIS_ID_COLUMNS,
-    defaultVisType,
+    VIS_TYPE_COLUMN,
 } from '@dhis2/analytics'
 import { expectVisualizationToBeVisible } from '../../elements/chart.js'
 import {
@@ -33,6 +33,7 @@ import { goToStartPage } from '../../elements/startScreen.js'
 import { TEST_DATA_ELEMENTS } from '../../utils/data.js'
 import { getRandomArrayItem } from '../../utils/random.js'
 import { expectWindowConfigSeriesToHaveLength } from '../../utils/window.js'
+import { changeVisType } from '../../elements/visualizationTypeSelector.js'
 
 const TEST_DATA_ELEMENT_NAME = getRandomArrayItem(TEST_DATA_ELEMENTS).name
 
@@ -41,13 +42,14 @@ describe(`Org unit dimension`, () => {
     const TEST_DEFAULT_ORG_UNIT = 'User organisation unit'
     it('navigates to the start page, adds a data item, moves Org Unit to Series', () => {
         goToStartPage()
+        changeVisType('Column')
         openDimension(DIMENSION_ID_DATA)
         selectDataElements([TEST_DATA_ELEMENT_NAME])
         clickDimensionModalHideButton()
         openContextMenu(DIMENSION_ID_ORGUNIT)
         clickContextMenuMove(DIMENSION_ID_ORGUNIT, AXIS_ID_COLUMNS)
         clickMenuBarUpdateButton()
-        expectVisualizationToBeVisible(defaultVisType)
+        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
         expectWindowConfigSeriesToHaveLength(1)
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
     })
@@ -61,7 +63,7 @@ describe(`Org unit dimension`, () => {
         selectOrgUnitTreeItem(TEST_ROOT)
         selectOrgUnitTreeItem(TEST_DISTRICT_1)
         clickDimensionModalUpdateButton()
-        expectVisualizationToBeVisible(defaultVisType)
+        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
         expectWindowConfigSeriesToHaveLength(2)
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 2)
     })
@@ -77,7 +79,7 @@ describe(`Org unit dimension`, () => {
         expectOrgUnitDimensionToNotBeLoading()
         selectOrgUnitTreeItem(TEST_CHIEFDOM)
         clickDimensionModalUpdateButton()
-        expectVisualizationToBeVisible(defaultVisType)
+        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
         expectWindowConfigSeriesToHaveLength(3)
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 3)
     })
@@ -91,7 +93,7 @@ describe(`Org unit dimension`, () => {
         deselectOrgUnitTreeItem(TEST_DISTRICT_1)
         deselectOrgUnitTreeItem(TEST_CHIEFDOM)
         clickDimensionModalUpdateButton()
-        expectVisualizationToBeVisible(defaultVisType)
+        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
         expectWindowConfigSeriesToHaveLength(1)
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
     })
@@ -103,7 +105,7 @@ describe(`Org unit dimension`, () => {
         expectOrgUnitTreeToBeEnabled()
         toggleOrgUnitLevel(TEST_LEVEL)
         clickDimensionModalUpdateButton()
-        expectVisualizationToBeVisible(defaultVisType)
+        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
         expectWindowConfigSeriesToHaveLength(13) // number of districts in Sierra Leone
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 2)
     })
@@ -113,7 +115,7 @@ describe(`Org unit dimension`, () => {
         expectOrgUnitDimensionToNotBeLoading()
         toggleOrgUnitLevel(TEST_LEVEL)
         clickDimensionModalUpdateButton()
-        expectVisualizationToBeVisible(defaultVisType)
+        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
         expectWindowConfigSeriesToHaveLength(1)
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
     })
@@ -125,7 +127,7 @@ describe(`Org unit dimension`, () => {
         expectOrgUnitItemToBeSelected(TEST_ROOT)
         toggleOrgUnitGroup(TEST_GROUP)
         clickDimensionModalUpdateButton()
-        expectVisualizationToBeVisible(defaultVisType)
+        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
         expectWindowConfigSeriesToHaveLength(3) // number of items in group
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 2)
     })
@@ -135,7 +137,7 @@ describe(`Org unit dimension`, () => {
         expectOrgUnitDimensionToNotBeLoading()
         toggleOrgUnitGroup(TEST_GROUP)
         clickDimensionModalUpdateButton()
-        expectVisualizationToBeVisible(defaultVisType)
+        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
         expectWindowConfigSeriesToHaveLength(1)
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
     })
@@ -149,7 +151,7 @@ describe(`Org unit dimension`, () => {
         selectUserOrgUnit(TEST_USER_ORG_UNIT)
         expectOrgUnitTreeToBeDisabled()
         clickDimensionModalUpdateButton()
-        expectVisualizationToBeVisible(defaultVisType)
+        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
         expectWindowConfigSeriesToHaveLength(13) // number of items in user org unit
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
     })
@@ -163,7 +165,7 @@ describe(`Org unit dimension`, () => {
         selectOrgUnitTreeItem(TEST_ROOT)
         expectOrgUnitItemToBeSelected(TEST_ROOT)
         clickDimensionModalUpdateButton()
-        expectVisualizationToBeVisible(defaultVisType)
+        expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
         expectWindowConfigSeriesToHaveLength(1)
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
     })
