@@ -6,11 +6,11 @@ import {
     VIS_TYPE_PIVOT_TABLE,
     VIS_TYPE_STACKED_COLUMN,
     VIS_TYPE_LINE,
-    visTypeDisplayNames,
     DIMENSION_ID_PERIOD,
     AXIS_ID_COLUMNS,
     VIS_TYPE_AREA,
     AXIS_ID_ROWS,
+    getDisplayNameByVisType,
 } from '@dhis2/analytics'
 import {
     expectChartTitleToBeVisible,
@@ -96,6 +96,7 @@ describe('Options - Legend', () => {
     it('applies different styles of legend to a Column chart', () => {
         cy.log('navigates to the start page and add data items')
         goToStartPage()
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_COLUMN))
         openDimension(DIMENSION_ID_DATA)
         selectIndicators(TEST_ITEMS.map((item) => item.name))
         clickDimensionModalUpdateButton()
@@ -169,7 +170,7 @@ describe('Options - Legend', () => {
 
         cy.log('navigates to the start page and adds data items')
         goToStartPage()
-        changeVisType(visTypeDisplayNames[VIS_TYPE_SINGLE_VALUE])
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_SINGLE_VALUE))
         openDimension(DIMENSION_ID_DATA)
         selectIndicators([TEST_ITEM.name])
         clickDimensionModalUpdateButton()
@@ -333,7 +334,7 @@ describe('Options - Legend', () => {
 
         cy.log('navigates to the start page and adds data items')
         goToStartPage()
-        changeVisType(visTypeDisplayNames[VIS_TYPE_GAUGE])
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_GAUGE))
         openDimension(DIMENSION_ID_DATA)
         selectIndicators([TEST_ITEM.name])
         clickDimensionModalUpdateButton()
@@ -399,7 +400,7 @@ describe('Options - Legend', () => {
     it('applies different styles of legend to a Stacked Column chart', () => {
         cy.log('navigates to the start page and adds data items')
         goToStartPage()
-        changeVisType(visTypeDisplayNames[VIS_TYPE_STACKED_COLUMN])
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_STACKED_COLUMN))
         openDimension(DIMENSION_ID_DATA)
         selectIndicators(TEST_ITEMS.map((item) => item.name))
         clickDimensionModalUpdateButton()
@@ -464,7 +465,7 @@ describe('Options - Legend', () => {
 
         cy.log('navigates to the start page and adds data items')
         goToStartPage()
-        changeVisType(visTypeDisplayNames[VIS_TYPE_PIVOT_TABLE])
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_PIVOT_TABLE))
         openDimension(DIMENSION_ID_DATA)
         selectIndicators([TEST_ITEM.name])
         clickDimensionModalUpdateButton()
@@ -559,7 +560,7 @@ describe('Options - Legend', () => {
             'navigates to the start page and adds data items and create Pivot'
         )
         goToStartPage()
-        changeVisType(visTypeDisplayNames[VIS_TYPE_PIVOT_TABLE])
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_PIVOT_TABLE))
         openDimension(DIMENSION_ID_DATA)
         selectIndicators([TEST_ITEM.name])
         clickDimensionModalUpdateButton()
@@ -588,7 +589,7 @@ describe('Options - Legend', () => {
         })
 
         cy.log('changes vis type to Gauge')
-        changeVisType(visTypeDisplayNames[VIS_TYPE_GAUGE])
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_GAUGE))
         clickMenuBarUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_GAUGE)
 
@@ -609,7 +610,7 @@ describe('Options - Legend', () => {
 
         cy.log('navigates to the start page and adds data items')
         goToStartPage()
-        changeVisType(visTypeDisplayNames[VIS_TYPE_PIVOT_TABLE])
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_PIVOT_TABLE))
         openDimension(DIMENSION_ID_DATA)
         selectIndicators([TEST_ITEM.name])
         clickDimensionModalUpdateButton()
@@ -636,7 +637,7 @@ describe('Options - Legend', () => {
         })
 
         cy.log('changes vis type to Single value')
-        changeVisType(visTypeDisplayNames[VIS_TYPE_SINGLE_VALUE])
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_SINGLE_VALUE))
         clickMenuBarUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
 
@@ -650,9 +651,10 @@ describe('Options - Legend', () => {
         expectLegendDisplayStrategyToBeFixed()
     })
 
-    it('applies the legend key setttings when vis type changes: Column -> Pivot table -> Gauge -> Single value', () => {
+    it('applies the legend key settings when vis type changes: Column -> Pivot table -> Gauge -> Single value', () => {
         cy.log('navigates to the start page and adds data items')
         goToStartPage()
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_COLUMN))
         openDimension(DIMENSION_ID_DATA)
         selectIndicators(TEST_ITEMS.map((item) => item.name))
         clickDimensionModalUpdateButton()
@@ -680,7 +682,7 @@ describe('Options - Legend', () => {
         expectLegedKeyItemAmountToBe(TEST_ITEMS.length)
 
         cy.log('changes vis type to Pivot table')
-        changeVisType(visTypeDisplayNames[VIS_TYPE_PIVOT_TABLE])
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_PIVOT_TABLE))
         clickMenuBarUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
 
@@ -701,7 +703,7 @@ describe('Options - Legend', () => {
         expectLegendKeyToBeHidden()
 
         cy.log('changes vis type to Gauge')
-        changeVisType(visTypeDisplayNames[VIS_TYPE_GAUGE])
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_GAUGE))
         clickMenuBarUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_GAUGE)
 
@@ -720,7 +722,7 @@ describe('Options - Legend', () => {
         expectLegedKeyItemAmountToBe(1)
 
         cy.log('changes vis type to Single value')
-        changeVisType(visTypeDisplayNames[VIS_TYPE_SINGLE_VALUE])
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_SINGLE_VALUE))
         clickMenuBarUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
 
@@ -763,7 +765,7 @@ describe('Options - Legend', () => {
         )
 
         cy.log('changes vis type to Area')
-        changeVisType(visTypeDisplayNames[VIS_TYPE_AREA])
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_AREA))
         clickMenuBarUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_AREA)
 
@@ -786,7 +788,7 @@ describe('Options - Legend', () => {
     it('does not enable legend options for Line chart', () => {
         cy.log('navigates to the start page and adds data items')
         goToStartPage()
-        changeVisType(visTypeDisplayNames[VIS_TYPE_LINE])
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_LINE))
         openDimension(DIMENSION_ID_DATA)
         selectIndicators(TEST_ITEMS.map((item) => item.name))
         clickDimensionModalUpdateButton()
