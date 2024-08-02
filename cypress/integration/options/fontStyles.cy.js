@@ -1,4 +1,8 @@
-import { DIMENSION_ID_DATA, VIS_TYPE_COLUMN, getDisplayNameByVisType } from '@dhis2/analytics'
+import {
+    DIMENSION_ID_DATA,
+    VIS_TYPE_COLUMN,
+    getDisplayNameByVisType,
+} from '@dhis2/analytics'
 import {
     expectVisualizationToBeVisible,
     expectChartTitleToBeVisible,
