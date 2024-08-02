@@ -743,6 +743,7 @@ describe('Options - Legend', () => {
     it('does not apply non-applicable options when Column switched to Area', () => {
         cy.log('navigates to the start page and adds data items')
         goToStartPage()
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_COLUMN))
         openDimension(DIMENSION_ID_DATA)
         selectIndicators(TEST_ITEMS.map((item) => item.name))
         clickDimensionModalUpdateButton()
@@ -812,6 +813,7 @@ describe('Options - Legend', () => {
     it('changes legend from per data item to fixed strategy for Column chart', () => {
         cy.log('navigates to the start page and adds data items')
         goToStartPage()
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_COLUMN))
         openDimension(DIMENSION_ID_DATA)
         selectIndicators(TEST_ITEMS.map((item) => item.name))
         clickDimensionModalUpdateButton()
@@ -846,6 +848,7 @@ describe('Options - Legend', () => {
             'navigates to the start page and adds data items, legend and legend key'
         )
         goToStartPage()
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_COLUMN))
         openDimension(DIMENSION_ID_DATA)
         selectIndicators([TEST_ITEM.name])
         clickDimensionModalUpdateButton()
@@ -917,6 +920,7 @@ describe('Options - Legend', () => {
             'navigates to the start page and adds data items, legend and legend key'
         )
         goToStartPage()
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_COLUMN))
         openDimension(DIMENSION_ID_DATA)
         selectIndicators(TEST_ITEMS.map((item) => item.name))
         clickDimensionModalUpdateButton()
