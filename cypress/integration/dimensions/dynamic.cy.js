@@ -20,8 +20,8 @@ import {
     expectDimensionToHaveItemAmount,
 } from '../../elements/layout.js'
 import { goToStartPage } from '../../elements/startScreen.js'
-import { expectWindowConfigSeriesToHaveLength } from '../../utils/window.js'
 import { changeVisType } from '../../elements/visualizationTypeSelector.js'
+import { expectWindowConfigSeriesToHaveLength } from '../../utils/window.js'
 
 const TEST_DYNAMIC_DIMENSION = {
     id: 'J5jldMd8OHv',

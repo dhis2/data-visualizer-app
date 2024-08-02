@@ -27,6 +27,7 @@ import {
     setAxisStepsValue,
 } from '../../elements/optionsModal/index.js'
 import { goToStartPage } from '../../elements/startScreen.js'
+import { changeVisType } from '../../elements/visualizationTypeSelector.js'
 import { CONFIG_DEFAULT_VERTICAL_AXIS_TITLE } from '../../utils/config.js'
 import { TEST_DATA_ELEMENTS } from '../../utils/data.js'
 import { generateRandomNumber, getRandomArrayItem } from '../../utils/random.js'
@@ -38,7 +39,6 @@ import {
     expectWindowConfigYAxisToHaveStepsValue,
     expectWindowConfigAxisTitleToBeValue,
 } from '../../utils/window.js'
-import { changeVisType } from '../../elements/visualizationTypeSelector.js'
 
 const TEST_DATA_ELEMENT_NAME = getRandomArrayItem(TEST_DATA_ELEMENTS).name
 const TEST_MIN_VALUE = generateRandomNumber(-1000, 1000)

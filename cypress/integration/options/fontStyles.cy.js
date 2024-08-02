@@ -32,6 +32,7 @@ import {
     changeColor,
 } from '../../elements/optionsModal/index.js'
 import { goToStartPage } from '../../elements/startScreen.js'
+import { changeVisType } from '../../elements/visualizationTypeSelector.js'
 import {
     CONFIG_DEFAULT_SUBTITLE,
     CONFIG_DEFAULT_TITLE,
@@ -56,7 +57,6 @@ import {
     expectWindowConfigAxisTitleToBeValue,
     expectWindowConfigAxisLabelsToBeValue,
 } from '../../utils/window.js'
-import { changeVisType } from '../../elements/visualizationTypeSelector.js'
 
 const TEST_DATA_ELEMENT_NAME = getRandomArrayItem(TEST_DATA_ELEMENTS).name
 const TITLE_PREFIX = 'option-chart-title'

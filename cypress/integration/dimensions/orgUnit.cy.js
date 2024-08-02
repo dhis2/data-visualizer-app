@@ -31,10 +31,10 @@ import {
 } from '../../elements/layout.js'
 import { clickMenuBarUpdateButton } from '../../elements/menuBar.js'
 import { goToStartPage } from '../../elements/startScreen.js'
+import { changeVisType } from '../../elements/visualizationTypeSelector.js'
 import { TEST_DATA_ELEMENTS } from '../../utils/data.js'
 import { getRandomArrayItem } from '../../utils/random.js'
 import { expectWindowConfigSeriesToHaveLength } from '../../utils/window.js'
-import { changeVisType } from '../../elements/visualizationTypeSelector.js'
 
 const TEST_DATA_ELEMENT_NAME = getRandomArrayItem(TEST_DATA_ELEMENTS).name
 
