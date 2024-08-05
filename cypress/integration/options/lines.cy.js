@@ -1,4 +1,8 @@
-import { DIMENSION_ID_DATA, VIS_TYPE_COLUMN } from '@dhis2/analytics'
+import {
+    DIMENSION_ID_DATA,
+    VIS_TYPE_COLUMN,
+    getDisplayNameByVisType,
+} from '@dhis2/analytics'
 import {
     expectVisualizationToBeVisible,
     expectChartTitleToBeVisible,
@@ -16,6 +20,7 @@ import {
     selectTrendLineType,
 } from '../../elements/optionsModal/index.js'
 import { goToStartPage } from '../../elements/startScreen.js'
+import { changeVisType } from '../../elements/visualizationTypeSelector.js'
 import { CONFIG_DEFAULT_TREND_LINE } from '../../utils/config.js'
 import { TEST_DATA_ELEMENTS } from '../../utils/data.js'
 import {
@@ -30,6 +35,7 @@ const TEST_DATA_ELEMENT_NAMES = TEST_DATA_ELEMENTS.slice(2, 4).map(
 describe('Options - Lines', () => {
     it('navigates to the start page and adds data items', () => {
         goToStartPage()
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_COLUMN))
         openDimension(DIMENSION_ID_DATA)
         selectDataElements(TEST_DATA_ELEMENT_NAMES)
         clickDimensionModalUpdateButton()
