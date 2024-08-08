@@ -1,3 +1,15 @@
+# [100.6.0](https://github.com/dhis2/data-visualizer-app/compare/v100.5.9...v100.6.0) (2024-08-08)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([4c08077](https://github.com/dhis2/data-visualizer-app/commit/4c08077fb9e23b93c2ab564d2bdf0366a0990b69))
+
+
+### Features
+
+* pivot table as default vis type in DV (DHIS2-15833) ([#3159](https://github.com/dhis2/data-visualizer-app/issues/3159)) ([0eccf93](https://github.com/dhis2/data-visualizer-app/commit/0eccf9372c6665ddc0f4bbaea460ad2d21723b2e))
+
 ## [100.5.9](https://github.com/dhis2/data-visualizer-app/compare/v100.5.8...v100.5.9) (2024-06-27)
 
 
