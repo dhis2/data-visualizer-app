@@ -3,7 +3,7 @@ import { useConfig, useDataEngine, useDataMutation } from '@dhis2/app-runtime'
 import { useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { getAnalyticsRequestForOutlierTable } from '../../api/analytics.js'
-import { sGetChart } from '../../reducers/chart.js'
+import { getNotoFontVariantsForLocale } from '../../modules/notoFontForLocale/index.js'
 import { sGetCurrent } from '../../reducers/current.js'
 import { sGetSettingsDisplayProperty } from '../../reducers/settings.js'
 import {
@@ -11,6 +11,8 @@ import {
     sGetUiLayoutColumns,
     sGetUiLayoutRows,
 } from '../../reducers/ui.js'
+import { useChartContext } from '../ChartProvider.js'
+import { useUserSettings } from '../UserSettingsProvider.js'
 import {
     DOWNLOAD_TYPE_PLAIN,
     DOWNLOAD_TYPE_TABLE,
@@ -59,11 +61,12 @@ const useDownload = (relativePeriodDate) => {
     const displayProperty = useSelector(sGetSettingsDisplayProperty)
     const visualization = useSelector(sGetCurrent)
     const visType = useSelector(sGetUiType)
-    const chart = useSelector(sGetChart)
     const columns = useSelector(sGetUiLayoutColumns)
     const rows = useSelector(sGetUiLayoutRows)
     const { baseUrl } = useConfig()
+    const { dbLocale } = useUserSettings()
     const dataEngine = useDataEngine()
+    const { getChart, isHighchartsChartInstance } = useChartContext()
     const analyticsEngine = Analytics.getAnalytics(dataEngine)
 
     const openDownloadedFileInBlankTab = useCallback((blob) => {
@@ -81,23 +84,48 @@ const useDownload = (relativePeriodDate) => {
 
     const doDownloadImage = useCallback(
         ({ format }) => {
-            if (!visualization) {
+            const chart = getChart()
+
+            if (!visualization || !chart) {
                 return false
             }
 
-            const formData = {
-                filename: visualization.name,
-            }
+            const isPng = format === FILE_FORMAT_PNG
 
-            if (chart) {
-                formData.svg = chart
-            }
+            if (isHighchartsChartInstance()) {
+                chart.exportChartLocal({
+                    sourceHeight: 768,
+                    sourceWidth: 1024,
+                    scale: 1,
+                    fallbackToExportServer: false,
+                    filename: visualization.name,
+                    showExportInProgress: true,
+                    type: isPng ? 'image/png' : 'application/pdf',
+                    pdfFont: getNotoFontVariantsForLocale(dbLocale),
+                })
+            } else {
+                /* Single value visualizations are not produced via
+                 * Highcharts and they still need to be exported using
+                 * the legacy conversion endpoints */
+                const formData = {
+                    filename: visualization.name,
+                }
 
-            format === FILE_FORMAT_PNG
-                ? getPng({ formData })
-                : getPdf({ formData })
+                if (chart) {
+                    formData.svg = chart
+                }
+
+                isPng ? getPng({ formData }) : getPdf({ formData })
+            }
         },
-        [chart, getPdf, getPng, visualization]
+        [
+            dbLocale,
+            getChart,
+            getPdf,
+            getPng,
+            visualization,
+            isHighchartsChartInstance,
+        ]
     )
 
     const doDownloadData = useCallback(

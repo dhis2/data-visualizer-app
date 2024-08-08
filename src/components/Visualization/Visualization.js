@@ -7,7 +7,6 @@ import debounce from 'lodash-es/debounce'
 import PropTypes from 'prop-types'
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { acSetChart } from '../../actions/chart.js'
 import { tSetCurrentFromUi } from '../../actions/current.js'
 import { acSetLoadError, acSetPluginLoading } from '../../actions/loader.js'
 import { acAddMetadata } from '../../actions/metadata.js'
@@ -37,6 +36,7 @@ import { sGetLoadError, sGetIsPluginLoading } from '../../reducers/loader.js'
 import { sGetSettingsDisplayProperty } from '../../reducers/settings.js'
 import { sGetUiRightSidebarOpen } from '../../reducers/ui.js'
 import LoadingMask from '../../widgets/LoadingMask.js'
+import { ChartContext } from '../ChartProvider.js'
 import { VisualizationPlugin } from '../VisualizationPlugin/VisualizationPlugin.js'
 import StartScreen from './StartScreen.js'
 import styles from './styles/Visualization.style.js'
@@ -104,7 +104,9 @@ export class UnconnectedVisualization extends Component {
         this.props.setLoadError(error)
     }
 
-    onChartGenerated = (svg) => this.props.setChart(svg)
+    onChartGenerated = (chart) => {
+        this.context.setChart(chart)
+    }
 
     onDataSorted = (sorting) => {
         this.props.onLoadingStart()
@@ -257,7 +259,6 @@ UnconnectedVisualization.propTypes = {
     error: PropTypes.object,
     isLoading: PropTypes.bool,
     rightSidebarOpen: PropTypes.bool,
-    setChart: PropTypes.func,
     setCurrent: PropTypes.func,
     setLoadError: PropTypes.func,
     setUiDataSorting: PropTypes.func,
@@ -265,6 +266,14 @@ UnconnectedVisualization.propTypes = {
     visualization: PropTypes.object,
     onLoadingComplete: PropTypes.func,
     onLoadingStart: PropTypes.func,
+}
+
+UnconnectedVisualization.contextType = ChartContext
+// Needed for Jest/Enzyme context mocking to work
+UnconnectedVisualization.contextTypes = {
+    getChart: PropTypes.func,
+    setChart: PropTypes.func,
+    isHighchartsChartInstance: PropTypes.func,
 }
 
 const mapStateToProps = (state) => ({
@@ -281,7 +290,6 @@ const mapDispatchToProps = (dispatch) => ({
     addMetadata: (metadata) => dispatch(acAddMetadata(metadata)),
     addParentGraphMap: (parentGraphMap) =>
         dispatch(acAddParentGraphMap(parentGraphMap)),
-    setChart: (chart) => dispatch(acSetChart(chart)),
     setLoadError: (error) => dispatch(acSetLoadError(error)),
     setUiItems: (data) => dispatch(acSetUiItems(data)),
     setUiDataSorting: (sorting) => dispatch(acSetUiDataSorting(sorting)),
