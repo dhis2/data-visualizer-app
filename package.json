@@ -19,7 +19,7 @@
         "cy:run": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress run --browser chrome headless --env networkMode=live'"
     },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^10.3.9",
+        "@dhis2/cli-app-scripts": "^11.7.0",
         "@dhis2/cli-style": "^10.5.1",
         "@dhis2/cypress-commands": "^10.0.3",
         "@dhis2/cypress-plugins": "^10.0.2",
@@ -35,12 +35,12 @@
         "loglevel": "^1.8.1",
         "postinstall-postinstall": "^2.1.0",
         "redux-mock-store": "^1.5.4",
-        "start-server-and-test": "^2.0.0",
+        "start-server-and-test": "^2.0.5",
         "typescript": "^4.8.4"
     },
     "dependencies": {
-        "@dhis2/analytics": "^26.8.0",
-        "@dhis2/app-runtime": "^3.7.0",
+        "@dhis2/analytics": "git+https://github.com/d2-ci/analytics.git#0f47934a1ec551c0cb50fb7be126f3d9612a04cf",
+        "@dhis2/app-runtime": "^3.10.6",
         "@dhis2/app-runtime-adapter-d2": "^1.1.0",
         "@dhis2/app-service-datastore": "^1.0.0-beta.3",
         "@dhis2/d2-i18n": "^1.1.0",
