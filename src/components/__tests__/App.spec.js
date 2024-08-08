@@ -23,6 +23,7 @@ jest.mock('../Visualization/Visualization', () => ({
 describe('App', () => {
     let props
     let shallowApp
+
     const app = () => {
         if (!shallowApp) {
             shallowApp = shallow(<App {...props} />, {
@@ -34,21 +35,11 @@ describe('App', () => {
 
     beforeEach(() => {
         props = {
-            d2: {
-                models: {
-                    chart: {
-                        get: () => {
-                            return Promise.resolve('got a chart')
-                        },
-                    },
-                },
-            },
             baseUrl: undefined,
             loadError: null,
             interpretations: [],
             current: DEFAULT_CURRENT,
             ui: { rightSidebarOpen: false },
-            location: { pathname: '/' },
             settings: {
                 rootOrganisationUnits: [
                     {
@@ -95,10 +86,10 @@ describe('App', () => {
 
     describe('location pathname', () => {
         it('calls clearAll when location pathname is root', (done) => {
-            props.location.pathname = '/'
             app()
 
             setTimeout(() => {
+                history.push('/')
                 expect(props.setVisualization).not.toHaveBeenCalled()
                 expect(props.clearAll).toBeCalledTimes(1)
                 done()
@@ -106,7 +97,8 @@ describe('App', () => {
         })
 
         it('calls setVisualization when location pathname has length', (done) => {
-            props.location.pathname = '/twilightsparkle'
+            history.push('/twilightsparkle')
+
             app()
 
             setTimeout(() => {
@@ -117,8 +109,6 @@ describe('App', () => {
         })
 
         it('loads new visualization when pathname changes', (done) => {
-            props.location.pathname = '/rarity'
-
             app()
 
             setTimeout(() => {
@@ -130,8 +120,6 @@ describe('App', () => {
         })
 
         it('reloads visualization when opening the same visualization', (done) => {
-            props.location.pathname = '/fluttershy'
-
             app()
 
             setTimeout(() => {
@@ -148,8 +136,6 @@ describe('App', () => {
         })
 
         it('reloads visualization when same pathname pushed when saving', (done) => {
-            props.location.pathname = '/fluttershy'
-
             app()
 
             setTimeout(() => {
@@ -166,11 +152,10 @@ describe('App', () => {
         })
 
         it('loads AO from user data store if id equals to "currentAnalyticalObject"', (done) => {
-            props.location.pathname = '/' + USER_DATASTORE_CURRENT_AO_KEY
-
             app()
 
             setTimeout(() => {
+                history.push('/' + USER_DATASTORE_CURRENT_AO_KEY)
                 expect(props.addParentGraphMap).toBeCalledTimes(1)
                 expect(props.clearVisualization).toBeCalledTimes(1)
                 expect(props.clearCurrent).toBeCalledTimes(1)
@@ -183,7 +168,7 @@ describe('App', () => {
 
         describe('interpretation id in pathname', () => {
             beforeEach(() => {
-                props.location.pathname = `/applejack/interpretation/xyz123`
+                history.push('/applejack/interpretation/xyz123')
             })
 
             it('does not reload visualization when interpretation toggled', (done) => {

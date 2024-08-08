@@ -1,4 +1,4 @@
-import { apiFetchOrganisationUnitLevels, Toolbar } from '@dhis2/analytics'
+import { useCachedDataQuery, Toolbar } from '@dhis2/analytics'
 import { useSetting } from '@dhis2/app-service-datastore'
 import i18n from '@dhis2/d2-i18n'
 import {
@@ -49,16 +49,6 @@ export class UnconnectedApp extends Component {
         previousLocation: null,
         initialLoadIsComplete: false,
         locationToConfirm: false,
-
-        ouLevels: null,
-    }
-
-    fetchOuLevels = async () => {
-        const ouLevels = await apiFetchOrganisationUnitLevels(
-            this.props.dataEngine
-        )
-
-        this.setState({ ouLevels: ouLevels })
     }
 
     /**
@@ -119,7 +109,7 @@ export class UnconnectedApp extends Component {
             if (!urlContainsCurrentAOKey && this.refetch(location)) {
                 await this.props.setVisualization({
                     id,
-                    ouLevels: this.state.ouLevels,
+                    ouLevels: this.props.ouLevels,
                 })
             }
         } else {
@@ -130,14 +120,12 @@ export class UnconnectedApp extends Component {
     }
 
     componentDidMount = async () => {
-        const { d2, userSettings } = this.props
+        const { currentUser, userSettings } = this.props
 
         await this.props.addSettings(userSettings)
-        this.props.setUser(d2.currentUser)
+        this.props.setUser(currentUser)
         this.props.loadUserAuthority(APPROVAL_LEVEL_OPTION_AUTH)
         this.props.setDimensions()
-
-        await this.fetchOuLevels()
 
         const rootOrgUnits = this.props.settings.rootOrganisationUnits
 
@@ -154,7 +142,7 @@ export class UnconnectedApp extends Component {
 
         this.props.addMetadata(metaData)
 
-        this.loadVisualization(this.props.location)
+        this.loadVisualization(history.location)
 
         this.unlisten = history.listen(({ location }) => {
             const isSaving = location.state?.isSaving
@@ -225,7 +213,6 @@ export class UnconnectedApp extends Component {
         return {
             baseUrl: this.props.baseUrl,
             i18n,
-            d2: this.props.d2,
             dataEngine: this.props.dataEngine,
         }
     }
@@ -344,8 +331,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
     setCurrentFromUi: fromActions.fromCurrent.tSetCurrentFromUi,
-    clearVisualization: fromActions.fromVisualization.acClear,
-    clearCurrent: fromActions.fromCurrent.acClear,
+    clearVisualization: fromActions.fromVisualization.acClearVisualization,
+    clearCurrent: fromActions.fromCurrent.acClearCurrent,
     setUiFromVisualization: fromActions.fromUi.acSetUiFromVisualization,
     addParentGraphMap: fromActions.fromUi.acAddParentGraphMap,
     clearSnackbar: fromActions.fromSnackbar.acClearSnackbar,
@@ -363,7 +350,6 @@ UnconnectedApp.contextTypes = {
 }
 
 UnconnectedApp.childContextTypes = {
-    d2: PropTypes.object,
     dataEngine: PropTypes.object,
     baseUrl: PropTypes.string,
     i18n: PropTypes.object,
@@ -379,10 +365,10 @@ UnconnectedApp.propTypes = {
     clearVisualization: PropTypes.func,
     current: PropTypes.object,
     currentAO: PropTypes.object,
-    d2: PropTypes.object,
+    currentUser: PropTypes.object,
     dataEngine: PropTypes.object,
     loadUserAuthority: PropTypes.func,
-    location: PropTypes.object,
+    ouLevels: PropTypes.array,
     setCurrentFromUi: PropTypes.func,
     setDimensions: PropTypes.func,
     setUiFromVisualization: PropTypes.func,
@@ -394,15 +380,23 @@ UnconnectedApp.propTypes = {
     visualization: PropTypes.object,
 }
 
-const withCurrentAO = (Component) => {
+const withData = (Component) => {
     return function WrappedComponent(props) {
         const [currentAO] = useSetting(USER_DATASTORE_CURRENT_AO_KEY)
+        const { currentUser, orgUnitLevels } = useCachedDataQuery()
 
-        return <Component {...props} currentAO={currentAO} />
+        return (
+            <Component
+                {...props}
+                currentAO={currentAO}
+                currentUser={currentUser}
+                ouLevels={orgUnitLevels}
+            />
+        )
     }
 }
 
 export const App = connect(
     mapStateToProps,
     mapDispatchToProps
-)(withCurrentAO(UnconnectedApp))
+)(withData(UnconnectedApp))
