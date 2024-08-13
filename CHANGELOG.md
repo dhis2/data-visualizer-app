@@ -1,3 +1,10 @@
+## [100.6.1](https://github.com/dhis2/data-visualizer-app/compare/v100.6.0...v100.6.1) (2024-08-13)
+
+
+### Bug Fixes
+
+* sort analytics request params and items for cache hit optimization (analytics@26.8.1) ([#3166](https://github.com/dhis2/data-visualizer-app/issues/3166)) ([1a150e7](https://github.com/dhis2/data-visualizer-app/commit/1a150e76ae6896771339f1f6639177c1cfc05a09))
+
 # [100.6.0](https://github.com/dhis2/data-visualizer-app/compare/v100.5.9...v100.6.0) (2024-08-08)
 
 
