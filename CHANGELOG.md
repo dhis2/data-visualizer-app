@@ -1,3 +1,10 @@
+## [100.6.2](https://github.com/dhis2/data-visualizer-app/compare/v100.6.1...v100.6.2) (2024-08-15)
+
+
+### Bug Fixes
+
+* apply grab cursor to assigned categories dimension item ([#3140](https://github.com/dhis2/data-visualizer-app/issues/3140)) ([437b8f1](https://github.com/dhis2/data-visualizer-app/commit/437b8f10b83c6643db6cee7caedb8774af9ae0f4))
+
 ## [100.6.1](https://github.com/dhis2/data-visualizer-app/compare/v100.6.0...v100.6.1) (2024-08-13)
 
 
