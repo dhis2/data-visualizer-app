@@ -1,4 +1,7 @@
-import { DimensionItem } from '@dhis2/analytics'
+import {
+    DimensionItem,
+    DIMENSION_ID_ASSIGNED_CATEGORIES,
+} from '@dhis2/analytics'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
@@ -45,7 +48,8 @@ export class DndDimensionItem extends Component {
                             className={cx({
                                 [styles.dragging]: snapshot.isDragging,
                                 [styles.notDragging]: !snapshot.isDragging,
-                                [styles.assignedCategories]: id === 'co',
+                                [styles.assignedCategories]:
+                                    id === DIMENSION_ID_ASSIGNED_CATEGORIES,
                             })}
                             onClick={onClick}
                             onOptionsClick={onOptionsClick}
