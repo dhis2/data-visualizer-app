@@ -20,9 +20,9 @@
     },
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^11.7.0",
-        "@dhis2/cli-style": "^10.5.1",
-        "@dhis2/cypress-commands": "^10.0.3",
-        "@dhis2/cypress-plugins": "^10.0.2",
+        "@dhis2/cli-style": "^10.7.3",
+        "@dhis2/cypress-commands": "^10.0.6",
+        "@dhis2/cypress-plugins": "^10.0.6",
         "@reportportal/agent-js-cypress": "git+https://github.com/dhis2/agent-js-cypress.git#develop",
         "@reportportal/agent-js-jest": "^5.0.6",
         "cypress": "^13.6.1",
