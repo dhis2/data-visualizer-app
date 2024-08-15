@@ -11,6 +11,9 @@ a ripple effect in the Dimension list during drag
     background-color: #e8edf2;
     border-radius: 2px;
 }
-.assignedCategories {
-    cursor: grab !important;
+:global(.item).assignedCategories {
+    cursor: grab;
+}
+:global(.item.selected).assignedCategories {
+    cursor: default;
 }
