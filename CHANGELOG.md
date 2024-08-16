@@ -1,3 +1,29 @@
+## [100.6.2](https://github.com/dhis2/data-visualizer-app/compare/v100.6.1...v100.6.2) (2024-08-15)
+
+
+### Bug Fixes
+
+* apply grab cursor to assigned categories dimension item ([#3140](https://github.com/dhis2/data-visualizer-app/issues/3140)) ([437b8f1](https://github.com/dhis2/data-visualizer-app/commit/437b8f10b83c6643db6cee7caedb8774af9ae0f4))
+
+## [100.6.1](https://github.com/dhis2/data-visualizer-app/compare/v100.6.0...v100.6.1) (2024-08-13)
+
+
+### Bug Fixes
+
+* sort analytics request params and items for cache hit optimization (analytics@26.8.1) ([#3166](https://github.com/dhis2/data-visualizer-app/issues/3166)) ([1a150e7](https://github.com/dhis2/data-visualizer-app/commit/1a150e76ae6896771339f1f6639177c1cfc05a09))
+
+# [100.6.0](https://github.com/dhis2/data-visualizer-app/compare/v100.5.9...v100.6.0) (2024-08-08)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([4c08077](https://github.com/dhis2/data-visualizer-app/commit/4c08077fb9e23b93c2ab564d2bdf0366a0990b69))
+
+
+### Features
+
+* pivot table as default vis type in DV (DHIS2-15833) ([#3159](https://github.com/dhis2/data-visualizer-app/issues/3159)) ([0eccf93](https://github.com/dhis2/data-visualizer-app/commit/0eccf9372c6665ddc0f4bbaea460ad2d21723b2e))
+
 ## [100.5.9](https://github.com/dhis2/data-visualizer-app/compare/v100.5.8...v100.5.9) (2024-06-27)
 
 

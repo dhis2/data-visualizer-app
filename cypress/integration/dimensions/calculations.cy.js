@@ -1,4 +1,8 @@
-import { DIMENSION_ID_DATA, VIS_TYPE_COLUMN } from '@dhis2/analytics'
+import {
+    DIMENSION_ID_DATA,
+    VIS_TYPE_COLUMN,
+    getDisplayNameByVisType,
+} from '@dhis2/analytics'
 import {
     clickCancelButton,
     clickCheckFormulaButton,
@@ -38,6 +42,7 @@ import {
 import { openDimension } from '../../elements/dimensionsPanel.js'
 import { saveNewAO } from '../../elements/fileMenu/save.js'
 import { goToStartPage } from '../../elements/startScreen.js'
+import { changeVisType } from '../../elements/visualizationTypeSelector.js'
 
 const PAGE_SIZE = 50
 const DATA_ELEMENTS_URL = '**/dataElements?*'
@@ -47,6 +52,7 @@ const dataChipEl = 'layout-chip-dx'
 describe('Calculations', () => {
     beforeEach(() => {
         goToStartPage()
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_COLUMN))
     })
     it('initial state loads correctly', () => {
         openDimension(DIMENSION_ID_DATA)
