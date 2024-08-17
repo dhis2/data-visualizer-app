@@ -1,16 +1,16 @@
 # 
 # Translators:
-# Saurabh Leekha <saurabh.leekha@hispindia.org>, 2021
-# Ulanbek Abakirov <ulans@mail.ru>, 2022
-# Yury Rogachev <yury@dhis2.org>, 2022
-# Viktor Varland <viktor@dhis2.org>, 2022
+# Ulanbek Abakirov <ulans@mail.ru>, 2024
+# Saurabh Leekha <saurabh.leekha@hispindia.org>, 2024
+# Yury Rogachev <yury@dhis2.org>, 2024
+# Viktor Varland <viktor@dhis2.org>, 2024
 # Philip Larsen Donnelly, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2024-03-01T08:28:43.727Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"PO-Revision-Date: 2024-07-23 22:28+0000\n"
 "Last-Translator: Philip Larsen Donnelly, 2024\n"
 "Language-Team: Russian (https://app.transifex.com/hisp-uio/teams/100509/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -43,7 +43,7 @@ msgid ""
 msgstr ""
 
 msgid "No, cancel"
-msgstr ""
+msgstr "Нет, отменить"
 
 msgid "Yes, leave"
 msgstr ""
@@ -161,13 +161,7 @@ msgstr "Скачать"
 msgid "Hide"
 msgstr "Скрыть"
 
-msgid "All"
-msgstr "Все"
-
-msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr ""
-
-msgid "{{total}} selected"
+msgid "all"
 msgstr ""
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
@@ -236,7 +230,7 @@ msgid "Update"
 msgstr "Обновить"
 
 msgid "Getting started"
-msgstr ""
+msgstr "Начало работы"
 
 msgid ""
 "All dimensions that you can use to build visualizations are shown in the "
@@ -282,13 +276,13 @@ msgstr ""
 "единиц)"
 
 msgid "Min"
-msgstr "Мин"
+msgstr "Минимум"
 
 msgid "Max"
-msgstr "Макс"
+msgstr "Максимум"
 
 msgid "Standard deviation"
-msgstr "Среднеквадратическое отклонение"
+msgstr "Стандартное отклонение"
 
 msgid "Variance"
 msgstr "Дисперсия"
@@ -334,7 +328,7 @@ msgid "Auto generated from axis items"
 msgstr ""
 
 msgid "None"
-msgstr "Не известное значение"
+msgstr "Никому"
 
 msgid "Custom"
 msgstr "Пользователь"
@@ -467,6 +461,9 @@ msgstr "После последнего"
 
 msgid "Before first and after last"
 msgstr "До первого и после последнего"
+
+msgid "All"
+msgstr "Все"
 
 msgid "Hide empty rows"
 msgstr "Скрыть незаполненные строки"
@@ -625,7 +622,7 @@ msgid "Row totals"
 msgstr ""
 
 msgid "Data item"
-msgstr ""
+msgstr "Переменная"
 
 msgid "Visualization type"
 msgstr ""
@@ -842,7 +839,7 @@ msgid ""
 msgstr ""
 
 msgid "No data selected"
-msgstr ""
+msgstr "Данные не выбраны"
 
 msgid ""
 "{{visualizationType}} must have at least one data item or data element group"
@@ -940,7 +937,7 @@ msgid "Last 14 days"
 msgstr "Последние 14 дней"
 
 msgid "This week"
-msgstr "Эта неделя"
+msgstr "Текущая неделя"
 
 msgid "Last week"
 msgstr "Прошлая неделя"
@@ -952,13 +949,13 @@ msgid "Last 12 weeks"
 msgstr "Прошлые 12 недель"
 
 msgid "Last 52 weeks"
-msgstr "Прошлые 52 недели"
+msgstr "Последние 52 недели"
 
 msgid "Weeks this year"
 msgstr "Недели этого года"
 
 msgid "This month"
-msgstr "Этот месяц"
+msgstr "Текущий месяц"
 
 msgid "Last month"
 msgstr "Прошлый месяц"
@@ -967,7 +964,7 @@ msgid "Last 3 months"
 msgstr "Прошлые 3 месяца"
 
 msgid "Last 6 months"
-msgstr "Прошлые 6 месяцев"
+msgstr "Последние 6 месяцев"
 
 msgid "Last 12 months"
 msgstr "Прошлые 12 месяцев"
@@ -991,7 +988,7 @@ msgid "This quarter"
 msgstr "Этот квартал"
 
 msgid "Last quarter"
-msgstr "Прошлый квартал"
+msgstr "Последний квартал"
 
 msgid "Last 4 quarters"
 msgstr "Прошлые 4 квартала"
@@ -1006,7 +1003,7 @@ msgid "Last six-month"
 msgstr "Прошлое полугодие"
 
 msgid "Last 2 six-months"
-msgstr "Прошлые 2 полугодия"
+msgstr "Последние два полугодия"
 
 msgid "This financial year"
 msgstr "Этот финансовый год"
