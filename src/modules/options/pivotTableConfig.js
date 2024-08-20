@@ -26,6 +26,7 @@ import ShowDimensionLabels from '../../components/VisualizationOptions/Options/S
 import ShowHierarchy from '../../components/VisualizationOptions/Options/ShowHierarchy.js'
 import SkipRounding from '../../components/VisualizationOptions/Options/SkipRounding.js'
 import SortOrder from '../../components/VisualizationOptions/Options/SortOrder.js'
+import Subtitle from '../../components/VisualizationOptions/Options/Subtitle.js'
 import Title from '../../components/VisualizationOptions/Options/Title.js'
 import TopLimit from '../../components/VisualizationOptions/Options/TopLimit.js'
 import getAdvancedTemplate from './sections/templates/advanced.js'
@@ -82,6 +83,7 @@ export default ({
             key: 'style-section-1',
             content: React.Children.toArray([
                 <Title label={i18n.t('Table title')} />,
+                <Subtitle dataTest="pivot-table-subtitle" />,
                 <DisplayDensity />,
                 <FontSize />,
                 <DigitGroupSeparator />,
