@@ -77,7 +77,7 @@ export default ({ hasDimensionItemsInColumns, hasDimensionItemsInRows }) => [
             key: 'style-section-1',
             content: React.Children.toArray([
                 <Title label={i18n.t('Table title')} />,
-                <Subtitle dataTest="pivot-table-subtitle" />,
+                <Subtitle label={i18n.t('Table subtitle')} />,
                 <DisplayDensity />,
                 <FontSize />,
                 <DigitGroupSeparator />,
