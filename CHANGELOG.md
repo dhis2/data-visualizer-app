@@ -1,3 +1,10 @@
+# [100.7.0](https://github.com/dhis2/data-visualizer-app/compare/v100.6.2...v100.7.0) (2024-08-21)
+
+
+### Features
+
+* add subtitle field to pivot table options [DHIS2-16158] ([#3178](https://github.com/dhis2/data-visualizer-app/issues/3178)) ([bec185e](https://github.com/dhis2/data-visualizer-app/commit/bec185e4d981fa70ab343757dc6250f31f090307))
+
 ## [100.6.2](https://github.com/dhis2/data-visualizer-app/compare/v100.6.1...v100.6.2) (2024-08-15)
 
 
