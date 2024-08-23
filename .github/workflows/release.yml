@@ -72,7 +72,7 @@ jobs:
                   channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
                   payload: |
                       {
-                        "text": "Maps app release ${{ steps.extract_version.outputs.version }} succeeded",
+                        "text": "Data Visualizer app release ${{ steps.extract_version.outputs.version }} succeeded",
                         "blocks": [
                           {
                             "type": "header",
@@ -122,7 +122,7 @@ jobs:
                   channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
                   payload: |
                       {
-                          "text": ":small_red_triangle_down: :data-visualizer-app: Maps release <https://github.com/dhis2/data-visualizer-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Afailure|failed>",
+                          "text": ":small_red_triangle_down: :data-visualizer-app: Data Visualizer release <https://github.com/dhis2/data-visualizer-app/actions/workflows/dhis2-verify-app.yml?query=branch%3Amaster+is%3Afailure|failed>",
                           "blocks": [
                             {
                               "type": "section",
