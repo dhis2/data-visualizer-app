@@ -1,16 +1,16 @@
 # 
 # Translators:
-# Philip Larsen Donnelly, 2020
-# Viktor Varland <viktor@dhis2.org>, 2021
 # Jason Pickering <jason@dhis2.org>, 2024
 # Martin <martin@moid.se>, 2024
+# Viktor Varland <viktor@dhis2.org>, 2024
+# Philip Larsen Donnelly, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2024-03-01T08:28:43.727Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Martin <martin@moid.se>, 2024\n"
+"PO-Revision-Date: 2024-07-23 22:28+0000\n"
+"Last-Translator: Philip Larsen Donnelly, 2024\n"
 "Language-Team: Swedish (https://app.transifex.com/hisp-uio/teams/100509/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -160,13 +160,7 @@ msgstr "Ladda ner"
 msgid "Hide"
 msgstr "Göm"
 
-msgid "All"
-msgstr "Alla"
-
-msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr ""
-
-msgid "{{total}} selected"
+msgid "all"
 msgstr ""
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
@@ -232,7 +226,7 @@ msgid "Edited"
 msgstr ""
 
 msgid "Update"
-msgstr "Uppdatering"
+msgstr "Uppdatera"
 
 msgid "Getting started"
 msgstr ""
@@ -462,6 +456,9 @@ msgstr ""
 
 msgid "Before first and after last"
 msgstr ""
+
+msgid "All"
+msgstr "Alla"
 
 msgid "Hide empty rows"
 msgstr ""
@@ -1099,7 +1096,7 @@ msgid "Data"
 msgstr "Data"
 
 msgid "Limit values"
-msgstr "Begränsningsvärden"
+msgstr "Begränsa värden"
 
 msgid "Limit number of values"
 msgstr "Begränsa antal värden"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2024-03-01T08:28:43.727Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"PO-Revision-Date: 2024-07-23 22:28+0000\n"
 "Last-Translator: Jiří Podhorecký, 2024\n"
 "Language-Team: Czech (https://app.transifex.com/hisp-uio/teams/100509/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -87,10 +87,10 @@ msgid "Other dimensions"
 msgstr "Jiné dimenze"
 
 msgid "Your dimensions"
-msgstr "Vaše rozměry"
+msgstr "Vaše dimenze"
 
 msgid "Filter dimensions"
-msgstr "Rozměry filtru"
+msgstr "Rozsahy filtru"
 
 msgid "Data value set"
 msgstr "Sada datových hodnot"
@@ -144,7 +144,7 @@ msgid "Code"
 msgstr "Kód"
 
 msgid "Name"
-msgstr "Název"
+msgstr "název"
 
 msgid "Table layout"
 msgstr "Rozložení tabulky"
@@ -431,7 +431,7 @@ msgid "Number"
 msgstr "Číslo"
 
 msgid "Fix column headers to top of table"
-msgstr "Opravit záhlaví sloupců na začátek tabulky"
+msgstr "Připnout záhlaví sloupců na začátek tabulky"
 
 msgid "There aren’t any column headers because Columns is empty."
 msgstr "Nejsou zde žádná záhlaví sloupců, protože sloupce jsou prázdné."
@@ -606,7 +606,7 @@ msgid "Parent organisation unit"
 msgstr "Nadřazená organizační jednotka"
 
 msgid "Reporting period"
-msgstr "Doba ohlášení"
+msgstr "Doba hlášení zpráv"
 
 msgid "Stacked values add up to 100%"
 msgstr "Skládané hodnoty se doplňují až do 100%"
@@ -621,13 +621,13 @@ msgid "Trend line"
 msgstr "Trendová čára"
 
 msgid "Linear"
-msgstr "Lineární"
+msgstr "Čárový"
 
 msgid "Polynomial"
 msgstr "Polynomiální"
 
 msgid "Loess"
-msgstr "Spraše"
+msgstr "Lokální polynomická regrese"
 
 msgid "Row sub-totals"
 msgstr "Mezisoučty řádků"
@@ -1032,7 +1032,7 @@ msgid "Quarters this year"
 msgstr "Čtvrtletí tohoto roku"
 
 msgid "This six-month"
-msgstr "Tento půlrok"
+msgstr "Těchto šest měsíců"
 
 msgid "Last six-month"
 msgstr "Poslední půlrok"
@@ -1041,13 +1041,13 @@ msgid "Last 2 six-months"
 msgstr "Poslední 2 šestiměsíce"
 
 msgid "This financial year"
-msgstr "Tento fiskální rok"
+msgstr "Tento finanční rok"
 
 msgid "Last financial year"
 msgstr "Poslední finanční rok"
 
 msgid "Last 5 financial years"
-msgstr "Posledních 5 fiskálních roků"
+msgstr "Posledních 5 finančních roků"
 
 msgid "This year"
 msgstr "Tento rok"

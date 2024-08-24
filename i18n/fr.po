@@ -1,23 +1,24 @@
 # 
 # Translators:
-# Bram Piot <bram.piot@gmail.com>, 2019
-# Matthieu Pinard <matthieu@dhis2.org>, 2019
-# Djibril Dione <dione.djibril@gmail.com>, 2020
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
-# Viktor Varland <viktor@dhis2.org>, 2021
-# Edem Kossi <ekossi@hispwca.org>, 2023
-# Philip Larsen Donnelly, 2024
-# Yayra Gomado <ygomado@hispwca.org>, 2024
-# Karoline Tufte Lien <karoline@dhis2.org>, 2024
+# Elise Desailly, 2024
 # Yury Rogachev <yury@dhis2.org>, 2024
+# Jason Pickering <jason@dhis2.org>, 2024
+# Thomas Zemp, 2024
+# Djibril Dione <dione.djibril@gmail.com>, 2024
+# Karoline Tufte Lien <karoline@dhis2.org>, 2024
+# Viktor Varland <viktor@dhis2.org>, 2024
+# Philip Larsen Donnelly, 2024
+# Edem Kossi <ekossi@hispwca.org>, 2024
+# Yayra Gomado <ygomado@hispwca.org>, 2024
 # Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2024
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2024-03-01T08:28:43.727Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2024\n"
+"PO-Revision-Date: 2024-07-23 22:28+0000\n"
+"Last-Translator: Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2024\n"
 "Language-Team: French (https://app.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -57,7 +58,7 @@ msgid "Yes, leave"
 msgstr "Oui, quitter"
 
 msgid "Add to {{axisName}}"
-msgstr "Ajouter à {{axisName}}"
+msgstr "Ajouter à {{axisName}} "
 
 msgid ""
 "'{{visualizationType}}' is intended to show a single item for this type of "
@@ -121,7 +122,7 @@ msgid "Raw data SQL"
 msgstr "Données brutes SQL"
 
 msgid "Plain data source"
-msgstr "Sourc de données brutes"
+msgstr "Source de données brutes"
 
 msgid "Microsoft Excel"
 msgstr "Microsoft Excel"
@@ -133,7 +134,7 @@ msgid "Advanced"
 msgstr "Avancé"
 
 msgid "Graphics"
-msgstr "Graphisme"
+msgstr "Graphiques"
 
 msgid "Image (.png)"
 msgstr "Image (.png)"
@@ -148,7 +149,7 @@ msgid "Metadata ID scheme"
 msgstr "Schéma ID des métadata"
 
 msgid "ID"
-msgstr "Id"
+msgstr "ID"
 
 msgid "Code"
 msgstr "Code"
@@ -203,7 +204,7 @@ msgid "None in use"
 msgstr ""
 
 msgid "Only '{{- name}}' in use"
-msgstr "Uniquement '{{- name}}' utilisé"
+msgstr "Seulement '{{- name}}' utilisé"
 
 msgid "Only {{number}} in use"
 msgstr ""
@@ -246,7 +247,7 @@ msgid "Update"
 msgstr "Mettre à jour"
 
 msgid "Getting started"
-msgstr "Commencer"
+msgstr "Pour commencer"
 
 msgid ""
 "All dimensions that you can use to build visualizations are shown in the "
@@ -271,7 +272,7 @@ msgid "Overrides aggregation type for all data values."
 msgstr "Remplace le type d'agrégation pour toutes les valeurs de données."
 
 msgid "By data element"
-msgstr "Par élément de donnée"
+msgstr "Par élément de données"
 
 msgid "Count"
 msgstr "Décompte"
@@ -357,7 +358,7 @@ msgid "Reset style to default"
 msgstr "Réinitialiser le style par défaut"
 
 msgid "Base line"
-msgstr "Ligne de base"
+msgstr "Ligne de référence"
 
 msgid "Column sub-totals"
 msgstr "Sous-totaux de colonne"
@@ -479,7 +480,7 @@ msgid "After last"
 msgstr "Après dernier"
 
 msgid "Before first and after last"
-msgstr "Avant premier et après dernier "
+msgstr "Avant la première et après la dernière"
 
 msgid "All"
 msgstr "Tout"
@@ -625,7 +626,7 @@ msgid "Reporting period"
 msgstr "Période de rapportage"
 
 msgid "Stacked values add up to 100%"
-msgstr "Les valeurs empilées totalisent jusqu'à 100%"
+msgstr "Les valeurs empilées s'additionnent à 100%"
 
 msgid "Include regression"
 msgstr "Inclure régression"
@@ -701,7 +702,7 @@ msgid "Display organisation unit hierarchy"
 msgstr "Afficher la hiérarchie des unités d'organisation"
 
 msgid "Show legend key"
-msgstr "Afficher la clé de légende"
+msgstr "Afficher la légende"
 
 msgid "Show series key"
 msgstr "Afficher la clé de série"
@@ -921,7 +922,7 @@ msgstr "Un problème est survenu lors de l'obtention des données du serveur."
 
 msgid "Assigned Categories can only be used with data elements"
 msgstr ""
-"Les catégories attribuées ne peuvent être utilisées qu'avec des éléments de "
+"Les Catégories Attribuées ne peuvent être utilisées qu'avec des éléments de "
 "données"
 
 msgid ""
@@ -963,7 +964,7 @@ msgid ""
 msgstr ""
 
 msgid "Something went wrong"
-msgstr "Quelque chose a mal tourné"
+msgstr "Un problème s'est produit"
 
 msgid ""
 "There's a problem with the generated analytics. Contact a system "
@@ -971,7 +972,7 @@ msgid ""
 msgstr ""
 
 msgid "There's a syntax problem with the analytics request."
-msgstr ""
+msgstr "Il y a un problème de syntaxe dans la demande d'analyse."
 
 msgid "No outliers found"
 msgstr ""
@@ -995,7 +996,7 @@ msgid "Last 7 days"
 msgstr "7 derniers jours"
 
 msgid "Last 14 days"
-msgstr "14 dernier jours"
+msgstr "14 derniers jours"
 
 msgid "This week"
 msgstr "Cette semaine"
@@ -1016,10 +1017,10 @@ msgid "Weeks this year"
 msgstr "Semaines cette année"
 
 msgid "This month"
-msgstr "Ce mois-ci"
+msgstr "Ce mois"
 
 msgid "Last month"
-msgstr "Le mois dernier"
+msgstr "Mois dernier"
 
 msgid "Last 3 months"
 msgstr "3 derniers mois"
@@ -1040,7 +1041,7 @@ msgid "Last bimonth"
 msgstr "Dernier bimestre"
 
 msgid "Last 6 bimonths"
-msgstr "6 derniers mois"
+msgstr "6 derniers bimestres"
 
 msgid "Bimonths this year"
 msgstr "Bimestres cette année"
@@ -1070,10 +1071,10 @@ msgid "This financial year"
 msgstr "Année fiscale en cours"
 
 msgid "Last financial year"
-msgstr "Dernière année financière"
+msgstr "Année fiscale précédente"
 
 msgid "Last 5 financial years"
-msgstr "5 dernières années financières"
+msgstr "5 dernières années fiscales"
 
 msgid "This year"
 msgstr "Année en cours"
@@ -1200,7 +1201,7 @@ msgid ""
 " or org. unit as series."
 msgstr ""
 "Comparez les parties d'un tout avec des éléments connexes verticalement. Il "
-"est recommandé d'utiliser les données ou unité d'organisation comme série."
+"est recommandé d'utiliser les données ou unités d'organisation comme série."
 
 msgid ""
 "Compare sizes of related elements horizontally. Recommend period as filter."
@@ -1213,7 +1214,7 @@ msgid ""
 "data or org. unit as series."
 msgstr ""
 "Comparez les parties d'un tout avec des éléments connexes horizontalement. "
-"Il est recommandé d'utiliser les données ou unité d'organisation comme "
+"Il est recommandé d'utiliser les données ou unités d'organisation comme "
 "série."
 
 msgid "Track or compare changes over time. Recommend period as category."
@@ -1268,7 +1269,7 @@ msgid "Months per year"
 msgstr "Mois par an"
 
 msgid "Bimonths per year"
-msgstr "Bimestre par an"
+msgstr "Bimestres par an"
 
 msgid "Quarters per year"
 msgstr "Trimestres par an"

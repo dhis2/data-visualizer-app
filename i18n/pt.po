@@ -1,18 +1,19 @@
 # 
 # Translators:
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
-# Viktor Varland <viktor@dhis2.org>, 2021
-# Sheila André <sandre@saudigitus.org>, 2021
-# Fernando Jorge Bade, 2021
-# Emilio Mosse, 2022
+# Jason Pickering <jason@dhis2.org>, 2024
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2024
 # Philip Larsen Donnelly, 2024
+# Emilio Mosse, 2024
+# Sheila André <sandre@saudigitus.org>, 2024
+# Fernando Jorge Bade, 2024
+# Viktor Varland <viktor@dhis2.org>, 2024
 # Ge Joao <gsimango@saudigitus.org>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2024-03-01T08:28:43.727Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"PO-Revision-Date: 2024-07-23 22:28+0000\n"
 "Last-Translator: Ge Joao <gsimango@saudigitus.org>, 2024\n"
 "Language-Team: Portuguese (https://app.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
@@ -143,7 +144,7 @@ msgid "Metadata ID scheme"
 msgstr "Esquema de ID de metadados"
 
 msgid "ID"
-msgstr "Id"
+msgstr "ID"
 
 msgid "Code"
 msgstr "Código"
@@ -169,14 +170,8 @@ msgstr "Descarregar"
 msgid "Hide"
 msgstr "Esconder"
 
-msgid "All"
-msgstr "Tudo"
-
-msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr "{{total}} of {{axisMaxNumberOfItems}} selected"
-
-msgid "{{total}} selected"
-msgstr "{{total}} selecionados "
+msgid "all"
+msgstr ""
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
@@ -244,7 +239,7 @@ msgid "Edited"
 msgstr "Editada"
 
 msgid "Update"
-msgstr "Actualizar"
+msgstr "Atualizar"
 
 msgid "Getting started"
 msgstr "Começando"
@@ -287,13 +282,13 @@ msgid "Sum"
 msgstr "Soma"
 
 msgid "Last value"
-msgstr "Ultimo valor "
+msgstr "Último valor"
 
 msgid "Last value (average in org unit hierarchy)"
 msgstr "Último valor (média na hierarquia da unidade organizacional)"
 
 msgid "Min"
-msgstr "Mínimo"
+msgstr "Min"
 
 msgid "Max"
 msgstr "Máx"
@@ -480,6 +475,9 @@ msgstr "Depois da última"
 
 msgid "Before first and after last"
 msgstr "Antes do primeiro e depois do último"
+
+msgid "All"
+msgstr "Tudo"
 
 msgid "Hide empty rows"
 msgstr "Esconder linhas vazias"
@@ -900,7 +898,9 @@ msgid ""
 msgstr ""
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
-msgstr "Data Element Group Sets and Reporting Rates cannot be used together."
+msgstr ""
+"Conjuntos de grupos de elementos de dados e taxas de relatório não podem ser"
+" usados ​​juntos."
 
 msgid "There is a problem with this {{visualizationType}} visualization."
 msgstr "Há um problema com esta visualização {{visualizationType}}."

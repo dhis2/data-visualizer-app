@@ -1,17 +1,17 @@
 # 
 # Translators:
-# Nadiia <semchuk@aph.org.ua>, 2021
-# Viktor Varland <viktor@dhis2.org>, 2021
-# Wanda <wanda@frontlineaids.org>, 2021
-# Éva Tamási, 2022
+# Wanda <wanda@frontlineaids.org>, 2024
+# Nadiia <semchuk@aph.org.ua>, 2024
+# Viktor Varland <viktor@dhis2.org>, 2024
 # Philip Larsen Donnelly, 2024
+# Éva Tamási, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2024-03-01T08:28:43.727Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"PO-Revision-Date: 2024-07-23 22:28+0000\n"
+"Last-Translator: Éva Tamási, 2024\n"
 "Language-Team: Ukrainian (https://app.transifex.com/hisp-uio/teams/100509/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -168,14 +168,8 @@ msgstr "Завантажити"
 msgid "Hide"
 msgstr "Приховати"
 
-msgid "All"
-msgstr "Всі"
-
-msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr "Вибрано {{total}} з {{axisMaxNumberOfItems}}"
-
-msgid "{{total}} selected"
-msgstr "Вибрано {{total}}"
+msgid "all"
+msgstr ""
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} заблоковано на {{axisName}} для {{visTypeName}}"
@@ -477,6 +471,9 @@ msgstr "Після останнього"
 
 msgid "Before first and after last"
 msgstr "До першого та після останнього"
+
+msgid "All"
+msgstr "Усі"
 
 msgid "Hide empty rows"
 msgstr "Сховати порожні рядки"
@@ -1021,7 +1018,7 @@ msgid "This bimonth"
 msgstr "Поточний двомісячний період"
 
 msgid "Last bimonth"
-msgstr "Минулий двомісячний період"
+msgstr "Попередній двомісячний період"
 
 msgid "Last 6 bimonths"
 msgstr "Останні 6 двомісячних періодів"
