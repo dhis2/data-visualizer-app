@@ -20,10 +20,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Rename successful"
-msgstr ""
+msgstr "ປ່ຽນຊື່ສຳເລັດແລ້ວ"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr ""
+msgstr "ການສ້າງຮູບພາບດ້ວຍຂໍ້ມູນທີ່ບໍ່ມີຊື່ {{visualizationType}}, {{date}}"
 
 msgid "\"{{deletedObject}}\" successfully deleted."
 msgstr ""
@@ -92,7 +92,7 @@ msgid "HTML (.html)"
 msgstr ""
 
 msgid "Metadata ID scheme"
-msgstr ""
+msgstr "ແຜນຂໍ້ມູນ ID ເມຕາ"
 
 msgid "ID"
 msgstr "ລະຫັດ"
@@ -167,7 +167,7 @@ msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
 
 msgid "None selected"
-msgstr ""
+msgstr "ຍັງບໍ່ໄດ້ເລືອກ"
 
 msgid "Only '{{- name}}' in use"
 msgstr ""
@@ -176,7 +176,7 @@ msgid "Only '{{number}}' in use"
 msgstr ""
 
 msgid "Levels"
-msgstr ""
+msgstr "ຂັ້ນ"
 
 msgid "Groups"
 msgstr "ກຸ່ມ"
@@ -197,12 +197,14 @@ msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
 msgstr ""
+"ບໍ່ສາມາດລົບການສ້າງຮູບພາບດ້ວຍຂໍ້ມູນໄດ້ເນື່ອງຈາກມັນໄດ້ຖືກໃຊ້ໃນໜຶ່ງ ຫຼື "
+"ຫຼາຍກະດານຂ່າວ"
 
 msgid "Unsaved visualization"
-msgstr ""
+msgstr "ການສ້າງຮູບພາບດ້ວຍຂໍ້ມູນທີ່ຍັງບໍ່ບັນທຶກ"
 
 msgid "Edited"
-msgstr ""
+msgstr "ແກ້ໄຂ"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
@@ -211,7 +213,7 @@ msgid "Update"
 msgstr "ປັບປຸງ"
 
 msgid "Getting started"
-msgstr ""
+msgstr "ເລີ່ມຕົ້ນ"
 
 msgid ""
 "All dimensions that you can use to build visualizations are shown in the "
@@ -261,7 +263,7 @@ msgid "Max"
 msgstr "ຄ່າສູງສຸດ"
 
 msgid "Standard deviation"
-msgstr ""
+msgstr "ມາດຕະຖານການແບ່ງ"
 
 msgid "Variance"
 msgstr "ຄວາມແຕກຕ່າງ"
@@ -300,10 +302,10 @@ msgid "Labels"
 msgstr ""
 
 msgid "Column sub-totals"
-msgstr ""
+msgstr "ຖັນຍ່ອຍທັງໝົດ"
 
 msgid "Columns totals"
-msgstr ""
+msgstr "ຖັນທັງໝົດ"
 
 msgid "Default"
 msgstr "ຄ່າຕັ້ງຕົ້ນ"
@@ -363,7 +365,7 @@ msgid "Axis title"
 msgstr ""
 
 msgid "Add a title"
-msgstr ""
+msgstr "ເພີ່ມຫົວຂໍ໊"
 
 msgid "Font size"
 msgstr "ຂະຫນາດຕົວອັກສອນ"
@@ -396,7 +398,7 @@ msgid "Hide empty rows"
 msgstr "ເຊື່ອງແຖວທີ່ເປົ່າຫວ່າງ"
 
 msgid "Show legend key"
-msgstr ""
+msgstr "ສະແດງຄຳອະທິບາຍຫຼັກ"
 
 msgid "Table subtitle"
 msgstr ""
@@ -420,28 +422,28 @@ msgid "Legend style"
 msgstr "ຫວ່າງຂໍ້ມູນ"
 
 msgid "Legend type"
-msgstr ""
+msgstr "ປະເພດຄຳອະທິບາຍ"
 
 msgid "Use pre-defined legend per data item"
-msgstr ""
+msgstr "ໃຊ້ຄຳອະທິບາຍທີ່ໄດ້ກຳນົດລ່ວງໜ້າຕໍ່ລາຍການຂໍ້ມູນ"
 
 msgid "Select a single legend for the entire visualization"
 msgstr ""
 
 msgid "Legend changes background color"
-msgstr ""
+msgstr "ຄຳອະທິບາຍປ່ຽນສີພື້ນຫຼັງ"
 
 msgid "Legend changes text color"
-msgstr ""
+msgstr "ຄຳອະທິບາຍປ່ຽນສີຕົວໜັງສື"
 
 msgid "Legend"
 msgstr "ຫວ່າງຂໍ້ມູນ"
 
 msgid "Select from legends"
-msgstr ""
+msgstr "ເລືອກຈາກຄຳອະທິບາຍ"
 
 msgid "Loading legends"
-msgstr ""
+msgstr "ກຳລັງໂຫຼດຄຳອະທິບາຍ"
 
 msgid ""
 "You can set a minimum or maximum value. This will apply to the entire table,"
@@ -449,13 +451,13 @@ msgid ""
 msgstr ""
 
 msgid "Minimum data value"
-msgstr ""
+msgstr "ຄ່າຂໍ້ມູນຕ່ຳສຸດ"
 
 msgid "Maximum data value"
-msgstr ""
+msgstr "ຄ່າຂໍ້ມູນສູງສຸດ"
 
 msgid "Clear min/max limits"
-msgstr ""
+msgstr "ລົບຂີດຈຳກັດຂັ້ນຕ່ຳ/ສູງສຸດ"
 
 msgid "No space between bars/columns"
 msgstr ""
@@ -514,10 +516,10 @@ msgid "Loess"
 msgstr "ເສັ້ນສະແດງແບບແຈກຢາຍເປັນຈຸດເປັນຈໍ້າ"
 
 msgid "Row sub-totals"
-msgstr ""
+msgstr "ແຖວຍ່ອຍທັງໝົດ"
 
 msgid "Row totals"
-msgstr ""
+msgstr "ແຖວທັງໝົດ"
 
 msgid "Data item"
 msgstr "ລາຍການຂໍ້ມູນ"
@@ -552,10 +554,10 @@ msgid "Value labels"
 msgstr ""
 
 msgid "Dimension labels"
-msgstr ""
+msgstr "ແຜງຂອບເຂດ"
 
 msgid "Display organisation unit hierarchy"
-msgstr ""
+msgstr "ສະແດງຫົວໜ່ວຍການຈັດຕັ້ງຕາມລຳດັບ"
 
 msgid "Skip rounding"
 msgstr "ບໍ່ປັດຕົວເລກ"
@@ -613,12 +615,14 @@ msgid "Expected reports"
 msgstr "ລາຍງານທີ່ຄາດໄວ້"
 
 msgid "No data available"
-msgstr ""
+msgstr "ບໍ່ພົບຂໍ້ມູນ"
 
 msgid ""
 "The selected dimensions didn’t return any data. There may be no data, or you"
 " may not have access to it."
 msgstr ""
+"ຂອບເຂດທີ່ເລືອກບໍ່ໄດ້ມີການສົ່ງຄືນຂໍ້ມູນໃດໆ. ມັນອາດຈະບໍ່ມີຂໍ້ມູນ, ຫຼື "
+"ທ່ານອາດຈະບໍ່ມີການເຂົ້າເຖິງ."
 
 msgid "{{axisName}} is empty"
 msgstr ""
@@ -667,7 +671,7 @@ msgid "There is a problem with this {{visualizationType}} visualization."
 msgstr ""
 
 msgid "There was a problem getting the data from the server."
-msgstr ""
+msgstr "ພົບບັນຫາໃນການເອົາຂໍ້ມູນຈາກເຊີບເວີ."
 
 msgid "Assigned Categories can only be used with data elements"
 msgstr ""
@@ -683,12 +687,14 @@ msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
 
 msgid "Visualization not found"
-msgstr ""
+msgstr "ບໍ່ພົບການສ້າງຮູບພາບດ້ວຍຂໍ້ມູນ"
 
 msgid ""
 "The visualization you are trying to view could not be found, the ID could be"
 " incorrect or it could have been deleted."
 msgstr ""
+"ບໍ່ພົບການສ້າງຮູບພາບດ້ວຍຂໍ້ມູນທີ່ທ່ານກຳລັງຄົ້ນ, ເນື່ອງຈາກໄອດີອາດບໍ່ຖືກຕ້ອງ "
+"ຫຼື ອາດຖືກລຶບໄປແລ້ວ."
 
 msgid "Something went wrong"
 msgstr "ມີບາງຢ່າງຜິດພາດ"
@@ -841,19 +847,19 @@ msgid "Totals"
 msgstr "ລວມທັງໝົດ"
 
 msgid "Empty data"
-msgstr ""
+msgstr "ຂໍ້ມູນວ່າງເປົ່າ"
 
 msgid "Table title"
 msgstr "ຊື່ຂອງຕາຕະລາງ"
 
 msgid "Limit values"
-msgstr ""
+msgstr "ຄ່າຈຳກັດ"
 
 msgid "Limit number of values"
-msgstr ""
+msgstr "ຈຳນວນຂອງຄ່າຈຳກັດ"
 
 msgid "Limit minimum/maximum values"
-msgstr ""
+msgstr "ຈຳກັດຄ່າຕ່ຳສຸດ/ສູງສຸດ"
 
 msgid "Parameters"
 msgstr "ຂອບເຂດ"
