@@ -1,3 +1,11 @@
+## [100.7.1](https://github.com/dhis2/data-visualizer-app/compare/v100.7.0...v100.7.1) (2024-08-26)
+
+
+### Bug Fixes
+
+* display correct app version in dhis2 and updated workflows ([#3182](https://github.com/dhis2/data-visualizer-app/issues/3182)) ([39f9437](https://github.com/dhis2/data-visualizer-app/commit/39f9437b69b604994fa34fc5d18824374e0c91a7))
+* install dependencies needed to release app with new workflow ([#3183](https://github.com/dhis2/data-visualizer-app/issues/3183)) ([f6b2670](https://github.com/dhis2/data-visualizer-app/commit/f6b267080010c4c51908aa2657acf7be77c96f11))
+
 # [100.7.0](https://github.com/dhis2/data-visualizer-app/compare/v100.6.2...v100.7.0) (2024-08-21)
 
 
