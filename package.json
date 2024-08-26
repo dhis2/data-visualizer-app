@@ -25,6 +25,9 @@
         "@dhis2/cypress-plugins": "^10.0.2",
         "@reportportal/agent-js-cypress": "git+https://github.com/dhis2/agent-js-cypress.git#develop",
         "@reportportal/agent-js-jest": "^5.0.6",
+        "@semantic-release/changelog": "^6",
+        "@semantic-release/exec": "^6",
+        "@semantic-release/git": "^10",
         "cypress": "^13.6.1",
         "cypress-tags": "^1.1.2",
         "enzyme": "^3.11.0",
@@ -35,6 +38,7 @@
         "loglevel": "^1.8.1",
         "postinstall-postinstall": "^2.1.0",
         "redux-mock-store": "^1.5.4",
+        "semantic-release": "^20",
         "start-server-and-test": "^2.0.0",
         "typescript": "^4.8.4"
     },
