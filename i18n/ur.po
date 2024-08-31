@@ -1,13 +1,13 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2022
+# Viktor Varland <viktor@dhis2.org>, 2024
 # Philip Larsen Donnelly, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2024-03-01T08:28:43.727Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"PO-Revision-Date: 2024-07-23 22:28+0000\n"
 "Last-Translator: Philip Larsen Donnelly, 2024\n"
 "Language-Team: Urdu (https://app.transifex.com/hisp-uio/teams/100509/ur/)\n"
 "MIME-Version: 1.0\n"
@@ -158,13 +158,7 @@ msgstr "ڈاؤن لوڈ کریں"
 msgid "Hide"
 msgstr "چھپائیں"
 
-msgid "All"
-msgstr "سب"
-
-msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr ""
-
-msgid "{{total}} selected"
+msgid "all"
 msgstr ""
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
@@ -230,7 +224,7 @@ msgid "Edited"
 msgstr ""
 
 msgid "Update"
-msgstr "اپ ڈیٹ"
+msgstr "اپڈیٹ"
 
 msgid "Getting started"
 msgstr ""
@@ -268,7 +262,7 @@ msgid "Average (sum in org unit hierarchy)"
 msgstr "اوسط (اختیاری یونٹ کے تنظیمی ڈھانچے میں)"
 
 msgid "Sum"
-msgstr "سم"
+msgstr "جمع"
 
 msgid "Last value"
 msgstr "آخری قیمت"
@@ -277,7 +271,7 @@ msgid "Last value (average in org unit hierarchy)"
 msgstr "آخری قدر (اوسط یونٹ کے تنظیمی ڈھانچے میں اوسط)"
 
 msgid "Min"
-msgstr "منٹ"
+msgstr "کم سے کم"
 
 msgid "Max"
 msgstr "زیادہ سے زیادہ"
@@ -327,7 +321,7 @@ msgid "Auto generated from axis items"
 msgstr ""
 
 msgid "None"
-msgstr "کوئی بھی نہیں"
+msgstr "کوئی نہں"
 
 msgid "Custom"
 msgstr "مرضی کے مطابق"
@@ -460,6 +454,9 @@ msgstr "آخری کے بعد"
 
 msgid "Before first and after last"
 msgstr "پہلے اور بعد میں آخری سے پہلے"
+
+msgid "All"
+msgstr "تمام"
 
 msgid "Hide empty rows"
 msgstr "خالی قطار چھپائیں"
@@ -936,16 +933,16 @@ msgid "This week"
 msgstr "اس ہفتے"
 
 msgid "Last week"
-msgstr "پچھلا ہفتہ"
+msgstr "آخری ہفتہ"
 
 msgid "Last 4 weeks"
-msgstr "آخری 4 ہفتوں"
+msgstr "آخری ۴ ہفتے"
 
 msgid "Last 12 weeks"
-msgstr "آخری 12 ہفتوں"
+msgstr "آخری ۱۲ ہفتے"
 
 msgid "Last 52 weeks"
-msgstr "آخری 52 ہفتوں"
+msgstr "آخری ۵۲ ہفتے"
 
 msgid "Weeks this year"
 msgstr "اس سال ہفتہ"
@@ -954,19 +951,19 @@ msgid "This month"
 msgstr "اس مہینے"
 
 msgid "Last month"
-msgstr "پچھلے مہینے"
+msgstr "آخری ماہ"
 
 msgid "Last 3 months"
-msgstr "آخری 3 ماہ"
+msgstr "آخری ۳ ماہ"
 
 msgid "Last 6 months"
-msgstr "آخری 6 ماہ"
+msgstr "آخری ۶ ماہ"
 
 msgid "Last 12 months"
-msgstr "آخری 12 ماہ"
+msgstr "آخری ۱۲ ماہ"
 
 msgid "Months this year"
-msgstr "اس سال ماہ"
+msgstr "ماہ اس سال"
 
 msgid "This bimonth"
 msgstr "یہ مہینہ"
@@ -984,40 +981,40 @@ msgid "This quarter"
 msgstr "اس سہ ماہی"
 
 msgid "Last quarter"
-msgstr "آخری چوتھائی"
+msgstr "آخری سہ ماہ"
 
 msgid "Last 4 quarters"
-msgstr "آخری چار چوتھائی"
+msgstr "آخری ۴ سہ ماہی"
 
 msgid "Quarters this year"
-msgstr "اس سال سہ ماہی"
+msgstr "سہ ماہی اس سال"
 
 msgid "This six-month"
 msgstr "یہ چھ ماہ"
 
 msgid "Last six-month"
-msgstr "آخری چھ ماہ"
+msgstr "آخری ۶ ماہ"
 
 msgid "Last 2 six-months"
-msgstr "آخری 2 چھ ماہ"
+msgstr "آخری ۲ چھ ماہ"
 
 msgid "This financial year"
-msgstr "یہ مالی سال"
+msgstr "اس مالیاتی سال"
 
 msgid "Last financial year"
-msgstr "آخری مالی سال"
+msgstr "آخری مالیاتی سال"
 
 msgid "Last 5 financial years"
-msgstr "آخری 5 مالی سال"
+msgstr "آخری ۵ مالیاتی سال"
 
 msgid "This year"
 msgstr "اس سال"
 
 msgid "Last year"
-msgstr "پچھلے سال"
+msgstr "آخری سال"
 
 msgid "Last 5 years"
-msgstr "آخری 5 سال"
+msgstr "آخری ۵ سال"
 
 msgid "User organisation unit"
 msgstr "صارف تنظیم یونٹ"
@@ -1110,7 +1107,7 @@ msgid "Series"
 msgstr "سیریز"
 
 msgid "Style"
-msgstr "انداز"
+msgstr "سٹائل"
 
 msgid "View data and indicators in a manipulatable table."
 msgstr ""

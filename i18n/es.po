@@ -1,21 +1,21 @@
 # 
 # Translators:
-# ericbp <ericbarredap@gmail.com>, 2020
-# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
-# Pablo Pajuelo Cabezas <pablo@dhis2.org>, 2020
-# Prabhjot Singh, 2021
-# Viktor Varland <viktor@dhis2.org>, 2021
-# Carlos Tejo Alonso, 2022
+# Prabhjot Singh, 2024
+# Manuel Silva <manuel@dhis2.org>, 2024
+# Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2024
+# Carlos Tejo Alonso, 2024
+# Viktor Varland <viktor@dhis2.org>, 2024
+# ericbp <ericbarredap@gmail.com>, 2024
+# Enzo Nicolas Rossi <enzo@dhis2.org>, 2024
 # Philip Larsen Donnelly, 2024
 # Janeth Cruz, 2024
-# Enzo Nicolas Rossi <enzo@dhis2.org>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2024-03-01T08:28:43.727Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Enzo Nicolas Rossi <enzo@dhis2.org>, 2024\n"
+"PO-Revision-Date: 2024-07-23 22:28+0000\n"
+"Last-Translator: Janeth Cruz, 2024\n"
 "Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,7 +49,7 @@ msgstr ""
 "guardado se perderá."
 
 msgid "No, cancel"
-msgstr "No, cancela"
+msgstr "No, anular"
 
 msgid "Yes, leave"
 msgstr "Si, salir"
@@ -281,7 +281,7 @@ msgid "Average"
 msgstr "Promedio"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr "Media (suma en las unidades organizativas de la jerarquía)"
+msgstr "Media (suma en la jerarquía de unidades organizativas)"
 
 msgid "Sum"
 msgstr "Suma"
@@ -984,7 +984,7 @@ msgstr ""
 "Este tipo de visualización sólo puede mostrar datos numéricos."
 
 msgid "Something went wrong"
-msgstr "Algo ha ido mal"
+msgstr "Algo ha salido mal"
 
 msgid ""
 "There's a problem with the generated analytics. Contact a system "
@@ -1110,19 +1110,19 @@ msgid "Last 5 years"
 msgstr "Últimos 5 años"
 
 msgid "User organisation unit"
-msgstr "Usuario de unidad organizativa"
+msgstr "Unidad organizativa del usuario"
 
 msgid "User sub-units"
 msgstr "Subunidades de usuario"
 
 msgid "User sub-x2-units"
-msgstr "Sub-unidades-x2 de usuario"
+msgstr "Sub-unidades de usuario -x2"
 
 msgid "Table title"
 msgstr "Título de la tabla"
 
 msgid "Parameters"
-msgstr "Parámetros"
+msgstr "Parámetros"
 
 msgid ""
 "These options only apply to legacy tables like standard reports. Options set"

@@ -1,15 +1,15 @@
 # 
 # Translators:
-# Caroline Hesthagen Holen <caroline@devotta.no>, 2022
-# Jan Henrik Øverland, 2024
 # Martin <martin@moid.se>, 2024
+# Jan Henrik Øverland, 2024
+# Caroline Hesthagen Holen <caroline@devotta.no>, 2024
 # Karoline Tufte Lien <karoline@dhis2.org>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2024-03-01T08:28:43.727Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"PO-Revision-Date: 2024-07-23 22:28+0000\n"
 "Last-Translator: Karoline Tufte Lien <karoline@dhis2.org>, 2024\n"
 "Language-Team: Norwegian Bokmål (https://app.transifex.com/hisp-uio/teams/100509/nb/)\n"
 "MIME-Version: 1.0\n"
@@ -471,7 +471,7 @@ msgid "Before first and after last"
 msgstr "Før første og etter siste"
 
 msgid "All"
-msgstr "Alt"
+msgstr "Alle"
 
 msgid "Hide empty rows"
 msgstr "Skjul tomme rader"
@@ -684,7 +684,7 @@ msgid "Show series key"
 msgstr ""
 
 msgid "Skip rounding"
-msgstr "Hopp over avrunding"
+msgstr "Ingen avrunding"
 
 msgid "Custom sort order"
 msgstr "Tilpasset sorteringsrekkefølge"
@@ -711,7 +711,7 @@ msgid "Top limit"
 msgstr "Toppgrense"
 
 msgid "Options"
-msgstr "Alternativer"
+msgstr "Alternativ"
 
 msgid "Change org unit"
 msgstr "Bytt organisasjonsenhet"
@@ -911,8 +911,8 @@ msgid ""
 "The visualization you are trying to view could not be found, the ID could be"
 " incorrect or it could have been deleted."
 msgstr ""
-"Visualiseringen du prøver å vise, ble ikke funnet, ID-en kan være feil, "
-"eller den kan ha blitt slettet."
+"Visualiseringen du prøver å vise ble ikke funnet. ID-en kan være feil eller "
+"den kan ha blitt slettet."
 
 msgid "No organization units found"
 msgstr ""
@@ -981,7 +981,7 @@ msgid "Last 52 weeks"
 msgstr "Siste 52 uker"
 
 msgid "Weeks this year"
-msgstr "Uker i år"
+msgstr "Uker inneværende år"
 
 msgid "This month"
 msgstr "Denne måneden"
@@ -999,7 +999,7 @@ msgid "Last 12 months"
 msgstr "Siste 12 måneder"
 
 msgid "Months this year"
-msgstr "Måneder inneværende år"
+msgstr "Måneder i år"
 
 msgid "This bimonth"
 msgstr "Denne tomåned"
@@ -1023,7 +1023,7 @@ msgid "Last 4 quarters"
 msgstr "Siste 4 kvartaler"
 
 msgid "Quarters this year"
-msgstr "Kvartaler inneværende år"
+msgstr "Kvartaler i år"
 
 msgid "This six-month"
 msgstr "Dette halvåret"
@@ -1032,7 +1032,7 @@ msgid "Last six-month"
 msgstr "Siste halvår"
 
 msgid "Last 2 six-months"
-msgstr "Siste to halvår"
+msgstr "Siste 2 halvår"
 
 msgid "This financial year"
 msgstr "Dette regnskapsåret"
@@ -1047,7 +1047,7 @@ msgid "This year"
 msgstr "Dette året"
 
 msgid "Last year"
-msgstr "I fjor"
+msgstr "Forrige år"
 
 msgid "Last 5 years"
 msgstr "Siste 5 år"
@@ -1065,7 +1065,7 @@ msgid "Table title"
 msgstr "Tabelltittel"
 
 msgid "Parameters"
-msgstr "Parametere"
+msgstr "Parametre"
 
 msgid ""
 "These options only apply to legacy tables like standard reports. Options set"
