@@ -1,13 +1,13 @@
 # 
 # Translators:
-# Viktor Varland <viktor@dhis2.org>, 2021
+# Viktor Varland <viktor@dhis2.org>, 2024
 # Philip Larsen Donnelly, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2024-03-01T08:28:43.727Z\n"
-"PO-Revision-Date: 2019-06-25 18:46+0000\n"
+"PO-Revision-Date: 2024-07-23 22:28+0000\n"
 "Last-Translator: Philip Larsen Donnelly, 2024\n"
 "Language-Team: Pashto (https://app.transifex.com/hisp-uio/teams/100509/ps/)\n"
 "MIME-Version: 1.0\n"
@@ -158,13 +158,7 @@ msgstr "بارگیری"
 msgid "Hide"
 msgstr "پټ یې کړئ"
 
-msgid "All"
-msgstr "ټول"
-
-msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr ""
-
-msgid "{{total}} selected"
+msgid "all"
 msgstr ""
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
@@ -460,6 +454,9 @@ msgstr "په وروستي څخه بعد"
 
 msgid "Before first and after last"
 msgstr "لومړۍ اول او له وروستي څخه بعد"
+
+msgid "All"
+msgstr "ټول"
 
 msgid "Hide empty rows"
 msgstr "خالي یا تش کتارونه پټ کړئ"
@@ -942,7 +939,7 @@ msgid "Last 4 weeks"
 msgstr "تېرې 4 اونۍ"
 
 msgid "Last 12 weeks"
-msgstr "تېرې 12 اونۍ"
+msgstr "تېرو 12 اونۍ"
 
 msgid "Last 52 weeks"
 msgstr "تېرې دوه پنځوس اونۍ"
