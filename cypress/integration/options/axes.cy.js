@@ -1,4 +1,8 @@
-import { DIMENSION_ID_DATA, VIS_TYPE_COLUMN } from '@dhis2/analytics'
+import {
+    DIMENSION_ID_DATA,
+    VIS_TYPE_COLUMN,
+    getDisplayNameByVisType,
+} from '@dhis2/analytics'
 import {
     expectVisualizationToBeVisible,
     expectChartTitleToBeVisible,
@@ -27,6 +31,7 @@ import {
     setAxisStepsValue,
 } from '../../elements/optionsModal/index.js'
 import { goToStartPage } from '../../elements/startScreen.js'
+import { changeVisType } from '../../elements/visualizationTypeSelector.js'
 import { CONFIG_DEFAULT_VERTICAL_AXIS_TITLE } from '../../utils/config.js'
 import { TEST_DATA_ELEMENTS } from '../../utils/data.js'
 import { generateRandomNumber, getRandomArrayItem } from '../../utils/random.js'
@@ -50,6 +55,7 @@ describe('Options - Vertical axis', () => {
     const TEST_TITLE = 'VT'
     it('navigates to the start page and add a data item', () => {
         goToStartPage()
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_COLUMN))
         openDimension(DIMENSION_ID_DATA)
         selectDataElements([TEST_DATA_ELEMENT_NAME])
         clickDimensionModalUpdateButton()
@@ -131,6 +137,7 @@ describe('Options - Horizontal axis', () => {
     const TEST_TAB = 'Horizontal (x) axis'
     it('navigates to the start page and add a data item', () => {
         goToStartPage()
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_COLUMN))
         openDimension(DIMENSION_ID_DATA)
         selectDataElements([TEST_DATA_ELEMENT_NAME])
         clickDimensionModalUpdateButton()
@@ -173,6 +180,7 @@ describe('Options - Horizontal axis', () => {
 describe('Options - Auto-generated axis title', () => {
     it('navigates to the start page and add a data item', () => {
         goToStartPage()
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_COLUMN))
         openDimension(DIMENSION_ID_DATA)
         selectDataElements([TEST_DATA_ELEMENT_NAME])
         clickDimensionModalUpdateButton()
@@ -223,6 +231,7 @@ describe('Options - Auto-generated axis title', () => {
     describe('Multi items - multi axis', () => {
         it('navigates to the start page and adds two data items', () => {
             goToStartPage()
+            changeVisType(getDisplayNameByVisType(VIS_TYPE_COLUMN))
             openDimension(DIMENSION_ID_DATA)
             selectDataElements([
                 TEST_DATA_ELEMENT_NAME,

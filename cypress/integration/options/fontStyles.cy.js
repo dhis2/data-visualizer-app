@@ -1,4 +1,8 @@
-import { DIMENSION_ID_DATA, VIS_TYPE_COLUMN } from '@dhis2/analytics'
+import {
+    DIMENSION_ID_DATA,
+    VIS_TYPE_COLUMN,
+    getDisplayNameByVisType,
+} from '@dhis2/analytics'
 import {
     expectVisualizationToBeVisible,
     expectChartTitleToBeVisible,
@@ -32,6 +36,7 @@ import {
     changeColor,
 } from '../../elements/optionsModal/index.js'
 import { goToStartPage } from '../../elements/startScreen.js'
+import { changeVisType } from '../../elements/visualizationTypeSelector.js'
 import {
     CONFIG_DEFAULT_SUBTITLE,
     CONFIG_DEFAULT_TITLE,
@@ -108,6 +113,7 @@ const setFontStyleOptions = ({
 describe('Options - Font styles', () => {
     it('navigates to the start page and adds a data item', () => {
         goToStartPage()
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_COLUMN))
         openDimension(DIMENSION_ID_DATA)
         selectDataElements([TEST_DATA_ELEMENT_NAME])
         clickDimensionModalUpdateButton()

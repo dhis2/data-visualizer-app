@@ -1,3 +1,84 @@
+## [100.7.1](https://github.com/dhis2/data-visualizer-app/compare/v100.7.0...v100.7.1) (2024-08-26)
+
+
+### Bug Fixes
+
+* display correct app version in dhis2 and updated workflows ([#3182](https://github.com/dhis2/data-visualizer-app/issues/3182)) ([39f9437](https://github.com/dhis2/data-visualizer-app/commit/39f9437b69b604994fa34fc5d18824374e0c91a7))
+* install dependencies needed to release app with new workflow ([#3183](https://github.com/dhis2/data-visualizer-app/issues/3183)) ([f6b2670](https://github.com/dhis2/data-visualizer-app/commit/f6b267080010c4c51908aa2657acf7be77c96f11))
+
+# [100.7.0](https://github.com/dhis2/data-visualizer-app/compare/v100.6.2...v100.7.0) (2024-08-21)
+
+
+### Features
+
+* add subtitle field to pivot table options [DHIS2-16158] ([#3178](https://github.com/dhis2/data-visualizer-app/issues/3178)) ([bec185e](https://github.com/dhis2/data-visualizer-app/commit/bec185e4d981fa70ab343757dc6250f31f090307))
+
+## [100.6.2](https://github.com/dhis2/data-visualizer-app/compare/v100.6.1...v100.6.2) (2024-08-15)
+
+
+### Bug Fixes
+
+* apply grab cursor to assigned categories dimension item ([#3140](https://github.com/dhis2/data-visualizer-app/issues/3140)) ([437b8f1](https://github.com/dhis2/data-visualizer-app/commit/437b8f10b83c6643db6cee7caedb8774af9ae0f4))
+
+## [100.6.1](https://github.com/dhis2/data-visualizer-app/compare/v100.6.0...v100.6.1) (2024-08-13)
+
+
+### Bug Fixes
+
+* sort analytics request params and items for cache hit optimization (analytics@26.8.1) ([#3166](https://github.com/dhis2/data-visualizer-app/issues/3166)) ([1a150e7](https://github.com/dhis2/data-visualizer-app/commit/1a150e76ae6896771339f1f6639177c1cfc05a09))
+
+# [100.6.0](https://github.com/dhis2/data-visualizer-app/compare/v100.5.9...v100.6.0) (2024-08-08)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([4c08077](https://github.com/dhis2/data-visualizer-app/commit/4c08077fb9e23b93c2ab564d2bdf0366a0990b69))
+
+
+### Features
+
+* pivot table as default vis type in DV (DHIS2-15833) ([#3159](https://github.com/dhis2/data-visualizer-app/issues/3159)) ([0eccf93](https://github.com/dhis2/data-visualizer-app/commit/0eccf9372c6665ddc0f4bbaea460ad2d21723b2e))
+
+## [100.5.9](https://github.com/dhis2/data-visualizer-app/compare/v100.5.8...v100.5.9) (2024-06-27)
+
+
+### Bug Fixes
+
+* analytics@26.7.6 apply legend to all numeric and boolean types ([#3128](https://github.com/dhis2/data-visualizer-app/issues/3128)) ([7ba8ae0](https://github.com/dhis2/data-visualizer-app/commit/7ba8ae01fc624bd769b82ac41e97b9bc6eeec916))
+
+## [100.5.8](https://github.com/dhis2/data-visualizer-app/compare/v100.5.7...v100.5.8) (2024-06-25)
+
+
+### Bug Fixes
+
+* bump analytics with fix for DHIS2-16904 ([#3124](https://github.com/dhis2/data-visualizer-app/issues/3124)) ([4996f7a](https://github.com/dhis2/data-visualizer-app/commit/4996f7a194e4bbe77a50510dd000b21ac1c1b066))
+
+## [100.5.7](https://github.com/dhis2/data-visualizer-app/compare/v100.5.6...v100.5.7) (2024-06-24)
+
+
+### Bug Fixes
+
+* use saved visualization in interpretation modal ([#3121](https://github.com/dhis2/data-visualizer-app/issues/3121)) ([1853a62](https://github.com/dhis2/data-visualizer-app/commit/1853a62d3eb3a744c4728491d624453cd6150d4e))
+
+## [100.5.6](https://github.com/dhis2/data-visualizer-app/compare/v100.5.5...v100.5.6) (2024-06-17)
+
+
+### Bug Fixes
+
+* separator for hundreds, thousands and millions missing in Pie charts (DHIS2-16172) ([#3093](https://github.com/dhis2/data-visualizer-app/issues/3093)) ([286de25](https://github.com/dhis2/data-visualizer-app/commit/286de250ce4758e4387bc3f3bd8e497e6c407d97))
+* use improved rich text editor from analytics (DHIS2-15522) ([03069f1](https://github.com/dhis2/data-visualizer-app/commit/03069f1128a9613f9db694c715f3c2e165b46e25))
+
+## [100.5.5](https://github.com/dhis2/data-visualizer-app/compare/v100.5.4...v100.5.5) (2024-06-06)
+
+
+### Bug Fixes
+
+* dimension chip design updates (DHIS2-16272) ([#2934](https://github.com/dhis2/data-visualizer-app/issues/2934)) ([9b23fbd](https://github.com/dhis2/data-visualizer-app/commit/9b23fbd48a69ba52da6fcc219ea161eabd6540dd))
+* non-existing AO blocks new AOs from being created (DHIS2-13167) ([#3056](https://github.com/dhis2/data-visualizer-app/issues/3056)) ([2bf0d53](https://github.com/dhis2/data-visualizer-app/commit/2bf0d53a855bd89b682abab60cda0f01b314a2f9))
+* numbers are misaligned in pivot table (DHIS2-16900) ([#3072](https://github.com/dhis2/data-visualizer-app/issues/3072)) ([3ee3a83](https://github.com/dhis2/data-visualizer-app/commit/3ee3a83e9454d5d36ddd39e8eb59e7cf8dea1a41))
+* **translations:** sync translations from transifex (dev) ([8dd390b](https://github.com/dhis2/data-visualizer-app/commit/8dd390b37d67093f1c18992514f933fc80b9ab8c))
+* system / user setting for display name not respected in Org Unit tree (DHIS2-15000) ([#3051](https://github.com/dhis2/data-visualizer-app/issues/3051)) ([4a79d5b](https://github.com/dhis2/data-visualizer-app/commit/4a79d5be6e415c55828ad6abe99e450c1ff293dd))
+
 ## [100.5.4](https://github.com/dhis2/data-visualizer-app/compare/v100.5.3...v100.5.4) (2024-05-13)
 
 

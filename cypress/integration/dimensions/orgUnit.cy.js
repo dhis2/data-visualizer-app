@@ -1,8 +1,9 @@
 import {
     DIMENSION_ID_DATA,
-    VIS_TYPE_COLUMN,
     DIMENSION_ID_ORGUNIT,
     AXIS_ID_COLUMNS,
+    VIS_TYPE_COLUMN,
+    getDisplayNameByVisType,
 } from '@dhis2/analytics'
 import { expectVisualizationToBeVisible } from '../../elements/chart.js'
 import {
@@ -30,6 +31,7 @@ import {
 } from '../../elements/layout.js'
 import { clickMenuBarUpdateButton } from '../../elements/menuBar.js'
 import { goToStartPage } from '../../elements/startScreen.js'
+import { changeVisType } from '../../elements/visualizationTypeSelector.js'
 import { TEST_DATA_ELEMENTS } from '../../utils/data.js'
 import { getRandomArrayItem } from '../../utils/random.js'
 import { expectWindowConfigSeriesToHaveLength } from '../../utils/window.js'
@@ -41,6 +43,7 @@ describe(`Org unit dimension`, () => {
     const TEST_DEFAULT_ORG_UNIT = 'User organisation unit'
     it('navigates to the start page, adds a data item, moves Org Unit to Series', () => {
         goToStartPage()
+        changeVisType(getDisplayNameByVisType(VIS_TYPE_COLUMN))
         openDimension(DIMENSION_ID_DATA)
         selectDataElements([TEST_DATA_ELEMENT_NAME])
         clickDimensionModalHideButton()

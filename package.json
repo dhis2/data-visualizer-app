@@ -1,6 +1,6 @@
 {
     "name": "data-visualizer-app",
-    "version": "100.5.4",
+    "version": "100.7.1",
     "description": "DHIS2 Data Visualizer",
     "license": "BSD-3-Clause",
     "private": true,
@@ -14,7 +14,6 @@
         "deploy": "d2-app-scripts deploy",
         "lint": "d2-style check",
         "format": "d2-style apply",
-        "validate-commit": "d2-style check --staged",
         "validate-push": "yarn test",
         "cy:open": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress open --e2e --env networkMode=live'",
         "cy:run": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress run --browser chrome headless --env networkMode=live'"
@@ -26,6 +25,9 @@
         "@dhis2/cypress-plugins": "^10.0.2",
         "@reportportal/agent-js-cypress": "git+https://github.com/dhis2/agent-js-cypress.git#develop",
         "@reportportal/agent-js-jest": "^5.0.6",
+        "@semantic-release/changelog": "^6",
+        "@semantic-release/exec": "^6",
+        "@semantic-release/git": "^10",
         "cypress": "^13.6.1",
         "cypress-tags": "^1.1.2",
         "enzyme": "^3.11.0",
@@ -36,11 +38,12 @@
         "loglevel": "^1.8.1",
         "postinstall-postinstall": "^2.1.0",
         "redux-mock-store": "^1.5.4",
+        "semantic-release": "^20",
         "start-server-and-test": "^2.0.0",
         "typescript": "^4.8.4"
     },
     "dependencies": {
-        "@dhis2/analytics": "^26.6.10",
+        "@dhis2/analytics": "^26.8.1",
         "@dhis2/app-runtime": "^3.10.4",
         "@dhis2/app-runtime-adapter-d2": "^1.1.0",
         "@dhis2/app-service-datastore": "^1.0.0-beta.3",
