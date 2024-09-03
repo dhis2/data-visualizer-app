@@ -63,6 +63,12 @@ export const selectDataElements = (dataElements) => {
     dataElements.forEach((item) => selectItemByDoubleClick(item))
 }
 
+export const selectDataItems = (dataItems) => {
+    expectSourceToNotBeLoading()
+    expectDataItemsToBeInSource(dataItems)
+    dataItems.forEach((item) => selectItemByDoubleClick(item))
+}
+
 export const selectFirstDataItem = () =>
     cy.getBySel(selectableItemsEl).findBySel(optionContentEl).eq(0).dblclick()
 
