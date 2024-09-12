@@ -14,7 +14,7 @@ import {
     apiFetchVisualization,
     apiSaveVisualization,
 } from '../api/visualization.js'
-import { VARIANT_SUCCESS } from '../components/Snackbar/Snackbar.js'
+import { VARIANT_SUCCESS } from '../components/Snackbar/Snackbar.jsx'
 import {
     GenericServerError,
     VisualizationNotFoundError,
