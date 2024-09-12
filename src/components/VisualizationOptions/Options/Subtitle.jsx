@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { TextBaseOption } from './TextBaseOption.jsx'
 
-const Subtitle = ({ dataTest, label }) => (
+const Subtitle = ({ dataTest = 'visualization-option-subtitle', label }) => (
     <TextBaseOption
         type="text"
         width="280px"
@@ -15,10 +15,6 @@ const Subtitle = ({ dataTest, label }) => (
         dataTest={dataTest}
     />
 )
-
-Subtitle.defaultProps = {
-    dataTest: 'visualization-option-subtitle',
-}
 
 Subtitle.propTypes = {
     dataTest: PropTypes.string,

@@ -16,7 +16,7 @@ export const UnconnectedTextBaseOption = ({
     placeholder,
     helpText,
     width,
-    option,
+    option = {},
     value,
     onChange,
     onToggle,
@@ -87,10 +87,6 @@ export const UnconnectedTextBaseOption = ({
         ) : null}
     </div>
 )
-
-UnconnectedTextBaseOption.defaultProps = {
-    option: {},
-}
 
 UnconnectedTextBaseOption.propTypes = {
     checked: PropTypes.bool,

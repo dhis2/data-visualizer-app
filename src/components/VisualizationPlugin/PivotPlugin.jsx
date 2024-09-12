@@ -6,7 +6,7 @@ const PivotPlugin = ({
     responses,
     legendSets,
     visualization,
-    style,
+    style = {},
     id: renderCounter,
     onToggleContextualMenu,
 }) => {
@@ -21,10 +21,6 @@ const PivotPlugin = ({
             />
         </div>
     )
-}
-
-PivotPlugin.defaultProps = {
-    style: {},
 }
 
 PivotPlugin.propTypes = {

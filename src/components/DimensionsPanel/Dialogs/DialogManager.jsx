@@ -106,6 +106,12 @@ export class DialogManager extends Component {
         onMounted: false,
     }
 
+    static defaultProps = {
+        dialogId: null,
+        dxIds: [],
+        rootOrgUnits: [],
+    }
+
     componentDidUpdate = (prevProps) => {
         const shouldFetchIds =
             !isEqual(prevProps.dxIds, this.props.dxIds) ||
@@ -558,12 +564,6 @@ DialogManager.propTypes = {
     setUiItems: PropTypes.func,
     settings: PropTypes.object,
     type: PropTypes.string,
-}
-
-DialogManager.defaultProps = {
-    dialogId: null,
-    dxIds: [],
-    rootOrgUnits: [],
 }
 
 const mapStateToProps = (state) => ({

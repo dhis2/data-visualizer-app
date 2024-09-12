@@ -66,7 +66,7 @@ const OutlierTablePlugin = ({
     filters,
     responses,
     visualization,
-    onDataSorted,
+    onDataSorted = Function.prototype,
 }) => {
     const data = responses[0]
     const headersDetails = getOutlierTableHeadersDetails({
@@ -286,11 +286,6 @@ const OutlierTablePlugin = ({
             </div>
         </div>
     )
-}
-
-OutlierTablePlugin.defaultProps = {
-    style: {},
-    onDataSorted: Function.prototype,
 }
 
 OutlierTablePlugin.propTypes = {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { TextBaseOption } from './TextBaseOption.jsx'
 
-const Title = ({ label, inline }) => (
+const Title = ({ label, inline = false }) => (
     <TextBaseOption
         type="text"
         width="280px"
@@ -15,10 +15,6 @@ const Title = ({ label, inline }) => (
         inline={inline}
     />
 )
-
-Title.defaultProps = {
-    inline: false,
-}
 
 Title.propTypes = {
     inline: PropTypes.bool,

@@ -37,7 +37,7 @@ const Chip = ({
     dimensionId,
     dimensionName,
     axisId,
-    items,
+    items = [],
     onClick,
     isLocked,
     axisName,
@@ -245,10 +245,6 @@ Chip.propTypes = {
     axisName: PropTypes.string,
     contextMenu: PropTypes.object,
     items: PropTypes.array,
-}
-
-Chip.defaultProps = {
-    items: [],
 }
 
 const mapStateToProps = (state, ownProps) => ({

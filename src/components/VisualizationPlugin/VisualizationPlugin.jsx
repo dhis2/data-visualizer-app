@@ -28,18 +28,18 @@ import PivotPlugin from './PivotPlugin.jsx'
 import styles from './styles/VisualizationPlugin.module.css'
 
 export const VisualizationPlugin = ({
-    visualization: originalVisualization,
-    displayProperty,
-    filters,
-    forDashboard,
+    visualization: originalVisualization = {},
+    displayProperty = 'name',
+    filters = {},
+    forDashboard = false,
     id,
     isInModal,
-    style,
-    onChartGenerated,
-    onError,
-    onLoadingComplete,
-    onDataSorted,
-    onResponsesReceived,
+    style = {},
+    onChartGenerated = Function.prototype,
+    onError = Function.prototype,
+    onLoadingComplete = Function.prototype,
+    onDataSorted = Function.prototype,
+    onResponsesReceived = Function.prototype,
     onDrill,
 }) => {
     const engine = useDataEngine()
@@ -480,18 +480,6 @@ export const VisualizationPlugin = ({
     )
 }
 
-VisualizationPlugin.defaultProps = {
-    displayProperty: 'name',
-    filters: {},
-    forDashboard: false,
-    onChartGenerated: Function.prototype,
-    onError: Function.prototype,
-    onLoadingComplete: Function.prototype,
-    onDataSorted: Function.prototype,
-    onResponsesReceived: Function.prototype,
-    style: {},
-    visualization: {},
-}
 VisualizationPlugin.propTypes = {
     displayProperty: PropTypes.string.isRequired,
     visualization: PropTypes.object.isRequired,

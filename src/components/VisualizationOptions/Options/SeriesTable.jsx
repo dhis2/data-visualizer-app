@@ -48,13 +48,13 @@ const allTypes = [VIS_TYPE_COLUMN, VIS_TYPE_LINE]
 
 const SeriesTable = ({
     columns,
-    layoutItems,
-    optionItems,
+    layoutItems = [],
+    optionItems = [],
     onChange,
     onItemChange,
     visType,
-    showAxisOptions,
-    showTypeOptions,
+    showAxisOptions = false,
+    showTypeOptions = false,
 }) => {
     const availableTypes = [
         visType,
@@ -277,13 +277,6 @@ SeriesTable.propTypes = {
     optionItems: PropTypes.array,
     showAxisOptions: PropTypes.bool,
     showTypeOptions: PropTypes.bool,
-}
-
-SeriesTable.defaultProps = {
-    layoutItems: [],
-    optionItems: [],
-    showAxisOptions: false,
-    showTypeOptions: false,
 }
 
 const mapStateToProps = (state) => ({
