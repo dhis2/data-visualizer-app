@@ -22,7 +22,7 @@ jobs:
               id: set-matrix
               run: |
                   echo "Generating Test Matrix"
-                  echo "::set-output name=specs::$(node src/generateTestMatrix.js)"
+                  echo "::set-output name=specs::$(node cypress/support/generateTestMatrix.js)"
 
             - name: Debug spec-group
               run: |
