@@ -1,6 +1,6 @@
 {
     "name": "data-visualizer-app",
-    "version": "100.6.2",
+    "version": "100.7.1",
     "description": "DHIS2 Data Visualizer",
     "license": "BSD-3-Clause",
     "private": true,
@@ -25,6 +25,9 @@
         "@dhis2/cypress-plugins": "^10.0.6",
         "@reportportal/agent-js-cypress": "git+https://github.com/dhis2/agent-js-cypress.git#develop",
         "@reportportal/agent-js-jest": "^5.0.6",
+        "@semantic-release/changelog": "^6",
+        "@semantic-release/exec": "^6",
+        "@semantic-release/git": "^10",
         "cypress": "^13.6.1",
         "cypress-tags": "^1.1.2",
         "enzyme": "^3.11.0",
@@ -35,7 +38,8 @@
         "loglevel": "^1.8.1",
         "postinstall-postinstall": "^2.1.0",
         "redux-mock-store": "^1.5.4",
-        "start-server-and-test": "^2.0.5",
+        "semantic-release": "^20",
+        "start-server-and-test": "^2.0.0",
         "typescript": "^4.8.4"
     },
     "dependencies": {
