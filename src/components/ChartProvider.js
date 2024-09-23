@@ -8,7 +8,6 @@ const throwIfNotInitialized = () => {
 export const ChartContext = createContext({
     getChart: throwIfNotInitialized,
     setChart: throwIfNotInitialized,
-    isHighchartsChartInstance: throwIfNotInitialized,
 })
 
 export const useChartContext = () => useContext(ChartContext)
@@ -16,18 +15,12 @@ export const useChartContext = () => useContext(ChartContext)
 export const ChartProvider = ({ children }) => {
     const chartRef = useRef(null)
     const getChart = useCallback(() => chartRef.current, [])
-    const isHighchartsChartInstance = useCallback(
-        () => chartRef.current && typeof chartRef.current !== 'string',
-        []
-    )
     const setChart = useCallback((chart = null) => {
         chartRef.current = chart
     }, [])
 
     return (
-        <ChartContext.Provider
-            value={{ getChart, isHighchartsChartInstance, setChart }}
-        >
+        <ChartContext.Provider value={{ getChart, setChart }}>
             {children}
         </ChartContext.Provider>
     )

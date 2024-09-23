@@ -263,7 +263,6 @@ UnconnectedVisualization.contextType = ChartContext
 UnconnectedVisualization.contextTypes = {
     getChart: PropTypes.func,
     setChart: PropTypes.func,
-    isHighchartsChartInstance: PropTypes.func,
 }
 
 const mapStateToProps = (state) => ({

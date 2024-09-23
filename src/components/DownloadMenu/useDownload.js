@@ -1,5 +1,5 @@
 import { Analytics, VIS_TYPE_OUTLIER_TABLE } from '@dhis2/analytics'
-import { useConfig, useDataEngine, useDataMutation } from '@dhis2/app-runtime'
+import { useConfig, useDataEngine } from '@dhis2/app-runtime'
 import { useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { getAnalyticsRequestForOutlierTable } from '../../api/analytics.js'
@@ -21,18 +21,6 @@ import {
     FILE_FORMAT_PNG,
     FILE_FORMAT_XLS,
 } from './constants.js'
-
-const downloadPngMutation = {
-    resource: 'svg.png',
-    type: 'create',
-    data: ({ formData }) => formData,
-}
-
-const downloadPdfMutation = {
-    resource: 'svg.pdf',
-    type: 'create',
-    data: ({ formData }) => formData,
-}
 
 const addCommonParameters = (req, visualization, options) => {
     req = req
@@ -66,21 +54,8 @@ const useDownload = (relativePeriodDate) => {
     const { baseUrl } = useConfig()
     const { dbLocale } = useUserSettings()
     const dataEngine = useDataEngine()
-    const { getChart, isHighchartsChartInstance } = useChartContext()
+    const { getChart } = useChartContext()
     const analyticsEngine = Analytics.getAnalytics(dataEngine)
-
-    const openDownloadedFileInBlankTab = useCallback((blob) => {
-        const url = URL.createObjectURL(blob)
-        window.open(url, '_blank')
-    }, [])
-
-    const [getPng] = useDataMutation(downloadPngMutation, {
-        onComplete: openDownloadedFileInBlankTab,
-    })
-
-    const [getPdf] = useDataMutation(downloadPdfMutation, {
-        onComplete: openDownloadedFileInBlankTab,
-    })
 
     const doDownloadImage = useCallback(
         ({ format }) => {
@@ -92,40 +67,18 @@ const useDownload = (relativePeriodDate) => {
 
             const isPng = format === FILE_FORMAT_PNG
 
-            if (isHighchartsChartInstance()) {
-                chart.exportChartLocal({
-                    sourceHeight: 768,
-                    sourceWidth: 1024,
-                    scale: 1,
-                    fallbackToExportServer: false,
-                    filename: visualization.name,
-                    showExportInProgress: true,
-                    type: isPng ? 'image/png' : 'application/pdf',
-                    pdfFont: getNotoFontVariantsForLocale(dbLocale),
-                })
-            } else {
-                /* Single value visualizations are not produced via
-                 * Highcharts and they still need to be exported using
-                 * the legacy conversion endpoints */
-                const formData = {
-                    filename: visualization.name,
-                }
-
-                if (chart) {
-                    formData.svg = chart
-                }
-
-                isPng ? getPng({ formData }) : getPdf({ formData })
-            }
+            chart.exportChartLocal({
+                sourceHeight: 768,
+                sourceWidth: 1024,
+                scale: 1,
+                fallbackToExportServer: false,
+                filename: visualization.name,
+                showExportInProgress: true,
+                type: isPng ? 'image/png' : 'application/pdf',
+                pdfFont: getNotoFontVariantsForLocale(dbLocale),
+            })
         },
-        [
-            dbLocale,
-            getChart,
-            getPdf,
-            getPng,
-            visualization,
-            isHighchartsChartInstance,
-        ]
+        [dbLocale, getChart, visualization]
     )
 
     const doDownloadData = useCallback(
