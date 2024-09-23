@@ -14,7 +14,7 @@ describe('The AddToLayoutButton component ', () => {
     }
 
     // TODO remove
-    console.log('getShallowAddToLayoutButton', getShallowAddToLayoutButton)
+    getShallowAddToLayoutButton
 
     beforeEach(() => {
         props = {
