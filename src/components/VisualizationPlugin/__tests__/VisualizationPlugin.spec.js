@@ -8,19 +8,6 @@ import * as options from '../../../modules/options.js'
 import ChartPlugin from '../ChartPlugin.js'
 import { VisualizationPlugin } from '../VisualizationPlugin.js'
 
-const consoleErrorSuppressor = (() => {
-    const originalConsoleError = console.error
-    const noop = () => {}
-    return {
-        suppress() {
-            console.error = noop
-        },
-        restore() {
-            console.error = originalConsoleError
-        },
-    }
-})()
-
 jest.mock('../ChartPlugin', () => jest.fn(() => null))
 jest.mock('../PivotPlugin', () => jest.fn(() => null))
 jest.mock('@dhis2/analytics', () => ({
@@ -184,31 +171,28 @@ describe('VisualizationPlugin', () => {
         })
 
         it('calls onError callback when an exception is thrown', async () => {
-            consoleErrorSuppressor.suppress()
             // eslint-disable-next-line no-import-assign, import/namespace
             api.apiFetchAnalytics = jest.fn().mockRejectedValue('error')
 
+            const originalConsoleError = console.error
             await canvas()
-
-            consoleErrorSuppressor.restore()
+            console.error = originalConsoleError
 
             expect(defaultProps.onError).toHaveBeenCalled()
         })
 
         it('sets period when interpretation selected', async () => {
-            consoleErrorSuppressor.suppress()
             const period = 'eons ago'
 
             await canvas({
-                filters: {
+                visualization: {
+                    ...defaultCurrentMock,
                     relativePeriodDate: period,
                 },
             })
 
-            consoleErrorSuppressor.restore()
-
             expect(api.apiFetchAnalytics).toHaveBeenCalled()
-            expect(api.apiFetchAnalytics.mock.calls[0][2]).toHaveProperty(
+            expect(api.apiFetchAnalytics.mock.calls[0][1]).toHaveProperty(
                 'relativePeriodDate',
                 period
             )
