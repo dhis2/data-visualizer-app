@@ -1,4 +1,4 @@
-import { isSingleValue, createVisualization } from '@dhis2/analytics'
+import { createVisualization } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 import React, { useRef, useCallback, useEffect } from 'react'
 
@@ -31,8 +31,9 @@ const ChartPlugin = ({
                 },
                 undefined,
                 undefined,
-                isSingleValue(visualization.type) ? 'dhis' : 'highcharts' // output format
+                'highcharts' // output format
             )
+            console.log('visualizationConfig', visualizationConfig)
 
             onChartGenerated(visualizationConfig.visualization)
         },
