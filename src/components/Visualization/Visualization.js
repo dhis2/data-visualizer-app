@@ -259,10 +259,17 @@ UnconnectedVisualization.propTypes = {
 }
 
 UnconnectedVisualization.contextType = ChartContext
-// Needed for Jest/Enzyme context mocking to work
-UnconnectedVisualization.contextTypes = {
-    getChart: PropTypes.func,
-    setChart: PropTypes.func,
+
+/* Setting these contextTypes is required for Jest/Enzyme
+ * context mocking to work, but a React DevTools warning
+ * is thrown in development mode, because contextTypes is
+ * part of the legacy Context API which is deprecated.
+ * So we have to set them conditionally. */
+if (process.env.JEST_WORKER_ID !== undefined) {
+    UnconnectedVisualization.contextTypes = {
+        getChart: PropTypes.func,
+        setChart: PropTypes.func,
+    }
 }
 
 const mapStateToProps = (state) => ({
