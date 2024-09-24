@@ -33,7 +33,6 @@ const ChartPlugin = ({
                 undefined,
                 'highcharts' // output format
             )
-            console.log('visualizationConfig', visualizationConfig)
 
             onChartGenerated(visualizationConfig.visualization)
         },
