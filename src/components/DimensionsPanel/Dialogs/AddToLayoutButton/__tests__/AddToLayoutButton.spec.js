@@ -6,15 +6,13 @@ describe('The AddToLayoutButton component ', () => {
     let props
     let shallowButton
 
+    // eslint-disable-next-line no-unused-vars
     const getShallowAddToLayoutButton = () => {
         if (!shallowButton) {
             shallowButton = shallow(<AddToLayoutButton {...props} />)
         }
         return shallowButton
     }
-
-    // TODO remove
-    getShallowAddToLayoutButton
 
     beforeEach(() => {
         props = {
