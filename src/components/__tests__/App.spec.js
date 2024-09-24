@@ -10,6 +10,7 @@ import { UnconnectedApp as App } from '../App.js'
 import { Snackbar } from '../Snackbar/Snackbar.js'
 
 jest.mock('@dhis2/analytics', () => ({
+    ...jest.requireActual('@dhis2/analytics'),
     apiFetchOrganisationUnitLevels: jest.fn(),
     getPredefinedDimensions: () => {},
     visTypeDisplayNames: {},
