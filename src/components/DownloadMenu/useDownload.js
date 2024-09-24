@@ -18,8 +18,8 @@ import {
     DOWNLOAD_TYPE_TABLE,
     FILE_FORMAT_HTML_CSS,
     FILE_FORMAT_CSV,
-    FILE_FORMAT_PNG,
     FILE_FORMAT_XLS,
+    FILE_FORMAT_PDF,
 } from './constants.js'
 
 const addCommonParameters = (req, visualization, options) => {
@@ -65,7 +65,7 @@ const useDownload = (relativePeriodDate) => {
                 return false
             }
 
-            const isPng = format === FILE_FORMAT_PNG
+            const isPdf = format === FILE_FORMAT_PDF
 
             chart.exportChartLocal({
                 sourceHeight: 768,
@@ -74,8 +74,10 @@ const useDownload = (relativePeriodDate) => {
                 fallbackToExportServer: false,
                 filename: visualization.name,
                 showExportInProgress: true,
-                type: isPng ? 'image/png' : 'application/pdf',
-                pdfFont: getNotoFontVariantsForLocale(dbLocale),
+                type: isPdf ? 'application/pdf' : 'image/png',
+                pdfFont: isPdf
+                    ? getNotoFontVariantsForLocale(dbLocale)
+                    : undefined,
             })
         },
         [dbLocale, getChart, visualization]
