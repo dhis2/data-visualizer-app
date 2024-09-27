@@ -7,10 +7,7 @@ import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
 import { acSetUiOptions } from '../../../actions/ui.js'
 import { sGetUiOptions } from '../../../reducers/ui.js'
-import {
-    tabSectionOption,
-    tabSectionOptionToggleable,
-} from '../styles/VisualizationOptions.style.js'
+import styles from '../styles/VisualizationOptions.module.css'
 import TextStyle from './TextStyle.js'
 import Title from './Title.js'
 
@@ -42,7 +39,7 @@ class HideTitle extends Component {
 
         return (
             <div
-                className={tabSectionOption.className}
+                className={styles.tabSectionOption}
                 data-test={'option-chart-title'}
             >
                 <Label>{i18n.t('Chart title')}</Label>
@@ -66,12 +63,12 @@ class HideTitle extends Component {
                     ))}
                 </Field>
                 {value === HIDE_TITLE_CUSTOM ? (
-                    <div className={tabSectionOptionToggleable.className}>
+                    <div className={styles.tabSectionOptionToggleable}>
                         <Title inline />
                     </div>
                 ) : null}
                 {value === HIDE_TITLE_AUTO || value === HIDE_TITLE_CUSTOM ? (
-                    <div className={tabSectionOptionToggleable.className}>
+                    <div className={styles.tabSectionOptionToggleable}>
                         <TextStyle
                             fontStyleKey={FONT_STYLE_VISUALIZATION_TITLE}
                             dataTest={'option-chart-title-text-style'}

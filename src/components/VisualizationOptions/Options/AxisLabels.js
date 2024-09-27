@@ -3,11 +3,11 @@ import i18n from '@dhis2/d2-i18n'
 import { Label } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { tabSectionOption } from '../styles/VisualizationOptions.style.js'
+import styles from '../styles/VisualizationOptions.module.css'
 import TextStyle from './TextStyle.js'
 
 const AxisLabels = ({ disabled, axisId }) => (
-    <div className={tabSectionOption.className}>
+    <div className={styles.tabSectionOption}>
         <Label>{i18n.t('Labels')}</Label>
         <TextStyle
             fontStyleKey={FONT_STYLE_AXIS_LABELS}

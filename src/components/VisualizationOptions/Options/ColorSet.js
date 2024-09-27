@@ -16,12 +16,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { acSetUiOptions } from '../../../actions/ui.js'
 import { sGetUiOptions } from '../../../reducers/ui.js'
-import { tabSectionOption } from '../styles/VisualizationOptions.style.js'
+import styles from '../styles/VisualizationOptions.module.css'
 
 export const COLOR_SET_OPTION_NAME = 'colorSet'
 
 const ColorSet = ({ value, onChange, disabled }) => (
-    <div className={tabSectionOption.className}>
+    <div className={styles.tabSectionOption}>
         <Field name="colorSet-selector" dense>
             {[
                 [
