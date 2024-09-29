@@ -4,15 +4,15 @@
 # Thuy Nguyen <thuynguyen@hispvietnam.org>, 2022
 # Philip Larsen Donnelly, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
-# Saysamone Sibounma, 2022
 # Namwan Chanthavisouk, 2024
+# Saysamone Sibounma, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2023-02-27T12:26:43.652Z\n"
 "PO-Revision-Date: 2022-10-15 22:30+0000\n"
-"Last-Translator: Namwan Chanthavisouk, 2024\n"
+"Last-Translator: Saysamone Sibounma, 2024\n"
 "Language-Team: Lao (https://app.transifex.com/hisp-uio/teams/100509/lo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,7 +33,7 @@ msgid "\"{{- deletedObject}}\" successfully deleted."
 msgstr "\"{{- deletedObject}}\" ລົບສຳເລັດ."
 
 msgid "You have unsaved changes."
-msgstr ""
+msgstr "ທ່ານມີການປ່ຽນແປງທີ່ຍັງບໍ່ທັນບັນທືກ"
 
 msgid "Discard unsaved changes?"
 msgstr "ຈະລຶບການປ່ຽນແປງທີ່ບໍ່ທັນໄດ້ບັນທຶກບໍ່?"
@@ -68,10 +68,10 @@ msgid ""
 msgstr ""
 
 msgid "Vertical"
-msgstr ""
+msgstr "ລວງຕັ້ງ"
 
 msgid "Horizontal"
-msgstr ""
+msgstr "ລວງນອນ"
 
 msgid "Main dimensions"
 msgstr "ຕົວຕອງທີ່ສຳຄັນ"
@@ -98,10 +98,10 @@ msgid "Other formats"
 msgstr "ຮູບແບບອື່ນ"
 
 msgid "JRXML"
-msgstr ""
+msgstr "JRXML"
 
 msgid "Raw data SQL"
-msgstr ""
+msgstr "ຂໍ້ມູນດິບ SQL"
 
 msgid "Plain data source"
 msgstr "ສະເພາະຂໍ້ມູນພື້ນຖານ"
@@ -119,10 +119,10 @@ msgid "Graphics"
 msgstr "ກຣາບຟິກ"
 
 msgid "Image (.png)"
-msgstr ""
+msgstr "ຮູບພາບ (.png)"
 
 msgid "PDF (.pdf)"
-msgstr ""
+msgstr "PDF (.pdf)"
 
 msgid "Download data from this date"
 msgstr "ດາວໂຫຼດຂໍ້ມູນຈາກວັນທີນີ້"
@@ -143,13 +143,13 @@ msgid "Table layout"
 msgstr "ເຄົ້າໂຄງຕາຕະລາງ"
 
 msgid "Excel (.xls)"
-msgstr ""
+msgstr "Excel (.xls)"
 
 msgid "CSV (.csv)"
-msgstr ""
+msgstr "CSV (.csv)"
 
 msgid "HTML (.html)"
-msgstr ""
+msgstr "HTML (.html)"
 
 msgid "Download"
 msgstr "ດາວໂຫຼດ"
@@ -167,10 +167,10 @@ msgid "{{total}} selected"
 msgstr ""
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
-msgstr ""
+msgstr "{{dimensionName}}ຖຶກລັອກໃວ້{{axisName}}ສຳລັບ{{visTypeName}}"
 
 msgid "Not available for Scatter"
-msgstr ""
+msgstr "ບໍ່ສາມາດໃຊ້ໄດ້ໃນເສັ້ນສະແດງ Scatter"
 
 msgid "Add Assigned Categories"
 msgstr "ເພີ່ມກຸ່ມທີ່ຖືກມອບໝາຍ"
@@ -179,22 +179,22 @@ msgid "Swap with {{axisName}} axis"
 msgstr ""
 
 msgid "vertical"
-msgstr ""
+msgstr "ລວງຕັ້ງ"
 
 msgid "horizontal"
-msgstr ""
+msgstr "ລວງນອນ"
 
 msgid "None selected"
 msgstr "ຍັງບໍ່ໄດ້ເລືອກ"
 
 msgid "Only '{{- name}}' in use"
-msgstr ""
+msgstr "ໃຊ້ສະເພາະ {{- name}}ເທົ່ານັ້ນ"
 
 msgid "Only '{{number}}' in use"
 msgstr ""
 
 msgid "All items are selected"
-msgstr ""
+msgstr "ເລືອກລາຍການທັງໝົດແລ້ວ"
 
 msgid "Levels"
 msgstr "ຂັ້ນ"
@@ -209,10 +209,10 @@ msgid "And {{numberOfItems}} others..."
 msgstr ""
 
 msgid "Select a period"
-msgstr ""
+msgstr "ເລືອກຊ່ວງເວລາ"
 
 msgid "Select years"
-msgstr ""
+msgstr "ເລືອກປີ"
 
 msgid "Interpretations"
 msgstr "ການແປຂໍ້ມູນ"
@@ -248,7 +248,7 @@ msgid "Click a dimension to add or remove items"
 msgstr ""
 
 msgid "Your most viewed charts and tables"
-msgstr ""
+msgstr "ແຜນພູມ ແລະ ຕາຕະລາງທີ່ທ່ານເບີ່ງຫຼາຍທີ່ສຸດ"
 
 msgid "Aggregation type"
 msgstr "ປະເພດຕົວເລກລວມ"
@@ -319,7 +319,7 @@ msgid ""
 msgstr ""
 
 msgid "Steps"
-msgstr ""
+msgstr "ຂັ້ນຕອນ"
 
 msgid "Axis title"
 msgstr ""
@@ -331,7 +331,7 @@ msgid "None"
 msgstr "ບໍ່ແມນ"
 
 msgid "Custom"
-msgstr ""
+msgstr "ກຳນົດເອງ"
 
 msgid "Add a title"
 msgstr "ເພີ່ມຫົວຂໍ໊"
@@ -352,7 +352,7 @@ msgid "Default"
 msgstr "ຄ່າຕັ້ງຕົ້ນ"
 
 msgid "Basic"
-msgstr ""
+msgstr "ຟື້ນຖານ"
 
 msgid "Extended"
 msgstr ""
@@ -373,7 +373,7 @@ msgid "Patterns"
 msgstr ""
 
 msgid "Event data"
-msgstr ""
+msgstr "ຂໍ້ມູນເຫດການ"
 
 msgid "Only include completed events"
 msgstr ""
@@ -684,7 +684,7 @@ msgid "Options"
 msgstr "ຈັດການ"
 
 msgid "Open as Map"
-msgstr ""
+msgstr "ເປີດເປັນແຜ່ນທີ່"
 
 msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
@@ -740,13 +740,13 @@ msgid "Add organisation units to {{axisName}}."
 msgstr ""
 
 msgid "Vertical is empty"
-msgstr ""
+msgstr "ລວງຕັ້ງວ່າງ"
 
 msgid "Add a data item to the vertical axis."
 msgstr ""
 
 msgid "Horizontal is empty"
-msgstr ""
+msgstr "ລວງນອນວ່າງ"
 
 msgid "Add a data item to the horizontal axis."
 msgstr ""
@@ -760,7 +760,7 @@ msgid ""
 msgstr ""
 
 msgid "No data selected"
-msgstr ""
+msgstr "ບໍ່ມີຂໍ້ມູນທີ່ເລືອກ"
 
 msgid ""
 "{{visualizationType}} must have at least one data item or data element group"
@@ -1076,13 +1076,13 @@ msgid ""
 msgstr ""
 
 msgid "Weeks per year"
-msgstr ""
+msgstr "ອາທິດຕໍ່ປີ"
 
 msgid "Months per year"
-msgstr ""
+msgstr "ເດືອນຕໍ່ປີ"
 
 msgid "Bimonths per year"
-msgstr ""
+msgstr "ສອງເດືອນຕໍ່ປີ"
 
 msgid "Quarters per year"
-msgstr ""
+msgstr "ໄຕມາດຕໍ່ປີ"
