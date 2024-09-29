@@ -1,3 +1,16 @@
+# [39.3.0](https://github.com/dhis2/data-visualizer-app/compare/v39.2.41...v39.3.0) (2024-09-29)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (39.x) ([37b667a](https://github.com/dhis2/data-visualizer-app/commit/37b667a3c9793086e68c71ee4459dfb266cbcbb1))
+* **translations:** sync translations from transifex (39.x) ([6c4ae5b](https://github.com/dhis2/data-visualizer-app/commit/6c4ae5b339cafdbe3b8d5af1942efc328cdf86b7))
+
+
+### Features
+
+* add subtitle field to pivot table options [DHIS2-16158] (V39) ([#3180](https://github.com/dhis2/data-visualizer-app/issues/3180)) ([ba35f68](https://github.com/dhis2/data-visualizer-app/commit/ba35f68eccb1e130e13df94b619a43ae4cdc8c0f))
+
 # [39.3.0](https://github.com/dhis2/data-visualizer-app/compare/v39.2.41...v39.3.0) (2024-09-08)
 
 
