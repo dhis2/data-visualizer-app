@@ -1,3 +1,10 @@
+# [100.8.0](https://github.com/dhis2/data-visualizer-app/compare/v100.7.2...v100.8.0) (2024-10-07)
+
+
+### Features
+
+* improve support for right-to-left languages ([#3073](https://github.com/dhis2/data-visualizer-app/issues/3073)) ([777b36d](https://github.com/dhis2/data-visualizer-app/commit/777b36d454a8f029c8eea566e4f6954617398a6f)), closes [ui#1448](https://github.com/ui/issues/1448) [app-platform#825](https://github.com/app-platform/issues/825) [cli-style#464](https://github.com/cli-style/issues/464)
+
 ## [100.7.2](https://github.com/dhis2/data-visualizer-app/compare/v100.7.1...v100.7.2) (2024-09-25)
 
 
