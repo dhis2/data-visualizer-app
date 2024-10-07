@@ -16,13 +16,7 @@ import {
     OPTION_LEGEND_SET,
 } from '../../../modules/options.js'
 import { sGetUiOption, sGetUiDisabledOption } from '../../../reducers/ui.js'
-import {
-    tabSectionOptionToggleable,
-    tabSectionOption,
-    tabSectionTitle,
-    tabSectionTitleDisabled,
-    tabSectionTitleMargin,
-} from '../styles/VisualizationOptions.style.js'
+import styles from '../styles/VisualizationOptions.module.css'
 import LegendDisplayStrategy from './LegendDisplayStrategy.js'
 import LegendDisplayStyle from './LegendDisplayStyle.js'
 import ShowLegendKey from './ShowLegendKey.js'
@@ -74,7 +68,7 @@ const Legend = ({
     }
 
     return (
-        <div className={tabSectionOption.className} data-test="option-legend">
+        <div className={styles.tabSectionOption} data-test="option-legend">
             <Checkbox
                 checked={legendEnabled}
                 disabled={disabled}
@@ -84,17 +78,17 @@ const Legend = ({
                 dense
             />
             {legendEnabled ? (
-                <div className={tabSectionOptionToggleable.className}>
+                <div className={styles.tabSectionOptionToggleable}>
                     {!hideStyleOptions ? (
-                        <div className={tabSectionOption.className}>
+                        <div className={styles.tabSectionOption}>
                             <FieldSet>
                                 <UiCoreLegend>
                                     <span
                                         className={cx(
-                                            tabSectionTitle.className,
-                                            tabSectionTitleMargin.className,
+                                            styles.tabSectionTitle,
+                                            styles.tabSectionTitleMargin,
                                             {
-                                                [tabSectionTitleDisabled.className]:
+                                                [styles.tabSectionTitleDisabled]:
                                                     disabled,
                                             }
                                         )}
@@ -102,27 +96,27 @@ const Legend = ({
                                         {i18n.t('Legend style')}
                                     </span>
                                 </UiCoreLegend>
-                                <div className={tabSectionOption.className}>
+                                <div className={styles.tabSectionOption}>
                                     <LegendDisplayStyle disabled={disabled} />
                                 </div>
                             </FieldSet>
                         </div>
                     ) : null}
-                    <div className={tabSectionOption.className}>
+                    <div className={styles.tabSectionOption}>
                         <FieldSet>
                             <UiCoreLegend>
                                 <span
-                                    className={cx(tabSectionTitle.className, {
-                                        [tabSectionTitleMargin.className]:
+                                    className={cx(styles.tabSectionTitle, {
+                                        [styles.tabSectionTitleMargin]:
                                             hideStyleOptions,
-                                        [tabSectionTitleDisabled.className]:
+                                        [styles.tabSectionTitleDisabled]:
                                             disabled,
                                     })}
                                 >
                                     {i18n.t('Legend type')}
                                 </span>
                             </UiCoreLegend>
-                            <div className={tabSectionOption.className}>
+                            <div className={styles.tabSectionOption}>
                                 <LegendDisplayStrategy disabled={disabled} />
                             </div>
                         </FieldSet>

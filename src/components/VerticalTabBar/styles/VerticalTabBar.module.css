@@ -1,6 +1,6 @@
 .container {
-    height: 100%;
-    border-right: 1px solid var(--colors-grey400);
-    margin-right: var(--spacers-dp24);
+    block-size: 100%;
+    border-inline-end: 1px solid var(--colors-grey400);
+    margin-inline-end: var(--spacers-dp24);
     background: var(--colors-white);
 }

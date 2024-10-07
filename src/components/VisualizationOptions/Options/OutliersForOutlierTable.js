@@ -5,10 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { acSetUiDataSorting, acSetUiOptions } from '../../../actions/ui.js'
 import { getDefaultSorting } from '../../../modules/ui.js'
 import { sGetUi, sGetUiOptions } from '../../../reducers/ui.js'
-import {
-    tabSectionOption,
-    tabSectionTitle,
-} from '../styles/VisualizationOptions.style.js'
+import styles from '../styles/VisualizationOptions.module.css'
 import OutlierDetectionMethod from './OutlierDetectionMethod.js'
 import { DEFAULT_STATE as OUTLIER_MAX_RESULTS_DEFAULT_STATE } from './OutliersMaxResults.js'
 
@@ -97,14 +94,14 @@ const Outliers = () => {
         )
 
     return (
-        <div className={tabSectionOption.className}>
+        <div className={styles.tabSectionOption}>
             <FieldSet>
                 <Legend>
-                    <span className={tabSectionTitle.className}>
+                    <span className={styles.tabSectionTitle}>
                         {i18n.t('Outlier detection method')}
                     </span>
                 </Legend>
-                <div className={tabSectionOption.className}>
+                <div className={styles.tabSectionOption}>
                     <OutlierDetectionMethod
                         methods={methods}
                         onMethodChange={onMethodChange}

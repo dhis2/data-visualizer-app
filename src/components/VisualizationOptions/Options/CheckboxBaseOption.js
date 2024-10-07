@@ -4,10 +4,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { tSetUiOptionAndDisabledOptions } from '../../../actions/ui.js'
 import { sGetUiOption, sGetUiDisabledOption } from '../../../reducers/ui.js'
-import {
-    tabSectionOption,
-    tabSectionOptionToggleable,
-} from '../styles/VisualizationOptions.style.js'
+import styles from '../styles/VisualizationOptions.module.css'
 import TextStyle from './TextStyle.js'
 
 export const UnconnectedCheckboxBaseOption = ({
@@ -21,7 +18,7 @@ export const UnconnectedCheckboxBaseOption = ({
     dataTest,
     disabled,
 }) => (
-    <div className={tabSectionOption.className}>
+    <div className={styles.tabSectionOption}>
         <CheckboxField
             checked={inverted ? !value : value}
             helpText={helpText}
@@ -33,7 +30,7 @@ export const UnconnectedCheckboxBaseOption = ({
             disabled={disabled}
         />
         {((!inverted && value) || (inverted && !value)) && fontStyleKey ? (
-            <div className={tabSectionOptionToggleable.className}>
+            <div className={styles.tabSectionOptionToggleable}>
                 <TextStyle
                     fontStyleKey={fontStyleKey}
                     dataTest={`${dataTest}-text-style`}

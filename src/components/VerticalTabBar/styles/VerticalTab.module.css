@@ -10,7 +10,7 @@
 .selected,
 .selected:hover {
     background: var(--colors-blue050);
-    border-right: 4px solid var(--colors-blue700);
+    border-inline-end: 4px solid var(--colors-blue700);
     color: var(--colors-blue700);
-    margin-right: -1px;
+    margin-inline-end: -1px;
 }

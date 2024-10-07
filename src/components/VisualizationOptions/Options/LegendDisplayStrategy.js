@@ -10,7 +10,7 @@ import { connect } from 'react-redux'
 import { acSetUiOption } from '../../../actions/ui.js'
 import { OPTION_LEGEND_DISPLAY_STRATEGY } from '../../../modules/options.js'
 import { sGetUiOption } from '../../../reducers/ui.js'
-import { tabSectionOptionToggleable } from '../styles/VisualizationOptions.style.js'
+import styles from '../styles/VisualizationOptions.module.css'
 import LegendSet from './LegendSet.js'
 
 const LegendDisplayStrategy = ({ value, onChange, disabled }) => (
@@ -38,7 +38,7 @@ const LegendDisplayStrategy = ({ value, onChange, disabled }) => (
             />
         </Field>
         {value === LEGEND_DISPLAY_STRATEGY_FIXED ? (
-            <div className={tabSectionOptionToggleable.className}>
+            <div className={styles.tabSectionOptionToggleable}>
                 <LegendSet disabled={disabled} dataTest="fixed-legend-set" />
             </div>
         ) : null}

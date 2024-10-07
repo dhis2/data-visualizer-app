@@ -4,7 +4,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { acSetUiOptions } from '../../../actions/ui.js'
 import { sGetUiOptions } from '../../../reducers/ui.js'
-import { tabSectionOption } from '../styles/VisualizationOptions.style.js'
+import styles from '../styles/VisualizationOptions.module.css'
 import { DEFAULT_STATE as OUTLIER_METHOD_THRESHOLD_DEFAULT_STATE } from './OutliersForOutlierTable.js'
 
 const OUTLIER_ANALYSIS_OPTION_NAME = 'outlierAnalysis'
@@ -45,7 +45,7 @@ const OutliersMaxResults = () => {
     }
 
     return (
-        <div className={tabSectionOption.className}>
+        <div className={styles.tabSectionOption}>
             <div>
                 <InputField
                     type="number"

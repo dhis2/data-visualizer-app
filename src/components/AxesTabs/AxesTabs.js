@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import VerticalTab from '../VerticalTabBar/VerticalTab.js'
 import VerticalTabBar from '../VerticalTabBar/VerticalTabBar.js'
-import { tabSectionTitle } from '../VisualizationOptions/styles/VisualizationOptions.style.js'
+import tabStyles from '../VisualizationOptions/styles/VisualizationOptions.module.css'
 import styles from './styles/AxesTabs.module.css'
 
 const AxesTabs = ({ items, dataTest }) => {
@@ -24,12 +24,11 @@ const AxesTabs = ({ items, dataTest }) => {
                 </VerticalTabBar>
             </div>
             <div className={styles.content}>
-                <span className={tabSectionTitle.className}>
+                <span className={tabStyles.tabSectionTitle}>
                     {items[selectedTabIndex].label}
                 </span>
                 {items[selectedTabIndex].content}
             </div>
-            {tabSectionTitle.styles}
         </>
     )
 }
