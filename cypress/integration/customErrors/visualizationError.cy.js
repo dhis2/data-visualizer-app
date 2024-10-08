@@ -33,49 +33,49 @@ const REGULAR_ITEM = {
 }
 
 describe('Visualization error', () => {
-    it('navigates to the start page and changes vis type to PT', () => {
+    it('displays an error when item is not valid for column chart', () => {
+        // navigate to the start page and change vis type to PT
         goToStartPage()
         changeVisType(visTypeDisplayNames[VIS_TYPE_PIVOT_TABLE])
-    })
-    it("selects period 'This year'", () => {
+
+        // select period 'This year'
         openDimension(DIMENSION_ID_PERIOD)
         unselectAllItemsByButton()
         selectRelativePeriods(['This year'], 'Years')
         clickDimensionModalUpdateButton()
-    })
-    it('selects a narrative item', () => {
+
+        // select a narrative item
         openDimension(DIMENSION_ID_DATA)
         inputSearchTerm('narrative')
         selectDataElements([NARRATIVE_ITEM.name])
         clickDimensionModalUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
-    })
-    it('narrative item is displayed correctly', () => {
+
+        // narrative item is displayed correctly
         cy.contains(NARRATIVE_ITEM.content)
-    })
-    it('selects a regular item', () => {
+
+        // select a regular item
         openDimension(DIMENSION_ID_DATA)
         selectDataElements([REGULAR_ITEM.name])
         clickDimensionModalUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
-    })
-    it('both items are displayed correctly', () => {
+
+        // both items are displayed correctly
         cy.contains(NARRATIVE_ITEM.content)
         cy.contains(REGULAR_ITEM.content)
-    })
 
-    it('changes vis type to Column', () => {
+        // change vis type to Column
         changeVisType(visTypeDisplayNames[VIS_TYPE_COLUMN])
-    })
-    it('regular item is displayed correctly', () => {
+
+        // regular item is displayed correctly
         cy.contains(REGULAR_ITEM.content)
-    })
-    it('removes the regular item', () => {
+
+        // remove the regular item
         openDimension(DIMENSION_ID_DATA)
         unselectItemByDoubleClick(REGULAR_ITEM.name)
         clickDimensionModalUpdateButton()
-    })
-    it('error is shown', () => {
+
+        // error is shown
         expectErrorToContainTitle('Invalid data type')
     })
 })
