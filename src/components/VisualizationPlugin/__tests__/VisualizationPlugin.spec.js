@@ -158,7 +158,11 @@ describe('VisualizationPlugin', () => {
         })
 
         it('calls onResponsesReceived callback', async () => {
-            await canvas()
+            await canvas({
+                visualization: {
+                    ...defaultCurrentMock,
+                },
+            })
 
             expect(defaultProps.onResponsesReceived).toHaveBeenCalled()
             expect(defaultProps.onResponsesReceived).toHaveBeenCalledWith([
@@ -179,13 +183,14 @@ describe('VisualizationPlugin', () => {
             const period = 'eons ago'
 
             await canvas({
-                filters: {
+                visualization: {
+                    ...defaultCurrentMock,
                     relativePeriodDate: period,
                 },
             })
 
             expect(api.apiFetchAnalytics).toHaveBeenCalled()
-            expect(api.apiFetchAnalytics.mock.calls[0][2]).toHaveProperty(
+            expect(api.apiFetchAnalytics.mock.calls[0][1]).toHaveProperty(
                 'relativePeriodDate',
                 period
             )

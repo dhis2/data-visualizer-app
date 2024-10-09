@@ -17,7 +17,7 @@ export default {
         fontSize: '14px',
     },
     suffix: {
-        paddingLeft: '4px',
+        paddingInlineStart: '4px',
     },
     titleUnsaved: {
         color: colors.grey500,

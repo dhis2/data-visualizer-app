@@ -32,6 +32,6 @@ export const styles = {
     },
     label: {
         whiteSpace: 'normal',
-        marginLeft: '6px',
+        marginInlineStart: '6px',
     },
 }

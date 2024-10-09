@@ -2,7 +2,7 @@ import i18n from '@dhis2/d2-i18n'
 import { Field, Radio, InputField, Help } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { tabSectionOption } from '../styles/VisualizationOptions.style.js'
+import styles from '../styles/VisualizationOptions.module.css'
 
 const OutlierDetectionMethod = ({
     methods,
@@ -12,7 +12,7 @@ const OutlierDetectionMethod = ({
     onThresholdChange,
 }) => (
     <>
-        <div className={tabSectionOption.className}>
+        <div className={styles.tabSectionOption}>
             <Field dataTest="options-outliers-detection-method" dense>
                 {methods.map(({ id, label }) => (
                     <Radio

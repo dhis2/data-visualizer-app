@@ -55,7 +55,11 @@ export {
 }
 
 const logError = (action, error) => {
-    console.log(`Error in action ${action}: ${error}`)
+    const isJestTestRun = process.env.JEST_WORKER_ID !== undefined
+
+    if (!isJestTestRun) {
+        console.log(`Error in action ${action}: ${error}`)
+    }
 }
 
 const adaptAxisItems = (axis) =>

@@ -13,10 +13,7 @@ import {
     OPTION_AXIS_TITLE_TEXT_MODE,
 } from '../../../modules/options.js'
 import { sGetUiOption } from '../../../reducers/ui.js'
-import {
-    tabSectionOption,
-    tabSectionOptionToggleable,
-} from '../styles/VisualizationOptions.style.js'
+import styles from '../styles/VisualizationOptions.module.css'
 import TextStyle from './TextStyle.js'
 
 export const TITLE_AUTO = 'AUTO'
@@ -70,7 +67,7 @@ const AxisTitle = ({
 
     return (
         <div
-            className={tabSectionOption.className}
+            className={styles.tabSectionOption}
             data-test={'option-chart-title'}
         >
             <Label>{i18n.t('Axis title')}</Label>
@@ -100,7 +97,7 @@ const AxisTitle = ({
                 ))}
             </Field>
             {textMode === TITLE_CUSTOM ? (
-                <div className={tabSectionOptionToggleable.className}>
+                <div className={styles.tabSectionOptionToggleable}>
                     <InputField
                         type={'text'}
                         onChange={({ value }) => onTextChange(value)}
@@ -113,7 +110,7 @@ const AxisTitle = ({
                 </div>
             ) : null}
             {textMode === TITLE_AUTO || textMode === TITLE_CUSTOM ? (
-                <div className={tabSectionOptionToggleable.className}>
+                <div className={styles.tabSectionOptionToggleable}>
                     <TextStyle
                         fontStyleKey={fontStyleKey}
                         dataTest={`${axisId}-axis-title-text-style`}
