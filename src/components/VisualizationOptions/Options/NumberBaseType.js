@@ -4,7 +4,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { acSetUiOption } from '../../../actions/ui.js'
 import { sGetUiOption } from '../../../reducers/ui.js'
-import { tabSectionOption } from '../styles/VisualizationOptions.style.js'
+import styles from '../styles/VisualizationOptions.module.css'
 
 const NumberBaseType = ({
     label,
@@ -18,7 +18,7 @@ const NumberBaseType = ({
     disabled,
     dataTest,
 }) => (
-    <div className={inline ? '' : tabSectionOption.className}>
+    <div className={inline ? '' : styles.tabSectionOption}>
         <div>
             {inline ? (
                 <Box width={width}>

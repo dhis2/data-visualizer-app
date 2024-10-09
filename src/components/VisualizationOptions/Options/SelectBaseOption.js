@@ -1,14 +1,11 @@
 import { Checkbox, SingleSelectField, SingleSelectOption } from '@dhis2/ui'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { acSetUiOptions } from '../../../actions/ui.js'
 import { sGetUiOption, sGetUiDisabledOption } from '../../../reducers/ui.js'
-import {
-    tabSectionOption,
-    tabSectionOptionToggleable,
-} from '../styles/VisualizationOptions.style.js'
-
+import styles from '../styles/VisualizationOptions.module.css'
 export const UnconnectedSelectBaseOption = ({
     option,
     label,
@@ -29,7 +26,7 @@ export const UnconnectedSelectBaseOption = ({
     }
 
     return (
-        <div className={tabSectionOption.className}>
+        <div className={styles.tabSectionOption}>
             {toggleable ? (
                 <Checkbox
                     checked={checked}
@@ -43,9 +40,9 @@ export const UnconnectedSelectBaseOption = ({
             ) : null}
             {!toggleable || checked ? (
                 <div
-                    className={
-                        toggleable ? tabSectionOptionToggleable.className : ''
-                    }
+                    className={cx({
+                        [styles.tabSectionOptionToggleable]: toggleable,
+                    })}
                 >
                     <SingleSelectField
                         name={`${option.name}-select`}

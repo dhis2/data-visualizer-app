@@ -10,9 +10,12 @@
     padding: 0;
     vertical-align: middle;
     border-radius: 0;
-    width: 20px;
-    height: 20px;
-    margin: 0px 0px 0px 2px;
+    inline-size: 20px;
+    block-size: 20px;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 2px;
+    margin-inline-end: 0px;
     color: var(--colors-grey700);
 }
 

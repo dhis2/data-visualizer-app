@@ -10,10 +10,7 @@ import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
 import { acSetUiOptions } from '../../../actions/ui.js'
 import { sGetUiOptions, sGetUiType } from '../../../reducers/ui.js'
-import {
-    tabSectionOption,
-    tabSectionOptionToggleable,
-} from '../styles/VisualizationOptions.style.js'
+import styles from '../styles/VisualizationOptions.module.css'
 import Subtitle from './Subtitle.js'
 import TextStyle from './TextStyle.js'
 
@@ -45,7 +42,7 @@ class HideSubtitle extends Component {
         const { visualizationType } = this.props
 
         return (
-            <div className={tabSectionOption.className}>
+            <div className={styles.tabSectionOption}>
                 <Label>
                     {visualizationType === VIS_TYPE_PIVOT_TABLE
                         ? i18n.t('Table subtitle')
@@ -75,7 +72,7 @@ class HideSubtitle extends Component {
                     ))}
                 </Field>
                 {value === HIDE_SUBTITLE_CUSTOM ? (
-                    <div className={tabSectionOptionToggleable.className}>
+                    <div className={styles.tabSectionOptionToggleable}>
                         <Subtitle
                             inline
                             dataTest={'option-chart-subtitle-text'}
@@ -84,7 +81,7 @@ class HideSubtitle extends Component {
                 ) : null}
                 {value === HIDE_SUBTITLE_AUTO ||
                 value === HIDE_SUBTITLE_CUSTOM ? (
-                    <div className={tabSectionOptionToggleable.className}>
+                    <div className={styles.tabSectionOptionToggleable}>
                         <TextStyle
                             fontStyleKey={FONT_STYLE_VISUALIZATION_SUBTITLE}
                             dataTest={'option-chart-subtitle-text-style'}

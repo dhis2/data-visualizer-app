@@ -16,12 +16,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { acSetUiOptions } from '../../../actions/ui.js'
 import { sGetUiOptions } from '../../../reducers/ui.js'
-import { tabSectionOption } from '../styles/VisualizationOptions.style.js'
+import styles from '../styles/VisualizationOptions.module.css'
 
 export const COLOR_SET_OPTION_NAME = 'colorSet'
 
 const ColorSet = ({ value, onChange, disabled }) => (
-    <div className={tabSectionOption.className}>
+    <div className={styles.tabSectionOption}>
         <Field name="colorSet-selector" dense>
             {[
                 [
@@ -90,7 +90,11 @@ ColorSet.propTypes = {
 
 const ColorSetPreview = ({ colorSet, disabled }) => (
     <div
-        style={{ display: 'flex', marginLeft: 4, opacity: disabled ? 0.3 : 1 }}
+        style={{
+            display: 'flex',
+            marginInlineStart: 4,
+            opacity: disabled ? 0.3 : 1,
+        }}
     >
         {colorSet?.patterns &&
             colorSet.patterns.map((pattern, index) => (

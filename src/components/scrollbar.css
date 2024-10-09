@@ -1,7 +1,7 @@
 /* Width */
 ::-webkit-scrollbar {
-    width: 7px;
-    height: 7px;
+    inline-size: 7px;
+    block-size: 7px;
 }
 
 /* Handle */

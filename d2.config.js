@@ -9,6 +9,8 @@ const config = {
 
     pluginType: 'DASHBOARD',
 
+    direction: 'auto',
+
     pwa: {
         enabled: true,
         caching: {
