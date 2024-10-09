@@ -1282,7 +1282,7 @@
     "@babel/helper-validator-identifier" "^7.14.9"
     to-fast-properties "^2.0.0"
 
-"@babel/types@^7.0.0", "@babel/types@^7.12.6", "@babel/types@^7.20.0", "@babel/types@^7.20.7", "@babel/types@^7.25.0", "@babel/types@^7.25.4", "@babel/types@^7.3.3", "@babel/types@^7.4.0", "@babel/types@^7.4.4", "@babel/types@^7.7.0":
+"@babel/types@^7.0.0", "@babel/types@^7.12.6", "@babel/types@^7.20.7", "@babel/types@^7.25.0", "@babel/types@^7.25.4", "@babel/types@^7.3.3", "@babel/types@^7.4.0", "@babel/types@^7.4.4", "@babel/types@^7.7.0":
   version "7.25.4"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.25.4.tgz#6bcb46c72fdf1012a209d016c07f769e10adcb5f"
   integrity sha512-zQ1ijeeCXVEh+aNL0RlmkPkG8HUiDcU2pzQQFjtbntgAczRASFzj4H+6+bV+dy1ntKR14I/DypeuRG1uma98iQ==
@@ -2234,9 +2234,9 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@git+https://github.com/d2-ci/analytics.git#0f47934a1ec551c0cb50fb7be126f3d9612a04cf":
-  version "26.8.0"
-  resolved "git+https://github.com/d2-ci/analytics.git#0f47934a1ec551c0cb50fb7be126f3d9612a04cf"
+"@dhis2/analytics@git+https://github.com/d2-ci/analytics.git#3fb19f7d9eec4b2f7c509926732bfcf851afeee2":
+  version "26.8.6"
+  resolved "git+https://github.com/d2-ci/analytics.git#3fb19f7d9eec4b2f7c509926732bfcf851afeee2"
   dependencies:
     "@dhis2/multi-calendar-dates" "^1.2.2"
     "@dnd-kit/core" "^6.0.7"
