@@ -65,7 +65,16 @@ const useDownload = (relativePeriodDate) => {
                 return false
             }
 
-            const isPdf = format === FILE_FORMAT_PDF
+            const isPDF = format === FILE_FORMAT_PDF
+
+            /* Custom visualization types (i.e. SingleValue) that need some
+             * specific handling for PDF export can read this when the re-render
+             * before exporting. */
+            chart.update({
+                exporting: {
+                    chartOptions: { isPDF },
+                },
+            })
 
             chart.exportChartLocal({
                 sourceHeight: 768,
@@ -74,8 +83,8 @@ const useDownload = (relativePeriodDate) => {
                 fallbackToExportServer: false,
                 filename: visualization.name,
                 showExportInProgress: true,
-                type: isPdf ? 'application/pdf' : 'image/png',
-                pdfFont: isPdf
+                type: isPDF ? 'application/pdf' : 'image/png',
+                pdfFont: isPDF
                     ? getNotoFontVariantsForLocale(dbLocale)
                     : undefined,
             })
