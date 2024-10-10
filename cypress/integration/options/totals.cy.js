@@ -11,8 +11,10 @@ import {
     clickDimensionModalHideButton,
     clickDimensionModalUpdateButton,
     expectDimensionModalToBeVisible,
+    inputSearchTerm,
     selectAllItemsByButton,
     selectDataElements,
+    selectDataItems,
     selectFixedPeriods,
     unselectAllItemsByButton,
 } from '../../elements/dimensionModal/index.js'
@@ -31,7 +33,10 @@ import {
     colTotalsOptionEl,
     expectColumnsTotalsToBeChecked,
 } from '../../elements/optionsModal/totals.js'
-import { expectTableToBeVisible } from '../../elements/pivotTable.js'
+import {
+    expectTableToBeVisible,
+    expectTableValueCellToContainValue,
+} from '../../elements/pivotTable.js'
 import { goToStartPage } from '../../elements/startScreen.js'
 import { changeVisType } from '../../elements/visualizationTypeSelector.js'
 import { TEST_CUSTOM_DIMENSIONS } from '../../utils/data.js'
@@ -77,6 +82,34 @@ describe('Options - Column totals', () => {
             clickDimensionModalUpdateButton()
 
             expectTableToBeVisible()
+        })
+    })
+
+    describe('Regression test for DHIS2-9155', () => {
+        it('computes totals for boolean value types', () => {
+            goToStartPage()
+            changeVisType(visTypeDisplayNames[VIS_TYPE_PIVOT_TABLE])
+
+            openOptionsModal(OPTIONS_TAB_DATA)
+            checkCheckbox(colTotalsOptionEl)
+
+            expectColumnsTotalsToBeChecked()
+
+            clickOptionsModalHideButton()
+
+            openDimension(DIMENSION_ID_DATA)
+            inputSearchTerm('yes')
+            selectDataItems([
+                'E2E program E2E - Yes only',
+                'E2E program E2E - Yes/no',
+            ])
+            clickDimensionModalUpdateButton()
+
+            expectTableToBeVisible()
+
+            // XXX is there a better way to address the total value cells?
+            expectTableValueCellToContainValue(12, 4)
+            expectTableValueCellToContainValue(13, 4)
         })
     })
 })
