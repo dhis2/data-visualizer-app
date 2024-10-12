@@ -42,12 +42,14 @@ msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
 "be lost."
 msgstr ""
+"ທ່ານແນ່ໃຈບໍວ່າຕ້ອງການອອກຈາກການສ້າງຮູບພາບນີ້? "
+"ການປ່ຽນແປງທີ່ຍັງບໍ່ໄດ້ບັນທຶກຈະສູນເສຍໄປ"
 
 msgid "No, cancel"
 msgstr "ບໍ່, ຍົກເລີກ"
 
 msgid "Yes, leave"
-msgstr ""
+msgstr "ຢືນຢັນ, ອອກ"
 
 msgid "Add to {{axisName}}"
 msgstr "ເພີ່ມໃສ່ {{axisName}}"
@@ -61,6 +63,8 @@ msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
+"{{visualiationType}} ມີຈຸດປະສົງເພື່ອສະແດງ {{maxNumber}} ຈຳນວນລາຍການສູງສຸດ. "
+"ສະເພາະອັນທຳອິດເທົ່ານັ້ນ{{maxNumber}} ລາຍການຈະຖືກນຳມາໃຊ້ ແລະ ບັນທຶກໃວ້"
 
 msgid ""
 "'Scatter' is intended to show a single data item per axis. Only the first "
@@ -77,7 +81,7 @@ msgid "Main dimensions"
 msgstr "ຕົວຕອງທີ່ສຳຄັນ"
 
 msgid "Other dimensions"
-msgstr ""
+msgstr "ຂະໜາດອື່ນໆ"
 
 msgid "Your dimensions"
 msgstr "ຂະໜາດຂອງທ່ານ"
@@ -164,7 +168,7 @@ msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
 msgstr ""
 
 msgid "{{total}} selected"
-msgstr ""
+msgstr "{{total}} ເລືອກ"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}}ຖຶກລັອກໃວ້{{axisName}}ສຳລັບ{{visTypeName}}"
@@ -176,7 +180,7 @@ msgid "Add Assigned Categories"
 msgstr "ເພີ່ມກຸ່ມທີ່ຖືກມອບໝາຍ"
 
 msgid "Swap with {{axisName}} axis"
-msgstr ""
+msgstr "ສະຫຼັບກັບ {{axisName}}ແກນ"
 
 msgid "vertical"
 msgstr "ລວງຕັ້ງ"
@@ -203,10 +207,10 @@ msgid "Groups"
 msgstr "ກຸ່ມ"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "ແລະ 1 ອື່ນໆ..."
 
 msgid "And {{numberOfItems}} others..."
-msgstr ""
+msgstr "ແລະ ອີກ {{numberOfItems}}ອື່ນໆ..."
 
 msgid "Select a period"
 msgstr "ເລືອກຊ່ວງເວລາ"
@@ -242,10 +246,10 @@ msgid ""
 msgstr ""
 
 msgid "Add dimensions to the layout above"
-msgstr ""
+msgstr "ເພີ່ມຂອບເຂດໃນໂຄ່ງຮ່າງຂ້າງເທີງ"
 
 msgid "Click a dimension to add or remove items"
-msgstr ""
+msgstr "ຄລິກຂອບເຂດເພື່ອເພີ່ມ ຫຼື ລົບລາຍການ"
 
 msgid "Your most viewed charts and tables"
 msgstr "ແຜນພູມ ແລະ ຕາຕະລາງທີ່ທ່ານເບີ່ງຫຼາຍທີ່ສຸດ"
@@ -293,25 +297,25 @@ msgid "Data approved at level"
 msgstr "ຂໍ້ມູນໄດ້ຮັບການອະນຸມັດຢູ່ຂັ້ນ"
 
 msgid "Select from predefined levels"
-msgstr ""
+msgstr "ເລືອກຈາກລະດັບທີ່ກຳນົດໃວ້ກ່ອນໜ້ານີ້"
 
 msgid "Loading data approval levels"
-msgstr ""
+msgstr "ກຳລັງໂຫຼດຂໍ້ມູນລະດັບການອານຸມັດ"
 
 msgid "Decimals"
-msgstr ""
+msgstr "ທົດສະນິຍົມ"
 
 msgid "Auto"
-msgstr ""
+msgstr "ອັດຕະໂນມັດ"
 
 msgid "Labels"
-msgstr ""
+msgstr "ປ້າຍກຳກັບ"
 
 msgid "Axis range"
-msgstr ""
+msgstr "ຊ່ວງແກນ"
 
 msgid "Values outside of the range will not be displayed"
-msgstr ""
+msgstr "ຄ່າທີ່ຢູ່ນອກຂອບເຂດຈະບໍ່ສະແດງ"
 
 msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
@@ -322,10 +326,10 @@ msgid "Steps"
 msgstr "ຂັ້ນຕອນ"
 
 msgid "Axis title"
-msgstr ""
+msgstr "ຫົວຂໍ້ແກນ"
 
 msgid "Auto generated from axis items"
-msgstr ""
+msgstr "ສ້າງຂື້ນອັດຕະໂນມັດຈາກລາຍການແກນ"
 
 msgid "None"
 msgstr "ບໍ່ແມນ"
@@ -337,10 +341,10 @@ msgid "Add a title"
 msgstr "ເພີ່ມຫົວຂໍ໊"
 
 msgid "Reset style to default"
-msgstr ""
+msgstr "ປັບລະບົບຮູບແບບເປັນຄ່າເລີ່ມຕົ້ນ"
 
 msgid "Base line"
-msgstr ""
+msgstr "ຟື້ນຖານ"
 
 msgid "Column sub-totals"
 msgstr "ຖັນຍ່ອຍທັງໝົດ"
@@ -355,34 +359,34 @@ msgid "Basic"
 msgstr "ຟື້ນຖານ"
 
 msgid "Extended"
-msgstr ""
+msgstr "ຂະຫຍາຍອອກໄປ"
 
 msgid "Bright"
-msgstr ""
+msgstr "ຄວາມສະຫວ່າງ"
 
 msgid "Dark"
-msgstr ""
+msgstr "ມືດ"
 
 msgid "Gray"
-msgstr ""
+msgstr "ສີເທົາ"
 
 msgid "Color blind"
-msgstr ""
+msgstr "ຕາບອດສີ"
 
 msgid "Patterns"
-msgstr ""
+msgstr "ຮູບແບບ"
 
 msgid "Event data"
 msgstr "ຂໍ້ມູນເຫດການ"
 
 msgid "Only include completed events"
-msgstr ""
+msgstr "ສະແດງສະເພາະເຫດການທີ່ສຳເລັດແລ້ວເທົ່ານັ້ນ"
 
 msgid "Include cumulative"
 msgstr "​ລວມ​ເອົາ​ທັງ​ການ​ສະ​ສົມ"
 
 msgid "Cumulative values"
-msgstr ""
+msgstr "ຄ່າສະສົມ"
 
 msgid "Digit group separator"
 msgstr "ແຍກຕົວເລກເປັນກຸ່ມ"
@@ -418,16 +422,16 @@ msgid "Number"
 msgstr "ຈຳນວນ"
 
 msgid "Fix column headers to top of table"
-msgstr ""
+msgstr "ແກ້ໄຂຫົວຖັນທາງດ້ານເທີງຂອງຕາຕະລາງ"
 
 msgid "There aren’t any column headers because Columns is empty."
-msgstr ""
+msgstr "ບໍ່ມີສ່ວນຫົວຖັນໃດໆ ເພາະວ່າຖັນວ່າງເປົ່າ"
 
 msgid "Fix row headers to left of table"
-msgstr ""
+msgstr "ແກ້ໄຂຫົວແຖວທາງດ້ານຊ້າຍຂອງຕາຕະລາງ"
 
 msgid "There aren’t any row headers because Rows is empty."
-msgstr ""
+msgstr "ບໍ່ມີສ່ວນຫົວແຖວໃດໆ ເພາະວ່າແຖວວ່າງເປົ່າ"
 
 msgid "Font size"
 msgstr "ຂະຫນາດຕົວອັກສອນ"
@@ -457,19 +461,19 @@ msgid "Hide empty rows"
 msgstr "ເຊື່ອງແຖວທີ່ເປົ່າຫວ່າງ"
 
 msgid "Table subtitle"
-msgstr ""
+msgstr "ຄຳບັນຍາຍຂອງຕາຕະລາງ"
 
 msgid "Chart subtitle"
 msgstr "ຫົວຂໍ້ຍ່ອຍຂອງເສັ້ນສະແດງ"
 
 msgid "Auto generated"
-msgstr ""
+msgstr "ສ້າງຂື້ນອັດຕະໂນມັດ"
 
 msgid "Chart title"
 msgstr "ຫົວຂໍ້ເສັ້ນສະແດງ"
 
 msgid "Use legend for chart colors"
-msgstr ""
+msgstr "ໃຊ້ຄຳອະທິບາຍສຳລັບສີຂອງແຜນພູມ"
 
 msgid "Legend style"
 msgstr "ຫວ່າງຂໍ້ມູນ"
@@ -517,22 +521,22 @@ msgid "Clear min/max limits"
 msgstr "ລົບຂີດຈຳກັດຂັ້ນຕ່ຳ/ສູງສຸດ"
 
 msgid "No space between bars/columns"
-msgstr ""
+msgstr "ບໍ່ມີຊ່ອງຫວ່າງລະຫວ່າງຖັນກັບແຖວ"
 
 msgid "Number type"
 msgstr "Number type"
 
 msgid "Display the value of percentages of the total"
-msgstr ""
+msgstr "ສະແດງຄ່າເປີເຊັນຂອງຈຳນວນທັງໝົດ"
 
 msgid "Value"
 msgstr "Value"
 
 msgid "Percentage of row"
-msgstr ""
+msgstr "ເປີເຊັນຂອງແຖວ"
 
 msgid "Percentage of column"
-msgstr ""
+msgstr "ເປີເຊັນຂອງຖັນ"
 
 msgid ""
 "Each detection method identifies outliers in different ways and suits "
@@ -541,7 +545,7 @@ msgid ""
 msgstr ""
 
 msgid "Threshold factor"
-msgstr ""
+msgstr "ປັດໃຈຕົວເລກເປີເຊັນທີ່ຖືກຕັ້ງຄ່າໃວ້"
 
 msgid ""
 "A high value is more sensitive so fewer data items will be identified as "
@@ -552,10 +556,10 @@ msgid "Interquartile Range (IQR)"
 msgstr ""
 
 msgid "Z-score / Standard score"
-msgstr ""
+msgstr "Z - ຄະແນນ / ຄະແນນມາດຕະຖານ"
 
 msgid "Modified Z-score"
-msgstr ""
+msgstr "ປັບປຸງ  Z - ຄະແນນ"
 
 msgid "Outlier analysis"
 msgstr ""
@@ -578,7 +582,7 @@ msgid "Reporting period"
 msgstr "​ໄລ​ຍະ​ເວ​ລາ​ການ​ລາຍ​ງານ"
 
 msgid "Stacked values add up to 100%"
-msgstr ""
+msgstr "ຄ່າຊ້ອນກັນເພີ່ມສູງສຸດ 100%"
 
 msgid "Include regression"
 msgstr "​ລວມ​ທັງ​ອັນທີ່​ຊ້ຳ​ກັນ"
@@ -608,25 +612,25 @@ msgid "Data item"
 msgstr "ລາຍການຂໍ້ມູນ"
 
 msgid "Visualization type"
-msgstr ""
+msgstr "ປະເພດການສ້າງພາບຂໍ້ມູນ"
 
 msgid "Axis {{axisId}}"
 msgstr "ແກນ {{axisId}}"
 
 msgid "Series is empty"
-msgstr ""
+msgstr "ລຳດັບວ່າງເປົ່າ"
 
 msgid "Options for selected items will be available here"
-msgstr ""
+msgstr "ຕົວເລືອກສຳລັບລາຍການທີ່ເລືອກຈະມີຢູ່ບ່ອນນີ້"
 
 msgid "No Series options"
-msgstr ""
+msgstr "ບໍ່ມີຊຸດຕົວເລືອກ"
 
 msgid "There aren't any Series options for this visualization type"
-msgstr ""
+msgstr "ບໍ່ມີຊຸດຕົວເລືອກໃດໆ ສຳລັບປະເພດການສ້າງພາບຈາກຂໍ້ມູນນີ້"
 
 msgid "Series options unavailable"
-msgstr ""
+msgstr "ຊຸດຕົວເລືອກບໍ່ສາມາດໃຊ້ໄດ້"
 
 msgid ""
 "Series options are not available when using relative selections for periods,"
@@ -651,13 +655,13 @@ msgid "Show legend key"
 msgstr "ສະແດງຄຳອະທິບາຍຫຼັກ"
 
 msgid "Show series key"
-msgstr ""
+msgstr "ສະແດງຊຸດຫຼັກ"
 
 msgid "Skip rounding"
 msgstr "ບໍ່ປັດຕົວເລກ"
 
 msgid "Custom sort order"
-msgstr ""
+msgstr "ກຳນົດ ລຳດັບການຈັດຮຽງ"
 
 msgid "Low to high"
 msgstr "ຕ່ຳຫາສູງ"
@@ -666,16 +670,16 @@ msgid "High to low"
 msgstr "ສູງຫາຕ່ຳ"
 
 msgid "Add a subtitle"
-msgstr ""
+msgstr "ເພີ່ມຫົວຂໍ້ຍ່ອຍ"
 
 msgid "Target line"
-msgstr ""
+msgstr "ເສັ້ນເປົ້າໝາຍ"
 
 msgid "Size"
-msgstr ""
+msgstr "ຂະໜາດ"
 
 msgid "Position"
-msgstr ""
+msgstr "ຕ່ຳແໜ່ງ"
 
 msgid "Top limit"
 msgstr "ຂໍ້​ຈຳ​ກັດ​ສູງ​ສຸດ"
@@ -716,28 +720,30 @@ msgstr ""
 "ທ່ານອາດຈະບໍ່ມີການເຂົ້າເຖິງ."
 
 msgid "{{axisName}} is empty"
-msgstr ""
+msgstr "{{axisName}} ວ່າງເປົ່າ"
 
 msgid "Add at least one item to {{axisName}}."
-msgstr ""
+msgstr "ເພີ່ມຢ່າງໜ້ອຍໜື່ງລາຍການໃສ່ {{axisName}}."
 
 msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
-msgstr ""
+msgstr "{{columnsAxisName}} ແລະ {{rowsAxisName}} ວ່າງເປົ່າ"
 
 msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
 " {{visualizationType}}."
 msgstr ""
+"ເພີ່ມຢ່າງໜ້ອຍໜື່ງລາຍການໃສ່{{columnsAxisName}}ຫຼື {{rowsAxisName}} "
+"ເພື່ອສ້າງ{{visualizationType}}"
 
 msgid "No period selected"
 msgstr "ບໍ່ໄດ້ເລືອກເວລາ"
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
-msgstr ""
+msgstr "{{visualizationType}} ຕ້ອງມີການເລືອກຢ່າງໜ້ອຍໜື່ງຊ່ວງເວລາໃນ {{axes}}."
 
 msgid "Add organisation units to {{axisName}}."
-msgstr ""
+msgstr "ເພີ່ມຫົວໜ່ວຍການຈັດຕັ້ງໃສ່ {{axisName}}."
 
 msgid "Vertical is empty"
 msgstr "ລວງຕັ້ງວ່າງ"
@@ -766,12 +772,14 @@ msgid ""
 "{{visualizationType}} must have at least one data item or data element group"
 " set item in {{axes}}."
 msgstr ""
+"{{visualizationType}}ຕ້ອງມີຢ່າງນ້ອຍໜື່ງລາຍການ ຂໍ້ມູນ ຫຼື "
+"ລາຍການຊຸດກຸ່ມຂອງອົງປະກອບຂໍ້ມູນໃນ {{axes}}."
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
-msgstr ""
+msgstr "{{visualizationType}} ຕ້ອງມີຢ່າງໜ້ອຍໜື່ງລາຍການຂໍ້ມູນໃນ {{axes}}."
 
 msgid "There's a problem with the layout"
-msgstr ""
+msgstr "ຮູບແບບມີບັນຫາ"
 
 msgid ""
 "A single indicator must be the only data item when using indicators as Data "
@@ -811,13 +819,13 @@ msgstr ""
 "ຫຼື ອາດຖືກລຶບໄປແລ້ວ."
 
 msgid "No organization units found"
-msgstr ""
+msgstr "ບໍ່ພົບຫົວໜ່ວຍການຈັດຕັ້ງ"
 
 msgid "The level or group selections didn't return any organization units."
 msgstr ""
 
 msgid "Invalid data type"
-msgstr ""
+msgstr "ປະເພດຂໍ້ມູນບໍ່ຖືກຕ້ອງ"
 
 msgid ""
 "The selected data dimensions didn't return any valid data. This "
@@ -959,17 +967,17 @@ msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
 
 msgid "Color set"
-msgstr ""
+msgstr "ຊຸດສີ"
 
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr ""
 
 msgid ""
 "Base and target lines are available on the Axes tab for multi-axis charts"
-msgstr ""
+msgstr "ເສັ້ນຟື້ນຖານ ແລະ ເສັ້ນເປົ້າໝາຍມີຢູ່ໃນແຖບແຜນຜັງຫຼາຍແກນ"
 
 msgid "Chart style"
-msgstr ""
+msgstr "ປະເພດແຜນພູມ"
 
 msgid "Display"
 msgstr "ສະແດງ"
@@ -984,7 +992,7 @@ msgid "Horizontal (x) axis"
 msgstr ""
 
 msgid "Lines"
-msgstr ""
+msgstr "ເສັ້ນ"
 
 msgid "Totals"
 msgstr "ລວມທັງໝົດ"
@@ -996,7 +1004,7 @@ msgid "Vertical (y) axis"
 msgstr ""
 
 msgid "Titles"
-msgstr ""
+msgstr "ຫົວຂໍ້"
 
 msgid "Axes"
 msgstr "ແກນ"
