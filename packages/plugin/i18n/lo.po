@@ -19,4 +19,4 @@ msgid "Change org unit"
 msgstr "ປ່ຽນຫົວໜ່ວຍການຈັດຕັ້ງ"
 
 msgid "{{level}} level in {{orgunit}}"
-msgstr ""
+msgstr "{{level}}ລະດັບ{{orgunit}}"
