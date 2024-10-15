@@ -10,7 +10,7 @@ const findCustomNotoFont = (callback) => {
     }
 }
 
-const getNotoFontNameForJavaLocale = (javaLocaleCode = '') => {
+const getNotoFontNameForJavaLocale = (javaLocaleCode) => {
     const [rawLanguage, region, script] = javaLocaleCode.split('_')
     /* This will ensure that 3 character ISO639-2 language codes
      * for which a 2 character ISO639-1 code also exists are
@@ -42,7 +42,7 @@ const getNotoFontVariantsForFontName = (fontName = '') =>
               italic: `${process.env.PUBLIC_URL}/fonts/${fontName}-Regular.ttf`,
           }
 
-export const getNotoFontVariantsForLocale = (javaLocale = '') => {
+export const getNotoFontVariantsForLocale = (javaLocale = 'en') => {
     const fontName = getNotoFontNameForJavaLocale(javaLocale)
     return getNotoFontVariantsForFontName(fontName)
 }
