@@ -3,7 +3,7 @@ import { useConfig, useDataEngine } from '@dhis2/app-runtime'
 import { useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { getAnalyticsRequestForOutlierTable } from '../../api/analytics.js'
-import { getNotoFontVariantsForLocale } from '../../modules/notoFontForLocale/index.js'
+import { getNotoPdfFontForLocale } from '../../modules/getNotoPdfFontForLocale/index.js'
 import { sGetCurrent } from '../../reducers/current.js'
 import { sGetSettingsDisplayProperty } from '../../reducers/settings.js'
 import {
@@ -65,14 +65,14 @@ const useDownload = (relativePeriodDate) => {
                 return false
             }
 
-            const isPDF = format === FILE_FORMAT_PDF
+            const isPdfExport = format === FILE_FORMAT_PDF
 
             /* Custom visualization types (i.e. SingleValue) that need some
-             * specific handling for PDF export can read this when the re-render
-             * before exporting. */
+             * specific handling for PDF export can read this when they
+             * re-render before exporting. */
             chart.update({
                 exporting: {
-                    chartOptions: { isPDF },
+                    chartOptions: { isPdfExport },
                 },
             })
 
@@ -81,11 +81,12 @@ const useDownload = (relativePeriodDate) => {
                 sourceWidth: 1024,
                 scale: 1,
                 fallbackToExportServer: false,
-                filename: visualization.name,
+                allowHTML: true,
                 showExportInProgress: true,
-                type: isPDF ? 'application/pdf' : 'image/png',
-                pdfFont: isPDF
-                    ? getNotoFontVariantsForLocale(dbLocale)
+                filename: visualization.name,
+                type: isPdfExport ? 'application/pdf' : 'image/png',
+                pdfFont: isPdfExport
+                    ? getNotoPdfFontForLocale(dbLocale)
                     : undefined,
             })
         },
