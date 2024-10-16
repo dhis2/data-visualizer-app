@@ -26,19 +26,19 @@
  * new font bundle here, new .ttf files also need to be added to
  * `./public/fonts`.
  * Note about the language sets: some language codes correspond to
- * multiple scripts, but we can only add a single font bundle.
- * The Latn script is supported without a font bundle, so if
- * a language corresponds to Latn plus one additional script, we
- * can include the bundle for that script. However if the language
- * corresponds to multiple non-ASCII scripts then choosing the
- * correct font bundle based on a language code is technicaly
+ * multiple scripts, but we can only add a single font bundle when
+ * convering to PDF. The Latn script is supported without a font
+ * bundle, so if a language corresponds to Latn plus one additional
+ * script, we can include the bundle for that script. However if the
+ * language * corresponds to multiple non-ASCII scripts then choosing
+ * the correct font bundle based on a language code is technicaly
  * impossible. The only way to ensure the correct font bundle for
  * PDF generation is by ensuring that the locale string contains a
- * script section. In the lookup below these ambiguous languaes
+ * script section. In the lookup below these ambiguous languages
  * have been disabled, because it is better to serve the base Noto
- * font in these cases */
+ * font in these cases. */
 
-export const customNotoFontLookup = new Map([
+export const NOTO_FONT_LOOKUP = new Map([
     [
         'NotoSansArabic',
         {
@@ -116,8 +116,20 @@ export const customNotoFontLookup = new Map([
             ]),
         },
     ],
-    ['NotoSansJP', { scripts: new Set(['Jpan']), languages: new Set(['ja']) }],
-    ['NotoSansKR', { scripts: new Set(['Kore']), languages: new Set(['ko']) }],
+    [
+        'NotoSansJP',
+        {
+            scripts: new Set(['Jpan']),
+            languages: new Set(['ja']),
+        },
+    ],
+    [
+        'NotoSansKR',
+        {
+            scripts: new Set(['Kore']),
+            languages: new Set(['ko']),
+        },
+    ],
     [
         'NotoSansSC',
         {
@@ -210,7 +222,10 @@ export const customNotoFontLookup = new Map([
     ],
     [
         'NotoSansKhmer',
-        { scripts: new Set(['Khmr']), languages: new Set(['km']) },
+        {
+            scripts: new Set(['Khmr']),
+            languages: new Set(['km']),
+        },
     ],
     [
         'NotoSansOriya',
