@@ -60,12 +60,10 @@ export const expectChartToContainDimensionItem = (visType, itemName) => {
         case VIS_TYPE_GAUGE:
         case VIS_TYPE_YEAR_OVER_YEAR_COLUMN:
         case VIS_TYPE_YEAR_OVER_YEAR_LINE:
+        case VIS_TYPE_SINGLE_VALUE:
             cy.get(highchartsTitleEl)
                 .should('be.visible')
                 .and('contain', itemName)
-            break
-        case VIS_TYPE_SINGLE_VALUE:
-            cy.getBySel(visualizationTitleEl).should('contain', itemName)
             break
         case VIS_TYPE_PIVOT_TABLE:
             cy.getBySel('visualization-column-header')
