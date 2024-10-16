@@ -33,7 +33,7 @@ export const getNotoPdfFontForLocale = (javaLocale = 'en') => {
     const { script, language } =
         getScriptAndRegionFromJavaLocaleCode(javaLocale)
     return (
-        /* First scan the entire lookup to find script matches because script
+        /* First scan the entire lookup to find a script match because script
          * matches should take precedence over language matches, since a
          * language can be written in multiple scripts */
         findInNotoFontLookup(({ scripts }) => scripts.has(script)) ??
