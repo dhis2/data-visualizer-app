@@ -24,11 +24,7 @@ const AOTitleDirtyEl = 'titlebar-dirty'
 const timeout = {
     timeout: 40000,
 }
-const nonHighchartsTypes = [
-    VIS_TYPE_OUTLIER_TABLE,
-    VIS_TYPE_PIVOT_TABLE,
-    VIS_TYPE_SINGLE_VALUE,
-]
+const nonHighchartsTypes = [VIS_TYPE_OUTLIER_TABLE, VIS_TYPE_PIVOT_TABLE]
 
 export const expectVisualizationToBeVisible = (visType = VIS_TYPE_COLUMN) =>
     nonHighchartsTypes.includes(visType)
