@@ -1,9 +1,9 @@
 import { Analytics, VIS_TYPE_OUTLIER_TABLE } from '@dhis2/analytics'
-import { useConfig, useDataEngine, useDataMutation } from '@dhis2/app-runtime'
+import { useConfig, useDataEngine } from '@dhis2/app-runtime'
 import { useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import { getAnalyticsRequestForOutlierTable } from '../../api/analytics.js'
-import { sGetChart } from '../../reducers/chart.js'
+import { getNotoPdfFontForLocale } from '../../modules/getNotoPdfFontForLocale/index.js'
 import { sGetCurrent } from '../../reducers/current.js'
 import { sGetSettingsDisplayProperty } from '../../reducers/settings.js'
 import {
@@ -11,26 +11,16 @@ import {
     sGetUiLayoutColumns,
     sGetUiLayoutRows,
 } from '../../reducers/ui.js'
+import { useChartContext } from '../ChartProvider.js'
+import { useUserSettings } from '../UserSettingsProvider.js'
 import {
     DOWNLOAD_TYPE_PLAIN,
     DOWNLOAD_TYPE_TABLE,
     FILE_FORMAT_HTML_CSS,
     FILE_FORMAT_CSV,
-    FILE_FORMAT_PNG,
     FILE_FORMAT_XLS,
+    FILE_FORMAT_PDF,
 } from './constants.js'
-
-const downloadPngMutation = {
-    resource: 'svg.png',
-    type: 'create',
-    data: ({ formData }) => formData,
-}
-
-const downloadPdfMutation = {
-    resource: 'svg.pdf',
-    type: 'create',
-    data: ({ formData }) => formData,
-}
 
 const addCommonParameters = (req, visualization, options) => {
     req = req
@@ -59,45 +49,48 @@ const useDownload = (relativePeriodDate) => {
     const displayProperty = useSelector(sGetSettingsDisplayProperty)
     const visualization = useSelector(sGetCurrent)
     const visType = useSelector(sGetUiType)
-    const chart = useSelector(sGetChart)
     const columns = useSelector(sGetUiLayoutColumns)
     const rows = useSelector(sGetUiLayoutRows)
     const { baseUrl } = useConfig()
+    const { dbLocale } = useUserSettings()
     const dataEngine = useDataEngine()
+    const { getChart } = useChartContext()
     const analyticsEngine = Analytics.getAnalytics(dataEngine)
-
-    const openDownloadedFileInBlankTab = useCallback((blob) => {
-        const url = URL.createObjectURL(blob)
-        window.open(url, '_blank')
-    }, [])
-
-    const [getPng] = useDataMutation(downloadPngMutation, {
-        onComplete: openDownloadedFileInBlankTab,
-    })
-
-    const [getPdf] = useDataMutation(downloadPdfMutation, {
-        onComplete: openDownloadedFileInBlankTab,
-    })
 
     const doDownloadImage = useCallback(
         ({ format }) => {
-            if (!visualization) {
+            const chart = getChart()
+
+            if (!visualization || !chart) {
                 return false
             }
 
-            const formData = {
+            const isPdfExport = format === FILE_FORMAT_PDF
+
+            /* Custom visualization types (i.e. SingleValue) that need some
+             * specific handling for PDF export can read this when they
+             * re-render before exporting. */
+            chart.update({
+                exporting: {
+                    chartOptions: { isPdfExport },
+                },
+            })
+
+            chart.exportChartLocal({
+                sourceHeight: 768,
+                sourceWidth: 1024,
+                scale: 1,
+                fallbackToExportServer: false,
+                allowHTML: true,
+                showExportInProgress: true,
                 filename: visualization.name,
-            }
-
-            if (chart) {
-                formData.svg = chart
-            }
-
-            format === FILE_FORMAT_PNG
-                ? getPng({ formData })
-                : getPdf({ formData })
+                type: isPdfExport ? 'application/pdf' : 'image/png',
+                pdfFont: isPdfExport
+                    ? getNotoPdfFontForLocale(dbLocale)
+                    : undefined,
+            })
         },
-        [chart, getPdf, getPng, visualization]
+        [dbLocale, getChart, visualization]
     )
 
     const doDownloadData = useCallback(
