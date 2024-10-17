@@ -60,7 +60,6 @@ import {
     setItemToType,
     clickOptionsModalHideButton,
     expectSingleValueToHaveBackgroundColor,
-    expectSingleValueToNotHaveBackgroundColor,
     changeDisplayStyleToFill,
     changeColor,
     OPTIONS_TAB_STYLE,
@@ -156,17 +155,19 @@ describe('Options - Legend', () => {
 
     it('applies different styles of legend to a Single Value chart', () => {
         const TEST_ITEM = TEST_ITEMS[0]
-        const EXPECTED_STANDARD_TEXT_COLOR = '#212934'
-        const EXPECTED_CONTRAST_TEXT_COLOR = '#ffffff'
+        const EXPECTED_STANDARD_TEXT_COLOR = 'rgb(33, 41, 52)'
+        const EXPECTED_CONTRAST_TEXT_COLOR = 'rgb(255, 255, 255)'
         const EXPECTED_BACKGROUND_COLOR_1 = '#FFFFB2'
-        const EXPECTED_TEXT_COLOR_1 = '#FFFFB2'
+        const EXPECTED_TEXT_COLOR_1 = 'rgb(255, 255, 178)'
         const EXPECTED_BACKGROUND_COLOR_2 = '#B3402B'
-        const EXPECTED_TEXT_COLOR_2 = '#B3402B'
+        const EXPECTED_TEXT_COLOR_2 = 'rgb(179, 64, 43)'
         const EXPECTED_CUSTOM_TITLE_COLOR = '#ff7700'
+        const EXPECTED_CUSTOM_TITLE_COLOR_RGB = 'rgb(255, 119, 0)'
         const EXPECTED_CUSTOM_SUBTITLE_COLOR = '#ffaa00'
+        const EXPECTED_CUSTOM_SUBTITLE_COLOR_RGB = 'rgb(255, 170, 0)'
         const TEST_LEGEND_SET_WITH_CONTRAST = 'Age 15y interval'
-        const EXPECTED_STANDARD_TITLE_COLOR = '#212934'
-        const EXPECTED_STANDARD_SUBTITLE_COLOR = '#4a5768'
+        const EXPECTED_STANDARD_TITLE_COLOR = 'rgb(33, 41, 52)'
+        const EXPECTED_STANDARD_SUBTITLE_COLOR = 'rgb(74, 87, 104)'
 
         cy.log('navigates to the start page and adds data items')
         goToStartPage()
@@ -176,7 +177,7 @@ describe('Options - Legend', () => {
         clickDimensionModalUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
         expectSingleValueToHaveTextColor(EXPECTED_STANDARD_TEXT_COLOR)
-        expectSingleValueToNotHaveBackgroundColor()
+        expectSingleValueToHaveBackgroundColor('transparent')
 
         cy.log('enables legend')
         openOptionsModal(OPTIONS_TAB_LEGEND)
@@ -206,7 +207,7 @@ describe('Options - Legend', () => {
         // Legend on text, no contrast, no custom title colors
         cy.log('verifies text color legend is applied')
         expectSingleValueToHaveTextColor(EXPECTED_TEXT_COLOR_1)
-        expectSingleValueToNotHaveBackgroundColor()
+        expectSingleValueToHaveBackgroundColor('transparent')
         expectSVTitleToHaveColor(EXPECTED_STANDARD_TITLE_COLOR)
         expectSVSubtitleToHaveColor(EXPECTED_STANDARD_SUBTITLE_COLOR)
 
@@ -225,11 +226,11 @@ describe('Options - Legend', () => {
         // Legend on text, with contrast (N/, no custom title colors
         cy.log('verifies text color legend is applied')
         expectSingleValueToHaveTextColor(EXPECTED_TEXT_COLOR_2)
-        expectSingleValueToNotHaveBackgroundColor()
+        expectSingleValueToHaveBackgroundColor('transparent')
         expectSVTitleToHaveColor(EXPECTED_STANDARD_TITLE_COLOR)
         expectSVSubtitleToHaveColor(EXPECTED_STANDARD_SUBTITLE_COLOR)
 
-        cy.log('changees legend display style to background color')
+        cy.log('changes legend display style to background color')
         openOptionsModal(OPTIONS_TAB_LEGEND)
         expectLegendDisplayStrategyToBeFixed()
         expectLegendDisplayStyleToBeText()
@@ -259,8 +260,8 @@ describe('Options - Legend', () => {
         )
         expectSingleValueToHaveTextColor(EXPECTED_CONTRAST_TEXT_COLOR)
         expectSingleValueToHaveBackgroundColor(EXPECTED_BACKGROUND_COLOR_2)
-        expectSVTitleToHaveColor(EXPECTED_CUSTOM_TITLE_COLOR)
-        expectSVSubtitleToHaveColor(EXPECTED_CUSTOM_SUBTITLE_COLOR)
+        expectSVTitleToHaveColor(EXPECTED_CUSTOM_TITLE_COLOR_RGB)
+        expectSVSubtitleToHaveColor(EXPECTED_CUSTOM_SUBTITLE_COLOR_RGB)
 
         cy.log('changes legend display style to text color')
         openOptionsModal(OPTIONS_TAB_LEGEND)
@@ -271,12 +272,12 @@ describe('Options - Legend', () => {
         clickOptionsModalUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
 
-        // Legend on text, with contrast, with custom title colo
+        // Legend on text, with contrast, with custom title colors
         cy.log('verifies text color legend and custom title colors are applied')
         expectSingleValueToHaveTextColor(EXPECTED_TEXT_COLOR_2)
-        expectSingleValueToNotHaveBackgroundColor()
-        expectSVTitleToHaveColor(EXPECTED_CUSTOM_TITLE_COLOR)
-        expectSVSubtitleToHaveColor(EXPECTED_CUSTOM_SUBTITLE_COLOR)
+        expectSingleValueToHaveBackgroundColor('transparent')
+        expectSVTitleToHaveColor(EXPECTED_CUSTOM_TITLE_COLOR_RGB)
+        expectSVSubtitleToHaveColor(EXPECTED_CUSTOM_SUBTITLE_COLOR_RGB)
 
         cy.log('changes legend display strategy to by data item')
         openOptionsModal(OPTIONS_TAB_LEGEND)
@@ -287,12 +288,12 @@ describe('Options - Legend', () => {
         clickOptionsModalUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_SINGLE_VALUE)
 
-        // Legend on text, no contrast, with custom title colo
+        // Legend on text, no contrast, with custom title colors
         cy.log('verifies text color legend and custom title colors are applied')
         expectSingleValueToHaveTextColor(EXPECTED_TEXT_COLOR_1)
-        expectSingleValueToNotHaveBackgroundColor()
-        expectSVTitleToHaveColor(EXPECTED_CUSTOM_TITLE_COLOR)
-        expectSVSubtitleToHaveColor(EXPECTED_CUSTOM_SUBTITLE_COLOR)
+        expectSingleValueToHaveBackgroundColor('transparent')
+        expectSVTitleToHaveColor(EXPECTED_CUSTOM_TITLE_COLOR_RGB)
+        expectSVSubtitleToHaveColor(EXPECTED_CUSTOM_SUBTITLE_COLOR_RGB)
 
         cy.log('changes legend display style to background color')
         openOptionsModal(OPTIONS_TAB_LEGEND)
@@ -309,8 +310,8 @@ describe('Options - Legend', () => {
         )
         expectSingleValueToHaveTextColor(EXPECTED_STANDARD_TEXT_COLOR)
         expectSingleValueToHaveBackgroundColor(EXPECTED_BACKGROUND_COLOR_1)
-        expectSVTitleToHaveColor(EXPECTED_CUSTOM_TITLE_COLOR)
-        expectSVSubtitleToHaveColor(EXPECTED_CUSTOM_SUBTITLE_COLOR)
+        expectSVTitleToHaveColor(EXPECTED_CUSTOM_TITLE_COLOR_RGB)
+        expectSVSubtitleToHaveColor(EXPECTED_CUSTOM_SUBTITLE_COLOR_RGB)
 
         cy.log('verifies legend key is hidden')
         expectLegendKeyToBeHidden()
@@ -605,7 +606,7 @@ describe('Options - Legend', () => {
         const TEST_ITEM = TEST_ITEMS[0]
         const EXPECTED_FIXED_COLOR = '#c7e9c0'
         const valueCellEl = 'visualization-value-cell'
-        const EXPECTED_SV_STANDARD_TEXT_COLOR = '#212934'
+        const EXPECTED_SV_STANDARD_TEXT_COLOR = 'rgb(33, 41, 52)'
         const EXPECTED_PT_STANDARD_TEXT_COLOR = 'color: rgb(33, 41, 52)'
 
         cy.log('navigates to the start page and adds data items')

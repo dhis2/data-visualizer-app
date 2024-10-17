@@ -10,8 +10,6 @@ import {
 } from '@dhis2/analytics'
 
 const visualizationContainerEl = 'visualization-container'
-const visualizationTitleEl = 'visualization-title'
-const visualizationSubtitleEl = 'visualization-subtitle'
 const chartContainerEl = '.highcharts-container'
 const highchartsLegendEl = '.highcharts-legend'
 const highchartsTitleEl = '.highcharts-title'
@@ -113,10 +111,7 @@ export const expectChartItemsToHaveLength = (length) =>
     cy.get(highchartsChartItemEl).children().should('have.length', length)
 
 export const expectSVTitleToHaveColor = (color) =>
-    cy.getBySel(visualizationTitleEl).invoke('attr', 'fill').should('eq', color)
+    cy.get('text.highcharts-title').should('have.css', 'color', color)
 
 export const expectSVSubtitleToHaveColor = (color) =>
-    cy
-        .getBySel(visualizationSubtitleEl)
-        .invoke('attr', 'fill')
-        .should('eq', color)
+    cy.get('text.highcharts-subtitle').should('have.css', 'color', color)
