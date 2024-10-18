@@ -36,7 +36,6 @@ import {
 } from '../../elements/optionsModal/index.js'
 import {
     colTotalsOptionEl,
-    rowTotalsOptionEl,
     expectColumnsTotalsToBeChecked,
     expectColumnsTotalsToBeDisabled,
     expectColumnsSubTotalsToBeDisabled,
@@ -44,7 +43,6 @@ import {
     expectRowsSubTotalsToBeDisabled,
     expectColumnsTotalsToBeEnabled,
     expectColumnsSubTotalsToBeEnabled,
-    expectRowsTotalsToBeChecked,
     expectRowsTotalsToBeEnabled,
     expectRowsSubTotalsToBeEnabled,
 } from '../../elements/optionsModal/totals.js'
