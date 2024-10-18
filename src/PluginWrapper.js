@@ -27,7 +27,6 @@ const PluginWrapper = (props) => {
     return (
         <DashboardPluginWrapper {...propsFromParent}>
             {(props) => {
-                console.log('props from shared', props)
                 return <VisualizationPluginWrapper id={renderId} {...props} />
             }}
         </DashboardPluginWrapper>
