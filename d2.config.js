@@ -20,6 +20,8 @@ const config = {
         app: './src/AppWrapper.js',
         plugin: './src/PluginWrapper.js',
     },
+
+    skipPluginLogic: true,
 }
 
 module.exports = config
