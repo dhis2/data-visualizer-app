@@ -1,6 +1,6 @@
 export const colTotalsOptionEl = 'option-col-totals'
 const colSubTotalsOptionEl = 'option-col-subtotals'
-const rowTotalsOptionEl = 'option-row-totals'
+export const rowTotalsOptionEl = 'option-row-totals'
 const rowSubTotalsOptionEl = 'option-row-subtotals'
 
 export const expectColumnsTotalsToBeDisabled = () =>
