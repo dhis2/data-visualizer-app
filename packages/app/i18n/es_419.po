@@ -430,7 +430,7 @@ msgid "Large"
 msgstr ""
 
 msgid "Small"
-msgstr ""
+msgstr "Pequeña"
 
 msgid "Hide empty columns"
 msgstr ""
@@ -803,6 +803,14 @@ msgstr ""
 msgid "The level or group selections didn't return any organization units."
 msgstr ""
 
+msgid "Invalid data type"
+msgstr ""
+
+msgid ""
+"The selected data dimensions didn't return any valid data. This "
+"visualization type can only display numerical data."
+msgstr ""
+
 msgid "Something went wrong"
 msgstr "Algo ha ido mal"
 
@@ -912,7 +920,7 @@ msgid "Last 5 years"
 msgstr ""
 
 msgid "User organisation unit"
-msgstr ""
+msgstr "Unidad organizativa del usuario"
 
 msgid "User sub-units"
 msgstr ""
