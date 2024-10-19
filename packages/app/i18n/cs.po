@@ -1,14 +1,15 @@
 # 
 # Translators:
-# trendspotter <jirka.p@volny.cz>, 2022
+# Jiří Podhorecký <jirka.p@volny.cz>, 2022
+# Philip Larsen Donnelly, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-06-07T08:29:46.003Z\n"
 "PO-Revision-Date: 2021-09-03 23:49+0000\n"
-"Last-Translator: trendspotter <jirka.p@volny.cz>, 2022\n"
-"Language-Team: Czech (https://www.transifex.com/hisp-uio/teams/100509/cs/)\n"
+"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Language-Team: Czech (https://app.transifex.com/hisp-uio/teams/100509/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -231,7 +232,7 @@ msgid "Edited"
 msgstr "Upraveno"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr "Prohlížení interpretací od {{interpretDate}}"
+msgstr "Prohlížení interpretací od {{interpretationDate}}"
 
 msgid "Update"
 msgstr "Aktualizovat"
@@ -735,14 +736,14 @@ msgid "Add at least one item to {{axisName}}."
 msgstr "Přidat alespoň jednu položku do {{axisName}}."
 
 msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
-msgstr "{{columnsAxisName}} a {{linesAxisName}} jsou prázdné"
+msgstr "{{columnsAxisName}} a {{rowsAxisName}} jsou prázdné"
 
 msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
 " {{visualizationType}}."
 msgstr ""
-"Přidejte alespoň jednu položku do {{columnsAxisName}} nebo {{linesAxisName}}"
-" a vytvořte {{visualizationType}}."
+"Přidejte alespoň jednu položku do {{columnsAxisName}} nebo {{rowsAxisName}} "
+"a vytvořte {{visualizationType}}."
 
 msgid "No period selected"
 msgstr "Není vybráno žádné období"
