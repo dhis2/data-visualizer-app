@@ -1,16 +1,17 @@
 # 
 # Translators:
-# phil_dhis2, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Mai Nguyen <thanhmai.jica@gmail.com>, 2021
+# Philip Larsen Donnelly, 2024
+# Thuy Nguyen <thuynguyen@hispvietnam.org>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-04-23T09:26:03.770Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: Mai Nguyen <thanhmai.jica@gmail.com>, 2021\n"
-"Language-Team: Vietnamese (https://www.transifex.com/hisp-uio/teams/100509/vi/)\n"
+"Last-Translator: Thuy Nguyen <thuynguyen@hispvietnam.org>, 2024\n"
+"Language-Team: Vietnamese (https://app.transifex.com/hisp-uio/teams/100509/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -46,7 +47,7 @@ msgid "Yes, leave"
 msgstr "Có"
 
 msgid "Add to {{axisName}}"
-msgstr "Thêm {{tên trục}"
+msgstr "Thêm {{axisName}}"
 
 msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
@@ -166,7 +167,7 @@ msgid "{{total}} selected"
 msgstr "Đã chọn {{total}}"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
-msgstr "{{mensName}} bị khóa với {{axisName}} cho {{visTypeName}}"
+msgstr "{{dimensionName}} bị khóa với {{axisName}} cho {{visTypeName}}"
 
 msgid "Not available for Scatter"
 msgstr "Không có sẵn cho phân tán"
@@ -694,13 +695,13 @@ msgid "Add at least one item to {{axisName}}."
 msgstr "Thêm ít nhất một mục vào {{axisName}}."
 
 msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
-msgstr "{{columnAxisName}} và {{rowsAxisName}} trống"
+msgstr "{{columnsAxisName}} và {{rowsAxisName}} trống"
 
 msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
 " {{visualizationType}}."
 msgstr ""
-"Thêm ít nhất một mục vào {{columnAxisName}} hoặc {{rowAxisName}} để tạo "
+"Thêm ít nhất một mục vào {{columnsAxisName}} hoặc {{rowsAxisName}} để tạo "
 "{{visualizationType}}."
 
 msgid "No period selected"
@@ -710,7 +711,7 @@ msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
 msgstr ""
 "{{visualizationType}} phải có ít nhất một thời điểm được chọn trong "
-"{{axis}}."
+"{{axes}}."
 
 msgid "Add organisation units to {{axisName}}."
 msgstr "Thêm đơn vị vào {{axisName}}."
@@ -745,10 +746,10 @@ msgid ""
 " set item in {{axes}}."
 msgstr ""
 "{{visualizationType}} phải có ít nhất một mục dữ liệu hoặc mục nhóm phần tử "
-"dữ liệu trong {{axis}}."
+"dữ liệu trong {{axes}}."
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
-msgstr "{{visualizationType}} phải có ít nhất một mục dữ liệu trong {{axis}}."
+msgstr "{{visualizationType}} phải có ít nhất một mục dữ liệu trong {{axes}}."
 
 msgid "There's a problem with the layout"
 msgstr "Có lỗi bố cục"
@@ -994,7 +995,7 @@ msgid "Limit minimum/maximum values"
 msgstr "Giới hạn giá trị nhỏ nhất/lớn nhất"
 
 msgid "Outliers"
-msgstr ""
+msgstr "Các ngoại lệ"
 
 msgid "Series"
 msgstr "Chuỗi Dữ Liệu"
