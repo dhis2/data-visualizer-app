@@ -26,7 +26,7 @@ msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr "ການສ້າງຮູບພາບດ້ວຍຂໍ້ມູນທີ່ບໍ່ມີຊື່ {{visualizationType}}, {{date}}"
 
 msgid "\"{{deletedObject}}\" successfully deleted."
-msgstr ""
+msgstr "{{deletedObject}}ລົບສຳເລັດ."
 
 msgid "You have unsaved changes."
 msgstr "ທ່ານມີການປ່ຽນແປງທີ່ຍັງບໍ່ທັນບັນທືກ"
@@ -54,6 +54,8 @@ msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
 "first item will be used and saved."
 msgstr ""
+"{{visualizationType}}ມີຈຸດປະສົງເພື່ອສະແດງລາຍການດຽວສຳລັບລາຍການຂໍ້ມູນ. ຈະໃຊ້ "
+"ແລະ ບັນທຶກສະເພາະລາຍການທຳອິດເທົ່ານັ້ນ."
 
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
@@ -120,7 +122,7 @@ msgid "XML"
 msgstr "XML"
 
 msgid "Excel"
-msgstr ""
+msgstr "Excel"
 
 msgid "CSV"
 msgstr "CSV"
@@ -147,7 +149,7 @@ msgid "Interpretations"
 msgstr "ການແປຂໍ້ມູນ"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr ""
+msgstr "{{total}} ໃນ {{axisMaxNumberOfItems}} ທີ່ຖືກເລືອກ"
 
 msgid "{{total}} selected"
 msgstr "{{total}} ເລືອກ"
@@ -162,7 +164,7 @@ msgid "Only '{{- name}}' in use"
 msgstr "ໃຊ້ສະເພາະ {{- name}}ເທົ່ານັ້ນ"
 
 msgid "Only '{{number}}' in use"
-msgstr ""
+msgstr "ໃຊ້ສະເພາະ {{number}} ເທົ່ານັ້ນ"
 
 msgid "Levels"
 msgstr "ຂັ້ນ"
@@ -196,7 +198,7 @@ msgid "Edited"
 msgstr "ແກ້ໄຂ"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr ""
+msgstr "ເບີ່ງຂໍ້ຄວາມຈາກ {{interpretationDate}}"
 
 msgid "Update"
 msgstr "ປັບປຸງ"
@@ -208,6 +210,7 @@ msgid ""
 "All dimensions that you can use to build visualizations are shown in the "
 "left sidebar"
 msgstr ""
+"ຂອບເຂດທັງໝົດທີ່ທ່ານໃຊ້ເພື່ອສ້າງຮູບພາບດ້ວຍຂໍ້ມູນແມ່ນໄດ້ສະແດງຢູ່ໃນແຖບດ້ານຊ້າຍ."
 
 msgid "Add dimensions to the layout above"
 msgstr "ເພີ່ມຂອບເຂດໃນໂຄ່ງຮ່າງຂ້າງເທີງ"
@@ -222,7 +225,7 @@ msgid "Aggregation type"
 msgstr "ປະເພດຕົວເລກລວມ"
 
 msgid "Overrides aggregation type for all data values."
-msgstr ""
+msgstr "ລົບລ້າງປະເພດຂອງການສັງລວມສຳລັບຄ່າຂໍ້ມູນທັງໝົດ."
 
 msgid "By data element"
 msgstr "ໂດຍອົງປະກອບຂອງຂໍ້ມູນ"
@@ -405,7 +408,7 @@ msgid "Chart title"
 msgstr "ຫົວຂໍ້ເສັ້ນສະແດງ"
 
 msgid "Display legend"
-msgstr ""
+msgstr "ສະແດງຄຳອະທິບາຍ"
 
 msgid "Legend style"
 msgstr "ຫວ່າງຂໍ້ມູນ"
@@ -417,7 +420,7 @@ msgid "Use pre-defined legend per data item"
 msgstr "ໃຊ້ຄຳອະທິບາຍທີ່ໄດ້ກຳນົດລ່ວງໜ້າຕໍ່ລາຍການຂໍ້ມູນ"
 
 msgid "Select a single legend for the entire visualization"
-msgstr ""
+msgstr "ເລືອກຄຳອະທິບາຍດຽວສຳລັບການສ້າງພາບດ້ວຍຂໍ້ມູນທັງໝົດ"
 
 msgid "Legend changes background color"
 msgstr "ຄຳອະທິບາຍປ່ຽນສີພື້ນຫຼັງ"
@@ -438,6 +441,8 @@ msgid ""
 "You can set a minimum or maximum value. This will apply to the entire table,"
 " all values outside of the minimum/maximum range will not be displayed"
 msgstr ""
+"ທ່ານສາມາດກຳນົດຄ່າຕ່ຳສຸດ ຫຼື ສູງສຸດ. ເຊີ່ງນີ້ຈະໄດ້ນຳໃຊ້ກັບຕາຕະລາງທັງໝົດ, "
+"ຄ່າທັງໝົດທີ່ຢູ່ນອກຄ່າຕ່ຳສຸດ / ສູງສຸດຈະບໍ່ຖືກສະແດງ"
 
 msgid "Minimum data value"
 msgstr "ຄ່າຂໍ້ມູນຕ່ຳສຸດ"
@@ -485,6 +490,8 @@ msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
+"ຈຳນວນຂັ້ນຕອນຂອງແກນ, ປະກອບດ້ວຍ ຄ່າຕ່ຳສຸດ ແລະ ຄ່າສູງສຸດ. ຄ່າ 2 ຫຼື "
+"ຕ່ຳກ່ວາຈະຖືກລະເວັ້ນ."
 
 msgid "Steps"
 msgstr "ຂັ້ນຕອນ"
@@ -538,9 +545,11 @@ msgid ""
 "Series options are not available when using relative selections for periods,"
 " org units or categories"
 msgstr ""
+"ຊຸດຕົວເລືອກບໍ່ສາມາດໃຊ້ງານໄດ້ເມື່ອໃຊ້ການເລືອກທີ່ກ່ຽວຂ້ອງກັບ ຊ່ວງເວລາ, "
+"ຫົວໜ່ວຍການຈັດຕັ້ງ ຫຼື ໝວດໝູ່"
 
 msgid "Value labels"
-msgstr ""
+msgstr "ແຜງຄ່າ"
 
 msgid "Dimension labels"
 msgstr "ແຜງຂອບເຂດ"
@@ -587,6 +596,7 @@ msgstr "ເປີດເປັນແຜ່ນທີ່"
 msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
 msgstr ""
+"ວາງແຜນຂໍ້ມູນເທິງແຜນທີ່ໂລກໂດຍໃຊ້ພາບ. ອົງປະກອບຂໍ້ມູນໃຊ້ແຜນທີ່ແຍກຕ່າງຫາກ."
 
 msgid "Reporting rate"
 msgstr "ອັດຕາການລາຍງານ"
@@ -656,28 +666,29 @@ msgid ""
 "A single indicator must be the only data item when using indicators as Data "
 "in Filter."
 msgstr ""
+"ຕົວຊີ້ວັດດຽວຈະຕ້ອງເປັນລາຍການຂໍ້ມູນເທົ່ານັ້ນເມື່ອໃຊ້ຕົວຊີ້ວັດເປັນຂໍ້ມູນໃນຕົວກອງ."
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
-msgstr ""
+msgstr "ຊຸດກຸ່ມອົງປະກອບຂໍ້ມູນ ແລະ ອັດຕາການລາຍງານບໍ່ສາມາດໃຊ້ຮ່ວມກັນໄດ້."
 
 msgid "There is a problem with this {{visualizationType}} visualization."
-msgstr ""
+msgstr "ພົບບັນຫາໃນ {{visualizationType}}ການສ້າງຮູບພາບດ້ວຍຂໍ້ມູນ"
 
 msgid "There was a problem getting the data from the server."
 msgstr "ພົບບັນຫາໃນການເອົາຂໍ້ມູນຈາກເຊີບເວີ."
 
 msgid "Assigned Categories can only be used with data elements"
-msgstr ""
+msgstr "ໝວດໝູ່ທີ່ຖືກມອບໝາຍ ສາມາດໃຊ້ກັບອົງປະກອບຂໍ້ມູນໄດ້ເທົ່ານັ້ນ"
 
 msgid ""
 "Fix this problem by selecting data elements or removing Assigned Categories."
-msgstr ""
+msgstr "ແກ້ໄຂບັນຫານີ້ ໂດຍການເລືອກອົງປະກອບຂໍ້ມູນ ຫຼື ລົບໝວດໝູ່ທີ່ໄດ້ຮັບມອບໝາຍ."
 
 msgid "Assigned Categories cannot be used as Filter"
-msgstr ""
+msgstr "ໝວດໝູ່ທີ່ຖຶກກຳນົດບໍ່ສາມາດໃຊ້ເປັນຕົວກອງໄດ້"
 
 msgid "Fix this problem by moving or removing Assigned Categories."
-msgstr ""
+msgstr "ແກ້ໄຂບັນຫານີ້ໂດຍການຍ້າຍ ຫຼື ລົບໝວດໝູ່ທີ່ໄດ້ຮັບມອບໝາຍ."
 
 msgid "Visualization not found"
 msgstr "ບໍ່ພົບການສ້າງຮູບພາບດ້ວຍຂໍ້ມູນ"
@@ -693,7 +704,7 @@ msgid "No organization units found"
 msgstr "ບໍ່ພົບຫົວໜ່ວຍການຈັດຕັ້ງ"
 
 msgid "The level or group selections didn't return any organization units."
-msgstr ""
+msgstr "ການເືອກລະດັບ ຫຼື ກຸ່ມ ບໍ່ໄດ້ສົ່ງຄືນໃຫ້ ຫົວໜ່ວຍການຈັດຕັ້ງໃດໆ."
 
 msgid "Something went wrong"
 msgstr "ມີບາງຢ່າງຜິດພາດ"
@@ -822,10 +833,10 @@ msgid "Axes"
 msgstr "ແກນ"
 
 msgid "Horizontal (x) axis"
-msgstr ""
+msgstr "ແກນແນວນອນ (x)"
 
 msgid "Series"
-msgstr "ແທ່ງ"
+msgstr "ຊຸດ"
 
 msgid "Style"
 msgstr "ລັກສະນະ"
@@ -840,7 +851,7 @@ msgid "Lines"
 msgstr "ເສັ້ນ"
 
 msgid "Vertical (y) axis"
-msgstr ""
+msgstr "ແກນແນວຕັ້ງ (y)"
 
 msgid "Totals"
 msgstr "ລວມທັງໝົດ"
@@ -867,13 +878,13 @@ msgid "Color set"
 msgstr "ຊຸດສີ"
 
 msgid "Color sets are not supported yet when using multiple axes"
-msgstr ""
+msgstr "ຊຸດສີຍັງບໍ່ສະໜັບສະໜູນເທື່ອ ເມື່ອໃຊ້ແກນຫຼາຍແກນ"
 
 msgid "Lines are not supported yet when using multiple axes"
-msgstr ""
+msgstr "ເສັ້ນສະແດງຍັງບໍ່ທັນຮອງຮັບເທື່ອ ເມື່ອໃຊ້ແກນຫຼາຍແກນ"
 
 msgid "Vertical axis options are not supported yet when using multiple axes"
-msgstr ""
+msgstr "ຕົວເລືອກແກນແນວຕັ້ງຍັງບໍ່ທັນຮອງຮັບເທື່ອເມື່ອໃຊ້ແກນຫຼາຍແກນ"
 
 msgid "Weeks per year"
 msgstr "ອາທິດຕໍ່ປີ"
