@@ -2050,10 +2050,9 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^26.8.7":
-  version "26.8.7"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-26.8.7.tgz#46838366066ddd1f92ab7b5bc78f1d87b4f56b75"
-  integrity sha512-zPdxVDL8IhCwZF2zDEj+2TPG1kS4MTJUgM2xGjSHnBFfrsn/ddN8D8x2tu+V4hh5F+xYggSkMNeGi2hwLsml+A==
+"@dhis2/analytics@git+https://github.com/d2-ci/analytics.git#feat/single-value-as-highcharts-chart-DHIS2-17928":
+  version "26.8.6"
+  resolved "git+https://github.com/d2-ci/analytics.git#754943350559ba7c98099154a89bf25e4b1b9cbc"
   dependencies:
     "@dhis2/multi-calendar-dates" "^1.2.2"
     "@dnd-kit/core" "^6.0.7"
