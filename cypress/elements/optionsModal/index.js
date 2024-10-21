@@ -81,7 +81,6 @@ export {
     expectLegendDisplayStyleToBeText,
     expectLegendDisplayStyleToBeFill,
     expectSingleValueToHaveTextColor,
-    expectSingleValueToNotHaveBackgroundColor,
     expectSingleValueToHaveBackgroundColor,
     toggleLegendKeyOption,
     expectLegendKeyOptionToBeEnabled,
