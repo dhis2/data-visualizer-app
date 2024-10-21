@@ -11,8 +11,11 @@ import {
     clickDimensionModalHideButton,
     clickDimensionModalUpdateButton,
     expectDimensionModalToBeVisible,
+    inputSearchTerm,
+    clearSearchTerm,
     selectAllItemsByButton,
     selectDataElements,
+    selectDataItems,
     selectFixedPeriods,
     unselectAllItemsByButton,
 } from '../../elements/dimensionModal/index.js'
@@ -29,9 +32,14 @@ import {
 } from '../../elements/optionsModal/index.js'
 import {
     colTotalsOptionEl,
+    rowTotalsOptionEl,
     expectColumnsTotalsToBeChecked,
+    expectRowsTotalsToBeChecked,
 } from '../../elements/optionsModal/totals.js'
-import { expectTableToBeVisible } from '../../elements/pivotTable.js'
+import {
+    expectTableToBeVisible,
+    expectTableValueCellToContainValue,
+} from '../../elements/pivotTable.js'
 import { goToStartPage } from '../../elements/startScreen.js'
 import { changeVisType } from '../../elements/visualizationTypeSelector.js'
 import { TEST_CUSTOM_DIMENSIONS } from '../../utils/data.js'
@@ -77,6 +85,89 @@ describe('Options - Column totals', () => {
             clickDimensionModalUpdateButton()
 
             expectTableToBeVisible()
+        })
+    })
+
+    describe('Regression test for DHIS2-9155', () => {
+        it('computes totals for boolean value types', () => {
+            goToStartPage()
+            changeVisType(visTypeDisplayNames[VIS_TYPE_PIVOT_TABLE])
+
+            openOptionsModal(OPTIONS_TAB_DATA)
+            checkCheckbox(colTotalsOptionEl)
+
+            expectColumnsTotalsToBeChecked()
+
+            clickOptionsModalHideButton()
+
+            openDimension(DIMENSION_ID_DATA)
+            inputSearchTerm('yes')
+            selectDataItems([
+                'E2E program E2E - Yes only',
+                'E2E program E2E - Yes/no',
+            ])
+            clickDimensionModalUpdateButton()
+
+            expectTableToBeVisible()
+
+            // XXX is there a better way to address the total value cells?
+            expectTableValueCellToContainValue(12, 4)
+            expectTableValueCellToContainValue(13, 4)
+        })
+    })
+})
+
+describe('Options - Row totals', () => {
+    describe('Totals with mixed valueType/totalAggregationType', () => {
+        it('shows N/A when values along the row cannot be summed', () => {
+            goToStartPage()
+            changeVisType(visTypeDisplayNames[VIS_TYPE_PIVOT_TABLE])
+
+            openOptionsModal(OPTIONS_TAB_DATA)
+            checkCheckbox(rowTotalsOptionEl)
+
+            expectRowsTotalsToBeChecked()
+
+            clickOptionsModalHideButton()
+
+            openDimension(DIMENSION_ID_DATA)
+
+            inputSearchTerm('ANC')
+            selectDataItems(['ANC 1st visit', 'ANC 2nd visit'])
+            clearSearchTerm()
+            inputSearchTerm('Coverage')
+            selectDataItems(['ANC 1 Coverage'])
+            clearSearchTerm()
+            inputSearchTerm('Cholera')
+            selectDataItems(['Cholera (Deaths < 5 yrs) Narrative'])
+            clearSearchTerm()
+            inputSearchTerm('ANC')
+            selectDataItems([
+                'ANC 3rd visit',
+                'ANC 2 Coverage',
+                'ANC 4th or more visits',
+            ])
+            clearSearchTerm()
+            inputSearchTerm('Child')
+            selectDataItems([
+                'Child Health - Reporting rate',
+                'Child Programme MCH Apgar Score',
+            ])
+            clearSearchTerm()
+            inputSearchTerm('BCG')
+            selectDataItems(['BCG doses'])
+            clickDimensionModalHideButton()
+
+            const year = new Date().getFullYear().toString()
+            openDimension(DIMENSION_ID_PERIOD)
+            unselectAllItemsByButton()
+            selectFixedPeriods([`October ${year}`], 'Monthly')
+
+            clickDimensionModalUpdateButton()
+
+            expectTableToBeVisible()
+
+            expectTableValueCellToContainValue(10, 'N/A')
         })
     })
 })

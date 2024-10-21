@@ -107,6 +107,7 @@ export const expectSelectedItemsAmountToBe = (amount) =>
 
 export {
     selectDataElements,
+    selectDataItems,
     selectIndicators,
     switchDataTab,
     expectDataDimensionModalWarningToContain,

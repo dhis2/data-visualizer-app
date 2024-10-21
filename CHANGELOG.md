@@ -1,3 +1,10 @@
+## [100.8.1](https://github.com/dhis2/data-visualizer-app/compare/v100.8.0...v100.8.1) (2024-10-18)
+
+
+### Bug Fixes
+
+* compute subtotals/totals for boolean types (DHIS2-9155) ([#3194](https://github.com/dhis2/data-visualizer-app/issues/3194)) ([ebc0806](https://github.com/dhis2/data-visualizer-app/commit/ebc08061fe1d099f08bf2a07cfbf7d60b6615f56))
+
 # [100.8.0](https://github.com/dhis2/data-visualizer-app/compare/v100.7.2...v100.8.0) (2024-10-07)
 
 
