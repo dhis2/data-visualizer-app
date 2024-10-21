@@ -208,7 +208,8 @@ export const VisualizationPlugin = ({
                 responses[0].metaData.items[dxIds[0]]?.style?.icon
             ) {
                 const originalIcon = await fetch(
-                    responses[0].metaData.items[dxIds[0]].style.icon
+                    responses[0].metaData.items[dxIds[0]].style.icon,
+                    { method: 'GET', credentials: 'include' }
                 ).then((dxIconResponse) => {
                     if (dxIconResponse.status !== 200) {
                         return '<svg></svg>'
