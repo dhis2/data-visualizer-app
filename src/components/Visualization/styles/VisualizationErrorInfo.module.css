@@ -4,11 +4,11 @@
     align-items: center;
     text-align: center;
     justify-content: center;
-    width: 100%;
+    inline-size: 100%;
 }
 .errorIcon {
-    width: 136px;
-    height: 136px;
+    inline-size: 136px;
+    block-size: 136px;
     margin-block-start: 0;
     margin-block-end: var(--spacers-dp24);
     margin-inline-start: auto;
