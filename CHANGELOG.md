@@ -1,3 +1,10 @@
+## [100.8.2](https://github.com/dhis2/data-visualizer-app/compare/v100.8.1...v100.8.2) (2024-10-22)
+
+
+### Bug Fixes
+
+* fetch icon with credentials ([#3264](https://github.com/dhis2/data-visualizer-app/issues/3264)) ([4fad945](https://github.com/dhis2/data-visualizer-app/commit/4fad9450e150b90a6976ad5919c214c1d953da6c))
+
 ## [100.8.1](https://github.com/dhis2/data-visualizer-app/compare/v100.8.0...v100.8.1) (2024-10-18)
 
 
