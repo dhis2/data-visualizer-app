@@ -1,3 +1,10 @@
+## [100.8.3](https://github.com/dhis2/data-visualizer-app/compare/v100.8.2...v100.8.3) (2024-10-24)
+
+
+### Bug Fixes
+
+* show error UI when plugin has no data [DHIS2-16793] ([#3131](https://github.com/dhis2/data-visualizer-app/issues/3131)) ([83f8a0a](https://github.com/dhis2/data-visualizer-app/commit/83f8a0a5a730272ffba796bb23ebf2686ea84b9e))
+
 ## [100.8.2](https://github.com/dhis2/data-visualizer-app/compare/v100.8.1...v100.8.2) (2024-10-22)
 
 
