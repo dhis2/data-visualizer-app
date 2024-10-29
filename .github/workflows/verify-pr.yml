@@ -100,3 +100,20 @@ jobs:
             reportportal_api_key: ${{ secrets.REPORTPORTAL_API_KEY }}
             reportportal_endpoint: ${{ vars.REPORTPORTAL_ENDPOINT }}
             reportportal_project: ${{ vars.REPORTPORTAL_PROJECT }}
+
+    check_if_dashboard_tested:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Check whether dashboard has been tested
+              uses: actions/github-script@v6
+              with:
+                  script: |
+                      const requiredText = 'DASHBOARD TESTED';
+                      const description = context.payload.pull_request.body;
+
+                      // Regex to find the checkbox with the specific text
+                      const checkboxRegex = new RegExp(`- \\[x\\] ${requiredText}`, 'i');
+
+                      if (!checkboxRegex.test(description)) {
+                        throw new Error(`Dashboard has not been tested: "- [x] ${requiredText}"`);
+                      }

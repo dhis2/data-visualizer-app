@@ -22,6 +22,7 @@ _text_
 -   [ ] Update docs
 -   [ ] Manual testing
 -   [ ] _task_
+-   [ ] DASHBOARD TESTED
 
 ---
 
