@@ -115,8 +115,8 @@ jobs:
                       console.log(requiredText)
 
                       // Regex to find the checkbox with the specific text
-                      const checkboxRegex = new RegExp(`$requiredText`, 'i');
+                      const checkboxRegex = new RegExp(`${requiredText}`, 'i');
 
                       if (!checkboxRegex.test(description)) {
-                        throw new Error(`Dashboard has not been tested, $requiredText`);
+                        throw new Error(`Dashboard has not been tested, ${requiredText}`);
                       }
