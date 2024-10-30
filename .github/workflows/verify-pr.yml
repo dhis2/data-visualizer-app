@@ -108,7 +108,7 @@ jobs:
               uses: actions/github-script@v6
               with:
                   script: |
-                      const requiredText = 'x] DASHBOARD TESTED';
+                      const requiredText = '[x] DASHBOARD TESTED';
                       const description = context.payload.pull_request.body;
                       console.log(description);
 
