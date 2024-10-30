@@ -110,10 +110,10 @@ jobs:
                   script: |
                       const requiredText = 'DASHBOARD TESTED';
                       const description = context.payload.pull_request.body;
-                      console.log(context);
+                      console.log(context.payload.pull_request.body);
 
                       // Regex to find the checkbox with the specific text
-                      const checkboxRegex = new RegExp(`- \\[x\\] ${requiredText}`, 'i');
+                      const checkboxRegex = new RegExp('- \[x\] DASHBOARD TESTED', 'i');
 
                       if (!checkboxRegex.test(description)) {
                         throw new Error(`Dashboard has not been tested: "- [x] ${requiredText}"`);
