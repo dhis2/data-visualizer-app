@@ -113,7 +113,7 @@ jobs:
                       console.log(context.payload.pull_request.body);
 
                       // Regex to find the checkbox with the specific text
-                      const checkboxRegex = new RegExp('TESTED', 'i');
+                      const checkboxRegex = new RegExp('DASHBOARD TESTED', 'i');
 
                       if (!checkboxRegex.test(description)) {
                         throw new Error(`Dashboard has not been tested`);
