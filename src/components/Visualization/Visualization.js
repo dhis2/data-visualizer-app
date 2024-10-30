@@ -1,8 +1,4 @@
-import {
-    DIMENSION_ID_DATA,
-    VIS_TYPE_OUTLIER_TABLE,
-    VIS_TYPE_PIVOT_TABLE,
-} from '@dhis2/analytics'
+import { DIMENSION_ID_DATA, VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
 import debounce from 'lodash-es/debounce'
 import PropTypes from 'prop-types'
 import React, { Component, Fragment } from 'react'
@@ -16,10 +12,10 @@ import {
     acSetUiDataSorting,
     acAddParentGraphMap,
 } from '../../actions/ui.js'
+import { ensureAnalyticsResponsesContainData } from '../../modules/analytics.js'
 import {
     AssignedCategoriesDataElementsError,
     GenericServerError,
-    EmptyResponseError,
     AssignedCategoriesAsFilterError,
     MultipleIndicatorAsFilterError,
     NoDataOrDataElementGroupSetError,
@@ -29,7 +25,6 @@ import {
     ValueTypeError,
     AnalyticsGenerationError,
     AnalyticsRequestError,
-    NoOutliersError,
 } from '../../modules/error.js'
 import { removeLastPathSegment } from '../../modules/orgUnit.js'
 import { sGetCurrent } from '../../reducers/current.js'
@@ -144,15 +139,10 @@ export class UnconnectedVisualization extends Component {
 
         this.props.addMetadata(forMetadata)
 
-        if (
-            !responses.some((response) => response.rows && response.rows.length)
-        ) {
-            if (this.props.visualization.type === VIS_TYPE_OUTLIER_TABLE) {
-                throw new NoOutliersError()
-            }
-
-            throw new EmptyResponseError()
-        }
+        ensureAnalyticsResponsesContainData(
+            responses,
+            this.props.visualization.type
+        )
     }
 
     onDrill = (drillData) => {

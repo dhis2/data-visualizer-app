@@ -1,6 +1,6 @@
 {
     "name": "data-visualizer-app",
-    "version": "100.8.0",
+    "version": "100.8.3",
     "description": "DHIS2 Data Visualizer",
     "license": "BSD-3-Clause",
     "private": true,
@@ -43,7 +43,7 @@
         "typescript": "^4.8.4"
     },
     "dependencies": {
-        "@dhis2/analytics": "git+https://github.com/d2-ci/analytics.git#c1762b7776ae0a0a37872351dabee6545a3da980",
+        "@dhis2/analytics": "git+https://github.com/d2-ci/analytics.git#563889704f2bed4e7cc470550f5f1e3175843ac7",
         "@dhis2/app-runtime": "^3.10.6",
         "@dhis2/app-runtime-adapter-d2": "^1.1.0",
         "@dhis2/app-service-datastore": "^1.0.0-beta.3",
