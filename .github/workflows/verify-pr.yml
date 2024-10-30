@@ -110,8 +110,7 @@ jobs:
                   script: |
                       const requiredText = 'DASHBOARD TESTED';
                       const description = context.payload.pull_request.body;
-                      echo "$description";
-                      echo "$GITHUB_CONTEXT";
+                      console.log(context);
 
                       // Regex to find the checkbox with the specific text
                       const checkboxRegex = new RegExp(`- \\[x\\] ${requiredText}`, 'i');
