@@ -104,20 +104,13 @@ jobs:
     check_if_dashboard_tested:
         runs-on: ubuntu-latest
         steps:
-            - name: Output PR Description
-              uses: actions/github-script@v6
-              with:
-                  script: |
-                      const description = context.payload.pull_request.body;
-                      console.log("PR Description:", description); // Log the description
-                      core.setOutput("description", description);  // Set as output variable
-
             - name: Check whether dashboard has been tested
               uses: actions/github-script@v6
               with:
                   script: |
                       const requiredText = 'DASHBOARD TESTED';
                       const description = context.payload.pull_request.body;
+                      echo $description;
 
                       // Regex to find the checkbox with the specific text
                       const checkboxRegex = new RegExp(`- \\[x\\] ${requiredText}`, 'i');
