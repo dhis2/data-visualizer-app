@@ -2050,10 +2050,9 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^26.9.0":
-  version "26.9.0"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-26.9.0.tgz#562f0f6cb5107df80292f81b4fb53053da947131"
-  integrity sha512-BA2NOKW2r+NRyJnHTzM6IlhmoEZbv8JbU0Omcyq+0YiNHZEw9pNq+6HG98S5MnvlM0f0W8GYb/E+97YCDQG6ZQ==
+"@dhis2/analytics@git+https://github.com/d2-ci/analytics.git#1bfe67118e5b87938316c76964379b3e450661b2":
+  version "26.9.2"
+  resolved "git+https://github.com/d2-ci/analytics.git#1bfe67118e5b87938316c76964379b3e450661b2"
   dependencies:
     "@dhis2/multi-calendar-dates" "^1.2.2"
     "@dnd-kit/core" "^6.0.7"
@@ -2061,10 +2060,10 @@
     "@dnd-kit/utilities" "^3.2.1"
     "@react-hook/debounce" "^4.0.0"
     classnames "^2.3.1"
-    crypto-js "^4.1.1"
+    crypto-js "^4.2.0"
     d2-utilizr "^0.2.16"
     d3-color "^1.2.3"
-    highcharts "^10.3.3"
+    highcharts "^11.4.8"
     lodash "^4.17.21"
     markdown-it "^13.0.1"
     mathjs "^9.4.2"
@@ -6685,7 +6684,7 @@ crypto-browserify@^3.0.0:
     randombytes "^2.0.0"
     randomfill "^1.0.3"
 
-crypto-js@^4.1.1:
+crypto-js@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-4.2.0.tgz#4d931639ecdfd12ff80e8186dba6af2c2e856631"
   integrity sha512-KALDyEYgpY+Rlob/iriUtjV6d5Eq+Y191A5g4UqLAi8CyGP9N1+FdVbkc1SxKc2r4YAYqG8JzO2KGL+AizD70Q==
@@ -9629,10 +9628,10 @@ he@1.2.0, he@^1.2.0:
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
 
-highcharts@^10.3.3:
-  version "10.3.3"
-  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-10.3.3.tgz#b8acca24f2d4b1f2f726540734166e59e07b35c4"
-  integrity sha512-r7wgUPQI9tr3jFDn3XT36qsNwEIZYcfgz4mkKEA6E4nn5p86y+u1EZjazIG4TRkl5/gmGRtkBUiZW81g029RIw==
+highcharts@^11.4.8:
+  version "11.4.8"
+  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-11.4.8.tgz#252e71b81c24ec9f99e756b76dbebd7546e18dda"
+  integrity sha512-5Tke9LuzZszC4osaFisxLIcw7xgNGz4Sy3Jc9pRMV+ydm6sYqsPYdU8ELOgpzGNrbrRNDRBtveoR5xS3SzneEA==
 
 history@^5.3.0:
   version "5.3.0"
