@@ -10,7 +10,6 @@ const VisualizationPluginWrapper = (props) => {
     const [pluginProps, setPluginProps] = useState(props)
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState(null)
-    const { onResponsesReceived = Function.prototype } = props
 
     const onDataSorted = useCallback(
         (sorting) => {
@@ -62,6 +61,7 @@ const VisualizationPluginWrapper = (props) => {
 
     // set loading state only for props that will cause
     // VisualizationPlugin to fetch and call onLoadingComplete
+    const { visualization, onResponsesReceived = Function.prototype } = props
     useEffect(() => {
         setIsLoading(true)
     }, [props.filters, props.forDashboard, props.visualization])
@@ -73,14 +73,14 @@ const VisualizationPluginWrapper = (props) => {
             try {
                 ensureAnalyticsResponsesContainData(
                     responses,
-                    props.visualization.type
+                    visualization.type
                 )
             } catch (error) {
                 setError(error)
             }
             onResponsesReceived(responses)
         },
-        [props.visualization.type, onResponsesReceived]
+        [visualization.type, onResponsesReceived]
     )
 
     if (error) {
