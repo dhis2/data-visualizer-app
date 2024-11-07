@@ -61,13 +61,13 @@ const VisualizationPluginWrapper = (props) => {
 
     // set loading state only for props that will cause
     // VisualizationPlugin to fetch and call onLoadingComplete
-    const { visualization, onResponsesReceived = Function.prototype } = props
     useEffect(() => {
         setIsLoading(true)
     }, [props.filters, props.forDashboard, props.visualization])
 
     const onLoadingComplete = () => setIsLoading(false)
 
+    const { visualization, onResponsesReceived = Function.prototype } = props
     const handleResponsesReceived = useCallback(
         (responses) => {
             try {
