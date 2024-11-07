@@ -67,7 +67,7 @@ const VisualizationPluginWrapper = (props) => {
 
     const onLoadingComplete = () => setIsLoading(false)
 
-    const { visualization, onResponsesReceived = Function.prototype } = props
+    const { visualization, onResponsesReceived } = props
     const handleResponsesReceived = useCallback(
         (responses) => {
             try {
@@ -78,7 +78,9 @@ const VisualizationPluginWrapper = (props) => {
             } catch (error) {
                 setError(error)
             }
-            onResponsesReceived(responses)
+
+            typeof onResponsesReceived === 'function' &&
+                onResponsesReceived(responses)
         },
         [visualization.type, onResponsesReceived]
     )
