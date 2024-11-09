@@ -5,15 +5,15 @@
 # Sheila André <sandre@saudigitus.org>, 2021
 # Fernando Jorge Bade, 2021
 # Philip Larsen Donnelly, 2024
-# Ge Joao <gsimango@saudigitus.org>, 2024
 # Shelsea Chumaio, 2024
+# Ge Joao <gsimango@saudigitus.org>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2024-03-01T08:28:43.727Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Shelsea Chumaio, 2024\n"
+"Last-Translator: Ge Joao <gsimango@saudigitus.org>, 2024\n"
 "Language-Team: Portuguese (https://app.transifex.com/hisp-uio/teams/100509/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,7 +37,7 @@ msgid "You have unsaved changes."
 msgstr "Tem alterações não gravadas."
 
 msgid "Discard unsaved changes?"
-msgstr "Eliminar as alterações não gravadas"
+msgstr "Descartar alterações não guardadas?"
 
 msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
@@ -261,7 +261,7 @@ msgid "Click a dimension to add or remove items"
 msgstr "Clique em uma dimensão para adicionar ou remover itens"
 
 msgid "Your most viewed charts and tables"
-msgstr "Seus gráficos e tabelas mais vistos"
+msgstr "Os seus gráficos e tabelas mais visualizados"
 
 msgid "Aggregation type"
 msgstr "Tipo de agregacão"
@@ -303,7 +303,7 @@ msgid "Variance"
 msgstr "Variância"
 
 msgid "Data approved at level"
-msgstr "Dados aprovados ao nível"
+msgstr "Dados aprovados por nível"
 
 msgid "Select from predefined levels"
 msgstr "Seleccione entre os níveis predefinidos"
@@ -330,8 +330,8 @@ msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
-"Número de passos de marcação do eixo, incluindo o mínimo e o máximo. Um "
-"valor de 2 ou inferior será ignorado."
+"Número de marcação do eixo, incluindo o mínimo e o máximo. Um valor de 2 ou "
+"inferior será ignorado."
 
 msgid "Steps"
 msgstr "Passos"
