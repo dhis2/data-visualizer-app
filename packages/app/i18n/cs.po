@@ -1,14 +1,14 @@
 # 
 # Translators:
-# Jiří Podhorecký, 2022
 # Philip Larsen Donnelly, 2024
+# Jiří Podhorecký <jirka.p@volny.cz>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-06-07T08:24:31.117Z\n"
 "PO-Revision-Date: 2022-04-20 10:06+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Last-Translator: Jiří Podhorecký <jirka.p@volny.cz>, 2024\n"
 "Language-Team: Czech (https://app.transifex.com/hisp-uio/teams/100509/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -848,6 +848,16 @@ msgstr "Nebyly nalezeny žádné organizační jednotky"
 
 msgid "The level or group selections didn't return any organization units."
 msgstr "Výběr úrovní nebo skupin nevrátil žádné organizační jednotky."
+
+msgid "Invalid data type"
+msgstr "Nesprávný datový typ"
+
+msgid ""
+"The selected data dimensions didn't return any valid data. This "
+"visualization type can only display numerical data."
+msgstr ""
+"Vybrané datové dimenze nevrátily žádná platná data. Tento typ vizualizace "
+"může zobrazovat pouze číselná data."
 
 msgid "Something went wrong"
 msgstr "Něco se pokazilo"
