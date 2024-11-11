@@ -7,45 +7,11 @@ import ChartPlugin from '../ChartPlugin.js'
 
 jest.mock('@dhis2/analytics')
 
-const dxMock = {
-    dimension: 'dx',
-    items: [
-        {
-            id: 'Uvn6LCg7dVU',
-        },
-    ],
-}
-
-const peMock = {
-    dimension: 'pe',
-    items: [
-        {
-            id: 'LAST_12_MONTHS',
-        },
-    ],
-}
-
-const ouMock = {
-    dimension: 'ou',
-    items: [
-        {
-            id: 'ImspTQPwCqd',
-        },
-    ],
-}
-
 const mockExtraOptions = {
     dashboard: false,
     noData: {
         text: 'No data',
     },
-}
-
-const singleValueCurrentMock = {
-    type: analytics.VIS_TYPE_SINGLE_VALUE,
-    columns: [dxMock],
-    rows: [],
-    filters: [ouMock, peMock],
 }
 
 const metaDataMock = {
@@ -72,15 +38,11 @@ class MockAnalyticsResponse {
 
 const createVisualizationMock = {
     visualization: {
-        getSVGForExport: () => '<svg />',
+        exportChartLocal: jest.fn(),
     },
     config: {
         getConfig: () => {},
     },
-}
-
-const isSingleValueMockResponse = (visType) => {
-    return visType === analytics.VIS_TYPE_SINGLE_VALUE
 }
 
 describe('ChartPlugin', () => {
@@ -148,38 +110,9 @@ describe('ChartPlugin', () => {
             setTimeout(() => {
                 expect(props.onChartGenerated).toHaveBeenCalled()
                 expect(props.onChartGenerated).toHaveBeenCalledWith(
-                    createVisualizationMock.visualization.getSVGForExport()
+                    createVisualizationMock.visualization
                 )
                 done()
-            })
-        })
-
-        describe('Single value visualization', () => {
-            beforeEach(() => {
-                props.visualization = {
-                    ...singleValueCurrentMock,
-                }
-
-                // eslint-disable-next-line no-import-assign, import/namespace
-                analytics.isSingleValue = jest
-                    .fn()
-                    .mockReturnValue(
-                        isSingleValueMockResponse(props.visualization.type)
-                    )
-            })
-
-            it('provides dhis as output format to createChart', (done) => {
-                canvas()
-
-                setTimeout(() => {
-                    expect(analytics.createVisualization).toHaveBeenCalled()
-
-                    expect(
-                        analytics.createVisualization.mock.calls[0][6]
-                    ).toEqual('dhis')
-
-                    done()
-                })
             })
         })
     })

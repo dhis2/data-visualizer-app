@@ -5,14 +5,14 @@ import React, { useContext, useState, useEffect, createContext } from 'react'
 export const userSettingsQuery = {
     resource: 'userSettings',
     params: {
-        key: ['keyUiLocale', 'keyAnalysisDisplayProperty'],
+        key: ['keyUiLocale', 'keyDbLocale', 'keyAnalysisDisplayProperty'],
     },
 }
 
 export const UserSettingsCtx = createContext({})
 
 const UserSettingsProvider = ({ children }) => {
-    const [settings, setSettings] = useState([])
+    const [settings, setSettings] = useState({})
     const engine = useDataEngine()
 
     useEffect(() => {
@@ -21,8 +21,12 @@ const UserSettingsProvider = ({ children }) => {
                 userSettings: userSettingsQuery,
             })
 
-            const { keyAnalysisDisplayProperty, keyUiLocale, ...rest } =
-                userSettings
+            const {
+                keyAnalysisDisplayProperty,
+                keyUiLocale,
+                keyDbLocale,
+                ...rest
+            } = userSettings
 
             setSettings({
                 ...rest,
@@ -32,17 +36,14 @@ const UserSettingsProvider = ({ children }) => {
                         ? 'displayName'
                         : 'displayShortName',
                 uiLocale: keyUiLocale,
+                dbLocale: keyDbLocale,
             })
         }
         fetchData()
     }, [engine])
 
     return (
-        <UserSettingsCtx.Provider
-            value={{
-                userSettings: settings,
-            }}
-        >
+        <UserSettingsCtx.Provider value={settings}>
             {children}
         </UserSettingsCtx.Provider>
     )
