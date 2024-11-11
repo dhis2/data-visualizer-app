@@ -67,23 +67,28 @@ const VisualizationPluginWrapper = (props) => {
 
     const onLoadingComplete = () => setIsLoading(false)
 
-    const onResponsesReceived = useCallback(
+    const { visualization, onResponsesReceived } = props
+    const handleResponsesReceived = useCallback(
         (responses) => {
             try {
                 ensureAnalyticsResponsesContainData(
                     responses,
-                    props.visualization.type
+                    visualization.type
                 )
             } catch (error) {
                 setError(error)
             }
+
+            typeof onResponsesReceived === 'function' &&
+                onResponsesReceived(responses)
         },
-        [props.visualization.type]
+        [visualization.type, onResponsesReceived]
     )
 
     if (error) {
         return <VisualizationErrorInfo error={error} />
     }
+
     return (
         <>
             {isLoading && (
@@ -97,7 +102,7 @@ const VisualizationPluginWrapper = (props) => {
                 {...pluginProps}
                 onDataSorted={onDataSorted}
                 onLoadingComplete={onLoadingComplete}
-                onResponsesReceived={onResponsesReceived}
+                onResponsesReceived={handleResponsesReceived}
             />
         </>
     )

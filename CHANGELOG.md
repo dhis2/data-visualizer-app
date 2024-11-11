@@ -1,3 +1,10 @@
+## [100.8.4](https://github.com/dhis2/data-visualizer-app/compare/v100.8.3...v100.8.4) (2024-11-07)
+
+
+### Bug Fixes
+
+* infinite spinner when opening the interpretations modal while viewing a visualization ([#3283](https://github.com/dhis2/data-visualizer-app/issues/3283)) ([403adbc](https://github.com/dhis2/data-visualizer-app/commit/403adbc45f3d0f7983317eae4a6ccd44f970c428))
+
 ## [100.8.3](https://github.com/dhis2/data-visualizer-app/compare/v100.8.2...v100.8.3) (2024-10-24)
 
 
