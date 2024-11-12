@@ -7,45 +7,11 @@ import ChartPlugin from '../ChartPlugin.js'
 
 jest.mock('@dhis2/analytics')
 
-const dxMock = {
-    dimension: 'dx',
-    items: [
-        {
-            id: 'Uvn6LCg7dVU',
-        },
-    ],
-}
-
-const peMock = {
-    dimension: 'pe',
-    items: [
-        {
-            id: 'LAST_12_MONTHS',
-        },
-    ],
-}
-
-const ouMock = {
-    dimension: 'ou',
-    items: [
-        {
-            id: 'ImspTQPwCqd',
-        },
-    ],
-}
-
 const mockExtraOptions = {
     dashboard: false,
     noData: {
         text: 'No data',
     },
-}
-
-const singleValueCurrentMock = {
-    type: analytics.VIS_TYPE_SINGLE_VALUE,
-    columns: [dxMock],
-    rows: [],
-    filters: [ouMock, peMock],
 }
 
 const metaDataMock = {
@@ -77,10 +43,6 @@ const createVisualizationMock = {
     config: {
         getConfig: () => {},
     },
-}
-
-const isSingleValueMockResponse = (visType) => {
-    return visType === analytics.VIS_TYPE_SINGLE_VALUE
 }
 
 describe('ChartPlugin', () => {
