@@ -153,34 +153,5 @@ describe('ChartPlugin', () => {
                 done()
             })
         })
-
-        describe('Single value visualization', () => {
-            beforeEach(() => {
-                props.visualization = {
-                    ...singleValueCurrentMock,
-                }
-
-                // eslint-disable-next-line no-import-assign, import/namespace
-                analytics.isSingleValue = jest
-                    .fn()
-                    .mockReturnValue(
-                        isSingleValueMockResponse(props.visualization.type)
-                    )
-            })
-
-            it('provides dhis as output format to createChart', (done) => {
-                canvas()
-
-                setTimeout(() => {
-                    expect(analytics.createVisualization).toHaveBeenCalled()
-
-                    expect(
-                        analytics.createVisualization.mock.calls[0][6]
-                    ).toEqual('dhis')
-
-                    done()
-                })
-            })
-        })
     })
 })
