@@ -453,7 +453,6 @@ export const VisualizationPlugin = ({
                     }
                     id={forDashboard ? renderId : id}
                     onChartGenerated={onChartGenerated}
-                    style={transformedStyle}
                 />
             )
         }
