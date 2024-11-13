@@ -10,8 +10,6 @@ import {
 } from '@dhis2/analytics'
 
 const visualizationContainerEl = 'visualization-container'
-const visualizationTitleEl = 'visualization-title'
-const visualizationSubtitleEl = 'visualization-subtitle'
 const chartContainerEl = '.highcharts-container'
 const highchartsLegendEl = '.highcharts-legend'
 const highchartsTitleEl = '.highcharts-title'
@@ -24,11 +22,7 @@ const AOTitleDirtyEl = 'titlebar-dirty'
 const timeout = {
     timeout: 40000,
 }
-const nonHighchartsTypes = [
-    VIS_TYPE_OUTLIER_TABLE,
-    VIS_TYPE_PIVOT_TABLE,
-    VIS_TYPE_SINGLE_VALUE,
-]
+const nonHighchartsTypes = [VIS_TYPE_OUTLIER_TABLE, VIS_TYPE_PIVOT_TABLE]
 
 export const expectVisualizationToBeVisible = (visType = VIS_TYPE_COLUMN) =>
     nonHighchartsTypes.includes(visType)
@@ -64,12 +58,10 @@ export const expectChartToContainDimensionItem = (visType, itemName) => {
         case VIS_TYPE_GAUGE:
         case VIS_TYPE_YEAR_OVER_YEAR_COLUMN:
         case VIS_TYPE_YEAR_OVER_YEAR_LINE:
+        case VIS_TYPE_SINGLE_VALUE:
             cy.get(highchartsTitleEl)
                 .should('be.visible')
                 .and('contain', itemName)
-            break
-        case VIS_TYPE_SINGLE_VALUE:
-            cy.getBySel(visualizationTitleEl).should('contain', itemName)
             break
         case VIS_TYPE_PIVOT_TABLE:
             cy.getBySel('visualization-column-header')
@@ -119,10 +111,7 @@ export const expectChartItemsToHaveLength = (length) =>
     cy.get(highchartsChartItemEl).children().should('have.length', length)
 
 export const expectSVTitleToHaveColor = (color) =>
-    cy.getBySel(visualizationTitleEl).invoke('attr', 'fill').should('eq', color)
+    cy.get('text.highcharts-title').should('have.css', 'color', color)
 
 export const expectSVSubtitleToHaveColor = (color) =>
-    cy
-        .getBySel(visualizationSubtitleEl)
-        .invoke('attr', 'fill')
-        .should('eq', color)
+    cy.get('text.highcharts-subtitle').should('have.css', 'color', color)
