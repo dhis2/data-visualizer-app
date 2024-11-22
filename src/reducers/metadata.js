@@ -6,9 +6,11 @@ export default (state = DEFAULT_METADATA, action) => {
     switch (action.type) {
         case ADD_METADATA: {
             const result = { ...state }
-            Object.entries(action.value).forEach(
-                ([key, value]) => (result[key] = { ...result[key], ...value })
-            )
+            Object.entries(action.value).forEach(([key, value]) => {
+                if (value.name || value.displayName) {
+                    result[key] = { ...result[key], ...value }
+                }
+            })
             return result
         }
         default:

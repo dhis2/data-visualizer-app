@@ -10,6 +10,10 @@ import {
     isLegendSetType,
     VIS_TYPE_LINE,
     DIMENSION_ID_DATA,
+    layoutGetDimensionItems,
+    USER_ORG_UNIT,
+    USER_ORG_UNIT_CHILDREN,
+    USER_ORG_UNIT_GRANDCHILDREN,
 } from '@dhis2/analytics'
 import { useDataEngine } from '@dhis2/app-runtime'
 import { Button, IconLegend24, Layer } from '@dhis2/ui'
@@ -26,6 +30,7 @@ import ContextualMenu from './ContextualMenu.js'
 import OutlierTablePlugin from './OutlierTablePlugin.js'
 import PivotPlugin from './PivotPlugin.js'
 import styles from './styles/VisualizationPlugin.module.css'
+import getMetadata from '../../modules/metadata.js'
 
 export const VisualizationPlugin = ({
     visualization: originalVisualization,
@@ -182,6 +187,29 @@ export const VisualizationPlugin = ({
         })
 
         const filteredVisualization = cloneDeep(originalVisualization)
+
+        // inject translated user orgunit names
+        const ouItems = layoutGetDimensionItems(
+            filteredVisualization,
+            DIMENSION_ID_ORGUNIT
+        )
+
+        if (ouItems.length) {
+            const metaData = getMetadata()
+            const userOuIds = [
+                USER_ORG_UNIT,
+                USER_ORG_UNIT_CHILDREN,
+                USER_ORG_UNIT_GRANDCHILDREN,
+            ]
+
+            ouItems.forEach((ouItem) => {
+                userOuIds.forEach((userOuId) => {
+                    if (ouItem.id === userOuId) {
+                        ouItem.name = metaData[userOuId].name
+                    }
+                })
+            })
+        }
 
         Object.keys(disabledOptions).forEach(
             (option) => delete filteredVisualization[option]
