@@ -24,13 +24,13 @@ import React, { useEffect, useState, useCallback } from 'react'
 import { apiFetchLegendSets } from '../../api/legendSets.js'
 import { getDisabledOptions } from '../../modules/disabledOptions.js'
 import { fetchData } from '../../modules/fetchData.js'
+import getMetadata from '../../modules/metadata.js'
 import { getOptionsFromVisualization } from '../../modules/options.js'
 import ChartPlugin from './ChartPlugin.js'
 import ContextualMenu from './ContextualMenu.js'
 import OutlierTablePlugin from './OutlierTablePlugin.js'
 import PivotPlugin from './PivotPlugin.js'
 import styles from './styles/VisualizationPlugin.module.css'
-import getMetadata from '../../modules/metadata.js'
 
 export const VisualizationPlugin = ({
     visualization: originalVisualization,
