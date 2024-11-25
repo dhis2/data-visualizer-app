@@ -36,14 +36,24 @@ const reportPortalConfig = [
     },
 ]
 
+const isDependabotPR = process.env.GITHUB_ACTOR === 'dependabot[bot]'
 const isGithubActionsRun = process.env.CI === 'true'
+const isReportPortalSetup =
+    process.env.REPORTPORTAL_API_KEY !== undefined &&
+    process.env.REPORTPORTAL_ENDPOINT !== undefined &&
+    process.env.REPORTPORTAL_PROJECT !== undefined
 
 module.exports = {
     transformIgnorePatterns: [
         'node_modules/(?!(lodash-es|@dhis2/d2-ui-[a-z-]+)/)',
     ],
-    setupFilesAfterEnv: ['./config/testSetup.js'],
+    setupFilesAfterEnv: ['<rootDir>/config/testSetup.js'],
 
     testRunner: 'jest-circus/runner',
-    reporters: ['default', ...(isGithubActionsRun ? [reportPortalConfig] : [])],
+    reporters: [
+        'default',
+        ...(isGithubActionsRun && isReportPortalSetup && !isDependabotPR
+            ? [reportPortalConfig]
+            : []),
+    ],
 }

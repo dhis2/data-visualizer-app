@@ -6,8 +6,10 @@ import {
     DIMENSION_ID_PERIOD,
     WEEKLY,
     DAILY,
+    VIS_TYPE_OUTLIER_TABLE,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
+import { EmptyResponseError, NoOutliersError } from './error.js'
 
 export const outlierTableHeadersMap = {
     [DIMENSION_ID_DATA]: 'dxname',
@@ -279,5 +281,21 @@ export const getRelativePeriodTypeUsed = (periodItems) => {
             .find((period) => period.id === periodItems[0].id)
     ) {
         return DAILY
+    }
+}
+
+export const ensureAnalyticsResponsesContainData = (
+    responses,
+    visualizationType
+) => {
+    const hasPopulatedRows = responses.some(
+        (response) => response.rows && response.rows.length > 0
+    )
+    if (!hasPopulatedRows) {
+        if (visualizationType === VIS_TYPE_OUTLIER_TABLE) {
+            throw new NoOutliersError()
+        }
+
+        throw new EmptyResponseError()
     }
 }

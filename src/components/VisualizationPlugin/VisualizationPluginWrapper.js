@@ -1,12 +1,15 @@
 import { CenteredContent, CircularLoader, ComponentCover } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useCallback, useEffect, useState } from 'react'
+import { ensureAnalyticsResponsesContainData } from '../../modules/analytics.js'
+import { VisualizationErrorInfo } from '../Visualization/VisualizationErrorInfo.js'
 import { VisualizationPlugin } from '../VisualizationPlugin/VisualizationPlugin.js'
 
 // handle internal state for features that need to work without the app's Redux store
 const VisualizationPluginWrapper = (props) => {
     const [pluginProps, setPluginProps] = useState(props)
     const [isLoading, setIsLoading] = useState(true)
+    const [error, setError] = useState(null)
 
     const onDataSorted = useCallback(
         (sorting) => {
@@ -64,6 +67,28 @@ const VisualizationPluginWrapper = (props) => {
 
     const onLoadingComplete = () => setIsLoading(false)
 
+    const { visualization, onResponsesReceived } = props
+    const handleResponsesReceived = useCallback(
+        (responses) => {
+            try {
+                ensureAnalyticsResponsesContainData(
+                    responses,
+                    visualization.type
+                )
+            } catch (error) {
+                setError(error)
+            }
+
+            typeof onResponsesReceived === 'function' &&
+                onResponsesReceived(responses)
+        },
+        [visualization.type, onResponsesReceived]
+    )
+
+    if (error) {
+        return <VisualizationErrorInfo error={error} />
+    }
+
     return (
         <>
             {isLoading && (
@@ -77,6 +102,7 @@ const VisualizationPluginWrapper = (props) => {
                 {...pluginProps}
                 onDataSorted={onDataSorted}
                 onLoadingComplete={onLoadingComplete}
+                onResponsesReceived={handleResponsesReceived}
             />
         </>
     )

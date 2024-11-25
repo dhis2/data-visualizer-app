@@ -7,13 +7,12 @@ import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { apiFetchMostViewedVisualizations } from '../../api/mostViewedVisualizations.js'
 import { apiFetchVisualizations } from '../../api/visualization.js'
-import { GenericError } from '../../assets/ErrorIcons.js'
-import { VisualizationError, genericErrorTitle } from '../../modules/error.js'
 import history from '../../modules/history.js'
 import { sGetLoadError } from '../../reducers/loader.js'
 import { sGetUsername } from '../../reducers/user.js'
 import styles from './styles/StartScreen.module.css'
 import { matchVisualizationWithType } from './utils.js'
+import { VisualizationErrorInfo } from './VisualizationErrorInfo.js'
 
 const StartScreen = ({ error, username }) => {
     const [mostViewedVisualizations, setMostViewedVisualizations] = useState([])
@@ -44,7 +43,7 @@ const StartScreen = ({ error, username }) => {
 
     const getContent = () =>
         error ? (
-            getErrorContent()
+            <VisualizationErrorInfo error={error} />
         ) : (
             <div
                 data-test="start-screen"
@@ -107,31 +106,6 @@ const StartScreen = ({ error, username }) => {
                 )}
             </div>
         )
-
-    const getErrorContent = () => (
-        <div
-            className={styles.errorContainer}
-            data-test="start-screen-error-container"
-        >
-            {error instanceof VisualizationError ? (
-                <>
-                    <div className={styles.errorIcon}>{error.icon()}</div>
-                    <p className={styles.errorTitle}>{error.title}</p>
-                    <p className={styles.errorDescription}>
-                        {error.description}
-                    </p>
-                </>
-            ) : (
-                <>
-                    <div className={styles.errorIcon}>{GenericError()}</div>
-                    <p className={styles.errorTitle}>{genericErrorTitle}</p>
-                    <p className={styles.errorDescription}>
-                        {error.message || error}
-                    </p>
-                </>
-            )}
-        </div>
-    )
 
     return (
         <div className={styles.outer}>

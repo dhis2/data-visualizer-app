@@ -1,3 +1,38 @@
+## [100.8.5](https://github.com/dhis2/data-visualizer-app/compare/v100.8.4...v100.8.5) (2024-11-13)
+
+
+### Bug Fixes
+
+* handle single value vis-type as highcharts chart instance ([#3289](https://github.com/dhis2/data-visualizer-app/issues/3289)) ([83d0e6c](https://github.com/dhis2/data-visualizer-app/commit/83d0e6c33ea5314e849fb1f5842d4b3b61e74c41))
+
+## [100.8.4](https://github.com/dhis2/data-visualizer-app/compare/v100.8.3...v100.8.4) (2024-11-07)
+
+
+### Bug Fixes
+
+* infinite spinner when opening the interpretations modal while viewing a visualization ([#3283](https://github.com/dhis2/data-visualizer-app/issues/3283)) ([403adbc](https://github.com/dhis2/data-visualizer-app/commit/403adbc45f3d0f7983317eae4a6ccd44f970c428))
+
+## [100.8.3](https://github.com/dhis2/data-visualizer-app/compare/v100.8.2...v100.8.3) (2024-10-24)
+
+
+### Bug Fixes
+
+* show error UI when plugin has no data [DHIS2-16793] ([#3131](https://github.com/dhis2/data-visualizer-app/issues/3131)) ([83f8a0a](https://github.com/dhis2/data-visualizer-app/commit/83f8a0a5a730272ffba796bb23ebf2686ea84b9e))
+
+## [100.8.2](https://github.com/dhis2/data-visualizer-app/compare/v100.8.1...v100.8.2) (2024-10-22)
+
+
+### Bug Fixes
+
+* fetch icon with credentials ([#3264](https://github.com/dhis2/data-visualizer-app/issues/3264)) ([4fad945](https://github.com/dhis2/data-visualizer-app/commit/4fad9450e150b90a6976ad5919c214c1d953da6c))
+
+## [100.8.1](https://github.com/dhis2/data-visualizer-app/compare/v100.8.0...v100.8.1) (2024-10-18)
+
+
+### Bug Fixes
+
+* compute subtotals/totals for boolean types (DHIS2-9155) ([#3194](https://github.com/dhis2/data-visualizer-app/issues/3194)) ([ebc0806](https://github.com/dhis2/data-visualizer-app/commit/ebc08061fe1d099f08bf2a07cfbf7d60b6615f56))
+
 # [100.8.0](https://github.com/dhis2/data-visualizer-app/compare/v100.7.2...v100.8.0) (2024-10-07)
 
 

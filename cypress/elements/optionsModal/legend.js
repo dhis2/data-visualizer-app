@@ -5,7 +5,6 @@ const legendKeyContainerEl = 'legend-key-container'
 const legendKeyItemEl = 'legend-key-item'
 const singleValueTextEl = 'visualization-primary-value'
 const singleValueIconEl = 'visualization-icon'
-const singleValueOutputEl = 'visualization-container'
 const legendDisplayStrategyByDataItemEl = 'legend-display-strategy-BY_DATA_ITEM'
 const legendDisplayStrategyFixedEl = 'legend-display-strategy-FIXED'
 const legendDisplayStyleOptionTextEl = 'legend-display-style-option-TEXT'
@@ -76,16 +75,10 @@ export const expectFixedLegendSetToBe = (legendSetName) =>
     cy.getBySel(fixedLegendSetSelectEl).should('contain', legendSetName)
 
 export const expectSingleValueToHaveTextColor = (color) =>
-    cy.getBySel(singleValueTextEl).invoke('attr', 'fill').should('eq', color)
-
-export const expectSingleValueToNotHaveBackgroundColor = () =>
-    cy.getBySel(singleValueOutputEl).should('not.have.attr', 'style')
+    cy.getBySel(singleValueTextEl).should('have.css', 'color', color)
 
 export const expectSingleValueToHaveBackgroundColor = (color) =>
-    cy
-        .getBySel(singleValueOutputEl)
-        .invoke('attr', 'style')
-        .should('contain', `background-color: ${color}`)
+    cy.get('rect.highcharts-background').should('have.attr', 'fill', color)
 
 export const expectSingleValueToHaveIconColor = (color) =>
     cy
