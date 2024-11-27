@@ -153,7 +153,7 @@ describe(`Org unit dimension`, () => {
         clickDimensionModalUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
         expectWindowConfigSeriesToHaveLength(14) // number of items in user org unit
-        expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
+        expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 2)
     })
     it(`deselects '${TEST_USER_ORG_UNIT}'`, () => {
         openDimension(DIMENSION_ID_ORGUNIT)
