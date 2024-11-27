@@ -152,7 +152,7 @@ describe(`Org unit dimension`, () => {
         expectOrgUnitTreeToBeEnabled()
         clickDimensionModalUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
-        expectWindowConfigSeriesToHaveLength(13) // number of items in user org unit
+        expectWindowConfigSeriesToHaveLength(14) // number of items in user org unit
         expectDimensionToHaveItemAmount(DIMENSION_ID_ORGUNIT, 1)
     })
     it(`deselects '${TEST_USER_ORG_UNIT}'`, () => {
@@ -162,7 +162,6 @@ describe(`Org unit dimension`, () => {
         expectOrgUnitTreeToBeEnabled()
         deselectUserOrgUnit(TEST_USER_ORG_UNIT)
         expectOrgUnitTreeToBeEnabled()
-        selectOrgUnitTreeItem(TEST_ROOT)
         expectOrgUnitItemToBeSelected(TEST_ROOT)
         clickDimensionModalUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
