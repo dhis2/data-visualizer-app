@@ -19,7 +19,6 @@ import {
     toggleOrgUnitLevel,
     toggleOrgUnitGroup,
     selectUserOrgUnit,
-    expectOrgUnitTreeToBeDisabled,
     expectOrgUnitTreeToBeEnabled,
     deselectUserOrgUnit,
 } from '../../elements/dimensionModal/index.js'
@@ -59,7 +58,7 @@ describe(`Org unit dimension`, () => {
         openDimension(DIMENSION_ID_ORGUNIT)
         expectOrgUnitDimensionModalToBeVisible()
         expectOrgUnitDimensionToNotBeLoading()
-        expectOrgUnitTreeToBeDisabled()
+        expectOrgUnitTreeToBeEnabled()
         deselectUserOrgUnit(TEST_DEFAULT_ORG_UNIT)
         selectOrgUnitTreeItem(TEST_ROOT)
         selectOrgUnitTreeItem(TEST_DISTRICT_1)
@@ -150,7 +149,7 @@ describe(`Org unit dimension`, () => {
         expectOrgUnitItemToBeSelected(TEST_ROOT)
         expectOrgUnitTreeToBeEnabled()
         selectUserOrgUnit(TEST_USER_ORG_UNIT)
-        expectOrgUnitTreeToBeDisabled()
+        expectOrgUnitTreeToBeEnabled()
         clickDimensionModalUpdateButton()
         expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
         expectWindowConfigSeriesToHaveLength(13) // number of items in user org unit
@@ -160,7 +159,7 @@ describe(`Org unit dimension`, () => {
         openDimension(DIMENSION_ID_ORGUNIT)
         expectOrgUnitDimensionModalToBeVisible()
         expectOrgUnitDimensionToNotBeLoading()
-        expectOrgUnitTreeToBeDisabled()
+        expectOrgUnitTreeToBeEnabled()
         deselectUserOrgUnit(TEST_USER_ORG_UNIT)
         expectOrgUnitTreeToBeEnabled()
         selectOrgUnitTreeItem(TEST_ROOT)
