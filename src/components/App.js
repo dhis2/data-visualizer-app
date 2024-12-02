@@ -139,18 +139,19 @@ export class UnconnectedApp extends Component {
 
         await this.fetchOuLevels()
 
-        const rootOrgUnits = this.props.settings.rootOrganisationUnits
-
-        const metaData = { ...defaultMetadata() }
-
-        rootOrgUnits.forEach((rootOrgUnit) => {
-            if (rootOrgUnit.id) {
-                metaData[rootOrgUnit.id] = {
-                    ...rootOrgUnit,
-                    path: `/${rootOrgUnit.id}`,
+        const metaData = this.props.settings.rootOrganisationUnits.reduce(
+            (obj, rootOrgUnit) => {
+                if (rootOrgUnit.id) {
+                    obj[rootOrgUnit.id] = {
+                        ...rootOrgUnit,
+                        path: `/${rootOrgUnit.id}`,
+                    }
                 }
-            }
-        })
+
+                return obj
+            },
+            {}
+        )
 
         this.props.addMetadata(metaData)
 

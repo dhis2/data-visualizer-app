@@ -24,7 +24,7 @@ import React, { useEffect, useState, useCallback } from 'react'
 import { apiFetchLegendSets } from '../../api/legendSets.js'
 import { getDisabledOptions } from '../../modules/disabledOptions.js'
 import { fetchData } from '../../modules/fetchData.js'
-import getMetadata from '../../modules/metadata.js'
+import getDefaultMetadata from '../../modules/metadata.js'
 import { getOptionsFromVisualization } from '../../modules/options.js'
 import ChartPlugin from './ChartPlugin.js'
 import ContextualMenu from './ContextualMenu.js'
@@ -195,7 +195,7 @@ export const VisualizationPlugin = ({
         )
 
         if (ouItems.length) {
-            const metaData = getMetadata()
+            const defaultMetaData = getDefaultMetadata()
             const userOuIds = [
                 USER_ORG_UNIT,
                 USER_ORG_UNIT_CHILDREN,
@@ -205,7 +205,7 @@ export const VisualizationPlugin = ({
             ouItems.forEach((ouItem) => {
                 userOuIds.forEach((userOuId) => {
                     if (ouItem.id === userOuId) {
-                        ouItem.name = metaData[userOuId].name
+                        ouItem.name = defaultMetaData[userOuId].name
                     }
                 })
             })
