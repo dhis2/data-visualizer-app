@@ -1,3 +1,10 @@
+## [100.8.5](https://github.com/dhis2/data-visualizer-app/compare/v100.8.4...v100.8.5) (2024-11-13)
+
+
+### Bug Fixes
+
+* handle single value vis-type as highcharts chart instance ([#3289](https://github.com/dhis2/data-visualizer-app/issues/3289)) ([83d0e6c](https://github.com/dhis2/data-visualizer-app/commit/83d0e6c33ea5314e849fb1f5842d4b3b61e74c41))
+
 ## [100.8.4](https://github.com/dhis2/data-visualizer-app/compare/v100.8.3...v100.8.4) (2024-11-07)
 
 
