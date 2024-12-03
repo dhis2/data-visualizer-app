@@ -18,7 +18,6 @@ import {
     selectDataItems,
     selectFixedPeriods,
     unselectAllItemsByButton,
-    selectRelativePeriods,
 } from '../../elements/dimensionModal/index.js'
 import {
     clickContextMenuAdd,
