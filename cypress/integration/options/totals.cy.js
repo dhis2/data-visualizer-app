@@ -58,66 +58,62 @@ describe('Options - Column totals', () => {
 
         clickOptionsModalHideButton()
     })
-    describe('Regression test for DHIS2-17297', () => {
-        it('does not crash', () => {
-            openContextMenu(DIMENSION_ID_DATA)
-            clickContextMenuMove(DIMENSION_ID_DATA, AXIS_ID_ROWS)
-            openContextMenu(DIMENSION_ID_PERIOD)
-            clickContextMenuMove(DIMENSION_ID_PERIOD, AXIS_ID_COLUMNS)
+    it('handles empty columns when the column totals option is enabled', () => {
+        openContextMenu(DIMENSION_ID_DATA)
+        clickContextMenuMove(DIMENSION_ID_DATA, AXIS_ID_ROWS)
+        openContextMenu(DIMENSION_ID_PERIOD)
+        clickContextMenuMove(DIMENSION_ID_PERIOD, AXIS_ID_COLUMNS)
 
-            openDimension(DIMENSION_ID_DATA)
-            selectDataElements(['ART enrollment stage 1'])
-            clickDimensionModalHideButton()
+        openDimension(DIMENSION_ID_DATA)
+        selectDataElements(['ART enrollment stage 1'])
+        clickDimensionModalHideButton()
 
-            const year = new Date().getFullYear().toString()
-            openDimension(DIMENSION_ID_PERIOD)
-            unselectAllItemsByButton()
-            selectFixedPeriods(
-                [`May ${year}`, `June ${year}`, `July ${year}`],
-                'Monthly'
-            )
-            clickDimensionModalHideButton()
+        const year = new Date().getFullYear().toString()
+        openDimension(DIMENSION_ID_PERIOD)
+        unselectAllItemsByButton()
+        selectFixedPeriods(
+            [`May ${year}`, `June ${year}`, `July ${year}`],
+            'Monthly'
+        )
+        clickDimensionModalHideButton()
 
-            openDimPanelContextMenu(AREA_DIMENSION.id)
-            clickContextMenuAdd(AREA_DIMENSION.id, AXIS_ID_ROWS)
-            expectDimensionModalToBeVisible(AREA_DIMENSION.id)
-            selectAllItemsByButton()
-            clickDimensionModalUpdateButton()
+        openDimPanelContextMenu(AREA_DIMENSION.id)
+        clickContextMenuAdd(AREA_DIMENSION.id, AXIS_ID_ROWS)
+        expectDimensionModalToBeVisible(AREA_DIMENSION.id)
+        selectAllItemsByButton()
+        clickDimensionModalUpdateButton()
 
-            expectTableToBeVisible()
-        })
+        expectTableToBeVisible()
     })
 
-    describe('Regression test for DHIS2-9155', () => {
-        it('computes totals for boolean value types', () => {
-            openDimension(DIMENSION_ID_DATA)
-            inputSearchTerm('yes')
-            selectDataItems([
-                'E2E program E2E - Yes only',
-                'E2E program E2E - Yes/no',
-            ])
-            clickDimensionModalHideButton()
+    it('computes totals for boolean value types', () => {
+        openDimension(DIMENSION_ID_DATA)
+        inputSearchTerm('yes')
+        selectDataItems([
+            'E2E program E2E - Yes only',
+            'E2E program E2E - Yes/no',
+        ])
+        clickDimensionModalHideButton()
 
-            const year = new Date().getFullYear().toString()
-            openDimension(DIMENSION_ID_PERIOD)
-            unselectAllItemsByButton()
-            selectFixedPeriods(
-                [
-                    `January ${year}`,
-                    `February ${year}`,
-                    `March ${year}`,
-                    `April ${year}`,
-                ],
-                'Monthly'
-            )
-            clickDimensionModalUpdateButton()
+        const year = new Date().getFullYear().toString()
+        openDimension(DIMENSION_ID_PERIOD)
+        unselectAllItemsByButton()
+        selectFixedPeriods(
+            [
+                `January ${year}`,
+                `February ${year}`,
+                `March ${year}`,
+                `April ${year}`,
+            ],
+            'Monthly'
+        )
+        clickDimensionModalUpdateButton()
 
-            expectTableToBeVisible()
+        expectTableToBeVisible()
 
-            // XXX is there a better way to address the total value cells?
-            expectTableValueCellToContainValue(8, 1)
-            expectTableValueCellToContainValue(9, 2)
-        })
+        // TODO is there a better way to address the total value cells?
+        expectTableValueCellToContainValue(8, 1)
+        expectTableValueCellToContainValue(9, 2)
     })
 })
 
