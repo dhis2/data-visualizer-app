@@ -9,7 +9,7 @@ export default (state = DEFAULT_METADATA, action) => {
         case ADD_METADATA: {
             const result = { ...state }
             Object.entries(action.value).forEach(([key, value]) => {
-                // Default metadata is translated by the client, so never overwrite it with values from the server
+                // Default metadata is translated by the client, so never overwrite with values from the server
                 if (value.id in DEFAULT_METADATA) {
                     return
                 }
