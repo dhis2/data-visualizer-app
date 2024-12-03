@@ -1,3 +1,8 @@
+import {
+    USER_ORG_UNIT,
+    USER_ORG_UNIT_CHILDREN,
+    USER_ORG_UNIT_GRANDCHILDREN,
+} from '@dhis2/analytics'
 import reducer, { DEFAULT_METADATA, ADD_METADATA } from '../metadata.js'
 
 const currentState = {
@@ -31,5 +36,32 @@ describe('reducer: metadata', () => {
         }
 
         expect(actualState).toEqual(expectedState)
+    })
+
+    it(`${ADD_METADATA}: should not overwrite default metadata`, () => {
+        const ids = [
+            USER_ORG_UNIT,
+            USER_ORG_UNIT_CHILDREN,
+            USER_ORG_UNIT_GRANDCHILDREN,
+            'LAST_12_MONTHS',
+        ]
+
+        const unwantedMetadata = ids.reduce((meta, id) => {
+            meta[id] = {
+                id,
+                name: id,
+            }
+            return meta
+        }, {})
+
+        const actualState = reducer(DEFAULT_METADATA, {
+            type: ADD_METADATA,
+            value: unwantedMetadata,
+        })
+
+        ids.forEach((id) => {
+            expect(actualState[id].name).toEqual(DEFAULT_METADATA[id].name)
+            expect(actualState[id].name).not.toEqual(unwantedMetadata[id].name)
+        })
     })
 })

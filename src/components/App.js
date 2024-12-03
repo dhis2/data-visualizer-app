@@ -17,7 +17,6 @@ import * as fromActions from '../actions/index.js'
 import { Snackbar } from '../components/Snackbar/Snackbar.js'
 import { USER_DATASTORE_CURRENT_AO_KEY } from '../modules/currentAnalyticalObject.js'
 import history from '../modules/history.js'
-import defaultMetadata from '../modules/metadata.js'
 import { getParentGraphMapFromVisualization } from '../modules/ui.js'
 import { STATE_DIRTY, getVisualizationState } from '../modules/visualization.js'
 import * as fromReducers from '../reducers/index.js'
@@ -139,18 +138,19 @@ export class UnconnectedApp extends Component {
 
         await this.fetchOuLevels()
 
-        const rootOrgUnits = this.props.settings.rootOrganisationUnits
-
-        const metaData = { ...defaultMetadata() }
-
-        rootOrgUnits.forEach((rootOrgUnit) => {
-            if (rootOrgUnit.id) {
-                metaData[rootOrgUnit.id] = {
-                    ...rootOrgUnit,
-                    path: `/${rootOrgUnit.id}`,
+        const metaData = this.props.settings.rootOrganisationUnits.reduce(
+            (obj, rootOrgUnit) => {
+                if (rootOrgUnit.id) {
+                    obj[rootOrgUnit.id] = {
+                        ...rootOrgUnit,
+                        path: `/${rootOrgUnit.id}`,
+                    }
                 }
-            }
-        })
+
+                return obj
+            },
+            {}
+        )
 
         this.props.addMetadata(metaData)
 
