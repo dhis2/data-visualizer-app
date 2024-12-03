@@ -47,73 +47,73 @@ import { TEST_CUSTOM_DIMENSIONS } from '../../utils/data.js'
 const AREA_DIMENSION = TEST_CUSTOM_DIMENSIONS.find((dim) => dim.name === 'Area')
 
 describe('Options - Column totals', () => {
-    describe('Regression test for DHIS2-17297', () => {
-        it('does not crash', () => {
-            goToStartPage()
-            changeVisType(visTypeDisplayNames[VIS_TYPE_PIVOT_TABLE])
+    beforeEach(() => {
+        goToStartPage()
+        changeVisType(visTypeDisplayNames[VIS_TYPE_PIVOT_TABLE])
 
-            openOptionsModal(OPTIONS_TAB_DATA)
-            checkCheckbox(colTotalsOptionEl)
+        openOptionsModal(OPTIONS_TAB_DATA)
+        checkCheckbox(colTotalsOptionEl)
 
-            expectColumnsTotalsToBeChecked()
+        expectColumnsTotalsToBeChecked()
 
-            clickOptionsModalHideButton()
+        clickOptionsModalHideButton()
+    })
+    it('handles empty columns when the column totals option is enabled', () => {
+        openContextMenu(DIMENSION_ID_DATA)
+        clickContextMenuMove(DIMENSION_ID_DATA, AXIS_ID_ROWS)
+        openContextMenu(DIMENSION_ID_PERIOD)
+        clickContextMenuMove(DIMENSION_ID_PERIOD, AXIS_ID_COLUMNS)
 
-            openContextMenu(DIMENSION_ID_DATA)
-            clickContextMenuMove(DIMENSION_ID_DATA, AXIS_ID_ROWS)
-            openContextMenu(DIMENSION_ID_PERIOD)
-            clickContextMenuMove(DIMENSION_ID_PERIOD, AXIS_ID_COLUMNS)
+        openDimension(DIMENSION_ID_DATA)
+        selectDataElements(['ART enrollment stage 1'])
+        clickDimensionModalHideButton()
 
-            openDimension(DIMENSION_ID_DATA)
-            selectDataElements(['ART enrollment stage 1'])
-            clickDimensionModalHideButton()
+        const year = new Date().getFullYear().toString()
+        openDimension(DIMENSION_ID_PERIOD)
+        unselectAllItemsByButton()
+        selectFixedPeriods(
+            [`May ${year}`, `June ${year}`, `July ${year}`],
+            'Monthly'
+        )
+        clickDimensionModalHideButton()
 
-            const year = new Date().getFullYear().toString()
-            openDimension(DIMENSION_ID_PERIOD)
-            unselectAllItemsByButton()
-            selectFixedPeriods(
-                [`May ${year}`, `June ${year}`, `July ${year}`],
-                'Monthly'
-            )
-            clickDimensionModalHideButton()
+        openDimPanelContextMenu(AREA_DIMENSION.id)
+        clickContextMenuAdd(AREA_DIMENSION.id, AXIS_ID_ROWS)
+        expectDimensionModalToBeVisible(AREA_DIMENSION.id)
+        selectAllItemsByButton()
+        clickDimensionModalUpdateButton()
 
-            openDimPanelContextMenu(AREA_DIMENSION.id)
-            clickContextMenuAdd(AREA_DIMENSION.id, AXIS_ID_ROWS)
-            expectDimensionModalToBeVisible(AREA_DIMENSION.id)
-            selectAllItemsByButton()
-
-            clickDimensionModalUpdateButton()
-
-            expectTableToBeVisible()
-        })
+        expectTableToBeVisible()
     })
 
-    describe('Regression test for DHIS2-9155', () => {
-        it('computes totals for boolean value types', () => {
-            goToStartPage()
-            changeVisType(visTypeDisplayNames[VIS_TYPE_PIVOT_TABLE])
+    it('computes totals for boolean value types', () => {
+        openDimension(DIMENSION_ID_DATA)
+        inputSearchTerm('yes')
+        selectDataItems([
+            'E2E program E2E - Yes only',
+            'E2E program E2E - Yes/no',
+        ])
+        clickDimensionModalHideButton()
 
-            openOptionsModal(OPTIONS_TAB_DATA)
-            checkCheckbox(colTotalsOptionEl)
+        const year = new Date().getFullYear().toString()
+        openDimension(DIMENSION_ID_PERIOD)
+        unselectAllItemsByButton()
+        selectFixedPeriods(
+            [
+                `January ${year}`,
+                `February ${year}`,
+                `March ${year}`,
+                `April ${year}`,
+            ],
+            'Monthly'
+        )
+        clickDimensionModalUpdateButton()
 
-            expectColumnsTotalsToBeChecked()
+        expectTableToBeVisible()
 
-            clickOptionsModalHideButton()
-
-            openDimension(DIMENSION_ID_DATA)
-            inputSearchTerm('yes')
-            selectDataItems([
-                'E2E program E2E - Yes only',
-                'E2E program E2E - Yes/no',
-            ])
-            clickDimensionModalUpdateButton()
-
-            expectTableToBeVisible()
-
-            // XXX is there a better way to address the total value cells?
-            expectTableValueCellToContainValue(12, 4)
-            expectTableValueCellToContainValue(13, 4)
-        })
+        // TODO is there a better way to address the total value cells?
+        expectTableValueCellToContainValue(8, 1)
+        expectTableValueCellToContainValue(9, 2)
     })
 })
 
