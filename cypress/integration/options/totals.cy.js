@@ -18,6 +18,7 @@ import {
     selectDataItems,
     selectFixedPeriods,
     unselectAllItemsByButton,
+    selectRelativePeriods,
 } from '../../elements/dimensionModal/index.js'
 import {
     clickContextMenuAdd,
@@ -47,18 +48,19 @@ import { TEST_CUSTOM_DIMENSIONS } from '../../utils/data.js'
 const AREA_DIMENSION = TEST_CUSTOM_DIMENSIONS.find((dim) => dim.name === 'Area')
 
 describe('Options - Column totals', () => {
+    beforeEach(() => {
+        goToStartPage()
+        changeVisType(visTypeDisplayNames[VIS_TYPE_PIVOT_TABLE])
+
+        openOptionsModal(OPTIONS_TAB_DATA)
+        checkCheckbox(colTotalsOptionEl)
+
+        expectColumnsTotalsToBeChecked()
+
+        clickOptionsModalHideButton()
+    })
     describe('Regression test for DHIS2-17297', () => {
         it('does not crash', () => {
-            goToStartPage()
-            changeVisType(visTypeDisplayNames[VIS_TYPE_PIVOT_TABLE])
-
-            openOptionsModal(OPTIONS_TAB_DATA)
-            checkCheckbox(colTotalsOptionEl)
-
-            expectColumnsTotalsToBeChecked()
-
-            clickOptionsModalHideButton()
-
             openContextMenu(DIMENSION_ID_DATA)
             clickContextMenuMove(DIMENSION_ID_DATA, AXIS_ID_ROWS)
             openContextMenu(DIMENSION_ID_PERIOD)
@@ -81,7 +83,6 @@ describe('Options - Column totals', () => {
             clickContextMenuAdd(AREA_DIMENSION.id, AXIS_ID_ROWS)
             expectDimensionModalToBeVisible(AREA_DIMENSION.id)
             selectAllItemsByButton()
-
             clickDimensionModalUpdateButton()
 
             expectTableToBeVisible()
@@ -90,29 +91,33 @@ describe('Options - Column totals', () => {
 
     describe('Regression test for DHIS2-9155', () => {
         it('computes totals for boolean value types', () => {
-            goToStartPage()
-            changeVisType(visTypeDisplayNames[VIS_TYPE_PIVOT_TABLE])
-
-            openOptionsModal(OPTIONS_TAB_DATA)
-            checkCheckbox(colTotalsOptionEl)
-
-            expectColumnsTotalsToBeChecked()
-
-            clickOptionsModalHideButton()
-
             openDimension(DIMENSION_ID_DATA)
             inputSearchTerm('yes')
             selectDataItems([
                 'E2E program E2E - Yes only',
                 'E2E program E2E - Yes/no',
             ])
+            clickDimensionModalHideButton()
+
+            const year = new Date().getFullYear().toString()
+            openDimension(DIMENSION_ID_PERIOD)
+            unselectAllItemsByButton()
+            selectFixedPeriods(
+                [
+                    `January ${year}`,
+                    `February ${year}`,
+                    `March ${year}`,
+                    `April ${year}`,
+                ],
+                'Monthly'
+            )
             clickDimensionModalUpdateButton()
 
             expectTableToBeVisible()
 
             // XXX is there a better way to address the total value cells?
-            expectTableValueCellToContainValue(12, 4)
-            expectTableValueCellToContainValue(13, 4)
+            expectTableValueCellToContainValue(8, 1)
+            expectTableValueCellToContainValue(9, 2)
         })
     })
 })
