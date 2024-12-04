@@ -1,3 +1,10 @@
+## [100.8.6](https://github.com/dhis2/data-visualizer-app/compare/v100.8.5...v100.8.6) (2024-12-03)
+
+
+### Bug Fixes
+
+* enable ou tree and levels/groups with user orgunits and display translated title (DHIS2-18066) ([#3241](https://github.com/dhis2/data-visualizer-app/issues/3241)) ([ef314a5](https://github.com/dhis2/data-visualizer-app/commit/ef314a594ce9cb6146755c52291f72135052d397))
+
 ## [100.8.5](https://github.com/dhis2/data-visualizer-app/compare/v100.8.4...v100.8.5) (2024-11-13)
 
 

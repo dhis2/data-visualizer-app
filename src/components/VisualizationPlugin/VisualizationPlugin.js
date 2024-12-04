@@ -10,6 +10,10 @@ import {
     isLegendSetType,
     VIS_TYPE_LINE,
     DIMENSION_ID_DATA,
+    layoutGetDimensionItems,
+    USER_ORG_UNIT,
+    USER_ORG_UNIT_CHILDREN,
+    USER_ORG_UNIT_GRANDCHILDREN,
 } from '@dhis2/analytics'
 import { useDataEngine } from '@dhis2/app-runtime'
 import { Button, IconLegend24, Layer } from '@dhis2/ui'
@@ -20,6 +24,7 @@ import React, { useEffect, useState, useCallback } from 'react'
 import { apiFetchLegendSets } from '../../api/legendSets.js'
 import { getDisabledOptions } from '../../modules/disabledOptions.js'
 import { fetchData } from '../../modules/fetchData.js'
+import getDefaultMetadata from '../../modules/metadata.js'
 import { getOptionsFromVisualization } from '../../modules/options.js'
 import ChartPlugin from './ChartPlugin.js'
 import ContextualMenu from './ContextualMenu.js'
@@ -182,6 +187,29 @@ export const VisualizationPlugin = ({
         })
 
         const filteredVisualization = cloneDeep(originalVisualization)
+
+        // inject translated user orgunit names
+        const ouItems = layoutGetDimensionItems(
+            filteredVisualization,
+            DIMENSION_ID_ORGUNIT
+        )
+
+        if (ouItems.length) {
+            const defaultMetaData = getDefaultMetadata()
+            const userOuIds = [
+                USER_ORG_UNIT,
+                USER_ORG_UNIT_CHILDREN,
+                USER_ORG_UNIT_GRANDCHILDREN,
+            ]
+
+            ouItems.forEach((ouItem) => {
+                userOuIds.forEach((userOuId) => {
+                    if (ouItem.id === userOuId) {
+                        ouItem.name = defaultMetaData[userOuId].name
+                    }
+                })
+            })
+        }
 
         Object.keys(disabledOptions).forEach(
             (option) => delete filteredVisualization[option]
