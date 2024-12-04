@@ -1,6 +1,6 @@
 {
     "name": "data-visualizer-app",
-    "version": "100.8.5",
+    "version": "100.8.7",
     "description": "DHIS2 Data Visualizer",
     "license": "BSD-3-Clause",
     "private": true,
@@ -23,8 +23,6 @@
         "@dhis2/cli-style": "^10.7.3",
         "@dhis2/cypress-commands": "^10.0.6",
         "@dhis2/cypress-plugins": "^10.0.6",
-        "@reportportal/agent-js-cypress": "git+https://github.com/dhis2/agent-js-cypress.git#develop",
-        "@reportportal/agent-js-jest": "^5.0.6",
         "@semantic-release/changelog": "^6",
         "@semantic-release/exec": "^6",
         "@semantic-release/git": "^10",

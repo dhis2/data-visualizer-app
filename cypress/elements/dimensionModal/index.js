@@ -169,7 +169,6 @@ export {
     openOrgUnitTreeItem,
     toggleOrgUnitGroup,
     selectUserOrgUnit,
-    expectOrgUnitTreeToBeDisabled,
     expectOrgUnitTreeToBeEnabled,
     deselectUserOrgUnit,
 } from './orgUnitDimension.js'

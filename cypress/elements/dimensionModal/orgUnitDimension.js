@@ -104,12 +104,6 @@ export const deselectUserOrgUnit = (name) => {
         .should('not.be.checked')
 }
 
-export const expectOrgUnitTreeToBeDisabled = () => {
-    cy.getBySel(orgUnitTreeEl).should('have.css', 'pointer-events', 'none')
-    cy.getBySel(levelSelectEl).should('have.css', 'pointer-events', 'none')
-    cy.getBySel(groupSelectEl).should('have.css', 'pointer-events', 'none')
-}
-
 export const expectOrgUnitTreeToBeEnabled = () => {
     cy.getBySel(orgUnitTreeEl).should('not.have.css', 'pointer-events', 'none')
     cy.getBySel(levelSelectEl).should('not.have.css', 'pointer-events', 'none')
