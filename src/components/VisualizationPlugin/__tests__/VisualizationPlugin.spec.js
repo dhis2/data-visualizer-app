@@ -174,7 +174,11 @@ describe('VisualizationPlugin', () => {
             // eslint-disable-next-line no-import-assign, import/namespace
             api.apiFetchAnalytics = jest.fn().mockRejectedValue('error')
 
-            await canvas()
+            await canvas({
+                visualization: {
+                    ...defaultCurrentMock,
+                },
+            })
 
             expect(defaultProps.onError).toHaveBeenCalled()
         })
