@@ -4,13 +4,14 @@
 # Viktor Varland <viktor@dhis2.org>, 2022
 # Philip Larsen Donnelly, 2024
 # Thuy Nguyen <thuynguyen@hispvietnam.org>, 2024
+# Em Le <em.hispvietnam@gmail.com>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-06-07T08:24:31.117Z\n"
 "PO-Revision-Date: 2022-04-20 10:06+0000\n"
-"Last-Translator: Thuy Nguyen <thuynguyen@hispvietnam.org>, 2024\n"
+"Last-Translator: Em Le <em.hispvietnam@gmail.com>, 2024\n"
 "Language-Team: Vietnamese (https://app.transifex.com/hisp-uio/teams/100509/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "All items"
-msgstr ""
+msgstr "Tất cả các mục"
 
 msgid "Rename successful"
 msgstr "Đổi tên thành công"
@@ -200,7 +201,7 @@ msgid "Only '{{number}}' in use"
 msgstr "Chỉ  '{{number}}' được sử dụng"
 
 msgid "All items are selected"
-msgstr ""
+msgstr "Tất cả các mục được chọn"
 
 msgid "Levels"
 msgstr "Các cấp độ"
@@ -335,7 +336,7 @@ msgid "Axis title"
 msgstr "Tiêu đề trục"
 
 msgid "Auto generated from axis items"
-msgstr ""
+msgstr "Auto generated from axis items"
 
 msgid "None"
 msgstr "Không"
@@ -347,7 +348,7 @@ msgid "Add a title"
 msgstr "Thêm tiêu đề"
 
 msgid "Reset style to default"
-msgstr ""
+msgstr "Đặt lại phong cách về mặc định"
 
 msgid "Base line"
 msgstr "Đường cơ sở"
@@ -362,10 +363,10 @@ msgid "Default"
 msgstr "Mặc định"
 
 msgid "Basic"
-msgstr ""
+msgstr "Cơ bản"
 
 msgid "Extended"
-msgstr ""
+msgstr "Mở rộng"
 
 msgid "Bright"
 msgstr "Sáng"
@@ -416,28 +417,29 @@ msgid "Compact"
 msgstr "Gọn nhẹ"
 
 msgid "Extreme lines"
-msgstr ""
+msgstr "Extreme lines"
 
 msgid "Calculated as a percent, usually 1%, of the total values along an axis"
 msgstr ""
+"Được tính theo phần trăm, thường là 1%, của tổng giá trị dọc theo một trục"
 
 msgid "Extreme line % detection"
-msgstr ""
+msgstr "Phát hiện % đường cực đại"
 
 msgid "Number"
 msgstr "Số"
 
 msgid "Fix column headers to top of table"
-msgstr ""
+msgstr "Cố định tiêu đề cột vào đầu bảng"
 
 msgid "There aren’t any column headers because Columns is empty."
-msgstr ""
+msgstr "Không có tiêu đề cột nào vì Cột trống."
 
 msgid "Fix row headers to left of table"
-msgstr ""
+msgstr "Sửa tiêu đề hàng ở bên trái bảng"
 
 msgid "There aren’t any row headers because Rows is empty."
-msgstr ""
+msgstr "Không có tiêu đề hàng nào vì Hàng trống."
 
 msgid "Font size"
 msgstr "Cỡ chữ"
@@ -479,7 +481,7 @@ msgid "Chart title"
 msgstr "Tiêu đề của biểu đồ"
 
 msgid "Use legend for chart colors"
-msgstr ""
+msgstr "Sử dụng chú giải cho màu biểu đồ"
 
 msgid "Legend style"
 msgstr "Mẫu chú giải"
@@ -513,6 +515,9 @@ msgid ""
 "visualization, all values outside of the minimum/maximum range will not be "
 "displayed"
 msgstr ""
+"Bạn có thể đặt giá trị tối thiểu hoặc tối đa. Điều này sẽ áp dụng cho toàn "
+"bộ bảng biểu, tất cả các giá trị nằm ngoài phạm vi tối thiểu/tối đa sẽ không"
+" được hiển thị"
 
 msgid "Minimum data value"
 msgstr "Giá trị dữ liệu tối thiểu"
@@ -546,34 +551,41 @@ msgid ""
 "different data. Check the documentation for help to choose the right outlier"
 " detection method"
 msgstr ""
+"Mỗi phương pháp phát hiện xác định các giá trị ngoại lệ theo những cách khác"
+" nhau và phù hợp với dữ liệu khác nhau. Kiểm tra tài liệu để được trợ giúp "
+"chọn phương pháp phát hiện giá trị ngoại lệ phù hợp"
 
 msgid "Threshold factor"
-msgstr ""
+msgstr "Yếu tố ngưỡng"
 
 msgid ""
 "A high value is more sensitive so fewer data items will be identified as "
 "outliers"
 msgstr ""
+"Giá trị cao nhạy cảm hơn nên ít mục dữ liệu được xác định là giá trị ngoại "
+"lệ"
 
 msgid "Interquartile Range (IQR)"
-msgstr ""
+msgstr "Khoảng tứ phân vị (IQR)"
 
 msgid "Z-score / Standard score"
-msgstr ""
+msgstr "Điểm Z / Điểm chuẩn"
 
 msgid "Modified Z-score"
-msgstr ""
+msgstr "Chỉnh sửa điểm Z"
 
 msgid "Outlier analysis"
-msgstr ""
+msgstr "Phân tích ngoại lệ"
 
 msgid ""
 "Outlier analysis detects and highlights data items that are markedly "
 "different from the rest of the data"
 msgstr ""
+"Phân tích ngoại lệ phát hiện và nêu bật những dữ liệu được đánh dấu là khác "
+"xa so với các dữ liệu còn lại"
 
 msgid "Outlier detection method"
-msgstr ""
+msgstr "Phương pháp phát hiện dữ liệu Ngoại lệ"
 
 msgid "Organisation unit"
 msgstr "Đơn vị"
@@ -645,7 +657,7 @@ msgstr ""
 msgid ""
 "Series options are not available when a series item has an \"All items\" "
 "selection"
-msgstr ""
+msgstr "Tùy chọn chuỗi không khả dụng khi mục chuỗi có lựa chọn \"Tất cả mục\""
 
 msgid "Value labels"
 msgstr "Nhãn giá trị"
@@ -660,7 +672,7 @@ msgid "Show legend key"
 msgstr "Hiển thị khóa chú giải"
 
 msgid "Show series key"
-msgstr ""
+msgstr "Hiển thị khóa series"
 
 msgid "Skip rounding"
 msgstr "Không làm tròn"
@@ -836,18 +848,20 @@ msgstr ""
 "không chính xác hoặc có thể đã bị xóa."
 
 msgid "No organization units found"
-msgstr ""
+msgstr "Không tìm thấy đơn vị nào"
 
 msgid "The level or group selections didn't return any organization units."
-msgstr ""
+msgstr "Cấp độ và nhóm đơn vị được chọn không trả về bất kỳ đơn vị nào"
 
 msgid "Invalid data type"
-msgstr ""
+msgstr "Kiểu dữ liệu không hợp lệ"
 
 msgid ""
 "The selected data dimensions didn't return any valid data. This "
 "visualization type can only display numerical data."
 msgstr ""
+"Các kích thước dữ liệu đã chọn không trả về bất kỳ dữ liệu hợp lệ nào. Kiểu "
+"trực quan hóa này chỉ có thể hiển thị dữ liệu số."
 
 msgid "Something went wrong"
 msgstr "Có lỗi"
@@ -976,12 +990,16 @@ msgid ""
 "These options only apply to legacy tables like standard reports. Options set"
 " here will have no effect on tables made in Data Visualizer."
 msgstr ""
+"Các tùy chọn này chỉ áp dụng cho các bảng cũ như báo cáo chuẩn. Các tùy chọn"
+" được đặt ở đây sẽ không có tác dụng đối với các bảng được tạo trong Trực "
+"Quan Hóa Dữ Liệu"
 
 msgid "Applies to standard reports only"
-msgstr ""
+msgstr "Chỉ áp dụng cho báo cáo chuẩn"
 
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
+"Các đường cơ sở và đường mục tiêu có sẵn trên tab Trục cho biểu đồ phân tán"
 
 msgid "Color set"
 msgstr "Bộ màu"
@@ -992,6 +1010,8 @@ msgstr "Bộ màu chưa được hỗ trợ khi sử dụng nhiều trục"
 msgid ""
 "Base and target lines are available on the Axes tab for multi-axis charts"
 msgstr ""
+"Các đường cơ sở và đường mục tiêu có sẵn trên tab Trục cho biểu đồ nhiều "
+"trục"
 
 msgid "Chart style"
 msgstr "Dạng biểu đồ"
@@ -1003,7 +1023,7 @@ msgid "Empty data"
 msgstr "Dữ liệu trống"
 
 msgid "Horizontal (x) axis {{axisId}}"
-msgstr ""
+msgstr "Trục ngang (x) {{axisId}}"
 
 msgid "Horizontal (x) axis"
 msgstr "Trục ngang (x)"
@@ -1015,7 +1035,7 @@ msgid "Totals"
 msgstr "Tổng"
 
 msgid "Vertical (y) axis {{axisId}}"
-msgstr ""
+msgstr "Trục dọc (y){{axisId}}"
 
 msgid "Vertical (y) axis"
 msgstr "Dục dọc (y)"
