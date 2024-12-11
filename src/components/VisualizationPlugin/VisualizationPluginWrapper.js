@@ -62,6 +62,7 @@ const VisualizationPluginWrapper = (props) => {
     // set loading state only for props that will cause
     // VisualizationPlugin to fetch and call onLoadingComplete
     useEffect(() => {
+        setError(null)
         setIsLoading(true)
     }, [props.filters, props.forDashboard, props.visualization])
 
