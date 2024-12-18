@@ -134,6 +134,7 @@ export class UnconnectedApp extends Component {
         await this.props.addSettings(userSettings)
         this.props.setUser(d2.currentUser)
         this.props.loadUserAuthority(APPROVAL_LEVEL_OPTION_AUTH)
+        this.props.loadUserAuthority('M_dhis-web-maintenance')
         this.props.setDimensions()
 
         await this.fetchOuLevels()
