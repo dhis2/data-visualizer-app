@@ -483,7 +483,7 @@ export class DialogManager extends Component {
                         onClose={this.closeDialog}
                         dataTest={`dialog-manager-${dimension.id}`}
                         position="top"
-                        large
+                        fluid
                     >
                         <ModalTitle dataTest={'dialog-manager-modal-title'}>
                             {dimension.name}
