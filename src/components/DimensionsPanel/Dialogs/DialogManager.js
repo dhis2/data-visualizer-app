@@ -381,7 +381,6 @@ export class DialogManager extends Component {
 
                 const dimensionSelector = (
                     <DataDimension
-                        currentUser={this.context.d2.currentUser}
                         enabledDataTypes={dataTypes}
                         displayNameProp={displayNameProperty}
                         selectedDimensions={selectedItems}
@@ -535,7 +534,6 @@ export class DialogManager extends Component {
 }
 
 DialogManager.contextTypes = {
-    d2: PropTypes.object,
     dataEngine: PropTypes.object,
 }
 
