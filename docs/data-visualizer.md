@@ -44,18 +44,18 @@ Just like in the dimensions menu, in the layout area you can also change the sel
 
 ![](resources/images/data-visualizer-layout-area.png)
 
--   **Series**: A series is a set of continuous, related elements (for
+- **Series**: A series is a set of continuous, related elements (for
     example periods or data elements) that you want to visualize in
     order to emphasize trends or relations in its data. Also known as Columns for Pivot table visualizations.
 
 <!-- end list -->
 
--   **Categories**: A category is a set of elements (for example indicators
+- **Categories**: A category is a set of elements (for example indicators
     or organisation units) for which you want to compare its data. Also known as Rows for Pivot table visualizations.
 
 <!-- end list -->
 
--   **Filter**: The filter selection will filter the data displayed in the
+- **Filter**: The filter selection will filter the data displayed in the
     visualization. Note that if you use the data dimension as filter, you can
     only specify a single indicator or data set as filter item, whereas
     with other dimension types you can select any number of items.
@@ -64,16 +64,16 @@ Just like in the dimensions menu, in the layout area you can also change the sel
 
 A dimension refers to the elements that describe the data values in the system. There are three main dimensions in the system:
 
--   **Data**: Includes data elements, indicators and datasets (reporting
+- **Data**: Includes data elements, indicators and datasets (reporting
     rates), describing the phenomena or event of the data.
 
 <!-- end list -->
 
--   **Periods**: Describes when the event took place.
+- **Periods**: Describes when the event took place.
 
 <!-- end list -->
 
--   **Organisation units**: Describes where the event took place.
+- **Organisation units**: Describes where the event took place.
 
 Data Visualizer is highly flexible in terms of allowing you to use these dimensions as series, categories and filter.
 
@@ -81,9 +81,15 @@ To select items for a dimension, open the dimension modal window by clicking on 
 
 #### Select data items
 
-When selecting data items, there are different ways to filter the displayed items. By using the search field at the top, a global search by item name is performed across the currently selected **Data Type**. By selecting a **Data Type** from the dropdown, items can be filtered by type and subtype, where the subtype available depends on the selected data type. The name search and the type/subtype filtering can be combined as well for a more detailed filter. The type of each displayed item is indicated by a corresponding icon on the item. By hovering over an item, the name of the type can be viewed as well.
+When selecting data items, there are different ways to filter the displayed items. By using the search field at the top, a global search by item name is performed across the currently selected **Data Type**. By selecting a **Data Type** from the dropdown, items can be filtered by type and subtype, where the subtype available depends on the selected data type. The name search and the type/subtype filtering can be combined as well for a more detailed filter. The type of each displayed item is indicated on the right and a corresponding icon is shown on the left of the item.
 
 ![](resources/images/data-visualizer-cc-data-modal.png)
+
+#### Display information about a data item
+
+On the right of each data item there is an information icon that can be clicked and a table with relevant information is shown. The information displayed depends on the item's data type.
+
+![](resources/images/data-visualizer-cc-data-modal-info.png)
 
 #### Using custom calculations { #data-visualizer-custom-calculations }
 
@@ -113,19 +119,19 @@ When selecting a Period you have the option to choose between fixed periods and 
 
 The organisation units dialog is flexible, offering essentially three ways of selecting organisation units:
 
--   Explicit selection: Use the **tree** to explicitly select the organisation units you want to appear in the visualization. If you right-click on an organisation unit you can easily choose to select all org units below it.
+- Explicit selection: Use the **tree** to explicitly select the organisation units you want to appear in the visualization. If you right-click on an organisation unit you can easily choose to select all org units below it.
 
--   Levels and groups: The **Level** and **Group** dropdowns are a convenient way to select all units in one or more org unit groups or at specific levels. Example: select _Chiefdom_ (level 3) to get all org units at that level.
+- Levels and groups: The **Level** and **Group** dropdowns are a convenient way to select all units in one or more org unit groups or at specific levels. Example: select _Chiefdom_ (level 3) to get all org units at that level.
 
     Please note that as soon as at least one level or group has been selected the org unit tree now acts as the boundary for the levels/groups. Example: if you select _Chiefdom_ (level 3) and _Kailahun_ org unit (at level 2) in the tree you get all chiefdom units inside Kailahun district.
 
--   The user's organisation units:
+- The user's organisation units:
 
-    -   User organisation unit: This is a way to dynamically select the org units that the logged in user is associated to.
+  - User organisation unit: This is a way to dynamically select the org units that the logged in user is associated to.
 
-    -   User sub-units: Selects the sub-units of the user organisation unit.
+  - User sub-units: Selects the sub-units of the user organisation unit.
 
-    -   User sub-x2-units: Selects the units two levels below the user organisation unit.
+  - User sub-x2-units: Selects the units two levels below the user organisation unit.
 
 ![](resources/images/data-visualizer-organisation-unit-dimension-modal.png)
 
@@ -149,13 +155,13 @@ The resulting visualization is composed of separate charts, one for each item in
 
 The display of a visualization can be changed by enabling/disabling and configuring several options. Each visualization type can have a different set of available options. The options are organised in tabs in the **Options dialog** and in sections within each tab.
 
-1.  Click **Options** to open the **Options dialog**.
+1. Click **Options** to open the **Options dialog**.
 
-2.  Navigate the tabs in the dialog to see the available options.
+2. Navigate the tabs in the dialog to see the available options.
 
-3.  Configure the desired options as required.
+3. Configure the desired options as required.
 
-4.  Click **Update** to apply the changes to the visualization.
+4. Click **Update** to apply the changes to the visualization.
 
 ### List of available options
 
@@ -276,11 +282,11 @@ Saving your visualizations makes it easy to find them later. You can also choose
 
 ### Open a visualization
 
-1.  Click **File** \> **Open**.
+1. Click **File** \> **Open**.
 
-2.  Enter the name of a visualization in the search field, or click the **<** and **>** arrows to navigate between different pages. The result can also be filtered by type and owner by using the corresponding menus in the top right corner.
+2. Enter the name of a visualization in the search field, or click the **<** and **>** arrows to navigate between different pages. The result can also be filtered by type and owner by using the corresponding menus in the top right corner.
 
-3.  Click the name of the one you want to open.
+3. Click the name of the one you want to open.
 
 ![](resources/images/data-visualizer-open-dialog.png)
 
@@ -296,19 +302,19 @@ Saving your visualizations makes it easy to find them later. You can also choose
 
 ### Rename a visualization
 
-1.  Click **File** \> **Rename**.
+1. Click **File** \> **Rename**.
 
-2.  Enter the new name and/or description.
+2. Enter the new name and/or description.
 
-3.  Click **Rename**.
+3. Click **Rename**.
 
 ![](resources/images/data-visualizer-rename-dialog.png)
 
 ### Delete a visualization
 
-1.  Click **File** \> **Delete**.
+1. Click **File** \> **Delete**.
 
-2.  Click **Delete**.
+2. Click **Delete**.
 
 ![](resources/images/data-visualizer-delete-dialog.png)
 
@@ -336,11 +342,11 @@ To subscribe to the saved visualization, click the bell icon in the upper right 
 
 Sharing settings can be accessed by clicking **File** \> **Share**. Change sharing settings for the user groups you want to modify, the available settings are:
 
--   **Can edit and view**: Can view and edit the visualization.
+- **Can edit and view**: Can view and edit the visualization.
 
--   **Can view only**: Can only view the visualization.
+- **Can view only**: Can only view the visualization.
 
--   **No access**: Won't have access to the visualization. This setting is only applicable to **Public access** and **External access**. (Note that to enable access to everyone, both **Public access** and **External access** must be set to allow view.)
+- **No access**: Won't have access to the visualization. This setting is only applicable to **Public access** and **External access**. (Note that to enable access to everyone, both **Public access** and **External access** must be set to allow view.)
 
 New users can be added by searching for them by name under `Add users and user groups`.
 
