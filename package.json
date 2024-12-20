@@ -41,7 +41,7 @@
         "typescript": "^4.8.4"
     },
     "dependencies": {
-        "@dhis2/analytics": "git+https://github.com/d2-ci/analytics.git#e2ae220197ac7e0e799274996d2056c4f0102098",
+        "@dhis2/analytics": "git+https://github.com/d2-ci/analytics.git#40f90c7ce28c21f3a1181cc475f0294a7512121c",
         "@dhis2/app-runtime": "^3.11.3",
         "@dhis2/app-runtime-adapter-d2": "^1.1.0",
         "@dhis2/app-service-datastore": "^1.0.0-beta.3",
