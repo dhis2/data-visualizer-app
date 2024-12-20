@@ -7,6 +7,8 @@ import {
 } from './index.js'
 
 const optionContentEl = 'data-dimension-transfer-option-content'
+const optionInfoButtonEl = 'data-dimension-transfer-option-info-button'
+const optionInfoTableEl = 'data-dimension-info-table'
 const selectableItemsEl = 'data-dimension-transfer-sourceoptions'
 const selectedItemsEl = 'data-dimension-transfer-pickedoptions'
 const dataTypesSelectButtonEl =
@@ -45,6 +47,19 @@ export const expectNoDataItemsToBeSelected = () =>
 
 export const expectDataDimensionModalWarningToContain = (text) =>
     cy.getBySel(rightHeaderEl).should('contain', text)
+
+export const expectDataItemToShowDataType = (id, type) =>
+    cy
+        .get(`[data-value="${id}"]`)
+        .findBySel(optionContentEl)
+        .find('.type')
+        .should('contain', type)
+
+export const expectDataItemToShowInfoTable = (id) => {
+    cy.get(`[data-value="${id}"]`).findBySel(optionInfoButtonEl).click()
+    cy.getBySel(optionInfoTableEl).contains('Name')
+    cy.getBySel(optionInfoTableEl).closePopper()
+}
 
 export const expectDataItemToBeInactive = (id) =>
     cy

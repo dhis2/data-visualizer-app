@@ -43,3 +43,15 @@ Cypress.Commands.add(
             )
         )
 )
+
+Cypress.Commands.add(
+    'closePopper',
+    {
+        prevSubject: true,
+    },
+    (subject) =>
+        cy
+            .wrap(subject)
+            .closest('[data-test=dhis2-uicore-layer]')
+            .click('topLeft')
+)
