@@ -38,10 +38,10 @@ describe('Visualization error', () => {
         goToStartPage()
         changeVisType(visTypeDisplayNames[VIS_TYPE_PIVOT_TABLE])
 
-        // select period 'This year'
+        // select period 'Last year'
         openDimension(DIMENSION_ID_PERIOD)
         unselectAllItemsByButton()
-        selectRelativePeriods(['This year'], 'Years')
+        selectRelativePeriods(['Last year'], 'Years')
         clickDimensionModalUpdateButton()
 
         // select a narrative item

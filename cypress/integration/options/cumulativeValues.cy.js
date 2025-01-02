@@ -23,6 +23,7 @@ import {
     selectDataItems,
     selectFixedPeriods,
     unselectAllItemsByButton,
+    selectFixedPeriodYear,
 } from '../../elements/dimensionModal/index.js'
 import { openDimension } from '../../elements/dimensionsPanel.js'
 import { clickContextMenuMove, openContextMenu } from '../../elements/layout.js'
@@ -175,10 +176,11 @@ describe('Options - Cumulative values', () => {
             openContextMenu(DIMENSION_ID_PERIOD)
             clickContextMenuMove(DIMENSION_ID_PERIOD, AXIS_ID_COLUMNS)
 
-            const year = new Date().getFullYear().toString()
+            const year = (new Date().getFullYear() - 1).toString()
 
             openDimension(DIMENSION_ID_PERIOD)
             unselectAllItemsByButton()
+            selectFixedPeriodYear(year)
             selectFixedPeriods(
                 [`October ${year}`, `November ${year}`, `December ${year}`],
                 'Monthly'
@@ -251,9 +253,10 @@ describe('Options - Cumulative values', () => {
             selectDataItems(['BCG doses'])
             clickDimensionModalHideButton()
 
-            const year = new Date().getFullYear().toString()
+            const year = (new Date().getFullYear() - 1).toString()
             openDimension(DIMENSION_ID_PERIOD)
             unselectAllItemsByButton()
+            selectFixedPeriodYear(year)
             selectFixedPeriods([`October ${year}`], 'Monthly')
 
             clickDimensionModalHideButton()
