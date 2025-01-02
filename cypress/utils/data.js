@@ -47,7 +47,7 @@ export const visTypes = [
 
 export const TEST_AOS = [
     {
-        name: 'Commodities: Child health consumption districts this year',
+        name: 'ANC: ANC 3 coverage by districts last 12 months',
         type: VIS_TYPE_COLUMN,
     },
     {

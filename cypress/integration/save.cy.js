@@ -17,7 +17,7 @@ import {
     selectIndicators,
     selectDataElements,
     clickDimensionModalUpdateButton,
-    deselectOrgUnitTreeItem,
+    selectOrgUnitTreeItem,
 } from '../elements/dimensionModal/index.js'
 import { openDimension } from '../elements/dimensionsPanel.js'
 import {
@@ -185,7 +185,7 @@ describe('saving an AO', () => {
     })
 
     it('"save" a copied AO created by others works after editing', () => {
-        const TEST_VIS_BY_OTHERS_NAME = 'ANC: 1-3 dropout rate Yearly'
+        const TEST_VIS_BY_OTHERS_NAME = 'ANC: 1-3 trend lines last 12 months'
         const TEST_VIS_BY_OTHERS_NAME_UPDATED = `${TEST_VIS_BY_OTHERS_NAME} - updated`
 
         // navigates to the start page and opens an AO created by others
@@ -200,7 +200,7 @@ describe('saving an AO', () => {
 
         // edits the AO
         openDimension(DIMENSION_ID_ORGUNIT)
-        deselectOrgUnitTreeItem('Western Area')
+        selectOrgUnitTreeItem('Western Area')
         clickDimensionModalUpdateButton()
 
         // saves AO using "Save"
