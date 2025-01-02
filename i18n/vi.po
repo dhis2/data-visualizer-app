@@ -4,13 +4,14 @@
 # Mai Nguyen <thanhmai.jica@gmail.com>, 2022
 # Philip Larsen Donnelly, 2024
 # Thuy Nguyen <thuynguyen@hispvietnam.org>, 2024
+# Em Le <em.hispvietnam@gmail.com>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2024-03-01T08:28:43.727Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Thuy Nguyen <thuynguyen@hispvietnam.org>, 2024\n"
+"Last-Translator: Em Le <em.hispvietnam@gmail.com>, 2024\n"
 "Language-Team: Vietnamese (https://app.transifex.com/hisp-uio/teams/100509/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,16 +20,16 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "All items"
-msgstr ""
+msgstr "Tất cả các mục"
 
 msgid "Rename successful"
 msgstr "Đổi tên thành công"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr "Mô hình hóa {{visualizationType}} không có tiêu đề, {{date}}"
+msgstr "Biểu đồ {{visualizationType}} không có tiêu đề, {{date}}"
 
 msgid "\"{{- deletedObject}}\" successfully deleted."
-msgstr ""
+msgstr "{{- deletedObject}}đã xóa thành công"
 
 msgid "You have unsaved changes."
 msgstr "Không lưu các thay đổi"
@@ -44,18 +45,20 @@ msgstr ""
 " sẽ bị mất."
 
 msgid "No, cancel"
-msgstr "Không"
+msgstr "Không, hủy bỏ"
 
 msgid "Yes, leave"
-msgstr "Có"
+msgstr "Có, thoát ra"
 
 msgid "Add to {{axisName}}"
-msgstr "Thêm {{axisName}}"
+msgstr "Thêm vào {{axisName}}"
 
 msgid ""
 "'{{visualizationType}}' is intended to show a single item for this type of "
 "dimension. Only the first item will be used and saved."
 msgstr ""
+"{{visualizationType}}nhằm mục đích hiển thị một mục duy nhất cho chiều dữ "
+"liệu này. Chỉ mục đầu tiên sẽ được sử dụng và lưu."
 
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
@@ -75,6 +78,8 @@ msgid ""
 "'Outlier table' shows values from data elements only. Only data elements "
 "will be used and saved."
 msgstr ""
+"'Bảng ngoại lệ' chỉ hiển thị giá trị từ phẩn tử dữ liệu. Chỉ phần tử dữ liệu"
+" được sử dụng và lưu trữ."
 
 msgid "Vertical"
 msgstr "Dọc"
@@ -116,7 +121,7 @@ msgid "Plain data source"
 msgstr "Nguồn dữ liệu gốc"
 
 msgid "Microsoft Excel"
-msgstr ""
+msgstr "Microsoft Excel"
 
 msgid "CSV"
 msgstr "CSV"
@@ -134,7 +139,7 @@ msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
 msgid "Download data from this date"
-msgstr ""
+msgstr "Tải dữ liệu từ ngày này"
 
 msgid "Metadata ID scheme"
 msgstr "Lược đồ ID siêu dữ liệu"
@@ -167,7 +172,7 @@ msgid "Hide"
 msgstr "Ẩn"
 
 msgid "all"
-msgstr ""
+msgstr "tất cả"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} bị khóa với {{axisName}} cho {{visTypeName}}"
@@ -191,16 +196,16 @@ msgid "None selected"
 msgstr "Chưa lựa chọn"
 
 msgid "None in use"
-msgstr ""
+msgstr "Không có cái đang sử dụng"
 
 msgid "Only '{{- name}}' in use"
-msgstr "Chỉ sử dụng tên"
+msgstr "Chỉ có {{- name}}  đang được sử dụng"
 
 msgid "Only {{number}} in use"
-msgstr ""
+msgstr "Chỉ có {{number}}đang được sử dụng"
 
 msgid "All items are selected"
-msgstr ""
+msgstr "Tất cả các mục được chọn"
 
 msgid "Levels"
 msgstr "Các cấp độ"
@@ -332,7 +337,7 @@ msgid "Axis title"
 msgstr "Tiêu đề trục"
 
 msgid "Auto generated from axis items"
-msgstr ""
+msgstr "Auto generated from axis items"
 
 msgid "None"
 msgstr "Không"
@@ -344,7 +349,7 @@ msgid "Add a title"
 msgstr "Thêm tiêu đề"
 
 msgid "Reset style to default"
-msgstr ""
+msgstr "Đặt lại phong cách về mặc định"
 
 msgid "Base line"
 msgstr "Đường cơ sở"
@@ -359,10 +364,10 @@ msgid "Default"
 msgstr "Mặc định"
 
 msgid "Basic"
-msgstr ""
+msgstr "Cơ bản"
 
 msgid "Extended"
-msgstr ""
+msgstr "Mở rộng"
 
 msgid "Bright"
 msgstr "Sáng"
@@ -392,13 +397,14 @@ msgid "Cumulative values"
 msgstr "Các giá trị tích lũy"
 
 msgid "Accumulate cell values along rows"
-msgstr ""
+msgstr "Tích lũy giá trị ô dọc theo các hàng"
 
 msgid "Show data item icon"
-msgstr ""
+msgstr "Hiển thị biểu tượng mục dữ liệu"
 
 msgid "If the data item has an icon, display it next to the value"
 msgstr ""
+"Nếu mục dữ liệu có biểu tượng, hãy hiển thị biểu tượng đó bên cạnh giá trị"
 
 msgid "Digit group separator"
 msgstr "Khoảng cách nhóm chữ số"
@@ -422,28 +428,29 @@ msgid "Compact"
 msgstr "Gọn nhẹ"
 
 msgid "Extreme lines"
-msgstr ""
+msgstr "Extreme lines"
 
 msgid "Calculated as a percent, usually 1%, of the total values along an axis"
 msgstr ""
+"Được tính theo phần trăm, thường là 1%, của tổng giá trị dọc theo một trục"
 
 msgid "Extreme line % detection"
-msgstr ""
+msgstr "Phát hiện % đường cực đại"
 
 msgid "Number"
 msgstr "Số"
 
 msgid "Fix column headers to top of table"
-msgstr ""
+msgstr "Cố định tiêu đề cột vào đầu bảng"
 
 msgid "There aren’t any column headers because Columns is empty."
-msgstr ""
+msgstr "Không có tiêu đề cột nào vì Cột trống."
 
 msgid "Fix row headers to left of table"
-msgstr ""
+msgstr "Sửa tiêu đề hàng ở bên trái bảng"
 
 msgid "There aren’t any row headers because Rows is empty."
-msgstr ""
+msgstr "Không có tiêu đề hàng nào vì Hàng trống."
 
 msgid "Font size"
 msgstr "Cỡ chữ"
@@ -488,19 +495,19 @@ msgid "Chart title"
 msgstr "Tiêu đề của biểu đồ"
 
 msgid "Use legend for chart colors"
-msgstr ""
+msgstr "Sử dụng chú giải cho màu biểu đồ"
 
 msgid "Legend style"
-msgstr "Mẫu chú thích"
+msgstr "Mẫu chú giải"
 
 msgid "Legend type"
-msgstr "Loại Chú Thích"
+msgstr "Loại Chú giải"
 
 msgid "Use pre-defined legend by data item"
-msgstr ""
+msgstr "Sử dụng các chú giải định nghĩa trước bởi các mục dữ liệu"
 
 msgid "Select a legend"
-msgstr ""
+msgstr "Chọn một chú giải"
 
 msgid "Legend changes background color"
 msgstr "Chú giải thay đổi màu nền"
@@ -509,7 +516,7 @@ msgid "Legend changes text color"
 msgstr "Chú giải thay đổi màu chữ"
 
 msgid "Legend"
-msgstr "Chú Thích"
+msgstr "Chú Giải"
 
 msgid "Select from legends"
 msgstr "Chọn từ các chú giải"
@@ -522,6 +529,9 @@ msgid ""
 "visualization, all values outside of the minimum/maximum range will not be "
 "displayed"
 msgstr ""
+"Bạn có thể đặt giá trị tối thiểu hoặc tối đa. Điều này sẽ áp dụng cho toàn "
+"bộ bảng biểu, tất cả các giá trị nằm ngoài phạm vi tối thiểu/tối đa sẽ không"
+" được hiển thị"
 
 msgid "Minimum data value"
 msgstr "Giá trị dữ liệu tối thiểu"
@@ -555,42 +565,51 @@ msgid ""
 "different data. Check the documentation for help to choose the right outlier"
 " detection method"
 msgstr ""
+"Mỗi phương pháp phát hiện xác định các giá trị ngoại lệ theo những cách khác"
+" nhau và phù hợp với dữ liệu khác nhau. Kiểm tra tài liệu để được trợ giúp "
+"chọn phương pháp phát hiện giá trị ngoại lệ phù hợp"
 
 msgid "Threshold factor"
-msgstr ""
+msgstr "Yếu tố ngưỡng"
 
 msgid ""
 "A high value is more sensitive so fewer data items will be identified as "
 "outliers"
 msgstr ""
+"Giá trị cao nhạy cảm hơn nên ít mục dữ liệu được xác định là giá trị ngoại "
+"lệ"
 
 msgid "Interquartile Range (IQR)"
-msgstr ""
+msgstr "Khoảng tứ phân vị (IQR)"
 
 msgid "Z-score / Standard score"
-msgstr ""
+msgstr "Điểm Z / Điểm chuẩn"
 
 msgid "Modified Z-score"
-msgstr ""
+msgstr "Chỉnh sửa điểm Z"
 
 msgid "Outlier analysis"
-msgstr ""
+msgstr "Phân tích ngoại lệ"
 
 msgid ""
 "Outlier analysis detects and highlights data items that are markedly "
 "different from the rest of the data"
 msgstr ""
+"Phân tích ngoại lệ phát hiện và nêu bật những dữ liệu được đánh dấu là khác "
+"xa so với các dữ liệu còn lại"
 
 msgid "Outlier detection method"
-msgstr ""
+msgstr "Phương pháp phát hiện dữ liệu Ngoại lệ"
 
 msgid "Max results"
-msgstr ""
+msgstr "Kết quả tối đa"
 
 msgid ""
 "The maximum number of outlier values to show in the table. Must be between "
 "1-500."
 msgstr ""
+"Số lượng tối đa các giá trị ngoại lệ hiển thị trong bảng. Phải nằm trong "
+"khoảng từ 1-500."
 
 msgid "Organisation unit"
 msgstr "Đơn vị"
@@ -662,7 +681,7 @@ msgstr ""
 msgid ""
 "Series options are not available when a series item has an \"All items\" "
 "selection"
-msgstr ""
+msgstr "Tùy chọn chuỗi không khả dụng khi mục chuỗi có lựa chọn \"Tất cả mục\""
 
 msgid "Value labels"
 msgstr "Nhãn giá trị"
@@ -677,7 +696,7 @@ msgid "Show legend key"
 msgstr "Hiển thị khóa chú giải"
 
 msgid "Show series key"
-msgstr ""
+msgstr "Hiển thị khóa series"
 
 msgid "Skip rounding"
 msgstr "Không làm tròn"
@@ -710,16 +729,16 @@ msgid "Options"
 msgstr "Tùy chọn"
 
 msgid "Change org unit"
-msgstr ""
+msgstr "Thay đổi đơn vị"
 
 msgid "{{level}} level in {{orgunit}}"
-msgstr ""
+msgstr "{{level}}cấp độ trong {{orgunit}}"
 
 msgid "Sort ascending by {{columnName}} and update"
-msgstr ""
+msgstr "Sắp xếp tăng dần theo {{columnName}} và cập nhật"
 
 msgid "Sort descending by {{columnName}} and update"
-msgstr ""
+msgstr "Sắp xếp giảm dần theo {{columnName}}và cập nhật"
 
 msgid "Open as Map"
 msgstr "Mở dưới dạng bản đồ"
@@ -734,31 +753,40 @@ msgid "Category option combination"
 msgstr "Phân loại tùy chọn kết hợp"
 
 msgid "Absolute deviation"
-msgstr ""
+msgstr "Độ lệch tuyệt đối"
 
 msgid ""
 "A measure of the absolute difference between each data point and a central "
 "value, usually the mean or median, providing a straightforward understanding"
 " of dispersion in the dataset."
 msgstr ""
+"Một thước đo sự khác biệt tuyệt đối giữa mỗi điểm dữ liệu và giá trị trung "
+"tâm, thường là giá trị trung bình hoặc trung vị, cung cấp sự hiểu biết trực "
+"tiếp về độ phân tán trong tập dữ liệu."
 
 msgid ""
 "A measure of how far a data point deviates from the median, using the median"
 " absolute deviation instead of the standard deviation, making it robust "
 "against outliers."
 msgstr ""
+"Một thước đo về mức độ lệch của điểm dữ liệu so với trung vị, sử dụng độ "
+"lệch tuyệt đối của trung vị thay vì độ lệch chuẩn, giúp dữ liệu mạnh mẽ hơn "
+"trước các giá trị ngoại lai."
 
 msgid "Median"
-msgstr ""
+msgstr "Trung vị"
 
 msgid ""
 "The middle value in a dataset when the values are arranged in ascending or "
 "descending order. It's a robust measure of central tendency that is less "
 "affected by outliers compared to the mean."
 msgstr ""
+"Giá trị trung bình trong một tập dữ liệu khi các giá trị được sắp xếp theo "
+"thứ tự tăng dần hoặc giảm dần. Đây là thước đo mạnh mẽ về xu hướng trung tâm"
+" ít bị ảnh hưởng bởi các giá trị ngoại lai so với giá trị trung bình."
 
 msgid "Median absolute deviation"
-msgstr ""
+msgstr "Độ lệch tuyệt đối trung vị"
 
 msgid ""
 "A robust measure of variability, found by calculating the median of the "
@@ -766,36 +794,46 @@ msgid ""
 "less influenced by outliers compared to other measures like the standard "
 "deviation."
 msgstr ""
+"Một biện pháp mạnh mẽ về sự biến động, được tìm thấy bằng cách tính toán "
+"trung vị của các khác biệt tuyệt đối giữa mỗi điểm dữ liệu và trung vị tổng "
+"thể. Nó ít bị ảnh hưởng bởi các giá trị ngoại lệ so với các biện pháp khác "
+"như độ lệch chuẩn."
 
 msgid "Z-score"
-msgstr ""
+msgstr "Điểm Z"
 
 msgid ""
 "A measure of how many standard deviations a data point is from the mean of a"
 " dataset, providing insight into how unusual or typical that data point is "
 "relative to the rest of the distribution."
 msgstr ""
+"Một thước đo cho biết số độ lệch chuẩn của một điểm dữ liệu so với giá trị "
+"trung bình của một tập dữ liệu, cung cấp thông tin chi tiết về mức độ bất "
+"thường hoặc điển hình của điểm dữ liệu đó so với phần còn lại của phân phối."
 
 msgid "Mean"
-msgstr ""
+msgstr "Giá Trị Trung Bình"
 
 msgid "Average of the value over time."
-msgstr ""
+msgstr "Giá trị trung bình theo thời gian."
 
 msgid ""
 "A measure of how dispersed the data is in relation to the mean. Low standard"
 " deviation indicates data are clustered tightly around the mean, and high "
 "standard deviation indicates data are more spread out."
 msgstr ""
+"Một thước đo về mức độ phân tán của dữ liệu so với giá trị trung bình. Độ "
+"lệch chuẩn thấp cho biết dữ liệu được nhóm chặt chẽ xung quanh giá trị trung"
+" bình, và độ lệch chuẩn cao cho biết dữ liệu được phân tán nhiều hơn."
 
 msgid "Minimum score threshold"
-msgstr ""
+msgstr "Mức Ngưỡng Tối Thiểu"
 
 msgid "Maximum score threshold"
-msgstr ""
+msgstr "Mức Ngưỡng Tối Đa"
 
 msgid "Not supported when using cumulative values"
-msgstr ""
+msgstr "Không được hỗ trợ khi sử dụng giá trị tích lũy"
 
 msgid "No data available"
 msgstr "Không có dữ liệu"
@@ -877,6 +915,8 @@ msgid ""
 "A single indicator or calculation must be the only data item when using "
 "indicators or calculations as Data in Filter."
 msgstr ""
+"Chỉ số hoặc phép tính duy nhất phải là mục dữ liệu duy nhất khi sử dụng chỉ "
+"số hoặc phép tính làm Dữ liệu trong Bộ lọc."
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
 msgstr ""
@@ -915,18 +955,20 @@ msgstr ""
 "không chính xác hoặc có thể đã bị xóa."
 
 msgid "No organization units found"
-msgstr ""
+msgstr "Không tìm thấy đơn vị nào"
 
 msgid "The level or group selections didn't return any organization units."
-msgstr ""
+msgstr "Cấp độ và nhóm đơn vị được chọn không trả về bất kỳ đơn vị nào"
 
 msgid "Invalid data type"
-msgstr ""
+msgstr "Kiểu dữ liệu không hợp lệ"
 
 msgid ""
 "The selected data dimensions didn't return any valid data. This "
 "visualization type can only display numerical data."
 msgstr ""
+"Các kích thước dữ liệu đã chọn không trả về bất kỳ dữ liệu hợp lệ nào. Kiểu "
+"trực quan hóa này chỉ có thể hiển thị dữ liệu số."
 
 msgid "Something went wrong"
 msgstr "Có lỗi"
@@ -935,15 +977,17 @@ msgid ""
 "There's a problem with the generated analytics. Contact a system "
 "administrator."
 msgstr ""
+"Có vấn đề với phân tích được tạo. Hãy liên hệ với quản trị viên hệ thống."
 
 msgid "There's a syntax problem with the analytics request."
-msgstr ""
+msgstr "Có vấn đề về cú pháp với yêu cầu phân tích."
 
 msgid "No outliers found"
-msgstr ""
+msgstr "Không tìm thấy giá trị ngoại lệ"
 
 msgid "There were no outliers found for the selected data items and options."
 msgstr ""
+"Không tìm thấy giá trị ngoại lệ nào cho các mục dữ liệu và tùy chọn đã chọn."
 
 msgid "or"
 msgstr "hoặc"
@@ -1024,13 +1068,13 @@ msgid "Quarters this year"
 msgstr "Quý năm nay"
 
 msgid "This six-month"
-msgstr "Lần Sáu-Tháng này"
+msgstr "Sáu tháng - này"
 
 msgid "Last six-month"
-msgstr "6 tháng trước"
+msgstr "Sáu tháng - trước"
 
 msgid "Last 2 six-months"
-msgstr "2 sáu-tháng trước"
+msgstr "2 kỳ sáu tháng - trước"
 
 msgid "This financial year"
 msgstr "Năm tài chính này"
@@ -1069,12 +1113,16 @@ msgid ""
 "These options only apply to legacy tables like standard reports. Options set"
 " here will have no effect on tables made in Data Visualizer."
 msgstr ""
+"Các tùy chọn này chỉ áp dụng cho các bảng cũ như báo cáo chuẩn. Các tùy chọn"
+" được đặt ở đây sẽ không có tác dụng đối với các bảng được tạo trong Trực "
+"Quan Hóa Dữ Liệu"
 
 msgid "Applies to standard reports only"
-msgstr ""
+msgstr "Chỉ áp dụng cho báo cáo chuẩn"
 
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
+"Các đường cơ sở và đường mục tiêu có sẵn trên tab Trục cho biểu đồ phân tán"
 
 msgid "Color set"
 msgstr "Bộ màu"
@@ -1085,6 +1133,8 @@ msgstr "Bộ màu chưa được hỗ trợ khi sử dụng nhiều trục"
 msgid ""
 "Base and target lines are available on the Axes tab for multi-axis charts"
 msgstr ""
+"Các đường cơ sở và đường mục tiêu có sẵn trên tab Trục cho biểu đồ nhiều "
+"trục"
 
 msgid "Chart style"
 msgstr "Dạng biểu đồ"
@@ -1096,7 +1146,7 @@ msgid "Empty data"
 msgstr "Dữ liệu trống"
 
 msgid "Horizontal (x) axis {{axisId}}"
-msgstr ""
+msgstr "Trục ngang (x) {{axisId}}"
 
 msgid "Horizontal (x) axis"
 msgstr "Trục ngang (x)"
@@ -1108,10 +1158,10 @@ msgid "Totals"
 msgstr "Tổng"
 
 msgid "Totals are not supported when using cumulative values"
-msgstr ""
+msgstr "Tổng số không được hỗ trợ khi sử dụng giá trị tích lũy"
 
 msgid "Vertical (y) axis {{axisId}}"
-msgstr ""
+msgstr "Trục dọc (y){{axisId}}"
 
 msgid "Vertical (y) axis"
 msgstr "Dục dọc (y)"
@@ -1213,9 +1263,12 @@ msgid ""
 "Compare the relationship between two data items across multiple places. "
 "Recommended for visualizing outliers."
 msgstr ""
+"So sánh mối quan hệ giữa hai mục dữ liệu ở nhiều nơi. Khuyến nghị để trực "
+"quan hóa các giá trị ngoại lai."
 
 msgid "Automatically identify extreme outliers based on historical data."
 msgstr ""
+"Tự động xác định các giá trị ngoại lệ cực đoan dựa trên dữ liệu lịch sử."
 
 msgid "Weeks per year"
 msgstr "Hàng tuần mỗi năm"
