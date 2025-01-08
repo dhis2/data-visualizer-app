@@ -43,6 +43,7 @@ import {
 } from '../../elements/pivotTable.js'
 import { goToStartPage } from '../../elements/startScreen.js'
 import { changeVisType } from '../../elements/visualizationTypeSelector.js'
+import { getPreviousYearStr } from '../../helpers/period.js'
 import { TEST_CUSTOM_DIMENSIONS } from '../../utils/data.js'
 
 const AREA_DIMENSION = TEST_CUSTOM_DIMENSIONS.find((dim) => dim.name === 'Area')
@@ -69,7 +70,7 @@ describe('Options - Column totals', () => {
         selectDataElements(['ART enrollment stage 1'])
         clickDimensionModalHideButton()
 
-        const year = (new Date().getFullYear() - 1).toString()
+        const year = getPreviousYearStr()
         openDimension(DIMENSION_ID_PERIOD)
         unselectAllItemsByButton()
         selectFixedPeriodYear(year)
@@ -97,7 +98,7 @@ describe('Options - Column totals', () => {
         ])
         clickDimensionModalHideButton()
 
-        const year = (new Date().getFullYear() - 1).toString()
+        const year = getPreviousYearStr()
         openDimension(DIMENSION_ID_PERIOD)
         unselectAllItemsByButton()
         selectFixedPeriodYear(year)
@@ -161,7 +162,7 @@ describe('Options - Row totals', () => {
             selectDataItems(['BCG doses'])
             clickDimensionModalHideButton()
 
-            const year = (new Date().getFullYear() - 1).toString()
+            const year = getPreviousYearStr()
             openDimension(DIMENSION_ID_PERIOD)
             unselectAllItemsByButton()
             selectFixedPeriodYear(year)

@@ -54,6 +54,7 @@ import {
 } from '../../elements/pivotTable.js'
 import { goToStartPage } from '../../elements/startScreen.js'
 import { changeVisType } from '../../elements/visualizationTypeSelector.js'
+import { getPreviousYearStr } from '../../helpers/period.js'
 import { TEST_DATA_ELEMENTS } from '../../utils/data.js'
 
 const cumulativeValuesOptionEl = 'option-cumulative-values'
@@ -176,7 +177,7 @@ describe('Options - Cumulative values', () => {
             openContextMenu(DIMENSION_ID_PERIOD)
             clickContextMenuMove(DIMENSION_ID_PERIOD, AXIS_ID_COLUMNS)
 
-            const year = (new Date().getFullYear() - 1).toString()
+            const year = getPreviousYearStr()
 
             openDimension(DIMENSION_ID_PERIOD)
             unselectAllItemsByButton()
@@ -253,7 +254,7 @@ describe('Options - Cumulative values', () => {
             selectDataItems(['BCG doses'])
             clickDimensionModalHideButton()
 
-            const year = (new Date().getFullYear() - 1).toString()
+            const year = getPreviousYearStr()
             openDimension(DIMENSION_ID_PERIOD)
             unselectAllItemsByButton()
             selectFixedPeriodYear(year)

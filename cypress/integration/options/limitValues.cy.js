@@ -38,9 +38,10 @@ import {
     goToStartPage,
 } from '../../elements/startScreen.js'
 import { changeVisType } from '../../elements/visualizationTypeSelector.js'
+import { getPreviousYearStr } from '../../helpers/period.js'
 
 const TEST_INDICATOR = 'ANC visits total'
-const year = (new Date().getFullYear() - 1).toString()
+const year = getPreviousYearStr()
 const expectTableValueToBe = (value, position) =>
     cy
         .getBySel('visualization-container')
