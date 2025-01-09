@@ -139,6 +139,7 @@ export {
 
 export {
     selectRelativePeriods,
+    selectFixedPeriodYear,
     selectFixedPeriods,
     expectPeriodDimensionModalToBeVisible,
     expectRelativePeriodTypeToBe,

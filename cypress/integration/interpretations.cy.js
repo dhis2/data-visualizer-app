@@ -1,4 +1,4 @@
-import { VIS_TYPE_BAR } from '@dhis2/analytics'
+import { VIS_TYPE_LINE } from '@dhis2/analytics'
 import {
     expectAOTitleToBeValue,
     expectVisualizationToBeVisible,
@@ -9,8 +9,8 @@ import { goToStartPage } from '../elements/startScreen.js'
 describe('Interpretations', () => {
     it('opens the interpretations modal on a saved AO', () => {
         const ao = {
-            name: 'ANC: 1 and 3 coverage Yearly',
-            type: VIS_TYPE_BAR,
+            name: 'ANC: 1-3 trend lines last 12 months',
+            type: VIS_TYPE_LINE,
         }
 
         // Open the saved AO

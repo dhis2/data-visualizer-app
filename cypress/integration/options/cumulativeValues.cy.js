@@ -23,6 +23,7 @@ import {
     selectDataItems,
     selectFixedPeriods,
     unselectAllItemsByButton,
+    selectFixedPeriodYear,
 } from '../../elements/dimensionModal/index.js'
 import { openDimension } from '../../elements/dimensionsPanel.js'
 import { clickContextMenuMove, openContextMenu } from '../../elements/layout.js'
@@ -53,6 +54,7 @@ import {
 } from '../../elements/pivotTable.js'
 import { goToStartPage } from '../../elements/startScreen.js'
 import { changeVisType } from '../../elements/visualizationTypeSelector.js'
+import { getPreviousYearStr } from '../../helpers/period.js'
 import { TEST_DATA_ELEMENTS } from '../../utils/data.js'
 
 const cumulativeValuesOptionEl = 'option-cumulative-values'
@@ -175,10 +177,11 @@ describe('Options - Cumulative values', () => {
             openContextMenu(DIMENSION_ID_PERIOD)
             clickContextMenuMove(DIMENSION_ID_PERIOD, AXIS_ID_COLUMNS)
 
-            const year = new Date().getFullYear().toString()
+            const year = getPreviousYearStr()
 
             openDimension(DIMENSION_ID_PERIOD)
             unselectAllItemsByButton()
+            selectFixedPeriodYear(year)
             selectFixedPeriods(
                 [`October ${year}`, `November ${year}`, `December ${year}`],
                 'Monthly'
@@ -251,9 +254,10 @@ describe('Options - Cumulative values', () => {
             selectDataItems(['BCG doses'])
             clickDimensionModalHideButton()
 
-            const year = new Date().getFullYear().toString()
+            const year = getPreviousYearStr()
             openDimension(DIMENSION_ID_PERIOD)
             unselectAllItemsByButton()
+            selectFixedPeriodYear(year)
             selectFixedPeriods([`October ${year}`], 'Monthly')
 
             clickDimensionModalHideButton()

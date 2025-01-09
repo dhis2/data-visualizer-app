@@ -41,6 +41,13 @@ export const selectFixedPeriods = (periods, periodType) => {
     periods.forEach((item) => clickSourceOption(item))
 }
 
+export const selectFixedPeriodYear = (year) => {
+    switchToFixedPeriods()
+    cy.getBySel('period-dimension-fixed-period-filter-year-content')
+        .clear()
+        .type(year)
+}
+
 const clickSourceOption = (itemName) =>
     cy.getBySel(selectableItemsEl).contains(itemName).dblclick()
 

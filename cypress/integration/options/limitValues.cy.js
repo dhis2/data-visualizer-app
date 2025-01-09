@@ -11,6 +11,7 @@ import {
     clickDimensionModalUpdateButton,
     unselectAllItemsByButton,
     selectFixedPeriods,
+    selectFixedPeriodYear,
 } from '../../elements/dimensionModal/index.js'
 import { openDimension } from '../../elements/dimensionsPanel.js'
 import {
@@ -37,9 +38,10 @@ import {
     goToStartPage,
 } from '../../elements/startScreen.js'
 import { changeVisType } from '../../elements/visualizationTypeSelector.js'
+import { getPreviousYearStr } from '../../helpers/period.js'
 
 const TEST_INDICATOR = 'ANC visits total'
-const currentYear = new Date().getFullYear().toString()
+const year = getPreviousYearStr()
 const expectTableValueToBe = (value, position) =>
     cy
         .getBySel('visualization-container')
@@ -61,13 +63,14 @@ describe('limit values', () => {
         clickDimensionModalUpdateButton()
         openDimension(DIMENSION_ID_PERIOD)
         unselectAllItemsByButton()
+        selectFixedPeriodYear(year)
         selectFixedPeriods(
             [
-                `January ${currentYear}`,
-                `February ${currentYear}`,
-                `March ${currentYear}`,
-                `April ${currentYear}`,
-                `May ${currentYear}`,
+                `January ${year}`,
+                `February ${year}`,
+                `March ${year}`,
+                `April ${year}`,
+                `May ${year}`,
             ],
             'Monthly'
         )

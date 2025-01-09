@@ -35,14 +35,12 @@ export const replacePeriodItems = (
     if (isYearOverYear(visType)) {
         const TEST_PERIOD = !useAltData
             ? 'Last 2 six-months'
-            : 'Quarters per year'
+            : 'Last 4 quarters'
         selectYoyCategoryOption(TEST_PERIOD)
         clickMenuBarUpdateButton()
     } else {
         const TEST_PERIOD_TYPE = !useAltData ? 'Six-months' : 'Quarters'
-        const TEST_PERIOD = !useAltData
-            ? 'Last 2 six-month'
-            : 'Quarters this year'
+        const TEST_PERIOD = !useAltData ? 'Last 2 six-month' : 'Last 4 quarters'
         openDimension(DIMENSION_ID_PERIOD)
         unselectAllItemsByButton()
         selectRelativePeriods([TEST_PERIOD], TEST_PERIOD_TYPE)

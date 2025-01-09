@@ -16,6 +16,7 @@ import {
     selectAllItemsByButton,
     selectDataElements,
     selectDataItems,
+    selectFixedPeriodYear,
     selectFixedPeriods,
     unselectAllItemsByButton,
 } from '../../elements/dimensionModal/index.js'
@@ -42,6 +43,7 @@ import {
 } from '../../elements/pivotTable.js'
 import { goToStartPage } from '../../elements/startScreen.js'
 import { changeVisType } from '../../elements/visualizationTypeSelector.js'
+import { getPreviousYearStr } from '../../helpers/period.js'
 import { TEST_CUSTOM_DIMENSIONS } from '../../utils/data.js'
 
 const AREA_DIMENSION = TEST_CUSTOM_DIMENSIONS.find((dim) => dim.name === 'Area')
@@ -68,9 +70,10 @@ describe('Options - Column totals', () => {
         selectDataElements(['ART enrollment stage 1'])
         clickDimensionModalHideButton()
 
-        const year = new Date().getFullYear().toString()
+        const year = getPreviousYearStr()
         openDimension(DIMENSION_ID_PERIOD)
         unselectAllItemsByButton()
+        selectFixedPeriodYear(year)
         selectFixedPeriods(
             [`May ${year}`, `June ${year}`, `July ${year}`],
             'Monthly'
@@ -95,9 +98,10 @@ describe('Options - Column totals', () => {
         ])
         clickDimensionModalHideButton()
 
-        const year = new Date().getFullYear().toString()
+        const year = getPreviousYearStr()
         openDimension(DIMENSION_ID_PERIOD)
         unselectAllItemsByButton()
+        selectFixedPeriodYear(year)
         selectFixedPeriods(
             [
                 `January ${year}`,
@@ -158,9 +162,10 @@ describe('Options - Row totals', () => {
             selectDataItems(['BCG doses'])
             clickDimensionModalHideButton()
 
-            const year = new Date().getFullYear().toString()
+            const year = getPreviousYearStr()
             openDimension(DIMENSION_ID_PERIOD)
             unselectAllItemsByButton()
+            selectFixedPeriodYear(year)
             selectFixedPeriods([`October ${year}`], 'Monthly')
 
             clickDimensionModalUpdateButton()
