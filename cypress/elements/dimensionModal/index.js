@@ -112,6 +112,8 @@ export {
     switchDataTab,
     expectDataDimensionModalWarningToContain,
     expectDataItemToBeInactive,
+    expectDataItemToShowDataType,
+    expectDataItemToShowInfoTable,
     expectDataDimensionModalToBeVisible,
     expectDataTypeToBe,
     expectDataTypeSelectHelpToContain,

@@ -4,7 +4,7 @@ exports[`The DialogManager component renders OUDimension content with display:no
 <Fragment>
   <Modal
     dataTest="dialog-manager-undefined"
-    large={true}
+    fluid={true}
     onClose={[Function]}
     position="top"
   >
@@ -34,9 +34,7 @@ exports[`The DialogManager component renders OUDimension content with display:no
     <ModalActions
       dataTest="dialog-manager-modal-actions"
     >
-      <ButtonStrip
-        dataTest="dhis2-uicore-buttonstrip"
-      >
+      <ButtonStrip>
         <HideButton
           dataTest="dialog-manager-modal-action-cancel"
           onClick={[Function]}
@@ -56,7 +54,7 @@ exports[`The DialogManager component renders OUDimension content with display:no
 <Fragment>
   <Modal
     dataTest="dialog-manager-undefined"
-    large={true}
+    fluid={true}
     onClose={[Function]}
     position="top"
   >
@@ -92,9 +90,7 @@ exports[`The DialogManager component renders OUDimension content with display:no
     <ModalActions
       dataTest="dialog-manager-modal-actions"
     >
-      <ButtonStrip
-        dataTest="dhis2-uicore-buttonstrip"
-      >
+      <ButtonStrip>
         <HideButton
           dataTest="dialog-manager-modal-action-cancel"
           onClick={[Function]}
@@ -114,7 +110,7 @@ exports[`The DialogManager component renders the DataDimension content in dialog
 <Fragment>
   <Modal
     dataTest="dialog-manager-undefined"
-    large={true}
+    fluid={true}
     onClose={[Function]}
     position="top"
   >
@@ -136,9 +132,7 @@ exports[`The DialogManager component renders the DataDimension content in dialog
     <ModalActions
       dataTest="dialog-manager-modal-actions"
     >
-      <ButtonStrip
-        dataTest="dhis2-uicore-buttonstrip"
-      >
+      <ButtonStrip>
         <HideButton
           dataTest="dialog-manager-modal-action-cancel"
           onClick={[Function]}
@@ -156,7 +150,7 @@ exports[`The DialogManager component renders the OrgUnitDimension content in dia
 <Fragment>
   <Modal
     dataTest="dialog-manager-undefined"
-    large={true}
+    fluid={true}
     onClose={[Function]}
     position="top"
   >
@@ -186,9 +180,7 @@ exports[`The DialogManager component renders the OrgUnitDimension content in dia
     <ModalActions
       dataTest="dialog-manager-modal-actions"
     >
-      <ButtonStrip
-        dataTest="dhis2-uicore-buttonstrip"
-      >
+      <ButtonStrip>
         <HideButton
           dataTest="dialog-manager-modal-action-cancel"
           onClick={[Function]}
@@ -206,7 +198,7 @@ exports[`The DialogManager component renders the PeriodDimension content in dial
 <Fragment>
   <Modal
     dataTest="dialog-manager-undefined"
-    large={true}
+    fluid={true}
     onClose={[Function]}
     position="top"
   >
@@ -227,9 +219,7 @@ exports[`The DialogManager component renders the PeriodDimension content in dial
     <ModalActions
       dataTest="dialog-manager-modal-actions"
     >
-      <ButtonStrip
-        dataTest="dhis2-uicore-buttonstrip"
-      >
+      <ButtonStrip>
         <HideButton
           dataTest="dialog-manager-modal-action-cancel"
           onClick={[Function]}
