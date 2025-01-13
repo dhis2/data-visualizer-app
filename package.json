@@ -1,6 +1,6 @@
 {
     "name": "data-visualizer-app",
-    "version": "100.8.8",
+    "version": "100.9.0",
     "description": "DHIS2 Data Visualizer",
     "license": "BSD-3-Clause",
     "private": true,
@@ -41,12 +41,12 @@
         "typescript": "^4.8.4"
     },
     "dependencies": {
-        "@dhis2/analytics": "^26.9.3",
-        "@dhis2/app-runtime": "^3.10.4",
+        "@dhis2/analytics": "^26.10.0",
+        "@dhis2/app-runtime": "^3.11.3",
         "@dhis2/app-runtime-adapter-d2": "^1.1.0",
         "@dhis2/app-service-datastore": "^1.0.0-beta.3",
         "@dhis2/d2-i18n": "^1.1.0",
-        "@dhis2/ui": "^9.4.4",
+        "@dhis2/ui": "^10.1.10",
         "@krakenjs/post-robot": "^11.0.0",
         "d2": "^31.9.1",
         "decode-uri-component": "^0.2.2",
@@ -68,6 +68,6 @@
         "whatwg-fetch": "^3.6.2"
     },
     "resolutions": {
-        "@dhis2/ui": "^9.4.4"
+        "@dhis2/ui": "^10.1.10"
     }
 }

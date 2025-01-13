@@ -81,9 +81,15 @@ To select items for a dimension, open the dimension modal window by clicking on 
 
 #### Select data items
 
-When selecting data items, there are different ways to filter the displayed items. By using the search field at the top, a global search by item name is performed across the currently selected **Data Type**. By selecting a **Data Type** from the dropdown, items can be filtered by type and subtype, where the subtype available depends on the selected data type. The name search and the type/subtype filtering can be combined as well for a more detailed filter. The type of each displayed item is indicated by a corresponding icon on the item. By hovering over an item, the name of the type can be viewed as well.
+When selecting data items, there are different ways to filter the displayed items. By using the search field at the top, a global search by item name is performed across the currently selected **Data Type**. By selecting a **Data Type** from the dropdown, items can be filtered by type and subtype, where the subtype available depends on the selected data type. The name search and the type/subtype filtering can be combined as well for a more detailed filter. The type of each displayed item is indicated on the right and a corresponding icon is shown on the left of the item.
 
 ![](resources/images/data-visualizer-cc-data-modal.png)
+
+#### Display information about a data item
+
+On the right of each data item there is an information icon that can be clicked and a table with relevant information is shown. The information displayed depends on the item's data type.
+
+![](resources/images/data-visualizer-cc-data-modal-info.png)
 
 #### Using custom calculations { #data-visualizer-custom-calculations }
 
@@ -149,13 +155,13 @@ The resulting visualization is composed of separate charts, one for each item in
 
 The display of a visualization can be changed by enabling/disabling and configuring several options. Each visualization type can have a different set of available options. The options are organised in tabs in the **Options dialog** and in sections within each tab.
 
-1.  Click **Options** to open the **Options dialog**.
+1. Click **Options** to open the **Options dialog**.
 
-2.  Navigate the tabs in the dialog to see the available options.
+2. Navigate the tabs in the dialog to see the available options.
 
-3.  Configure the desired options as required.
+3. Configure the desired options as required.
 
-4.  Click **Update** to apply the changes to the visualization.
+4. Click **Update** to apply the changes to the visualization.
 
 ### List of available options
 
@@ -276,11 +282,11 @@ Saving your visualizations makes it easy to find them later. You can also choose
 
 ### Open a visualization
 
-1.  Click **File** \> **Open**.
+1. Click **File** \> **Open**.
 
-2.  Enter the name of a visualization in the search field, or click the **<** and **>** arrows to navigate between different pages. The result can also be filtered by type and owner by using the corresponding menus in the top right corner.
+2. Enter the name of a visualization in the search field, or click the **<** and **>** arrows to navigate between different pages. The result can also be filtered by type and owner by using the corresponding menus in the top right corner.
 
-3.  Click the name of the one you want to open.
+3. Click the name of the one you want to open.
 
 ![](resources/images/data-visualizer-open-dialog.png)
 
@@ -296,19 +302,19 @@ Saving your visualizations makes it easy to find them later. You can also choose
 
 ### Rename a visualization
 
-1.  Click **File** \> **Rename**.
+1. Click **File** \> **Rename**.
 
-2.  Enter the new name and/or description.
+2. Enter the new name and/or description.
 
-3.  Click **Rename**.
+3. Click **Rename**.
 
 ![](resources/images/data-visualizer-rename-dialog.png)
 
 ### Delete a visualization
 
-1.  Click **File** \> **Delete**.
+1. Click **File** \> **Delete**.
 
-2.  Click **Delete**.
+2. Click **Delete**.
 
 ![](resources/images/data-visualizer-delete-dialog.png)
 
