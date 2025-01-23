@@ -49,6 +49,7 @@ import {
     acSetUiItems,
     acAddParentGraphMap,
     acSetUiItemAttributes,
+    acSetUiOptionSetItemByItem,
 } from '../../../actions/ui.js'
 import { removeLastPathSegment, getOuPath } from '../../../modules/orgUnit.js'
 import {
@@ -63,7 +64,6 @@ import {
     sGetSettingsDisplayNameProperty,
 } from '../../../reducers/settings.js'
 import {
-    sGetUiItems,
     sGetUiItemsByDimension,
     sGetUiActiveModalDialog,
     sGetUiParentGraphMap,
@@ -71,6 +71,7 @@ import {
     sGetAxisIdByDimensionId,
     sGetDimensionIdsFromLayout,
     sGetUiItemsByAttribute,
+    sGetUiOptionSetItemByItem,
 } from '../../../reducers/ui.js'
 import HideButton from '../../HideButton/HideButton.js'
 import UpdateButton from '../../UpdateButton/UpdateButton.js'
@@ -134,16 +135,33 @@ export class DialogManager extends Component {
     }, 1000)
 
     selectUiItems = ({ dimensionId, items, itemAttribute }) => {
+        const itemIds = []
+
+        items.map((item) => {
+            itemIds.push(item.id)
+
+            if (item.optionSet?.id) {
+                this.props.setUiOptionSetItemByItem({
+                    itemId: item.id,
+                    optionSetItem: {
+                        id: item.optionSet.id,
+                        options: item.optionSet.options || [],
+                        aggregation: item.optionSet.aggregation || undefined,
+                    },
+                })
+            }
+        })
+
         if (itemAttribute) {
             this.props.setUiItemAttributes({
                 dimensionId,
                 attribute: itemAttribute,
-                itemIds: items.map((item) => item.id),
+                itemIds,
             })
         } else {
             this.props.setUiItems({
                 dimensionId,
-                itemIds: items.map((item) => item.id),
+                itemIds,
             })
         }
 
@@ -184,6 +202,9 @@ export class DialogManager extends Component {
                             ...(item.expression
                                 ? { expression: item.expression }
                                 : {}),
+                            ...(item.optionSetId
+                                ? { optionSetId: item.optionSetId }
+                                : {}),
                         }
 
                         return obj
@@ -198,7 +219,7 @@ export class DialogManager extends Component {
     getSelectedItems = (dialogId) => {
         const items = isScatterAttribute(dialogId)
             ? this.props.getItemsByAttribute(dialogId)
-            : this.props.selectedItems[dialogId]
+            : this.props.selectedItems(dialogId)
         return (items || [])
             .filter(
                 (id) =>
@@ -214,6 +235,12 @@ export class DialogManager extends Component {
                 ...(this.props.metadata[id]?.expression
                     ? {
                           expression: this.props.metadata[id].expression,
+                      }
+                    : {}),
+                ...(this.props.metadata[id]?.optionSetId
+                    ? {
+                          optionSetId: this.props.metadata[id].optionSetId,
+                          optionSet: this.props.getOptionSetItemByItem(id),
                       }
                     : {}),
                 access: this.props.metadata[id]?.access,
@@ -346,6 +373,7 @@ export class DialogManager extends Component {
                               itemAttribute: dialogId,
                           })
                     : dimensionProps.onSelect
+
                 const onCalculationSave = (calculation) => {
                     this.props.addMetadata({
                         [calculation.id]: {
@@ -550,12 +578,14 @@ DialogManager.propTypes = {
     dxIds: PropTypes.array,
     getAxisIdByDimensionId: PropTypes.func,
     getItemsByAttribute: PropTypes.func,
+    getOptionSetItemByItem: PropTypes.func,
     metadata: PropTypes.object,
     parentGraphMap: PropTypes.object,
     rootOrgUnits: PropTypes.array,
     selectedItems: PropTypes.object,
     setUiItemAttributes: PropTypes.func,
     setUiItems: PropTypes.func,
+    setUiOptionSetItemByItem: PropTypes.func,
     settings: PropTypes.object,
     type: PropTypes.string,
 }
@@ -575,7 +605,7 @@ const mapStateToProps = (state) => ({
     dxIds: sGetUiItemsByDimension(state, DIMENSION_ID_DATA),
     ouIds: sGetUiItemsByDimension(state, DIMENSION_ID_ORGUNIT),
     rootOrgUnits: sGetRootOrgUnits(state),
-    selectedItems: sGetUiItems(state),
+    selectedItems: (dimensionId) => sGetUiItemsByDimension(state, dimensionId),
     settings: sGetSettings(state),
     type: sGetUiType(state),
     getAxisIdByDimensionId: (dimensionId) =>
@@ -583,6 +613,8 @@ const mapStateToProps = (state) => ({
     dimensionIdsInLayout: sGetDimensionIdsFromLayout(state),
     getItemsByAttribute: (attribute) =>
         sGetUiItemsByAttribute(state, attribute),
+    getOptionSetItemByItem: (itemId) =>
+        sGetUiOptionSetItemByItem(state, itemId),
 })
 
 export default connect(mapStateToProps, {
@@ -592,4 +624,5 @@ export default connect(mapStateToProps, {
     addMetadata: acAddMetadata,
     addParentGraphMap: acAddParentGraphMap,
     setUiItemAttributes: acSetUiItemAttributes,
+    setUiOptionSetItemByItem: acSetUiOptionSetItemByItem,
 })(DialogManager)
