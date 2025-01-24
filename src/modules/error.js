@@ -369,6 +369,18 @@ export class NoOutliersError extends VisualizationError {
     }
 }
 
+export class VisualizationTypeOptionSetCombinationError extends VisualizationError {
+    constructor() {
+        super(
+            EmptyBox,
+            i18n.t('Invalid visualization type'),
+            i18n.t(
+                'The visualization type cannot be used when option set data items are using individual output mode. Change output mode to combined, or use another visualization type.'
+            )
+        )
+    }
+}
+
 export const genericErrorTitle = i18n.t('Something went wrong')
 
 const getAvailableAxesDescription = (visType) => {

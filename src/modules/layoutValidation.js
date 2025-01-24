@@ -25,6 +25,7 @@ import {
     NoVerticalError,
     NoHorizontalError,
     DuplicateItemsError,
+    VisualizationTypeOptionSetCombinationError,
 } from './error.js'
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields.js'
 import { ITEM_ATTRIBUTE_HORIZONTAL, ITEM_ATTRIBUTE_VERTICAL } from './ui.js'
@@ -94,16 +95,25 @@ const validatePieLayout = (layout) => {
     )
 }
 
+// also used for Gauge
 const validateSingleValueLayout = (layout) => {
-    validateDimension(
-        layoutGetDimension(layout, DIMENSION_ID_DATA),
-        new NoDataError(layout.type)
-    )
+    const dxLayoutDimension = layoutGetDimension(layout, DIMENSION_ID_DATA)
+
+    validateDimension(dxLayoutDimension, new NoDataError(layout.type))
 
     validateDimension(
         layoutGetDimension(layout, DIMENSION_ID_PERIOD),
         new NoPeriodError(layout.type)
     )
+
+    if (dxLayoutDimension.items.length && layout.ui.optionSetItemByItem) {
+        const dxDataItemOptionSet =
+            layout.ui.optionSetItemByItem[dxLayoutDimension.items[0]]
+
+        if (dxDataItemOptionSet?.aggregation === 'DISAGGREGATED') {
+            throw new VisualizationTypeOptionSetCombinationError()
+        }
+    }
 }
 
 const validateScatterLayout = (layout) => {
