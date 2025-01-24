@@ -74,6 +74,7 @@ export const ADD_UI_LAYOUT_DIMENSIONS = 'ADD_UI_LAYOUT_DIMENSIONS'
 export const REMOVE_UI_LAYOUT_DIMENSIONS = 'REMOVE_UI_LAYOUT_DIMENSIONS'
 export const SET_UI_ITEMS = 'SET_UI_ITEMS'
 export const REMOVE_UI_ITEMS = 'REMOVE_UI_ITEMS'
+export const SET_UI_OPTION_SET_ITEM_BY_ITEM = 'SET_UI_OPTION_SET_ITEM_BY_ITEM'
 export const ADD_UI_PARENT_GRAPH_MAP = 'ADD_UI_PARENT_GRAPH_MAP'
 export const SET_UI_ACTIVE_MODAL_DIALOG = 'SET_UI_ACTIVE_MODAL_DIALOG'
 export const SET_UI_YEAR_ON_YEAR_SERIES = 'SET_UI_YEAR_ON_YEAR_SERIES'
@@ -99,6 +100,7 @@ export const DEFAULT_UI = {
         [DIMENSION_ID_ORGUNIT]: [],
         [DIMENSION_ID_PERIOD]: [],
     },
+    optionSetItemByItem: {},
     yearOverYearSeries: [],
     yearOverYearCategory: [],
     itemAttributes: [],
@@ -556,12 +558,22 @@ export default (state = DEFAULT_UI, action) => {
                     ...state.itemsByDimension,
                     [dimensionId]: itemIds,
                 },
+                // clean up optionSetItemByItem for dx
+                // this removes all stale objects for non-selected data items
+                ...(dimensionId === DIMENSION_ID_DATA
+                    ? {
+                          optionSetItemByItem: itemIds.reduce((obj, itemId) => {
+                              obj[itemId] = state.optionSetItemByItem[itemId]
+                              return obj
+                          }, {}),
+                      }
+                    : {}),
             }
         }
         case REMOVE_UI_ITEMS: {
             const { dimensionId, itemIdsToRemove } = action.value
 
-            const dxItems = (state.itemsByDimension[dimensionId] || []).filter(
+            const itemIds = (state.itemsByDimension[dimensionId] || []).filter(
                 (id) => !itemIdsToRemove.includes(id)
             )
 
@@ -569,7 +581,17 @@ export default (state = DEFAULT_UI, action) => {
                 ...state,
                 itemsByDimension: {
                     ...state.itemsByDimension,
-                    [dimensionId]: dxItems,
+                    [dimensionId]: itemIds,
+                },
+            }
+        }
+        case SET_UI_OPTION_SET_ITEM_BY_ITEM: {
+            const { itemId, optionSetItem } = action.value
+            return {
+                ...state,
+                optionSetItemByItem: {
+                    ...state.optionSetItemByItem,
+                    [itemId]: optionSetItem,
                 },
             }
         }
@@ -734,6 +756,7 @@ export const sGetUiActiveModalDialog = (state) =>
     sGetUi(state).activeModalDialog
 export const sGetUiRightSidebarOpen = (state) => sGetUi(state).rightSidebarOpen
 export const sGetAxes = (state) => sGetUi(state).axes
+export const sGetUiOptionSetItems = (state) => sGetUi(state).optionSetItemByItem
 
 // Selectors level 2
 
@@ -742,6 +765,9 @@ export const sGetAxisIdByDimensionId = (state, dimensionId) =>
 
 export const sGetUiItemsByDimension = (state, dimension) =>
     sGetUiItems(state)[dimension] || DEFAULT_UI.itemsByDimension[dimension]
+
+export const sGetUiOptionSetItemByItem = (state, itemId) =>
+    sGetUiOptionSetItems(state)[itemId]
 
 export const sGetDimensionItemsByAxis = (state, axisId) => {
     const dimensions = (sGetUiLayout(state) || {})[axisId] || []

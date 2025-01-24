@@ -12,6 +12,7 @@ import {
     REMOVE_UI_LAYOUT_DIMENSIONS,
     SET_UI_ITEMS,
     REMOVE_UI_ITEMS,
+    SET_UI_OPTION_SET_ITEM_BY_ITEM,
     ADD_UI_PARENT_GRAPH_MAP,
     SET_UI_ACTIVE_MODAL_DIALOG,
     SET_UI_YEAR_ON_YEAR_SERIES,
@@ -125,6 +126,11 @@ export const acSetUiItemAttributes = (value) => ({
 
 export const acRemoveUiItemAttributes = (value) => ({
     type: REMOVE_UI_ITEM_ATTRIBUTES,
+    value,
+})
+
+export const acSetUiOptionSetItemByItem = (value) => ({
+    type: SET_UI_OPTION_SET_ITEM_BY_ITEM,
     value,
 })
 
