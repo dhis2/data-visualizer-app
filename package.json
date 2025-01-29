@@ -1,6 +1,6 @@
 {
     "name": "data-visualizer-app",
-    "version": "100.9.0",
+    "version": "999.99.9-plugin-rc.2025-01-29",
     "description": "DHIS2 Data Visualizer",
     "license": "BSD-3-Clause",
     "private": true,
