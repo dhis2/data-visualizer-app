@@ -4,7 +4,7 @@ exports[`The DialogManager component renders OUDimension content with display:no
 <Fragment>
   <Modal
     dataTest="dialog-manager-undefined"
-    large={true}
+    fluid={true}
     onClose={[Function]}
     position="top"
   >
@@ -54,7 +54,7 @@ exports[`The DialogManager component renders OUDimension content with display:no
 <Fragment>
   <Modal
     dataTest="dialog-manager-undefined"
-    large={true}
+    fluid={true}
     onClose={[Function]}
     position="top"
   >
@@ -110,7 +110,7 @@ exports[`The DialogManager component renders the DataDimension content in dialog
 <Fragment>
   <Modal
     dataTest="dialog-manager-undefined"
-    large={true}
+    fluid={true}
     onClose={[Function]}
     position="top"
   >
@@ -150,7 +150,7 @@ exports[`The DialogManager component renders the OrgUnitDimension content in dia
 <Fragment>
   <Modal
     dataTest="dialog-manager-undefined"
-    large={true}
+    fluid={true}
     onClose={[Function]}
     position="top"
   >
@@ -198,7 +198,7 @@ exports[`The DialogManager component renders the PeriodDimension content in dial
 <Fragment>
   <Modal
     dataTest="dialog-manager-undefined"
-    large={true}
+    fluid={true}
     onClose={[Function]}
     position="top"
   >

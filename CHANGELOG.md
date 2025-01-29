@@ -1,3 +1,17 @@
+# [100.9.0](https://github.com/dhis2/data-visualizer-app/compare/v100.8.8...v100.9.0) (2025-01-09)
+
+
+### Features
+
+* display type and definitions for data items in data selector (DHIS2-14774) ([#3274](https://github.com/dhis2/data-visualizer-app/issues/3274)) ([f44897a](https://github.com/dhis2/data-visualizer-app/commit/f44897a90c2ef47b478788a3336e983e991f6c52))
+
+## [100.8.8](https://github.com/dhis2/data-visualizer-app/compare/v100.8.7...v100.8.8) (2024-12-22)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([157d99b](https://github.com/dhis2/data-visualizer-app/commit/157d99b0e1c84436ed5e8f0013290869ec4973d1))
+
 ## [100.8.7](https://github.com/dhis2/data-visualizer-app/compare/v100.8.6...v100.8.7) (2024-12-04)
 
 
