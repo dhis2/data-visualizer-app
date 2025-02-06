@@ -5,11 +5,16 @@ import { act } from 'react-dom/test-utils'
 import * as api from '../../../api/analytics.js'
 import * as moduleAnalytics from '../../../modules/analytics.js'
 import * as options from '../../../modules/options.js'
+import { VisualizationErrorInfo } from '../../Visualization/VisualizationErrorInfo.js'
 import ChartPlugin from '../ChartPlugin.js'
 import { VisualizationPlugin } from '../VisualizationPlugin.js'
 
 jest.mock('../ChartPlugin', () => jest.fn(() => null))
 jest.mock('../PivotPlugin', () => jest.fn(() => null))
+jest.mock('../../Visualization/VisualizationErrorInfo', () => ({
+    __esModule: true,
+    VisualizationErrorInfo: jest.fn(() => null),
+}))
 jest.mock('@dhis2/analytics', () => ({
     ...jest.requireActual('@dhis2/analytics'),
     apiFetchOrganisationUnitLevels: () =>
@@ -77,6 +82,7 @@ const metaDataMock = {
 
 const analyticsResponse = {
     metaData: metaDataMock,
+    rows: ['data'],
 }
 
 class MockAnalyticsResponse {
@@ -109,16 +115,15 @@ describe('VisualizationPlugin', () => {
         visualization: {},
         displayProperty: '',
         filters: {},
-        d2: {},
         forDashboard: false,
         onResponsesReceived: jest.fn(),
-        onError: jest.fn(),
     }
     const canvas = async (props) => {
         const combinedProps = {
             ...defaultProps,
             ...props,
         }
+
         let plugin
 
         await act(async () => {
@@ -132,8 +137,8 @@ describe('VisualizationPlugin', () => {
 
     beforeEach(() => {
         ChartPlugin.mockClear()
+        VisualizationErrorInfo.mockClear()
         defaultProps.onResponsesReceived.mockClear()
-        defaultProps.onError.mockClear()
 
         // eslint-disable-next-line no-import-assign, import/namespace
         api.apiFetchAnalytics = jest
@@ -170,7 +175,7 @@ describe('VisualizationPlugin', () => {
             ])
         })
 
-        it('calls onError callback when an exception is thrown', async () => {
+        it('renders the error component when an exception is thrown', async () => {
             // eslint-disable-next-line no-import-assign, import/namespace
             api.apiFetchAnalytics = jest.fn().mockRejectedValue('error')
 
@@ -180,7 +185,7 @@ describe('VisualizationPlugin', () => {
                 },
             })
 
-            expect(defaultProps.onError).toHaveBeenCalled()
+            expect(VisualizationErrorInfo).toHaveBeenCalled()
         })
 
         it('sets period when interpretation selected', async () => {
