@@ -13,7 +13,7 @@ import {
 } from '../../actions/ui.js'
 import { removeLastPathSegment } from '../../modules/orgUnit.js'
 import { sGetCurrent } from '../../reducers/current.js'
-import { sGetIsPluginLoading } from '../../reducers/loader.js'
+import { sGetIsPluginLoading, sGetLoadError } from '../../reducers/loader.js'
 import { sGetSettingsDisplayProperty } from '../../reducers/settings.js'
 import { sGetUiRightSidebarOpen } from '../../reducers/ui.js'
 import LoadingMask from '../../widgets/LoadingMask.js'
@@ -120,12 +120,17 @@ export class UnconnectedVisualization extends Component {
     }
 
     render() {
-        const { visualization, displayProperty, isLoading, onLoadingComplete } =
-            this.props
+        const {
+            visualization,
+            displayProperty,
+            error,
+            isLoading,
+            onLoadingComplete,
+        } = this.props
 
         const { renderId } = this.state
 
-        return !visualization ? (
+        return !visualization || error ? (
             <StartScreen />
         ) : (
             <Fragment>
@@ -154,6 +159,7 @@ UnconnectedVisualization.propTypes = {
     addMetadata: PropTypes.func,
     addParentGraphMap: PropTypes.func,
     displayProperty: PropTypes.string,
+    error: PropTypes.object,
     isLoading: PropTypes.bool,
     rightSidebarOpen: PropTypes.bool,
     setChart: PropTypes.func,
@@ -168,6 +174,7 @@ UnconnectedVisualization.propTypes = {
 const mapStateToProps = (state) => ({
     visualization: sGetCurrent(state),
     rightSidebarOpen: sGetUiRightSidebarOpen(state),
+    error: sGetLoadError(state),
     isLoading: sGetIsPluginLoading(state),
     displayProperty: sGetSettingsDisplayProperty(state),
 })
