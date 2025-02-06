@@ -19,6 +19,7 @@
         "cy:run": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress run --browser chrome headless --env networkMode=live'"
     },
     "devDependencies": {
+        "@cfaester/enzyme-adapter-react-18": "^0.8.0",
         "@dhis2/cli-app-scripts": "^12.3.0",
         "@dhis2/cli-style": "^10.7.6",
         "@dhis2/cypress-commands": "^10.0.3",
@@ -29,7 +30,6 @@
         "cypress": "^13.6.1",
         "cypress-tags": "^1.1.2",
         "enzyme": "^3.11.0",
-        "enzyme-adapter-react-16": "^1.15.7",
         "eslint-plugin-cypress": "^2.11.3",
         "eslint-plugin-react-hooks": "^4.2.0",
         "jest-enzyme": "^7.1.2",
