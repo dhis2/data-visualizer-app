@@ -150,7 +150,7 @@ export const VisualizationPlugin = ({
         onDrill(args)
     }
 
-    const formatError = (responseError) => {
+    const formatError = ({ error: responseError, visType }) => {
         let error
         if (responseError) {
             switch (responseError.details?.errorCode) {
@@ -165,9 +165,7 @@ export const VisualizationPlugin = ({
                     error = new MultipleIndicatorAsFilterError()
                     break
                 case 'E7102':
-                    error = new NoDataOrDataElementGroupSetError(
-                        visualization.type
-                    )
+                    error = new NoDataOrDataElementGroupSetError(visType)
                     break
                 case 'E7112':
                     error = new CombinationDEGSRRError()
@@ -177,7 +175,7 @@ export const VisualizationPlugin = ({
                     break
                 case 'E7124':
                     if (responseError.message?.includes('`dx`')) {
-                        error = new NoDataError(visualization.type)
+                        error = new NoDataError(visType)
                     } else if (responseError.message?.includes('`ou`')) {
                         error = new NoOrgUnitResponseError()
                     } else {
@@ -191,7 +189,7 @@ export const VisualizationPlugin = ({
                     error = new AnalyticsRequestError()
                     break
                 case 'E2200':
-                    error = new NoDataError(visualization.type)
+                    error = new NoDataError(visType)
                     break
                 default:
                     error = responseError
@@ -401,7 +399,14 @@ export const VisualizationPlugin = ({
 
     // render error within the plugin so it's used in both app and plugin consumers (ie. dashboard)
     if (error) {
-        return <VisualizationErrorInfo error={formatError(error)} />
+        return (
+            <VisualizationErrorInfo
+                error={formatError({
+                    error,
+                    visType: originalVisualization.type,
+                })}
+            />
+        )
     }
 
     if (!fetchResult || !visualization || !ouLevels) {
