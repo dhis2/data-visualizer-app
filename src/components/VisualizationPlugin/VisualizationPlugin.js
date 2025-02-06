@@ -176,14 +176,12 @@ export const VisualizationPlugin = ({
                     error = new NoOrgUnitAccessError()
                     break
                 case 'E7124':
-                    {
-                        if (responseError.message?.includes('`dx`')) {
-                            error = new NoDataError(visualization.type)
-                        } else if (responseError.message?.includes('`ou`')) {
-                            error = new NoOrgUnitResponseError()
-                        } else {
-                            error = new GenericServerError()
-                        }
+                    if (responseError.message?.includes('`dx`')) {
+                        error = new NoDataError(visualization.type)
+                    } else if (responseError.message?.includes('`ou`')) {
+                        error = new NoOrgUnitResponseError()
+                    } else {
+                        error = new GenericServerError()
                     }
                     break
                 case 'E7144':
@@ -224,7 +222,7 @@ export const VisualizationPlugin = ({
 
                     result.responses.forEach((response) => {
                         if (
-                            (response?.metaData?.dimensions || {})[
+                            response?.metaData?.dimensions?.[
                                 DIMENSION_ID_DATA
                             ]?.every(
                                 (dim) =>
