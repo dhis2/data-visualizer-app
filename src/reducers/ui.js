@@ -23,9 +23,9 @@ import castArray from 'lodash-es/castArray'
 import {
     TITLE_AUTO,
     TITLE_CUSTOM,
-} from '../components/VisualizationOptions/Options/AxisTitle.js'
-import { DEFAULT_STATE as OUTLIER_METHOD_THRESHOLD_DEFAULT_STATE } from '../components/VisualizationOptions/Options/OutliersForOutlierTable.js'
-import { DEFAULT_STATE as OUTLIER_MAX_RESULTS_DEFAULT_STATE } from '../components/VisualizationOptions/Options/OutliersMaxResults.js'
+} from '../components/VisualizationOptions/Options/AxisTitle.jsx'
+import { DEFAULT_STATE as OUTLIER_METHOD_THRESHOLD_DEFAULT_STATE } from '../components/VisualizationOptions/Options/OutliersForOutlierTable.jsx'
+import { DEFAULT_STATE as OUTLIER_MAX_RESULTS_DEFAULT_STATE } from '../components/VisualizationOptions/Options/OutliersMaxResults.jsx'
 import {
     getFilteredLayout,
     getInverseLayout,

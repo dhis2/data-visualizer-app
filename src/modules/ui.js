@@ -21,8 +21,8 @@ import {
     METHOD_STANDARD_Z_SCORE,
     OUTLIER_ANALYSIS_OPTION_NAME,
     OUTLIER_METHOD_PROP,
-} from '../components/VisualizationOptions/Options/OutliersForOutlierTable.js'
-import { DEFAULT_STATE as OUTLIER_MAX_RESULTS_DEFAULT_STATE } from '../components/VisualizationOptions/Options/OutliersMaxResults.js'
+} from '../components/VisualizationOptions/Options/OutliersForOutlierTable.jsx'
+import { DEFAULT_STATE as OUTLIER_MAX_RESULTS_DEFAULT_STATE } from '../components/VisualizationOptions/Options/OutliersMaxResults.jsx'
 import { getDisabledOptions } from './disabledOptions.js'
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields.js'
 import { getInverseLayout } from './layout.js'
