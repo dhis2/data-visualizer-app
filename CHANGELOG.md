@@ -1,3 +1,10 @@
+## [100.9.1](https://github.com/dhis2/data-visualizer-app/compare/v100.9.0...v100.9.1) (2025-02-04)
+
+
+### Bug Fixes
+
+* pivot table crashes when hiding empty columns ([#3328](https://github.com/dhis2/data-visualizer-app/issues/3328)) ([54a18b6](https://github.com/dhis2/data-visualizer-app/commit/54a18b6b2353bba14bafc37478e2e1f227708c60))
+
 # [100.9.0](https://github.com/dhis2/data-visualizer-app/compare/v100.8.8...v100.9.0) (2025-01-09)
 
 
