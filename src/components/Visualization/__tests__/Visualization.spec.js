@@ -1,6 +1,5 @@
 import { shallow } from 'enzyme'
 import React from 'react'
-import { GenericServerError } from '../../../modules/error.js'
 import LoadingMask from '../../../widgets/LoadingMask.js'
 import { VisualizationPlugin } from '../../VisualizationPlugin/VisualizationPlugin.js'
 import StartScreen from '../StartScreen.js'
@@ -23,7 +22,6 @@ describe('Visualization', () => {
                 userSettings: {
                     displayProperty: 'shortName',
                 },
-                error: null,
                 rightSidebarOpen: false,
                 addMetadata: jest.fn(),
                 setChart: jest.fn(),
@@ -33,12 +31,6 @@ describe('Visualization', () => {
             }
 
             shallowVisualization = undefined
-        })
-
-        it('renders a StartScreen when error', () => {
-            props.error = new GenericServerError()
-
-            expect(vis().find(StartScreen).length).toEqual(1)
         })
 
         it('renders the loading indicator when loading', () => {
@@ -51,7 +43,12 @@ describe('Visualization', () => {
             expect(vis().find(LoadingMask).exists()).toBeFalsy()
         })
 
-        it('renders a VisualizationPlugin when no error and visualization available', () => {
+        it('renders a StartScreen when there is no visualization', () => {
+            props.visualization = undefined
+            expect(vis().find(StartScreen).length).toEqual(1)
+        })
+
+        it('renders a VisualizationPlugin when visualization available', () => {
             expect(vis().find(VisualizationPlugin).length).toEqual(1)
         })
 
