@@ -5,15 +5,15 @@
 # Guardian Sanjaya <gysanjaya@ugm.ac.id>, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
 # Untoro Dwi Raharjo <untoro.dwi.raharjo@mail.ugm.ac.id>, 2022
-# Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2022
 # Philip Larsen Donnelly, 2024
+# Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-06-07T08:24:31.117Z\n"
 "PO-Revision-Date: 2022-04-20 10:06+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Last-Translator: Aprisa Chrysantina <aprisa.chrysantina@gmail.com>, 2025\n"
 "Language-Team: Indonesian (https://app.transifex.com/hisp-uio/teams/100509/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,7 +31,7 @@ msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr ""
 
 msgid "\"{{deletedObject}}\" successfully deleted."
-msgstr ""
+msgstr "\"{{deletedObject}}\" berhasil dihapus."
 
 msgid "You have unsaved changes."
 msgstr "Anda memiliki pesan belum disimpan"
@@ -827,6 +827,14 @@ msgid "No organization units found"
 msgstr ""
 
 msgid "The level or group selections didn't return any organization units."
+msgstr ""
+
+msgid "Invalid data type"
+msgstr ""
+
+msgid ""
+"The selected data dimensions didn't return any valid data. This "
+"visualization type can only display numerical data."
 msgstr ""
 
 msgid "Something went wrong"
