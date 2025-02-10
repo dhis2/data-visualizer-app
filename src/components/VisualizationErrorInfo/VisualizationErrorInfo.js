@@ -7,7 +7,7 @@ import styles from './styles/VisualizationErrorInfo.module.css'
 export const VisualizationErrorInfo = ({ error }) => (
     <div
         className={styles.errorContainer}
-        data-test="start-screen-error-container"
+        data-test="visualization-error-container"
     >
         {error instanceof VisualizationError ? (
             <>

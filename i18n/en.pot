@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-03-01T08:28:43.727Z\n"
-"PO-Revision-Date: 2024-03-01T08:28:43.727Z\n"
+"POT-Creation-Date: 2025-02-04T13:29:02.138Z\n"
+"PO-Revision-Date: 2025-02-04T13:29:02.138Z\n"
 
 msgid "All items"
 msgstr "All items"
@@ -931,6 +931,12 @@ msgid ""
 msgstr ""
 "The visualization you are trying to view could not be found, the ID could "
 "be incorrect or it could have been deleted."
+
+msgid "Restricted access"
+msgstr "Restricted access"
+
+msgid "You don't have access to one or more of the chosen organisation units."
+msgstr "You don't have access to one or more of the chosen organisation units."
 
 msgid "No organization units found"
 msgstr "No organization units found"

@@ -311,6 +311,18 @@ export class VisualizationNotFoundError extends VisualizationError {
     }
 }
 
+export class NoOrgUnitAccessError extends VisualizationError {
+    constructor() {
+        super(
+            EmptyBox,
+            i18n.t('Restricted access'),
+            i18n.t(
+                "You don't have access to one or more of the chosen organisation units."
+            )
+        )
+    }
+}
+
 export class NoOrgUnitResponseError extends VisualizationError {
     constructor() {
         super(
