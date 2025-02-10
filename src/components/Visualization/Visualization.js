@@ -17,6 +17,7 @@ import { sGetIsPluginLoading, sGetLoadError } from '../../reducers/loader.js'
 import { sGetSettingsDisplayProperty } from '../../reducers/settings.js'
 import { sGetUiRightSidebarOpen } from '../../reducers/ui.js'
 import LoadingMask from '../../widgets/LoadingMask.js'
+import { VisualizationErrorInfo } from '../VisualizationErrorInfo/VisualizationErrorInfo.js'
 import { VisualizationPlugin } from '../VisualizationPlugin/VisualizationPlugin.js'
 import StartScreen from './StartScreen.js'
 import styles from './styles/Visualization.style.js'
@@ -130,28 +131,32 @@ export class UnconnectedVisualization extends Component {
 
         const { renderId } = this.state
 
-        return !visualization || error ? (
-            <StartScreen />
-        ) : (
-            <Fragment>
-                {isLoading && (
-                    <div style={styles.loadingCover}>
-                        <LoadingMask />
-                    </div>
-                )}
-                <VisualizationPlugin
-                    id={renderId}
-                    visualization={visualization}
-                    onChartGenerated={this.onChartGenerated}
-                    onLoadingComplete={onLoadingComplete}
-                    onDataSorted={this.onDataSorted}
-                    onResponsesReceived={this.onResponsesReceived}
-                    onDrill={this.onDrill}
-                    style={styles.chartCanvas}
-                    displayProperty={displayProperty}
-                />
-            </Fragment>
-        )
+        if (!visualization) {
+            return <StartScreen />
+        } else if (error) {
+            return <VisualizationErrorInfo error={error} />
+        } else {
+            return (
+                <Fragment>
+                    {isLoading && (
+                        <div style={styles.loadingCover}>
+                            <LoadingMask />
+                        </div>
+                    )}
+                    <VisualizationPlugin
+                        id={renderId}
+                        visualization={visualization}
+                        onChartGenerated={this.onChartGenerated}
+                        onLoadingComplete={onLoadingComplete}
+                        onDataSorted={this.onDataSorted}
+                        onResponsesReceived={this.onResponsesReceived}
+                        onDrill={this.onDrill}
+                        style={styles.chartCanvas}
+                        displayProperty={displayProperty}
+                    />
+                </Fragment>
+            )
+        }
     }
 }
 

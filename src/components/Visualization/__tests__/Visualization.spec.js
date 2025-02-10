@@ -1,6 +1,7 @@
 import { shallow } from 'enzyme'
 import React from 'react'
 import LoadingMask from '../../../widgets/LoadingMask.js'
+import { VisualizationErrorInfo } from '../../VisualizationErrorInfo/VisualizationErrorInfo.js'
 import { VisualizationPlugin } from '../../VisualizationPlugin/VisualizationPlugin.js'
 import StartScreen from '../StartScreen.js'
 import { UnconnectedVisualization as Visualization } from '../Visualization.js'
@@ -18,6 +19,7 @@ describe('Visualization', () => {
 
         beforeEach(() => {
             props = {
+                error: undefined,
                 visualization: {},
                 userSettings: {
                     displayProperty: 'shortName',
@@ -46,6 +48,11 @@ describe('Visualization', () => {
         it('renders a StartScreen when there is no visualization', () => {
             props.visualization = undefined
             expect(vis().find(StartScreen).length).toEqual(1)
+        })
+
+        it('renders a VisualizationErrorInfo when there is an error', () => {
+            props.error = new Error('some error')
+            expect(vis().find(VisualizationErrorInfo).length).toEqual(1)
         })
 
         it('renders a VisualizationPlugin when visualization available', () => {
