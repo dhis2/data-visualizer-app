@@ -43,10 +43,10 @@ import {
 } from '../../elements/optionsModal/index.js'
 import { expectRouteToBeEmpty } from '../../elements/route.js'
 import {
-    expectErrorToContainTitle,
     expectStartScreenToBeVisible,
     goToStartPage,
 } from '../../elements/startScreen.js'
+import { expectErrorToContainTitle } from '../../elements/visualizationErrorInfo.js'
 import { changeVisType } from '../../elements/visualizationTypeSelector.js'
 
 const TEST_DATA_ELEMENT_NAMES = ['ANC 1st visit', 'ANC 2nd visit']
