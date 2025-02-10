@@ -41,7 +41,7 @@ import {
 import { fetchData } from '../../modules/fetchData.js'
 import getDefaultMetadata from '../../modules/metadata.js'
 import { getOptionsFromVisualization } from '../../modules/options.js'
-import { VisualizationErrorInfo } from '../Visualization/VisualizationErrorInfo.js'
+import { VisualizationErrorInfo } from '../VisualizationErrorInfo/VisualizationErrorInfo.js'
 import ChartPlugin from './ChartPlugin.js'
 import ContextualMenu from './ContextualMenu.js'
 import OutlierTablePlugin from './OutlierTablePlugin.js'

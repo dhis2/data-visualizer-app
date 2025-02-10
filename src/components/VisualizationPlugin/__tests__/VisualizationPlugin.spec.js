@@ -5,13 +5,13 @@ import { act } from 'react-dom/test-utils'
 import * as api from '../../../api/analytics.js'
 import * as moduleAnalytics from '../../../modules/analytics.js'
 import * as options from '../../../modules/options.js'
-import { VisualizationErrorInfo } from '../../Visualization/VisualizationErrorInfo.js'
+import { VisualizationErrorInfo } from '../../VisualizationErrorInfo/VisualizationErrorInfo.js'
 import ChartPlugin from '../ChartPlugin.js'
 import { VisualizationPlugin } from '../VisualizationPlugin.js'
 
 jest.mock('../ChartPlugin', () => jest.fn(() => null))
 jest.mock('../PivotPlugin', () => jest.fn(() => null))
-jest.mock('../../Visualization/VisualizationErrorInfo', () => ({
+jest.mock('../../VisualizationErrorInfo/VisualizationErrorInfo', () => ({
     __esModule: true,
     VisualizationErrorInfo: jest.fn(() => null),
 }))
