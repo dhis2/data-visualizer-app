@@ -15,10 +15,8 @@ import {
     unselectItemByDoubleClick,
 } from '../../elements/dimensionModal/index.js'
 import { openDimension } from '../../elements/dimensionsPanel.js'
-import {
-    expectErrorToContainTitle,
-    goToStartPage,
-} from '../../elements/startScreen.js'
+import { goToStartPage } from '../../elements/startScreen.js'
+import { expectErrorToContainTitle } from '../../elements/visualizationErrorInfo.js'
 import { changeVisType } from '../../elements/visualizationTypeSelector.js'
 
 const NARRATIVE_ITEM = {
