@@ -1,3 +1,16 @@
+# [101.0.0](https://github.com/dhis2/data-visualizer-app/compare/v100.9.1...v101.0.0) (2025-02-14)
+
+
+### Features
+
+* support new dashboard plugin architecture (DHIS2-17283) ([1cad002](https://github.com/dhis2/data-visualizer-app/commit/1cad0026b59956382e948080e7c680008bb07c22))
+* use custom error screens in plugin (DHIS2-18988) ([7c45053](https://github.com/dhis2/data-visualizer-app/commit/7c4505324382300f1299bd2318b1cb4c91136c24))
+
+
+### BREAKING CHANGES
+
+* this version is only compatible with Dashboard app >=101.0.0
+
 ## [100.9.1](https://github.com/dhis2/data-visualizer-app/compare/v100.9.0...v100.9.1) (2025-02-04)
 
 
