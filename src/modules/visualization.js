@@ -128,6 +128,8 @@ export const dimensionMetadataProps = [
     'programAttribute',
     'programIndicator',
     'indicator',
+    'programDataElement',
+    'programDataElementOption',
 ]
 
 // Loop through and collect dimension metadata from the visualization
