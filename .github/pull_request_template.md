@@ -18,10 +18,11 @@ _text_
 
 ### TODO
 
--   [ ] Cypress tests
--   [ ] Update docs
--   [ ] Manual testing
--   [ ] _task_
+-   [ ] Dashboard tested
+-   [ ] Tests added (Cypress and/or Jest)
+-   [ ] Docs added
+-   [ ] Update dependencies to not point to d2-ci
+-   [ ] _todo_
 
 ---
 
