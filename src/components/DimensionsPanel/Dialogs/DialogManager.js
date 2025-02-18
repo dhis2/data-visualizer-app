@@ -554,7 +554,7 @@ DialogManager.propTypes = {
     metadata: PropTypes.object,
     parentGraphMap: PropTypes.object,
     rootOrgUnits: PropTypes.array,
-    selectedItems: PropTypes.object,
+    selectedItems: PropTypes.func,
     setUiItemAttributes: PropTypes.func,
     setUiItems: PropTypes.func,
     settings: PropTypes.object,
