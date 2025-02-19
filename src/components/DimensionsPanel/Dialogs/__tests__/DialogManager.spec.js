@@ -59,7 +59,7 @@ describe('The DialogManager component', () => {
             dxIds: ['test'],
             ouIds: [],
             selectedItems: (dialogId) => {
-                dialogId === 'dx' ? ['test'] : []
+                return dialogId === 'dx' ? ['test'] : []
             },
             d2: {},
             metadata: {},
