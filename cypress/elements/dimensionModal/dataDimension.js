@@ -168,7 +168,7 @@ export const clickEDIEditButton = (item) =>
         .getBySel(optionContentEl)
         .contains(item)
         .parent()
-        .findBySel('data-dimension-transfer-option-edit-button')
+        .findBySel('data-dimension-transfer-option-edit-calculation-button')
         .click()
 
 export const expectSelectableDataItemsAmountToBe = (amount) =>
