@@ -1,3 +1,37 @@
+# [101.0.0](https://github.com/dhis2/data-visualizer-app/compare/v100.9.1...v101.0.0) (2025-02-14)
+
+
+### Features
+
+* support new dashboard plugin architecture (DHIS2-17283) ([1cad002](https://github.com/dhis2/data-visualizer-app/commit/1cad0026b59956382e948080e7c680008bb07c22))
+* use custom error screens in plugin (DHIS2-18988) ([7c45053](https://github.com/dhis2/data-visualizer-app/commit/7c4505324382300f1299bd2318b1cb4c91136c24))
+
+
+### BREAKING CHANGES
+
+* this version is only compatible with Dashboard app >=101.0.0
+
+## [100.9.1](https://github.com/dhis2/data-visualizer-app/compare/v100.9.0...v100.9.1) (2025-02-04)
+
+
+### Bug Fixes
+
+* pivot table crashes when hiding empty columns ([#3328](https://github.com/dhis2/data-visualizer-app/issues/3328)) ([54a18b6](https://github.com/dhis2/data-visualizer-app/commit/54a18b6b2353bba14bafc37478e2e1f227708c60))
+
+# [100.9.0](https://github.com/dhis2/data-visualizer-app/compare/v100.8.8...v100.9.0) (2025-01-09)
+
+
+### Features
+
+* display type and definitions for data items in data selector (DHIS2-14774) ([#3274](https://github.com/dhis2/data-visualizer-app/issues/3274)) ([f44897a](https://github.com/dhis2/data-visualizer-app/commit/f44897a90c2ef47b478788a3336e983e991f6c52))
+
+## [100.8.8](https://github.com/dhis2/data-visualizer-app/compare/v100.8.7...v100.8.8) (2024-12-22)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([157d99b](https://github.com/dhis2/data-visualizer-app/commit/157d99b0e1c84436ed5e8f0013290869ec4973d1))
+
 ## [100.8.7](https://github.com/dhis2/data-visualizer-app/compare/v100.8.6...v100.8.7) (2024-12-04)
 
 
