@@ -10,15 +10,15 @@
 # Yayra Gomado <ygomado@hispwca.org>, 2024
 # Karoline Tufte Lien <karoline@dhis2.org>, 2024
 # Yury Rogachev <yury@dhis2.org>, 2024
-# Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2024
-# Elise Desailly, 2024
+# Elise Desailly, 2025
+# Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-01T08:28:43.727Z\n"
+"POT-Creation-Date: 2025-02-04T13:29:02.138Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Elise Desailly, 2024\n"
+"Last-Translator: Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2025\n"
 "Language-Team: French (https://app.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -762,7 +762,7 @@ msgid "Category option combination"
 msgstr "Combinaison d'option de catégorie"
 
 msgid "Absolute deviation"
-msgstr ""
+msgstr "Écart absolu"
 
 msgid ""
 "A measure of the absolute difference between each data point and a central "
@@ -786,7 +786,7 @@ msgid ""
 msgstr ""
 
 msgid "Median absolute deviation"
-msgstr ""
+msgstr "Écart médian absolu"
 
 msgid ""
 "A robust measure of variability, found by calculating the median of the "
@@ -817,10 +817,10 @@ msgid ""
 msgstr ""
 
 msgid "Minimum score threshold"
-msgstr ""
+msgstr "Seuil de score minimum"
 
 msgid "Maximum score threshold"
-msgstr ""
+msgstr "Seuil de score maximum"
 
 msgid "Not supported when using cumulative values"
 msgstr ""
@@ -949,6 +949,12 @@ msgstr ""
 "La visualisation que vous essayez de consulter est introuvable, "
 "l'identifiant est peut-être incorrect ou a pu être supprimé"
 
+msgid "Restricted access"
+msgstr "Accès restreint"
+
+msgid "You don't have access to one or more of the chosen organisation units."
+msgstr ""
+
 msgid "No organization units found"
 msgstr "Aucune unité d'organisation trouvée"
 
@@ -956,7 +962,7 @@ msgid "The level or group selections didn't return any organization units."
 msgstr "Le niveau ou groupe choisi n'a retourné aucune unité d'organisation"
 
 msgid "Invalid data type"
-msgstr ""
+msgstr "Type de donnée non valide"
 
 msgid ""
 "The selected data dimensions didn't return any valid data. This "
@@ -975,7 +981,7 @@ msgid "There's a syntax problem with the analytics request."
 msgstr "Il y a un problème de syntaxe dans la demande d'analyse."
 
 msgid "No outliers found"
-msgstr ""
+msgstr "Aucune valeur atypique n'a été trouvée"
 
 msgid "There were no outliers found for the selected data items and options."
 msgstr ""
