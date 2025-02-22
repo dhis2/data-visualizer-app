@@ -5,16 +5,16 @@
 # Yayra Gomado <ygomado@hispwca.org>, 2022
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2022
 # Viktor Varland <viktor@dhis2.org>, 2022
-# Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2022
 # Edem Kossi <ekossi@hispwca.org>, 2023
 # Philip Larsen Donnelly, 2024
+# Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2023-02-27T12:26:43.652Z\n"
 "PO-Revision-Date: 2022-10-15 22:30+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Last-Translator: Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2025\n"
 "Language-Team: French (https://app.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -871,6 +871,14 @@ msgstr "Aucune unité d'organisation trouvée"
 
 msgid "The level or group selections didn't return any organization units."
 msgstr "Le niveau ou groupe choisi n'a retourné aucune unité d'organisation"
+
+msgid "Invalid data type"
+msgstr "Type de donnée non valide"
+
+msgid ""
+"The selected data dimensions didn't return any valid data. This "
+"visualization type can only display numerical data."
+msgstr ""
 
 msgid "Something went wrong"
 msgstr "Quelque chose a mal tourné"
