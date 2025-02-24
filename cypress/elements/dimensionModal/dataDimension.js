@@ -96,7 +96,11 @@ export const selectDataItems = (dataItems) => {
 }
 
 export const selectFirstDataItem = () =>
-    cy.getBySel(selectableItemsEl).findBySel(optionContentEl).eq(0).dblclick()
+    cy
+        .getBySel(selectableItemsEl)
+        .findBySel(optionContentEl)
+        .eq(0)
+        .dblclick('left')
 
 export const selectIndicators = (indicators) => {
     expectSourceToNotBeLoading()
