@@ -39,6 +39,17 @@ export const expectDataItemsToBeInSource = (items) => {
     })
 }
 
+export const expectDataItemsToBeInOptionViewModeSource = (items) => {
+    cy.getBySelLike('option-view-mode-transfer-sourceoptions').should(
+        ($elems) => {
+            const $container = $elems.first()
+            expect($container).to.have.class('container')
+            const $options = $container.find('[data-test*="transfer-option"]')
+            items.forEach((item) => expect($options).to.contain(item))
+        }
+    )
+}
+
 export const expectDataDimensionModalToBeVisible = () =>
     expectDimensionModalToBeVisible(DIMENSION_ID_DATA)
 
@@ -170,6 +181,17 @@ export const clickEDIEditButton = (item) =>
         .parent()
         .findBySel('data-dimension-transfer-option-edit-calculation-button')
         .click()
+
+export const clickOptionViewModeButton = (item) =>
+    cy
+        .getBySel(optionContentEl)
+        .contains(item)
+        .parent()
+        .findBySel('data-dimension-transfer-option-option-set-button')
+        .click()
+
+export const clickOptionViewModeBackButton = () =>
+    cy.getBySel('data-dimension-option-set-back-button').click()
 
 export const expectSelectableDataItemsAmountToBe = (amount) =>
     cy.getBySelLike('transfer-sourceoptions').should(($elems) => {

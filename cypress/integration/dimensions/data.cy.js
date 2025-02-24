@@ -1,8 +1,11 @@
 import { DIMENSION_ID_DATA } from '@dhis2/analytics'
 import {
     clickDimensionModalHideButton,
+    clickOptionViewModeButton,
+    clickOptionViewModeBackButton,
     expectDimensionModalToContain,
     expectDimensionModalToNotBeVisible,
+    selectOptionByDoubleClick,
     unselectItemByDoubleClick,
     selectItemByDoubleClick,
     expectDataDimensionModalToBeVisible,
@@ -35,6 +38,7 @@ import {
     unselectAllItemsByButton,
     selectAllItemsByButton,
     expectDataItemsToBeInSource,
+    expectDataItemsToBeInOptionViewModeSource,
     expectDataItemToShowDataType,
     expectDataItemToShowInfoTable,
 } from '../../elements/dimensionModal/index.js'
@@ -206,6 +210,39 @@ describe('Data dimension', () => {
         })
         expectSourceToNotBeLoading()
         expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
+    })
+    it('can toggle option view mode', () => {
+        goToStartPage()
+        openDimension(DIMENSION_ID_DATA)
+        expectDataDimensionModalToBeVisible()
+        expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
+
+        switchDataTypeTo('Event data items')
+
+        const testSearchTerm = 'gender'
+        inputSearchTerm(testSearchTerm)
+
+        const testOption = 'Female (Gender, Child Programme)'
+
+        expectSourceToNotBeLoading()
+
+        clickOptionViewModeButton('Child Programme Gender')
+
+        expectSourceToNotBeLoading()
+
+        expectDataItemsToBeInOptionViewModeSource([
+            testOption,
+            'Male (Gender, Child Programme)',
+        ])
+
+        selectOptionByDoubleClick(testOption)
+        expectItemToBeSelected(testOption)
+
+        clickOptionViewModeBackButton()
+
+        expectSourceToNotBeLoading()
+
+        expectItemToBeSelected(testOption)
     })
     const testDataTypes = [
         {
