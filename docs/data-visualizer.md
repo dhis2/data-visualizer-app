@@ -1,5 +1,10 @@
 # Using the Data Visualizer app { #data_visualizer }
 
+> **Note**
+>
+> Data Visualizer app is not optimised for mobile devices. 
+> 
+
 ![](resources/images/data-visualizer-overview.png)
 
 ## Creating and editing visualizations
