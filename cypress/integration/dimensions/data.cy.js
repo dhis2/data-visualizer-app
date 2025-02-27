@@ -211,7 +211,7 @@ describe('Data dimension', () => {
         expectSourceToNotBeLoading()
         expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
     })
-    it('can toggle option view mode', () => {
+    it(['>=42'], 'can toggle option view mode', () => {
         goToStartPage()
         openDimension(DIMENSION_ID_DATA)
         expectDataDimensionModalToBeVisible()
