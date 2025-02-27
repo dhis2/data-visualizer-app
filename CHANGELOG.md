@@ -1,3 +1,10 @@
+## [101.0.3](https://github.com/dhis2/data-visualizer-app/compare/v101.0.2...v101.0.3) (2025-02-26)
+
+
+### Bug Fixes
+
+* allow blank cumulative values in charts ([#3352](https://github.com/dhis2/data-visualizer-app/issues/3352)) ([c663d96](https://github.com/dhis2/data-visualizer-app/commit/c663d96c00100ec523b81974c3d40feb50ee6f5b))
+
 ## [101.0.2](https://github.com/dhis2/data-visualizer-app/compare/v101.0.1...v101.0.2) (2025-02-24)
 
 
