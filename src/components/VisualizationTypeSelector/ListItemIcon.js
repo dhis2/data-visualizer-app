@@ -7,6 +7,7 @@ import {
     VIS_TYPE_AREA,
     VIS_TYPE_STACKED_AREA,
     VIS_TYPE_PIE,
+    VIS_TYPE_DONUT,
     VIS_TYPE_RADAR,
     VIS_TYPE_GAUGE,
     VIS_TYPE_YEAR_OVER_YEAR_LINE,
@@ -45,6 +46,8 @@ const ListItemIcon = ({ iconType, style }) => {
         case VIS_TYPE_STACKED_BAR:
             return <StackedBarIcon style={style} />
         case VIS_TYPE_PIE:
+            return <PieIcon style={style} />
+        case VIS_TYPE_DONUT:
             return <PieIcon style={style} />
         case VIS_TYPE_GAUGE:
             return <GaugeIcon style={style} />
