@@ -211,6 +211,7 @@ describe('Data dimension', () => {
         expectSourceToNotBeLoading()
         expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
     })
+    // VERSION-TOGGLE: remove when 42 is lowest supported version
     it(['>=42'], 'can toggle option view mode', () => {
         goToStartPage()
         openDimension(DIMENSION_ID_DATA)
