@@ -128,6 +128,8 @@ export const dimensionMetadataProps = [
     'programAttribute',
     'programIndicator',
     'indicator',
+    'programDataElement',
+    'programDataElementOption',
 ]
 
 // Loop through and collect dimension metadata from the visualization
@@ -137,6 +139,13 @@ export const getDimensionMetadataFromVisualization = (visualization) => {
     visualization.dataDimensionItems?.forEach((dimensionItem) => {
         Object.entries(dimensionItem)?.forEach(([key, object]) => {
             if (dimensionMetadataProps.includes(key)) {
+                // extract option set id so it's saved in the same place as when it's added by the Data dimension modal
+                if (key === 'programAttribute') {
+                    object.optionSetId = object.attribute?.optionSet?.id
+                } else if (key === 'programDataElement') {
+                    object.optionSetId = object.dataElement?.optionSet?.id
+                }
+
                 metadata.push({ [object.id]: object })
             }
         })
