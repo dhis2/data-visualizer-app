@@ -4,6 +4,7 @@ import {
     VIS_TYPE_YEAR_OVER_YEAR_LINE,
     VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
     VIS_TYPE_PIE,
+    VIS_TYPE_DONUT,
     VIS_TYPE_GAUGE,
     VIS_TYPE_SINGLE_VALUE,
     VIS_TYPE_PIVOT_TABLE,
@@ -144,6 +145,7 @@ const validateOutlierTableLayout = (layout) => {
 export const validateLayout = (layout) => {
     switch (layout.type) {
         case VIS_TYPE_PIE:
+        case VIS_TYPE_DONUT:
             return validatePieLayout(layout)
         case VIS_TYPE_YEAR_OVER_YEAR_COLUMN:
         case VIS_TYPE_YEAR_OVER_YEAR_LINE:
