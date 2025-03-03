@@ -8,7 +8,7 @@ a ripple effect in the Dimension list during drag
 }
 
 :global(.item).dragging,
-:global(.item).active {
+:global(.item):global(:not(.selected)).active {
     background-color: var(--colors-grey100);
     border-color: var(--colors-grey400);
 }
