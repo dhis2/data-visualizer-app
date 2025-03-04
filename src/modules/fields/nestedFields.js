@@ -20,7 +20,7 @@ const DIMENSION_PROPS = dimensionMetadataProps
 const DIMENSION_ITEMS = `dataDimensionItemType,${DIMENSION_PROPS}`
 
 // nested fields map
-export const nestedFields = {
+const nestedFields = {
     columns: AXIS,
     rows: AXIS,
     filters: AXIS,
