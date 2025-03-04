@@ -11,3 +11,4 @@ cypress/videos
 # Custom
 .vscode
 .gitignore
+.DS_Store
