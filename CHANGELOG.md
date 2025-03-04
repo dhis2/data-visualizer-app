@@ -1,3 +1,10 @@
+## [101.0.4](https://github.com/dhis2/data-visualizer-app/compare/v101.0.3...v101.0.4) (2025-03-04)
+
+
+### Bug Fixes
+
+* fix styling on dimension items [DHIS2-17934] [DHIS2-19046] ([#3357](https://github.com/dhis2/data-visualizer-app/issues/3357)) ([8e0070b](https://github.com/dhis2/data-visualizer-app/commit/8e0070b3029b61e7a476e5fa1b0cc8f9712264bf))
+
 ## [101.0.3](https://github.com/dhis2/data-visualizer-app/compare/v101.0.2...v101.0.3) (2025-02-26)
 
 
