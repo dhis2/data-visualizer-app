@@ -99,7 +99,6 @@ describe('push-analytics', { testIsolation: true }, () => {
             cy.get('@open').should((stub) => {
                 const urlString = stub.getCall(0).args[0]
                 const target = stub.getCall(0).args[1]
-                console.log('urlInstance', urlString)
 
                 expect(urlString).to.match(
                     /blob:http:\/\/localhost:3000\/[A-zaz0-9]{8}-[A-zaz0-9]{4}-[A-zaz0-9]{4}-[A-zaz0-9]{4}-[A-zaz0-9]{12}/
@@ -113,7 +112,7 @@ describe('push-analytics', { testIsolation: true }, () => {
         'can download a file using the instructions in the push-analytics.json for outlier tables',
         () => {
             // For outlier tables push analytics instercepts the response and
-            // parses a HTML from it, so here we just verify that the required
+            // parses a HTML table from it, so here we just verify that the required
             // response data is present
             cy.intercept({
                 pathname: '**/analytics/outlierDetection',
