@@ -101,7 +101,7 @@ describe('push-analytics', { testIsolation: true }, () => {
                 const target = stub.getCall(0).args[1]
 
                 expect(urlString).to.match(
-                    /blob:http:\/\/localhost:3000\/[A-zaz0-9]{8}-[A-zaz0-9]{4}-[A-zaz0-9]{4}-[A-zaz0-9]{4}-[A-zaz0-9]{12}/
+                    /blob:http:\/\/localhost:3000\/[A-za-z0-9]{8}-[A-za-z0-9]{4}-[A-za-z0-9]{4}-[A-z-az0-9]{4}-[A-za-z0-9]{12}/
                 )
                 expect(target).to.equal('_blank')
             })
