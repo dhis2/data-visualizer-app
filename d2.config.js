@@ -7,6 +7,8 @@ const config = {
 
     minDHIS2Version: '2.40',
 
+    pluginType: 'DASHBOARD',
+
     direction: 'auto',
 
     pwa: {
@@ -20,8 +22,6 @@ const config = {
         app: './src/AppWrapper.jsx',
         plugin: './src/PluginWrapper.jsx',
     },
-
-    skipPluginLogic: true,
 }
 
 module.exports = config

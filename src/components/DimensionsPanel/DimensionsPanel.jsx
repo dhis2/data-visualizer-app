@@ -63,6 +63,7 @@ export const Dimensions = ({
             <DndDimensionsPanel
                 onDimensionClick={openDimensionModal}
                 onDimensionOptionsClick={openOptionsMenuForDimension}
+                activeDimensionId={dimensionId}
             />
             {menuIsOpen && dimensionId && ref && (
                 <Layer onClick={toggleMenu}>

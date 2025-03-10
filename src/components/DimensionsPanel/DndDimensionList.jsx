@@ -48,6 +48,7 @@ export class DndDimensionList extends Component {
             isLocked: this.isLockedDimension(id),
             isDeactivated: this.isDisabledDimension(id),
             isRecommended: this.isRecommendedDimension(id),
+            isActive: id === this.props.activeDimensionId,
             onClick: this.props.onDimensionClick,
             onOptionsClick: this.props.onDimensionOptionsClick,
             dataTest: `${this.props.dataTest}-dimension-item`,
@@ -142,6 +143,7 @@ export class DndDimensionList extends Component {
 }
 
 DndDimensionList.propTypes = {
+    activeDimensionId: PropTypes.string,
     dataTest: PropTypes.string,
     dimensions: PropTypes.array,
     disallowedDimensions: PropTypes.array,

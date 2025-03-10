@@ -3,14 +3,16 @@ This keeps the dimension item clone from causing
 a ripple effect in the Dimension list during drag
 */
 
-.notDragging {
+:global(.item).notDragging {
     transform: none !important;
 }
 
-.dragging {
-    background-color: #e8edf2;
-    border-radius: 2px;
+:global(.item).dragging,
+:global(.item):global(:not(.selected)).active {
+    background-color: var(--colors-grey100);
+    border-color: var(--colors-grey400);
 }
+
 :global(.item).assignedCategories {
     cursor: grab;
 }

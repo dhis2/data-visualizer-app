@@ -35,6 +35,7 @@ export class DndDimensionsPanel extends Component {
                     onDimensionOptionsClick={this.props.onDimensionOptionsClick}
                     onDimensionClick={this.props.onDimensionClick}
                     dataTest="dimensions-panel-list"
+                    activeDimensionId={this.props.activeDimensionId}
                 />
             </div>
         )
@@ -42,6 +43,7 @@ export class DndDimensionsPanel extends Component {
 }
 
 DndDimensionsPanel.propTypes = {
+    activeDimensionId: PropTypes.string,
     onDimensionClick: PropTypes.func,
     onDimensionOptionsClick: PropTypes.func,
 }
