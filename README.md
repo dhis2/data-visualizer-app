@@ -1,3 +1,5 @@
+![React 18](https://img.shields.io/badge/react-18-blue)
+
 # Data visualizer app and plugin
 
 [![Test Coverage](https://codeclimate.com/github/dhis2/data-visualizer-app/badges/coverage.svg)](https://codeclimate.com/github/dhis2/data-visualizer-app/coverage)
