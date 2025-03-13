@@ -7,7 +7,6 @@ const NAME = 'name,displayName,displayShortName'
 
 const DIMENSION_ITEM = `dimensionItem~rename(${ID})`
 const LEGEND_SET = `${ID},${NAME}`
-const USER = `${NAME},userCredentials[username]`
 
 const ITEMS = `${DIMENSION_ITEM},${NAME},dimensionItemType,expression,access`
 
@@ -30,11 +29,10 @@ const DIMENSION_PROPS = dimensionMetadataProps
     .join(',')
 
 // nested fields map
-export const nestedFields = {
+const nestedFields = {
     columns: AXIS,
     rows: AXIS,
     filters: AXIS,
-    user: USER,
     interpretations: INTERPRETATIONS,
     legend: LEGEND,
     dataDimensionItems: DIMENSION_PROPS,
