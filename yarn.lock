@@ -2148,9 +2148,9 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@git+https://github.com/d2-ci/analytics.git#eeae871e6c28d9681d1eb9a15a2705d8a3a6b23a":
+"@dhis2/analytics@git+https://github.com/d2-ci/analytics.git#b316ab360ae23586a149c6308b01864939ef060f":
   version "26.12.3"
-  resolved "git+https://github.com/d2-ci/analytics.git#eeae871e6c28d9681d1eb9a15a2705d8a3a6b23a"
+  resolved "git+https://github.com/d2-ci/analytics.git#b316ab360ae23586a149c6308b01864939ef060f"
   dependencies:
     "@dhis2/multi-calendar-dates" "^1.2.2"
     "@dnd-kit/core" "^6.0.7"
