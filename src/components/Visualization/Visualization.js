@@ -131,10 +131,10 @@ export class UnconnectedVisualization extends Component {
 
         const { renderId } = this.state
 
-        if (!visualization) {
-            return <StartScreen />
-        } else if (error) {
+        if (error) {
             return <VisualizationErrorInfo error={error} />
+        } else if (!visualization) {
+            return <StartScreen />
         } else {
             return (
                 <Fragment>
