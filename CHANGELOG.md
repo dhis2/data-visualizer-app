@@ -1,3 +1,10 @@
+## [101.0.5](https://github.com/dhis2/data-visualizer-app/compare/v101.0.4...v101.0.5) (2025-03-13)
+
+
+### Bug Fixes
+
+* show error screen for not found visualizations (DHIS2-19187) ([#3362](https://github.com/dhis2/data-visualizer-app/issues/3362)) ([c7e9805](https://github.com/dhis2/data-visualizer-app/commit/c7e9805befcdb55569666ae3760cd16b7cac65c8))
+
 ## [101.0.4](https://github.com/dhis2/data-visualizer-app/compare/v101.0.3...v101.0.4) (2025-03-04)
 
 
