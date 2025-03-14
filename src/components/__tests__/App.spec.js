@@ -130,6 +130,42 @@ describe('App', () => {
             })
         })
 
+        it('triggers popstate events on history push events', (done) => {
+            props.location.pathname = '/rarity'
+
+            const popstateHandler = jest.fn()
+            window.addEventListener('popstate', popstateHandler)
+
+            app()
+
+            setTimeout(() => {
+                history.push('/rainbowdash')
+                expect(popstateHandler).toBeCalledTimes(1)
+
+                window.removeEventListener('popstate', popstateHandler)
+
+                done()
+            })
+        })
+
+        it('triggers popstate events on history replace events', (done) => {
+            props.location.pathname = '/rarity'
+
+            const popstateHandler = jest.fn()
+            window.addEventListener('popstate', popstateHandler)
+
+            app()
+
+            setTimeout(() => {
+                history.replace('/rainbowdash')
+                expect(popstateHandler).toBeCalledTimes(1)
+
+                window.removeEventListener('popstate', popstateHandler)
+
+                done()
+            })
+        })
+
         it('reloads visualization when opening the same visualization', (done) => {
             props.location.pathname = '/fluttershy'
 
