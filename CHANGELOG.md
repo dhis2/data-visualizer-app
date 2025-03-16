@@ -1,3 +1,23 @@
+# [39.3.0](https://github.com/dhis2/data-visualizer-app/compare/v39.2.41...v39.3.0) (2025-03-16)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (39.x) ([b947176](https://github.com/dhis2/data-visualizer-app/commit/b94717634f9d28f819bf8d912abc3ced08de7560))
+* **translations:** sync translations from transifex (39.x) ([05802c8](https://github.com/dhis2/data-visualizer-app/commit/05802c8599653a8f2db7601d8b8f5bb88e002099))
+* **translations:** sync translations from transifex (39.x) ([1639d99](https://github.com/dhis2/data-visualizer-app/commit/1639d993a2ce68048f0bd909c8e264a5753b5b4d))
+* **translations:** sync translations from transifex (39.x) ([49fd113](https://github.com/dhis2/data-visualizer-app/commit/49fd113a175eb19353ddc04a8dded1b42983e6c8))
+* **translations:** sync translations from transifex (39.x) ([18404fa](https://github.com/dhis2/data-visualizer-app/commit/18404fabd962b57f5770ae6f2740461222cc8180))
+* **translations:** sync translations from transifex (39.x) ([97d2500](https://github.com/dhis2/data-visualizer-app/commit/97d25002bb8454de69c11b8cb3a3fc91c1028ba8))
+* **translations:** sync translations from transifex (39.x) ([37b667a](https://github.com/dhis2/data-visualizer-app/commit/37b667a3c9793086e68c71ee4459dfb266cbcbb1))
+* **translations:** sync translations from transifex (39.x) ([6c4ae5b](https://github.com/dhis2/data-visualizer-app/commit/6c4ae5b339cafdbe3b8d5af1942efc328cdf86b7))
+
+
+### Features
+
+* add subtitle field to pivot table options [DHIS2-16158] (V39) ([#3180](https://github.com/dhis2/data-visualizer-app/issues/3180)) ([ba35f68](https://github.com/dhis2/data-visualizer-app/commit/ba35f68eccb1e130e13df94b619a43ae4cdc8c0f))
+* upgrade analytics to get pivot table truncated title feature [v39] [DHIS2-14827] ([#3280](https://github.com/dhis2/data-visualizer-app/issues/3280)) ([c53684c](https://github.com/dhis2/data-visualizer-app/commit/c53684cba976bf35f5a97541089c15c8d9d3fbe3))
+
 # [39.3.0](https://github.com/dhis2/data-visualizer-app/compare/v39.2.41...v39.3.0) (2025-02-23)
 
 
