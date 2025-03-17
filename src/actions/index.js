@@ -114,14 +114,12 @@ export const tDoLoadVisualization =
             if (errorResponse?.details?.httpStatusCode === 404) {
                 error = new VisualizationNotFoundError()
                 history.push('/')
-            } else if (errorResponse?.message) {
-                error = errorResponse.message
-            } else {
+            } else if (!errorResponse?.message) {
                 error = new GenericServerError()
             }
             dispatch(clearAll(error))
 
-            logError('tDoLoadVisualization', error)
+            logError('tDoLoadVisualization', error.description || error.message)
         }
     }
 
