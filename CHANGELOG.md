@@ -1,3 +1,10 @@
+## [101.0.6](https://github.com/dhis2/data-visualizer-app/compare/v101.0.5...v101.0.6) (2025-03-18)
+
+
+### Bug Fixes
+
+* add hash routing and plugin support for the upcoming global shell [DHIS2-19061] ([#3363](https://github.com/dhis2/data-visualizer-app/issues/3363)) ([4e710c2](https://github.com/dhis2/data-visualizer-app/commit/4e710c215bea9b853ad0b6f9ec214fbf72143565))
+
 ## [101.0.5](https://github.com/dhis2/data-visualizer-app/compare/v101.0.4...v101.0.5) (2025-03-13)
 
 
