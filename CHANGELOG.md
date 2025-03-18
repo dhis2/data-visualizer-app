@@ -1,3 +1,10 @@
+# [101.1.0](https://github.com/dhis2/data-visualizer-app/compare/v101.0.7...v101.1.0) (2025-03-18)
+
+
+### Features
+
+* implement option set selector in Data dimension modal (DHIS2-17872) ([#3344](https://github.com/dhis2/data-visualizer-app/issues/3344)) ([d09739d](https://github.com/dhis2/data-visualizer-app/commit/d09739da121d71d629465bd23166c3f6443f3e36))
+
 ## [101.0.7](https://github.com/dhis2/data-visualizer-app/compare/v101.0.6...v101.0.7) (2025-03-18)
 
 
