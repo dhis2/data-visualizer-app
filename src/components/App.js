@@ -34,6 +34,9 @@ import { VisualizationTypeSelector } from './VisualizationTypeSelector/Visualiza
 import './App.css'
 import './scrollbar.css'
 
+// Used to avoid repeating `history` listener calls -- see below
+let lastLocationKey
+
 export class UnconnectedApp extends Component {
     unlisten = null
 
@@ -157,6 +160,20 @@ export class UnconnectedApp extends Component {
         this.loadVisualization(this.props.location)
 
         this.unlisten = history.listen(({ location }) => {
+            // Avoid duplicate actions for the same update object. This also
+            // avoids a loop, because dispatching a pop state effect below also
+            // triggers listeners again (but with the same location object key)
+            if (location.key === lastLocationKey) {
+                return
+            }
+            lastLocationKey = location.key
+            // Dispatch this event for external routing listeners to observe,
+            // e.g. global shell
+            const popStateEvent = new PopStateEvent('popstate', {
+                state: location.state,
+            })
+            dispatchEvent(popStateEvent)
+
             const isSaving = location.state?.isSaving
             const isOpening = location.state?.isOpening
             const isResetting = location.state?.isResetting

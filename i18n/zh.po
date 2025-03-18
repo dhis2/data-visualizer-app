@@ -890,7 +890,7 @@ msgid "Restricted access"
 msgstr "禁止访问"
 
 msgid "You don't have access to one or more of the chosen organisation units."
-msgstr ""
+msgstr "您无法访问一个或多个选定的组织机构。"
 
 msgid "No organization units found"
 msgstr "找不到组织机构"

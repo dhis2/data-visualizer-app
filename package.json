@@ -1,6 +1,6 @@
 {
     "name": "data-visualizer-app",
-    "version": "101.0.5",
+    "version": "101.0.7",
     "description": "DHIS2 Data Visualizer",
     "license": "BSD-3-Clause",
     "private": true,
@@ -19,7 +19,7 @@
         "cy:run": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress run --browser chrome headless --env networkMode=live'"
     },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^11.8.0",
+        "@dhis2/cli-app-scripts": "^11.8.1",
         "@dhis2/cli-style": "^10.7.3",
         "@dhis2/cypress-commands": "^10.0.6",
         "@dhis2/cypress-plugins": "^10.0.6",
