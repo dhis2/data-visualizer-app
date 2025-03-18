@@ -14,10 +14,19 @@ const AXIS = `dimension,filter,legendSet[${LEGEND_SET}],items[${ITEMS}]`
 const INTERPRETATIONS = 'id,created'
 const LEGEND = `showKey,style,strategy,set[${LEGEND_SET}]`
 
+const OPTION_SET = `optionSet[${ID}]`
+
 const DIMENSION_PROPS = dimensionMetadataProps
-    .map((prop) => `${prop}[${ITEMS}]`)
+    .map((prop) => {
+        if (prop === 'programAttribute') {
+            return `${prop}[${ITEMS},attribute[${OPTION_SET}]]`
+        } else if (prop === 'programDataElement') {
+            return `${prop}[${ITEMS},dataElement[${OPTION_SET}]]`
+        } else {
+            return `${prop}[${ITEMS}]`
+        }
+    })
     .join(',')
-const DIMENSION_ITEMS = `dataDimensionItemType,${DIMENSION_PROPS}`
 
 // nested fields map
 const nestedFields = {
@@ -26,7 +35,7 @@ const nestedFields = {
     filters: AXIS,
     interpretations: INTERPRETATIONS,
     legend: LEGEND,
-    dataDimensionItems: DIMENSION_ITEMS,
+    dataDimensionItems: DIMENSION_PROPS,
 }
 
 export const extendFields = (field) =>

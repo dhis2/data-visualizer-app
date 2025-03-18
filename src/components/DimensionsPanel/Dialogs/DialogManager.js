@@ -63,7 +63,6 @@ import {
     sGetSettingsDisplayNameProperty,
 } from '../../../reducers/settings.js'
 import {
-    sGetUiItems,
     sGetUiItemsByDimension,
     sGetUiActiveModalDialog,
     sGetUiParentGraphMap,
@@ -181,6 +180,7 @@ export class DialogManager extends Component {
                             name: item.name || item.displayName,
                             displayName: item.displayName,
                             dimensionItemType: item.type,
+                            optionSetId: item.optionSetId,
                             ...(item.expression
                                 ? { expression: item.expression }
                                 : {}),
@@ -198,7 +198,7 @@ export class DialogManager extends Component {
     getSelectedItems = (dialogId) => {
         const items = isScatterAttribute(dialogId)
             ? this.props.getItemsByAttribute(dialogId)
-            : this.props.selectedItems[dialogId]
+            : this.props.selectedItems(dialogId)
         return (items || [])
             .filter(
                 (id) =>
@@ -211,6 +211,7 @@ export class DialogManager extends Component {
                 type:
                     this.props.metadata[id]?.type ||
                     this.props.metadata[id]?.dimensionItemType,
+                optionSetId: this.props.metadata[id]?.optionSetId,
                 ...(this.props.metadata[id]?.expression
                     ? {
                           expression: this.props.metadata[id].expression,
@@ -553,7 +554,7 @@ DialogManager.propTypes = {
     metadata: PropTypes.object,
     parentGraphMap: PropTypes.object,
     rootOrgUnits: PropTypes.array,
-    selectedItems: PropTypes.object,
+    selectedItems: PropTypes.func,
     setUiItemAttributes: PropTypes.func,
     setUiItems: PropTypes.func,
     settings: PropTypes.object,
@@ -575,7 +576,7 @@ const mapStateToProps = (state) => ({
     dxIds: sGetUiItemsByDimension(state, DIMENSION_ID_DATA),
     ouIds: sGetUiItemsByDimension(state, DIMENSION_ID_ORGUNIT),
     rootOrgUnits: sGetRootOrgUnits(state),
-    selectedItems: sGetUiItems(state),
+    selectedItems: (dimensionId) => sGetUiItemsByDimension(state, dimensionId),
     settings: sGetSettings(state),
     type: sGetUiType(state),
     getAxisIdByDimensionId: (dimensionId) =>
