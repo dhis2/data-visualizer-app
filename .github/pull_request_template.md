@@ -21,7 +21,7 @@ _text_
 - [ ] Dashboard tested
 - [ ] Tests added (Cypress and/or Jest)
 - [ ] Docs added
-- [ ] i18n strings generated
+- [ ] tested with and without global shell
 - [ ] d2-ci dependency replaced
 - [ ] _todo_
 
