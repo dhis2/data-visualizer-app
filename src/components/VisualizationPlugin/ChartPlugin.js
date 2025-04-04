@@ -1,6 +1,7 @@
 import { createVisualization } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 import React, { useRef, useCallback, useEffect } from 'react'
+import styles from './styles/ChartPlugin.module.css'
 
 const ChartPlugin = ({
     visualization,
@@ -8,13 +9,11 @@ const ChartPlugin = ({
     extraOptions,
     legendSets,
     id: renderCounter,
-    style,
     onChartGenerated,
     animation: defaultAnimation,
     onToggleContextualMenu,
 }) => {
     const canvasRef = useRef(undefined)
-    const prevStyle = useRef(style)
     const prevRenderCounter = useRef(renderCounter)
 
     const renderVisualization = useCallback(
@@ -67,19 +66,7 @@ const ChartPlugin = ({
         /* eslint-disable-next-line react-hooks/exhaustive-deps */
     }, [renderCounter])
 
-    useEffect(() => {
-        if (
-            style.width !== prevStyle.current.width ||
-            style.height !== prevStyle.current.height
-        ) {
-            renderVisualization(0)
-            prevStyle.current = style
-        }
-
-        /* eslint-disable-next-line react-hooks/exhaustive-deps */
-    }, [style])
-
-    return <div ref={canvasRef} style={style} />
+    return <div ref={canvasRef} className={styles.container} />
 }
 
 ChartPlugin.defaultProps = {
@@ -98,7 +85,6 @@ ChartPlugin.propTypes = {
     visualization: PropTypes.object.isRequired,
     animation: PropTypes.number,
     id: PropTypes.number,
-    style: PropTypes.object,
     onChartGenerated: PropTypes.func,
     onToggleContextualMenu: PropTypes.func,
 }
