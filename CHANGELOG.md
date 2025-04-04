@@ -1,3 +1,17 @@
+## [101.1.1](https://github.com/dhis2/data-visualizer-app/compare/v101.1.0...v101.1.1) (2025-04-02)
+
+
+### Bug Fixes
+
+* ensure hyperlinks work when using the upcoming global shell [DHIS2-19274] ([#3374](https://github.com/dhis2/data-visualizer-app/issues/3374)) ([331df17](https://github.com/dhis2/data-visualizer-app/commit/331df17ac47087f12fba83477a23297eda1c806c))
+
+# [101.1.0](https://github.com/dhis2/data-visualizer-app/compare/v101.0.7...v101.1.0) (2025-03-18)
+
+
+### Features
+
+* implement option set selector in Data dimension modal (DHIS2-17872) ([#3344](https://github.com/dhis2/data-visualizer-app/issues/3344)) ([d09739d](https://github.com/dhis2/data-visualizer-app/commit/d09739da121d71d629465bd23166c3f6443f3e36))
+
 ## [101.0.7](https://github.com/dhis2/data-visualizer-app/compare/v101.0.6...v101.0.7) (2025-03-18)
 
 
