@@ -2,7 +2,6 @@ import debounce from 'lodash-es/debounce'
 import PropTypes from 'prop-types'
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { acSetChart } from '../../actions/chart.js'
 import { tSetCurrentFromUi } from '../../actions/current.js'
 import { acSetPluginLoading } from '../../actions/loader.js'
 import { acAddMetadata } from '../../actions/metadata.js'
@@ -17,6 +16,7 @@ import { sGetIsPluginLoading, sGetLoadError } from '../../reducers/loader.js'
 import { sGetSettingsDisplayProperty } from '../../reducers/settings.js'
 import { sGetUiRightSidebarOpen } from '../../reducers/ui.js'
 import LoadingMask from '../../widgets/LoadingMask.js'
+import { ChartContext } from '../ChartProvider.js'
 import { VisualizationErrorInfo } from '../VisualizationErrorInfo/VisualizationErrorInfo.js'
 import { VisualizationPlugin } from '../VisualizationPlugin/VisualizationPlugin.js'
 import StartScreen from './StartScreen.js'
@@ -31,7 +31,9 @@ export class UnconnectedVisualization extends Component {
         }
     }
 
-    onChartGenerated = (svg) => this.props.setChart(svg)
+    onChartGenerated = (chart) => {
+        this.context.setChart(chart)
+    }
 
     onDataSorted = (sorting) => {
         this.props.onLoadingStart()
@@ -167,13 +169,26 @@ UnconnectedVisualization.propTypes = {
     error: PropTypes.object,
     isLoading: PropTypes.bool,
     rightSidebarOpen: PropTypes.bool,
-    setChart: PropTypes.func,
     setCurrent: PropTypes.func,
     setUiDataSorting: PropTypes.func,
     setUiItems: PropTypes.func,
     visualization: PropTypes.object,
     onLoadingComplete: PropTypes.func,
     onLoadingStart: PropTypes.func,
+}
+
+UnconnectedVisualization.contextType = ChartContext
+
+/* Setting these contextTypes is required for Jest/Enzyme
+ * context mocking to work, but a React DevTools warning
+ * is thrown in development mode, because contextTypes is
+ * part of the legacy Context API which is deprecated.
+ * So we have to set them conditionally. */
+if (process.env.JEST_WORKER_ID !== undefined) {
+    UnconnectedVisualization.contextTypes = {
+        getChart: PropTypes.func,
+        setChart: PropTypes.func,
+    }
 }
 
 const mapStateToProps = (state) => ({
@@ -190,7 +205,6 @@ const mapDispatchToProps = (dispatch) => ({
     addMetadata: (metadata) => dispatch(acAddMetadata(metadata)),
     addParentGraphMap: (parentGraphMap) =>
         dispatch(acAddParentGraphMap(parentGraphMap)),
-    setChart: (chart) => dispatch(acSetChart(chart)),
     setUiItems: (data) => dispatch(acSetUiItems(data)),
     setUiDataSorting: (sorting) => dispatch(acSetUiDataSorting(sorting)),
     setCurrent: () => dispatch(tSetCurrentFromUi()),
