@@ -10,6 +10,10 @@ import {
     isLegendSetType,
     VIS_TYPE_LINE,
     DIMENSION_ID_DATA,
+    layoutGetDimensionItems,
+    USER_ORG_UNIT,
+    USER_ORG_UNIT_CHILDREN,
+    USER_ORG_UNIT_GRANDCHILDREN,
 } from '@dhis2/analytics'
 import { useDataEngine } from '@dhis2/app-runtime'
 import { Button, IconLegend24, Layer } from '@dhis2/ui'
@@ -18,9 +22,26 @@ import cloneDeep from 'lodash-es/cloneDeep'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState, useCallback } from 'react'
 import { apiFetchLegendSets } from '../../api/legendSets.js'
+import { ensureAnalyticsResponsesContainData } from '../../modules/analytics.js'
 import { getDisabledOptions } from '../../modules/disabledOptions.js'
+import {
+    AssignedCategoriesDataElementsError,
+    GenericServerError,
+    AssignedCategoriesAsFilterError,
+    MultipleIndicatorAsFilterError,
+    NoDataOrDataElementGroupSetError,
+    CombinationDEGSRRError,
+    NoOrgUnitResponseError,
+    NoOrgUnitAccessError,
+    NoDataError,
+    AnalyticsGenerationError,
+    AnalyticsRequestError,
+    ValueTypeError,
+} from '../../modules/error.js'
 import { fetchData } from '../../modules/fetchData.js'
+import getDefaultMetadata from '../../modules/metadata.js'
 import { getOptionsFromVisualization } from '../../modules/options.js'
+import { VisualizationErrorInfo } from '../VisualizationErrorInfo/VisualizationErrorInfo.js'
 import ChartPlugin from './ChartPlugin.js'
 import ContextualMenu from './ContextualMenu.js'
 import OutlierTablePlugin from './OutlierTablePlugin.js'
@@ -36,13 +57,13 @@ export const VisualizationPlugin = ({
     isInModal,
     style,
     onChartGenerated,
-    onError,
     onLoadingComplete,
     onDataSorted,
     onResponsesReceived,
     onDrill,
 }) => {
     const engine = useDataEngine()
+    const [error, setError] = useState(null)
     const [visualization, setVisualization] = useState(null)
     const [ouLevels, setOuLevels] = useState(undefined)
     const [fetchResult, setFetchResult] = useState(null)
@@ -129,6 +150,57 @@ export const VisualizationPlugin = ({
         onDrill(args)
     }
 
+    const formatError = ({ error: responseError, visType }) => {
+        let error
+        if (responseError) {
+            switch (responseError.details?.errorCode) {
+                case 'E7113':
+                case 'E7114':
+                    error = new AssignedCategoriesDataElementsError()
+                    break
+                case 'E7110':
+                    error = new AssignedCategoriesAsFilterError()
+                    break
+                case 'E7108':
+                    error = new MultipleIndicatorAsFilterError()
+                    break
+                case 'E7102':
+                    error = new NoDataOrDataElementGroupSetError(visType)
+                    break
+                case 'E7112':
+                    error = new CombinationDEGSRRError()
+                    break
+                case 'E7120':
+                    error = new NoOrgUnitAccessError()
+                    break
+                case 'E7124':
+                    if (responseError.message?.includes('`dx`')) {
+                        error = new NoDataError(visType)
+                    } else if (responseError.message?.includes('`ou`')) {
+                        error = new NoOrgUnitResponseError()
+                    } else {
+                        error = new GenericServerError()
+                    }
+                    break
+                case 'E7144':
+                    error = new AnalyticsGenerationError()
+                    break
+                case 'E7145':
+                    error = new AnalyticsRequestError()
+                    break
+                case 'E2200':
+                    error = new NoDataError(visType)
+                    break
+                default:
+                    error = responseError
+            }
+        } else {
+            error = new GenericServerError()
+        }
+
+        return error
+    }
+
     const doFetchData = useCallback(
         async (visualization, filters, forDashboard) => {
             const result = await fetchData({
@@ -140,6 +212,30 @@ export const VisualizationPlugin = ({
             })
 
             if (result.responses.length) {
+                try {
+                    ensureAnalyticsResponsesContainData(
+                        result.responses,
+                        visualization.type
+                    )
+
+                    result.responses.forEach((response) => {
+                        if (
+                            response?.metaData?.dimensions?.[
+                                DIMENSION_ID_DATA
+                            ]?.every(
+                                (dim) =>
+                                    response.metaData.items[dim]?.valueType ===
+                                    'TEXT'
+                            ) &&
+                            visualization.type !== VIS_TYPE_PIVOT_TABLE
+                        ) {
+                            throw new ValueTypeError()
+                        }
+                    })
+                } catch (error) {
+                    setError(error)
+                }
+
                 onResponsesReceived(result.responses)
             }
 
@@ -172,6 +268,7 @@ export const VisualizationPlugin = ({
     }, [engine])
 
     useEffect(() => {
+        setError(null)
         setFetchResult(null)
         setVisualization(null)
 
@@ -182,6 +279,29 @@ export const VisualizationPlugin = ({
         })
 
         const filteredVisualization = cloneDeep(originalVisualization)
+
+        // inject translated user orgunit names
+        const ouItems = layoutGetDimensionItems(
+            filteredVisualization,
+            DIMENSION_ID_ORGUNIT
+        )
+
+        if (ouItems.length) {
+            const defaultMetaData = getDefaultMetadata()
+            const userOuIds = [
+                USER_ORG_UNIT,
+                USER_ORG_UNIT_CHILDREN,
+                USER_ORG_UNIT_GRANDCHILDREN,
+            ]
+
+            ouItems.forEach((ouItem) => {
+                userOuIds.forEach((userOuId) => {
+                    if (ouItem.id === userOuId) {
+                        ouItem.name = defaultMetaData[userOuId].name
+                    }
+                })
+            })
+        }
 
         Object.keys(disabledOptions).forEach(
             (option) => delete filteredVisualization[option]
@@ -259,13 +379,12 @@ export const VisualizationPlugin = ({
                 extraOptions,
             })
             setShowLegendKey(filteredVisualization.legend?.showKey)
-
-            onLoadingComplete()
         }
 
-        doFetchAll().catch((error) => {
-            onError(error)
-        })
+        doFetchAll()
+            .catch((error) => setError(error))
+            // since errors are rendered here, always call loading complete
+            .finally(() => onLoadingComplete())
 
         /* eslint-disable-next-line react-hooks/exhaustive-deps */
     }, [originalVisualization, filters, forDashboard])
@@ -277,6 +396,18 @@ export const VisualizationPlugin = ({
             )
         }
     }, [fetchResult?.visualization, ouLevels])
+
+    // render error within the plugin so it's used in both app and plugin consumers (ie. dashboard)
+    if (error) {
+        return (
+            <VisualizationErrorInfo
+                error={formatError({
+                    error,
+                    visType: originalVisualization.type,
+                })}
+            />
+        )
+    }
 
     if (!fetchResult || !visualization || !ouLevels) {
         return null
@@ -453,7 +584,6 @@ export const VisualizationPlugin = ({
                     }
                     id={forDashboard ? renderId : id}
                     onChartGenerated={onChartGenerated}
-                    style={transformedStyle}
                 />
             )
         }
@@ -491,7 +621,6 @@ VisualizationPlugin.defaultProps = {
     filters: {},
     forDashboard: false,
     onChartGenerated: Function.prototype,
-    onError: Function.prototype,
     onLoadingComplete: Function.prototype,
     onDataSorted: Function.prototype,
     onResponsesReceived: Function.prototype,
@@ -509,7 +638,6 @@ VisualizationPlugin.propTypes = {
     onChartGenerated: PropTypes.func,
     onDataSorted: PropTypes.func,
     onDrill: PropTypes.func,
-    onError: PropTypes.func,
     onLoadingComplete: PropTypes.func,
     onResponsesReceived: PropTypes.func,
 }

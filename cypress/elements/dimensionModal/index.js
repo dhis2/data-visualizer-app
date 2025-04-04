@@ -8,6 +8,7 @@ const transferRemoveAllButtonEl = 'transfer-actions-removeall'
 const transferAddOneButtonEl = 'transfer-actions-addindividual'
 const transferRemoveOneButtonEl = 'transfer-actions-removeindividual'
 const transferSelectableItemsEl = 'transfer-sourceoptions'
+const transferSelectableOptionsEl = 'option-view-mode-transfer-sourceoptions'
 const transferSelectedItemsEl = 'transfer-pickedoptions'
 const transferOptionEl = 'transfer-option'
 const transferLeftContainerEl = 'transfer-leftside'
@@ -56,6 +57,9 @@ export const selectItemByDoubleClick = (item) =>
 
 export const unselectItemByDoubleClick = (item) =>
     cy.getBySelLike(transferSelectedItemsEl).contains(item).dblclick()
+
+export const selectOptionByDoubleClick = (item) =>
+    cy.getBySelLike(transferSelectableOptionsEl).contains(item).dblclick()
 
 export const expectItemToBeSelected = (item) =>
     cy.getBySelLike(transferSelectedItemsEl).should('contain', item)
@@ -112,6 +116,8 @@ export {
     switchDataTab,
     expectDataDimensionModalWarningToContain,
     expectDataItemToBeInactive,
+    expectDataItemToShowDataType,
+    expectDataItemToShowInfoTable,
     expectDataDimensionModalToBeVisible,
     expectDataTypeToBe,
     expectDataTypeSelectHelpToContain,
@@ -132,9 +138,12 @@ export {
     expectSubGroupSelectToBe,
     switchSubGroupTo,
     clickEDIEditButton,
+    clickOptionViewModeButton,
+    clickOptionViewModeBackButton,
     expectSelectableDataItemsAmountToBeLeast,
     expectSelectableDataItemsAmountToBe,
     expectDataItemsToBeInSource,
+    expectDataItemsToBeInOptionViewModeSource,
 } from './dataDimension.js'
 
 export {
@@ -169,7 +178,6 @@ export {
     openOrgUnitTreeItem,
     toggleOrgUnitGroup,
     selectUserOrgUnit,
-    expectOrgUnitTreeToBeDisabled,
     expectOrgUnitTreeToBeEnabled,
     deselectUserOrgUnit,
 } from './orgUnitDimension.js'

@@ -90,11 +90,6 @@ describe('ChartPlugin', () => {
             done()
         })
 
-        it('uses the style passed as prop', (done) => {
-            expect(canvas().find('div').prop('style')).toEqual(props.style)
-            done()
-        })
-
         it('calls createVisualization', (done) => {
             canvas()
 

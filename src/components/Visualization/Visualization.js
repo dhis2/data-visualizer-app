@@ -1,37 +1,23 @@
-import { DIMENSION_ID_DATA, VIS_TYPE_PIVOT_TABLE } from '@dhis2/analytics'
 import debounce from 'lodash-es/debounce'
 import PropTypes from 'prop-types'
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { tSetCurrentFromUi } from '../../actions/current.js'
-import { acSetLoadError, acSetPluginLoading } from '../../actions/loader.js'
+import { acSetPluginLoading } from '../../actions/loader.js'
 import { acAddMetadata } from '../../actions/metadata.js'
 import {
     acSetUiItems,
     acSetUiDataSorting,
     acAddParentGraphMap,
 } from '../../actions/ui.js'
-import { ensureAnalyticsResponsesContainData } from '../../modules/analytics.js'
-import {
-    AssignedCategoriesDataElementsError,
-    GenericServerError,
-    AssignedCategoriesAsFilterError,
-    MultipleIndicatorAsFilterError,
-    NoDataOrDataElementGroupSetError,
-    CombinationDEGSRRError,
-    NoOrgUnitResponseError,
-    NoDataError,
-    ValueTypeError,
-    AnalyticsGenerationError,
-    AnalyticsRequestError,
-} from '../../modules/error.js'
 import { removeLastPathSegment } from '../../modules/orgUnit.js'
 import { sGetCurrent } from '../../reducers/current.js'
-import { sGetLoadError, sGetIsPluginLoading } from '../../reducers/loader.js'
+import { sGetIsPluginLoading, sGetLoadError } from '../../reducers/loader.js'
 import { sGetSettingsDisplayProperty } from '../../reducers/settings.js'
 import { sGetUiRightSidebarOpen } from '../../reducers/ui.js'
 import LoadingMask from '../../widgets/LoadingMask.js'
 import { ChartContext } from '../ChartProvider.js'
+import { VisualizationErrorInfo } from '../VisualizationErrorInfo/VisualizationErrorInfo.js'
 import { VisualizationPlugin } from '../VisualizationPlugin/VisualizationPlugin.js'
 import StartScreen from './StartScreen.js'
 import styles from './styles/Visualization.style.js'
@@ -43,60 +29,6 @@ export class UnconnectedVisualization extends Component {
         this.state = {
             renderId: null,
         }
-    }
-
-    onError = (response) => {
-        let error
-        if (response) {
-            switch (response.details?.errorCode) {
-                case 'E7113':
-                case 'E7114':
-                    error = new AssignedCategoriesDataElementsError()
-                    break
-                case 'E7110':
-                    error = new AssignedCategoriesAsFilterError()
-                    break
-                case 'E7108':
-                    error = new MultipleIndicatorAsFilterError()
-                    break
-                case 'E7102':
-                    error = new NoDataOrDataElementGroupSetError(
-                        this.props.visualization.type
-                    )
-                    break
-                case 'E7112':
-                    error = new CombinationDEGSRRError()
-                    break
-                case 'E7124':
-                    {
-                        if (response?.message?.includes('`dx`')) {
-                            error = new NoDataError(
-                                this.props.visualization.type
-                            )
-                        } else if (response?.message?.includes('`ou`')) {
-                            error = new NoOrgUnitResponseError()
-                        } else {
-                            error = new GenericServerError()
-                        }
-                    }
-                    break
-                case 'E7144':
-                    error = new AnalyticsGenerationError()
-                    break
-                case 'E7145':
-                    error = new AnalyticsRequestError()
-                    break
-                case 'E2200':
-                    error = new NoDataError(this.props.visualization.type)
-                    break
-                default:
-                    error = response
-            }
-        } else {
-            error = new GenericServerError()
-        }
-
-        this.props.setLoadError(error)
     }
 
     onChartGenerated = (chart) => {
@@ -116,17 +48,6 @@ export class UnconnectedVisualization extends Component {
         const forMetadata = {}
 
         responses.forEach((response) => {
-            if (
-                (response?.metaData?.dimensions || {})[
-                    DIMENSION_ID_DATA
-                ]?.every(
-                    (dim) => response.metaData.items[dim]?.valueType === 'TEXT'
-                ) &&
-                this.props.visualization.type !== VIS_TYPE_PIVOT_TABLE
-            ) {
-                throw new ValueTypeError()
-            }
-
             Object.entries(response?.metaData?.items || []).forEach(
                 ([id, item]) => {
                     forMetadata[id] = {
@@ -140,11 +61,6 @@ export class UnconnectedVisualization extends Component {
         })
 
         this.props.addMetadata(forMetadata)
-
-        ensureAnalyticsResponsesContainData(
-            responses,
-            this.props.visualization.type
-        )
     }
 
     onDrill = (drillData) => {
@@ -214,31 +130,35 @@ export class UnconnectedVisualization extends Component {
             isLoading,
             onLoadingComplete,
         } = this.props
+
         const { renderId } = this.state
 
-        return !visualization || error ? (
-            <StartScreen />
-        ) : (
-            <Fragment>
-                {isLoading ? (
-                    <div style={styles.loadingCover}>
-                        <LoadingMask />
-                    </div>
-                ) : null}
-                <VisualizationPlugin
-                    id={renderId}
-                    visualization={visualization}
-                    onChartGenerated={this.onChartGenerated}
-                    onLoadingComplete={onLoadingComplete}
-                    onDataSorted={this.onDataSorted}
-                    onResponsesReceived={this.onResponsesReceived}
-                    onError={this.onError}
-                    onDrill={this.onDrill}
-                    style={styles.chartCanvas}
-                    displayProperty={displayProperty}
-                />
-            </Fragment>
-        )
+        if (error) {
+            return <VisualizationErrorInfo error={error} />
+        } else if (!visualization) {
+            return <StartScreen />
+        } else {
+            return (
+                <Fragment>
+                    {isLoading && (
+                        <div style={styles.loadingCover}>
+                            <LoadingMask />
+                        </div>
+                    )}
+                    <VisualizationPlugin
+                        id={renderId}
+                        visualization={visualization}
+                        onChartGenerated={this.onChartGenerated}
+                        onLoadingComplete={onLoadingComplete}
+                        onDataSorted={this.onDataSorted}
+                        onResponsesReceived={this.onResponsesReceived}
+                        onDrill={this.onDrill}
+                        style={styles.chartCanvas}
+                        displayProperty={displayProperty}
+                    />
+                </Fragment>
+            )
+        }
     }
 }
 
@@ -250,7 +170,6 @@ UnconnectedVisualization.propTypes = {
     isLoading: PropTypes.bool,
     rightSidebarOpen: PropTypes.bool,
     setCurrent: PropTypes.func,
-    setLoadError: PropTypes.func,
     setUiDataSorting: PropTypes.func,
     setUiItems: PropTypes.func,
     visualization: PropTypes.object,
@@ -286,7 +205,6 @@ const mapDispatchToProps = (dispatch) => ({
     addMetadata: (metadata) => dispatch(acAddMetadata(metadata)),
     addParentGraphMap: (parentGraphMap) =>
         dispatch(acAddParentGraphMap(parentGraphMap)),
-    setLoadError: (error) => dispatch(acSetLoadError(error)),
     setUiItems: (data) => dispatch(acSetUiItems(data)),
     setUiDataSorting: (sorting) => dispatch(acSetUiDataSorting(sorting)),
     setCurrent: () => dispatch(tSetCurrentFromUi()),

@@ -1,3 +1,128 @@
+## [101.1.1](https://github.com/dhis2/data-visualizer-app/compare/v101.1.0...v101.1.1) (2025-04-02)
+
+
+### Bug Fixes
+
+* ensure hyperlinks work when using the upcoming global shell [DHIS2-19274] ([#3374](https://github.com/dhis2/data-visualizer-app/issues/3374)) ([331df17](https://github.com/dhis2/data-visualizer-app/commit/331df17ac47087f12fba83477a23297eda1c806c))
+
+# [101.1.0](https://github.com/dhis2/data-visualizer-app/compare/v101.0.7...v101.1.0) (2025-03-18)
+
+
+### Features
+
+* implement option set selector in Data dimension modal (DHIS2-17872) ([#3344](https://github.com/dhis2/data-visualizer-app/issues/3344)) ([d09739d](https://github.com/dhis2/data-visualizer-app/commit/d09739da121d71d629465bd23166c3f6443f3e36))
+
+## [101.0.7](https://github.com/dhis2/data-visualizer-app/compare/v101.0.6...v101.0.7) (2025-03-18)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#3366](https://github.com/dhis2/data-visualizer-app/issues/3366)) ([3f5c32f](https://github.com/dhis2/data-visualizer-app/commit/3f5c32f4c9a6b72888df88de456537d3c114f64d))
+
+## [101.0.6](https://github.com/dhis2/data-visualizer-app/compare/v101.0.5...v101.0.6) (2025-03-18)
+
+
+### Bug Fixes
+
+* add hash routing and plugin support for the upcoming global shell [DHIS2-19061] ([#3363](https://github.com/dhis2/data-visualizer-app/issues/3363)) ([4e710c2](https://github.com/dhis2/data-visualizer-app/commit/4e710c215bea9b853ad0b6f9ec214fbf72143565))
+
+## [101.0.5](https://github.com/dhis2/data-visualizer-app/compare/v101.0.4...v101.0.5) (2025-03-13)
+
+
+### Bug Fixes
+
+* show error screen for not found visualizations (DHIS2-19187) ([#3362](https://github.com/dhis2/data-visualizer-app/issues/3362)) ([c7e9805](https://github.com/dhis2/data-visualizer-app/commit/c7e9805befcdb55569666ae3760cd16b7cac65c8))
+
+## [101.0.4](https://github.com/dhis2/data-visualizer-app/compare/v101.0.3...v101.0.4) (2025-03-04)
+
+
+### Bug Fixes
+
+* fix styling on dimension items [DHIS2-17934] [DHIS2-19046] ([#3357](https://github.com/dhis2/data-visualizer-app/issues/3357)) ([8e0070b](https://github.com/dhis2/data-visualizer-app/commit/8e0070b3029b61e7a476e5fa1b0cc8f9712264bf))
+
+## [101.0.3](https://github.com/dhis2/data-visualizer-app/compare/v101.0.2...v101.0.3) (2025-02-26)
+
+
+### Bug Fixes
+
+* allow blank cumulative values in charts ([#3352](https://github.com/dhis2/data-visualizer-app/issues/3352)) ([c663d96](https://github.com/dhis2/data-visualizer-app/commit/c663d96c00100ec523b81974c3d40feb50ee6f5b))
+
+## [101.0.2](https://github.com/dhis2/data-visualizer-app/compare/v101.0.1...v101.0.2) (2025-02-24)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#3348](https://github.com/dhis2/data-visualizer-app/issues/3348)) ([a642734](https://github.com/dhis2/data-visualizer-app/commit/a6427348ea634aa5e334ed5f3b5c6705dbece517))
+
+## [101.0.1](https://github.com/dhis2/data-visualizer-app/compare/v101.0.0...v101.0.1) (2025-02-21)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#3333](https://github.com/dhis2/data-visualizer-app/issues/3333)) ([8974db7](https://github.com/dhis2/data-visualizer-app/commit/8974db7a84b32f217c60198a2f49545bf9a5a883))
+
+# [101.0.0](https://github.com/dhis2/data-visualizer-app/compare/v100.9.1...v101.0.0) (2025-02-14)
+
+
+### Features
+
+* support new dashboard plugin architecture (DHIS2-17283) ([1cad002](https://github.com/dhis2/data-visualizer-app/commit/1cad0026b59956382e948080e7c680008bb07c22))
+* use custom error screens in plugin (DHIS2-18988) ([7c45053](https://github.com/dhis2/data-visualizer-app/commit/7c4505324382300f1299bd2318b1cb4c91136c24))
+
+
+### BREAKING CHANGES
+
+* this version is only compatible with Dashboard app >=101.0.0
+
+## [100.9.1](https://github.com/dhis2/data-visualizer-app/compare/v100.9.0...v100.9.1) (2025-02-04)
+
+
+### Bug Fixes
+
+* pivot table crashes when hiding empty columns ([#3328](https://github.com/dhis2/data-visualizer-app/issues/3328)) ([54a18b6](https://github.com/dhis2/data-visualizer-app/commit/54a18b6b2353bba14bafc37478e2e1f227708c60))
+
+# [100.9.0](https://github.com/dhis2/data-visualizer-app/compare/v100.8.8...v100.9.0) (2025-01-09)
+
+
+### Features
+
+* display type and definitions for data items in data selector (DHIS2-14774) ([#3274](https://github.com/dhis2/data-visualizer-app/issues/3274)) ([f44897a](https://github.com/dhis2/data-visualizer-app/commit/f44897a90c2ef47b478788a3336e983e991f6c52))
+
+## [100.8.8](https://github.com/dhis2/data-visualizer-app/compare/v100.8.7...v100.8.8) (2024-12-22)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([157d99b](https://github.com/dhis2/data-visualizer-app/commit/157d99b0e1c84436ed5e8f0013290869ec4973d1))
+
+## [100.8.7](https://github.com/dhis2/data-visualizer-app/compare/v100.8.6...v100.8.7) (2024-12-04)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#3248](https://github.com/dhis2/data-visualizer-app/issues/3248)) ([a0d7c9c](https://github.com/dhis2/data-visualizer-app/commit/a0d7c9c09290349964167fe8658e4151c2a68d85))
+
+## [100.8.6](https://github.com/dhis2/data-visualizer-app/compare/v100.8.5...v100.8.6) (2024-12-03)
+
+
+### Bug Fixes
+
+* enable ou tree and levels/groups with user orgunits and display translated title (DHIS2-18066) ([#3241](https://github.com/dhis2/data-visualizer-app/issues/3241)) ([ef314a5](https://github.com/dhis2/data-visualizer-app/commit/ef314a594ce9cb6146755c52291f72135052d397))
+
+## [100.8.5](https://github.com/dhis2/data-visualizer-app/compare/v100.8.4...v100.8.5) (2024-11-13)
+
+
+### Bug Fixes
+
+* handle single value vis-type as highcharts chart instance ([#3289](https://github.com/dhis2/data-visualizer-app/issues/3289)) ([83d0e6c](https://github.com/dhis2/data-visualizer-app/commit/83d0e6c33ea5314e849fb1f5842d4b3b61e74c41))
+
+## [100.8.4](https://github.com/dhis2/data-visualizer-app/compare/v100.8.3...v100.8.4) (2024-11-07)
+
+
+### Bug Fixes
+
+* infinite spinner when opening the interpretations modal while viewing a visualization ([#3283](https://github.com/dhis2/data-visualizer-app/issues/3283)) ([403adbc](https://github.com/dhis2/data-visualizer-app/commit/403adbc45f3d0f7983317eae4a6ccd44f970c428))
+
 ## [100.8.3](https://github.com/dhis2/data-visualizer-app/compare/v100.8.2...v100.8.3) (2024-10-24)
 
 
