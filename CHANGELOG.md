@@ -1,3 +1,10 @@
+## [101.1.2](https://github.com/dhis2/data-visualizer-app/compare/v101.1.1...v101.1.2) (2025-04-04)
+
+
+### Bug Fixes
+
+* restore navigation between visualizations using the browser address bar [DHIS2-19387] ([#3375](https://github.com/dhis2/data-visualizer-app/issues/3375)) ([0826265](https://github.com/dhis2/data-visualizer-app/commit/08262659b305abb984f436e538ad737b7c8e44a3))
+
 ## [101.1.1](https://github.com/dhis2/data-visualizer-app/compare/v101.1.0...v101.1.1) (2025-04-02)
 
 
