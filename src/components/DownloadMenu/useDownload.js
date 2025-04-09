@@ -77,12 +77,6 @@ const useDownload = (relativePeriodDate) => {
             })
 
             chart.exportChartLocal({
-                sourceHeight: 768,
-                sourceWidth: 1024,
-                scale: 1,
-                fallbackToExportServer: false,
-                allowHTML: true,
-                showExportInProgress: true,
                 filename: visualization.name,
                 type: isPdfExport ? 'application/pdf' : 'image/png',
                 pdfFont: isPdfExport
