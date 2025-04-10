@@ -271,7 +271,7 @@ describe('index', () => {
             color: 'blue',
         }
 
-        const nameAndDesc = {
+        const extraParams = {
             name: 'Renamed name',
             description: 'Renamed description',
         }
@@ -308,12 +308,12 @@ describe('index', () => {
                 },
                 {
                     type: SET_VISUALIZATION,
-                    value: { ...visualization, ...nameAndDesc },
+                    value: { ...visualization, ...extraParams },
                     metadata: [],
                 },
                 {
                     type: SET_CURRENT,
-                    value: { ...visualization, ...nameAndDesc },
+                    value: { ...visualization, ...extraParams },
                 },
                 {
                     type: RECEIVED_SNACKBAR_MESSAGE,
@@ -326,7 +326,7 @@ describe('index', () => {
             ]
 
             return store
-                .dispatch(fromActions.tDoRenameVisualization(nameAndDesc))
+                .dispatch(fromActions.tDoRenameVisualization(extraParams))
                 .then(() => {
                     expect(store.getActions()).toEqual(expectedActions)
                 })
@@ -354,12 +354,12 @@ describe('index', () => {
                 },
                 {
                     type: SET_VISUALIZATION,
-                    value: { ...visualization, ...nameAndDesc },
+                    value: { ...visualization, ...extraParams },
                     metadata: [],
                 },
                 {
                     type: SET_CURRENT,
-                    value: { ...current, ...nameAndDesc },
+                    value: { ...current, ...extraParams },
                 },
                 {
                     type: RECEIVED_SNACKBAR_MESSAGE,
@@ -372,7 +372,7 @@ describe('index', () => {
             ]
 
             return store
-                .dispatch(fromActions.tDoRenameVisualization(nameAndDesc))
+                .dispatch(fromActions.tDoRenameVisualization(extraParams))
                 .then(() => {
                     expect(store.getActions()).toEqual(expectedActions)
                 })
