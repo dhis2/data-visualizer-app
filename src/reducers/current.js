@@ -2,6 +2,7 @@ import {
     VIS_TYPE_YEAR_OVER_YEAR_LINE,
     VIS_TYPE_YEAR_OVER_YEAR_COLUMN,
     VIS_TYPE_PIE,
+    VIS_TYPE_DONUT,
     VIS_TYPE_GAUGE,
     VIS_TYPE_OUTLIER_TABLE,
     VIS_TYPE_SINGLE_VALUE,
@@ -53,6 +54,7 @@ export default (state = DEFAULT_CURRENT, action) => {
         case SET_CURRENT_FROM_UI: {
             switch (action.value.ui.type) {
                 case VIS_TYPE_PIE:
+                case VIS_TYPE_DONUT:
                     return getPieCurrentFromUi(state, action.value.ui)
                 case VIS_TYPE_SINGLE_VALUE:
                 case VIS_TYPE_GAUGE:
@@ -92,6 +94,7 @@ export const sGetCurrentFromUi = (state) => {
 
     switch (ui.type) {
         case VIS_TYPE_PIE:
+        case VIS_TYPE_DONUT:
             return getPieCurrentFromUi(state, ui)
         case VIS_TYPE_SINGLE_VALUE:
         case VIS_TYPE_GAUGE:
