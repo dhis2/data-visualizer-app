@@ -41,8 +41,7 @@ const onNew = () => {
         history.push('/')
     }
 }
-const getOnRename = (props) => (details) =>
-    props.onSaveVisualization(details, false)
+const getOnRename = (props) => (details) => props.onRenameVisualization(details)
 const getOnSave = (props) => (details) =>
     props.onSaveVisualization(details, false)
 const getOnSaveAs = (props) => (details) =>
