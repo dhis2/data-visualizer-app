@@ -67,12 +67,24 @@ const useDownload = (relativePeriodDate) => {
 
             const isPdfExport = format === FILE_FORMAT_PDF
 
-            /* Custom visualization types (i.e. SingleValue) that need some
-             * specific handling for PDF export can read this when they
-             * re-render before exporting. */
             chart.update({
                 exporting: {
-                    chartOptions: { isPdfExport },
+                    chartOptions: {
+                        /* Custom visualization types (i.e. SingleValue) that need some
+                         * specific handling for PDF export can read this when they
+                         * re-render before exporting. */
+                        isPdfExport,
+                        chart: {
+                            style: {
+                                /* TODO: We probably need to diffentiate between three cases here:
+                                 * 1. A PDF download for latin script => use regular font (Roboto etc)
+                                 * 2. A PDF download for non-latin script => use Noto Sans because this will have the same sizing as its localized variants
+                                 * 3. A PNG donwload => use Arial, because this is the first fallback font in our regular fontFamily declaration
+                                 * For now we just stick to these two and later on we create a helper that establishes if a locale is latin or non-latin */
+                                fontFamily: isPdfExport ? 'Noto Sans' : 'Arial',
+                            },
+                        },
+                    },
                 },
             })
 
