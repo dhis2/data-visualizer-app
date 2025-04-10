@@ -45,6 +45,10 @@ jest.mock('@dhis2/analytics', () => ({
 /* eslint-enable no-import-assign, import/namespace */
 
 describe('index', () => {
+    beforeEach(() => {
+        jest.clearAllMocks()
+        jest.resetAllMocks()
+    })
     describe('tDoLoadVisualization', () => {
         it('dispatches the correct actions after successfully fetching visualization', () => {
             const vis = {
@@ -246,22 +250,52 @@ describe('index', () => {
     })
 
     describe('tDoRenameVisualization', () => {
+        const uid = 'xyzpdq789ab'
         const visualization = {
-            id: 'r1',
-            content: 'burp!',
+            id: uid,
+            name: 'original name',
+            description: 'original description',
+            content: {
+                type: 'chart',
+                level: 'medium',
+            },
+            color: 'blue',
         }
 
         const current = {
             ...visualization,
-            modified: true,
+            content: {
+                type: 'chart',
+                level: 'highest',
+            },
+            color: 'blue',
         }
 
-        const extraParams = {
-            name: 'rename-test',
-            description: 'Rename test',
+        const nameAndDesc = {
+            name: 'Renamed name',
+            description: 'Renamed description',
         }
+
+        // eslint-disable-next-line no-import-assign, import/namespace
+        api.apiSaveVisualization = jest.fn(() => {
+            return Promise.resolve({
+                status: 'OK',
+                response: {
+                    uid,
+                },
+            })
+        })
 
         it('dispatches the correct actions after successfully renaming the original visualization', () => {
+            // eslint-disable-next-line no-import-assign, import/namespace
+            api.apiSaveVisualization = jest.fn(() => {
+                return Promise.resolve({
+                    status: 'OK',
+                    response: {
+                        uid,
+                    },
+                })
+            })
             const store = mockStore({
                 visualization,
                 current: visualization,
@@ -269,13 +303,17 @@ describe('index', () => {
 
             const expectedActions = [
                 {
+                    type: SET_PLUGIN_LOADING,
+                    value: true,
+                },
+                {
                     type: SET_VISUALIZATION,
-                    value: { ...visualization, ...extraParams },
+                    value: { ...visualization, ...nameAndDesc },
                     metadata: [],
                 },
                 {
                     type: SET_CURRENT,
-                    value: { ...visualization, ...extraParams },
+                    value: { ...visualization, ...nameAndDesc },
                 },
                 {
                     type: RECEIVED_SNACKBAR_MESSAGE,
@@ -287,12 +325,23 @@ describe('index', () => {
                 },
             ]
 
-            store.dispatch(fromActions.tDoRenameVisualization(extraParams))
-
-            expect(store.getActions()).toEqual(expectedActions)
+            return store
+                .dispatch(fromActions.tDoRenameVisualization(nameAndDesc))
+                .then(() => {
+                    expect(store.getActions()).toEqual(expectedActions)
+                })
         })
 
         it('dispatched the correct actions after successfully renaming the modified visualization', () => {
+            // eslint-disable-next-line no-import-assign, import/namespace
+            api.apiSaveVisualization = jest.fn(() => {
+                return Promise.resolve({
+                    status: 'OK',
+                    response: {
+                        uid,
+                    },
+                })
+            })
             const store = mockStore({
                 visualization,
                 current,
@@ -300,13 +349,17 @@ describe('index', () => {
 
             const expectedActions = [
                 {
+                    type: SET_PLUGIN_LOADING,
+                    value: true,
+                },
+                {
                     type: SET_VISUALIZATION,
-                    value: { ...visualization, ...extraParams },
+                    value: { ...visualization, ...nameAndDesc },
                     metadata: [],
                 },
                 {
                     type: SET_CURRENT,
-                    value: { ...current, ...extraParams },
+                    value: { ...current, ...nameAndDesc },
                 },
                 {
                     type: RECEIVED_SNACKBAR_MESSAGE,
@@ -318,9 +371,11 @@ describe('index', () => {
                 },
             ]
 
-            store.dispatch(fromActions.tDoRenameVisualization(extraParams))
-
-            expect(store.getActions()).toEqual(expectedActions)
+            return store
+                .dispatch(fromActions.tDoRenameVisualization(nameAndDesc))
+                .then(() => {
+                    expect(store.getActions()).toEqual(expectedActions)
+                })
         })
     })
 
@@ -353,6 +408,15 @@ describe('index', () => {
         })
 
         it('replaces the location in history on successful save', () => {
+            // eslint-disable-next-line no-import-assign, import/namespace
+            api.apiSaveVisualization = jest.fn(() => {
+                return Promise.resolve({
+                    status: 'OK',
+                    response: {
+                        uid,
+                    },
+                })
+            })
             const expectedVis = {
                 ...vis,
                 ...extraParams,
@@ -375,6 +439,15 @@ describe('index', () => {
         })
 
         it('pushes a new location in history on successful save as', () => {
+            // eslint-disable-next-line no-import-assign, import/namespace
+            api.apiSaveVisualization = jest.fn(() => {
+                return Promise.resolve({
+                    status: 'OK',
+                    response: {
+                        uid,
+                    },
+                })
+            })
             uid = 2
 
             const expectedVis = {
