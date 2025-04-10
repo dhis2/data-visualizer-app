@@ -193,7 +193,6 @@ export const tDoRenameVisualization =
         }
 
         try {
-            dispatch(fromLoader.acSetPluginLoading(true))
             const visualization = getSaveableVisualization(
                 sGetVisualization(getState())
             )
@@ -210,11 +209,10 @@ export const tDoRenameVisualization =
                 await apiSaveVisualization(engine, updatedVisualization)
             )
         } catch (error) {
-            dispatch(fromLoader.acSetPluginLoading(false))
             logError('tDoRenameVisualization', error)
 
-            // TODO: Once the API returns custom error codes for validation errors, make sure they're relayed properly to be displayed to the user
-            // In the meantime we only display a generic error (doesn't give any constructive information but at least it doesn't fail silently any more)
+            // TODO: Once the API returns custom error codes for validation errors
+            // make sure they're relayed properly to be displayed to the user
             dispatch(fromLoader.acSetLoadError(new GenericServerError()))
         }
     }

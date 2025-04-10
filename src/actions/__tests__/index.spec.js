@@ -303,10 +303,6 @@ describe('index', () => {
 
             const expectedActions = [
                 {
-                    type: SET_PLUGIN_LOADING,
-                    value: true,
-                },
-                {
                     type: SET_VISUALIZATION,
                     value: { ...visualization, ...extraParams },
                     metadata: [],
@@ -348,10 +344,6 @@ describe('index', () => {
             })
 
             const expectedActions = [
-                {
-                    type: SET_PLUGIN_LOADING,
-                    value: true,
-                },
                 {
                     type: SET_VISUALIZATION,
                     value: { ...visualization, ...extraParams },
