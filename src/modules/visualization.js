@@ -92,8 +92,8 @@ export const getVisTypeDescriptions = () => ({
     ),
 })
 
-export const getVisualizationFromCurrent = (current) => {
-    const visualization = Object.assign({}, current)
+export const getSaveableVisualization = (vis) => {
+    const visualization = Object.assign({}, vis)
     const nonSavableOptions = Object.keys(options).filter(
         (option) => !options[option].savable
     )

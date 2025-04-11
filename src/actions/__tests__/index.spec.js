@@ -45,6 +45,10 @@ jest.mock('@dhis2/analytics', () => ({
 /* eslint-enable no-import-assign, import/namespace */
 
 describe('index', () => {
+    beforeEach(() => {
+        jest.clearAllMocks()
+        jest.resetAllMocks()
+    })
     describe('tDoLoadVisualization', () => {
         it('dispatches the correct actions after successfully fetching visualization', () => {
             const vis = {
@@ -246,20 +250,47 @@ describe('index', () => {
     })
 
     describe('tDoRenameVisualization', () => {
+        const uid = 'xyzpdq789ab'
         const visualization = {
-            id: 'r1',
-            content: 'burp!',
+            id: uid,
+            name: 'original name',
+            description: 'original description',
+            content: {
+                type: 'chart',
+                level: 'medium',
+            },
+            color: 'blue',
         }
 
         const current = {
             ...visualization,
-            modified: true,
+            content: {
+                type: 'chart',
+                level: 'highest',
+            },
+            color: 'blue',
         }
 
         const extraParams = {
-            name: 'rename-test',
-            description: 'Rename test',
+            name: 'Renamed name',
+            description: 'Renamed description',
         }
+
+        // Define the mock once
+        beforeEach(() => {
+            jest.clearAllMocks()
+            jest.resetAllMocks()
+
+            // eslint-disable-next-line no-import-assign, import/namespace
+            api.apiSaveVisualization = jest.fn(() => {
+                return Promise.resolve({
+                    status: 'OK',
+                    response: {
+                        uid,
+                    },
+                })
+            })
+        })
 
         it('dispatches the correct actions after successfully renaming the original visualization', () => {
             const store = mockStore({
@@ -287,9 +318,11 @@ describe('index', () => {
                 },
             ]
 
-            store.dispatch(fromActions.tDoRenameVisualization(extraParams))
-
-            expect(store.getActions()).toEqual(expectedActions)
+            return store
+                .dispatch(fromActions.tDoRenameVisualization(extraParams))
+                .then(() => {
+                    expect(store.getActions()).toEqual(expectedActions)
+                })
         })
 
         it('dispatched the correct actions after successfully renaming the modified visualization', () => {
@@ -318,9 +351,11 @@ describe('index', () => {
                 },
             ]
 
-            store.dispatch(fromActions.tDoRenameVisualization(extraParams))
-
-            expect(store.getActions()).toEqual(expectedActions)
+            return store
+                .dispatch(fromActions.tDoRenameVisualization(extraParams))
+                .then(() => {
+                    expect(store.getActions()).toEqual(expectedActions)
+                })
         })
     })
 
@@ -342,13 +377,19 @@ describe('index', () => {
         history.default.push = jest.fn()
         history.default.replace = jest.fn()
 
-        // eslint-disable-next-line no-import-assign, import/namespace
-        api.apiSaveVisualization = jest.fn(() => {
-            return Promise.resolve({
-                status: 'OK',
-                response: {
-                    uid,
-                },
+        // Define the mock once
+        beforeEach(() => {
+            jest.clearAllMocks()
+            jest.resetAllMocks()
+
+            // eslint-disable-next-line no-import-assign, import/namespace
+            api.apiSaveVisualization = jest.fn(() => {
+                return Promise.resolve({
+                    status: 'OK',
+                    response: {
+                        uid,
+                    },
+                })
             })
         })
 

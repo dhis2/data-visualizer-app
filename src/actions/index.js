@@ -14,13 +14,16 @@ import {
     apiFetchVisualization,
     apiSaveVisualization,
 } from '../api/visualization.js'
-import { VARIANT_SUCCESS } from '../components/Snackbar/Snackbar.js'
+import {
+    VARIANT_SUCCESS,
+    VARIANT_WARNING,
+} from '../components/Snackbar/Snackbar.js'
 import {
     GenericServerError,
     VisualizationNotFoundError,
 } from '../modules/error.js'
 import history from '../modules/history.js'
-import { getVisualizationFromCurrent } from '../modules/visualization.js'
+import { getSaveableVisualization } from '../modules/visualization.js'
 import { sGetCurrent } from '../reducers/current.js'
 import {
     sGetRootOrgUnits,
@@ -150,41 +153,65 @@ export const clearAll =
 
 export const tDoRenameVisualization =
     ({ name, description }) =>
-    (dispatch, getState) => {
-        const state = getState()
+    async (dispatch, getState, engine) => {
+        const onSuccess = (res) => {
+            if (res.status === 'OK' && res.response.uid) {
+                const state = getState()
 
-        const visualization = sGetVisualization(state)
-        const current = sGetCurrent(state)
+                const visualization = sGetVisualization(state)
+                const current = sGetCurrent(state)
 
-        const updatedVisualization = { ...visualization }
-        const updatedCurrent = { ...current }
+                const updatedVisualization = { ...visualization }
+                const updatedCurrent = { ...current }
 
-        if (name) {
-            updatedVisualization.name = updatedCurrent.name = name
+                if (name) {
+                    updatedVisualization.name = updatedCurrent.name = name
+                }
+
+                updatedVisualization.description = updatedCurrent.description =
+                    description
+
+                dispatch(
+                    fromVisualization.acSetVisualization(updatedVisualization)
+                )
+
+                // keep the same reference for current if there are no changes
+                // other than the name/description
+                if (visualization === current) {
+                    dispatch(fromCurrent.acSetCurrent(updatedVisualization))
+                } else {
+                    dispatch(fromCurrent.acSetCurrent(updatedCurrent))
+                }
+
+                dispatch(
+                    fromSnackbar.acReceivedSnackbarMessage({
+                        variant: VARIANT_SUCCESS,
+                        message: i18n.t('Rename successful'),
+                        duration: 2000,
+                    })
+                )
+            }
         }
 
-        if (description) {
-            updatedVisualization.description = updatedCurrent.description =
-                description
+        try {
+            const visToSave = getSaveableVisualization(
+                sGetVisualization(getState())
+            )
+
+            visToSave.name = name || visToSave.name
+            visToSave.description = description
+
+            return onSuccess(await apiSaveVisualization(engine, visToSave))
+        } catch (error) {
+            logError('tDoRenameVisualization', error)
+
+            dispatch(
+                fromSnackbar.acReceivedSnackbarMessage({
+                    variant: VARIANT_WARNING,
+                    message: i18n.t('Rename failed'),
+                })
+            )
         }
-
-        dispatch(fromVisualization.acSetVisualization(updatedVisualization))
-
-        // keep the same reference for current if there are no changes
-        // other than the name/description
-        if (visualization === current) {
-            dispatch(fromCurrent.acSetCurrent(updatedVisualization))
-        } else {
-            dispatch(fromCurrent.acSetCurrent(updatedCurrent))
-        }
-
-        dispatch(
-            fromSnackbar.acReceivedSnackbarMessage({
-                variant: VARIANT_SUCCESS,
-                message: i18n.t('Rename successful'),
-                duration: 2000,
-            })
-        )
     }
 
 export const tDoSaveVisualization =
@@ -208,7 +235,7 @@ export const tDoSaveVisualization =
 
         try {
             dispatch(fromLoader.acSetPluginLoading(true))
-            let visualization = getVisualizationFromCurrent(
+            let visualization = getSaveableVisualization(
                 sGetCurrent(getState())
             )
 
