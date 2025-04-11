@@ -276,7 +276,11 @@ describe('index', () => {
             description: 'Renamed description',
         }
 
-        it('dispatches the correct actions after successfully renaming the original visualization', () => {
+        // Define the mock once
+        beforeEach(() => {
+            jest.clearAllMocks()
+            jest.resetAllMocks()
+
             // eslint-disable-next-line no-import-assign, import/namespace
             api.apiSaveVisualization = jest.fn(() => {
                 return Promise.resolve({
@@ -286,6 +290,9 @@ describe('index', () => {
                     },
                 })
             })
+        })
+
+        it('dispatches the correct actions after successfully renaming the original visualization', () => {
             const store = mockStore({
                 visualization,
                 current: visualization,
@@ -319,15 +326,6 @@ describe('index', () => {
         })
 
         it('dispatched the correct actions after successfully renaming the modified visualization', () => {
-            // eslint-disable-next-line no-import-assign, import/namespace
-            api.apiSaveVisualization = jest.fn(() => {
-                return Promise.resolve({
-                    status: 'OK',
-                    response: {
-                        uid,
-                    },
-                })
-            })
             const store = mockStore({
                 visualization,
                 current,
@@ -379,17 +377,11 @@ describe('index', () => {
         history.default.push = jest.fn()
         history.default.replace = jest.fn()
 
-        // eslint-disable-next-line no-import-assign, import/namespace
-        api.apiSaveVisualization = jest.fn(() => {
-            return Promise.resolve({
-                status: 'OK',
-                response: {
-                    uid,
-                },
-            })
-        })
+        // Define the mock once
+        beforeEach(() => {
+            jest.clearAllMocks()
+            jest.resetAllMocks()
 
-        it('replaces the location in history on successful save', () => {
             // eslint-disable-next-line no-import-assign, import/namespace
             api.apiSaveVisualization = jest.fn(() => {
                 return Promise.resolve({
@@ -399,6 +391,9 @@ describe('index', () => {
                     },
                 })
             })
+        })
+
+        it('replaces the location in history on successful save', () => {
             const expectedVis = {
                 ...vis,
                 ...extraParams,
@@ -421,15 +416,6 @@ describe('index', () => {
         })
 
         it('pushes a new location in history on successful save as', () => {
-            // eslint-disable-next-line no-import-assign, import/namespace
-            api.apiSaveVisualization = jest.fn(() => {
-                return Promise.resolve({
-                    status: 'OK',
-                    response: {
-                        uid,
-                    },
-                })
-            })
             uid = 2
 
             const expectedVis = {

@@ -14,7 +14,10 @@ import {
     apiFetchVisualization,
     apiSaveVisualization,
 } from '../api/visualization.js'
-import { VARIANT_SUCCESS } from '../components/Snackbar/Snackbar.js'
+import {
+    VARIANT_SUCCESS,
+    VARIANT_WARNING,
+} from '../components/Snackbar/Snackbar.js'
 import {
     GenericServerError,
     VisualizationNotFoundError,
@@ -202,7 +205,12 @@ export const tDoRenameVisualization =
         } catch (error) {
             logError('tDoRenameVisualization', error)
 
-            dispatch(fromLoader.acSetLoadError(new GenericServerError()))
+            dispatch(
+                fromSnackbar.acReceivedSnackbarMessage({
+                    variant: VARIANT_WARNING,
+                    message: i18n.t('Rename failed'),
+                })
+            )
         }
     }
 

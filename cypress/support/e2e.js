@@ -40,6 +40,12 @@ const findSessionCookieForBaseUrl = (baseUrl, cookies) =>
 before(() => {
     const baseUrl = Cypress.env('dhis2BaseUrl')
     const instanceVersion = Cypress.env('dhis2InstanceVersion')
+    const hideRequestsFromLog = Cypress.env('hideRequestsFromLog')
+
+    if (hideRequestsFromLog) {
+        // disable Cypress's default behavior of logging all XMLHttpRequests and fetches
+        cy.intercept({ resourceType: /xhr|fetch/ }, { log: false })
+    }
 
     cy.getAllCookies()
         .should((cookies) => {
