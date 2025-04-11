@@ -20,7 +20,7 @@
     },
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^11.8.2",
-        "@dhis2/cli-style": "^10.7.3",
+        "@dhis2/cli-style": "^10.7.7",
         "@dhis2/cypress-commands": "^10.0.6",
         "@dhis2/cypress-plugins": "^10.0.6",
         "@semantic-release/changelog": "^6",
