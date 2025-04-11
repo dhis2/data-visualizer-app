@@ -202,8 +202,6 @@ export const tDoRenameVisualization =
         } catch (error) {
             logError('tDoRenameVisualization', error)
 
-            // TODO: Once the API returns custom error codes for validation errors
-            // make sure they're relayed properly to be displayed to the user
             dispatch(fromLoader.acSetLoadError(new GenericServerError()))
         }
     }
