@@ -165,10 +165,8 @@ export const tDoRenameVisualization =
                     updatedVisualization.name = updatedCurrent.name = name
                 }
 
-                if (description) {
-                    updatedVisualization.description =
-                        updatedCurrent.description = description
-                }
+                updatedVisualization.description = updatedCurrent.description =
+                    description
 
                 dispatch(
                     fromVisualization.acSetVisualization(updatedVisualization)
@@ -193,21 +191,14 @@ export const tDoRenameVisualization =
         }
 
         try {
-            const visualization = getSaveableVisualization(
+            const visToSave = getSaveableVisualization(
                 sGetVisualization(getState())
             )
 
-            const updatedVisualization = { ...visualization }
+            visToSave.name = name || visToSave.name
+            visToSave.description = description
 
-            updatedVisualization.name = name || visualization.name
-
-            if (description) {
-                updatedVisualization.description = description
-            }
-
-            return onSuccess(
-                await apiSaveVisualization(engine, updatedVisualization)
-            )
+            return onSuccess(await apiSaveVisualization(engine, visToSave))
         } catch (error) {
             logError('tDoRenameVisualization', error)
 
