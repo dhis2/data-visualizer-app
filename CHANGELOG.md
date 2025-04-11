@@ -1,3 +1,10 @@
+## [101.1.3](https://github.com/dhis2/data-visualizer-app/compare/v101.1.2...v101.1.3) (2025-04-11)
+
+
+### Bug Fixes
+
+* print the name of relative periods instead of actual periods (DHIS2-19454) ([d2d55ca](https://github.com/dhis2/data-visualizer-app/commit/d2d55cae7f3197b1fbf6ec99bee2d16064b28596))
+
 ## [101.1.2](https://github.com/dhis2/data-visualizer-app/compare/v101.1.1...v101.1.2) (2025-04-04)
 
 
