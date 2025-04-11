@@ -276,16 +276,6 @@ describe('index', () => {
             description: 'Renamed description',
         }
 
-        // eslint-disable-next-line no-import-assign, import/namespace
-        api.apiSaveVisualization = jest.fn(() => {
-            return Promise.resolve({
-                status: 'OK',
-                response: {
-                    uid,
-                },
-            })
-        })
-
         it('dispatches the correct actions after successfully renaming the original visualization', () => {
             // eslint-disable-next-line no-import-assign, import/namespace
             api.apiSaveVisualization = jest.fn(() => {
