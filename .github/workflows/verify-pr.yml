@@ -87,8 +87,6 @@ jobs:
             should_record: ${{ contains(github.event.head_commit.message, '[e2e record]') || contains(join(github.event.pull_request.labels.*.name), 'e2e record')}}
             spec-group: ${{ needs.setup-matrix.outputs.matrix }}
         secrets:
-            # username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
-            # password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
-            username: admin_clone
-            password: Test123!
+            username: ${{ secrets.CYPRESS_DHIS2_USERNAME }}
+            password: ${{ secrets.CYPRESS_DHIS2_PASSWORD }}
             recordkey: ${{ secrets.CYPRESS_RECORD_KEY }}
