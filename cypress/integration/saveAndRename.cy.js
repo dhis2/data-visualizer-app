@@ -12,7 +12,11 @@ import {
     expectAOTitleToNotBeDirty,
     expectVisualizationToBeVisible,
 } from '../elements/chart.js'
-import { replacePeriodItems } from '../elements/common.js'
+import {
+    typeInput,
+    clearInput,
+    replacePeriodItems,
+} from '../elements/common.js'
 import {
     switchDataTab,
     selectIndicators,
@@ -59,18 +63,6 @@ const TEST_INDICATOR_NAMES = TEST_INDICATORS.slice(1, 4).map(
     (item) => item.name
 )
 
-// TODO: Add test to check that the description is saved and shown in the interpretations panel
-export const typeInput = (target, text) =>
-    cy.getBySelLike(target).find('input').type(text)
-
-export const clearInput = (target) => cy.getBySel(target).find('input').clear()
-
-export const typeTextarea = (target, text) =>
-    cy.getBySel(target).find('textarea').type(text)
-
-export const clearTextarea = (target) =>
-    cy.getBySel(target).find('textarea').clear()
-
 const renameVisualization = (name, description) => {
     cy.getBySel('dhis2-analytics-hovermenubar').contains('File').click()
 
@@ -84,12 +76,13 @@ const renameVisualization = (name, description) => {
     }
 
     if (description !== undefined) {
-        clearTextarea('file-menu-rename-modal-description-content')
+        cy.getBySel('file-menu-rename-modal-description-content')
+            .find('textarea')
+            .clear()
         if (description.length > 0) {
-            typeTextarea(
-                'file-menu-rename-modal-description-content',
-                description
-            )
+            cy.getBySel('file-menu-rename-modal-description-content')
+                .find('textarea')
+                .type(description)
         }
     }
 
