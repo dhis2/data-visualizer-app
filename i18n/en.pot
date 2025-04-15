@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-04-11T15:31:23.947Z\n"
-"PO-Revision-Date: 2025-04-11T15:31:23.948Z\n"
+"POT-Creation-Date: 2025-04-15T09:09:07.966Z\n"
+"PO-Revision-Date: 2025-04-15T09:09:07.966Z\n"
 
 msgid "All items"
 msgstr "All items"
@@ -16,9 +16,6 @@ msgstr "Rename successful"
 
 msgid "Rename failed"
 msgstr "Rename failed"
-
-msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr "Untitled {{visualizationType}} visualization, {{date}}"
 
 msgid "\"{{- deletedObject}}\" successfully deleted."
 msgstr "\"{{- deletedObject}}\" successfully deleted."

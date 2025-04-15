@@ -1,5 +1,4 @@
 import {
-    getDisplayNameByVisType,
     convertOuLevelsToUids,
     ALL_DYNAMIC_DIMENSION_ITEMS,
     DIMENSION_ID_DATA,
@@ -7,6 +6,7 @@ import {
     DIMENSION_ID_ORGUNIT,
     DIMENSION_ID_ASSIGNED_CATEGORIES,
     preparePayloadForSaveAs,
+    preparePayloadForSave,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import { apiPostDataStatistics } from '../api/dataStatistics.js'
@@ -194,12 +194,14 @@ export const tDoRenameVisualization =
         }
 
         try {
-            const visToSave = getSaveableVisualization(
-                sGetVisualization(getState())
-            )
-
-            visToSave.name = name || visToSave.name
-            visToSave.description = description
+            const visToSave = await preparePayloadForSave({
+                visualization: getSaveableVisualization(
+                    sGetVisualization(getState())
+                ),
+                name,
+                description,
+                engine,
+            })
 
             return onSuccess(await apiSaveVisualization(engine, visToSave))
         } catch (error) {
@@ -239,33 +241,19 @@ export const tDoSaveVisualization =
                 sGetCurrent(getState())
             )
 
-            // remove the id to trigger a POST request and save a new AO
             if (copy) {
-                visualization = preparePayloadForSaveAs(visualization)
-            }
-
-            visualization.name =
-                // name provided in the Save dialog
-                name ||
-                // existing name when saving the same modified visualization
-                visualization.name ||
-                // new visualization with no name provided in Save dialog
-                i18n.t(
-                    'Untitled {{visualizationType}} visualization, {{date}}',
-                    {
-                        visualizationType: getDisplayNameByVisType(
-                            visualization.type
-                        ),
-                        date: new Date().toLocaleDateString(undefined, {
-                            year: 'numeric',
-                            month: 'short',
-                            day: '2-digit',
-                        }),
-                    }
-                )
-
-            if (description) {
-                visualization.description = description
+                visualization = preparePayloadForSaveAs({
+                    visualization,
+                    name,
+                    description,
+                })
+            } else {
+                visualization = await preparePayloadForSave({
+                    visualization,
+                    name,
+                    description,
+                    engine,
+                })
             }
 
             return onSuccess(await apiSaveVisualization(engine, visualization))
