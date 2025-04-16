@@ -302,7 +302,6 @@ describe.skip('index', () => {
                 ...visualization,
                 ...renamedProps,
             }
-            // TODO need to mock the api call for subscribers (in anly)
 
             const expectedActions = [
                 {
