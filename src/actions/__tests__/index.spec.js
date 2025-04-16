@@ -271,7 +271,7 @@ describe('index', () => {
             color: 'blue',
         }
 
-        const extraParams = {
+        const renamedProps = {
             name: 'Renamed name',
             description: 'Renamed description',
         }
@@ -298,15 +298,21 @@ describe('index', () => {
                 current: visualization,
             })
 
+            const updatedVis = {
+                ...visualization,
+                ...renamedProps,
+            }
+            // TODO need to mock the api call for subscribers (in anly)
+
             const expectedActions = [
                 {
                     type: SET_VISUALIZATION,
-                    value: { ...visualization, ...extraParams },
+                    value: updatedVis,
                     metadata: [],
                 },
                 {
                     type: SET_CURRENT,
-                    value: { ...visualization, ...extraParams },
+                    value: updatedVis,
                 },
                 {
                     type: RECEIVED_SNACKBAR_MESSAGE,
@@ -319,7 +325,7 @@ describe('index', () => {
             ]
 
             return store
-                .dispatch(fromActions.tDoRenameVisualization(extraParams))
+                .dispatch(fromActions.tDoRenameVisualization(renamedProps))
                 .then(() => {
                     expect(store.getActions()).toEqual(expectedActions)
                 })
@@ -334,12 +340,12 @@ describe('index', () => {
             const expectedActions = [
                 {
                     type: SET_VISUALIZATION,
-                    value: { ...visualization, ...extraParams },
+                    value: { ...visualization, ...renamedProps },
                     metadata: [],
                 },
                 {
                     type: SET_CURRENT,
-                    value: { ...current, ...extraParams },
+                    value: { ...current, ...renamedProps },
                 },
                 {
                     type: RECEIVED_SNACKBAR_MESSAGE,
@@ -352,7 +358,7 @@ describe('index', () => {
             ]
 
             return store
-                .dispatch(fromActions.tDoRenameVisualization(extraParams))
+                .dispatch(fromActions.tDoRenameVisualization(renamedProps))
                 .then(() => {
                     expect(store.getActions()).toEqual(expectedActions)
                 })
