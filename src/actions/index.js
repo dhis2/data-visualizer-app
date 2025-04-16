@@ -194,10 +194,13 @@ export const tDoRenameVisualization =
         }
 
         try {
+            const { visualization } = await apiFetchVisualization(
+                engine,
+                sGetVisualization(getState()).id
+            )
+
             const visToSave = await preparePayloadForSave({
-                visualization: getSaveableVisualization(
-                    sGetVisualization(getState())
-                ),
+                visualization: getSaveableVisualization(visualization),
                 name,
                 description,
                 engine,
