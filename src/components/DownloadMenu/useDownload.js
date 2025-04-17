@@ -66,27 +66,57 @@ const useDownload = (relativePeriodDate) => {
             }
 
             const isPdfExport = format === FILE_FORMAT_PDF
+            const chartOptions = isPdfExport
+                ? {
+                      /* Custom visualization types (i.e. SingleValue) that need some
+                       * specific handling for PDF export can read this when they
+                       * re-render before exporting. */
+                      isPdfExport,
+                      chart: { style: { fontFamily: 'Noto Sans' } },
+                      /* Text ellipsis is not supported in PDF exports so we need to
+                       * let the title and subtitle text overflow when exporting to PDF */
+                      title: {
+                          style: {
+                              whiteSpace: 'wrap',
+                              overflow: 'auto',
+                          },
+                      },
+                      subtitle: {
+                          style: {
+                              whiteSpace: 'wrap',
+                              overflow: 'auto',
+                          },
+                      },
+                  }
+                : {
+                      // Set to false if not a PDF export
+                      isPdfExport,
+                      /* Currently preserving webfonts when exporting to PNG is not
+                       * working in Highcharts. I filed an issue about that, see
+                       * https://github.com/highcharts/highcharts/issues/22914
+                       * For now it is better to first set the font to a native
+                       * PDF font before exporting to avoid alignment issues.*/
+                      chart: { style: { fontFamily: 'Verdana' } },
+                      // Text ellipsis styles do work for PNG export
+                      title: {
+                          style: {
+                              whiteSpace: chart.options.title.style.whiteSpace,
+                              overflow: chart.options.title.style.overflow,
+                          },
+                      },
+                      subtitle: {
+                          style: {
+                              whiteSpace:
+                                  chart.options.subtitle.style.whiteSpace,
+                              overflow: chart.options.subtitle.style.overflow,
+                          },
+                      },
+                  }
 
-            chart.update({
-                exporting: {
-                    chartOptions: {
-                        /* Custom visualization types (i.e. SingleValue) that need some
-                         * specific handling for PDF export can read this when they
-                         * re-render before exporting. */
-                        isPdfExport,
-                        chart: {
-                            style: {
-                                /* TODO: We probably need to diffentiate between three cases here:
-                                 * 1. A PDF download for latin script => use regular font (Roboto etc)
-                                 * 2. A PDF download for non-latin script => use Noto Sans because this will have the same sizing as its localized variants
-                                 * 3. A PNG donwload => use Arial, because this is the first fallback font in our regular fontFamily declaration
-                                 * For now we just stick to these two and later on we create a helper that establishes if a locale is latin or non-latin */
-                                fontFamily: isPdfExport ? 'Noto Sans' : 'Arial',
-                            },
-                        },
-                    },
-                },
-            })
+            /* In theory it should be possible to specify the chart options in the call
+             * to `exportChartLocal` but it doesn't work as expected. One issue I observed
+             * was that the SV visualization ended up in the wrong font */
+            chart.update({ exporting: { chartOptions } })
 
             chart.exportChartLocal({
                 filename: visualization.name,
