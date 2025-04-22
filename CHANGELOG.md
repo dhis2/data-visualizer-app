@@ -1,3 +1,10 @@
+## [101.1.4](https://github.com/dhis2/data-visualizer-app/compare/v101.1.3...v101.1.4) (2025-04-22)
+
+
+### Bug Fixes
+
+* rename visualization fails when it contains data element or calculation [DHIS2-19433] ([#3377](https://github.com/dhis2/data-visualizer-app/issues/3377)) ([63d4562](https://github.com/dhis2/data-visualizer-app/commit/63d4562246d513c82c91e34e54ff415ef432c163))
+
 ## [101.1.3](https://github.com/dhis2/data-visualizer-app/compare/v101.1.2...v101.1.3) (2025-04-11)
 
 
