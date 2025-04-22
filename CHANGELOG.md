@@ -1,3 +1,10 @@
+## [101.1.5](https://github.com/dhis2/data-visualizer-app/compare/v101.1.4...v101.1.5) (2025-04-22)
+
+
+### Bug Fixes
+
+* ensure error's title/description stay centred (DHIS2-19326) ([#3372](https://github.com/dhis2/data-visualizer-app/issues/3372)) ([69762ad](https://github.com/dhis2/data-visualizer-app/commit/69762adba0c2f01ef447634b4f9a46d78a4fa99e))
+
 ## [101.1.4](https://github.com/dhis2/data-visualizer-app/compare/v101.1.3...v101.1.4) (2025-04-22)
 
 
