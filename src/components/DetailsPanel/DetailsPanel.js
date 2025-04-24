@@ -19,11 +19,15 @@ const navigateToOpenModal = (interpretationId, initialFocus) => {
 }
 
 const DetailsPanel = (
-    { interpretationsUnitRef, visualization, disabled },
+    { interpretationsUnitRef, visualization, disabled, aboutAORenderCount },
     context
 ) => (
     <div className={classes.panel} data-test="details-panel">
-        <AboutAOUnit type="visualization" id={visualization.id} />
+        <AboutAOUnit
+            type="visualization"
+            id={visualization.id}
+            renderId={aboutAORenderCount}
+        />
         <InterpretationsUnit
             ref={interpretationsUnitRef}
             type="visualization"
@@ -45,6 +49,7 @@ DetailsPanel.contextTypes = {
 }
 
 DetailsPanel.propTypes = {
+    aboutAORenderCount: PropTypes.number.isRequired,
     interpretationsUnitRef: PropTypes.object.isRequired,
     visualization: PropTypes.object.isRequired,
     disabled: PropTypes.bool,

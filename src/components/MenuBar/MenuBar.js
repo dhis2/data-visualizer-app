@@ -41,15 +41,23 @@ const onNew = () => {
         history.push('/')
     }
 }
-const getOnRename = (props) => (details) => props.onRenameVisualization(details)
+const getOnRename = (props, cb) => (details) =>
+    props.onRenameVisualization(details, cb)
+
 const getOnSave = (props) => (details) =>
     props.onSaveVisualization(details, false)
+
 const getOnSaveAs = (props) => (details) =>
     props.onSaveVisualization(details, true)
+
 const getOnDelete = (props) => () => props.onDeleteVisualization()
+
 const getOnError = (props) => (error) => props.onError(error)
 
-const UnconnectedMenuBar = ({ dataTest, ...props }, context) => {
+const UnconnectedMenuBar = (
+    { dataTest, onFileMenuAction, ...props },
+    context
+) => {
     const filterVisTypesByVersion = useVisTypesFilterByVersion()
 
     const filterVisTypes = [
@@ -79,7 +87,7 @@ const UnconnectedMenuBar = ({ dataTest, ...props }, context) => {
                     defaultFilterVisType={VIS_TYPE_GROUP_ALL}
                     onOpen={onOpen}
                     onNew={onNew}
-                    onRename={getOnRename(props)}
+                    onRename={getOnRename(props, onFileMenuAction)}
                     onSave={
                         [STATE_UNSAVED, STATE_DIRTY].includes(
                             getVisualizationState(
@@ -108,6 +116,7 @@ UnconnectedMenuBar.propTypes = {
     current: PropTypes.object,
     dataTest: PropTypes.string,
     visualization: PropTypes.object,
+    onFileMenuAction: PropTypes.func,
 }
 
 UnconnectedMenuBar.contextTypes = {
@@ -120,8 +129,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    onRenameVisualization: (details) =>
-        dispatch(fromActions.tDoRenameVisualization(details)),
+    onRenameVisualization: (details, onRenameComplete) =>
+        dispatch(fromActions.tDoRenameVisualization(details, onRenameComplete)),
     onSaveVisualization: (details = {}, copy) =>
         dispatch(fromActions.tDoSaveVisualization(details, copy)),
     onDeleteVisualization: () => dispatch(fromActions.tDoDeleteVisualization()),

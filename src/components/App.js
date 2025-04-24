@@ -51,6 +51,7 @@ export class UnconnectedApp extends Component {
         previousLocation: null,
         initialLoadIsComplete: false,
         locationToConfirm: false,
+        aboutAORenderCount: 0,
 
         ouLevels: null,
     }
@@ -261,6 +262,14 @@ export class UnconnectedApp extends Component {
                         <MenuBar
                             apiObjectName={this.apiObjectName}
                             dataTest={'app-menubar'}
+                            onFileMenuAction={() => {
+                                if (this.props.ui.rightSidebarOpen) {
+                                    this.setState((prevState) => ({
+                                        aboutAORenderCount:
+                                            prevState.aboutAORenderCount + 1,
+                                    }))
+                                }
+                            }}
                         />
                     </Toolbar>
                     <div className="section-main flex-grow-1 flex-ct">
@@ -294,6 +303,9 @@ export class UnconnectedApp extends Component {
                                 <DetailsPanel
                                     interpretationsUnitRef={
                                         this.interpretationsUnitRef
+                                    }
+                                    aboutAORenderCount={
+                                        this.state.aboutAORenderCount
                                     }
                                 />
                             </div>

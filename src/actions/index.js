@@ -13,6 +13,7 @@ import { apiPostDataStatistics } from '../api/dataStatistics.js'
 import {
     apiFetchVisualization,
     apiSaveVisualization,
+    apiFetchVisualizationNameDesc,
 } from '../api/visualization.js'
 import {
     VARIANT_SUCCESS,
@@ -152,45 +153,34 @@ export const clearAll =
     }
 
 export const tDoRenameVisualization =
-    ({ name, description }) =>
+    ({ name, description }, onRenameComplete) =>
     async (dispatch, getState, engine) => {
-        const onSuccess = (res) => {
-            if (res.status === 'OK' && res.response.uid) {
-                const state = getState()
+        const onSuccess = (updatedVis) => {
+            const state = getState()
 
-                const visualization = sGetVisualization(state)
-                const current = sGetCurrent(state)
+            const visualization = sGetVisualization(state)
+            const current = sGetCurrent(state)
 
-                const updatedVisualization = { ...visualization }
-                const updatedCurrent = { ...current }
+            const updatedVisualization = { ...visualization, ...updatedVis }
+            const updatedCurrent = { ...current, ...updatedVis }
 
-                if (name) {
-                    updatedVisualization.name = updatedCurrent.name = name
-                }
+            dispatch(fromVisualization.acSetVisualization(updatedVisualization))
 
-                updatedVisualization.description = updatedCurrent.description =
-                    description
-
-                dispatch(
-                    fromVisualization.acSetVisualization(updatedVisualization)
-                )
-
-                // keep the same reference for current if there are no changes
-                // other than the name/description
-                if (visualization === current) {
-                    dispatch(fromCurrent.acSetCurrent(updatedVisualization))
-                } else {
-                    dispatch(fromCurrent.acSetCurrent(updatedCurrent))
-                }
-
-                dispatch(
-                    fromSnackbar.acReceivedSnackbarMessage({
-                        variant: VARIANT_SUCCESS,
-                        message: i18n.t('Rename successful'),
-                        duration: 2000,
-                    })
-                )
+            // keep the same reference for current if there are no changes
+            // other than the name/description
+            if (visualization === current) {
+                dispatch(fromCurrent.acSetCurrent(updatedVisualization))
+            } else {
+                dispatch(fromCurrent.acSetCurrent(updatedCurrent))
             }
+
+            dispatch(
+                fromSnackbar.acReceivedSnackbarMessage({
+                    variant: VARIANT_SUCCESS,
+                    message: i18n.t('Rename successful'),
+                    duration: 2000,
+                })
+            )
         }
 
         try {
@@ -206,7 +196,16 @@ export const tDoRenameVisualization =
                 engine,
             })
 
-            return onSuccess(await apiSaveVisualization(engine, visToSave))
+            const res = await apiSaveVisualization(engine, visToSave)
+            if (res.status === 'OK' && res.response.uid) {
+                onRenameComplete()
+                const { visualization: updatedVisualization } =
+                    await apiFetchVisualizationNameDesc(
+                        engine,
+                        res.response.uid
+                    )
+                onSuccess(updatedVisualization)
+            }
         } catch (error) {
             logError('tDoRenameVisualization', error)
 
