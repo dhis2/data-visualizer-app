@@ -68,7 +68,7 @@ const renamedProps = {
     displayDescription: 'Renamed description',
 }
 
-describe.skip('index tDoRenameVisualization', () => {
+describe('index tDoRenameVisualization', () => {
     beforeEach(() => {
         jest.clearAllMocks()
         jest.resetAllMocks()
