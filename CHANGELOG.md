@@ -1,3 +1,10 @@
+## [101.1.6](https://github.com/dhis2/data-visualizer-app/compare/v101.1.5...v101.1.6) (2025-04-24)
+
+
+### Bug Fixes
+
+* fix sorting in PT when percentage of rows is used (DHIS2-5455) ([#3380](https://github.com/dhis2/data-visualizer-app/issues/3380)) ([d4ca11f](https://github.com/dhis2/data-visualizer-app/commit/d4ca11f57c861f3caa07ef375874c564ac21676c))
+
 ## [101.1.5](https://github.com/dhis2/data-visualizer-app/compare/v101.1.4...v101.1.5) (2025-04-22)
 
 
