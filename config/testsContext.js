@@ -5,15 +5,6 @@ export function getStubContext() {
         },
         baseUrl: '',
         dataEngine: {},
-        //        d2: {
-        //            currentUser: {
-        //                firstName: 'Rainbow',
-        //                surname: 'Dash',
-        //                userSettings: {
-        //                    get: (key) => userSettings[key],
-        //                },
-        //            },
-        //        },
         store: {
             dispatch: () => {},
         },
