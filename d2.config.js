@@ -7,6 +7,10 @@ const config = {
 
     minDHIS2Version: '2.40',
 
+    pluginType: 'DASHBOARD',
+
+    direction: 'auto',
+
     pwa: {
         enabled: true,
         caching: {

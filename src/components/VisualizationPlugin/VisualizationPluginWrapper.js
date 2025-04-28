@@ -39,8 +39,6 @@ const VisualizationPluginWrapper = (props) => {
             style: props.style,
             onChartGenerated: props.onChartGenerated,
             onDrill: props.onDrill,
-            onError: props.onError,
-            onResponsesReceived: props.onResponsesReceived,
         })
     }, [
         props.displayProperty,
@@ -52,8 +50,6 @@ const VisualizationPluginWrapper = (props) => {
         props.style,
         props.onChartGenerated,
         props.onDrill,
-        props.onError,
-        props.onResponsesReceived,
     ])
 
     // set loading state only for props that will cause
@@ -93,8 +89,6 @@ VisualizationPluginWrapper.propTypes = {
     style: PropTypes.object,
     onChartGenerated: PropTypes.func,
     onDrill: PropTypes.func,
-    onError: PropTypes.func,
-    onResponsesReceived: PropTypes.func,
 }
 
 export { VisualizationPluginWrapper }

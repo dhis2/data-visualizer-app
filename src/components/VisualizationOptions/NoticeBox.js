@@ -1,10 +1,10 @@
 import { NoticeBox as UiNoticeBox } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { tabSectionOption } from './styles/VisualizationOptions.style.js'
+import styles from './styles/VisualizationOptions.module.css'
 
 const NoticeBox = ({ title, text, warning = false, error = false }) => (
-    <div className={tabSectionOption.className}>
+    <div className={styles.tabSectionOption}>
         <UiNoticeBox title={title} warning={warning} error={error}>
             {text}
         </UiNoticeBox>

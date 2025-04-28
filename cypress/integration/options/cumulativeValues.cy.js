@@ -17,7 +17,10 @@ import { checkCheckbox, uncheckCheckbox } from '../../elements/common.js'
 import {
     clickDimensionModalHideButton,
     clickDimensionModalUpdateButton,
+    clearSearchTerm,
+    inputSearchTerm,
     selectDataElements,
+    selectDataItems,
     selectFixedPeriods,
     unselectAllItemsByButton,
 } from '../../elements/dimensionModal/index.js'
@@ -44,6 +47,7 @@ import {
     expectRowsSubTotalsToBeEnabled,
 } from '../../elements/optionsModal/totals.js'
 import {
+    expectTableToBeVisible,
     expectTableValueCellToContainValue,
     clickTableHeaderCell,
 } from '../../elements/pivotTable.js'
@@ -216,6 +220,59 @@ describe('Options - Cumulative values', () => {
 
             expectTableValueCellToContainValue(2, '18 000')
             expectTableValueCellToContainValue(5, '18 488')
+        })
+
+        it('accumulates for numeric/boolean value types with totalAggregationType SUM skipping other values', () => {
+            openDimension(DIMENSION_ID_DATA)
+
+            inputSearchTerm('ANC')
+            selectDataItems(['ANC 1st visit', 'ANC 2nd visit'])
+            clearSearchTerm()
+            inputSearchTerm('Coverage')
+            selectDataItems(['ANC 1 Coverage'])
+            clearSearchTerm()
+            inputSearchTerm('Cholera')
+            selectDataItems(['Cholera (Deaths < 5 yrs) Narrative'])
+            clearSearchTerm()
+            inputSearchTerm('ANC')
+            selectDataItems([
+                'ANC 3rd visit',
+                'ANC 2 Coverage',
+                'ANC 4th or more visits',
+            ])
+            clearSearchTerm()
+            inputSearchTerm('Child')
+            selectDataItems([
+                'Child Health - Reporting rate',
+                'Child Programme MCH Apgar Score',
+            ])
+            clearSearchTerm()
+            inputSearchTerm('BCG')
+            selectDataItems(['BCG doses'])
+            clickDimensionModalHideButton()
+
+            const year = new Date().getFullYear().toString()
+            openDimension(DIMENSION_ID_PERIOD)
+            unselectAllItemsByButton()
+            selectFixedPeriods([`October ${year}`], 'Monthly')
+
+            clickDimensionModalHideButton()
+
+            openOptionsModal(OPTIONS_TAB_DATA)
+            checkCheckbox(cumulativeValuesOptionEl)
+
+            clickOptionsModalUpdateButton()
+
+            expectTableToBeVisible()
+
+            expectTableValueCellToContainValue(1, '37 765')
+            expectTableValueCellToContainValue(2, '89.75')
+            expectTableValueCellToContainValue(4, '52 407')
+            expectTableValueCellToContainValue(5, '88.93')
+            expectTableValueCellToContainValue(6, '61 333')
+            expectTableValueCellToContainValue(7, '71.54')
+            expectTableValueCellToContainValue(8, '61 333.98')
+            expectTableValueCellToContainValue(9, '61 664.98')
         })
     })
 })

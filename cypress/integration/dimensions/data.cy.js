@@ -1,8 +1,11 @@
 import { DIMENSION_ID_DATA } from '@dhis2/analytics'
 import {
     clickDimensionModalHideButton,
+    clickOptionViewModeButton,
+    clickOptionViewModeBackButton,
     expectDimensionModalToContain,
     expectDimensionModalToNotBeVisible,
+    selectOptionByDoubleClick,
     unselectItemByDoubleClick,
     selectItemByDoubleClick,
     expectDataDimensionModalToBeVisible,
@@ -35,6 +38,9 @@ import {
     unselectAllItemsByButton,
     selectAllItemsByButton,
     expectDataItemsToBeInSource,
+    expectDataItemsToBeInOptionViewModeSource,
+    expectDataItemToShowDataType,
+    expectDataItemToShowInfoTable,
 } from '../../elements/dimensionModal/index.js'
 import { openDimension } from '../../elements/dimensionsPanel.js'
 import { goToStartPage } from '../../elements/startScreen.js'
@@ -205,11 +211,45 @@ describe('Data dimension', () => {
         expectSourceToNotBeLoading()
         expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
     })
+    // VERSION-TOGGLE: remove when 42 is lowest supported version
+    it(['>=42'], 'can toggle option view mode', () => {
+        goToStartPage()
+        openDimension(DIMENSION_ID_DATA)
+        expectDataDimensionModalToBeVisible()
+        expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
+
+        switchDataTypeTo('Event data items')
+
+        const testSearchTerm = 'gender'
+        inputSearchTerm(testSearchTerm)
+
+        const testOption = 'Female (Gender, Child Programme)'
+
+        expectSourceToNotBeLoading()
+
+        clickOptionViewModeButton('Child Programme Gender')
+
+        expectSourceToNotBeLoading()
+
+        expectDataItemsToBeInOptionViewModeSource([
+            testOption,
+            'Male (Gender, Child Programme)',
+        ])
+
+        selectOptionByDoubleClick(testOption)
+        expectItemToBeSelected(testOption)
+
+        clickOptionViewModeBackButton()
+
+        expectSourceToNotBeLoading()
+
+        expectItemToBeSelected(testOption)
+    })
     const testDataTypes = [
         {
             name: 'Indicators',
             testGroup: { name: 'Facility infrastructure', itemAmount: 3 },
-            testItem: { name: TEST_INDICATORS[2].name },
+            testItem: { ...TEST_INDICATORS[2], type: 'Indicator' },
             defaultGroup: { name: 'All groups' },
             endpoint: {
                 hasMultiplePages: true,
@@ -229,7 +269,10 @@ describe('Data dimension', () => {
                     responseBody: 'dataElementOperands',
                 },
             },
-            testItem: { name: TEST_DATA_ELEMENTS[2].name },
+            testItem: {
+                ...TEST_DATA_ELEMENTS[2],
+                type: 'Data element',
+            },
             defaultGroup: { name: 'All groups' },
             defaultSubGroup: { name: 'Totals only' },
             endpoint: {
@@ -242,7 +285,7 @@ describe('Data dimension', () => {
             name: 'Data sets',
             testGroup: { name: 'Child Health', itemAmount: 5 },
             testSubGroup: { name: 'Actual reports', itemAmount: 1 },
-            testItem: { name: TEST_DATA_SETS[2].name },
+            testItem: { ...TEST_DATA_SETS[2], type: 'Data set' },
             defaultGroup: { name: 'All data sets' },
             defaultSubGroup: { name: 'All metrics' },
             endpoint: {
@@ -254,7 +297,11 @@ describe('Data dimension', () => {
         {
             name: 'Event data items',
             testGroup: { name: 'Information Campaign', itemAmount: 6 },
-            testItem: { name: 'E2E TE program 1 First name' },
+            testItem: {
+                id: 'V4xUtHrsVaK.w75KJ2mc4zz',
+                name: 'E2E TE program 1 First name',
+                type: 'Event data item',
+            },
             defaultGroup: { name: 'All programs' },
             endpoint: {
                 hasMultiplePages: true,
@@ -265,7 +312,11 @@ describe('Data dimension', () => {
         {
             name: 'Program indicators',
             testGroup: { name: 'Malaria focus investigation', itemAmount: 6 },
-            testItem: { name: 'BMI male' },
+            testItem: {
+                id: 'Thkx2BnO5Kq',
+                name: 'BMI male',
+                type: 'Program indicator',
+            },
             defaultGroup: { name: 'All programs' },
             endpoint: {
                 hasMultiplePages: true,
@@ -314,6 +365,15 @@ describe('Data dimension', () => {
                 expectSourceToNotBeLoading()
                 expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE + 1)
             }
+
+            // data type is shown
+            expectDataItemToShowDataType(
+                testDataType.testItem.id,
+                testDataType.testItem.type
+            )
+
+            expectDataItemToShowInfoTable(testDataType.testItem.id)
+
             // an item can be selected
             expectDataItemsToBeInSource([testDataType.testItem.name])
             selectItemByDoubleClick(testDataType.testItem.name)

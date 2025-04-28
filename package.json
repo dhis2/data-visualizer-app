@@ -1,6 +1,6 @@
 {
     "name": "data-visualizer-app",
-    "version": "100.6.2",
+    "version": "101.1.6",
     "description": "DHIS2 Data Visualizer",
     "license": "BSD-3-Clause",
     "private": true,
@@ -19,12 +19,13 @@
         "cy:run": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress run --browser chrome headless --env networkMode=live'"
     },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^10.3.9",
-        "@dhis2/cli-style": "^10.5.1",
-        "@dhis2/cypress-commands": "^10.0.3",
-        "@dhis2/cypress-plugins": "^10.0.2",
-        "@reportportal/agent-js-cypress": "git+https://github.com/dhis2/agent-js-cypress.git#develop",
-        "@reportportal/agent-js-jest": "^5.0.6",
+        "@dhis2/cli-app-scripts": "^11.8.2",
+        "@dhis2/cli-style": "^10.7.3",
+        "@dhis2/cypress-commands": "^10.0.6",
+        "@dhis2/cypress-plugins": "^10.0.6",
+        "@semantic-release/changelog": "^6",
+        "@semantic-release/exec": "^6",
+        "@semantic-release/git": "^10",
         "cypress": "^13.6.1",
         "cypress-tags": "^1.1.2",
         "enzyme": "^3.11.0",
@@ -35,17 +36,17 @@
         "loglevel": "^1.8.1",
         "postinstall-postinstall": "^2.1.0",
         "redux-mock-store": "^1.5.4",
+        "semantic-release": "^20",
         "start-server-and-test": "^2.0.0",
         "typescript": "^4.8.4"
     },
     "dependencies": {
-        "@dhis2/analytics": "^26.8.1",
-        "@dhis2/app-runtime": "^3.7.0",
+        "@dhis2/analytics": "^27.0.1",
+        "@dhis2/app-runtime": "^3.14.1",
         "@dhis2/app-runtime-adapter-d2": "^1.1.0",
         "@dhis2/app-service-datastore": "^1.0.0-beta.3",
         "@dhis2/d2-i18n": "^1.1.0",
-        "@dhis2/ui": "^9.4.4",
-        "@krakenjs/post-robot": "^11.0.0",
+        "@dhis2/ui": "^10.1.10",
         "d2": "^31.9.1",
         "decode-uri-component": "^0.2.2",
         "history": "^5.3.0",
@@ -66,6 +67,6 @@
         "whatwg-fetch": "^3.6.2"
     },
     "resolutions": {
-        "@dhis2/ui": "^9.4.4"
+        "@dhis2/ui": "^10.1.10"
     }
 }

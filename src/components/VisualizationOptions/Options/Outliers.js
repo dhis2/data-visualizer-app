@@ -6,11 +6,7 @@ import { connect } from 'react-redux'
 import { acSetUiOptions } from '../../../actions/ui.js'
 import { sGetUiOptions } from '../../../reducers/ui.js'
 import styles from '../styles/Outliers.module.css'
-import {
-    tabSectionToggleableSubsection,
-    tabSectionOption,
-    tabSectionTitle,
-} from '../styles/VisualizationOptions.style.js'
+import optionStyles from '../styles/VisualizationOptions.module.css'
 import ExtremeLines from './ExtremeLines.js'
 import OutlierDetectionMethod from './OutlierDetectionMethod.js'
 
@@ -72,8 +68,8 @@ const Outliers = ({ outlierAnalysis, onChange }) => {
         })
 
     return (
-        <div className={tabSectionOption.className}>
-            <div className={tabSectionOption.className}>
+        <div className={optionStyles.tabSectionOption}>
+            <div className={optionStyles.tabSectionOption}>
                 <Checkbox
                     checked={outlierAnalysis[ENABLED_PROP]}
                     label={i18n.t('Outlier analysis')}
@@ -89,15 +85,19 @@ const Outliers = ({ outlierAnalysis, onChange }) => {
             </div>
             {outlierAnalysis[ENABLED_PROP] && (
                 <>
-                    <div className={tabSectionToggleableSubsection.className}>
-                        <div className={tabSectionOption.className}>
+                    <div
+                        className={optionStyles.tabSectionToggleableSubsection}
+                    >
+                        <div className={optionStyles.tabSectionOption}>
                             <FieldSet>
                                 <Legend>
-                                    <span className={tabSectionTitle.className}>
+                                    <span
+                                        className={optionStyles.tabSectionTitle}
+                                    >
                                         {i18n.t('Outlier detection method')}
                                     </span>
                                 </Legend>
-                                <div className={tabSectionOption.className}>
+                                <div className={optionStyles.tabSectionOption}>
                                     <OutlierDetectionMethod
                                         methods={methods}
                                         onMethodChange={(value) =>
@@ -124,15 +124,19 @@ const Outliers = ({ outlierAnalysis, onChange }) => {
                         </div>
                     </div>
                     <div className={styles.divider}></div>
-                    <div className={tabSectionToggleableSubsection.className}>
-                        <div className={tabSectionOption.className}>
+                    <div
+                        className={optionStyles.tabSectionToggleableSubsection}
+                    >
+                        <div className={optionStyles.tabSectionOption}>
                             <FieldSet>
                                 <Legend>
-                                    <span className={tabSectionTitle.className}>
+                                    <span
+                                        className={optionStyles.tabSectionTitle}
+                                    >
                                         {i18n.t('Extreme lines')}
                                     </span>
                                 </Legend>
-                                <div className={tabSectionOption.className}>
+                                <div className={optionStyles.tabSectionOption}>
                                     <ExtremeLines
                                         isEnabled={
                                             outlierAnalysis.extremeLines[

@@ -4,10 +4,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { acSetUiOption } from '../../../actions/ui.js'
 import { sGetUiOption, sGetUiDisabledOption } from '../../../reducers/ui.js'
-import {
-    tabSectionOption,
-    tabSectionOptionToggleable,
-} from '../styles/VisualizationOptions.style.js'
+import styles from '../styles/VisualizationOptions.module.css'
 import TextStyle from './TextStyle.js'
 
 export const UnconnectedTextBaseOption = ({
@@ -28,7 +25,7 @@ export const UnconnectedTextBaseOption = ({
     dataTest,
     isVertical,
 }) => (
-    <div className={inline ? '' : tabSectionOption.className}>
+    <div className={inline ? '' : styles.tabSectionOption}>
         {toggleable ? (
             <Checkbox
                 checked={checked}
@@ -42,9 +39,7 @@ export const UnconnectedTextBaseOption = ({
         ) : null}
         {!toggleable || checked ? (
             <div
-                className={
-                    toggleable ? tabSectionOptionToggleable.className : ''
-                }
+                className={toggleable ? styles.tabSectionOptionToggleable : ''}
             >
                 {inline ? (
                     <Box width={width}>

@@ -26,7 +26,7 @@ const DetailsPanel = ({ interpretationsUnitRef, visualization, disabled }) => {
     const { currentUser } = useCachedDataQuery()
 
     return (
-        <div className={classes.panel}>
+        <div className={classes.panel} data-test="details-panel">
             <AboutAOUnit type="visualization" id={visualization.id} />
             <InterpretationsUnit
                 ref={interpretationsUnitRef}

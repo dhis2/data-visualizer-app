@@ -5,11 +5,16 @@ import { act } from 'react-dom/test-utils'
 import * as api from '../../../api/analytics.js'
 import * as moduleAnalytics from '../../../modules/analytics.js'
 import * as options from '../../../modules/options.js'
+import { VisualizationErrorInfo } from '../../VisualizationErrorInfo/VisualizationErrorInfo.js'
 import ChartPlugin from '../ChartPlugin.js'
 import { VisualizationPlugin } from '../VisualizationPlugin.js'
 
 jest.mock('../ChartPlugin', () => jest.fn(() => null))
 jest.mock('../PivotPlugin', () => jest.fn(() => null))
+jest.mock('../../VisualizationErrorInfo/VisualizationErrorInfo', () => ({
+    __esModule: true,
+    VisualizationErrorInfo: jest.fn(() => null),
+}))
 jest.mock('@dhis2/analytics', () => ({
     ...jest.requireActual('@dhis2/analytics'),
     apiFetchOrganisationUnitLevels: () =>
@@ -77,6 +82,7 @@ const metaDataMock = {
 
 const analyticsResponse = {
     metaData: metaDataMock,
+    rows: ['data'],
 }
 
 class MockAnalyticsResponse {
@@ -109,16 +115,15 @@ describe('VisualizationPlugin', () => {
         visualization: {},
         displayProperty: '',
         filters: {},
-        d2: {},
         forDashboard: false,
         onResponsesReceived: jest.fn(),
-        onError: jest.fn(),
     }
     const canvas = async (props) => {
         const combinedProps = {
             ...defaultProps,
             ...props,
         }
+
         let plugin
 
         await act(async () => {
@@ -132,8 +137,8 @@ describe('VisualizationPlugin', () => {
 
     beforeEach(() => {
         ChartPlugin.mockClear()
+        VisualizationErrorInfo.mockClear()
         defaultProps.onResponsesReceived.mockClear()
-        defaultProps.onError.mockClear()
 
         // eslint-disable-next-line no-import-assign, import/namespace
         api.apiFetchAnalytics = jest
@@ -158,7 +163,11 @@ describe('VisualizationPlugin', () => {
         })
 
         it('calls onResponsesReceived callback', async () => {
-            await canvas()
+            await canvas({
+                visualization: {
+                    ...defaultCurrentMock,
+                },
+            })
 
             expect(defaultProps.onResponsesReceived).toHaveBeenCalled()
             expect(defaultProps.onResponsesReceived).toHaveBeenCalledWith([
@@ -166,26 +175,31 @@ describe('VisualizationPlugin', () => {
             ])
         })
 
-        it('calls onError callback when an exception is thrown', async () => {
+        it('renders the error component when an exception is thrown', async () => {
             // eslint-disable-next-line no-import-assign, import/namespace
             api.apiFetchAnalytics = jest.fn().mockRejectedValue('error')
 
-            await canvas()
+            await canvas({
+                visualization: {
+                    ...defaultCurrentMock,
+                },
+            })
 
-            expect(defaultProps.onError).toHaveBeenCalled()
+            expect(VisualizationErrorInfo).toHaveBeenCalled()
         })
 
         it('sets period when interpretation selected', async () => {
             const period = 'eons ago'
 
             await canvas({
-                filters: {
+                visualization: {
+                    ...defaultCurrentMock,
                     relativePeriodDate: period,
                 },
             })
 
             expect(api.apiFetchAnalytics).toHaveBeenCalled()
-            expect(api.apiFetchAnalytics.mock.calls[0][2]).toHaveProperty(
+            expect(api.apiFetchAnalytics.mock.calls[0][1]).toHaveProperty(
                 'relativePeriodDate',
                 period
             )

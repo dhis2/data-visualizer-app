@@ -17,7 +17,6 @@ import * as fromActions from '../actions/index.js'
 import { Snackbar } from '../components/Snackbar/Snackbar.js'
 import { USER_DATASTORE_CURRENT_AO_KEY } from '../modules/currentAnalyticalObject.js'
 import history from '../modules/history.js'
-import defaultMetadata from '../modules/metadata.js'
 import { getParentGraphMapFromVisualization } from '../modules/ui.js'
 import { STATE_DIRTY, getVisualizationState } from '../modules/visualization.js'
 import * as fromReducers from '../reducers/index.js'
@@ -34,6 +33,9 @@ import { APPROVAL_LEVEL_OPTION_AUTH } from './VisualizationOptions/Options/Appro
 import { VisualizationTypeSelector } from './VisualizationTypeSelector/VisualizationTypeSelector.js'
 import './App.css'
 import './scrollbar.css'
+
+// Used to avoid repeating `history` listener calls -- see below
+let lastLocation
 
 export class UnconnectedApp extends Component {
     unlisten = null
@@ -127,24 +129,46 @@ export class UnconnectedApp extends Component {
         this.props.loadUserAuthority(APPROVAL_LEVEL_OPTION_AUTH)
         this.props.setDimensions()
 
-        const rootOrgUnits = this.props.settings.rootOrganisationUnits
+        await this.fetchOuLevels()
 
-        const metaData = { ...defaultMetadata() }
-
-        rootOrgUnits.forEach((rootOrgUnit) => {
-            if (rootOrgUnit.id) {
-                metaData[rootOrgUnit.id] = {
-                    ...rootOrgUnit,
-                    path: `/${rootOrgUnit.id}`,
+        const metaData = this.props.settings.rootOrganisationUnits.reduce(
+            (obj, rootOrgUnit) => {
+                if (rootOrgUnit.id) {
+                    obj[rootOrgUnit.id] = {
+                        ...rootOrgUnit,
+                        path: `/${rootOrgUnit.id}`,
+                    }
                 }
-            }
-        })
+
+                return obj
+            },
+            {}
+        )
 
         this.props.addMetadata(metaData)
 
         this.loadVisualization(history.location)
 
         this.unlisten = history.listen(({ location }) => {
+            // Avoid duplicate actions for the same update object. This also
+            // avoids a loop, because dispatching a pop state effect below also
+            // triggers listeners again (but with the same location object key)
+            const { key, pathname, search } = location
+            if (
+                key === lastLocation?.key &&
+                pathname === lastLocation?.pathname &&
+                search === lastLocation?.search
+            ) {
+                return
+            }
+            lastLocation = location
+            // Dispatch this event for external routing listeners to observe,
+            // e.g. global shell
+            const popStateEvent = new PopStateEvent('popstate', {
+                state: location.state,
+            })
+            dispatchEvent(popStateEvent)
+
             const isSaving = location.state?.isSaving
             const isOpening = location.state?.isOpening
             const isResetting = location.state?.isResetting

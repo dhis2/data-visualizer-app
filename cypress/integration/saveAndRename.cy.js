@@ -3,6 +3,7 @@ import {
     DIMENSION_ID_ORGUNIT,
     visTypeDisplayNames,
     VIS_TYPE_SCATTER,
+    VIS_TYPE_PIVOT_TABLE,
 } from '@dhis2/analytics'
 import {
     expectAOTitleToBeDirty,
@@ -11,7 +12,11 @@ import {
     expectAOTitleToNotBeDirty,
     expectVisualizationToBeVisible,
 } from '../elements/chart.js'
-import { replacePeriodItems } from '../elements/common.js'
+import {
+    typeInput,
+    clearInput,
+    replacePeriodItems,
+} from '../elements/common.js'
 import {
     switchDataTab,
     selectIndicators,
@@ -58,7 +63,182 @@ const TEST_INDICATOR_NAMES = TEST_INDICATORS.slice(1, 4).map(
     (item) => item.name
 )
 
-// TODO: Add test to check that the description is saved and shown in the interpretations panel
+const renameVisualization = (name, description) => {
+    cy.getBySel('dhis2-analytics-hovermenubar').contains('File').click()
+
+    cy.getBySel('file-menu-rename').click()
+
+    if (name !== undefined) {
+        clearInput('file-menu-rename-modal-name-content')
+        if (name.length > 0) {
+            typeInput('file-menu-rename-modal-name-content', name)
+        }
+    }
+
+    if (description !== undefined) {
+        cy.getBySel('file-menu-rename-modal-description-content')
+            .find('textarea')
+            .clear()
+        if (description.length > 0) {
+            cy.getBySel('file-menu-rename-modal-description-content')
+                .find('textarea')
+                .type(description)
+        }
+    }
+
+    cy.getBySel('file-menu-rename-modal-rename').click()
+}
+
+const clickMenubarInterpretationsButton = () =>
+    cy.getBySel('dhis2-analytics-interpretationsanddetailstoggler').click()
+
+describe('rename', () => {
+    it('replace existing name works correctly', () => {
+        const AO_NAME = `TEST RENAME ${new Date().toLocaleString()}`
+        const UPDATED_AO_NAME = AO_NAME + ' superduper'
+
+        goToStartPage()
+
+        openDimension(DIMENSION_ID_DATA)
+        selectDataElements(
+            TEST_DATA_ELEMENTS.slice(1, 2).map((item) => item.name)
+        )
+        clickDimensionModalUpdateButton()
+
+        // save
+        saveNewAO(AO_NAME)
+        expectAOTitleToBeValue(AO_NAME)
+        expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+
+        cy.intercept('PUT', '**/api/*/visualizations/*').as('put-rename')
+
+        // rename the AO, changing name only
+        renameVisualization(UPDATED_AO_NAME)
+
+        cy.wait('@put-rename')
+
+        cy.getBySel('dhis2-uicore-alertbar')
+            .contains('Rename successful')
+            .should('be.visible')
+        expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+        expectAOTitleToBeValue(AO_NAME)
+
+        cy.reload(true)
+
+        expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+        expectAOTitleToBeValue(UPDATED_AO_NAME)
+
+        deleteAO()
+    })
+
+    it('add and change and delete name and description', () => {
+        const AO_NAME = `TEST RENAME ${new Date().toLocaleString()}`
+        const AO_DESC = 'with description'
+        const AO_DESC_UPDATED = AO_DESC + ' edited'
+        goToStartPage()
+
+        openDimension(DIMENSION_ID_DATA)
+        selectDataElements(
+            TEST_DATA_ELEMENTS.slice(1, 2).map((item) => item.name)
+        )
+        clickDimensionModalUpdateButton()
+
+        // save
+        saveNewAO(AO_NAME)
+        expectAOTitleToBeValue(AO_NAME)
+        expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+
+        cy.intercept('PUT', '**/api/*/visualizations/*').as('put-rename')
+
+        // rename the AO, adding a description
+        renameVisualization(AO_NAME, AO_DESC)
+
+        cy.wait('@put-rename')
+
+        clickMenubarInterpretationsButton()
+        cy.getBySel('details-panel').should('be.visible')
+        cy.getBySel('details-panel').containsExact(AO_DESC)
+        clickMenubarInterpretationsButton()
+
+        expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+
+        cy.intercept('PUT', '**/api/*/visualizations/*').as('put-rename2')
+        // rename the AO, replacing the description
+        renameVisualization(AO_NAME, AO_DESC_UPDATED)
+
+        cy.wait('@put-rename2')
+
+        clickMenubarInterpretationsButton()
+        cy.getBySel('details-panel').should('be.visible')
+        cy.getBySel('details-panel').containsExact(AO_DESC_UPDATED)
+        clickMenubarInterpretationsButton()
+
+        expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+
+        cy.intercept('PUT', '**/api/*/visualizations/*').as('put-rename3')
+        // now enter empty strings for the name and description
+        renameVisualization('', '')
+
+        cy.wait('@put-rename2')
+
+        clickMenubarInterpretationsButton()
+
+        cy.getBySel('details-panel').should('be.visible')
+        cy.getBySel('details-panel').containsExact('No description')
+        clickMenubarInterpretationsButton()
+
+        cy.reload(true)
+
+        // title is not deleted
+        expectAOTitleToBeValue(AO_NAME)
+        clickMenubarInterpretationsButton()
+        cy.getBySel('details-panel').should('be.visible')
+        // description was successfully deleted
+        cy.getBySel('details-panel').contains('No description')
+        clickMenubarInterpretationsButton()
+
+        deleteAO()
+    })
+
+    it('handles failure when renaming', () => {
+        const AO_NAME = `TEST RENAME ${new Date().toLocaleString()}`
+        const UPDATED_AO_NAME = AO_NAME + ' superduper'
+        goToStartPage()
+
+        openDimension(DIMENSION_ID_DATA)
+        selectDataElements(
+            TEST_DATA_ELEMENTS.slice(1, 2).map((item) => item.name)
+        )
+        clickDimensionModalUpdateButton()
+
+        // save
+        saveNewAO(AO_NAME)
+        expectAOTitleToBeValue(AO_NAME)
+        expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+
+        cy.intercept('PUT', '**/api/*/visualizations/*', {
+            statusCode: 409,
+        }).as('put-rename')
+
+        // rename the AO, changing name only
+        renameVisualization(UPDATED_AO_NAME)
+
+        cy.wait('@put-rename')
+
+        cy.getBySel('dhis2-uicore-alertbar')
+            .contains('Rename failed')
+            .should('be.visible')
+        expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+        expectAOTitleToBeValue(AO_NAME)
+
+        cy.reload(true)
+
+        expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
+        expectAOTitleToBeValue(AO_NAME)
+
+        deleteAO()
+    })
+})
 
 describe('saving an AO', () => {
     it('"save" and "save as" for a new AO', () => {

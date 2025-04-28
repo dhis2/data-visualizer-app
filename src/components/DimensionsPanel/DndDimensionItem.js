@@ -18,6 +18,7 @@ export class DndDimensionItem extends Component {
             isLocked,
             isDeactivated,
             isRecommended,
+            isActive,
             onClick,
             onOptionsClick,
             dataTest,
@@ -48,6 +49,7 @@ export class DndDimensionItem extends Component {
                             className={cx({
                                 [styles.dragging]: snapshot.isDragging,
                                 [styles.notDragging]: !snapshot.isDragging,
+                                [styles.active]: isActive,
                                 [styles.assignedCategories]:
                                     id === DIMENSION_ID_ASSIGNED_CATEGORIES,
                             })}
@@ -56,10 +58,7 @@ export class DndDimensionItem extends Component {
                             {...itemCommonProps}
                         />
                         {snapshot.isDragging && (
-                            <DimensionItem
-                                className={styles.dimensionItemClone}
-                                {...itemCommonProps}
-                            />
+                            <DimensionItem {...itemCommonProps} />
                         )}
                     </>
                 )}
@@ -72,6 +71,7 @@ DndDimensionItem.propTypes = {
     dataTest: PropTypes.string,
     id: PropTypes.string,
     index: PropTypes.number,
+    isActive: PropTypes.bool,
     isDeactivated: PropTypes.bool,
     isLocked: PropTypes.bool,
     isRecommended: PropTypes.bool,

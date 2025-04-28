@@ -7,6 +7,8 @@ import {
 } from './index.js'
 
 const optionContentEl = 'data-dimension-transfer-option-content'
+const optionInfoButtonEl = 'data-dimension-transfer-option-info-button'
+const optionInfoTableEl = 'data-dimension-info-table'
 const selectableItemsEl = 'data-dimension-transfer-sourceoptions'
 const selectedItemsEl = 'data-dimension-transfer-pickedoptions'
 const dataTypesSelectButtonEl =
@@ -37,6 +39,17 @@ export const expectDataItemsToBeInSource = (items) => {
     })
 }
 
+export const expectDataItemsToBeInOptionViewModeSource = (items) => {
+    cy.getBySelLike('option-view-mode-transfer-sourceoptions').should(
+        ($elems) => {
+            const $container = $elems.first()
+            expect($container).to.have.class('container')
+            const $options = $container.find('[data-test*="transfer-option"]')
+            items.forEach((item) => expect($options).to.contain(item))
+        }
+    )
+}
+
 export const expectDataDimensionModalToBeVisible = () =>
     expectDimensionModalToBeVisible(DIMENSION_ID_DATA)
 
@@ -45,6 +58,19 @@ export const expectNoDataItemsToBeSelected = () =>
 
 export const expectDataDimensionModalWarningToContain = (text) =>
     cy.getBySel(rightHeaderEl).should('contain', text)
+
+export const expectDataItemToShowDataType = (id, type) =>
+    cy
+        .get(`[data-value="${id}"]`)
+        .findBySel(optionContentEl)
+        .find('.type')
+        .should('contain', type)
+
+export const expectDataItemToShowInfoTable = (id) => {
+    cy.get(`[data-value="${id}"]`).findBySel(optionInfoButtonEl).click()
+    cy.getBySel(optionInfoTableEl).contains('Name')
+    cy.getBySel(optionInfoTableEl).closePopper()
+}
 
 export const expectDataItemToBeInactive = (id) =>
     cy
@@ -63,8 +89,18 @@ export const selectDataElements = (dataElements) => {
     dataElements.forEach((item) => selectItemByDoubleClick(item))
 }
 
+export const selectDataItems = (dataItems) => {
+    expectSourceToNotBeLoading()
+    expectDataItemsToBeInSource(dataItems)
+    dataItems.forEach((item) => selectItemByDoubleClick(item))
+}
+
 export const selectFirstDataItem = () =>
-    cy.getBySel(selectableItemsEl).findBySel(optionContentEl).eq(0).dblclick()
+    cy
+        .getBySel(selectableItemsEl)
+        .findBySel(optionContentEl)
+        .eq(0)
+        .dblclick('left')
 
 export const selectIndicators = (indicators) => {
     expectSourceToNotBeLoading()
@@ -147,8 +183,19 @@ export const clickEDIEditButton = (item) =>
         .getBySel(optionContentEl)
         .contains(item)
         .parent()
-        .findBySel('data-dimension-transfer-option-edit-button')
+        .findBySel('data-dimension-transfer-option-edit-calculation-button')
         .click()
+
+export const clickOptionViewModeButton = (item) =>
+    cy
+        .getBySel(optionContentEl)
+        .contains(item)
+        .parent()
+        .findBySel('data-dimension-transfer-option-option-set-button')
+        .click()
+
+export const clickOptionViewModeBackButton = () =>
+    cy.getBySel('data-dimension-option-set-back-button').click()
 
 export const expectSelectableDataItemsAmountToBe = (amount) =>
     cy.getBySelLike('transfer-sourceoptions').should(($elems) => {
