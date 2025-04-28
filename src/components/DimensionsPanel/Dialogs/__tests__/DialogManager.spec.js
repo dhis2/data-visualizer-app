@@ -62,7 +62,6 @@ describe('The DialogManager component', () => {
             selectedItems: (dialogId) => {
                 return dialogId === 'dx' ? ['test'] : []
             },
-            //d2: {},
             metadata: {},
             changeDialog: jest.fn(),
             setRecommendedIds: jest.fn(),
