@@ -1,4 +1,8 @@
-import { useCachedDataQuery, Toolbar } from '@dhis2/analytics'
+import {
+    useCachedDataQuery,
+    apiFetchOrganisationUnitLevels,
+    Toolbar,
+} from '@dhis2/analytics'
 import { useSetting } from '@dhis2/app-service-datastore'
 import i18n from '@dhis2/d2-i18n'
 import {
@@ -51,6 +55,16 @@ export class UnconnectedApp extends Component {
         previousLocation: null,
         initialLoadIsComplete: false,
         locationToConfirm: false,
+
+        ouLevels: null,
+    }
+
+    fetchOuLevels = async () => {
+        const ouLevels = await apiFetchOrganisationUnitLevels(
+            this.props.dataEngine
+        )
+
+        this.setState({ ouLevels: ouLevels })
     }
 
     /**
@@ -147,7 +161,7 @@ export class UnconnectedApp extends Component {
 
         this.props.addMetadata(metaData)
 
-        this.loadVisualization(history.location)
+        this.loadVisualization(this.props.location)
 
         this.unlisten = history.listen(({ location }) => {
             // Avoid duplicate actions for the same update object. This also
@@ -392,6 +406,7 @@ UnconnectedApp.propTypes = {
     currentUser: PropTypes.object,
     dataEngine: PropTypes.object,
     loadUserAuthority: PropTypes.func,
+    location: PropTypes.object,
     ouLevels: PropTypes.array,
     setCurrentFromUi: PropTypes.func,
     setDimensions: PropTypes.func,

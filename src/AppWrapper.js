@@ -8,6 +8,7 @@ import { App } from './components/App.js'
 import configureStore from './configureStore.js'
 import metadataMiddleware from './middleware/metadata.js'
 import { USER_DATASTORE_NAMESPACE } from './modules/currentAnalyticalObject.js'
+import history from './modules/history.js'
 import { systemSettingsKeys } from './modules/systemSettings.js'
 import {
     USER_SETTINGS_DISPLAY_PROPERTY,
@@ -93,7 +94,7 @@ const AppWrapper = () => {
                     query={query}
                     dataTransformation={providerDataTransformation}
                 >
-                    <App />
+                    <App location={history.location} />
                 </CachedDataQueryProvider>
             </DataStoreProvider>
         </ReduxProvider>

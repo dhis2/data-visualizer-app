@@ -41,6 +41,7 @@ describe('App', () => {
             interpretations: [],
             current: DEFAULT_CURRENT,
             ui: { rightSidebarOpen: false },
+            location: { pathname: '/' },
             settings: {
                 rootOrganisationUnits: [
                     {
@@ -87,10 +88,10 @@ describe('App', () => {
 
     describe('location pathname', () => {
         it('calls clearAll when location pathname is root', (done) => {
+            props.location.pathname = '/'
             app()
 
             setTimeout(() => {
-                history.push('/')
                 expect(props.setVisualization).not.toHaveBeenCalled()
                 expect(props.clearAll).toBeCalledTimes(1)
                 done()
@@ -98,7 +99,7 @@ describe('App', () => {
         })
 
         it('calls setVisualization when location pathname has length', (done) => {
-            history.push('/twilightsparkle')
+            props.location.pathname = '/twilightsparkle'
 
             app()
 
@@ -110,6 +111,8 @@ describe('App', () => {
         })
 
         it('loads new visualization when pathname changes', (done) => {
+            props.location.pathname = '/rarity'
+
             app()
 
             setTimeout(() => {
@@ -157,6 +160,8 @@ describe('App', () => {
         })
 
         it('reloads visualization when opening the same visualization', (done) => {
+            props.location.pathname = '/fluttershy'
+
             app()
 
             setTimeout(() => {
@@ -173,6 +178,8 @@ describe('App', () => {
         })
 
         it('reloads visualization when same pathname pushed when saving', (done) => {
+            props.location.pathname = '/fluttershy'
+
             app()
 
             setTimeout(() => {
@@ -189,10 +196,11 @@ describe('App', () => {
         })
 
         it('loads AO from user data store if id equals to "currentAnalyticalObject"', (done) => {
+            props.location.pathname = '/' + USER_DATASTORE_CURRENT_AO_KEY
+
             app()
 
             setTimeout(() => {
-                history.push('/' + USER_DATASTORE_CURRENT_AO_KEY)
                 expect(props.addParentGraphMap).toBeCalledTimes(1)
                 expect(props.clearVisualization).toBeCalledTimes(1)
                 expect(props.clearCurrent).toBeCalledTimes(1)
@@ -205,7 +213,7 @@ describe('App', () => {
 
         describe('interpretation id in pathname', () => {
             beforeEach(() => {
-                history.push('/applejack/interpretation/xyz123')
+                props.location.pathname = '/applejack/interpretation/xyz123'
             })
 
             it('does not reload visualization when interpretation toggled', (done) => {

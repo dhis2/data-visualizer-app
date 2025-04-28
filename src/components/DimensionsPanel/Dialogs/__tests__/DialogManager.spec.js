@@ -49,6 +49,7 @@ describe('The DialogManager component', () => {
 
     beforeEach(() => {
         props = {
+            dataEngine: {},
             dialogId: null,
             dimensions: {
                 test: {},
@@ -61,7 +62,7 @@ describe('The DialogManager component', () => {
             selectedItems: (dialogId) => {
                 return dialogId === 'dx' ? ['test'] : []
             },
-            d2: {},
+            //d2: {},
             metadata: {},
             changeDialog: jest.fn(),
             setRecommendedIds: jest.fn(),
