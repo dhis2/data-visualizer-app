@@ -39,5 +39,5 @@ export const sGetUser = (state) => state.user
 
 export const sGetUserId = (state) => sGetUser(state).id
 export const sGetUsername = (state) => sGetUser(state).username
-export const sGetIsSuperuser = (state) => sGetUser(state).authoritie.has('ALL')
+export const sGetIsSuperuser = (state) => sGetUser(state).authorities.has('ALL')
 export const sGetUserAuthorities = (state) => sGetUser(state).authorities
