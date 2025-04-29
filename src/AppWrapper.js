@@ -38,11 +38,10 @@ const query = {
     },
     orgUnitLevels: {
         resource: 'organisationUnitLevels',
-        // TODO how to handle passing params like this?
-        params: ({ displayNameProp = 'displayName' } = {}) => ({
-            fields: `id,level,${displayNameProp}~rename(displayName),name`,
+        params: {
+            fields: `id,level,displayName,name`,
             paging: false,
-        }),
+        },
     },
 }
 
