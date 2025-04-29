@@ -420,12 +420,14 @@ const withData = (Component) => {
     return function WrappedComponent(props) {
         const [currentAO] = useSetting(USER_DATASTORE_CURRENT_AO_KEY)
         const { currentUser, orgUnitLevels } = useCachedDataQuery()
+        const location = history.location
 
         return (
             <Component
                 {...props}
                 currentAO={currentAO}
                 currentUser={currentUser}
+                location={location}
                 ouLevels={orgUnitLevels}
             />
         )
