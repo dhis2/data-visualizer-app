@@ -3,6 +3,7 @@ import {
     apiFetchOrganisationUnitLevels,
     Toolbar,
 } from '@dhis2/analytics'
+import { useDataEngine } from '@dhis2/app-runtime'
 import { useSetting } from '@dhis2/app-service-datastore'
 import i18n from '@dhis2/d2-i18n'
 import {
@@ -247,13 +248,6 @@ export class UnconnectedApp extends Component {
         }
     }
 
-    getChildContext() {
-        return {
-            i18n,
-            dataEngine: this.props.dataEngine,
-        }
-    }
-
     render() {
         return (
             <>
@@ -386,10 +380,10 @@ UnconnectedApp.contextTypes = {
     store: PropTypes.object,
 }
 
-UnconnectedApp.childContextTypes = {
-    dataEngine: PropTypes.object,
-    i18n: PropTypes.object,
-}
+//UnconnectedApp.childContextTypes = {
+//    dataEngine: PropTypes.object,
+//    i18n: PropTypes.object,
+//}
 
 UnconnectedApp.propTypes = {
     addMetadata: PropTypes.func,
@@ -420,6 +414,7 @@ const withData = (Component) => {
     return function WrappedComponent(props) {
         const [currentAO] = useSetting(USER_DATASTORE_CURRENT_AO_KEY)
         const { currentUser, orgUnitLevels } = useCachedDataQuery()
+        const dataEngine = useDataEngine()
         const location = history.location
 
         return (
@@ -427,6 +422,7 @@ const withData = (Component) => {
                 {...props}
                 currentAO={currentAO}
                 currentUser={currentUser}
+                dataEngine={dataEngine}
                 location={location}
                 ouLevels={orgUnitLevels}
             />

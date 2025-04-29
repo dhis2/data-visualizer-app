@@ -3,7 +3,6 @@ export function getStubContext() {
         i18n: {
             t: () => {},
         },
-        dataEngine: {},
         store: {
             dispatch: () => {},
         },
