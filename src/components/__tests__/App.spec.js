@@ -36,7 +36,6 @@ describe('App', () => {
 
     beforeEach(() => {
         props = {
-            baseUrl: undefined,
             loadError: null,
             interpretations: [],
             current: DEFAULT_CURRENT,

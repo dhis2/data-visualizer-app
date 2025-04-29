@@ -249,7 +249,6 @@ export class UnconnectedApp extends Component {
 
     getChildContext() {
         return {
-            baseUrl: this.props.baseUrl,
             i18n,
             dataEngine: this.props.dataEngine,
         }
@@ -389,7 +388,6 @@ UnconnectedApp.contextTypes = {
 
 UnconnectedApp.childContextTypes = {
     dataEngine: PropTypes.object,
-    baseUrl: PropTypes.string,
     i18n: PropTypes.object,
 }
 
@@ -397,7 +395,6 @@ UnconnectedApp.propTypes = {
     addMetadata: PropTypes.func,
     addParentGraphMap: PropTypes.func,
     addSettings: PropTypes.func,
-    baseUrl: PropTypes.string,
     clearAll: PropTypes.func,
     clearCurrent: PropTypes.func,
     clearVisualization: PropTypes.func,
