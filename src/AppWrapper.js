@@ -19,7 +19,7 @@ const query = {
     currentUser: {
         resource: 'me',
         params: {
-            fields: 'id,username,displayName~rename(name),settings',
+            fields: 'id,username,displayName~rename(name),settings,authorities',
         },
     },
     systemSettings: {

@@ -34,7 +34,6 @@ import Layout from './Layout/Layout.js'
 import { MenuBar } from './MenuBar/MenuBar.js'
 import { TitleBar } from './TitleBar/TitleBar.js'
 import { Visualization } from './Visualization/Visualization.js'
-import { APPROVAL_LEVEL_OPTION_AUTH } from './VisualizationOptions/Options/ApprovalLevel.js'
 import { VisualizationTypeSelector } from './VisualizationTypeSelector/VisualizationTypeSelector.js'
 import './App.css'
 import './scrollbar.css'
@@ -141,7 +140,6 @@ export class UnconnectedApp extends Component {
 
         await this.props.addSettings(userSettings)
         this.props.setUser(currentUser)
-        this.props.loadUserAuthority(APPROVAL_LEVEL_OPTION_AUTH)
         this.props.setDimensions()
 
         await this.fetchOuLevels()
@@ -369,7 +367,6 @@ const mapDispatchToProps = {
     clearSnackbar: fromActions.fromSnackbar.acClearSnackbar,
     addSettings: fromActions.fromSettings.tAddSettings,
     setUser: fromActions.fromUser.acReceivedUser,
-    loadUserAuthority: fromActions.fromUser.tLoadUserAuthority,
     setDimensions: fromActions.fromDimensions.tSetDimensions,
     addMetadata: fromActions.fromMetadata.acAddMetadata,
     setVisualization: fromActions.tDoLoadVisualization,
@@ -379,11 +376,6 @@ const mapDispatchToProps = {
 UnconnectedApp.contextTypes = {
     store: PropTypes.object,
 }
-
-//UnconnectedApp.childContextTypes = {
-//    dataEngine: PropTypes.object,
-//    i18n: PropTypes.object,
-//}
 
 UnconnectedApp.propTypes = {
     addMetadata: PropTypes.func,
@@ -396,7 +388,6 @@ UnconnectedApp.propTypes = {
     currentAO: PropTypes.object,
     currentUser: PropTypes.object,
     dataEngine: PropTypes.object,
-    loadUserAuthority: PropTypes.func,
     location: PropTypes.object,
     ouLevels: PropTypes.array,
     setCurrentFromUi: PropTypes.func,

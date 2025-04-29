@@ -30,6 +30,7 @@ function formatUserObject(userObject) {
     return {
         id: userObject.id,
         username: userObject.username,
+        authorities: userObject.authorities,
     }
 }
 
@@ -37,7 +38,4 @@ function formatUserObject(userObject) {
 
 export const sGetUser = (state) => state.user
 
-export const sGetUserId = (state) => sGetUser(state).id
-export const sGetUsername = (state) => sGetUser(state).username
-export const sGetIsSuperuser = (state) => sGetUser(state).authorities.has('ALL')
 export const sGetUserAuthorities = (state) => sGetUser(state).authorities

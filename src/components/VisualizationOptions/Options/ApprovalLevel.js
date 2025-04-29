@@ -1,14 +1,12 @@
+import { useCachedDataQuery } from '@dhis2/analytics'
 import { useDataEngine } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { SingleSelectField, SingleSelectOption } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { createSelector } from 'reselect'
 import { acSetUiOptions } from '../../../actions/ui.js'
-import { sGetSettings } from '../../../reducers/settings.js'
 import { sGetUiOptions } from '../../../reducers/ui.js'
-import { sGetUserAuthorities } from '../../../reducers/user.js'
 
 export const APPROVAL_LEVEL_OPTION_AUTH = 'F_VIEW_UNAPPROVED_DATA'
 
@@ -64,11 +62,16 @@ ApprovalLevelSelect.propTypes = {
     onFocus: PropTypes.func,
 }
 
-const ApprovalLevel = ({ value, onChange, enabled }) => {
+const ApprovalLevel = ({ value, onChange }) => {
     const engine = useDataEngine()
+    const { currentUser } = useCachedDataQuery()
 
     const [options, setOptions] = useState([])
     const [isLoaded, setIsLoaded] = useState(false)
+
+    const enabled =
+        currentUser.settings.keyIgnoreAnalyticsApprovalYearThreshold !== -1 &&
+        currentUser.authorities.includes(APPROVAL_LEVEL_OPTION_AUTH)
 
     if (!enabled) {
         return null
@@ -114,20 +117,11 @@ const ApprovalLevel = ({ value, onChange, enabled }) => {
 }
 
 ApprovalLevel.propTypes = {
-    enabled: PropTypes.bool,
     value: PropTypes.object,
     onChange: PropTypes.func,
 }
 
-const approvalLevelEnabledSelector = createSelector(
-    [sGetSettings, sGetUserAuthorities],
-    (settings, authorities) =>
-        settings.keyIgnoreAnalyticsApprovalYearThreshold !== -1 &&
-        authorities[APPROVAL_LEVEL_OPTION_AUTH]
-)
-
 const mapStateToProps = (state) => ({
-    enabled: approvalLevelEnabledSelector(state),
     value: sGetUiOptions(state)[optionName] || {},
 })
 
