@@ -46,7 +46,7 @@ before(() => {
         cy.intercept({ resourceType: /xhr|fetch/ }, { log: false })
     }
 
-    cy.loginByApi({ username, password, baseUrl })
+    cy.loginByApiV2({ username, password, baseUrl })
 
     cy.getAllCookies()
         .should((cookies) => {

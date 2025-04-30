@@ -55,3 +55,47 @@ Cypress.Commands.add(
             .closest('[data-test=dhis2-uicore-layer]')
             .click('topLeft')
 )
+
+Cypress.Commands.add('loginByApiV2', ({ username, password, baseUrl }) => {
+    const HAS_API_AUTH_LOGIN_ENV_KEY = 'hasApiAuthLogin'
+    const hasApiAuthLogin = Cypress.env(HAS_API_AUTH_LOGIN_ENV_KEY)
+    const hasApiAuthLoginUnknown = typeof hasApiAuthLogin !== 'boolean'
+    const apiAuthLoginOptions = {
+        url: `${baseUrl}/api/auth/login`,
+        method: 'POST',
+        followRedirect: true,
+        failOnStatusCode: !hasApiAuthLoginUnknown,
+        body: {
+            username: username,
+            password: password,
+        },
+    }
+    const legacyLoginOptions = {
+        url: `${baseUrl}/dhis-web-commons-security/login.action`,
+        method: 'POST',
+        form: true,
+        followRedirect: true,
+        body: {
+            j_username: username,
+            j_password: password,
+            '2fa_code': '',
+        },
+    }
+    if (hasApiAuthLoginUnknown) {
+        cy.request(apiAuthLoginOptions).then((response) => {
+            if (response.status === 404) {
+                cy.request(legacyLoginOptions)
+                Cypress.env(HAS_API_AUTH_LOGIN_ENV_KEY, false)
+            } else {
+                Cypress.env(HAS_API_AUTH_LOGIN_ENV_KEY, true)
+            }
+        })
+    } else if (hasApiAuthLogin === true) {
+        cy.request(apiAuthLoginOptions)
+    } else {
+        cy.request(legacyLoginOptions)
+    }
+
+    // Set base url for the app platform
+    window.localStorage.setItem('DHIS2_BASE_URL', baseUrl)
+})
