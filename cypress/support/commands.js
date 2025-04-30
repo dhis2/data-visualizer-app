@@ -83,11 +83,17 @@ Cypress.Commands.add('loginByApiV2', ({ username, password, baseUrl }) => {
     }
     if (hasApiAuthLoginUnknown) {
         cy.request(apiAuthLoginOptions).then((response) => {
-            if (response.status === 404 || response.status === 302) {
-                cy.request(legacyLoginOptions)
-                Cypress.env(HAS_API_AUTH_LOGIN_ENV_KEY, false)
-            } else {
+            if (response.status === 200) {
                 Cypress.env(HAS_API_AUTH_LOGIN_ENV_KEY, true)
+                cy.log('Using web API login endpoint for this test run')
+            }
+            if (response.status === 404 || response.status === 302) {
+                cy.request(legacyLoginOptions).then((legacyResponse) => {
+                    if (legacyResponse.status === 200) {
+                        Cypress.env(HAS_API_AUTH_LOGIN_ENV_KEY, false)
+                        cy.log('Using legacy login endpoint for this test run')
+                    }
+                })
             }
         })
     } else if (hasApiAuthLogin === true) {
