@@ -81,27 +81,29 @@ Cypress.Commands.add('loginByApiV2', ({ username, password, baseUrl }) => {
             '2fa_code': '',
         },
     }
+
+    window.localStorage.setItem('DHIS2_BASE_URL', baseUrl)
+
     if (hasApiAuthLoginUnknown) {
-        cy.request(apiAuthLoginOptions).then((response) => {
-            if (response.status === 200) {
-                Cypress.env(HAS_API_AUTH_LOGIN_ENV_KEY, true)
-                cy.log('Using web API login endpoint for this test run')
-            }
+        return cy.request(apiAuthLoginOptions).then((response) => {
             if (response.status === 404 || response.status === 302) {
-                cy.request(legacyLoginOptions).then((legacyResponse) => {
+                return cy.request(legacyLoginOptions).then((legacyResponse) => {
                     if (legacyResponse.status === 200) {
                         Cypress.env(HAS_API_AUTH_LOGIN_ENV_KEY, false)
                         cy.log('Using legacy login endpoint for this test run')
                     }
+                    return cy.wrap(legacyResponse)
                 })
             }
+            if (response.status === 200) {
+                Cypress.env(HAS_API_AUTH_LOGIN_ENV_KEY, true)
+                cy.log('Using web API login endpoint for this test run')
+            }
+            return cy.wrap(response)
         })
     } else if (hasApiAuthLogin === true) {
-        cy.request(apiAuthLoginOptions)
+        return cy.request(apiAuthLoginOptions)
     } else {
-        cy.request(legacyLoginOptions)
+        return cy.request(legacyLoginOptions)
     }
-
-    // Set base url for the app platform
-    window.localStorage.setItem('DHIS2_BASE_URL', baseUrl)
 })
