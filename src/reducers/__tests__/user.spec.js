@@ -20,15 +20,14 @@ describe('reducer: user', () => {
                 settings: {
                     keyUiLocale: uiLocale,
                 },
-                authorities: {
-                    has: () => true,
-                },
+                authorities: [],
             },
         }
 
         const expectedState = {
             id,
             username,
+            authorities: [],
         }
 
         const actualState = reducer(DEFAULT_USER, action)
