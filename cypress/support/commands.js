@@ -63,7 +63,7 @@ Cypress.Commands.add('loginByApiV2', ({ username, password, baseUrl }) => {
     const apiAuthLoginOptions = {
         url: `${baseUrl}/api/auth/login`,
         method: 'POST',
-        followRedirect: true,
+        followRedirect: !hasApiAuthLoginUnknown,
         failOnStatusCode: !hasApiAuthLoginUnknown,
         body: {
             username: username,
@@ -83,7 +83,7 @@ Cypress.Commands.add('loginByApiV2', ({ username, password, baseUrl }) => {
     }
     if (hasApiAuthLoginUnknown) {
         cy.request(apiAuthLoginOptions).then((response) => {
-            if (response.status === 404) {
+            if (response.status === 404 || response.status === 302) {
                 cy.request(legacyLoginOptions)
                 Cypress.env(HAS_API_AUTH_LOGIN_ENV_KEY, false)
             } else {
