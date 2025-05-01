@@ -45,6 +45,68 @@ const addCommonParameters = (req, visualization, options) => {
     return req
 }
 
+const getChartOptionsForExportType = (isPdfExport, titleStyle, subtitleStyle) =>
+    isPdfExport
+        ? {
+              /* Custom visualization types (i.e. SingleValue) that need some
+               * specific handling for PDF export can read this when they
+               * re-render before exporting */
+              isPdfExport: true,
+              /* To avoid alignment issues set the font to the base family used
+               * in the `pdfFont` option */
+              chart: {
+                  style: { fontFamily: 'Noto Sans' },
+              },
+              /* Text ellipsis and text shadow are not supported in PDF exports
+               * so the corresponding style properties need to be set to their
+               * default values when exporting to PDF */
+              title: {
+                  style: {
+                      overflow: 'auto',
+                      textOverflow: 'clip',
+                      whiteSpace: 'wrap',
+                  },
+              },
+              subtitle: {
+                  style: {
+                      overflow: 'auto',
+                      textOverflow: 'clip',
+                      textShadow: 'none',
+                      whiteSpace: 'wrap',
+                  },
+              },
+          }
+        : {
+              isPdfExport: false,
+              /* Currently preserving webfonts when exporting to PNG is not
+               * working in Highcharts. I filed an issue about that, see
+               * https://github.com/highcharts/highcharts/issues/22914
+               * For now it is better to first set the font to a websafe font
+               * before exporting to avoid alignment issues. The font-family for
+               * our charts is:
+               * `Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif`
+               * The first websafe font among these is Arial. */
+              chart: { style: { fontFamily: 'Arial, sans-serif' } },
+              /* Text ellipsis and shadow styles do work for PNG export.
+               * They need to be explicitely set to the original chart values
+               * in case a chart is first exported to PDF and then to PNG */
+              title: {
+                  style: {
+                      overflow: titleStyle.overflow,
+                      textOverflow: titleStyle.textOverflow,
+                      whiteSpace: titleStyle.whiteSpace,
+                  },
+              },
+              subtitle: {
+                  style: {
+                      overflow: subtitleStyle.overflow,
+                      textOverflow: subtitleStyle.textOverflow,
+                      textShadow: subtitleStyle.textShadow,
+                      whiteSpace: subtitleStyle.whiteSpace,
+                  },
+              },
+          }
+
 const useDownload = (relativePeriodDate) => {
     const displayProperty = useSelector(sGetSettingsDisplayProperty)
     const visualization = useSelector(sGetCurrent)
@@ -66,55 +128,14 @@ const useDownload = (relativePeriodDate) => {
             }
 
             const isPdfExport = format === FILE_FORMAT_PDF
-            const chartOptions = isPdfExport
-                ? {
-                      /* Custom visualization types (i.e. SingleValue) that need some
-                       * specific handling for PDF export can read this when they
-                       * re-render before exporting. */
-                      isPdfExport,
-                      chart: { style: { fontFamily: 'Noto Sans' } },
-                      /* Text ellipsis is not supported in PDF exports so we need to
-                       * let the title and subtitle text overflow when exporting to PDF */
-                      title: {
-                          style: {
-                              whiteSpace: 'wrap',
-                              overflow: 'auto',
-                          },
-                      },
-                      subtitle: {
-                          style: {
-                              whiteSpace: 'wrap',
-                              overflow: 'auto',
-                          },
-                      },
-                  }
-                : {
-                      // Set to false if not a PDF export
-                      isPdfExport,
-                      /* Currently preserving webfonts when exporting to PNG is not
-                       * working in Highcharts. I filed an issue about that, see
-                       * https://github.com/highcharts/highcharts/issues/22914
-                       * For now it is better to first set the font to a native
-                       * PDF font before exporting to avoid alignment issues.*/
-                      chart: { style: { fontFamily: 'Verdana' } },
-                      // Text ellipsis styles do work for PNG export
-                      title: {
-                          style: {
-                              whiteSpace: chart.options.title.style.whiteSpace,
-                              overflow: chart.options.title.style.overflow,
-                          },
-                      },
-                      subtitle: {
-                          style: {
-                              whiteSpace:
-                                  chart.options.subtitle.style.whiteSpace,
-                              overflow: chart.options.subtitle.style.overflow,
-                          },
-                      },
-                  }
+            const chartOptions = getChartOptionsForExportType(
+                isPdfExport,
+                chart.options.title.style,
+                chart.options.subtitle.style
+            )
 
             /* In theory it should be possible to specify the chart options in the call
-             * to `exportChartLocal` but it doesn't work as expected. One issue I observed
+             * to `exportChartLocal` but it doesn't work as expected. One observed issue
              * was that the SV visualization ended up in the wrong font */
             chart.update({ exporting: { chartOptions } })
 
