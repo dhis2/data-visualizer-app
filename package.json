@@ -1,6 +1,6 @@
 {
     "name": "data-visualizer-app",
-    "version": "101.1.1",
+    "version": "101.1.7",
     "description": "DHIS2 Data Visualizer",
     "license": "BSD-3-Clause",
     "private": true,
@@ -41,7 +41,7 @@
         "typescript": "^4.8.4"
     },
     "dependencies": {
-        "@dhis2/analytics": "git+https://github.com/d2-ci/analytics.git#a28c6b8d129625071a5631baf89d6da144ef9f2e",
+        "@dhis2/analytics": "git+https://github.com/d2-ci/analytics.git#b7d7b7200ea6bd8209f18042c0dbb71ee4e30402",
         "@dhis2/app-runtime": "^3.14.1",
         "@dhis2/app-runtime-adapter-d2": "^1.1.0",
         "@dhis2/app-service-datastore": "^1.0.0-beta.3",
@@ -68,5 +68,6 @@
     },
     "resolutions": {
         "@dhis2/ui": "^10.1.10"
-    }
+    },
+    "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
