@@ -35,7 +35,7 @@ import './App.css'
 import './scrollbar.css'
 
 // Used to avoid repeating `history` listener calls -- see below
-let lastLocationKey
+let lastLocation
 
 export class UnconnectedApp extends Component {
     unlisten = null
@@ -163,10 +163,15 @@ export class UnconnectedApp extends Component {
             // Avoid duplicate actions for the same update object. This also
             // avoids a loop, because dispatching a pop state effect below also
             // triggers listeners again (but with the same location object key)
-            if (location.key === lastLocationKey) {
+            const { key, pathname, search } = location
+            if (
+                key === lastLocation?.key &&
+                pathname === lastLocation?.pathname &&
+                search === lastLocation?.search
+            ) {
                 return
             }
-            lastLocationKey = location.key
+            lastLocation = location
             // Dispatch this event for external routing listeners to observe,
             // e.g. global shell
             const popStateEvent = new PopStateEvent('popstate', {
