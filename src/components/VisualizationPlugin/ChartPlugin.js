@@ -67,7 +67,6 @@ const ChartPlugin = ({
 ChartPlugin.defaultProps = {
     visualization: {},
     filters: {},
-    style: {},
     animation: 200,
     id: null,
     onChartGenerated: Function.prototype,
