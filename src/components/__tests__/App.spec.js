@@ -41,13 +41,16 @@ describe('App', () => {
             current: DEFAULT_CURRENT,
             ui: { rightSidebarOpen: false },
             location: { pathname: '/' },
-            settings: {
-                rootOrganisationUnits: [
-                    {
-                        id: 'ROOT_ORGUNIT',
-                        path: '/ROOT_ORGUNIT',
-                    },
-                ],
+            currentUser: {
+                settings: {},
+            },
+            rootOrganisationUnits: [
+                {
+                    id: 'ROOT_ORGUNIT',
+                    path: '/ROOT_ORGUNIT',
+                },
+            ],
+            systemSettings: {
                 keyAnalysisRelativePeriod: 'LAST_12_MONTHS',
             },
 
