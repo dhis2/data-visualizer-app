@@ -121,29 +121,37 @@ export class UnconnectedApp extends Component {
     }
 
     componentDidMount = async () => {
-        const { currentUser, userSettings } = this.props
+        const {
+            current,
+            currentUser,
+            location,
+            rootOrganisationUnits,
+            systemSettings,
+            visualization,
+        } = this.props
 
-        await this.props.addSettings(userSettings)
-        this.props.setUser(currentUser)
+        await this.props.addSettings({
+            ...systemSettings,
+            ...currentUser.settings,
+            rootOrganisationUnits,
+        })
+
         this.props.setDimensions()
 
-        const metaData = this.props.settings.rootOrganisationUnits.reduce(
-            (obj, rootOrgUnit) => {
-                if (rootOrgUnit.id) {
-                    obj[rootOrgUnit.id] = {
-                        ...rootOrgUnit,
-                        path: `/${rootOrgUnit.id}`,
-                    }
+        const metaData = rootOrganisationUnits.reduce((obj, rootOrgUnit) => {
+            if (rootOrgUnit.id) {
+                obj[rootOrgUnit.id] = {
+                    ...rootOrgUnit,
+                    path: `/${rootOrgUnit.id}`,
                 }
+            }
 
-                return obj
-            },
-            {}
-        )
+            return obj
+        }, {})
 
         this.props.addMetadata(metaData)
 
-        this.loadVisualization(this.props.location)
+        this.loadVisualization(location)
 
         this.unlisten = history.listen(({ location }) => {
             // Avoid duplicate actions for the same update object. This also
@@ -178,10 +186,7 @@ export class UnconnectedApp extends Component {
 */
             if (
                 // currently editing
-                getVisualizationState(
-                    this.props.visualization,
-                    this.props.current
-                ) === STATE_DIRTY &&
+                getVisualizationState(visualization, current) === STATE_DIRTY &&
                 // wanting to navigate elsewhere
                 this.state.previousLocation !== location.pathname &&
                 // not saving
@@ -211,12 +216,7 @@ export class UnconnectedApp extends Component {
         )
 
         window.addEventListener('beforeunload', (event) => {
-            if (
-                getVisualizationState(
-                    this.props.visualization,
-                    this.props.current
-                ) === STATE_DIRTY
-            ) {
+            if (getVisualizationState(visualization, current) === STATE_DIRTY) {
                 event.preventDefault()
                 event.returnValue = i18n.t('You have unsaved changes.')
             }
@@ -348,8 +348,7 @@ const mapDispatchToProps = {
     setUiFromVisualization: fromActions.fromUi.acSetUiFromVisualization,
     addParentGraphMap: fromActions.fromUi.acAddParentGraphMap,
     clearSnackbar: fromActions.fromSnackbar.acClearSnackbar,
-    addSettings: fromActions.fromSettings.tAddSettings,
-    setUser: fromActions.fromUser.acReceivedUser,
+    addSettings: fromActions.fromSettings.acAddSettings,
     setDimensions: fromActions.fromDimensions.tSetDimensions,
     addMetadata: fromActions.fromMetadata.acAddMetadata,
     setVisualization: fromActions.tDoLoadVisualization,
@@ -372,21 +371,21 @@ UnconnectedApp.propTypes = {
     currentUser: PropTypes.object,
     location: PropTypes.object,
     ouLevels: PropTypes.array,
+    rootOrganisationUnits: PropTypes.array,
     setCurrentFromUi: PropTypes.func,
     setDimensions: PropTypes.func,
     setUiFromVisualization: PropTypes.func,
-    setUser: PropTypes.func,
     setVisualization: PropTypes.func,
-    settings: PropTypes.object,
+    systemSettings: PropTypes.object,
     ui: PropTypes.object,
-    userSettings: PropTypes.object,
     visualization: PropTypes.object,
 }
 
 const withData = (Component) => {
     return function WrappedComponent(props) {
         const [currentAO] = useSetting(USER_DATASTORE_CURRENT_AO_KEY)
-        const { currentUser, orgUnitLevels } = useCachedDataQuery()
+        const { currentUser, orgUnitLevels, rootOrgUnits, systemSettings } =
+            useCachedDataQuery()
         const location = history.location
 
         return (
@@ -396,6 +395,8 @@ const withData = (Component) => {
                 currentUser={currentUser}
                 location={location}
                 ouLevels={orgUnitLevels}
+                rootOrganisationUnits={rootOrgUnits}
+                systemSettings={systemSettings}
             />
         )
     }

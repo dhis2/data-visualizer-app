@@ -26,6 +26,7 @@ import {
     BIMONTHLY,
     ALL_DYNAMIC_DIMENSION_ITEMS,
     VIS_TYPE_OUTLIER_TABLE,
+    useCachedDataQuery,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import {
@@ -58,7 +59,6 @@ import {
 import { sGetDimensions } from '../../../reducers/dimensions.js'
 import { sGetMetadata } from '../../../reducers/metadata.js'
 import {
-    sGetRootOrgUnits,
     sGetSettings,
     sGetSettingsDisplayNameProperty,
 } from '../../../reducers/settings.js'
@@ -572,7 +572,6 @@ const mapStateToProps = (state) => ({
     parentGraphMap: sGetUiParentGraphMap(state),
     dxIds: sGetUiItemsByDimension(state, DIMENSION_ID_DATA),
     ouIds: sGetUiItemsByDimension(state, DIMENSION_ID_ORGUNIT),
-    rootOrgUnits: sGetRootOrgUnits(state),
     selectedItems: (dimensionId) => sGetUiItemsByDimension(state, dimensionId),
     settings: sGetSettings(state),
     type: sGetUiType(state),
@@ -583,6 +582,14 @@ const mapStateToProps = (state) => ({
         sGetUiItemsByAttribute(state, attribute),
 })
 
+const withData = (Component) => {
+    return function WrappedComponent(props) {
+        const { rootOrgUnits } = useCachedDataQuery()
+
+        return <Component {...props} rootOrgUnits={rootOrgUnits} />
+    }
+}
+
 export default connect(mapStateToProps, {
     changeDialog: acSetUiActiveModalDialog,
     setRecommendedIds: acSetRecommendedIds,
@@ -590,4 +597,4 @@ export default connect(mapStateToProps, {
     addMetadata: acAddMetadata,
     addParentGraphMap: acAddParentGraphMap,
     setUiItemAttributes: acSetUiItemAttributes,
-})(DialogManager)
+})(withData(DialogManager))

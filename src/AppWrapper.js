@@ -9,10 +9,7 @@ import configureStore from './configureStore.js'
 import metadataMiddleware from './middleware/metadata.js'
 import { USER_DATASTORE_NAMESPACE } from './modules/currentAnalyticalObject.js'
 import { systemSettingsKeys } from './modules/systemSettings.js'
-import {
-    USER_SETTINGS_DISPLAY_PROPERTY,
-    DERIVED_USER_SETTINGS_DISPLAY_NAME_PROPERTY,
-} from './modules/userSettings.js'
+import { USER_SETTINGS_DISPLAY_PROPERTY } from './modules/userSettings.js'
 import './locales/index.js'
 
 const query = {
@@ -24,6 +21,7 @@ const query = {
     },
     systemSettings: {
         resource: 'systemSettings',
+        // removed from v42
         params: {
             key: systemSettingsKeys,
         },
@@ -64,11 +62,13 @@ const providerDataTransformation = ({
                 displayProperty:
                     currentUser.settings[USER_SETTINGS_DISPLAY_PROPERTY],
                 displayNameProperty,
-                [DERIVED_USER_SETTINGS_DISPLAY_NAME_PROPERTY]:
-                    displayNameProperty,
             },
         },
-        systemSettings,
+        // filter only the relevant settings to avoid storing all in Redux
+        systemSettings: systemSettingsKeys.reduce((obj, key) => {
+            obj[key] = systemSettings[key]
+            return obj
+        }, {}),
         rootOrgUnits: rootOrgUnits.organisationUnits,
         orgUnitLevels: orgUnitLevels.organisationUnitLevels,
     }
