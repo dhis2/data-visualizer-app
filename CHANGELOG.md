@@ -1,3 +1,17 @@
+## [101.1.7](https://github.com/dhis2/data-visualizer-app/compare/v101.1.6...v101.1.7) (2025-04-30)
+
+
+### Bug Fixes
+
+* visualization canvas loading background (DHIS2-19533) ([#3387](https://github.com/dhis2/data-visualizer-app/issues/3387)) ([f2175ad](https://github.com/dhis2/data-visualizer-app/commit/f2175ad253e354273093d5b3c66e9462a51905d1))
+
+## [101.1.6](https://github.com/dhis2/data-visualizer-app/compare/v101.1.5...v101.1.6) (2025-04-24)
+
+
+### Bug Fixes
+
+* fix sorting in PT when percentage of rows is used (DHIS2-5455) ([#3380](https://github.com/dhis2/data-visualizer-app/issues/3380)) ([d4ca11f](https://github.com/dhis2/data-visualizer-app/commit/d4ca11f57c861f3caa07ef375874c564ac21676c))
+
 ## [101.1.5](https://github.com/dhis2/data-visualizer-app/compare/v101.1.4...v101.1.5) (2025-04-22)
 
 
