@@ -21,10 +21,6 @@ const query = {
     },
     systemSettings: {
         resource: 'systemSettings',
-        // removed from v42
-        params: {
-            key: systemSettingsKeys,
-        },
     },
     rootOrgUnits: {
         resource: 'organisationUnits',
