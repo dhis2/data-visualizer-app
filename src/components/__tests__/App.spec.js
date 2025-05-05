@@ -58,8 +58,6 @@ describe('App', () => {
             clearCurrent: jest.fn(),
             clearAll: jest.fn(),
             addSettings: jest.fn(),
-            setUser: jest.fn(),
-            loadUserAuthority: jest.fn(),
             setDimensions: jest.fn(),
             addMetadata: jest.fn(),
             setVisualization: jest.fn(),

@@ -40,7 +40,6 @@ import * as fromRecommended from './recommendedIds.js'
 import * as fromSettings from './settings.js'
 import * as fromSnackbar from './snackbar.js'
 import * as fromUi from './ui.js'
-import * as fromUser from './user.js'
 import * as fromVisualization from './visualization.js'
 
 export {
@@ -51,7 +50,6 @@ export {
     fromUi,
     fromMetadata,
     fromSettings,
-    fromUser,
     fromChart,
     fromSnackbar,
     fromLoader,
