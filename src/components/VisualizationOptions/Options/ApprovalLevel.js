@@ -64,13 +64,13 @@ ApprovalLevelSelect.propTypes = {
 
 const ApprovalLevel = ({ value, onChange }) => {
     const engine = useDataEngine()
-    const { currentUser } = useCachedDataQuery()
+    const { currentUser, systemSettings } = useCachedDataQuery()
 
     const [options, setOptions] = useState([])
     const [isLoaded, setIsLoaded] = useState(false)
 
     const enabled =
-        currentUser.settings.keyIgnoreAnalyticsApprovalYearThreshold !== -1 &&
+        systemSettings.keyIgnoreAnalyticsApprovalYearThreshold !== -1 &&
         currentUser.authorities.includes(APPROVAL_LEVEL_OPTION_AUTH)
 
     if (!enabled) {
