@@ -26,7 +26,6 @@ import {
     BIMONTHLY,
     ALL_DYNAMIC_DIMENSION_ITEMS,
     VIS_TYPE_OUTLIER_TABLE,
-    useCachedDataQuery,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import {
@@ -582,14 +581,6 @@ const mapStateToProps = (state) => ({
         sGetUiItemsByAttribute(state, attribute),
 })
 
-const withData = (Component) => {
-    return function WrappedComponent(props) {
-        const { rootOrgUnits } = useCachedDataQuery()
-
-        return <Component {...props} rootOrgUnits={rootOrgUnits} />
-    }
-}
-
 export default connect(mapStateToProps, {
     changeDialog: acSetUiActiveModalDialog,
     setRecommendedIds: acSetRecommendedIds,
@@ -597,4 +588,4 @@ export default connect(mapStateToProps, {
     addMetadata: acAddMetadata,
     addParentGraphMap: acAddParentGraphMap,
     setUiItemAttributes: acSetUiItemAttributes,
-})(withData(DialogManager))
+})(DialogManager)
