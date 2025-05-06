@@ -52,10 +52,15 @@ const getChartOptionsForExportType = (isPdfExport, titleStyle, subtitleStyle) =>
                * specific handling for PDF export can read this when they
                * re-render before exporting */
               isPdfExport: true,
-              /* To avoid alignment issues set the font to the base family used
-               * in the `pdfFont` option */
+              /* The font-family selected here impacts text alignment in the PDF
+               * that is produced. We set it to Helvetica here because this is a
+               * standard PDF font and a fallback font of our app. In theory it
+               * would make more sense to select base font-family Noto Sans which
+               * is actually used in the generated PDF, but for some reason that
+               * proved to result in poorer text alignment than Helvetica.
+               * Specifically we observed label/legend text overlap. */
               chart: {
-                  style: { fontFamily: 'Noto Sans' },
+                  style: { fontFamily: 'Helvetica' },
               },
               /* Text ellipsis and text shadow are not supported in PDF exports
                * so the corresponding style properties need to be set to their
