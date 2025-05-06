@@ -44,31 +44,27 @@ const providerDataTransformation = ({
     systemSettings,
     rootOrgUnits,
     orgUnitLevels,
-}) => {
-    const displayNameProperty =
-        currentUser.settings[USER_SETTINGS_DISPLAY_PROPERTY] === 'name'
-            ? 'displayName'
-            : 'displayShortName'
-
-    return {
-        currentUser: {
-            ...currentUser,
-            settings: {
-                uiLocale: currentUser.settings.keyUiLocale,
-                displayProperty:
-                    currentUser.settings[USER_SETTINGS_DISPLAY_PROPERTY],
-                displayNameProperty,
-            },
+}) => ({
+    currentUser: {
+        ...currentUser,
+        settings: {
+            uiLocale: currentUser.settings.keyUiLocale,
+            displayProperty:
+                currentUser.settings[USER_SETTINGS_DISPLAY_PROPERTY],
+            displayNameProperty:
+                currentUser.settings[USER_SETTINGS_DISPLAY_PROPERTY] === 'name'
+                    ? 'displayName'
+                    : 'displayShortName',
         },
-        // filter only the relevant settings to avoid storing all in Redux
-        systemSettings: systemSettingsKeys.reduce((obj, key) => {
-            obj[key] = systemSettings[key]
-            return obj
-        }, {}),
-        rootOrgUnits: rootOrgUnits.organisationUnits,
-        orgUnitLevels: orgUnitLevels.organisationUnitLevels,
-    }
-}
+    },
+    // filter only the relevant settings to avoid storing all in Redux
+    systemSettings: systemSettingsKeys.reduce((obj, key) => {
+        obj[key] = systemSettings[key]
+        return obj
+    }, {}),
+    rootOrgUnits: rootOrgUnits.organisationUnits,
+    orgUnitLevels: orgUnitLevels.organisationUnitLevels,
+})
 
 const AppWrapper = () => {
     const engine = useDataEngine()
