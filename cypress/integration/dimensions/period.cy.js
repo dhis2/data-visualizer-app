@@ -38,7 +38,7 @@ const systemSettingsBody = {
     keyAnalysisDigitGroupSeparator: 'COMMA',
     keyHideDailyPeriods: false,
     keyHideWeeklyPeriods: false,
-    // TODO: Add Bi-weekly periods once it's supported
+    keyHideBiWeeklyPeriods: false,
     keyHideMonthlyPeriods: false,
     keyHideBiMonthlyPeriods: false,
     keyIgnoreAnalyticsApprovalYearThreshold: -1,
@@ -48,14 +48,11 @@ const systemSettingsBody = {
 describe('Period dimension', () => {
     describe('initial state', () => {
         it('navigates to the start page', () => {
-            cy.intercept(
-                /systemSettings(\S)*keyAnalysisRelativePeriod(\S)*/,
-                (req) => {
-                    req.reply((res) => {
-                        res.send({ body: systemSettingsBody })
-                    })
-                }
-            )
+            cy.intercept(/systemSettings/, (req) => {
+                req.reply((res) => {
+                    res.send({ body: systemSettingsBody })
+                })
+            })
             goToStartPage()
         })
         it('opens the period dimension modal', () => {
@@ -173,19 +170,16 @@ describe('Period dimension', () => {
     })
     describe('using period settings - hidden monthly', () => {
         it('navigates to the start page', () => {
-            cy.intercept(
-                /systemSettings(\S)*keyAnalysisRelativePeriod(\S)*/,
-                (req) => {
-                    req.reply((res) => {
-                        res.send({
-                            body: {
-                                ...systemSettingsBody,
-                                keyHideMonthlyPeriods: true,
-                            },
-                        })
+            cy.intercept(/systemSettings/, (req) => {
+                req.reply((res) => {
+                    res.send({
+                        body: {
+                            ...systemSettingsBody,
+                            keyHideMonthlyPeriods: true,
+                        },
                     })
-                }
-            )
+                })
+            })
             goToStartPage()
         })
         it('opens the period dimension modal', () => {
@@ -252,19 +246,16 @@ describe('Period dimension', () => {
     })
     describe('using period settings - hidden weekly', () => {
         it('navigates to the start page', () => {
-            cy.intercept(
-                /systemSettings(\S)*keyAnalysisRelativePeriod(\S)*/,
-                (req) => {
-                    req.reply((res) => {
-                        res.send({
-                            body: {
-                                ...systemSettingsBody,
-                                keyHideWeeklyPeriods: true,
-                            },
-                        })
+            cy.intercept(/systemSettings/, (req) => {
+                req.reply((res) => {
+                    res.send({
+                        body: {
+                            ...systemSettingsBody,
+                            keyHideWeeklyPeriods: true,
+                        },
                     })
-                }
-            )
+                })
+            })
             goToStartPage()
         })
         it('opens the period dimension modal', () => {
@@ -331,19 +322,16 @@ describe('Period dimension', () => {
     })
     describe('using period settings - hidden daily', () => {
         it('navigates to the start page', () => {
-            cy.intercept(
-                /systemSettings(\S)*keyAnalysisRelativePeriod(\S)*/,
-                (req) => {
-                    req.reply((res) => {
-                        res.send({
-                            body: {
-                                ...systemSettingsBody,
-                                keyHideDailyPeriods: true,
-                            },
-                        })
+            cy.intercept(/systemSettings/, (req) => {
+                req.reply((res) => {
+                    res.send({
+                        body: {
+                            ...systemSettingsBody,
+                            keyHideDailyPeriods: true,
+                        },
                     })
-                }
-            )
+                })
+            })
             goToStartPage()
         })
         it('opens the period dimension modal', () => {
@@ -410,19 +398,16 @@ describe('Period dimension', () => {
     })
     describe('using period settings - hidden bi-monthly', () => {
         it('navigates to the start page', () => {
-            cy.intercept(
-                /systemSettings(\S)*keyAnalysisRelativePeriod(\S)*/,
-                (req) => {
-                    req.reply((res) => {
-                        res.send({
-                            body: {
-                                ...systemSettingsBody,
-                                keyHideBiMonthlyPeriods: true,
-                            },
-                        })
+            cy.intercept(/systemSettings/, (req) => {
+                req.reply((res) => {
+                    res.send({
+                        body: {
+                            ...systemSettingsBody,
+                            keyHideBiMonthlyPeriods: true,
+                        },
                     })
-                }
-            )
+                })
+            })
             goToStartPage()
         })
         it('opens the period dimension modal', () => {
@@ -472,6 +457,82 @@ describe('Period dimension', () => {
                 'Weekly (Start Sunday)',
                 'Bi-weekly',
                 'Monthly',
+                'Quarterly',
+                'Six-monthly',
+                'Six-monthly April',
+                'Yearly',
+                'Financial year (Start November)',
+                'Financial year (Start October)',
+                'Financial year (Start July)',
+                'Financial year (Start April)',
+            ]
+            fixedPeriodTypes.forEach((type) =>
+                expectFixedPeriodTypeSelectToContain(type)
+            )
+            selectPeriodType(fixedPeriodTypes[1]) // Click the second item to close the dropdown
+        })
+    })
+    describe('using period settings - hidden bi-weekly', () => {
+        it('navigates to the start page', () => {
+            cy.intercept(/systemSettings/, (req) => {
+                req.reply((res) => {
+                    res.send({
+                        body: {
+                            ...systemSettingsBody,
+                            keyHideBiWeeklyPeriods: true,
+                        },
+                    })
+                })
+            })
+            goToStartPage()
+        })
+        it('opens the period dimension modal', () => {
+            openDimension(DIMENSION_ID_PERIOD)
+            expectPeriodDimensionModalToBeVisible()
+        })
+        it("period type is 'Months'", () => {
+            expectRelativePeriodTypeToBe('Months')
+        })
+        it("relative type 'Bi-weeks' is not shown", () => {
+            openRelativePeriodsTypeSelect()
+            expectRelativePeriodTypeSelectToNotContain('Bi-weeks')
+        })
+        it('all other relative types are shown', () => {
+            const relativePeriodTypes = [
+                'Days',
+                'Weeks',
+                'Months',
+                'Bi-months',
+                'Quarters',
+                'Six-months',
+                'Financial Years',
+                'Years',
+            ]
+            relativePeriodTypes.forEach((type) =>
+                expectRelativePeriodTypeSelectToContain(type)
+            )
+            selectPeriodType(relativePeriodTypes.slice(-1)[0]) // Click the last item to close the dropdown
+        })
+        it('can switch to fixed periods', () => {
+            switchToFixedPeriods()
+        })
+        it("period type is 'Monthly'", () => {
+            expectFixedPeriodTypeToBe('Monthly')
+        })
+        it("fixed type 'Bi-weekly' is not shown", () => {
+            openFixedPeriodsTypeSelect()
+            expectFixedPeriodTypeSelectToNotContain('Bi-weekly')
+        })
+        it('all other fixed types are shown', () => {
+            const fixedPeriodTypes = [
+                'Daily',
+                'Weekly',
+                'Weekly (Start Wednesday)',
+                'Weekly (Start Thursday)',
+                'Weekly (Start Saturday)',
+                'Weekly (Start Sunday)',
+                'Monthly',
+                'Bi-monthly',
                 'Quarterly',
                 'Six-monthly',
                 'Six-monthly April',
