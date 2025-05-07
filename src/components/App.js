@@ -121,14 +121,8 @@ export class UnconnectedApp extends Component {
     }
 
     componentDidMount = async () => {
-        const {
-            current,
-            currentUser,
-            location,
-            rootOrganisationUnits,
-            systemSettings,
-            visualization,
-        } = this.props
+        const { currentUser, rootOrganisationUnits, systemSettings, location } =
+            this.props
 
         await this.props.addSettings({
             ...systemSettings,
@@ -186,7 +180,10 @@ export class UnconnectedApp extends Component {
 */
             if (
                 // currently editing
-                getVisualizationState(visualization, current) === STATE_DIRTY &&
+                getVisualizationState(
+                    this.props.visualization,
+                    this.props.current
+                ) === STATE_DIRTY &&
                 // wanting to navigate elsewhere
                 this.state.previousLocation !== location.pathname &&
                 // not saving
@@ -216,7 +213,12 @@ export class UnconnectedApp extends Component {
         )
 
         window.addEventListener('beforeunload', (event) => {
-            if (getVisualizationState(visualization, current) === STATE_DIRTY) {
+            if (
+                getVisualizationState(
+                    this.props.visualization,
+                    this.props.current
+                ) === STATE_DIRTY
+            ) {
                 event.preventDefault()
                 event.returnValue = i18n.t('You have unsaved changes.')
             }
