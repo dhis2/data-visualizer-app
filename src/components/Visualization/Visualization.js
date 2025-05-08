@@ -1,7 +1,7 @@
 import debounce from 'lodash-es/debounce'
 import PropTypes from 'prop-types'
-import React, { Component, Fragment } from 'react'
-import { connect } from 'react-redux'
+import React, { Component, Fragment, useCallback } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { tSetCurrentFromUi } from '../../actions/current.js'
 import { acSetPluginLoading } from '../../actions/loader.js'
 import { acAddMetadata } from '../../actions/metadata.js'
@@ -16,7 +16,7 @@ import { sGetIsPluginLoading, sGetLoadError } from '../../reducers/loader.js'
 import { sGetSettingsDisplayProperty } from '../../reducers/settings.js'
 import { sGetUiRightSidebarOpen } from '../../reducers/ui.js'
 import LoadingMask from '../../widgets/LoadingMask.js'
-import { ChartContext } from '../ChartProvider.js'
+import { useChartContext } from '../ChartProvider.js'
 import { VisualizationErrorInfo } from '../VisualizationErrorInfo/VisualizationErrorInfo.js'
 import { VisualizationPlugin } from '../VisualizationPlugin/VisualizationPlugin.js'
 import StartScreen from './StartScreen.js'
@@ -32,7 +32,7 @@ export class UnconnectedVisualization extends Component {
     }
 
     onChartGenerated = (chart) => {
-        this.context.setChart(chart)
+        this.props.setChart(chart)
     }
 
     onDataSorted = (sorting) => {
@@ -169,6 +169,7 @@ UnconnectedVisualization.propTypes = {
     error: PropTypes.object,
     isLoading: PropTypes.bool,
     rightSidebarOpen: PropTypes.bool,
+    setChart: PropTypes.func,
     setCurrent: PropTypes.func,
     setUiDataSorting: PropTypes.func,
     setUiItems: PropTypes.func,
@@ -177,40 +178,59 @@ UnconnectedVisualization.propTypes = {
     onLoadingStart: PropTypes.func,
 }
 
-UnconnectedVisualization.contextType = ChartContext
+export const Visualization = (props) => {
+    const dispatch = useDispatch()
+    const visualization = useSelector(sGetCurrent)
+    const rightSidebarOpen = useSelector(sGetUiRightSidebarOpen)
+    const error = useSelector(sGetLoadError)
+    const isLoading = useSelector(sGetIsPluginLoading)
+    const displayProperty = useSelector(sGetSettingsDisplayProperty)
+    const onLoadingComplete = useCallback(
+        () => dispatch(acSetPluginLoading(false)),
+        [dispatch]
+    )
+    const onLoadingStart = useCallback(
+        () => dispatch(acSetPluginLoading(true)),
+        [dispatch]
+    )
+    const addMetadata = useCallback(
+        (metadata) => dispatch(acAddMetadata(metadata)),
+        [dispatch]
+    )
+    const addParentGraphMap = useCallback(
+        (parentGraphMap) => dispatch(acAddParentGraphMap(parentGraphMap)),
+        [dispatch]
+    )
+    const setUiItems = useCallback(
+        (data) => dispatch(acSetUiItems(data)),
+        [dispatch]
+    )
+    const setUiDataSorting = useCallback(
+        (sorting) => dispatch(acSetUiDataSorting(sorting)),
+        [dispatch]
+    )
+    const setCurrent = useCallback(
+        () => dispatch(tSetCurrentFromUi()),
+        [dispatch]
+    )
+    const { setChart } = useChartContext()
 
-/* Setting these contextTypes is required for Jest/Enzyme
- * context mocking to work, but a React DevTools warning
- * is thrown in development mode, because contextTypes is
- * part of the legacy Context API which is deprecated.
- * So we have to set them conditionally. */
-if (process.env.JEST_WORKER_ID !== undefined) {
-    UnconnectedVisualization.contextTypes = {
-        getChart: PropTypes.func,
-        setChart: PropTypes.func,
-    }
+    return (
+        <UnconnectedVisualization
+            {...props}
+            visualization={visualization}
+            rightSidebarOpen={rightSidebarOpen}
+            error={error}
+            isLoading={isLoading}
+            displayProperty={displayProperty}
+            onLoadingComplete={onLoadingComplete}
+            onLoadingStart={onLoadingStart}
+            addMetadata={addMetadata}
+            addParentGraphMap={addParentGraphMap}
+            setUiItems={setUiItems}
+            setUiDataSorting={setUiDataSorting}
+            setCurrent={setCurrent}
+            setChart={setChart}
+        />
+    )
 }
-
-const mapStateToProps = (state) => ({
-    visualization: sGetCurrent(state),
-    rightSidebarOpen: sGetUiRightSidebarOpen(state),
-    error: sGetLoadError(state),
-    isLoading: sGetIsPluginLoading(state),
-    displayProperty: sGetSettingsDisplayProperty(state),
-})
-
-const mapDispatchToProps = (dispatch) => ({
-    onLoadingComplete: () => dispatch(acSetPluginLoading(false)),
-    onLoadingStart: () => dispatch(acSetPluginLoading(true)),
-    addMetadata: (metadata) => dispatch(acAddMetadata(metadata)),
-    addParentGraphMap: (parentGraphMap) =>
-        dispatch(acAddParentGraphMap(parentGraphMap)),
-    setUiItems: (data) => dispatch(acSetUiItems(data)),
-    setUiDataSorting: (sorting) => dispatch(acSetUiDataSorting(sorting)),
-    setCurrent: () => dispatch(tSetCurrentFromUi()),
-})
-
-export const Visualization = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(UnconnectedVisualization)
