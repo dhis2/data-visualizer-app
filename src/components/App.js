@@ -119,11 +119,11 @@ export class UnconnectedApp extends Component {
         this.setState({ previousLocation: location.pathname })
     }
 
-    componentDidMount = async () => {
+    componentDidMount = () => {
         const { currentUser, rootOrganisationUnits, systemSettings, location } =
             this.props
 
-        await this.props.addSettings({
+        this.props.addSettings({
             ...systemSettings,
             ...currentUser.settings,
             rootOrganisationUnits,
