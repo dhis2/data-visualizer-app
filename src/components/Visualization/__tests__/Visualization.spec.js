@@ -13,11 +13,9 @@ describe('Visualization', () => {
         const setChart = jest.fn()
         const vis = () => {
             if (!shallowVisualization) {
-                shallowVisualization = shallow(<Visualization {...props} />, {
-                    context: {
-                        setChart,
-                    },
-                })
+                shallowVisualization = shallow(
+                    <Visualization {...props} setChart={setChart} />
+                )
             }
             return shallowVisualization
         }
