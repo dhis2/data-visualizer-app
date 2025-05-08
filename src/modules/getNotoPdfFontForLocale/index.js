@@ -1,6 +1,14 @@
 import { NOTO_FONT_LOOKUP } from './notoFontLookup.js'
 
 const fontsDir = `${process.env.PUBLIC_URL}/fonts`
+/* Note that this base font does have italic variants
+ * while the other script/language specific fonts do not */
+const baseNotoFont = {
+    normal: `${fontsDir}/NotoSans-Regular.ttf`,
+    bold: `${fontsDir}/NotoSans-Bold.ttf`,
+    bolditalic: `${fontsDir}/NotoSans-BoldItalic.ttf`,
+    italic: `${fontsDir}/NotoSans-Italic.ttf`,
+}
 
 const findInNotoFontLookup = (callback) => {
     for (const [fontName, scriptsAndLanguages] of NOTO_FONT_LOOKUP) {
@@ -32,19 +40,22 @@ const getScriptAndRegionFromJavaLocaleCode = (javaLocaleCode) => {
 export const getNotoPdfFontForLocale = (javaLocale = 'en') => {
     const { script, language } =
         getScriptAndRegionFromJavaLocaleCode(javaLocale)
-    return (
+
+    if (script) {
         /* First scan the entire lookup to find a script match because script
          * matches should take precedence over language matches, since a
          * language can be written in multiple scripts */
-        findInNotoFontLookup(({ scripts }) => scripts.has(script)) ??
-        // Then scan for language matches
-        findInNotoFontLookup(({ languages }) => languages.has(language)) ?? {
-            /* If no match is found return the Noto base font.
-             * Note that this does have italic variants */
-            normal: `${fontsDir}/NotoSans-Regular.ttf`,
-            bold: `${fontsDir}/NotoSans-Bold.ttf`,
-            bolditalic: `${fontsDir}/NotoSans-BoldItalic.ttf`,
-            italic: `${fontsDir}/NotoSans-Italic.ttf`,
+        const notoFontForScript = findInNotoFontLookup(({ scripts }) =>
+            scripts.has(script)
+        )
+
+        if (notoFontForScript) {
+            return notoFontForScript
         }
+    }
+
+    return (
+        findInNotoFontLookup(({ languages }) => languages.has(language)) ??
+        baseNotoFont
     )
 }
