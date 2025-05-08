@@ -78,12 +78,6 @@ describe('push-analytics', { testIsolation: true }, () => {
         () => {
             const pivotTableName =
                 'Nutrition: Malnutrition indicators stacked bar'
-            /* Stub window.open to prevent actually opening the image file in
-             * a new tab, because Cypress does not handle this well */
-            const windowOpenStub = cy.stub().as('open')
-            cy.on('window:before:load', (win) => {
-                cy.stub(win, 'open').callsFake(windowOpenStub)
-            })
 
             goToStartPage()
             openAOByName(pivotTableName)
@@ -94,17 +88,9 @@ describe('push-analytics', { testIsolation: true }, () => {
             cy.contains('button', 'Download').should('be.enabled').click()
             cy.contains('li', 'Image (.png)').should('be.visible').click()
 
-            // Assert that window.open was called with correct URL and target
-            cy.get('@open').should('have.been.calledOnce')
-            cy.get('@open').should((stub) => {
-                const urlString = stub.getCall(0).args[0]
-                const target = stub.getCall(0).args[1]
-
-                expect(urlString).to.match(
-                    /blob:http:\/\/localhost:3000\/[A-Za-z0-9]{8}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{12}/
-                )
-                expect(target).to.equal('_blank')
-            })
+            const downloadsDir = Cypress.config('downloadsFolder')
+            const filePath = `${downloadsDir}/Nutrition_ Malnutrition indicators stacked bar.png`
+            cy.readFile(filePath).should('exist')
         }
     )
     it(

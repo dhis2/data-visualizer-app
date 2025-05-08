@@ -1,4 +1,5 @@
 import { HoverMenuListItem } from '@dhis2/analytics'
+import { useDhis2ConnectionStatus } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import {
     MenuItem,
@@ -13,6 +14,7 @@ import { FILE_FORMAT_PDF, FILE_FORMAT_PNG } from './constants.js'
 
 export const GraphicsMenu = ({ hoverable, onDownload }) => {
     const MenuItemComponent = hoverable ? HoverMenuListItem : MenuItem
+    const { isDisconnected } = useDhis2ConnectionStatus()
 
     return (
         <>
@@ -34,6 +36,7 @@ export const GraphicsMenu = ({ hoverable, onDownload }) => {
                 icon={<IconFileDocument24 color={colors.grey600} />}
                 label={i18n.t('PDF (.pdf)')}
                 onClick={() => onDownload({ format: FILE_FORMAT_PDF })}
+                disabled={isDisconnected}
             />
         </>
     )
