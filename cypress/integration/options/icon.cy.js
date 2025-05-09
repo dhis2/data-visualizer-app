@@ -56,8 +56,6 @@ const expectIconToBeHidden = () => {
     cy.getBySelLike('visualization-icon').should('not.exist')
 }
 
-// TODO: Remove the commented out types below once 2.40.1 has been released, as only indicators are supported in 2.40.0
-
 const TEST_TYPES = [
     DIMENSION_TYPE_INDICATOR,
     DIMENSION_TYPE_DATA_ELEMENT,
@@ -126,7 +124,6 @@ describe('Icon', () => {
             expectIconToBeVisible()
         })
     })
-    // TODO: Skipped because of the same reason as the commented out tests above
     it('icon gets correct color when a legend is in use', () => {
         // enable the icon
         openOptionsModal(OPTIONS_TAB_STYLE)
