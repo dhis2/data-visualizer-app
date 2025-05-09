@@ -58,7 +58,6 @@ import {
 import { sGetDimensions } from '../../../reducers/dimensions.js'
 import { sGetMetadata } from '../../../reducers/metadata.js'
 import {
-    sGetRootOrgUnits,
     sGetSettings,
     sGetSettingsDisplayNameProperty,
 } from '../../../reducers/settings.js'
@@ -124,7 +123,7 @@ export class DialogManager extends Component {
 
     fetchRecommended = debounce(async () => {
         const ids = await apiFetchRecommendedIds(
-            this.context.dataEngine,
+            this.props.dataEngine,
             this.props.dxIds,
             this.props.ouIds
         )
@@ -534,12 +533,9 @@ export class DialogManager extends Component {
     }
 }
 
-DialogManager.contextTypes = {
-    dataEngine: PropTypes.object,
-}
-
 DialogManager.propTypes = {
     changeDialog: PropTypes.func.isRequired,
+    dataEngine: PropTypes.object.isRequired,
     dimensionIdsInLayout: PropTypes.array.isRequired,
     ouIds: PropTypes.array.isRequired,
     setRecommendedIds: PropTypes.func.isRequired,
@@ -575,7 +571,6 @@ const mapStateToProps = (state) => ({
     parentGraphMap: sGetUiParentGraphMap(state),
     dxIds: sGetUiItemsByDimension(state, DIMENSION_ID_DATA),
     ouIds: sGetUiItemsByDimension(state, DIMENSION_ID_ORGUNIT),
-    rootOrgUnits: sGetRootOrgUnits(state),
     selectedItems: (dimensionId) => sGetUiItemsByDimension(state, dimensionId),
     settings: sGetSettings(state),
     type: sGetUiType(state),

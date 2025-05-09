@@ -1,4 +1,5 @@
 import { visTypeDisplayNames, ToolbarSidebar } from '@dhis2/analytics'
+import { useConfig } from '@dhis2/app-runtime'
 import { useSetting } from '@dhis2/app-service-datastore'
 import i18n from '@dhis2/d2-i18n'
 import { Divider, Popper, Layer } from '@dhis2/ui'
@@ -27,11 +28,15 @@ import VisualizationTypeListItem from './VisualizationTypeListItem.js'
 
 export const MAPS_APP_URL = 'dhis-web-maps'
 
-const UnconnectedVisualizationTypeSelector = (
-    { visualizationType, ui, setUi, onItemClick, current, metadata },
-    context
-) => {
-    const baseUrl = context.baseUrl
+const UnconnectedVisualizationTypeSelector = ({
+    visualizationType,
+    ui,
+    setUi,
+    onItemClick,
+    current,
+    metadata,
+}) => {
+    const { baseUrl } = useConfig()
     const filterVisTypesByVersion = useVisTypesFilterByVersion()
 
     const [, /* actual value not used */ { set }] = useSetting(
@@ -148,10 +153,6 @@ UnconnectedVisualizationTypeSelector.propTypes = {
     ui: PropTypes.object,
     visualizationType: PropTypes.oneOf(Object.keys(visTypeDisplayNames)),
     onItemClick: PropTypes.func,
-}
-
-UnconnectedVisualizationTypeSelector.contextTypes = {
-    baseUrl: PropTypes.string,
 }
 
 const mapStateToProps = (state) => ({

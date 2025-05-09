@@ -99,7 +99,7 @@ export const fieldsByType = {
         getFieldObject('filters'),
         getFieldObject('hideSubtitle', { option: true }),
         getFieldObject('hideTitle', { option: true }),
-        getFieldObject('href'), // required for translations via analytics FileMenu and d2-ui TranslationDialog
+        getFieldObject('href'), // required by the TranslationModal in analytics
         getFieldObject('id'),
         getFieldObject('interpretations'),
         getFieldObject('itemOrganisationUnitGroups', { excluded: true }),

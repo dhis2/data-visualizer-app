@@ -24,6 +24,7 @@ jest.mock('../Visualization/Visualization', () => ({
 describe('App', () => {
     let props
     let shallowApp
+
     const app = () => {
         if (!shallowApp) {
             shallowApp = shallow(<App {...props} />, {
@@ -35,28 +36,21 @@ describe('App', () => {
 
     beforeEach(() => {
         props = {
-            d2: {
-                models: {
-                    chart: {
-                        get: () => {
-                            return Promise.resolve('got a chart')
-                        },
-                    },
-                },
-            },
-            baseUrl: undefined,
             loadError: null,
             interpretations: [],
             current: DEFAULT_CURRENT,
             ui: { rightSidebarOpen: false },
             location: { pathname: '/' },
-            settings: {
-                rootOrganisationUnits: [
-                    {
-                        id: 'ROOT_ORGUNIT',
-                        path: '/ROOT_ORGUNIT',
-                    },
-                ],
+            currentUser: {
+                settings: {},
+            },
+            rootOrganisationUnits: [
+                {
+                    id: 'ROOT_ORGUNIT',
+                    path: '/ROOT_ORGUNIT',
+                },
+            ],
+            systemSettings: {
                 keyAnalysisRelativePeriod: 'LAST_12_MONTHS',
             },
 
@@ -67,8 +61,6 @@ describe('App', () => {
             clearCurrent: jest.fn(),
             clearAll: jest.fn(),
             addSettings: jest.fn(),
-            setUser: jest.fn(),
-            loadUserAuthority: jest.fn(),
             setDimensions: jest.fn(),
             addMetadata: jest.fn(),
             setVisualization: jest.fn(),
@@ -108,6 +100,7 @@ describe('App', () => {
 
         it('calls setVisualization when location pathname has length', (done) => {
             props.location.pathname = '/twilightsparkle'
+
             app()
 
             setTimeout(() => {
@@ -220,7 +213,7 @@ describe('App', () => {
 
         describe('interpretation id in pathname', () => {
             beforeEach(() => {
-                props.location.pathname = `/applejack/interpretation/xyz123`
+                props.location.pathname = '/applejack/interpretation/xyz123'
             })
 
             it('does not reload visualization when interpretation toggled', (done) => {

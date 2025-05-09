@@ -1,4 +1,4 @@
-import { apiFetchOrganisationUnitLevels, Toolbar } from '@dhis2/analytics'
+import { useCachedDataQuery, Toolbar } from '@dhis2/analytics'
 import { useSetting } from '@dhis2/app-service-datastore'
 import i18n from '@dhis2/d2-i18n'
 import {
@@ -11,8 +11,8 @@ import {
     Button,
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component, useCallback } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import * as fromActions from '../actions/index.js'
 import { Snackbar } from '../components/Snackbar/Snackbar.js'
 import { USER_DATASTORE_CURRENT_AO_KEY } from '../modules/currentAnalyticalObject.js'
@@ -20,7 +20,6 @@ import history from '../modules/history.js'
 import { getParentGraphMapFromVisualization } from '../modules/ui.js'
 import { STATE_DIRTY, getVisualizationState } from '../modules/visualization.js'
 import * as fromReducers from '../reducers/index.js'
-import { sGetVisualization } from '../reducers/visualization.js'
 import { default as DetailsPanel } from './DetailsPanel/DetailsPanel.js'
 import DimensionsPanel from './DimensionsPanel/DimensionsPanel.js'
 import DndContext from './DndContext.js'
@@ -29,7 +28,6 @@ import Layout from './Layout/Layout.js'
 import { MenuBar } from './MenuBar/MenuBar.js'
 import { TitleBar } from './TitleBar/TitleBar.js'
 import { Visualization } from './Visualization/Visualization.js'
-import { APPROVAL_LEVEL_OPTION_AUTH } from './VisualizationOptions/Options/ApprovalLevel.js'
 import { VisualizationTypeSelector } from './VisualizationTypeSelector/VisualizationTypeSelector.js'
 import './App.css'
 import './scrollbar.css'
@@ -51,16 +49,6 @@ export class UnconnectedApp extends Component {
         previousLocation: null,
         initialLoadIsComplete: false,
         locationToConfirm: false,
-
-        ouLevels: null,
-    }
-
-    fetchOuLevels = async () => {
-        const ouLevels = await apiFetchOrganisationUnitLevels(
-            this.props.dataEngine
-        )
-
-        this.setState({ ouLevels: ouLevels })
     }
 
     /**
@@ -121,7 +109,7 @@ export class UnconnectedApp extends Component {
             if (!urlContainsCurrentAOKey && this.refetch(location)) {
                 await this.props.setVisualization({
                     id,
-                    ouLevels: this.state.ouLevels,
+                    ouLevels: this.props.ouLevels,
                 })
             }
         } else {
@@ -131,33 +119,32 @@ export class UnconnectedApp extends Component {
         this.setState({ previousLocation: location.pathname })
     }
 
-    componentDidMount = async () => {
-        const { d2, userSettings } = this.props
+    componentDidMount = () => {
+        const { currentUser, rootOrganisationUnits, systemSettings, location } =
+            this.props
 
-        await this.props.addSettings(userSettings)
-        this.props.setUser(d2.currentUser)
-        this.props.loadUserAuthority(APPROVAL_LEVEL_OPTION_AUTH)
+        this.props.addSettings({
+            ...systemSettings,
+            ...currentUser.settings,
+            rootOrganisationUnits,
+        })
+
         this.props.setDimensions()
 
-        await this.fetchOuLevels()
-
-        const metaData = this.props.settings.rootOrganisationUnits.reduce(
-            (obj, rootOrgUnit) => {
-                if (rootOrgUnit.id) {
-                    obj[rootOrgUnit.id] = {
-                        ...rootOrgUnit,
-                        path: `/${rootOrgUnit.id}`,
-                    }
+        const metaData = rootOrganisationUnits.reduce((obj, rootOrgUnit) => {
+            if (rootOrgUnit.id) {
+                obj[rootOrgUnit.id] = {
+                    ...rootOrgUnit,
+                    path: `/${rootOrgUnit.id}`,
                 }
+            }
 
-                return obj
-            },
-            {}
-        )
+            return obj
+        }, {})
 
         this.props.addMetadata(metaData)
 
-        this.loadVisualization(this.props.location)
+        this.loadVisualization(location)
 
         this.unlisten = history.listen(({ location }) => {
             // Avoid duplicate actions for the same update object. This also
@@ -240,15 +227,6 @@ export class UnconnectedApp extends Component {
     componentWillUnmount() {
         if (this.unlisten) {
             this.unlisten()
-        }
-    }
-
-    getChildContext() {
-        return {
-            baseUrl: this.props.baseUrl,
-            i18n,
-            d2: this.props.d2,
-            dataEngine: this.props.dataEngine,
         }
     }
 
@@ -356,75 +334,115 @@ export class UnconnectedApp extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({
-    settings: fromReducers.fromSettings.sGetSettings(state),
-    current: fromReducers.fromCurrent.sGetCurrent(state),
-    ui: fromReducers.fromUi.sGetUi(state),
-    visualization: sGetVisualization(state),
-    snackbar: fromReducers.fromSnackbar.sGetSnackbar(state),
-})
-
-const mapDispatchToProps = {
-    setCurrentFromUi: fromActions.fromCurrent.tSetCurrentFromUi,
-    clearVisualization: fromActions.fromVisualization.acClear,
-    clearCurrent: fromActions.fromCurrent.acClear,
-    setUiFromVisualization: fromActions.fromUi.acSetUiFromVisualization,
-    addParentGraphMap: fromActions.fromUi.acAddParentGraphMap,
-    clearSnackbar: fromActions.fromSnackbar.acClearSnackbar,
-    addSettings: fromActions.fromSettings.tAddSettings,
-    setUser: fromActions.fromUser.acReceivedUser,
-    loadUserAuthority: fromActions.fromUser.tLoadUserAuthority,
-    setDimensions: fromActions.fromDimensions.tSetDimensions,
-    addMetadata: fromActions.fromMetadata.acAddMetadata,
-    setVisualization: fromActions.tDoLoadVisualization,
-    clearAll: fromActions.clearAll,
-}
-
 UnconnectedApp.contextTypes = {
     store: PropTypes.object,
-}
-
-UnconnectedApp.childContextTypes = {
-    d2: PropTypes.object,
-    dataEngine: PropTypes.object,
-    baseUrl: PropTypes.string,
-    i18n: PropTypes.object,
 }
 
 UnconnectedApp.propTypes = {
     addMetadata: PropTypes.func,
     addParentGraphMap: PropTypes.func,
     addSettings: PropTypes.func,
-    baseUrl: PropTypes.string,
     clearAll: PropTypes.func,
     clearCurrent: PropTypes.func,
     clearVisualization: PropTypes.func,
     current: PropTypes.object,
     currentAO: PropTypes.object,
-    d2: PropTypes.object,
-    dataEngine: PropTypes.object,
-    loadUserAuthority: PropTypes.func,
+    currentUser: PropTypes.object,
     location: PropTypes.object,
+    ouLevels: PropTypes.array,
+    rootOrganisationUnits: PropTypes.array,
     setCurrentFromUi: PropTypes.func,
     setDimensions: PropTypes.func,
     setUiFromVisualization: PropTypes.func,
-    setUser: PropTypes.func,
     setVisualization: PropTypes.func,
-    settings: PropTypes.object,
+    systemSettings: PropTypes.object,
     ui: PropTypes.object,
-    userSettings: PropTypes.object,
     visualization: PropTypes.object,
 }
 
-const withCurrentAO = (Component) => {
-    return function WrappedComponent(props) {
-        const [currentAO] = useSetting(USER_DATASTORE_CURRENT_AO_KEY)
+export const App = () => {
+    const dispatch = useDispatch()
 
-        return <Component {...props} currentAO={currentAO} />
-    }
+    const [currentAO] = useSetting(USER_DATASTORE_CURRENT_AO_KEY)
+    const { currentUser, orgUnitLevels, rootOrgUnits, systemSettings } =
+        useCachedDataQuery()
+    const location = history.location
+    const current = useSelector(fromReducers.fromCurrent.sGetCurrent)
+    const ui = useSelector(fromReducers.fromUi.sGetUi)
+    const visualization = useSelector(
+        fromReducers.fromVisualization.sGetVisualization
+    )
+    const snackbar = useSelector(fromReducers.fromSnackbar.sGetSnackbar)
+
+    const setCurrentFromUi = useCallback(
+        () => dispatch(fromActions.fromCurrent.tSetCurrentFromUi()),
+        [dispatch]
+    )
+    const clearVisualization = useCallback(
+        () => dispatch(fromActions.fromVisualization.acClearVisualization()),
+        [dispatch]
+    )
+    const clearCurrent = useCallback(
+        () => dispatch(fromActions.fromCurrent.acClearCurrent()),
+        [dispatch]
+    )
+    const setUiFromVisualization = useCallback(
+        (visualization) =>
+            dispatch(
+                fromActions.fromUi.acSetUiFromVisualization(visualization)
+            ),
+        [dispatch]
+    )
+    const addParentGraphMap = useCallback(
+        (parentGraphMap) =>
+            dispatch(fromActions.fromUi.acAddParentGraphMap(parentGraphMap)),
+        [dispatch]
+    )
+    const addSettings = useCallback(
+        (settings) =>
+            dispatch(fromActions.fromSettings.acAddSettings(settings)),
+        [dispatch]
+    )
+    const setDimensions = useCallback(
+        () => dispatch(fromActions.fromDimensions.tSetDimensions()),
+        [dispatch]
+    )
+    const addMetadata = useCallback(
+        (metadata) =>
+            dispatch(fromActions.fromMetadata.acAddMetadata(metadata)),
+        [dispatch]
+    )
+    const setVisualization = useCallback(
+        (args) => dispatch(fromActions.tDoLoadVisualization(args)),
+        [dispatch]
+    )
+    const clearAll = useCallback(
+        () => dispatch(fromActions.clearAll()),
+        [dispatch]
+    )
+
+    return (
+        <UnconnectedApp
+            current={current}
+            currentAO={currentAO}
+            currentUser={currentUser}
+            location={location}
+            ouLevels={orgUnitLevels}
+            rootOrganisationUnits={rootOrgUnits}
+            snackbar={snackbar}
+            systemSettings={systemSettings}
+            ui={ui}
+            visualization={visualization}
+            addMetadata={addMetadata}
+            addParentGraphMap={addParentGraphMap}
+            addSettings={addSettings}
+            clearAll={clearAll}
+            clearCurrent={clearCurrent}
+            clearVisualization={clearVisualization}
+            setCurrentFromUi={setCurrentFromUi}
+            setDimensions={setDimensions}
+            setVisualization={setVisualization}
+            setUiFromVisualization={setUiFromVisualization}
+        />
+    )
 }
-
-export const App = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(withCurrentAO(UnconnectedApp))
