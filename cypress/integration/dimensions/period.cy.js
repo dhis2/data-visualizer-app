@@ -45,14 +45,19 @@ const systemSettingsBody = {
     keyDateFormat: 'yyyy-MM-dd',
 }
 
+const systemSettingsInterceptFn = (responseBody) => (req) => {
+    req.reply((res) => {
+        res.send({ body: responseBody })
+    })
+}
+
 describe('Period dimension', () => {
     describe('initial state', () => {
         it('navigates to the start page', () => {
-            cy.intercept(/systemSettings/, (req) => {
-                req.reply((res) => {
-                    res.send({ body: systemSettingsBody })
-                })
-            })
+            cy.intercept(
+                /systemSettings/,
+                systemSettingsInterceptFn(systemSettingsBody)
+            )
             goToStartPage()
         })
         it('opens the period dimension modal', () => {
@@ -170,16 +175,13 @@ describe('Period dimension', () => {
     })
     describe('using period settings - hidden monthly', () => {
         it('navigates to the start page', () => {
-            cy.intercept(/systemSettings/, (req) => {
-                req.reply((res) => {
-                    res.send({
-                        body: {
-                            ...systemSettingsBody,
-                            keyHideMonthlyPeriods: true,
-                        },
-                    })
+            cy.intercept(
+                /systemSettings/,
+                systemSettingsInterceptFn({
+                    ...systemSettingsBody,
+                    keyHideMonthlyPeriods: true,
                 })
-            })
+            )
             goToStartPage()
         })
         it('opens the period dimension modal', () => {
@@ -246,16 +248,13 @@ describe('Period dimension', () => {
     })
     describe('using period settings - hidden weekly', () => {
         it('navigates to the start page', () => {
-            cy.intercept(/systemSettings/, (req) => {
-                req.reply((res) => {
-                    res.send({
-                        body: {
-                            ...systemSettingsBody,
-                            keyHideWeeklyPeriods: true,
-                        },
-                    })
+            cy.intercept(
+                /systemSettings/,
+                systemSettingsInterceptFn({
+                    ...systemSettingsBody,
+                    keyHideWeeklyPeriods: true,
                 })
-            })
+            )
             goToStartPage()
         })
         it('opens the period dimension modal', () => {
@@ -322,16 +321,13 @@ describe('Period dimension', () => {
     })
     describe('using period settings - hidden daily', () => {
         it('navigates to the start page', () => {
-            cy.intercept(/systemSettings/, (req) => {
-                req.reply((res) => {
-                    res.send({
-                        body: {
-                            ...systemSettingsBody,
-                            keyHideDailyPeriods: true,
-                        },
-                    })
+            cy.intercept(
+                /systemSettings/,
+                systemSettingsInterceptFn({
+                    ...systemSettingsBody,
+                    keyHideDailyPeriods: true,
                 })
-            })
+            )
             goToStartPage()
         })
         it('opens the period dimension modal', () => {
@@ -398,16 +394,13 @@ describe('Period dimension', () => {
     })
     describe('using period settings - hidden bi-monthly', () => {
         it('navigates to the start page', () => {
-            cy.intercept(/systemSettings/, (req) => {
-                req.reply((res) => {
-                    res.send({
-                        body: {
-                            ...systemSettingsBody,
-                            keyHideBiMonthlyPeriods: true,
-                        },
-                    })
+            cy.intercept(
+                /systemSettings/,
+                systemSettingsInterceptFn({
+                    ...systemSettingsBody,
+                    keyHideBiMonthlyPeriods: true,
                 })
-            })
+            )
             goToStartPage()
         })
         it('opens the period dimension modal', () => {
@@ -474,16 +467,13 @@ describe('Period dimension', () => {
     })
     describe('using period settings - hidden bi-weekly', () => {
         it('navigates to the start page', () => {
-            cy.intercept(/systemSettings/, (req) => {
-                req.reply((res) => {
-                    res.send({
-                        body: {
-                            ...systemSettingsBody,
-                            keyHideBiWeeklyPeriods: true,
-                        },
-                    })
+            cy.intercept(
+                /systemSettings/,
+                systemSettingsInterceptFn({
+                    ...systemSettingsBody,
+                    keyHideBiWeeklyPeriods: true,
                 })
-            })
+            )
             goToStartPage()
         })
         it('opens the period dimension modal', () => {
