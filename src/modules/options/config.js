@@ -2,6 +2,7 @@ import {
     VIS_TYPE_PIVOT_TABLE,
     VIS_TYPE_PIE,
     VIS_TYPE_GAUGE,
+    VIS_TYPE_DONUT,
     VIS_TYPE_SINGLE_VALUE,
     VIS_TYPE_SCATTER,
     VIS_TYPE_OUTLIER_TABLE,
@@ -51,6 +52,7 @@ export const getOptionsByType = ({
         case VIS_TYPE_GAUGE:
             return gaugeConfig()
         case VIS_TYPE_PIE:
+        case VIS_TYPE_DONUT:
             return pieConfig()
         case VIS_TYPE_SINGLE_VALUE:
             return singleValueConfig()

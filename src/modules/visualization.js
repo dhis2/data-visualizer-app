@@ -8,6 +8,7 @@ import {
     VIS_TYPE_AREA,
     VIS_TYPE_STACKED_AREA,
     VIS_TYPE_PIE,
+    VIS_TYPE_DONUT,
     VIS_TYPE_RADAR,
     VIS_TYPE_GAUGE,
     VIS_TYPE_YEAR_OVER_YEAR_LINE,
@@ -32,6 +33,7 @@ export const visTypes = [
     VIS_TYPE_AREA,
     VIS_TYPE_STACKED_AREA,
     VIS_TYPE_PIE,
+    VIS_TYPE_DONUT,
     VIS_TYPE_RADAR,
     VIS_TYPE_GAUGE,
     VIS_TYPE_YEAR_OVER_YEAR_LINE,
@@ -68,6 +70,9 @@ export const getVisTypeDescriptions = () => ({
     ),
     [VIS_TYPE_PIE]: i18n.t(
         'Compare parts of a whole at a single point in time. Recommend period as filter.'
+    ),
+    [VIS_TYPE_DONUT]: i18n.t(
+        'Pie with a hole :-)'
     ),
     [VIS_TYPE_RADAR]: i18n.t(
         'Compare several items against multiple variables.'
