@@ -7,7 +7,6 @@ import recommendedIds, * as fromRecommendedIds from './recommendedIds.js'
 import settings, * as fromSettings from './settings.js'
 import snackbar, * as fromSnackbar from './snackbar.js'
 import ui, * as fromUi from './ui.js'
-import user, * as fromUser from './user.js'
 import visualization, * as fromVisualization from './visualization.js'
 
 // Reducers
@@ -20,7 +19,6 @@ export default combineReducers({
     ui,
     metadata,
     settings,
-    user,
     snackbar,
     loader,
 })
@@ -35,7 +33,6 @@ export {
     fromUi,
     fromMetadata,
     fromSettings,
-    fromUser,
     fromSnackbar,
     fromLoader,
 }
