@@ -1,4 +1,8 @@
-import { Analytics, VIS_TYPE_OUTLIER_TABLE } from '@dhis2/analytics'
+import {
+    Analytics,
+    useCachedDataQuery,
+    VIS_TYPE_OUTLIER_TABLE,
+} from '@dhis2/analytics'
 import { useConfig, useDataEngine } from '@dhis2/app-runtime'
 import { useCallback } from 'react'
 import { useSelector } from 'react-redux'
@@ -12,7 +16,6 @@ import {
     sGetUiLayoutRows,
 } from '../../reducers/ui.js'
 import { useChartContext } from '../ChartProvider.js'
-import { useUserSettings } from '../UserSettingsProvider.js'
 import {
     DOWNLOAD_TYPE_PLAIN,
     DOWNLOAD_TYPE_TABLE,
@@ -119,7 +122,11 @@ const useDownload = (relativePeriodDate) => {
     const columns = useSelector(sGetUiLayoutColumns)
     const rows = useSelector(sGetUiLayoutRows)
     const { baseUrl } = useConfig()
-    const { dbLocale } = useUserSettings()
+    const {
+        currentUser: {
+            settings: { dbLocale },
+        },
+    } = useCachedDataQuery()
     const dataEngine = useDataEngine()
     const { getChart } = useChartContext()
     const analyticsEngine = Analytics.getAnalytics(dataEngine)
