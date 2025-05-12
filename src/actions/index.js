@@ -40,7 +40,6 @@ import * as fromRecommended from './recommendedIds.js'
 import * as fromSettings from './settings.js'
 import * as fromSnackbar from './snackbar.js'
 import * as fromUi from './ui.js'
-import * as fromUser from './user.js'
 import * as fromVisualization from './visualization.js'
 
 export {
@@ -51,7 +50,6 @@ export {
     fromUi,
     fromMetadata,
     fromSettings,
-    fromUser,
     fromChart,
     fromSnackbar,
     fromLoader,
@@ -135,15 +133,15 @@ export const clearAll =
             dispatch(fromLoader.acClearLoadError())
         }
 
-        dispatch(fromVisualization.acClear())
-        dispatch(fromCurrent.acClear())
+        dispatch(fromVisualization.acClearVisualization())
+        dispatch(fromCurrent.acClearCurrent())
 
         const rootOrganisationUnits = sGetRootOrgUnits(getState())
         const relativePeriod = sGetRelativePeriod(getState())
         const digitGroupSeparator = sGetSettingsDigitGroupSeparator(getState())
 
         dispatch(
-            fromUi.acClear({
+            fromUi.acClearUi({
                 rootOrganisationUnits,
                 relativePeriod,
                 digitGroupSeparator,

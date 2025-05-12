@@ -81,10 +81,7 @@ export const expectSingleValueToHaveBackgroundColor = (color) =>
     cy.get('rect.highcharts-background').should('have.attr', 'fill', color)
 
 export const expectSingleValueToHaveIconColor = (color) =>
-    cy
-        .getBySel(singleValueIconEl)
-        .invoke('attr', 'style')
-        .should('contain', `color: ${color}`)
+    cy.getBySel(singleValueIconEl).should('have.attr', 'color', color)
 
 export const toggleLegendKeyOption = () =>
     cy.getBySel(optionsModalContentEl).contains('Show legend key').click()

@@ -1,4 +1,7 @@
-import { InterpretationModal as AnalyticsInterpretationModal } from '@dhis2/analytics'
+import {
+    InterpretationModal as AnalyticsInterpretationModal,
+    useCachedDataQuery,
+} from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 import React, { useState, useEffect, useCallback } from 'react'
 import { useSelector } from 'react-redux'
@@ -10,7 +13,8 @@ import {
     removeInterpretationQueryParams,
 } from './interpretationIdQueryParam.js'
 
-const InterpretationModal = ({ onInterpretationUpdate }, context) => {
+const InterpretationModal = ({ onInterpretationUpdate }) => {
+    const { currentUser } = useCachedDataQuery()
     const { interpretationId, initialFocus } = useInterpretationQueryParams()
     const [isVisualizationLoading, setIsVisualizationLoading] = useState(false)
     const visualization = useSelector(sGetVisualization)
@@ -25,7 +29,7 @@ const InterpretationModal = ({ onInterpretationUpdate }, context) => {
 
     return interpretationId ? (
         <AnalyticsInterpretationModal
-            currentUser={context.d2.currentUser}
+            currentUser={currentUser}
             onInterpretationUpdate={onInterpretationUpdate}
             initialFocus={initialFocus}
             interpretationId={interpretationId}
@@ -37,10 +41,6 @@ const InterpretationModal = ({ onInterpretationUpdate }, context) => {
             pluginComponent={VisualizationPluginWrapper}
         />
     ) : null
-}
-
-InterpretationModal.contextTypes = {
-    d2: PropTypes.object,
 }
 
 InterpretationModal.propTypes = {
