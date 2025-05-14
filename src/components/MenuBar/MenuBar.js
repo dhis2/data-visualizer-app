@@ -1,9 +1,10 @@
 import {
     FileMenu,
     HoverMenuBar,
+    UpdateButton,
     VIS_TYPE_GROUP_ALL,
     VIS_TYPE_GROUP_CHARTS,
-    UpdateButton,
+    useCachedDataQuery,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
@@ -54,10 +55,9 @@ const getOnDelete = (props) => () => props.onDeleteVisualization()
 
 const getOnError = (props) => (error) => props.onError(error)
 
-const UnconnectedMenuBar = (
-    { dataTest, onFileMenuAction, ...props },
-    context
-) => {
+const UnconnectedMenuBar = ({ dataTest, onFileMenuAction, ...props }) => {
+    const { currentUser } = useCachedDataQuery()
+
     const filterVisTypesByVersion = useVisTypesFilterByVersion()
 
     const filterVisTypes = [
@@ -80,7 +80,7 @@ const UnconnectedMenuBar = (
             />
             <HoverMenuBar>
                 <FileMenu
-                    currentUser={context.d2.currentUser}
+                    currentUser={currentUser}
                     fileType={props.apiObjectName}
                     fileObject={props.current}
                     filterVisTypes={filterVisTypes}
@@ -117,10 +117,6 @@ UnconnectedMenuBar.propTypes = {
     dataTest: PropTypes.string,
     visualization: PropTypes.object,
     onFileMenuAction: PropTypes.func,
-}
-
-UnconnectedMenuBar.contextTypes = {
-    d2: PropTypes.object,
 }
 
 const mapStateToProps = (state) => ({
