@@ -33,12 +33,7 @@ const ChartPlugin = ({
                 'highcharts' // output format
             )
 
-            onChartGenerated(
-                visualizationConfig.visualization.getSVGForExport({
-                    sourceHeight: 768,
-                    sourceWidth: 1024,
-                })
-            )
+            onChartGenerated(visualizationConfig.visualization)
         },
         [
             canvasRef,
@@ -72,7 +67,6 @@ const ChartPlugin = ({
 ChartPlugin.defaultProps = {
     visualization: {},
     filters: {},
-    style: {},
     animation: 200,
     id: null,
     onChartGenerated: Function.prototype,

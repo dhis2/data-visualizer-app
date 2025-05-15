@@ -75,7 +75,7 @@ export const expectFixedLegendSetToBe = (legendSetName) =>
     cy.getBySel(fixedLegendSetSelectEl).should('contain', legendSetName)
 
 export const expectSingleValueToHaveTextColor = (color) =>
-    cy.getBySel(singleValueTextEl).should('have.css', 'color', color)
+    cy.getBySel(singleValueTextEl).should('have.attr', 'fill', color)
 
 export const expectSingleValueToHaveBackgroundColor = (color) =>
     cy.get('rect.highcharts-background').should('have.attr', 'fill', color)
