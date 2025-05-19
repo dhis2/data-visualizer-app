@@ -126,3 +126,44 @@ export default ({
         ],
     },
 ]
+
+export const pivotTableOptionNames = () => [
+    'cumulativeValues',
+    'showDimensionLabels',
+    'skipRounding',
+
+    'colTotals',
+    'colSubTotals',
+    'rowTotals',
+    'rowSubTotals',
+
+    'hideEmptyColumns',
+    'hideEmptyRows',
+
+    'aggregationType',
+    'numberType',
+    'completedOnly',
+    'approvalLevel',
+
+    'legend',
+
+    'series',
+
+    'title',
+    'subtitle',
+    'displayDensity',
+    'fontSize',
+    'digitGroupSeparator',
+    'fixColumnHeaders',
+    'fixRowHeaders',
+    'showHierarchy',
+
+    'reportingPeriod',
+    'organisationUnit',
+    'parentOrganisationUnit',
+    'grandParentOrganisationUnit',
+    'regression',
+    'cumulative',
+    'sortOrder',
+    'topLimit',
+]

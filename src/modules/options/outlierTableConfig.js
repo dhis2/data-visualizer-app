@@ -38,3 +38,14 @@ export default () => [
         },
     ]),
 ]
+
+export const outlierTableOptionNames = () => [
+    'skipRounding',
+
+    'displayDensity',
+    'fontSize',
+    'digitGroupSeparator',
+    'showHierarchy',
+
+    'outlierAnalysis',
+]

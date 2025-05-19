@@ -20,3 +20,17 @@ export default () => [
     getStyleTab([getTitlesSection(), getColorSetSection()]),
     getLimitValuesTab(),
 ]
+
+export const pieOptionNames = () => [
+    'skipRounding',
+    'aggregationType',
+    'completedOnly',
+
+    'series',
+
+    'hideTitle',
+    'hideSubtitle',
+    'colorSet',
+
+    'measureCriteria',
+]

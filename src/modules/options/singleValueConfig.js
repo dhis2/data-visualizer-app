@@ -30,3 +30,19 @@ export default () => [
         getTitlesSection(),
     ]),
 ]
+
+export const singleValueOptionNames = () => [
+    'skipRounding',
+    'aggregationType',
+    'completedOnly',
+
+    'legend',
+
+    'series',
+
+    'digitGroupSeparator',
+    'icons',
+
+    'hideTitle',
+    'hideSubtitle',
+]

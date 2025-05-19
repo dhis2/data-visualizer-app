@@ -12,13 +12,17 @@ import {
     isColumnBasedType,
     isVerticalType,
 } from '@dhis2/analytics'
-import defaultConfig from './defaultConfig.js'
-import gaugeConfig from './gaugeConfig.js'
-import outlierTableConfig from './outlierTableConfig.js'
-import pieConfig from './pieConfig.js'
-import pivotTableConfig from './pivotTableConfig.js'
-import scatterConfig from './scatterConfig.js'
-import singleValueConfig from './singleValueConfig.js'
+import defaultConfig, { defaultOptionNames } from './defaultConfig.js'
+import gaugeConfig, { gaugeOptionNames } from './gaugeConfig.js'
+import outlierTableConfig, {
+    outlierTableOptionNames,
+} from './outlierTableConfig.js'
+import pieConfig, { pieOptionNames } from './pieConfig.js'
+import pivotTableConfig, { pivotTableOptionNames } from './pivotTableConfig.js'
+import scatterConfig, { scatterOptionNames } from './scatterConfig.js'
+import singleValueConfig, {
+    singleValueOptionNames,
+} from './singleValueConfig.js'
 
 export const getOptionsByType = ({
     type,
@@ -66,5 +70,33 @@ export const getOptionsByType = ({
             return outlierTableConfig(defaultProps)
         default:
             return defaultConfig(defaultProps)
+    }
+}
+
+export const getOptionNamesByType = (type) => {
+    const isColumnBased = isColumnBasedType(type)
+    const isStacked = isStackedType(type)
+    const supportsLegends = isLegendSetType(type)
+
+    switch (type) {
+        case VIS_TYPE_GAUGE:
+            return gaugeOptionNames()
+        case VIS_TYPE_PIE:
+            return pieOptionNames()
+        case VIS_TYPE_SINGLE_VALUE:
+            return singleValueOptionNames()
+        case VIS_TYPE_PIVOT_TABLE:
+            return pivotTableOptionNames()
+        case VIS_TYPE_SCATTER:
+            return scatterOptionNames()
+        case VIS_TYPE_OUTLIER_TABLE:
+            return outlierTableOptionNames()
+        default:
+            return defaultOptionNames({
+                supportsColorSet: true, // TODO should replicate hasDisabledSections above
+                supportsLegends,
+                isColumnBased,
+                isStacked,
+            })
     }
 }

@@ -42,3 +42,21 @@ export default () => [
     getSeriesTab(),
     getStyleTab([getTitlesSection()]),
 ]
+
+export const gaugeOptionNames = () => [
+    'skipRounding',
+
+    'regressionType',
+
+    'aggregationType',
+    'completedOnly',
+
+    'legend',
+
+    'axes',
+
+    'series',
+
+    'hideTitle',
+    'hideSubtitle',
+]
