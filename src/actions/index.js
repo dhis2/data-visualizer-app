@@ -14,6 +14,7 @@ import {
     apiFetchVisualization,
     apiSaveVisualization,
     apiFetchVisualizationNameDesc,
+    apiFetchVisualizationSubscribers,
 } from '../api/visualization.js'
 import {
     VARIANT_SUCCESS,
@@ -187,7 +188,7 @@ export const tDoRenameVisualization =
                 sGetVisualization(getState()).id
             )
 
-            const visToSave = await preparePayloadForSave({
+            const visToSave = preparePayloadForSave({
                 visualization: getSaveableVisualization(visualization),
                 name,
                 description,
@@ -248,8 +249,17 @@ export const tDoSaveVisualization =
                     description,
                 })
             } else {
-                visualization = await preparePayloadForSave({
-                    visualization,
+                const { visualizationSubscribers } =
+                    await apiFetchVisualizationSubscribers(
+                        engine,
+                        visualization.id
+                    )
+
+                visualization = preparePayloadForSave({
+                    visualization: {
+                        ...visualization,
+                        ...visualizationSubscribers,
+                    },
                     name,
                     description,
                     engine,
