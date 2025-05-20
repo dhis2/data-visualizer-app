@@ -106,13 +106,13 @@ const validateSingleValueLayout = (layout) => {
     )
 }
 
-const validateScatterLayout = (layout) => {
+const validateScatterLayout = (layout, ui) => {
     const verticalItems =
-        layout.ui.itemAttributes?.filter(
+        ui.itemAttributes?.filter(
             (item) => item.attribute === ITEM_ATTRIBUTE_VERTICAL
         ) || []
     const horizontalItems =
-        layout.ui.itemAttributes?.filter(
+        ui.itemAttributes?.filter(
             (item) => item.attribute === ITEM_ATTRIBUTE_HORIZONTAL
         ) || []
     if (!verticalItems.length) {
@@ -141,7 +141,7 @@ const validateOutlierTableLayout = (layout) => {
     )
 }
 
-export const validateLayout = (layout) => {
+export const validateLayout = (layout, ui) => {
     switch (layout.type) {
         case VIS_TYPE_PIE:
             return validatePieLayout(layout)
@@ -154,7 +154,7 @@ export const validateLayout = (layout) => {
         case VIS_TYPE_PIVOT_TABLE:
             return validatePivotTableLayout(layout)
         case VIS_TYPE_SCATTER:
-            return validateScatterLayout(layout)
+            return validateScatterLayout(layout, ui)
         case VIS_TYPE_OUTLIER_TABLE:
             return validateOutlierTableLayout(layout)
         default:
