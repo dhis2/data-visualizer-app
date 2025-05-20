@@ -33,6 +33,7 @@
         "eslint-plugin-cypress": "^2.11.3",
         "eslint-plugin-react-hooks": "^4.2.0",
         "jest-enzyme": "^7.1.2",
+        "jest-webgl-canvas-mock": "^2.5.3",
         "loglevel": "^1.8.1",
         "postinstall-postinstall": "^2.1.0",
         "redux-mock-store": "^1.5.4",
@@ -41,7 +42,7 @@
         "typescript": "^4.8.4"
     },
     "dependencies": {
-        "@dhis2/analytics": "git+https://github.com/d2-ci/analytics.git#b486ea29e649bb9844d25f98443facea2f48a42f",
+        "@dhis2/analytics": "git+https://github.com/d2-ci/analytics.git#25a27de4b30724442797b23898be5ab6d65f6552",
         "@dhis2/app-runtime": "^3.14.1",
         "@dhis2/app-service-datastore": "^1.0.0-beta.3",
         "@dhis2/d2-i18n": "^1.1.0",
