@@ -8,6 +8,7 @@ export const X_AXIS_PROP = 'xAxis'
 export const LABELS_PROP = 'labels'
 
 export const CONFIG_DEFAULT_TITLE = {
+    minScale: 1,
     margin: 30,
     align: 'center',
     style: {
