@@ -1,3 +1,15 @@
+# [101.2.0](https://github.com/dhis2/data-visualizer-app/compare/v101.1.7...v101.2.0) (2025-05-20)
+
+
+### Bug Fixes
+
+* **translations:** sync translations from transifex (master) ([#3394](https://github.com/dhis2/data-visualizer-app/issues/3394)) ([3f7d255](https://github.com/dhis2/data-visualizer-app/commit/3f7d255a101fabf3aaa1f8f5bbdd2498cbe5961a))
+
+
+### Features
+
+* improve chart export including support for exporting charts with non-latin characters to PDF ([#3288](https://github.com/dhis2/data-visualizer-app/issues/3288)) ([298f235](https://github.com/dhis2/data-visualizer-app/commit/298f235786f1cbd75393fb9422cc476fbeb0789e))
+
 ## [101.1.7](https://github.com/dhis2/data-visualizer-app/compare/v101.1.6...v101.1.7) (2025-04-30)
 
 
