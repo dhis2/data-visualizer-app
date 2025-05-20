@@ -158,6 +158,8 @@ export const pivotTableOptionNames = () => [
     'fixRowHeaders',
     'showHierarchy',
 
+    'measureCriteria',
+
     'reportingPeriod',
     'organisationUnit',
     'parentOrganisationUnit',
