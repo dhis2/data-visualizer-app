@@ -28,7 +28,10 @@ export const pieOptionNames = () => [
 
     'series',
 
+    'fontStyle',
+    'title',
     'hideTitle',
+    'subtitle',
     'hideSubtitle',
     'colorSet',
 

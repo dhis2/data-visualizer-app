@@ -77,7 +77,10 @@ export const defaultOptionNames = ({
 
         'showData',
         'seriesKey',
+        'fontStyle',
+        'title',
         'hideTitle',
+        'subtitle',
         'hideSubtitle',
 
         'measureCriteria',

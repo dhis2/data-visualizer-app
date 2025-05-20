@@ -65,7 +65,10 @@ export const scatterOptionNames = () => [
 
     'series',
 
+    'fontStyle',
+    'title',
     'hideTitle',
+    'subtitle',
     'hideSubtitle',
 
     'outlierAnalysis',

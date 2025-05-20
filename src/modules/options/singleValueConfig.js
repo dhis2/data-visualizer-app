@@ -43,6 +43,9 @@ export const singleValueOptionNames = () => [
     'digitGroupSeparator',
     'icons',
 
+    'fontStyle',
+    'title',
     'hideTitle',
+    'subtitle',
     'hideSubtitle',
 ]

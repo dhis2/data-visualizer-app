@@ -57,6 +57,9 @@ export const gaugeOptionNames = () => [
 
     'series',
 
+    'fontStyle',
+    'title',
     'hideTitle',
+    'subtitle',
     'hideSubtitle',
 ]
