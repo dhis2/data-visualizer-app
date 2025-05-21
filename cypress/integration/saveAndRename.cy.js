@@ -254,7 +254,7 @@ describe('rename', () => {
 })
 
 describe('saving an AO', () => {
-    it('"save" and "save as" for a new AO', () => {
+    it.only('"save" and "save as" for a new AO', () => {
         // navigates to the start page
         goToStartPage()
 
@@ -332,6 +332,24 @@ describe('saving an AO', () => {
 
         // saves AO using "Save"
 
+        // subscribe to the AO
+        cy.getBySel('dhis2-analytics-interpretationsanddetailstoggler').click()
+        cy.intercept(
+            'POST',
+            /\/api\/\d+\/visualizations\/\w+\/subscriber/,
+            (req) => {
+                req.continue((res) => {
+                    expect([200, 201]).to.include(res.statusCode)
+                })
+            }
+        ).as('post-subscriber')
+        cy.get('button').contains('Subscribe').should('be.visible')
+        cy.get('button').contains('Subscribe').click()
+        cy.wait('@post-subscriber')
+        cy.get('button').contains('Unsubscribe').should('be.visible')
+        cy.getBySel('dhis2-analytics-interpretationsanddetailstoggler').click()
+        cy.contains('About this visualization').should('not.exist')
+
         // check first GET request fetches subscribers
         cy.intercept(
             'GET',
@@ -350,6 +368,12 @@ describe('saving an AO', () => {
         expectAOTitleToBeValue(TEST_VIS_NAME)
         expectVisualizationToBeVisible(TEST_VIS_TYPE)
 
+        // check user is still subscribed
+        cy.getBySel('dhis2-analytics-interpretationsanddetailstoggler').click()
+        cy.get('button').contains('Unsubscribe').should('be.visible')
+        cy.getBySel('dhis2-analytics-interpretationsanddetailstoggler').click()
+        cy.contains('About this visualization').should('not.exist')
+
         // saves AO using "Save As"
         cy.intercept('POST', /\/api\/\d+\/visualizations(\?.*)?/, (req) => {
             expect(req.body).to.not.have.property('subscribers')
@@ -358,6 +382,10 @@ describe('saving an AO', () => {
         cy.wait('@post-saveas')
         expectAOTitleToBeValue(TEST_VIS_NAME_UPDATED)
         expectVisualizationToBeVisible(TEST_VIS_TYPE)
+
+        cy.getBySel('dhis2-analytics-interpretationsanddetailstoggler').click()
+        cy.contains('About this visualization').should('be.visible')
+        cy.get('button').contains('Unsubscribe').should('not.exist')
     })
 
     it('"save" and "save as" for a saved AO created by you', () => {
