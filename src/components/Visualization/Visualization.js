@@ -1,7 +1,7 @@
 import cloneDeep from 'lodash-es/cloneDeep'
 import debounce from 'lodash-es/debounce'
 import PropTypes from 'prop-types'
-import React, { Component, Fragment, useCallback } from 'react'
+import React, { Component, Fragment, useCallback, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { tSetCurrentFromUi } from '../../actions/current.js'
 import { acSetPluginLoading } from '../../actions/loader.js'
@@ -218,11 +218,16 @@ export const Visualization = (props) => {
     )
     const { setChart } = useChartContext()
 
-    const visualization = cloneDeep(current)
-    visualization &&
-        new Set(Object.keys(options))
-            .difference(new Set(getOptionNamesByType(visualization.type)))
-            .forEach((optionName) => delete visualization[optionName])
+    const visualization = useMemo(() => {
+        const currentClone = cloneDeep(current)
+
+        currentClone &&
+            new Set(Object.keys(options))
+                .difference(new Set(getOptionNamesByType(currentClone.type)))
+                .forEach((optionName) => delete currentClone[optionName])
+
+        return currentClone
+    }, [current])
 
     return (
         <UnconnectedVisualization
