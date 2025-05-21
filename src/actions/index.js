@@ -33,7 +33,6 @@ import {
     sGetSettingsDigitGroupSeparator,
 } from '../reducers/settings.js'
 import { sGetVisualization } from '../reducers/visualization.js'
-import * as fromChart from './chart.js'
 import * as fromCurrent from './current.js'
 import * as fromDimensions from './dimensions.js'
 import * as fromLoader from './loader.js'
@@ -52,7 +51,6 @@ export {
     fromUi,
     fromMetadata,
     fromSettings,
-    fromChart,
     fromSnackbar,
     fromLoader,
 }
