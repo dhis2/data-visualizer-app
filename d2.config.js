@@ -15,6 +15,7 @@ const config = {
         enabled: true,
         caching: {
             patternsToOmitFromAppShell: [/.*/],
+            globsToOmitFromPrecache: ['fonts/**'],
         },
     },
 
