@@ -110,7 +110,7 @@ export const tDoLoadVisualization =
         }
 
         try {
-            return onSuccess(await apiFetchVisualization(engine, id))
+            return onSuccess(await apiFetchVisualization({ engine, id }))
         } catch (errorResponse) {
             let error = errorResponse
 
@@ -183,10 +183,11 @@ export const tDoRenameVisualization =
         }
 
         try {
-            const { visualization } = await apiFetchVisualization(
+            const { visualization } = await apiFetchVisualization({
                 engine,
-                sGetVisualization(getState()).id
-            )
+                id: sGetVisualization(getState()).id,
+                withSubscribers: true,
+            })
 
             const visToSave = preparePayloadForSave({
                 visualization: getSaveableVisualization(visualization),

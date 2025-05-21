@@ -66,6 +66,14 @@ describe('index tDoSaveVisualization', () => {
                 uid,
             },
         })
+
+        // eslint-disable-next-line no-import-assign, import/namespace
+        api.apiFetchVisualizationSubscribers = jest.fn().mockResolvedValue({
+            visualization: {
+                subscribers: ['jklmn'],
+            },
+        })
+
         const expectedVis = {
             ...vis,
             ...extraParams,
@@ -74,12 +82,13 @@ describe('index tDoSaveVisualization', () => {
         return store
             .dispatch(fromActions.tDoSaveVisualization(extraParams, false))
             .then(() => {
-                expect(api.apiSaveVisualization).toHaveBeenCalled()
+                expect(
+                    api.apiFetchVisualizationSubscribers
+                ).toHaveBeenCalledWith(dataEngineMock, uid)
                 expect(api.apiSaveVisualization).toHaveBeenCalledWith(
                     dataEngineMock,
                     expectedVis
                 )
-                expect(history.default.replace).toHaveBeenCalled()
                 expect(history.default.replace).toHaveBeenCalledWith(
                     { pathname: `/${uid}` },
                     { isSaving: true }
@@ -98,6 +107,13 @@ describe('index tDoSaveVisualization', () => {
             },
         })
 
+        // eslint-disable-next-line no-import-assign, import/namespace
+        api.apiFetchVisualizationSubscribers = jest.fn().mockResolvedValue({
+            visualization: {
+                subscribers: ['jklmn'],
+            },
+        })
+
         const expectedVis = {
             ...vis,
             id: undefined,
@@ -107,12 +123,14 @@ describe('index tDoSaveVisualization', () => {
         return store
             .dispatch(fromActions.tDoSaveVisualization(extraParams, true))
             .then(() => {
-                expect(api.apiSaveVisualization).toHaveBeenCalled()
+                expect(
+                    api.apiFetchVisualizationSubscribers
+                ).not.toHaveBeenCalled()
+
                 expect(api.apiSaveVisualization).toHaveBeenCalledWith(
                     dataEngineMock,
                     expectedVis
                 )
-                expect(history.default.push).toHaveBeenCalled()
                 expect(history.default.push).toHaveBeenCalledWith(
                     { pathname: `/${newUid}` },
                     { isSaving: true }

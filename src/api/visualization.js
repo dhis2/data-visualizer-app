@@ -4,18 +4,8 @@ const visualizationQuery = {
     visualization: {
         resource: 'visualizations',
         id: ({ id }) => id,
-        params: {
-            fields: getFieldsStringByType('visualization'),
-        },
-    },
-}
-
-const visualizationsQuery = {
-    visualization: {
-        resource: 'visualizations',
-        params: ({ visualizationIds }) => ({
-            filter: `id:in:[${visualizationIds}]`,
-            fields: ['id', 'type'],
+        params: ({ withSubscribers }) => ({
+            fields: getFieldsStringByType('visualization', withSubscribers),
         }),
     },
 }
@@ -40,29 +30,45 @@ const visualizationSubscribersQuery = {
     },
 }
 
-export const apiFetchVisualizationNameDesc = (dataEngine, id) => {
-    return dataEngine.query(visualizationNameDescQuery, {
+const visualizationsQuery = {
+    visualization: {
+        resource: 'visualizations',
+        params: ({ visualizationIds }) => ({
+            filter: `id:in:[${visualizationIds}]`,
+            fields: ['id', 'type'],
+        }),
+    },
+}
+
+export const apiFetchVisualization = ({
+    engine,
+    id,
+    withSubscribers = false,
+}) => {
+    return engine.query(visualizationQuery, {
+        variables: { id, withSubscribers },
+    })
+}
+
+export const apiFetchVisualizationNameDesc = (engine, id) => {
+    return engine.query(visualizationNameDescQuery, {
         variables: { id },
     })
 }
 
-export const apiFetchVisualizationSubscribers = (dataEngine, id) => {
-    return dataEngine.query(visualizationSubscribersQuery, {
+export const apiFetchVisualizationSubscribers = (engine, id) => {
+    return engine.query(visualizationSubscribersQuery, {
         variables: { id },
     })
 }
 
-export const apiFetchVisualization = (dataEngine, id) => {
-    return dataEngine.query(visualizationQuery, { variables: { id } })
-}
-
-export const apiFetchVisualizations = (dataEngine, visualizationIds) => {
-    return dataEngine.query(visualizationsQuery, {
+export const apiFetchVisualizations = (engine, visualizationIds) => {
+    return engine.query(visualizationsQuery, {
         variables: { visualizationIds },
     })
 }
 
-export const apiSaveVisualization = (dataEngine, visualization) => {
+export const apiSaveVisualization = (engine, visualization) => {
     const mutation = {
         type: 'create',
         resource: 'visualizations',
@@ -78,5 +84,5 @@ export const apiSaveVisualization = (dataEngine, visualization) => {
         mutation.id = visualization.id
     }
 
-    return dataEngine.mutate(mutation)
+    return engine.mutate(mutation)
 }

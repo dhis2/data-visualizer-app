@@ -50,6 +50,7 @@ const visualization = {
         level: 'medium',
     },
     color: 'blue',
+    subscribers: ['jklmn'],
 }
 
 const current = {
@@ -98,12 +99,12 @@ describe('index tDoRenameVisualization', () => {
             current: visualization,
         })
 
+        const onRenameComplete = jest.fn()
+
         const expectedUpdatedVisualization = {
             ...visualization,
             ...renamedProps,
         }
-
-        const onRenameComplete = jest.fn()
 
         const expectedActions = [
             {
@@ -137,14 +138,14 @@ describe('index tDoRenameVisualization', () => {
             )
             .then(() => {
                 // Check that apiFetchVisualization was called
-                expect(api.apiFetchVisualization).toHaveBeenCalled()
                 expect(api.apiFetchVisualization).toHaveBeenCalledWith(
-                    expect.any(Object), // The engine
-                    visualization.id // The visualization ID
+                    expect.objectContaining({
+                        id: visualization.id,
+                        withSubscribers: true,
+                    })
                 )
                 expect(onRenameComplete).toHaveBeenCalled()
 
-                expect(api.apiSaveVisualization).toHaveBeenCalled()
                 expect(api.apiSaveVisualization).toHaveBeenCalledWith(
                     expect.any(Object), // The engine
                     {
@@ -154,12 +155,14 @@ describe('index tDoRenameVisualization', () => {
                     } // The visualization to save
                 )
 
+                expect(api.apiFetchVisualizationNameDesc).toHaveBeenCalled()
+
                 // Check the dispatched actions
                 expect(store.getActions()).toEqual(expectedActions)
             })
     })
 
-    it('preserves values in current except for name, description, displayName, displayDescription', () => {
+    it('for modified visualization preserves values in current except for name, description, displayName, displayDescription', () => {
         const store = mockStore({
             visualization,
             current,
@@ -199,14 +202,14 @@ describe('index tDoRenameVisualization', () => {
             )
             .then(() => {
                 // Check that apiFetchVisualization was called
-                expect(api.apiFetchVisualization).toHaveBeenCalled()
                 expect(api.apiFetchVisualization).toHaveBeenCalledWith(
-                    expect.any(Object), // The engine
-                    visualization.id // The visualization ID
+                    expect.objectContaining({
+                        id: visualization.id,
+                        withSubscribers: true,
+                    })
                 )
                 expect(onRenameComplete).toHaveBeenCalled()
 
-                expect(api.apiSaveVisualization).toHaveBeenCalled()
                 expect(api.apiSaveVisualization).toHaveBeenCalledWith(
                     expect.any(Object), // The engine
                     {
@@ -215,6 +218,8 @@ describe('index tDoRenameVisualization', () => {
                         description: renamedProps.description,
                     } // The visualization to save
                 )
+
+                expect(api.apiFetchVisualizationNameDesc).toHaveBeenCalled()
 
                 // Check the dispatched actions
                 expect(store.getActions()).toEqual(expectedActions)
@@ -248,13 +253,13 @@ describe('index tDoRenameVisualization', () => {
                 )
             )
             .then(() => {
-                expect(api.apiFetchVisualization).toHaveBeenCalled()
                 expect(api.apiFetchVisualization).toHaveBeenCalledWith(
-                    expect.any(Object), // The engine
-                    visualization.id // The visualization ID
+                    expect.objectContaining({
+                        id: visualization.id,
+                        withSubscribers: true,
+                    })
                 )
 
-                expect(api.apiSaveVisualization).toHaveBeenCalled()
                 expect(api.apiSaveVisualization).toHaveBeenCalledWith(
                     expect.any(Object), // The engine
                     {

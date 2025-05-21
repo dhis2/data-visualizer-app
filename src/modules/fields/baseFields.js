@@ -119,6 +119,7 @@ export const fieldsByType = {
         getFieldObject('shortName'),
         getFieldObject('sorting'),
         getFieldObject('sortOrder', { option: true }),
+        getFieldObject('subscribers'),
         getFieldObject('subtitle', { option: true }),
         getFieldObject('timeField'),
         getFieldObject('title', { option: true }),
@@ -158,9 +159,13 @@ export const moveExcludedToEnd = (acc, current, curIndex, array) => {
 
 // getters
 
-export const getAllFieldObjectsByType = (type) =>
-    Object.entries(fieldsByType).reduce(
-        (fields, [key, value]) =>
-            key.includes(type) ? fields.concat(value) : fields,
-        []
-    )
+export const getAllFieldObjectsByType = (type, withSubscribers) =>
+    Object.entries(fieldsByType).reduce((fields, [key, value]) => {
+        let newFields = key.includes(type) ? fields.concat(value) : fields
+        if (!withSubscribers) {
+            newFields = newFields.filter(
+                (field) => field[BASE_FIELD_NAME] !== 'subscribers'
+            )
+        }
+        return newFields
+    }, [])
