@@ -124,7 +124,6 @@ describe('rename', () => {
 
         cy.wait('@get-visualization')
         cy.wait('@put-rename')
-
         cy.wait('@get-visualization')
 
         // Assert that there were exactly 2 GET requests
@@ -254,7 +253,7 @@ describe('rename', () => {
 })
 
 describe('saving an AO', () => {
-    it.only('"save" and "save as" for a new AO', () => {
+    it('"save" and "save as" for a new AO', () => {
         // navigates to the start page
         goToStartPage()
 
