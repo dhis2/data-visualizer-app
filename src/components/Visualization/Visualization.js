@@ -12,7 +12,7 @@ import {
     acAddParentGraphMap,
 } from '../../actions/ui.js'
 import { getOptionNamesByType } from '../../modules/options/config.js'
-import options from '../../modules/options.js'
+import { default as options } from '../../modules/options.js'
 import { removeLastPathSegment } from '../../modules/orgUnit.js'
 import { sGetCurrent } from '../../reducers/current.js'
 import { sGetIsPluginLoading, sGetLoadError } from '../../reducers/loader.js'
