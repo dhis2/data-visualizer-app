@@ -1,6 +1,7 @@
+import cloneDeep from 'lodash-es/cloneDeep'
 import debounce from 'lodash-es/debounce'
 import PropTypes from 'prop-types'
-import React, { Component, Fragment, useCallback } from 'react'
+import React, { Component, Fragment, useCallback, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { tSetCurrentFromUi } from '../../actions/current.js'
 import { acSetPluginLoading } from '../../actions/loader.js'
@@ -10,6 +11,8 @@ import {
     acSetUiDataSorting,
     acAddParentGraphMap,
 } from '../../actions/ui.js'
+import { getOptionNamesByType } from '../../modules/options/config.js'
+import { default as options } from '../../modules/options.js'
 import { removeLastPathSegment } from '../../modules/orgUnit.js'
 import { sGetCurrent } from '../../reducers/current.js'
 import { sGetIsPluginLoading, sGetLoadError } from '../../reducers/loader.js'
@@ -180,7 +183,7 @@ UnconnectedVisualization.propTypes = {
 
 export const Visualization = (props) => {
     const dispatch = useDispatch()
-    const visualization = useSelector(sGetCurrent)
+    const current = useSelector(sGetCurrent)
     const rightSidebarOpen = useSelector(sGetUiRightSidebarOpen)
     const error = useSelector(sGetLoadError)
     const isLoading = useSelector(sGetIsPluginLoading)
@@ -214,6 +217,17 @@ export const Visualization = (props) => {
         [dispatch]
     )
     const { setChart } = useChartContext()
+
+    const visualization = useMemo(() => {
+        const currentClone = cloneDeep(current)
+
+        currentClone &&
+            new Set(Object.keys(options))
+                .difference(new Set(getOptionNamesByType(currentClone.type)))
+                .forEach((optionName) => delete currentClone[optionName])
+
+        return currentClone
+    }, [current])
 
     return (
         <UnconnectedVisualization

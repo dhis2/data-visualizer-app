@@ -53,3 +53,50 @@ export default ({
     ]),
     getLimitValuesTab(),
 ]
+
+export const defaultOptionNames = ({
+    isStacked,
+    supportsLegends,
+    isColumnBased,
+}) => {
+    const options = [
+        'cumulativeValues',
+        'hideEmptyRowItems',
+        'sortOrder',
+        'skipRounding',
+
+        'regressionType',
+
+        'aggregationType',
+        'completedOnly',
+
+        'axes',
+
+        'series',
+
+        'showData',
+        'seriesKey',
+        'fontStyle',
+        'title',
+        'hideTitle',
+        'subtitle',
+        'hideSubtitle',
+        'colorSet',
+
+        'measureCriteria',
+    ]
+
+    if (isStacked) {
+        options.push('percentStackedValues')
+    }
+
+    if (supportsLegends) {
+        options.push('legend')
+    }
+
+    if (isColumnBased) {
+        options.push('noSpaceBetweenColumns')
+    }
+
+    return options
+}

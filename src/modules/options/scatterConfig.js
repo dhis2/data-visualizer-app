@@ -54,3 +54,22 @@ export default () => [
         },
     ]),
 ]
+
+export const scatterOptionNames = () => [
+    'skipRounding',
+
+    'aggregationType',
+    'completedOnly',
+
+    'axes',
+
+    'series',
+
+    'fontStyle',
+    'title',
+    'hideTitle',
+    'subtitle',
+    'hideSubtitle',
+
+    'outlierAnalysis',
+]
