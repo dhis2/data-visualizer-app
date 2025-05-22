@@ -67,7 +67,7 @@ export const getOptionsByType = ({
         case VIS_TYPE_SCATTER:
             return scatterConfig()
         case VIS_TYPE_OUTLIER_TABLE:
-            return outlierTableConfig(defaultProps)
+            return outlierTableConfig()
         default:
             return defaultConfig(defaultProps)
     }
@@ -93,7 +93,6 @@ export const getOptionNamesByType = (type) => {
             return outlierTableOptionNames()
         default:
             return defaultOptionNames({
-                supportsColorSet: true, // TODO should replicate hasDisabledSections above
                 supportsLegends,
                 isColumnBased,
                 isStacked,

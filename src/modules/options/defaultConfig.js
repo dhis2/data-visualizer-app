@@ -58,7 +58,6 @@ export const defaultOptionNames = ({
     isStacked,
     supportsLegends,
     isColumnBased,
-    supportsColorSet,
 }) => {
     const options = [
         'cumulativeValues',
@@ -82,6 +81,7 @@ export const defaultOptionNames = ({
         'hideTitle',
         'subtitle',
         'hideSubtitle',
+        'colorSet',
 
         'measureCriteria',
     ]
@@ -96,10 +96,6 @@ export const defaultOptionNames = ({
 
     if (isColumnBased) {
         options.push('noSpaceBetweenColumns')
-    }
-
-    if (supportsColorSet) {
-        options.push('colorSet')
     }
 
     return options
