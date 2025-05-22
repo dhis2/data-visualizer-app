@@ -15,7 +15,11 @@ const config = {
         enabled: true,
         caching: {
             patternsToOmitFromAppShell: [/.*/],
-            globsToOmitFromPrecache: ['fonts/**'],
+            globsToOmitFromPrecache: [
+                'fonts/**',
+                'vendor/jspdf.js',
+                'vendor/svg2pdf.js',
+            ],
         },
     },
 
