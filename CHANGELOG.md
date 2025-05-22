@@ -1,3 +1,10 @@
+## [101.2.1](https://github.com/dhis2/data-visualizer-app/compare/v101.2.0...v101.2.1) (2025-05-22)
+
+
+### Bug Fixes
+
+* prevent font files from being pre-cached ([#3401](https://github.com/dhis2/data-visualizer-app/issues/3401)) ([452e37e](https://github.com/dhis2/data-visualizer-app/commit/452e37e2639df88e15cc78cc862133cdcccd892c))
+
 # [101.2.0](https://github.com/dhis2/data-visualizer-app/compare/v101.1.7...v101.2.0) (2025-05-20)
 
 
