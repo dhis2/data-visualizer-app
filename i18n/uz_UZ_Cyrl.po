@@ -1,14 +1,14 @@
 # 
 # Translators:
 # Philip Larsen Donnelly, 2024
-# Ibatov <ibatovk@who.int>, 2024
+# Khurshid Ibatov <x.ibatov@dtsj.uz>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-01T08:28:43.727Z\n"
+"POT-Creation-Date: 2025-04-15T09:09:07.966Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Ibatov <ibatovk@who.int>, 2024\n"
+"Last-Translator: Khurshid Ibatov <x.ibatov@dtsj.uz>, 2024\n"
 "Language-Team: Uzbek (Cyrillic) (https://app.transifex.com/hisp-uio/teams/100509/uz@Cyrl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,8 +22,8 @@ msgstr "Барча элементлар"
 msgid "Rename successful"
 msgstr "Муваффақиятли қайта номлаш"
 
-msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr "Номсиз {{visualizationType}} визуализация, {{date}}"
+msgid "Rename failed"
+msgstr ""
 
 msgid "\"{{- deletedObject}}\" successfully deleted."
 msgstr "\"{{- deletedObject}}\" муваффақиятли ўчирилди."
@@ -935,6 +935,12 @@ msgid ""
 msgstr ""
 "Сиз кўрмоқчи бўлган визуализация топилмади, идентификатор нотўғри ёки "
 "ўчирилган бўлиши мумкин."
+
+msgid "Restricted access"
+msgstr ""
+
+msgid "You don't have access to one or more of the chosen organisation units."
+msgstr ""
 
 msgid "No organization units found"
 msgstr "Ташкилий бўлим топилмади"
