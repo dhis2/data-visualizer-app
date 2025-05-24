@@ -1,14 +1,14 @@
 # 
 # Translators:
-# easylin <lin_xd@126.com>, 2021
 # 晓东 林 <13981924470@126.com>, 2025
+# easylin <lin_xd@126.com>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-04-23T09:26:03.770Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: 晓东 林 <13981924470@126.com>, 2025\n"
+"Last-Translator: easylin <lin_xd@126.com>, 2025\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/hisp-uio/teams/100509/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -58,13 +58,13 @@ msgstr "'{{visualizationType}}' 打算显示最多{{maxNumber}}个数据项，�
 msgid ""
 "'Scatter' is intended to show a single data item per axis. Only the first "
 "item will be used and saved."
-msgstr ""
+msgstr "“散点图”用于在每个轴上显示单个数据项。仅第一项将被使用和保存。"
 
 msgid "Vertical"
-msgstr ""
+msgstr "垂直"
 
 msgid "Horizontal"
-msgstr ""
+msgstr "水平"
 
 msgid "Main dimensions"
 msgstr "主要维度"
@@ -139,10 +139,10 @@ msgid "Other formats"
 msgstr "其它格式"
 
 msgid "JRXML"
-msgstr ""
+msgstr "JRXML"
 
 msgid "Raw data SQL"
-msgstr ""
+msgstr "原生数据SQL"
 
 msgid "Hide"
 msgstr "隐藏"
@@ -160,19 +160,19 @@ msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr "{{dimensionName}} 被 {{axisName}} 为 {{visTypeName}} 锁住"
 
 msgid "Not available for Scatter"
-msgstr ""
+msgstr "不适用于散点图"
 
 msgid "Add Assigned Categories"
-msgstr ""
+msgstr "添加指定的分类"
 
 msgid "Swap with {{axisName}} axis"
-msgstr ""
+msgstr "与{{axisName}}轴交换"
 
 msgid "vertical"
-msgstr ""
+msgstr "垂直"
 
 msgid "horizontal"
-msgstr ""
+msgstr "水平的"
 
 msgid "None selected"
 msgstr "没有选择"
@@ -190,21 +190,21 @@ msgid "Groups"
 msgstr "组"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "和其它1个"
 
 msgid "And {{numberOfItems}} others..."
-msgstr ""
+msgstr "和其他{{numberOfItems}} 个"
 
 msgid "Select a period"
-msgstr ""
+msgstr "选择期间"
 
 msgid "Select years"
-msgstr ""
+msgstr "选择年份"
 
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
-msgstr ""
+msgstr "无法删除此可视化，因为它已在一个或多个仪表板上使用"
 
 msgid "Unsaved visualization"
 msgstr "没有保存可视化"
@@ -239,7 +239,7 @@ msgid "Aggregation type"
 msgstr "汇总类型"
 
 msgid "Overrides aggregation type for all data values."
-msgstr ""
+msgstr "覆盖所有数据值的聚合类型。"
 
 msgid "By data element"
 msgstr "按数据元"
@@ -301,7 +301,7 @@ msgstr "范围外的值将不显示"
 msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
-msgstr ""
+msgstr "轴刻度步数，包括最小值和最大值。小于等于2的值将被忽略。"
 
 msgid "Steps"
 msgstr "步"
@@ -325,19 +325,19 @@ msgid "Default"
 msgstr "默认"
 
 msgid "Bright"
-msgstr ""
+msgstr "明亮"
 
 msgid "Dark"
-msgstr ""
+msgstr "黑暗"
 
 msgid "Gray"
-msgstr ""
+msgstr "灰色"
 
 msgid "Color blind"
-msgstr ""
+msgstr "色盲"
 
 msgid "Patterns"
-msgstr ""
+msgstr "模式"
 
 msgid "Event data"
 msgstr "事件数据"
@@ -376,13 +376,13 @@ msgid "Compact"
 msgstr "紧凑"
 
 msgid "Extreme lines"
-msgstr ""
+msgstr "极限线"
 
 msgid "Calculated as a percent, usually 1%, of the total values along an axis"
-msgstr ""
+msgstr "计算为沿轴的总值的百分比，通常为1％"
 
 msgid "Extreme line % detection"
-msgstr ""
+msgstr "极限线％检测"
 
 msgid "Number"
 msgstr "数字"
@@ -418,7 +418,7 @@ msgid "Hide empty rows"
 msgstr "隐藏空行"
 
 msgid "Show legend key"
-msgstr ""
+msgstr "显示图例键值"
 
 msgid "Table subtitle"
 msgstr "表子标题"
@@ -469,7 +469,7 @@ msgid ""
 "You can set a minimum or maximum value. This will apply to the entire "
 "visualization, all values outside of the minimum/maximum range will not be "
 "displayed"
-msgstr ""
+msgstr "您可以设置最小值或最大值。这将应用于整个可视化，不会显示超出最小/最大范围的所有值"
 
 msgid "Minimum data value"
 msgstr "最小值"
@@ -502,35 +502,35 @@ msgid ""
 "Each detection method identifies outliers in different ways and suits "
 "different data. Check the documentation for help to choose the right outlier"
 " detection method"
-msgstr ""
+msgstr "每种检测方法都以不同的方式识别异常值，不通啊的方法适合不同的数据。查看文档以获取帮助以选择正确的离群值检测方法"
 
 msgid "Threshold factor"
-msgstr ""
+msgstr "阈值系数"
 
 msgid ""
 "A high value is more sensitive so fewer data items will be identified as "
 "outliers"
-msgstr ""
+msgstr "高值更敏感，因此较少数据项将被识别为异常值"
 
 msgid "Interquartile Range (IQR)"
-msgstr ""
+msgstr "四分位间距（IQR）"
 
 msgid "Z-score / Standard score"
-msgstr ""
+msgstr "Z分数/标准分数"
 
 msgid "Modified Z-score"
-msgstr ""
+msgstr "修改后的Z评分"
 
 msgid "Outlier analysis"
-msgstr ""
+msgstr "离群分析"
 
 msgid ""
 "Outlier analysis detects and highlights data items that are markedly "
 "different from the rest of the data"
-msgstr ""
+msgstr "离群值分析检测并突出显示与其余数据明显不同的数据项"
 
 msgid "Outlier detection method"
-msgstr ""
+msgstr "离群值检测方法"
 
 msgid "Organisation unit"
 msgstr "机构"
@@ -569,33 +569,33 @@ msgid "Row totals"
 msgstr "行合计"
 
 msgid "Data item"
-msgstr ""
+msgstr "数据条目"
 
 msgid "Visualization type"
-msgstr ""
+msgstr "可视化类型"
 
 msgid "Axis {{axisId}}"
-msgstr ""
+msgstr "轴{{axisId}}"
 
 msgid "Series is empty"
-msgstr ""
+msgstr "系列为空"
 
 msgid "Options for selected items will be available here"
-msgstr ""
+msgstr "所选项目的选项将在此处提供"
 
 msgid "No Series options"
-msgstr ""
+msgstr "没有系列选项"
 
 msgid "There aren't any Series options for this visualization type"
-msgstr ""
+msgstr "该可视化类型没有任何系列选项"
 
 msgid "Series options unavailable"
-msgstr ""
+msgstr "系列选项不可用"
 
 msgid ""
 "Series options are not available when using relative selections for periods,"
 " org units or categories"
-msgstr ""
+msgstr "在对期间，组织单位或类别使用相对选择时，系列选项不可用"
 
 msgid "Value labels"
 msgstr "值标签"
@@ -625,7 +625,7 @@ msgid "Target line"
 msgstr "目标线"
 
 msgid "Size"
-msgstr ""
+msgstr "大小"
 
 msgid "Position"
 msgstr "位置"
@@ -641,7 +641,7 @@ msgstr "打开为地图"
 
 msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
-msgstr ""
+msgstr "在世界地图上直观地绘制数据。数据元素使用单独的地图图层。"
 
 msgid "Reporting rate"
 msgstr "上报率"
@@ -690,27 +690,27 @@ msgid ""
 msgstr "{{visualizationType}} 必须至少选择一个期间到 {{axes}}."
 
 msgid "Add organisation units to {{axisName}}."
-msgstr ""
+msgstr "将组织单位添加到{{axisName}}。"
 
 msgid "Vertical is empty"
-msgstr ""
+msgstr "垂直为空"
 
 msgid "Add a data item to the vertical axis."
-msgstr ""
+msgstr "将数据项添加到垂直轴。"
 
 msgid "Horizontal is empty"
-msgstr ""
+msgstr "水平为空"
 
 msgid "Add a data item to the horizontal axis."
-msgstr ""
+msgstr "将数据项添加到水平轴。"
 
 msgid "Axes data items are the same"
-msgstr ""
+msgstr "轴数据项相同"
 
 msgid ""
 "The horizontal and vertical axes have the same data item. Scatter chart axes"
 " must have different data for each axis."
-msgstr ""
+msgstr "水平轴和垂直轴具有相同的数据项。散点图轴的每个轴必须具有不同的数据。"
 
 msgid "No data selected"
 msgstr "没有选择数据"
@@ -754,18 +754,18 @@ msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr "移动或移除分类以便解决问题"
 
 msgid "Visualization not found"
-msgstr ""
+msgstr "找不到可视化"
 
 msgid ""
 "The visualization you are trying to view could not be found, the ID could be"
 " incorrect or it could have been deleted."
-msgstr ""
+msgstr "找不到您尝试查看的可视化文件，该ID可能不正确或已被删除。"
 
 msgid "No organization units found"
-msgstr ""
+msgstr "找不到组织机构"
 
 msgid "The level or group selections didn't return any organization units."
-msgstr ""
+msgstr "级别或组选择未返回任何组织机构。"
 
 msgid "Something went wrong"
 msgstr "出了些问题"
@@ -893,13 +893,13 @@ msgstr "参数"
 msgid ""
 "These options only apply to legacy tables like standard reports. Options set"
 " here will have no effect on tables made in Data Visualizer."
-msgstr ""
+msgstr "这些选项仅适用于标准报告等旧表。此处设置的选项不会影响在 Data Visualizer（数据可视化应用） 中制作的表格。"
 
 msgid "Applies to standard reports only"
-msgstr ""
+msgstr "仅适用于标准报表"
 
 msgid "Base and target lines are available on the Axes tab for scatter charts"
-msgstr ""
+msgstr "散点图的“轴”选项卡上提供了基准线和目标线"
 
 msgid "Vertical axis"
 msgstr ""
@@ -908,10 +908,10 @@ msgid "Horizontal axis"
 msgstr ""
 
 msgid "Color set"
-msgstr ""
+msgstr "颜色集"
 
 msgid "Color sets are not supported yet when using multiple axes"
-msgstr ""
+msgstr "使用多轴时尚不支持颜色设置"
 
 msgid "Horizontal (x) axis"
 msgstr "水平轴（X）"
@@ -926,7 +926,7 @@ msgid "Display"
 msgstr "显示"
 
 msgid "Empty data"
-msgstr ""
+msgstr "空数据"
 
 msgid "Lines"
 msgstr "线"
@@ -959,10 +959,10 @@ msgid "Limit minimum/maximum values"
 msgstr "限制最大最小值"
 
 msgid "Outliers"
-msgstr ""
+msgstr "离群值"
 
 msgid "Series"
-msgstr ""
+msgstr "系列"
 
 msgid "Style"
 msgstr "风格"
