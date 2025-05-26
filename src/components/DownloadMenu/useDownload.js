@@ -91,6 +91,7 @@ const useDownload = (relativePeriodDate) => {
                 pdfFont: isPdfExport
                     ? getNotoPdfFontForLocale(dbLocale)
                     : undefined,
+                libURL: isPdfExport ? './vendor' : undefined,
             })
         },
         [dbLocale, getChart, visualization]
