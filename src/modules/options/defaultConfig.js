@@ -1,3 +1,26 @@
+import {
+    OPTION_AGGREGATION_TYPE,
+    OPTION_AXES,
+    OPTION_COLOR_SET,
+    OPTION_COMPLETED_ONLY,
+    OPTION_CUMULATIVE_VALUES,
+    OPTION_FONT_STYLE,
+    OPTION_HIDE_EMPTY_ROW_ITEMS,
+    OPTION_HIDE_SUBTITLE,
+    OPTION_HIDE_TITLE,
+    OPTION_LEGEND,
+    OPTION_MEASURE_CRITERIA,
+    OPTION_NO_SPACE_BETWEEN_COLUMNS,
+    OPTION_PERCENT_STACKED_VALUES,
+    OPTION_REGRESSION_TYPE,
+    OPTION_SERIES,
+    OPTION_SERIES_KEY,
+    OPTION_SHOW_DATA,
+    OPTION_SKIP_ROUNDING,
+    OPTION_SORT_ORDER,
+    OPTION_SUBTITLE,
+    OPTION_TITLE,
+} from '../options.js'
 import getAdvancedSection from './sections/advanced.js'
 import getChartStyleSection from './sections/chartStyle.js'
 import getColorSetSection from './sections/colorSet.js'
@@ -60,42 +83,41 @@ export const defaultOptionNames = ({
     isColumnBased,
 }) => {
     const options = [
-        'cumulativeValues',
-        'hideEmptyRowItems',
-        'sortOrder',
-        'skipRounding',
-
-        'regressionType',
-
-        'aggregationType',
-        'completedOnly',
-
-        'axes',
-
-        'series',
-
-        'showData',
-        'seriesKey',
-        'fontStyle',
-        'title',
-        'hideTitle',
-        'subtitle',
-        'hideSubtitle',
-        'colorSet',
-
-        'measureCriteria',
+        // Data tab
+        OPTION_CUMULATIVE_VALUES,
+        OPTION_HIDE_EMPTY_ROW_ITEMS,
+        OPTION_SORT_ORDER,
+        OPTION_SKIP_ROUNDING,
+        OPTION_REGRESSION_TYPE,
+        OPTION_AGGREGATION_TYPE,
+        OPTION_COMPLETED_ONLY,
+        // Axes tab
+        OPTION_AXES,
+        // Series tab
+        OPTION_SERIES,
+        // Style tab
+        OPTION_SHOW_DATA,
+        OPTION_SERIES_KEY,
+        OPTION_FONT_STYLE,
+        OPTION_TITLE,
+        OPTION_HIDE_TITLE,
+        OPTION_SUBTITLE,
+        OPTION_HIDE_SUBTITLE,
+        OPTION_COLOR_SET,
+        // Limit values tab
+        OPTION_MEASURE_CRITERIA,
     ]
 
     if (isStacked) {
-        options.push('percentStackedValues')
+        options.push(OPTION_PERCENT_STACKED_VALUES)
     }
 
     if (supportsLegends) {
-        options.push('legend')
+        options.push(OPTION_LEGEND)
     }
 
     if (isColumnBased) {
-        options.push('noSpaceBetweenColumns')
+        options.push(OPTION_NO_SPACE_BETWEEN_COLUMNS)
     }
 
     return options

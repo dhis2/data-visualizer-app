@@ -2,6 +2,20 @@ import React from 'react'
 import DataIcon from '../../components/VisualizationOptions/Options/DataIcon.js'
 import DigitGroupSeparator from '../../components/VisualizationOptions/Options/DigitGroupSeparator.js'
 import SkipRounding from '../../components/VisualizationOptions/Options/SkipRounding.js'
+import {
+    OPTION_AGGREGATION_TYPE,
+    OPTION_COMPLETED_ONLY,
+    OPTION_DIGIT_GROUP_SEPARATOR,
+    OPTION_FONT_STYLE,
+    OPTION_HIDE_SUBTITLE,
+    OPTION_HIDE_TITLE,
+    OPTION_ICONS,
+    OPTION_LEGEND,
+    OPTION_SERIES,
+    OPTION_SKIP_ROUNDING,
+    OPTION_SUBTITLE,
+    OPTION_TITLE,
+} from '../options.js'
 import getAdvancedSection from './sections/advanced.js'
 import getDisplayTemplate from './sections/templates/display.js'
 import getTitlesSection from './sections/titles.js'
@@ -32,20 +46,20 @@ export default () => [
 ]
 
 export const singleValueOptionNames = () => [
-    'skipRounding',
-    'aggregationType',
-    'completedOnly',
-
-    'legend',
-
-    'series',
-
-    'digitGroupSeparator',
-    'icons',
-
-    'fontStyle',
-    'title',
-    'hideTitle',
-    'subtitle',
-    'hideSubtitle',
+    // Data tab
+    OPTION_SKIP_ROUNDING,
+    OPTION_AGGREGATION_TYPE,
+    OPTION_COMPLETED_ONLY,
+    // Legend tab
+    OPTION_LEGEND,
+    // Series tab
+    OPTION_SERIES,
+    // Style tab
+    OPTION_DIGIT_GROUP_SEPARATOR,
+    OPTION_ICONS,
+    OPTION_FONT_STYLE,
+    OPTION_TITLE,
+    OPTION_HIDE_TITLE,
+    OPTION_SUBTITLE,
+    OPTION_HIDE_SUBTITLE,
 ]

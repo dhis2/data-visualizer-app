@@ -52,6 +52,12 @@ import {
     OPTION_LEGEND_DISPLAY_STRATEGY,
     OPTION_LEGEND_SET,
     OPTION_LEGEND_DISPLAY_STYLE,
+    OPTION_OUTLIER_ANALYSIS,
+    OPTION_AXES,
+    OPTION_SERIES,
+    OPTION_SERIES_KEY,
+    OPTION_FONT_STYLE,
+    OPTION_LEGEND,
 } from '../modules/options.js'
 import {
     getAdaptedUiByType,
@@ -147,7 +153,7 @@ const getDefaultUiByType = (ui) => {
                 options: {
                     ...ui.options,
                     outlierAnalysis: {
-                        ...(ui.options.outlierAnalysis ?? {
+                        ...(ui.options[OPTION_OUTLIER_ANALYSIS] ?? {
                             ...OUTLIER_METHOD_THRESHOLD_DEFAULT_STATE,
                             ...OUTLIER_MAX_RESULTS_DEFAULT_STATE,
                         }),
@@ -197,10 +203,10 @@ export default (state = DEFAULT_UI, action) => {
         }
         case SET_UI_OPTION: {
             const options = {
-                axes: state.options.axes || [],
-                seriesKey: state.options.seriesKey || {},
-                fontStyle: state.options.fontStyle || {},
-                legend: state.options.legend || {},
+                axes: state.options[OPTION_AXES] || [],
+                seriesKey: state.options[OPTION_SERIES_KEY] || {},
+                fontStyle: state.options[OPTION_FONT_STYLE] || {},
+                legend: state.options[OPTION_LEGEND] || {},
             }
             const value = action.value.value
             const optionId = action.value.optionId
@@ -212,49 +218,53 @@ export default (state = DEFAULT_UI, action) => {
                 case OPTION_AXIS_STEPS:
                 case OPTION_AXIS_MAX_VALUE:
                 case OPTION_AXIS_MIN_VALUE: {
-                    options.axes = pushAxis(options.axes, {
-                        ...getAxis(options.axes, Number(axisIndex), axisType),
+                    options[OPTION_AXES] = pushAxis(options[OPTION_AXES], {
+                        ...getAxis(
+                            options[OPTION_AXES],
+                            Number(axisIndex),
+                            axisType
+                        ),
                         [optionId]: value,
                     })
                     break
                 }
                 case OPTION_SHOW_SERIES_KEY:
-                    options.seriesKey = {
-                        ...options.seriesKey,
+                    options[OPTION_SERIES_KEY] = {
+                        ...options[OPTION_SERIES_KEY],
                         hidden: value,
                     }
                     break
                 case OPTION_LEGEND_DISPLAY_STRATEGY:
-                    options.legend = {
-                        ...options.legend,
+                    options[OPTION_LEGEND] = {
+                        ...options[OPTION_LEGEND],
                         strategy: value,
                     }
                     break
                 case OPTION_LEGEND_DISPLAY_STYLE:
-                    options.legend = {
-                        ...options.legend,
+                    options[OPTION_LEGEND] = {
+                        ...options[OPTION_LEGEND],
                         style: value,
                     }
                     break
                 case OPTION_SHOW_LEGEND_KEY:
-                    options.legend = {
-                        ...options.legend,
+                    options[OPTION_LEGEND] = {
+                        ...options[OPTION_LEGEND],
                         showKey: value,
                     }
                     break
                 case OPTION_LEGEND_SET:
-                    options.legend = {
-                        ...options.legend,
+                    options[OPTION_LEGEND] = {
+                        ...options[OPTION_LEGEND],
                         set: value,
                     }
                     break
                 case OPTION_AXIS_TITLE: {
                     const axis = getAxis(
-                        options.axes,
+                        options[OPTION_AXES],
                         Number(axisIndex),
                         axisType
                     )
-                    options.axes = pushAxis(options.axes, {
+                    options[OPTION_AXES] = pushAxis(options[OPTION_AXES], {
                         ...axis,
                         title: {
                             ...axis.title,
@@ -265,11 +275,11 @@ export default (state = DEFAULT_UI, action) => {
                 }
                 case OPTION_AXIS_TITLE_TEXT_MODE: {
                     const axis = getAxis(
-                        options.axes,
+                        options[OPTION_AXES],
                         Number(axisIndex),
                         axisType
                     )
-                    options.axes = pushAxis(options.axes, {
+                    options[OPTION_AXES] = pushAxis(options[OPTION_AXES], {
                         ...axis,
                         title: {
                             ...axis.title,
@@ -286,8 +296,12 @@ export default (state = DEFAULT_UI, action) => {
                         optionId === OPTION_BASE_LINE_ENABLED
                             ? 'baseLine'
                             : 'targetLine'
-                    options.axes = pushAxis(options.axes, {
-                        ...getAxis(options.axes, Number(axisIndex), axisType),
+                    options[OPTION_AXES] = pushAxis(options[OPTION_AXES], {
+                        ...getAxis(
+                            options[OPTION_AXES],
+                            Number(axisIndex),
+                            axisType
+                        ),
                         [prop]: value
                             ? {
                                   enabled: value,
@@ -303,7 +317,7 @@ export default (state = DEFAULT_UI, action) => {
                             ? 'baseLine'
                             : 'targetLine'
                     const axis = getAxis(
-                        options.axes,
+                        options[OPTION_AXES],
                         Number(axisIndex),
                         axisType
                     )
@@ -314,7 +328,7 @@ export default (state = DEFAULT_UI, action) => {
                             text: value || undefined,
                         },
                     }
-                    options.axes = pushAxis(options.axes, axis)
+                    options[OPTION_AXES] = pushAxis(options[OPTION_AXES], axis)
                     break
                 }
                 case OPTION_BASE_LINE_VALUE:
@@ -324,7 +338,7 @@ export default (state = DEFAULT_UI, action) => {
                             ? 'baseLine'
                             : 'targetLine'
                     const axis = getAxis(
-                        options.axes,
+                        options[OPTION_AXES],
                         Number(axisIndex),
                         axisType
                     )
@@ -332,7 +346,7 @@ export default (state = DEFAULT_UI, action) => {
                         ...axis[prop],
                         value: value || value === 0 ? value : undefined,
                     }
-                    options.axes = pushAxis(options.axes, axis)
+                    options[OPTION_AXES] = pushAxis(options[OPTION_AXES], axis)
                     break
                 }
                 case OPTION_BASE_LINE_TITLE_FONT_STYLE:
@@ -342,7 +356,7 @@ export default (state = DEFAULT_UI, action) => {
                             ? 'baseLine'
                             : 'targetLine'
                     const axis = getAxis(
-                        options.axes,
+                        options[OPTION_AXES],
                         Number(axisIndex),
                         axisType
                     )
@@ -358,14 +372,14 @@ export default (state = DEFAULT_UI, action) => {
                                     : undefined,
                         },
                     }
-                    options.axes = pushAxis(options.axes, axis)
+                    options[OPTION_AXES] = pushAxis(options[OPTION_AXES], axis)
                     break
                 }
 
                 case FONT_STYLE_VERTICAL_AXIS_TITLE:
                 case FONT_STYLE_HORIZONTAL_AXIS_TITLE: {
                     const axis = getAxis(
-                        options.axes,
+                        options[OPTION_AXES],
                         Number(axisIndex),
                         axisType
                     )
@@ -380,12 +394,12 @@ export default (state = DEFAULT_UI, action) => {
                                     : undefined,
                         },
                     }
-                    options.axes = pushAxis(options.axes, axis)
+                    options[OPTION_AXES] = pushAxis(options[OPTION_AXES], axis)
                     break
                 }
                 case FONT_STYLE_AXIS_LABELS: {
                     const axis = getAxis(
-                        options.axes,
+                        options[OPTION_AXES],
                         Number(axisIndex),
                         axisType
                     )
@@ -400,15 +414,15 @@ export default (state = DEFAULT_UI, action) => {
                                     : undefined,
                         },
                     }
-                    options.axes = pushAxis(options.axes, axis)
+                    options[OPTION_AXES] = pushAxis(options[OPTION_AXES], axis)
                     break
                 }
                 case FONT_STYLE_LEGEND: {
-                    options.seriesKey = {
-                        ...options.seriesKey,
+                    options[OPTION_SERIES_KEY] = {
+                        ...options[OPTION_SERIES_KEY],
                         label: {
                             fontStyle: {
-                                ...options.seriesKey.label?.fontStyle,
+                                ...options[OPTION_SERIES_KEY].label?.fontStyle,
                                 [fontStyleOption]:
                                     defaultFontStyle[optionId][
                                         fontStyleOption
@@ -422,10 +436,10 @@ export default (state = DEFAULT_UI, action) => {
                 }
                 case FONT_STYLE_VISUALIZATION_TITLE:
                 case FONT_STYLE_VISUALIZATION_SUBTITLE: {
-                    options.fontStyle = {
-                        ...options.fontStyle,
+                    options[OPTION_FONT_STYLE] = {
+                        ...options[OPTION_FONT_STYLE],
                         [optionId]: {
-                            ...options.fontStyle[optionId],
+                            ...options[OPTION_FONT_STYLE][optionId],
                             [fontStyleOption]:
                                 defaultFontStyle[optionId][fontStyleOption] !==
                                 value
@@ -441,9 +455,9 @@ export default (state = DEFAULT_UI, action) => {
                 }
             }
 
-            options.fontStyle = deepClean(options.fontStyle)
-            options.seriesKey = deepClean(options.seriesKey)
-            options.axes = cleanAxes(options.axes)
+            options[OPTION_FONT_STYLE] = deepClean(options[OPTION_FONT_STYLE])
+            options[OPTION_SERIES_KEY] = deepClean(options[OPTION_SERIES_KEY])
+            options[OPTION_AXES] = cleanAxes(options[OPTION_AXES])
 
             return {
                 ...state,
@@ -455,10 +469,14 @@ export default (state = DEFAULT_UI, action) => {
         }
         case SET_UI_OPTION_FONT_STYLE: {
             const options = {
-                axes: state.options.axes || [],
+                axes: state.options[OPTION_AXES] || [],
             }
             const [axisType, axisIndex] = (action.value.axisId || '').split('_')
-            const axis = getAxis(options.axes, Number(axisIndex), axisType)
+            const axis = getAxis(
+                options[OPTION_AXES],
+                Number(axisIndex),
+                axisType
+            )
 
             switch (action.value.optionId) {
                 case FONT_STYLE_VERTICAL_AXIS_TITLE:
@@ -467,12 +485,12 @@ export default (state = DEFAULT_UI, action) => {
                         ...axis.title,
                         fontStyle: action.value.value,
                     }
-                    options.axes = pushAxis(options.axes, axis)
+                    options[OPTION_AXES] = pushAxis(options[OPTION_AXES], axis)
                     break
                 }
             }
 
-            options.axes = cleanAxes(options.axes)
+            options[OPTION_AXES] = cleanAxes(options[OPTION_AXES])
 
             return {
                 ...state,
@@ -675,14 +693,14 @@ export default (state = DEFAULT_UI, action) => {
                 ...state,
                 options: {
                     ...state.options,
-                    series: state.options.series.map(
+                    series: state.options[OPTION_SERIES].map(
                         ({ type, ...rest }) => rest
                     ),
                 },
             }
         case UPDATE_UI_SERIES_ITEM: {
             const { changedItem, value, prop } = action.value
-            const series = [...state.options.series]
+            const series = [...state.options[OPTION_SERIES]]
 
             const itemIndex = series.findIndex(
                 (item) => item.dimensionItem == changedItem.dimensionItem
@@ -794,97 +812,123 @@ export const sGetUiOption = (state, option) => {
             case OPTION_AXIS_MIN_VALUE:
             case OPTION_AXIS_DECIMALS:
             case OPTION_AXIS_STEPS:
-                value = getAxis(options.axes, Number(axisIndex), axisType)[
-                    option.id
-                ]
+                value = getAxis(
+                    options[OPTION_AXES],
+                    Number(axisIndex),
+                    axisType
+                )[option.id]
                 break
             case OPTION_AXIS_TITLE_TEXT_MODE:
-                value = getAxis(options.axes, Number(axisIndex), axisType).title
-                    ?.textMode
+                value = getAxis(
+                    options[OPTION_AXES],
+                    Number(axisIndex),
+                    axisType
+                ).title?.textMode
                 break
             case OPTION_AXIS_TITLE:
-                value = getAxis(options.axes, Number(axisIndex), axisType).title
-                    ?.text
+                value = getAxis(
+                    options[OPTION_AXES],
+                    Number(axisIndex),
+                    axisType
+                ).title?.text
                 break
             case OPTION_SHOW_SERIES_KEY:
-                value = options.seriesKey?.hidden
+                value = options[OPTION_SERIES_KEY]?.hidden
                 break
             case OPTION_LEGEND_DISPLAY_STRATEGY:
-                value = options.legend?.strategy
+                value = options[OPTION_LEGEND]?.strategy
                 break
             case OPTION_LEGEND_DISPLAY_STYLE:
-                value = options.legend?.style
+                value = options[OPTION_LEGEND]?.style
                 break
             case OPTION_SHOW_LEGEND_KEY:
-                value = options.legend?.showKey
+                value = options[OPTION_LEGEND]?.showKey
                 break
             case OPTION_LEGEND_SET:
-                value = options.legend?.set
+                value = options[OPTION_LEGEND]?.set
                 break
             case FONT_STYLE_LEGEND:
                 value = getConsolidatedFontStyle(
                     option.id,
-                    options.seriesKey?.label?.fontStyle
+                    options[OPTION_SERIES_KEY]?.label?.fontStyle
                 )
                 break
             case OPTION_BASE_LINE_ENABLED:
-                value = getAxis(options.axes, Number(axisIndex), axisType)
-                    .baseLine?.enabled
+                value = getAxis(
+                    options[OPTION_AXES],
+                    Number(axisIndex),
+                    axisType
+                ).baseLine?.enabled
                 break
             case OPTION_BASE_LINE_TITLE:
-                value = getAxis(options.axes, Number(axisIndex), axisType)
-                    .baseLine?.title?.text
+                value = getAxis(
+                    options[OPTION_AXES],
+                    Number(axisIndex),
+                    axisType
+                ).baseLine?.title?.text
                 break
             case OPTION_BASE_LINE_VALUE:
-                value = getAxis(options.axes, Number(axisIndex), axisType)
-                    .baseLine?.value
+                value = getAxis(
+                    options[OPTION_AXES],
+                    Number(axisIndex),
+                    axisType
+                ).baseLine?.value
                 break
             case OPTION_BASE_LINE_TITLE_FONT_STYLE:
                 value = getConsolidatedFontStyle(
                     FONT_STYLE_REGRESSION_LINE_LABEL,
-                    getAxis(options.axes, Number(axisIndex), axisType).baseLine
-                        ?.title?.fontStyle
+                    getAxis(options[OPTION_AXES], Number(axisIndex), axisType)
+                        .baseLine?.title?.fontStyle
                 )
                 break
             case OPTION_TARGET_LINE_ENABLED:
-                value = getAxis(options.axes, Number(axisIndex), axisType)
-                    .targetLine?.enabled
+                value = getAxis(
+                    options[OPTION_AXES],
+                    Number(axisIndex),
+                    axisType
+                ).targetLine?.enabled
                 break
             case OPTION_TARGET_LINE_TITLE:
-                value = getAxis(options.axes, Number(axisIndex), axisType)
-                    .targetLine?.title?.text
+                value = getAxis(
+                    options[OPTION_AXES],
+                    Number(axisIndex),
+                    axisType
+                ).targetLine?.title?.text
                 break
             case OPTION_TARGET_LINE_VALUE:
-                value = getAxis(options.axes, Number(axisIndex), axisType)
-                    .targetLine?.value
+                value = getAxis(
+                    options[OPTION_AXES],
+                    Number(axisIndex),
+                    axisType
+                ).targetLine?.value
                 break
             case OPTION_TARGET_LINE_TITLE_FONT_STYLE:
                 value = getConsolidatedFontStyle(
                     FONT_STYLE_REGRESSION_LINE_LABEL,
-                    getAxis(options.axes, Number(axisIndex), axisType)
+                    getAxis(options[OPTION_AXES], Number(axisIndex), axisType)
                         .targetLine?.title?.fontStyle
                 )
                 break
             case FONT_STYLE_AXIS_LABELS:
                 value = getConsolidatedFontStyle(
                     option.id,
-                    getAxis(options.axes, Number(axisIndex), axisType).label
-                        ?.fontStyle
+                    getAxis(options[OPTION_AXES], Number(axisIndex), axisType)
+                        .label?.fontStyle
                 )
                 break
             case FONT_STYLE_VERTICAL_AXIS_TITLE:
             case FONT_STYLE_HORIZONTAL_AXIS_TITLE:
                 value = getConsolidatedFontStyle(
                     option.id,
-                    getAxis(options.axes, Number(axisIndex), axisType).title
-                        ?.fontStyle
+                    getAxis(options[OPTION_AXES], Number(axisIndex), axisType)
+                        .title?.fontStyle
                 )
                 break
             case FONT_STYLE_VISUALIZATION_TITLE:
             case FONT_STYLE_VISUALIZATION_SUBTITLE:
                 value = getConsolidatedFontStyle(
                     option.id,
-                    (options.fontStyle || {})[option.id]
+                    (options[OPTION_FONT_STYLE] || {})[option.id]
                 )
                 break
         }

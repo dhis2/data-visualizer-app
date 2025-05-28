@@ -6,11 +6,12 @@ import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { acSetUiOptions } from '../../../actions/ui.js'
+import { OPTION_APPROVAL_LEVEL } from '../../../modules/options.js'
 import { sGetUiOptions } from '../../../reducers/ui.js'
 
 export const APPROVAL_LEVEL_OPTION_AUTH = 'F_VIEW_UNAPPROVED_DATA'
 
-const optionName = 'approvalLevel'
+const optionName = OPTION_APPROVAL_LEVEL
 
 const query = {
     dataApprovalLevels: {

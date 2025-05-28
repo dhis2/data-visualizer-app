@@ -3,6 +3,7 @@ import { FieldSet, Legend } from '@dhis2/ui'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { acSetUiDataSorting, acSetUiOptions } from '../../../actions/ui.js'
+import { OPTION_OUTLIER_ANALYSIS } from '../../../modules/options.js'
 import { getDefaultSorting } from '../../../modules/ui.js'
 import { sGetUi, sGetUiOptions } from '../../../reducers/ui.js'
 import styles from '../styles/VisualizationOptions.module.css'
@@ -11,8 +12,6 @@ import { DEFAULT_STATE as OUTLIER_MAX_RESULTS_DEFAULT_STATE } from './OutliersMa
 
 export const OUTLIER_METHOD_PROP = 'outlierMethod'
 export const OUTLIER_THRESHOLD_PROP = 'thresholdFactor'
-
-export const OUTLIER_ANALYSIS_OPTION_NAME = 'outlierAnalysis'
 
 export const METHOD_STANDARD_Z_SCORE = 'STANDARD_Z_SCORE'
 export const METHOD_MODIFIED_Z_SCORE = 'MODIFIED_Z_SCORE'
@@ -37,8 +36,7 @@ export const DEFAULT_STATE = {
 const Outliers = () => {
     const dispatch = useDispatch()
 
-    let outlierAnalysis =
-        useSelector(sGetUiOptions)[OUTLIER_ANALYSIS_OPTION_NAME]
+    let outlierAnalysis = useSelector(sGetUiOptions)[OPTION_OUTLIER_ANALYSIS]
 
     if (
         !outlierAnalysis ||
@@ -53,7 +51,7 @@ const Outliers = () => {
 
         dispatch(
             acSetUiOptions({
-                [OUTLIER_ANALYSIS_OPTION_NAME]: outlierAnalysis,
+                [OPTION_OUTLIER_ANALYSIS]: outlierAnalysis,
             })
         )
     }
@@ -63,7 +61,7 @@ const Outliers = () => {
     const onMethodChange = (value) => {
         dispatch(
             acSetUiOptions({
-                [OUTLIER_ANALYSIS_OPTION_NAME]: {
+                [OPTION_OUTLIER_ANALYSIS]: {
                     ...outlierAnalysis,
                     [OUTLIER_METHOD_PROP]: value,
                     [OUTLIER_THRESHOLD_PROP]: methods.find(
@@ -86,7 +84,7 @@ const Outliers = () => {
     const onThresholdChange = (value) =>
         dispatch(
             acSetUiOptions({
-                [OUTLIER_ANALYSIS_OPTION_NAME]: {
+                [OPTION_OUTLIER_ANALYSIS]: {
                     ...outlierAnalysis,
                     [OUTLIER_THRESHOLD_PROP]: value,
                 },

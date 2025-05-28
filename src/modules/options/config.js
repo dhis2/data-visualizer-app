@@ -24,6 +24,31 @@ import singleValueConfig, {
     singleValueOptionNames,
 } from './singleValueConfig.js'
 
+export const OPTION_CUMULAITVE_VALUES = 'cumulativeValues'
+export const OPTION_EMPTY_ROW_ITEMS = 'hideEmptyRowItems'
+export const OPTION_SORT_ORDER = 'sortOrder'
+export const OPTION_SKIP_ROUNDING = 'skipRounding'
+export const OPTION_REGRESSION_TYPE = 'regressionType'
+export const OPTION_AGGREGATION_TYPE = 'aggregationType'
+export const OPTION_COMPLETED_ONLY = 'completedOnly'
+export const OPTION_LEGEND = 'legend'
+export const OPTION_AXES = 'axes'
+export const OPTION_SERIES = 'series'
+export const OPTION_SHOW_DATA = 'showData'
+export const OPTION_SERIES_KEY = 'seriesKey'
+export const OPTION_FONT_DIGIT_GROUP_SEPARATOR = 'digitGroupSeparator'
+export const OPTION_FONT_SIZE = 'fontSize'
+export const OPTION_FONT_STYLE = 'fontStyle'
+export const OPTION_TITLE = 'title'
+export const OPTION_HIDE_TITLE = 'hideTitle'
+export const OPTION_SUBTITLE = 'subtitle'
+export const OPTION_HIDE_SUBTITLE = 'hideSubtitle'
+export const OPTION_DISPLAY_DENSITY = 'displayDensity'
+export const OPTION_COLOR_SET = 'colorSet'
+export const OPTION_SHOW_HIERARCHY = 'showHierarchy'
+export const OPTION_MEASURE_CRITERIA = 'measureCriteria'
+export const OPTION_OUTLIER_ANALYSIS = 'outlierAnalysis'
+
 export const getOptionsByType = ({
     type,
     hasCumulativeValuesInPt,

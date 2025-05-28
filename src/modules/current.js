@@ -29,7 +29,15 @@ import {
     BASE_FIELD_TYPE,
     BASE_FIELD_YEARLY_SERIES,
 } from './fields/baseFields.js'
-import { default as options } from './options.js'
+import {
+    default as options,
+    OPTION_APPROVAL_LEVEL,
+    OPTION_AXES,
+    OPTION_ICONS,
+    OPTION_SERIES,
+    OPTION_SORT_ORDER,
+    OPTION_TOP_LIMIT,
+} from './options.js'
 import {} from './layout.js'
 
 const hasItems = (object, id) => Array.isArray(object[id]) && object[id].length
@@ -65,12 +73,12 @@ export const getAxesFromUi = (ui, metadata) =>
 export const getOptionsFromUi = (ui) => {
     const optionsFromUi = pick(ui.options, Object.keys(options))
 
-    if (optionsFromUi.axes && optionsFromUi.axes.length) {
-        optionsFromUi.axes = [
-            ...optionsFromUi.axes.map((axis) => ({ ...axis })),
+    if (optionsFromUi[OPTION_AXES] && optionsFromUi[OPTION_AXES].length) {
+        optionsFromUi[OPTION_AXES] = [
+            ...optionsFromUi[OPTION_AXES].map((axis) => ({ ...axis })),
         ]
 
-        optionsFromUi.axes.forEach((axis) => {
+        optionsFromUi[OPTION_AXES].forEach((axis) => {
             if (axis.targetLine) {
                 const { enabled, ...rest } = axis.targetLine
                 axis.targetLine = { ...rest }
@@ -84,32 +92,37 @@ export const getOptionsFromUi = (ui) => {
 
     // approvalLevel is stored as an object { id, level, displayName }
     // only pass approvalLevel id
-    if (optionsFromUi.approvalLevel !== options.approvalLevel.defaultValue) {
-        optionsFromUi.approvalLevel = optionsFromUi.approvalLevel.id
+    if (
+        optionsFromUi[OPTION_APPROVAL_LEVEL] !==
+        options[OPTION_APPROVAL_LEVEL].defaultValue
+    ) {
+        optionsFromUi[OPTION_APPROVAL_LEVEL] =
+            optionsFromUi[OPTION_APPROVAL_LEVEL].id
     }
 
     // icons is stored as array of objects { type: DATA_ITEM }
-    if (optionsFromUi.icons !== options.icons.defaultValue) {
-        optionsFromUi.icons = [{ type: 'DATA_ITEM' }]
+    if (optionsFromUi[OPTION_ICONS] !== options[OPTION_ICONS].defaultValue) {
+        optionsFromUi[OPTION_ICONS] = [{ type: 'DATA_ITEM' }]
     } else {
         // if options is not enabled, do not pass the "internal" boolean value
-        optionsFromUi.icons = undefined
+        optionsFromUi[OPTION_ICONS] = undefined
     }
 
     // nested options under reportingParams
     optionsFromUi.reportingParams = {}
-    ;[
+
+    Array(
         'organisationUnit',
         'reportingPeriod',
         'parentOrganisationUnit',
-        'grandParentOrganisationUnit',
-    ].forEach((option) => {
+        'grandParentOrganisationUnit'
+    ).forEach((option) => {
         optionsFromUi.reportingParams[option] = optionsFromUi[option]
         delete optionsFromUi[option]
     })
 
     // cast option values to Number for some options
-    ;['sortOrder', 'topLimit'].forEach((option) => {
+    Array(OPTION_SORT_ORDER, OPTION_TOP_LIMIT).forEach((option) => {
         if (Object.prototype.hasOwnProperty.call(optionsFromUi, option)) {
             if (
                 optionsFromUi[option] !== undefined &&
@@ -124,7 +137,7 @@ export const getOptionsFromUi = (ui) => {
 }
 
 export const getSeriesFromUi = (ui) => {
-    return ui.options.series ? [...ui.options.series] : []
+    return ui.options[OPTION_SERIES] ? [...ui.options[OPTION_SERIES]] : []
 }
 
 export const getItemsByDimensionFromUi = (ui) => {
