@@ -1,3 +1,10 @@
+## [101.2.2](https://github.com/dhis2/data-visualizer-app/compare/v101.2.1...v101.2.2) (2025-05-26)
+
+
+### Bug Fixes
+
+* enable PDF export in a LAN only setup ([#3402](https://github.com/dhis2/data-visualizer-app/issues/3402)) ([bd24ce2](https://github.com/dhis2/data-visualizer-app/commit/bd24ce2399189a4c3b95bc07ccde8d9529b80ca5))
+
 ## [101.2.1](https://github.com/dhis2/data-visualizer-app/compare/v101.2.0...v101.2.1) (2025-05-22)
 
 
