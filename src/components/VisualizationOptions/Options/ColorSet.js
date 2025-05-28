@@ -15,10 +15,9 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
 import { acSetUiOptions } from '../../../actions/ui.js'
+import { OPTION_COLOR_SET } from '../../../modules/options.js'
 import { sGetUiOptions } from '../../../reducers/ui.js'
 import styles from '../styles/VisualizationOptions.module.css'
-
-export const COLOR_SET_OPTION_NAME = 'colorSet'
 
 const ColorSet = ({ value, onChange, disabled }) => (
     <div className={styles.tabSectionOption}>
@@ -142,12 +141,12 @@ ColorSetPreview.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-    value: sGetUiOptions(state)[COLOR_SET_OPTION_NAME],
+    value: sGetUiOptions(state)[OPTION_COLOR_SET],
 })
 
 const mapDispatchToProps = (dispatch) => ({
     onChange: (colorSet) =>
-        dispatch(acSetUiOptions({ [COLOR_SET_OPTION_NAME]: colorSet })),
+        dispatch(acSetUiOptions({ [OPTION_COLOR_SET]: colorSet })),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ColorSet)

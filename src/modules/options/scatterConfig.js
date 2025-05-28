@@ -3,6 +3,19 @@ import React from 'react'
 import { InfoText } from '../../components/VisualizationOptions/InfoText.js'
 import Outliers from '../../components/VisualizationOptions/Options/Outliers.js'
 import SkipRounding from '../../components/VisualizationOptions/Options/SkipRounding.js'
+import {
+    OPTION_AGGREGATION_TYPE,
+    OPTION_AXES,
+    OPTION_COMPLETED_ONLY,
+    OPTION_FONT_STYLE,
+    OPTION_HIDE_SUBTITLE,
+    OPTION_HIDE_TITLE,
+    OPTION_OUTLIER_ANALYSIS,
+    OPTION_SERIES,
+    OPTION_SKIP_ROUNDING,
+    OPTION_SUBTITLE,
+    OPTION_TITLE,
+} from '../options.js'
 import getAdvancedSection from './sections/advanced.js'
 import getRangeAxisSection from './sections/rangeAxis.js'
 import getDisplayTemplate from './sections/templates/display.js'
@@ -53,4 +66,23 @@ export default () => [
             content: React.Children.toArray([<Outliers />]),
         },
     ]),
+]
+
+export const scatterOptionNames = () => [
+    // Data tabs
+    OPTION_SKIP_ROUNDING,
+    OPTION_AGGREGATION_TYPE,
+    OPTION_COMPLETED_ONLY,
+    // Axes tab
+    OPTION_AXES,
+    // Series tab
+    OPTION_SERIES,
+    // Style tab
+    OPTION_FONT_STYLE,
+    OPTION_TITLE,
+    OPTION_HIDE_TITLE,
+    OPTION_SUBTITLE,
+    OPTION_HIDE_SUBTITLE,
+    // Outliers tab
+    OPTION_OUTLIER_ANALYSIS,
 ]

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
 import { acSetUiOptions } from '../../../actions/ui.js'
+import { OPTION_OUTLIER_ANALYSIS } from '../../../modules/options.js'
 import { sGetUiOptions } from '../../../reducers/ui.js'
 import styles from '../styles/Outliers.module.css'
 import optionStyles from '../styles/VisualizationOptions.module.css'
@@ -15,8 +16,6 @@ const METHOD_PROP = 'outlierMethod'
 const THRESHOLD_PROP = 'thresholdFactor'
 const EL_ENABLED_PROP = 'enabled'
 const EL_VALUE_PROP = 'value'
-
-const OUTLIER_ANALYSIS_OPTION_NAME = 'outlierAnalysis'
 
 const METHOD_IQR = 'IQR'
 const METHOD_STANDARD_Z_SCORE = 'STANDARD_Z_SCORE'
@@ -178,12 +177,12 @@ Outliers.propTypes = {
 
 const mapStateToProps = (state) => ({
     outlierAnalysis:
-        sGetUiOptions(state)[OUTLIER_ANALYSIS_OPTION_NAME] || DEFAULT_STATE,
+        sGetUiOptions(state)[OPTION_OUTLIER_ANALYSIS] || DEFAULT_STATE,
 })
 
 const mapDispatchToProps = (dispatch) => ({
     onChange: (value) =>
-        dispatch(acSetUiOptions({ [OUTLIER_ANALYSIS_OPTION_NAME]: value })),
+        dispatch(acSetUiOptions({ [OPTION_OUTLIER_ANALYSIS]: value })),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Outliers)

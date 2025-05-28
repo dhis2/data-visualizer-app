@@ -4,6 +4,20 @@ import AxisRange from '../../components/VisualizationOptions/Options/AxisRange.j
 import { BaseLine } from '../../components/VisualizationOptions/Options/BaseLine.js'
 import SkipRounding from '../../components/VisualizationOptions/Options/SkipRounding.js'
 import { TargetLine } from '../../components/VisualizationOptions/Options/TargetLine.js'
+import {
+    OPTION_LEGEND,
+    OPTION_SKIP_ROUNDING,
+    OPTION_REGRESSION_TYPE,
+    OPTION_AGGREGATION_TYPE,
+    OPTION_COMPLETED_ONLY,
+    OPTION_AXES,
+    OPTION_SERIES,
+    OPTION_TITLE,
+    OPTION_SUBTITLE,
+    OPTION_HIDE_TITLE,
+    OPTION_HIDE_SUBTITLE,
+    OPTION_FONT_STYLE,
+} from '../options.js'
 import getAdvancedSection from './sections/advanced.js'
 import getDisplayTemplate from './sections/templates/display.js'
 import getLinesTemplate from './sections/templates/lines.js'
@@ -41,4 +55,24 @@ export default () => [
     ]),
     getSeriesTab(),
     getStyleTab([getTitlesSection()]),
+]
+
+export const gaugeOptionNames = () => [
+    // Data tab
+    OPTION_SKIP_ROUNDING,
+    OPTION_REGRESSION_TYPE,
+    OPTION_AGGREGATION_TYPE,
+    OPTION_COMPLETED_ONLY,
+    // Legend tab
+    OPTION_LEGEND,
+    // Axes tab
+    OPTION_AXES,
+    // Series tab
+    OPTION_SERIES,
+    // Style tab
+    OPTION_FONT_STYLE,
+    OPTION_TITLE,
+    OPTION_HIDE_TITLE,
+    OPTION_SUBTITLE,
+    OPTION_HIDE_SUBTITLE,
 ]

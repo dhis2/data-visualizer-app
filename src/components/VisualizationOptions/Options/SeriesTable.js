@@ -31,6 +31,7 @@ import {
     EmptyBox,
     GenericError,
 } from '../../../assets/ErrorIcons.js'
+import { OPTION_SERIES } from '../../../modules/options.js'
 import {
     SERIES_ITEM_TYPE_PROP,
     SERIES_ITEM_AXIS_PROP,
@@ -289,7 +290,7 @@ SeriesTable.defaultProps = {
 const mapStateToProps = (state) => ({
     layoutItems: sGetSeriesSetupItems(state),
     columns: sGetUiLayout(state).columns,
-    optionItems: sGetUiOptions(state).series,
+    optionItems: sGetUiOptions(state)[OPTION_SERIES],
     visType: sGetUiType(state),
 })
 

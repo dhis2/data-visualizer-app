@@ -9,6 +9,10 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
 import { acSetUiOptions } from '../../../actions/ui.js'
+import {
+    OPTION_HIDE_SUBTITLE,
+    OPTION_SUBTITLE,
+} from '../../../modules/options.js'
 import { sGetUiOptions, sGetUiType } from '../../../reducers/ui.js'
 import styles from '../styles/VisualizationOptions.module.css'
 import Subtitle from './Subtitle.js'
@@ -100,23 +104,30 @@ HideSubtitle.propTypes = {
     onChange: PropTypes.func,
 }
 
-const hideSubtitleSelector = createSelector([sGetUiOptions], (uiOptions) =>
-    uiOptions.hideSubtitle
-        ? HIDE_SUBTITLE_NONE
-        : uiOptions.subtitle === undefined
+const hideSubtitleSelector = createSelector([sGetUiOptions], (uiOptions) => {
+    if (uiOptions[OPTION_HIDE_SUBTITLE]) {
+        return HIDE_SUBTITLE_NONE
+    }
+
+    return uiOptions[OPTION_SUBTITLE] === undefined
         ? HIDE_SUBTITLE_AUTO
         : HIDE_SUBTITLE_CUSTOM
-)
+})
 
 const mapStateToProps = (state) => ({
     visualizationType: sGetUiType(state),
     value: hideSubtitleSelector(state),
-    subtitle: sGetUiOptions(state).subtitle,
+    subtitle: sGetUiOptions(state)[OPTION_SUBTITLE],
 })
 
 const mapDispatchToProps = (dispatch) => ({
     onChange: (hideSubtitle, subtitle) =>
-        dispatch(acSetUiOptions({ hideSubtitle, subtitle })),
+        dispatch(
+            acSetUiOptions({
+                [OPTION_HIDE_SUBTITLE]: hideSubtitle,
+                [OPTION_SUBTITLE]: subtitle,
+            })
+        ),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(HideSubtitle)

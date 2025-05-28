@@ -1,5 +1,6 @@
 import i18n from '@dhis2/d2-i18n'
 import React from 'react'
+import { OPTION_AGGREGATION_TYPE } from '../../../modules/options.js'
 import { SelectBaseOption } from './SelectBaseOption.js'
 
 const AggregationType = () => (
@@ -7,7 +8,7 @@ const AggregationType = () => (
         label={i18n.t('Aggregation type')}
         helpText={i18n.t('Overrides aggregation type for all data values.')}
         option={{
-            name: 'aggregationType',
+            name: OPTION_AGGREGATION_TYPE,
             items: [
                 { value: 'DEFAULT', label: i18n.t('By data element') },
                 { value: 'COUNT', label: i18n.t('Count') },

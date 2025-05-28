@@ -6,6 +6,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
 import { acSetUiOptions } from '../../../actions/ui.js'
+import { OPTION_HIDE_TITLE, OPTION_TITLE } from '../../../modules/options.js'
 import { sGetUiOptions } from '../../../reducers/ui.js'
 import styles from '../styles/VisualizationOptions.module.css'
 import TextStyle from './TextStyle.js'
@@ -86,22 +87,29 @@ HideTitle.propTypes = {
     onChange: PropTypes.func,
 }
 
-const hideTitleSelector = createSelector([sGetUiOptions], (uiOptions) =>
-    uiOptions.hideTitle
-        ? HIDE_TITLE_NONE
-        : uiOptions.title === undefined
+const hideTitleSelector = createSelector([sGetUiOptions], (uiOptions) => {
+    if (uiOptions[OPTION_HIDE_TITLE]) {
+        return HIDE_TITLE_NONE
+    }
+
+    return uiOptions[OPTION_TITLE] === undefined
         ? HIDE_TITLE_AUTO
         : HIDE_TITLE_CUSTOM
-)
+})
 
 const mapStateToProps = (state) => ({
     value: hideTitleSelector(state),
-    title: sGetUiOptions(state).title,
+    title: sGetUiOptions(state)[OPTION_TITLE],
 })
 
 const mapDispatchToProps = (dispatch) => ({
     onChange: (hideTitle, title) =>
-        dispatch(acSetUiOptions({ hideTitle, title })),
+        dispatch(
+            acSetUiOptions({
+                [OPTION_HIDE_TITLE]: hideTitle,
+                [OPTION_TITLE]: title,
+            })
+        ),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(HideTitle)

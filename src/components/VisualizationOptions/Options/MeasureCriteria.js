@@ -10,6 +10,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { acSetUiOptions } from '../../../actions/ui.js'
+import { OPTION_MEASURE_CRITERIA } from '../../../modules/options.js'
 import { sGetUiOptions } from '../../../reducers/ui.js'
 import styles from '../styles/VisualizationOptions.module.css'
 
@@ -204,11 +205,12 @@ MeasureCriteria.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-    value: sGetUiOptions(state).measureCriteria || EMPTY,
+    value: sGetUiOptions(state)[OPTION_MEASURE_CRITERIA] || EMPTY,
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    onChange: (value) => dispatch(acSetUiOptions({ measureCriteria: value })),
+    onChange: (value) =>
+        dispatch(acSetUiOptions({ [OPTION_MEASURE_CRITERIA]: value })),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MeasureCriteria)
