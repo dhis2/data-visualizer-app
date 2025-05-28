@@ -928,7 +928,7 @@ export const sGetUiOption = (state, option) => {
             case FONT_STYLE_VISUALIZATION_SUBTITLE:
                 value = getConsolidatedFontStyle(
                     option.id,
-                    (options[OPTION_FONT_STYLE] || {})[option.id]
+                    options[OPTION_FONT_STYLE]?.[option.id]
                 )
                 break
         }

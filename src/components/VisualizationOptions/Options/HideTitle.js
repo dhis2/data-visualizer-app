@@ -87,13 +87,15 @@ HideTitle.propTypes = {
     onChange: PropTypes.func,
 }
 
-const hideTitleSelector = createSelector([sGetUiOptions], (uiOptions) =>
-    uiOptions[OPTION_HIDE_TITLE]
-        ? HIDE_TITLE_NONE
-        : uiOptions[OPTION_TITLE] === undefined
+const hideTitleSelector = createSelector([sGetUiOptions], (uiOptions) => {
+    if (uiOptions[OPTION_HIDE_TITLE]) {
+        return HIDE_TITLE_NONE
+    }
+
+    return uiOptions[OPTION_TITLE] === undefined
         ? HIDE_TITLE_AUTO
         : HIDE_TITLE_CUSTOM
-)
+})
 
 const mapStateToProps = (state) => ({
     value: hideTitleSelector(state),

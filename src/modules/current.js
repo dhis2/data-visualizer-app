@@ -73,7 +73,7 @@ export const getAxesFromUi = (ui, metadata) =>
 export const getOptionsFromUi = (ui) => {
     const optionsFromUi = pick(ui.options, Object.keys(options))
 
-    if (optionsFromUi[OPTION_AXES] && optionsFromUi[OPTION_AXES].length) {
+    if (optionsFromUi[OPTION_AXES]?.length) {
         optionsFromUi[OPTION_AXES] = [
             ...optionsFromUi[OPTION_AXES].map((axis) => ({ ...axis })),
         ]
