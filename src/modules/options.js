@@ -110,8 +110,8 @@ export const options = {
         requestable: false,
         savable: true,
     },
-    defaultValue: false,
     [OPTION_PERCENT_STACKED_VALUES]: {
+        defaultValue: false,
         requestable: false,
         savable: true,
     },
