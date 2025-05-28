@@ -1,4 +1,3 @@
-import cloneDeep from 'lodash-es/cloneDeep'
 import debounce from 'lodash-es/debounce'
 import PropTypes from 'prop-types'
 import React, { Component, Fragment, useCallback, useMemo } from 'react'
@@ -11,9 +10,8 @@ import {
     acSetUiDataSorting,
     acAddParentGraphMap,
 } from '../../actions/ui.js'
-import { getOptionNamesByType } from '../../modules/options/config.js'
-import { default as options } from '../../modules/options.js'
 import { removeLastPathSegment } from '../../modules/orgUnit.js'
+import { getVisualizationWithFilteredOptionsByType } from '../../modules/visualization.js'
 import { sGetCurrent } from '../../reducers/current.js'
 import { sGetIsPluginLoading, sGetLoadError } from '../../reducers/loader.js'
 import { sGetSettingsDisplayProperty } from '../../reducers/settings.js'
@@ -218,16 +216,10 @@ export const Visualization = (props) => {
     )
     const { setChart } = useChartContext()
 
-    const visualization = useMemo(() => {
-        const currentClone = cloneDeep(current)
-
-        currentClone &&
-            new Set(Object.keys(options))
-                .difference(new Set(getOptionNamesByType(currentClone.type)))
-                .forEach((optionName) => delete currentClone[optionName])
-
-        return currentClone
-    }, [current])
+    const visualization = useMemo(
+        () => getVisualizationWithFilteredOptionsByType(current),
+        [current]
+    )
 
     return (
         <UnconnectedVisualization
