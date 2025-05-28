@@ -358,9 +358,9 @@ export const getOptionsFromVisualization = (visualization) => {
         optionsFromVisualization[OPTION_REPORTING_PERIOD] =
             visualization.reportingParams[OPTION_REPORTING_PERIOD]
         optionsFromVisualization[OPTION_PARENT_ORGANISATION_UNIT] =
-            optionsFromVisualization[OPTION_GRAND_PARENT_ORGANISATION_UNIT] =
-                visualization.reportingParams[OPTION_PARENT_ORGANISATION_UNIT]
-        visualization.reportingParams[OPTION_GRAND_PARENT_ORGANISATION_UNIT]
+            visualization.reportingParams[OPTION_PARENT_ORGANISATION_UNIT]
+        optionsFromVisualization[OPTION_GRAND_PARENT_ORGANISATION_UNIT] =
+            visualization.reportingParams[OPTION_GRAND_PARENT_ORGANISATION_UNIT]
     }
 
     // cast option values from Number for some options
