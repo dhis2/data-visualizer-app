@@ -6,7 +6,7 @@ import {
 } from './baseFields.js'
 import { extendFields } from './nestedFields.js'
 
-export const getFieldsStringByType = (type, withSubscribers) =>
+export const getFieldsStringByType = (type, { withSubscribers }) =>
     getAllFieldObjectsByType(type, withSubscribers)
         .map(markExcluded)
         .map(extractName)

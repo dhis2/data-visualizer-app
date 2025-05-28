@@ -5,7 +5,7 @@ const visualizationQuery = {
         resource: 'visualizations',
         id: ({ id }) => id,
         params: ({ withSubscribers }) => ({
-            fields: getFieldsStringByType('visualization', withSubscribers),
+            fields: getFieldsStringByType('visualization', { withSubscribers }),
         }),
     },
 }

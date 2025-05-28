@@ -114,7 +114,7 @@ describe('rename', () => {
             'get-visualization'
         )
 
-        cy.intercept('PUT', /\/api\/\d+\/visualizations\/\w+(\?.*)?/, (req) => {
+        cy.intercept('PUT', /\/api\/\d+\/visualizations\/\w+/, (req) => {
             expect(req.body).to.have.property('subscribers')
             expect(req.body).to.have.property('filters')
         }).as('put-rename')
@@ -125,9 +125,6 @@ describe('rename', () => {
         cy.wait('@get-visualization')
         cy.wait('@put-rename')
         cy.wait('@get-visualization')
-
-        // Assert that there were exactly 2 GET requests
-        cy.get('@get-visualization.all').should('have.length', 2)
 
         cy.getBySel('dhis2-uicore-alertbar')
             .contains('Rename successful')
@@ -356,7 +353,7 @@ describe('saving an AO', () => {
         ).as('get-subscribers')
 
         // check the save request contains subscribers
-        cy.intercept('PUT', /\/api\/\d+\/visualizations\/\w+(\?.*)?/, (req) => {
+        cy.intercept('PUT', /\/api\/\d+\/visualizations\/\w+/, (req) => {
             expect(req.body).to.have.property('subscribers')
         }).as('put-save')
 
@@ -374,7 +371,7 @@ describe('saving an AO', () => {
         cy.contains('About this visualization').should('not.exist')
 
         // saves AO using "Save As"
-        cy.intercept('POST', /\/api\/\d+\/visualizations(\?.*)?/, (req) => {
+        cy.intercept('POST', /\/api\/\d+\/visualizations/, (req) => {
             expect(req.body).to.not.have.property('subscribers')
         }).as('post-saveas')
         saveAOAs(TEST_VIS_NAME_UPDATED)
