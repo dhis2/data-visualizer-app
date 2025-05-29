@@ -40,31 +40,31 @@ const visualizationsQuery = {
     },
 }
 
-export const apiFetchVisualization = (engine, id) => {
-    return engine.query(visualizationQuery, {
+export const apiFetchVisualization = (dataEngine, id) => {
+    return dataEngine.query(visualizationQuery, {
         variables: { id },
     })
 }
 
-export const apiFetchVisualizationNameDesc = (engine, id) => {
-    return engine.query(visualizationNameDescQuery, {
+export const apiFetchVisualizationNameDesc = (dataEngine, id) => {
+    return dataEngine.query(visualizationNameDescQuery, {
         variables: { id },
     })
 }
 
-export const apiFetchVisualizationSubscribers = (engine, id) => {
-    return engine.query(visualizationSubscribersQuery, {
+export const apiFetchVisualizationSubscribers = (dataEngine, id) => {
+    return dataEngine.query(visualizationSubscribersQuery, {
         variables: { id },
     })
 }
 
-export const apiFetchVisualizations = (engine, visualizationIds) => {
-    return engine.query(visualizationsQuery, {
+export const apiFetchVisualizations = (dataEngine, visualizationIds) => {
+    return dataEngine.query(visualizationsQuery, {
         variables: { visualizationIds },
     })
 }
 
-export const apiSaveVisualization = (engine, visualization) => {
+export const apiSaveVisualization = (dataEngine, visualization) => {
     const mutation = {
         type: 'create',
         resource: 'visualizations',
@@ -80,5 +80,5 @@ export const apiSaveVisualization = (engine, visualization) => {
         mutation.id = visualization.id
     }
 
-    return engine.mutate(mutation)
+    return dataEngine.mutate(mutation)
 }
