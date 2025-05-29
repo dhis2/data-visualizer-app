@@ -6,8 +6,8 @@ import {
 } from './baseFields.js'
 import { extendFields } from './nestedFields.js'
 
-export const getFieldsStringByType = (type, { withSubscribers }) =>
-    getAllFieldObjectsByType(type, withSubscribers)
+export const getFieldsStringByType = (type) =>
+    getAllFieldObjectsByType(type)
         .map(markExcluded)
         .map(extractName)
         .sort()

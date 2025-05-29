@@ -4,9 +4,9 @@ const visualizationQuery = {
     visualization: {
         resource: 'visualizations',
         id: ({ id }) => id,
-        params: ({ withSubscribers }) => ({
-            fields: getFieldsStringByType('visualization', { withSubscribers }),
-        }),
+        params: {
+            fields: getFieldsStringByType('visualization'),
+        },
     },
 }
 
@@ -40,13 +40,9 @@ const visualizationsQuery = {
     },
 }
 
-export const apiFetchVisualization = ({
-    engine,
-    id,
-    withSubscribers = false,
-}) => {
+export const apiFetchVisualization = (engine, id) => {
     return engine.query(visualizationQuery, {
-        variables: { id, withSubscribers },
+        variables: { id },
     })
 }
 

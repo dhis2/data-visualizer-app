@@ -108,7 +108,7 @@ export const tDoLoadVisualization =
         }
 
         try {
-            return onSuccess(await apiFetchVisualization({ engine, id }))
+            return onSuccess(await apiFetchVisualization(engine, id))
         } catch (errorResponse) {
             let error = errorResponse
 
@@ -181,11 +181,10 @@ export const tDoRenameVisualization =
         }
 
         try {
-            const { visualization } = await apiFetchVisualization({
+            const { visualization } = await apiFetchVisualization(
                 engine,
-                id: sGetVisualization(getState()).id,
-                withSubscribers: true,
-            })
+                sGetVisualization(getState()).id
+            )
 
             const visToSave = preparePayloadForSave({
                 visualization: getSaveableVisualization(visualization),
@@ -242,8 +241,14 @@ export const tDoSaveVisualization =
             )
 
             if (copy) {
+                // remove property subscribers before saving as new
+                // TODO - this should be moved to preparePayloadForSaveAs
+                // eslint-disable-next-line no-unused-vars
+                const { subscribers, ...visualizationWithoutSubscribers } =
+                    visualization
+
                 visualization = preparePayloadForSaveAs({
-                    visualization,
+                    visualization: visualizationWithoutSubscribers,
                     name,
                     description,
                 })

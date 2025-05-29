@@ -9,26 +9,6 @@ describe('getAllFieldObjectsByType', () => {
         )
     })
 
-    it('includes the subscribers field when withSubscribers is true', () => {
-        const fields = getAllFieldObjectsByType(
-            'reportTable_chart_eventReport_eventChart',
-            true
-        )
-        expect(fields.some((f) => f[BASE_FIELD_NAME] === 'subscribers')).toBe(
-            true
-        )
-    })
-
-    it('removes the subscribers field when withSubscribers is false', () => {
-        const fields = getAllFieldObjectsByType(
-            'reportTable_chart_eventReport_eventChart',
-            false
-        )
-        expect(fields.some((f) => f[BASE_FIELD_NAME] === 'subscribers')).toBe(
-            false
-        )
-    })
-
     it('returns an empty array for unknown type', () => {
         const fields = getAllFieldObjectsByType('unknownType', true)
         expect(fields).toEqual([])

@@ -139,10 +139,9 @@ describe('index tDoRenameVisualization', () => {
             .then(() => {
                 // Check that apiFetchVisualization was called
                 expect(api.apiFetchVisualization).toHaveBeenCalledWith(
-                    expect.objectContaining({
-                        id: visualization.id,
-                        withSubscribers: true,
-                    })
+                    expect.any(Object), // The engine
+
+                    visualization.id
                 )
                 expect(onRenameComplete).toHaveBeenCalled()
 
@@ -203,10 +202,8 @@ describe('index tDoRenameVisualization', () => {
             .then(() => {
                 // Check that apiFetchVisualization was called
                 expect(api.apiFetchVisualization).toHaveBeenCalledWith(
-                    expect.objectContaining({
-                        id: visualization.id,
-                        withSubscribers: true,
-                    })
+                    expect.any(Object), // The engine
+                    visualization.id
                 )
                 expect(onRenameComplete).toHaveBeenCalled()
 
@@ -254,10 +251,8 @@ describe('index tDoRenameVisualization', () => {
             )
             .then(() => {
                 expect(api.apiFetchVisualization).toHaveBeenCalledWith(
-                    expect.objectContaining({
-                        id: visualization.id,
-                        withSubscribers: true,
-                    })
+                    expect.any(Object), // The engine
+                    visualization.id
                 )
 
                 expect(api.apiSaveVisualization).toHaveBeenCalledWith(
