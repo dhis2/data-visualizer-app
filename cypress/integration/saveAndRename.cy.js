@@ -110,12 +110,21 @@ describe('rename', () => {
         expectAOTitleToBeValue(AO_NAME)
         expectVisualizationToBeVisible(VIS_TYPE_PIVOT_TABLE)
 
-        cy.intercept('PUT', '**/api/*/visualizations/*').as('put-rename')
+        cy.intercept('GET', /\/api\/\d+\/visualizations\/\w+\?fields=.*/).as(
+            'get-visualization'
+        )
+
+        cy.intercept('PUT', /\/api\/\d+\/visualizations\/\w+/, (req) => {
+            expect(req.body).to.have.property('subscribers')
+            expect(req.body).to.have.property('filters')
+        }).as('put-rename')
 
         // rename the AO, changing name only
         renameVisualization(UPDATED_AO_NAME)
 
+        cy.wait('@get-visualization')
         cy.wait('@put-rename')
+        cy.wait('@get-visualization')
 
         cy.getBySel('dhis2-uicore-alertbar')
             .contains('Rename successful')
@@ -318,15 +327,61 @@ describe('saving an AO', () => {
         expectVisualizationToBeVisible(TEST_VIS_TYPE)
 
         // saves AO using "Save"
+
+        // subscribe to the AO
+        cy.getBySel('dhis2-analytics-interpretationsanddetailstoggler').click()
+        cy.intercept(
+            'POST',
+            /\/api\/\d+\/visualizations\/\w+\/subscriber/,
+            (req) => {
+                req.continue((res) => {
+                    expect([200, 201]).to.include(res.statusCode)
+                })
+            }
+        ).as('post-subscriber')
+        cy.get('button').contains('Subscribe').should('be.visible')
+        cy.get('button').contains('Subscribe').click()
+        cy.wait('@post-subscriber')
+        cy.get('button').contains('Unsubscribe').should('be.visible')
+        cy.getBySel('dhis2-analytics-interpretationsanddetailstoggler').click()
+        cy.contains('About this visualization').should('not.exist')
+
+        // check first GET request fetches subscribers
+        cy.intercept(
+            'GET',
+            /\/api\/\d+\/visualizations\/\w+\?fields=subscribers/
+        ).as('get-subscribers')
+
+        // check the save request contains subscribers
+        cy.intercept('PUT', /\/api\/\d+\/visualizations\/\w+/, (req) => {
+            expect(req.body).to.have.property('subscribers')
+        }).as('put-save')
+
         saveExistingAO()
+        cy.wait('@get-subscribers')
+        cy.wait('@put-save')
         expectAOTitleToNotBeDirty()
         expectAOTitleToBeValue(TEST_VIS_NAME)
         expectVisualizationToBeVisible(TEST_VIS_TYPE)
 
+        // check user is still subscribed
+        cy.getBySel('dhis2-analytics-interpretationsanddetailstoggler').click()
+        cy.get('button').contains('Unsubscribe').should('be.visible')
+        cy.getBySel('dhis2-analytics-interpretationsanddetailstoggler').click()
+        cy.contains('About this visualization').should('not.exist')
+
         // saves AO using "Save As"
+        cy.intercept('POST', /\/api\/\d+\/visualizations/, (req) => {
+            expect(req.body).to.not.have.property('subscribers')
+        }).as('post-saveas')
         saveAOAs(TEST_VIS_NAME_UPDATED)
+        cy.wait('@post-saveas')
         expectAOTitleToBeValue(TEST_VIS_NAME_UPDATED)
         expectVisualizationToBeVisible(TEST_VIS_TYPE)
+
+        cy.getBySel('dhis2-analytics-interpretationsanddetailstoggler').click()
+        cy.contains('About this visualization').should('be.visible')
+        cy.get('button').contains('Unsubscribe').should('not.exist')
     })
 
     it('"save" and "save as" for a saved AO created by you', () => {
