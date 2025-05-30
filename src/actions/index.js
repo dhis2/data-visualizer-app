@@ -241,8 +241,7 @@ export const tDoSaveVisualization =
             )
 
             if (copy) {
-                // remove property subscribers before saving as new
-                // TODO - this should be moved to preparePayloadForSaveAs
+                // remove subscribers from the visualization object
                 // eslint-disable-next-line no-unused-vars
                 const { subscribers, ...visualizationWithoutSubscribers } =
                     visualization
