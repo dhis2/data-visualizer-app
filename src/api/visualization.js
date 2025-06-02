@@ -10,6 +10,26 @@ const visualizationQuery = {
     },
 }
 
+const visualizationNameDescQuery = {
+    visualization: {
+        resource: 'visualizations',
+        id: ({ id }) => id,
+        params: {
+            fields: 'name,displayName,description,displayDescription',
+        },
+    },
+}
+
+const visualizationSubscribersQuery = {
+    visualizationSubscribers: {
+        resource: 'visualizations',
+        id: ({ id }) => id,
+        params: {
+            fields: ['subscribers'],
+        },
+    },
+}
+
 const visualizationsQuery = {
     visualization: {
         resource: 'visualizations',
@@ -21,7 +41,21 @@ const visualizationsQuery = {
 }
 
 export const apiFetchVisualization = (dataEngine, id) => {
-    return dataEngine.query(visualizationQuery, { variables: { id } })
+    return dataEngine.query(visualizationQuery, {
+        variables: { id },
+    })
+}
+
+export const apiFetchVisualizationNameDesc = (dataEngine, id) => {
+    return dataEngine.query(visualizationNameDescQuery, {
+        variables: { id },
+    })
+}
+
+export const apiFetchVisualizationSubscribers = (dataEngine, id) => {
+    return dataEngine.query(visualizationSubscribersQuery, {
+        variables: { id },
+    })
 }
 
 export const apiFetchVisualizations = (dataEngine, visualizationIds) => {
