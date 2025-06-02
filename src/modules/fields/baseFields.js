@@ -119,6 +119,7 @@ export const fieldsByType = {
         getFieldObject('shortName'),
         getFieldObject('sorting'),
         getFieldObject('sortOrder', { option: true }),
+        getFieldObject('subscribed'),
         getFieldObject('subscribers'),
         getFieldObject('subtitle', { option: true }),
         getFieldObject('timeField'),
