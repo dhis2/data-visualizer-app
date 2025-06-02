@@ -85,6 +85,19 @@ When selecting data items, there are different ways to filter the displayed item
 
 ![](resources/images/data-visualizer-cc-data-modal.png)
 
+#### Select options from an option set
+
+For data items that have an option set assigned it's possible to select specific options from the option set.
+For such data items, an icon is shown besides the data item name.
+
+![](resources/images/data-visualizer-cc-data-modal-with-option-set.png)
+
+By clicking it the list of data items is replaced with the list of options from the option set.
+The selection of options is done in the same way as any other data item, by double clicking or using the transfer buttons.
+To exit the options mode, use the "Back to all items" button.
+
+![](resources/images/data-visualizer-cc-data-modal-options-mode.png)
+
 #### Display information about a data item
 
 On the right of each data item there is an information icon that can be clicked and a table with relevant information is shown. The information displayed depends on the item's data type.

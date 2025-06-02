@@ -1,8 +1,7 @@
 import debounce from 'lodash-es/debounce'
 import PropTypes from 'prop-types'
-import React, { Component, Fragment } from 'react'
-import { connect } from 'react-redux'
-import { acSetChart } from '../../actions/chart.js'
+import React, { Component, Fragment, useCallback } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { tSetCurrentFromUi } from '../../actions/current.js'
 import { acSetPluginLoading } from '../../actions/loader.js'
 import { acAddMetadata } from '../../actions/metadata.js'
@@ -17,6 +16,7 @@ import { sGetIsPluginLoading, sGetLoadError } from '../../reducers/loader.js'
 import { sGetSettingsDisplayProperty } from '../../reducers/settings.js'
 import { sGetUiRightSidebarOpen } from '../../reducers/ui.js'
 import LoadingMask from '../../widgets/LoadingMask.jsx'
+import { useChartContext } from '../ChartProvider.jsx'
 import { VisualizationErrorInfo } from '../VisualizationErrorInfo/VisualizationErrorInfo.jsx'
 import { VisualizationPlugin } from '../VisualizationPlugin/VisualizationPlugin.jsx'
 import StartScreen from './StartScreen.jsx'
@@ -31,7 +31,9 @@ export class UnconnectedVisualization extends Component {
         }
     }
 
-    onChartGenerated = (svg) => this.props.setChart(svg)
+    onChartGenerated = (chart) => {
+        this.props.setChart(chart)
+    }
 
     onDataSorted = (sorting) => {
         this.props.onLoadingStart()
@@ -131,10 +133,10 @@ export class UnconnectedVisualization extends Component {
 
         const { renderId } = this.state
 
-        if (!visualization) {
-            return <StartScreen />
-        } else if (error) {
+        if (error) {
             return <VisualizationErrorInfo error={error} />
+        } else if (!visualization) {
+            return <StartScreen />
         } else {
             return (
                 <Fragment>
@@ -176,27 +178,59 @@ UnconnectedVisualization.propTypes = {
     onLoadingStart: PropTypes.func,
 }
 
-const mapStateToProps = (state) => ({
-    visualization: sGetCurrent(state),
-    rightSidebarOpen: sGetUiRightSidebarOpen(state),
-    error: sGetLoadError(state),
-    isLoading: sGetIsPluginLoading(state),
-    displayProperty: sGetSettingsDisplayProperty(state),
-})
+export const Visualization = (props) => {
+    const dispatch = useDispatch()
+    const visualization = useSelector(sGetCurrent)
+    const rightSidebarOpen = useSelector(sGetUiRightSidebarOpen)
+    const error = useSelector(sGetLoadError)
+    const isLoading = useSelector(sGetIsPluginLoading)
+    const displayProperty = useSelector(sGetSettingsDisplayProperty)
+    const onLoadingComplete = useCallback(
+        () => dispatch(acSetPluginLoading(false)),
+        [dispatch]
+    )
+    const onLoadingStart = useCallback(
+        () => dispatch(acSetPluginLoading(true)),
+        [dispatch]
+    )
+    const addMetadata = useCallback(
+        (metadata) => dispatch(acAddMetadata(metadata)),
+        [dispatch]
+    )
+    const addParentGraphMap = useCallback(
+        (parentGraphMap) => dispatch(acAddParentGraphMap(parentGraphMap)),
+        [dispatch]
+    )
+    const setUiItems = useCallback(
+        (data) => dispatch(acSetUiItems(data)),
+        [dispatch]
+    )
+    const setUiDataSorting = useCallback(
+        (sorting) => dispatch(acSetUiDataSorting(sorting)),
+        [dispatch]
+    )
+    const setCurrent = useCallback(
+        () => dispatch(tSetCurrentFromUi()),
+        [dispatch]
+    )
+    const { setChart } = useChartContext()
 
-const mapDispatchToProps = (dispatch) => ({
-    onLoadingComplete: () => dispatch(acSetPluginLoading(false)),
-    onLoadingStart: () => dispatch(acSetPluginLoading(true)),
-    addMetadata: (metadata) => dispatch(acAddMetadata(metadata)),
-    addParentGraphMap: (parentGraphMap) =>
-        dispatch(acAddParentGraphMap(parentGraphMap)),
-    setChart: (chart) => dispatch(acSetChart(chart)),
-    setUiItems: (data) => dispatch(acSetUiItems(data)),
-    setUiDataSorting: (sorting) => dispatch(acSetUiDataSorting(sorting)),
-    setCurrent: () => dispatch(tSetCurrentFromUi()),
-})
-
-export const Visualization = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(UnconnectedVisualization)
+    return (
+        <UnconnectedVisualization
+            {...props}
+            visualization={visualization}
+            rightSidebarOpen={rightSidebarOpen}
+            error={error}
+            isLoading={isLoading}
+            displayProperty={displayProperty}
+            onLoadingComplete={onLoadingComplete}
+            onLoadingStart={onLoadingStart}
+            addMetadata={addMetadata}
+            addParentGraphMap={addParentGraphMap}
+            setUiItems={setUiItems}
+            setUiDataSorting={setUiDataSorting}
+            setCurrent={setCurrent}
+            setChart={setChart}
+        />
+    )
+}

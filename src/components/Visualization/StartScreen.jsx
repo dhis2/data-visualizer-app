@@ -1,25 +1,27 @@
-import { visTypeIcons } from '@dhis2/analytics'
+import { useCachedDataQuery, visTypeIcons } from '@dhis2/analytics'
 import { useDataEngine } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { colors } from '@dhis2/ui'
-import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
-import { connect } from 'react-redux'
 import { apiFetchMostViewedVisualizations } from '../../api/mostViewedVisualizations.js'
 import { apiFetchVisualizations } from '../../api/visualization.js'
 import history from '../../modules/history.js'
-import { sGetUsername } from '../../reducers/user.js'
 import styles from './styles/StartScreen.module.css'
 import { matchVisualizationWithType } from './utils.js'
 
-const StartScreen = ({ username }) => {
+const StartScreen = () => {
     const [mostViewedVisualizations, setMostViewedVisualizations] = useState([])
     const engine = useDataEngine()
+    const { currentUser } = useCachedDataQuery()
 
     useEffect(() => {
         async function populateMostViewedVisualizations(engine) {
             const mostViewedVisualizationsResult =
-                await apiFetchMostViewedVisualizations(engine, 6, username)
+                await apiFetchMostViewedVisualizations(
+                    engine,
+                    6,
+                    currentUser.username
+                )
             const visualizations = mostViewedVisualizationsResult.visualization // {position: int, views: int, id: string, created: string}
             if (visualizations && visualizations.length) {
                 const visualizationsResult = await apiFetchVisualizations(
@@ -112,12 +114,4 @@ const StartScreen = ({ username }) => {
     )
 }
 
-StartScreen.propTypes = {
-    username: PropTypes.string,
-}
-
-const mapStateToProps = (state) => ({
-    username: sGetUsername(state),
-})
-
-export default connect(mapStateToProps)(StartScreen)
+export default StartScreen

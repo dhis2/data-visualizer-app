@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-01T08:28:43.727Z\n"
+"POT-Creation-Date: 2025-04-15T09:09:07.966Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Philip Larsen Donnelly, 2024\n"
 "Language-Team: Arabic (https://app.transifex.com/hisp-uio/teams/100509/ar/)\n"
@@ -24,8 +24,8 @@ msgstr ""
 msgid "Rename successful"
 msgstr "تمت إعادة التسمية بنجاح"
 
-msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr "عرض مرئي {{visualizationType}} بلا عنوان ، {{date}}"
+msgid "Rename failed"
+msgstr ""
 
 msgid "\"{{- deletedObject}}\" successfully deleted."
 msgstr ""
@@ -904,6 +904,12 @@ msgid ""
 msgstr ""
 "تعذر العثور على المرئيات التي تحاول عرضها، ربما يكون الـ ID غير صحيح أو ربما"
 " تم حذفه."
+
+msgid "Restricted access"
+msgstr ""
+
+msgid "You don't have access to one or more of the chosen organisation units."
+msgstr ""
 
 msgid "No organization units found"
 msgstr ""

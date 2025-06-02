@@ -1,5 +1,4 @@
 import {
-    getDisplayNameByVisType,
     convertOuLevelsToUids,
     ALL_DYNAMIC_DIMENSION_ITEMS,
     DIMENSION_ID_DATA,
@@ -7,6 +6,7 @@ import {
     DIMENSION_ID_ORGUNIT,
     DIMENSION_ID_ASSIGNED_CATEGORIES,
     preparePayloadForSaveAs,
+    preparePayloadForSave,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import { apiPostDataStatistics } from '../api/dataStatistics.js'
@@ -14,13 +14,16 @@ import {
     apiFetchVisualization,
     apiSaveVisualization,
 } from '../api/visualization.js'
-import { VARIANT_SUCCESS } from '../components/Snackbar/Snackbar.jsx'
+import {
+    VARIANT_SUCCESS,
+    VARIANT_WARNING,
+} from '../components/Snackbar/Snackbar.jsx'
 import {
     GenericServerError,
     VisualizationNotFoundError,
 } from '../modules/error.js'
 import history from '../modules/history.js'
-import { getVisualizationFromCurrent } from '../modules/visualization.js'
+import { getSaveableVisualization } from '../modules/visualization.js'
 import { sGetCurrent } from '../reducers/current.js'
 import {
     sGetRootOrgUnits,
@@ -28,7 +31,6 @@ import {
     sGetSettingsDigitGroupSeparator,
 } from '../reducers/settings.js'
 import { sGetVisualization } from '../reducers/visualization.js'
-import * as fromChart from './chart.js'
 import * as fromCurrent from './current.js'
 import * as fromDimensions from './dimensions.js'
 import * as fromLoader from './loader.js'
@@ -37,7 +39,6 @@ import * as fromRecommended from './recommendedIds.js'
 import * as fromSettings from './settings.js'
 import * as fromSnackbar from './snackbar.js'
 import * as fromUi from './ui.js'
-import * as fromUser from './user.js'
 import * as fromVisualization from './visualization.js'
 
 export {
@@ -48,8 +49,6 @@ export {
     fromUi,
     fromMetadata,
     fromSettings,
-    fromUser,
-    fromChart,
     fromSnackbar,
     fromLoader,
 }
@@ -114,14 +113,12 @@ export const tDoLoadVisualization =
             if (errorResponse?.details?.httpStatusCode === 404) {
                 error = new VisualizationNotFoundError()
                 history.push('/')
-            } else if (errorResponse?.message) {
-                error = errorResponse.message
-            } else {
+            } else if (!errorResponse?.message) {
                 error = new GenericServerError()
             }
             dispatch(clearAll(error))
 
-            logError('tDoLoadVisualization', error)
+            logError('tDoLoadVisualization', error.description || error.message)
         }
     }
 
@@ -134,15 +131,15 @@ export const clearAll =
             dispatch(fromLoader.acClearLoadError())
         }
 
-        dispatch(fromVisualization.acClear())
-        dispatch(fromCurrent.acClear())
+        dispatch(fromVisualization.acClearVisualization())
+        dispatch(fromCurrent.acClearCurrent())
 
         const rootOrganisationUnits = sGetRootOrgUnits(getState())
         const relativePeriod = sGetRelativePeriod(getState())
         const digitGroupSeparator = sGetSettingsDigitGroupSeparator(getState())
 
         dispatch(
-            fromUi.acClear({
+            fromUi.acClearUi({
                 rootOrganisationUnits,
                 relativePeriod,
                 digitGroupSeparator,
@@ -152,41 +149,67 @@ export const clearAll =
 
 export const tDoRenameVisualization =
     ({ name, description }) =>
-    (dispatch, getState) => {
-        const state = getState()
+    async (dispatch, getState, engine) => {
+        const onSuccess = (res) => {
+            if (res.status === 'OK' && res.response.uid) {
+                const state = getState()
 
-        const visualization = sGetVisualization(state)
-        const current = sGetCurrent(state)
+                const visualization = sGetVisualization(state)
+                const current = sGetCurrent(state)
 
-        const updatedVisualization = { ...visualization }
-        const updatedCurrent = { ...current }
+                const updatedVisualization = { ...visualization }
+                const updatedCurrent = { ...current }
 
-        if (name) {
-            updatedVisualization.name = updatedCurrent.name = name
+                if (name) {
+                    updatedVisualization.name = updatedCurrent.name = name
+                }
+
+                updatedVisualization.description = updatedCurrent.description =
+                    description
+
+                dispatch(
+                    fromVisualization.acSetVisualization(updatedVisualization)
+                )
+
+                // keep the same reference for current if there are no changes
+                // other than the name/description
+                if (visualization === current) {
+                    dispatch(fromCurrent.acSetCurrent(updatedVisualization))
+                } else {
+                    dispatch(fromCurrent.acSetCurrent(updatedCurrent))
+                }
+
+                dispatch(
+                    fromSnackbar.acReceivedSnackbarMessage({
+                        variant: VARIANT_SUCCESS,
+                        message: i18n.t('Rename successful'),
+                        duration: 2000,
+                    })
+                )
+            }
         }
 
-        if (description) {
-            updatedVisualization.description = updatedCurrent.description =
-                description
-        }
-
-        dispatch(fromVisualization.acSetVisualization(updatedVisualization))
-
-        // keep the same reference for current if there are no changes
-        // other than the name/description
-        if (visualization === current) {
-            dispatch(fromCurrent.acSetCurrent(updatedVisualization))
-        } else {
-            dispatch(fromCurrent.acSetCurrent(updatedCurrent))
-        }
-
-        dispatch(
-            fromSnackbar.acReceivedSnackbarMessage({
-                variant: VARIANT_SUCCESS,
-                message: i18n.t('Rename successful'),
-                duration: 2000,
+        try {
+            const visToSave = await preparePayloadForSave({
+                visualization: getSaveableVisualization(
+                    sGetVisualization(getState())
+                ),
+                name,
+                description,
+                engine,
             })
-        )
+
+            return onSuccess(await apiSaveVisualization(engine, visToSave))
+        } catch (error) {
+            logError('tDoRenameVisualization', error)
+
+            dispatch(
+                fromSnackbar.acReceivedSnackbarMessage({
+                    variant: VARIANT_WARNING,
+                    message: i18n.t('Rename failed'),
+                })
+            )
+        }
     }
 
 export const tDoSaveVisualization =
@@ -210,37 +233,23 @@ export const tDoSaveVisualization =
 
         try {
             dispatch(fromLoader.acSetPluginLoading(true))
-            let visualization = getVisualizationFromCurrent(
+            let visualization = getSaveableVisualization(
                 sGetCurrent(getState())
             )
 
-            // remove the id to trigger a POST request and save a new AO
             if (copy) {
-                visualization = preparePayloadForSaveAs(visualization)
-            }
-
-            visualization.name =
-                // name provided in the Save dialog
-                name ||
-                // existing name when saving the same modified visualization
-                visualization.name ||
-                // new visualization with no name provided in Save dialog
-                i18n.t(
-                    'Untitled {{visualizationType}} visualization, {{date}}',
-                    {
-                        visualizationType: getDisplayNameByVisType(
-                            visualization.type
-                        ),
-                        date: new Date().toLocaleDateString(undefined, {
-                            year: 'numeric',
-                            month: 'short',
-                            day: '2-digit',
-                        }),
-                    }
-                )
-
-            if (description) {
-                visualization.description = description
+                visualization = preparePayloadForSaveAs({
+                    visualization,
+                    name,
+                    description,
+                })
+            } else {
+                visualization = await preparePayloadForSave({
+                    visualization,
+                    name,
+                    description,
+                    engine,
+                })
             }
 
             return onSuccess(await apiSaveVisualization(engine, visualization))
