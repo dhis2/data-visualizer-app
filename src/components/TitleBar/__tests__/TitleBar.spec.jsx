@@ -1,4 +1,4 @@
-import { shallow } from 'enzyme'
+import { render, screen } from '@testing-library/react'
 import React from 'react'
 import {
     STATE_EMPTY,
@@ -6,62 +6,44 @@ import {
     STATE_SAVED,
     STATE_DIRTY,
 } from '../../../modules/visualization.js'
-import {
-    UnconnectedTitleBar as TitleBar,
-    getTitleUnsaved,
-    getTitleDirty,
-} from '../TitleBar.jsx'
+import { UnconnectedTitleBar as TitleBar } from '../TitleBar.jsx'
 
-describe('TitleBar component', () => {
-    let props
-    let shallowTitleBar
+test('TitleBar does not render anything', () => {
+    const props = {
+        titleState: STATE_EMPTY,
+        titleText: null,
+    }
+    const { container } = render(<TitleBar {...props} />)
 
-    const titleBar = () => {
-        if (!shallowTitleBar) {
-            shallowTitleBar = shallow(<TitleBar {...props} />)
-        }
-        return shallowTitleBar
+    expect(container).toBeEmptyDOMElement()
+})
+
+test('TitleBar renders "unsaved" state', () => {
+    const props = {
+        titleState: STATE_UNSAVED,
+        titleText: 'Unsaved visualization',
+    }
+    render(<TitleBar {...props} />)
+    const titleDiv = screen.getByText('Unsaved visualization')
+    expect(titleDiv).toBeInTheDocument()
+})
+
+test('TitleBar renders "saved" state', () => {
+    const props = {
+        titleState: STATE_SAVED,
+        titleText: 'Yall',
     }
 
-    beforeEach(() => {
-        props = {
-            titleState: STATE_EMPTY,
-            titleText: null,
-        }
+    render(<TitleBar {...props} />)
+    const titleDiv = screen.getByText('Yall')
+    expect(titleDiv).toBeInTheDocument()
+})
 
-        shallowTitleBar = undefined
-    })
-
-    it('renders "empty" state', () => {
-        expect(titleBar().find('div')).toHaveLength(0)
-    })
-
-    it('renders "unsaved" state', () => {
-        props.titleState = STATE_UNSAVED
-        props.titleText = getTitleUnsaved()
-        expect(titleBar().find('div')).toHaveLength(2)
-        expect(titleBar().find('div').first().text()).toEqual(getTitleUnsaved())
-    })
-
-    it('renders "saved" state', () => {
-        props.titleState = STATE_SAVED
-        props.titleText = 'Yall'
-        expect(titleBar().find('div')).toHaveLength(2)
-        expect(titleBar().find('div').first().text()).toEqual('Yall')
-    })
-
-    it('renders "dirty" state', () => {
-        props.titleState = STATE_DIRTY
-        props.titleText = 'Yall'
-        expect(titleBar().find('div')).toHaveLength(3)
-        expect(titleBar().find('div').first().text()).toEqual(
-            `Yall- ${getTitleDirty()}`
-        )
-    })
-
-    it('renders a <div> containing everything else', () => {
-        const wrappingDiv = titleBar().find('div').first()
-
-        expect(wrappingDiv.children()).toEqual(titleBar().children())
-    })
+test('TitleBar renders "dirty" state', () => {
+    const props = {
+        titleState: STATE_DIRTY,
+        titleText: 'Yall',
+    }
+    const { container } = render(<TitleBar {...props} />)
+    expect(container).toMatchSnapshot()
 })

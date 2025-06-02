@@ -1,61 +1,48 @@
-import { shallow } from 'enzyme'
+import { render, screen } from '@testing-library/react'
 import React from 'react'
 import { TooltipContent } from '../TooltipContent.jsx'
 
-describe('TooltipContent', () => {
-    let props
-    let shallowTooltip
-    const tooltip = () => {
-        if (!shallowTooltip) {
-            shallowTooltip = shallow(<TooltipContent {...props} />)
-        }
-        return shallowTooltip
+test('TooltipContent renders "None selected" when no items', () => {
+    const props = {
+        dimensionId: 'abc',
+        metadata: {},
+        itemIds: [],
     }
 
-    beforeEach(() => {
-        props = {
-            dimensionId: 'abc',
-            metadata: {},
-            itemIds: [],
-        }
-        shallowTooltip = undefined
-    })
+    render(<TooltipContent {...props} />)
+    const ulElement = screen.getByRole('list')
+    expect(ulElement).toBeInTheDocument()
+    expect(ulElement.children.length).toBe(1)
+    expect(ulElement.children[0].textContent).toBe('None selected')
+})
 
-    it('renders a <ul>', () => {
-        expect(tooltip().find('ul').length).toEqual(1)
-    })
+test('TooltipContent renders list items for the provided items', () => {
+    const props = {
+        dimensionId: 'abc',
+        metadata: {},
+        itemIds: ['aaa', 'bbb'],
+    }
 
-    describe('no items provided', () => {
-        it('renders a default list item', () => {
-            const items = tooltip().find('li')
+    render(<TooltipContent {...props} />)
+    const items = screen.getAllByRole('listitem')
+    expect(items.length).toEqual(props.itemIds.length)
+    expect(items[0].textContent).toBe('aaa')
+    expect(items[1].textContent).toBe('bbb')
+})
 
-            expect(items.length).toEqual(1)
-        })
-    })
+test('TooltipContent renders list items for the provided items when metadata provided', () => {
+    const props = {
+        dimensionId: 'abc',
+        metadata: {
+            aaa: { name: 'The aaa dimension' },
+            bbb: { name: 'The bbb dimension' },
+        },
+        itemIds: ['aaa', 'bbb'],
+    }
 
-    describe('items are provided', () => {
-        it('renders list items for the provided items', () => {
-            props.itemIds = ['aaa', 'bbb']
-
-            const items = tooltip().find('li')
-
-            expect(items.length).toEqual(props.itemIds.length)
-            expect(items.first().text()).toBe('aaa')
-        })
-
-        describe('metadata is provided', () => {
-            it('renders list items for the provided items', () => {
-                props.itemIds = ['aaa', 'bbb']
-                props.metadata = {
-                    aaa: { name: 'The aaa dimension' },
-                    bbb: { name: 'The bbb dimension' },
-                }
-
-                const items = tooltip().find('li')
-
-                expect(items.length).toEqual(props.itemIds.length)
-                expect(items.first().text()).toBe('The aaa dimension')
-            })
-        })
-    })
+    render(<TooltipContent {...props} />)
+    const items = screen.getAllByRole('listitem')
+    expect(items.length).toEqual(props.itemIds.length)
+    expect(items[0].textContent).toBe('The aaa dimension')
+    expect(items[1].textContent).toBe('The bbb dimension')
 })

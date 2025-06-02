@@ -1,33 +1,17 @@
 import { VIS_TYPE_COLUMN } from '@dhis2/analytics'
-import { shallow } from 'enzyme'
-import React from 'react'
-import ListItemIcon from '../ListItemIcon.jsx'
+import { render } from '@testing-library/react'
 import VisualizationTypeListItem from '../VisualizationTypeListItem.jsx'
 
-describe('VisualizationTypeListItem component ', () => {
-    let props
-    let shallowElement
-
-    const element = () => {
-        if (!shallowElement) {
-            shallowElement = shallow(<VisualizationTypeListItem {...props} />)
-        }
-        return shallowElement
+test('VisualizationTypeListItem renders Column item', () => {
+    const props = {
+        iconType: VIS_TYPE_COLUMN,
+        label: 'Column Chart',
+        description: 'A chart that displays data in columns',
+        disabled: false,
+        isSelected: false,
+        onClick: jest.fn(),
     }
 
-    beforeEach(() => {
-        props = {
-            type: VIS_TYPE_COLUMN,
-            visualizationType: VIS_TYPE_COLUMN,
-        }
-        shallowElement = undefined
-    })
-
-    it('renders a div', () => {
-        expect(element().find('div').first().length).toEqual(1)
-    })
-
-    it('renders ListItemIcon', () => {
-        expect(element().find(ListItemIcon).first().length).toEqual(1)
-    })
+    const { container } = render(<VisualizationTypeListItem {...props} />)
+    expect(container).toMatchSnapshot()
 })

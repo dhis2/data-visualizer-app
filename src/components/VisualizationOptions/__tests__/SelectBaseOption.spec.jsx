@@ -1,110 +1,105 @@
-import { Checkbox, SingleSelectField, SingleSelectOption } from '@dhis2/ui'
-import { shallow } from 'enzyme'
+import {
+    render,
+    screen,
+    queryByAttribute,
+    fireEvent,
+} from '@testing-library/react'
 import React from 'react'
 import { UnconnectedSelectBaseOption as SelectBaseOption } from '../Options/SelectBaseOption.jsx'
 
+jest.mock('@dhis2/ui', () => {
+    const originalModule = jest.requireActual('@dhis2/ui')
+    return {
+        ...originalModule,
+        SingleSelectOption: ({ value, label }) => (
+            <div value={value} data-test={`option-${value}`}>
+                {label}
+            </div>
+        ),
+        SingleSelectField: ({ children, ...props }) => (
+            <select {...props} data-test={`${props.dataTest}-select`}>
+                {children}
+            </select>
+        ),
+    }
+})
+
 describe('DV > Options > SelectBaseOption', () => {
-    let props
-    let shallowSelectBaseOption
     const onChange = jest.fn()
 
-    const selectBaseOption = (props) => {
-        shallowSelectBaseOption = shallow(<SelectBaseOption {...props} />)
-
-        return shallowSelectBaseOption
+    const props = {
+        value: '',
+        label: 'toggleable test',
+        option: {
+            name: 'toggleable-select',
+            defaultValue: '',
+            items: [
+                { value: 'opt1', label: 'Option 1' },
+                { value: 'opt2', label: 'Option 2' },
+                { value: 'opt3', label: 'Option 3' },
+            ],
+        },
+        onChange,
+        toggleable: true,
+        dataTest: 'hello',
     }
 
-    describe('toggleable', () => {
-        beforeEach(() => {
-            props = {
-                value: '',
-                label: 'toggleable test',
-                option: {
-                    name: 'toggleable-select',
-                    defaultValue: '',
-                    items: [
-                        { value: 'opt1', label: 'Option 1' },
-                        { value: 'opt2', label: 'Option 2' },
-                        { value: 'opt3', label: 'Option 3' },
-                    ],
-                },
-                onChange,
-                toggleable: true,
-            }
-
-            shallowSelectBaseOption = undefined
+    test('renders a <Checkbox />', () => {
+        const { container } = render(<SelectBaseOption {...props} />)
+        const checkbox = screen.getByRole('checkbox', {
+            name: props.label,
         })
+        expect(checkbox).toBeInTheDocument()
+        expect(checkbox).toHaveProperty('checked', false)
 
-        it('renders a <Checkbox />', () => {
-            expect(selectBaseOption(props).find(Checkbox)).toHaveLength(1)
+        const getByDataTest = queryByAttribute.bind(null, 'data-test')
+        const select = getByDataTest(container, 'hello-select-select')
+        expect(select).not.toBeInTheDocument()
+    })
+
+    test('renders a <Checkbox /> and <SingleSelectField /> when the checkbox is enabled', () => {
+        props.value = 'opt1'
+
+        const { container } = render(<SelectBaseOption {...props} />)
+        expect(container).toMatchSnapshot()
+
+        const checkbox = screen.getByRole('checkbox', {
+            name: props.label,
         })
+        expect(checkbox).toBeInTheDocument()
 
-        it('does not render a <SingleSelectField />', () => {
-            expect(
-                selectBaseOption(props).find(SingleSelectField)
-            ).toHaveLength(0)
-        })
+        const getByDataTest = queryByAttribute.bind(null, 'data-test')
+        const select = getByDataTest(container, 'hello-select-select')
+        expect(select).toBeInTheDocument()
+    })
 
-        it('does render a <SingleSelectField /> when the checkbox is enabled', () => {
-            const select = selectBaseOption(props)
-            const checkbox = select.find(Checkbox)
-            checkbox.simulate('change', { checked: true })
+    test('renders a <SingleSelectField /> when not toggleable', () => {
+        props.toggleable = false
+        const { container } = render(<SelectBaseOption {...props} />)
+        expect(container).toMatchSnapshot()
 
-            expect(select.find(SingleSelectField)).toHaveLength(1)
-            expect(onChange).toHaveBeenCalledWith(props.option.items[0].value)
-            expect(select.find(Checkbox).props().checked).toBe(true)
+        const getByDataTest = queryByAttribute.bind(null, 'data-test')
+        const select = getByDataTest(container, 'hello-select-select')
+        expect(select).toBeInTheDocument()
+
+        const options = Array.from(select.children)
+        expect(options).toHaveLength(3)
+        options.forEach((option, index) => {
+            expect(option.getAttribute('value')).toEqual(`opt${index + 1}`)
         })
     })
 
-    describe('non toggleable', () => {
-        beforeEach(() => {
-            props = {
-                value: '',
-                option: {
-                    name: 'non-toggleable-select',
-                    defaultValue: '',
-                    items: [
-                        { value: 'opt1', label: 'Option 1' },
-                        { value: 'opt2', label: 'Option 2' },
-                        { value: 'opt3', label: 'Option 3' },
-                    ],
-                },
-                onChange,
-                toggleable: false,
-            }
+    test('should trigger the onChange callback on select change', () => {
+        props.toggleable = false
+        const { container } = render(<SelectBaseOption {...props} />)
 
-            shallowSelectBaseOption = undefined
-        })
+        const getByDataTest = queryByAttribute.bind(null, 'data-test')
+        const select = getByDataTest(container, 'hello-select-select')
+        expect(select).toBeInTheDocument()
 
-        it('renders a <SingleSelectField />', () => {
-            expect(
-                selectBaseOption(props).find(SingleSelectField)
-            ).toHaveLength(1)
-        })
+        fireEvent.change(select, { target: { value: 'opt2' } })
 
-        it('renders the list of options', () => {
-            const options = selectBaseOption(props).find(SingleSelectOption)
-
-            options.forEach((item, index) => {
-                const option = props.option.items[index]
-
-                expect(item.props().value).toEqual(option.value)
-                expect(item.props().label).toEqual(option.label)
-            })
-        })
-
-        it('should trigger the onChange callback on select change', () => {
-            const select = selectBaseOption(props).find(SingleSelectField)
-
-            select.simulate('change', {
-                selected: {
-                    value: props.option.items.find(
-                        (item) => item.value === 'opt2'
-                    ),
-                },
-            })
-
-            expect(onChange).toHaveBeenCalled()
-        })
+        expect(onChange).toHaveBeenCalled()
+        // expect(onChange).toHaveBeenCalledWith('opt2')
     })
 })

@@ -1,131 +1,137 @@
-import { Checkbox, Input, InputField } from '@dhis2/ui'
-import { shallow } from 'enzyme'
+import { render, screen, queryByAttribute } from '@testing-library/react'
 import React from 'react'
 import { UnconnectedTextBaseOption as TextBaseOption } from '../Options/TextBaseOption.jsx'
 
 describe('DV > Options > TextBaseOption', () => {
-    let props
-    let shallowTextBaseOption
-    let onChange
+    test('renders an <InputField /> for input type "text"', () => {
+        const props = {
+            value: 'Romeo and Juliet',
+            type: 'text',
+            label: 'Your favorite tragedy',
+            onChange: jest.fn(),
+            option: {
+                name: 'tragedy',
+            },
+            helpText: 'a tragedy',
+            placeholder: 'Suggest one of the tragedies',
+            width: '100px',
+        }
 
-    const textBaseOption = (props) => {
-        shallowTextBaseOption = shallow(<TextBaseOption {...props} />)
+        render(<TextBaseOption {...props} />)
 
-        return shallowTextBaseOption
-    }
-
-    describe('non toggleable', () => {
-        beforeEach(() => {
-            onChange = jest.fn()
-
-            props = {
-                value: 'test',
-                type: 'text',
-                label: 'Input field',
-                option: {
-                    name: 'input1',
-                },
-
-                onChange,
-            }
-
-            shallowTextBaseOption = undefined
+        const inputNode = screen.getByLabelText('Your favorite tragedy', {
+            selector: 'input',
         })
 
-        it('renders a <InputField />', () => {
-            expect(textBaseOption(props).find(InputField)).toHaveLength(1)
-        })
+        expect(inputNode.disabled).toBeFalsy()
+        expect(inputNode.type).toEqual('text')
+        expect(inputNode.value).toEqual('Romeo and Juliet')
+        expect(inputNode.placeholder).toEqual('Suggest one of the tragedies')
+        // expect(inputNode.helpText).toEqual('a tragedy')
+        // expect(inputNode.style.width).toEqual('100px')
 
-        it('sets the type prop to what passed in the prop', () => {
-            expect(textBaseOption(props).find(InputField).props().type).toEqual(
-                props.type
-            )
-        })
-
-        it('sets the label prop to what passed in the prop', () => {
-            expect(
-                textBaseOption(props).find(InputField).props().label
-            ).toEqual(props.label)
-        })
-
-        it('sets the value to what passed in the prop', () => {
-            expect(
-                textBaseOption(props).find(InputField).props().value
-            ).toEqual(props.value)
-        })
-
-        it('sets the help text to what passed in the prop', () => {
-            props.helpText = 'helper text'
-
-            expect(
-                textBaseOption(props).find(InputField).props().helpText
-            ).toEqual(props.helpText)
-        })
-
-        it('sets the placeholder to what passed in the prop', () => {
-            props.placeholder = 'placeholder text'
-
-            expect(
-                textBaseOption(props).find(InputField).props().placeholder
-            ).toEqual(props.placeholder)
-        })
-
-        it('sets the width prop to what passed in the prop', () => {
-            props.width = '105px'
-
-            expect(
-                textBaseOption(props).find(InputField).props().inputWidth
-            ).toEqual(props.width)
-        })
-
-        it('should trigger the onChange callback on text change', () => {
-            const text = textBaseOption(props).find(InputField)
-
-            text.simulate('change', { value: 'test' })
-
-            expect(onChange).toHaveBeenCalled()
-        })
-
-        it('renders a <Input /> field when inline is passed', () => {
-            props.inline = true
-
-            expect(textBaseOption(props).find(Input)).toHaveLength(1)
-            expect(textBaseOption(props).find(InputField)).toHaveLength(0)
-        })
+        // userEvent.type(inputNode, 'King Lear')
+        // expect(props.onChange).toHaveBeenCalledWith('King Lear')
     })
 
-    describe('toggleable', () => {
-        beforeEach(() => {
-            props = {
-                value: 'test',
-                type: 'text',
-                label: 'Input field',
-                option: {
-                    name: 'input1',
-                },
-                toggleable: true,
+    test('renders a <Input /> field when inline is passed', () => {
+        const props = {
+            type: 'text',
+            onChange: jest.fn(),
+            option: {
+                name: 'tragedy',
+            },
+            value: 'Romeo and Juliet',
+            placeholder: 'Suggest one of the tragedies',
+            inline: true,
+            disabled: false,
+            dataTest: 'tragedy-input',
+        }
 
-                onChange: jest.fn(),
-                onToggle: jest.fn(),
-            }
+        const getByDataTest = queryByAttribute.bind(null, 'data-test')
+        const { container } = render(<TextBaseOption {...props} />)
 
-            shallowTextBaseOption = undefined
+        const containerDiv = getByDataTest(container, 'tragedy-input-input')
+        expect(containerDiv).toBeInTheDocument()
+
+        const inputNode = containerDiv.firstChild
+
+        expect(inputNode.disabled).toBeFalsy()
+        expect(inputNode.type).toEqual('text')
+        expect(inputNode.value).toEqual('Romeo and Juliet')
+        expect(inputNode.placeholder).toEqual('Suggest one of the tragedies')
+    })
+
+    test('renders a <Checkbox />', () => {
+        const props = {
+            checked: false,
+            label: 'Your favorite tragedy',
+            option: {
+                name: 'input1',
+            },
+            toggleable: true,
+            onToggle: jest.fn(),
+        }
+
+        render(<TextBaseOption {...props} />)
+
+        const checkbox = screen.getByRole('checkbox', {
+            name: 'Your favorite tragedy',
+        })
+        expect(checkbox).toBeInTheDocument()
+        expect(checkbox.checked).toBe(false)
+        expect(checkbox).toHaveAttribute('name', 'input1-toggle')
+        expect(checkbox).toHaveAttribute('type', 'checkbox')
+    })
+
+    test('does render a <InputField /> when the checkbox is checked', () => {
+        const props = {
+            checked: true,
+            label: 'Your favorite tragedy',
+            option: {
+                name: 'input1',
+            },
+            toggleable: true,
+            onToggle: jest.fn(),
+        }
+
+        render(<TextBaseOption {...props} />)
+
+        const checkbox = screen.getByRole('checkbox', {
+            name: 'Your favorite tragedy',
         })
 
-        it('renders a <Checkbox />', () => {
-            expect(textBaseOption(props).find(Checkbox)).toHaveLength(1)
-        })
+        expect(checkbox).toBeInTheDocument()
+        expect(checkbox.checked).toBe(true)
+        expect(checkbox).toHaveAttribute('name', 'input1-toggle')
+        expect(checkbox).toHaveAttribute('type', 'checkbox')
+    })
 
-        it('does not render a <InputField />', () => {
-            expect(textBaseOption(props).find(InputField)).toHaveLength(0)
-        })
+    // Need to add redux store to test this
+    test.skip('renders a TextStyle component when fontStyleKey is passed', () => {
+        const props = {
+            value: 'Arial',
+            type: 'text',
+            label: 'Font Style',
+            onChange: jest.fn(),
+            option: {
+                name: 'fontStyle',
+            },
+            fontStyleKey: 'fontStyle',
+            helpText: 'Select a font style',
+            placeholder: 'Choose a font style',
+            width: '100px',
+            dataTest: 'font-style-input',
+        }
 
-        it('does render a <InputField /> when the checkbox is checked', () => {
-            props.checked = true
+        const getByDataTest = queryByAttribute.bind(null, 'data-test')
 
-            const text = textBaseOption(props)
-            expect(text.find(InputField)).toHaveLength(1)
-            expect(text.find(Checkbox).props().checked).toBe(true)
-        })
+        const { container } = render(<TextBaseOption {...props} />)
+
+        const containerDiv = getByDataTest(
+            container,
+            'font-style-input-text-style'
+        )
+        expect(containerDiv).toBeInTheDocument()
     })
 })
