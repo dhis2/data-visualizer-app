@@ -15,7 +15,7 @@ import {
     sGetUiLayoutColumns,
     sGetUiLayoutRows,
 } from '../../reducers/ui.js'
-import { useChartContext } from '../ChartProvider.js'
+import { useChartContext } from '../ChartProvider.jsx'
 import { computeChartOptionsForExport } from './computeChartOptionsForExport.js'
 import {
     DOWNLOAD_TYPE_PLAIN,
