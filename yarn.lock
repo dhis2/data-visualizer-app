@@ -2018,18 +2018,7 @@
     "@dhis2/pwa" "12.3.0"
     moment "^2.24.0"
 
-"@dhis2/app-runtime@^3.12.0":
-  version "3.13.2"
-  resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-3.13.2.tgz#c3eded902b457fb35d949e05ccb5c17191f05e56"
-  integrity sha512-rY0DfADBytx5WD6cf8nYnjyzUmsEORxMUL20iIFgAQQ64H3073FI4GOJB11Xt9NF5cCJhtQLJsehAq8zhI7GUQ==
-  dependencies:
-    "@dhis2/app-service-alerts" "3.13.2"
-    "@dhis2/app-service-config" "3.13.2"
-    "@dhis2/app-service-data" "3.13.2"
-    "@dhis2/app-service-offline" "3.13.2"
-    "@dhis2/app-service-plugin" "3.13.2"
-
-"@dhis2/app-runtime@^3.14.1":
+"@dhis2/app-runtime@^3.12.0", "@dhis2/app-runtime@^3.14.1":
   version "3.14.1"
   resolved "https://registry.yarnpkg.com/@dhis2/app-runtime/-/app-runtime-3.14.1.tgz#2e4ad5e533ca7e38e4fce5b4face71b1837c5d23"
   integrity sha512-gE95IbRXW9UwngJ8jHlidJKjng7ZUdMFeCwupaHHh2Ax+inl8mZEN7fMPBXMQf5coIx5gEnLs4Ov36rUnzFtnQ==
