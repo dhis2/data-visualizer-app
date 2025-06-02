@@ -13,12 +13,12 @@ import {
     isVerticalType,
 } from '@dhis2/analytics'
 import defaultConfig from './defaultConfig.js'
-import gaugeConfig from './gaugeConfig.js'
-import outlierTableConfig from './outlierTableConfig.js'
-import pieConfig from './pieConfig.js'
-import pivotTableConfig from './pivotTableConfig.js'
-import scatterConfig from './scatterConfig.js'
-import singleValueConfig from './singleValueConfig.js'
+import gaugeConfig from './gaugeConfig.jsx'
+import outlierTableConfig from './outlierTableConfig.jsx'
+import pieConfig from './pieConfig.jsx'
+import pivotTableConfig from './pivotTableConfig.jsx'
+import scatterConfig from './scatterConfig.jsx'
+import singleValueConfig from './singleValueConfig.jsx'
 
 export const getOptionsByType = ({
     type,

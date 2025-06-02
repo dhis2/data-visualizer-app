@@ -17,7 +17,7 @@ import {
 import {
     VARIANT_SUCCESS,
     VARIANT_WARNING,
-} from '../components/Snackbar/Snackbar.js'
+} from '../components/Snackbar/Snackbar.jsx'
 import {
     GenericServerError,
     VisualizationNotFoundError,
