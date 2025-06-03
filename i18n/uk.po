@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2024-03-01T08:28:43.727Z\n"
+"POT-Creation-Date: 2025-04-15T09:09:07.966Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Philip Larsen Donnelly, 2024\n"
 "Language-Team: Ukrainian (https://app.transifex.com/hisp-uio/teams/100509/uk/)\n"
@@ -25,8 +25,8 @@ msgstr "Всі елементи"
 msgid "Rename successful"
 msgstr "Перейменування успішно виконано"
 
-msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr "Візуалізація без назви {{visualizationType}}, {{date}}"
+msgid "Rename failed"
+msgstr ""
 
 msgid "\"{{- deletedObject}}\" successfully deleted."
 msgstr ""
@@ -928,6 +928,12 @@ msgid ""
 msgstr ""
 "Візуалізація, яку ви намагаєтеся переглянути, не може бути знайдена, "
 "ідентифікатор може бути неправильним, або він міг бути видалений."
+
+msgid "Restricted access"
+msgstr ""
+
+msgid "You don't have access to one or more of the chosen organisation units."
+msgstr ""
 
 msgid "No organization units found"
 msgstr "Не знайдено організаційних підрозділів"
