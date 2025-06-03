@@ -170,17 +170,18 @@ export const useVisTypesFilterByVersion = () => {
 export const getVisualizationWithFilteredOptionsByType = (visualization) => {
     const visualizationClone = cloneDeep(visualization)
 
-    const supportedOptions = new Set(
-        getOptionNamesByType(visualizationClone.type)
-    )
-    const unsupportedOptions = Object.keys(options).filter(
-        (optionName) => !supportedOptions.has(optionName)
-    )
+    if (visualizationClone) {
+        const supportedOptions = new Set(
+            getOptionNamesByType(visualizationClone.type)
+        )
+        const unsupportedOptions = Object.keys(options).filter(
+            (optionName) => !supportedOptions.has(optionName)
+        )
 
-    visualizationClone &&
         unsupportedOptions.forEach(
             (optionName) => delete visualizationClone[optionName]
         )
+    }
 
     return visualizationClone
 }
