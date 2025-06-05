@@ -61,6 +61,7 @@ import {
     OPTION_SUBTITLE,
     OPTION_TITLE,
     OPTION_TOP_LIMIT,
+    OPTION_COL_SUB_TOTALS,
 } from '../options.js'
 import getAdvancedTemplate from './sections/templates/advanced.js'
 import getDisplayTemplate from './sections/templates/display.js'
@@ -165,7 +166,7 @@ export const pivotTableOptionNames = () => [
     OPTION_CUMULATIVE_VALUES,
     OPTION_SHOW_DIMENSION_LABELS,
     OPTION_SKIP_ROUNDING,
-    'colSubTotals',
+    OPTION_COL_SUB_TOTALS,
     OPTION_COL_TOTALS,
     OPTION_ROW_TOTALS,
     OPTION_ROW_SUB_TOTALS,
