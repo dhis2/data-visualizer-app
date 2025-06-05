@@ -27,4 +27,8 @@ const configureStore = (middleware) => {
     )
 }
 
+// for testing purposes only
+export const setupTestStore = (preloadedState = {}) =>
+    createStore(reducer, preloadedState)
+
 export default configureStore

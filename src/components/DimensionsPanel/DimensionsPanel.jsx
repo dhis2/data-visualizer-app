@@ -22,7 +22,7 @@ import { default as DialogManager } from './Dialogs/DialogManager.jsx'
 import { default as DndDimensionsPanel } from './DndDimensionsPanel.jsx'
 import { styles } from './styles/DimensionsPanel.style.js'
 
-export const Dimensions = ({
+const DimensionsPanel = ({
     assignedCategoriesItemHandler,
     axisItemHandler,
     getCurrentAxisId,
@@ -110,7 +110,7 @@ export const Dimensions = ({
     )
 }
 
-Dimensions.propTypes = {
+DimensionsPanel.propTypes = {
     assignedCategoriesItemHandler: PropTypes.func,
     axisItemHandler: PropTypes.func,
     getCurrentAxisId: PropTypes.func,
@@ -165,4 +165,4 @@ const mapDispatchToProps = (dispatch) => ({
     onDimensionClick: (id) => dispatch(acSetUiActiveModalDialog(id)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dimensions)
+export default connect(mapStateToProps, mapDispatchToProps)(DimensionsPanel)
