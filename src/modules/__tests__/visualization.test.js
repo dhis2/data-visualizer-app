@@ -70,9 +70,12 @@ describe('getVisualizationWithFilteredOptionsByType', () => {
             }
 
             const filteredVis = getVisualizationWithFilteredOptionsByType(vis)
+            const sortFn = (a, b) => a.localeCompare(b)
 
-            expect(Object.keys(filteredVis).sort()).toEqual(
-                ['type', '__other', ...getOptionNamesByType(vis.type)].sort()
+            expect(Object.keys(filteredVis).sort(sortFn)).toEqual(
+                ['type', '__other', ...getOptionNamesByType(vis.type)].sort(
+                    sortFn
+                )
             )
         })
     })
