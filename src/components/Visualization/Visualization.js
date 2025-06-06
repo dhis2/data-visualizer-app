@@ -1,6 +1,6 @@
 import debounce from 'lodash-es/debounce'
 import PropTypes from 'prop-types'
-import React, { Component, Fragment, useCallback } from 'react'
+import React, { Component, Fragment, useCallback, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { tSetCurrentFromUi } from '../../actions/current.js'
 import { acSetPluginLoading } from '../../actions/loader.js'
@@ -11,6 +11,7 @@ import {
     acAddParentGraphMap,
 } from '../../actions/ui.js'
 import { removeLastPathSegment } from '../../modules/orgUnit.js'
+import { getVisualizationWithFilteredOptionsByType } from '../../modules/visualization.js'
 import { sGetCurrent } from '../../reducers/current.js'
 import { sGetIsPluginLoading, sGetLoadError } from '../../reducers/loader.js'
 import { sGetSettingsDisplayProperty } from '../../reducers/settings.js'
@@ -180,7 +181,7 @@ UnconnectedVisualization.propTypes = {
 
 export const Visualization = (props) => {
     const dispatch = useDispatch()
-    const visualization = useSelector(sGetCurrent)
+    const current = useSelector(sGetCurrent)
     const rightSidebarOpen = useSelector(sGetUiRightSidebarOpen)
     const error = useSelector(sGetLoadError)
     const isLoading = useSelector(sGetIsPluginLoading)
@@ -214,6 +215,11 @@ export const Visualization = (props) => {
         [dispatch]
     )
     const { setChart } = useChartContext()
+
+    const visualization = useMemo(
+        () => getVisualizationWithFilteredOptionsByType(current),
+        [current]
+    )
 
     return (
         <UnconnectedVisualization

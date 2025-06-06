@@ -1,9 +1,18 @@
+import {
+    HIDE_EMPTY_ROW_ITEMS_BEFORE_FIRST,
+    HIDE_EMPTY_ROW_ITEMS_AFTER_LAST,
+    HIDE_EMPTY_ROW_ITEMS_BEFORE_FIRST_AFTER_LAST,
+    HIDE_EMPTY_ROW_ITEMS_ALL,
+} from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import React from 'react'
-import { options } from '../../../modules/options.js'
+import {
+    options,
+    OPTION_HIDE_EMPTY_ROW_ITEMS,
+} from '../../../modules/options.js'
 import { SelectBaseOption } from './SelectBaseOption.js'
 
-const optionName = 'hideEmptyRowItems'
+const optionName = OPTION_HIDE_EMPTY_ROW_ITEMS
 const defaultValue = options[optionName].defaultValue
 
 const HideEmptyRowItems = () => (
@@ -14,13 +23,19 @@ const HideEmptyRowItems = () => (
             name: optionName,
             defaultValue: defaultValue,
             items: [
-                { value: 'BEFORE_FIRST', label: i18n.t('Before first') },
-                { value: 'AFTER_LAST', label: i18n.t('After last') },
                 {
-                    value: 'BEFORE_FIRST_AFTER_LAST',
+                    value: HIDE_EMPTY_ROW_ITEMS_BEFORE_FIRST,
+                    label: i18n.t('Before first'),
+                },
+                {
+                    value: HIDE_EMPTY_ROW_ITEMS_AFTER_LAST,
+                    label: i18n.t('After last'),
+                },
+                {
+                    value: HIDE_EMPTY_ROW_ITEMS_BEFORE_FIRST_AFTER_LAST,
                     label: i18n.t('Before first and after last'),
                 },
-                { value: 'ALL', label: i18n.t('All') },
+                { value: HIDE_EMPTY_ROW_ITEMS_ALL, label: i18n.t('All') },
             ],
         }}
     />

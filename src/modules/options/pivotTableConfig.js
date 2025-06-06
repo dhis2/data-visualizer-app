@@ -29,6 +29,40 @@ import SortOrder from '../../components/VisualizationOptions/Options/SortOrder.j
 import Subtitle from '../../components/VisualizationOptions/Options/Subtitle.js'
 import Title from '../../components/VisualizationOptions/Options/Title.js'
 import TopLimit from '../../components/VisualizationOptions/Options/TopLimit.js'
+import {
+    OPTION_AGGREGATION_TYPE,
+    OPTION_APPROVAL_LEVEL,
+    OPTION_COL_TOTALS,
+    OPTION_COMPLETED_ONLY,
+    OPTION_CUMULATIVE_VALUES,
+    OPTION_CUMULATIVE,
+    OPTION_DIGIT_GROUP_SEPARATOR,
+    OPTION_DISPLAY_DENSITY,
+    OPTION_FIX_COLUMN_HEADERS,
+    OPTION_FIX_ROW_HEADERS,
+    OPTION_FONT_SIZE,
+    OPTION_GRAND_PARENT_ORGANISATION_UNIT,
+    OPTION_HIDE_EMPTY_COLUMNS,
+    OPTION_HIDE_EMPTY_ROWS,
+    OPTION_LEGEND,
+    OPTION_MEASURE_CRITERIA,
+    OPTION_NUMBER_TYPE,
+    OPTION_ORGANISATION_UNIT,
+    OPTION_PARENT_ORGANISATION_UNIT,
+    OPTION_REGRESSION,
+    OPTION_REPORTING_PERIOD,
+    OPTION_ROW_SUB_TOTALS,
+    OPTION_ROW_TOTALS,
+    OPTION_SERIES,
+    OPTION_SHOW_DIMENSION_LABELS,
+    OPTION_SHOW_HIERARCHY,
+    OPTION_SKIP_ROUNDING,
+    OPTION_SORT_ORDER,
+    OPTION_SUBTITLE,
+    OPTION_TITLE,
+    OPTION_TOP_LIMIT,
+    OPTION_COL_SUB_TOTALS,
+} from '../options.js'
 import getAdvancedTemplate from './sections/templates/advanced.js'
 import getDisplayTemplate from './sections/templates/display.js'
 import getEmptyDataTemplate from './sections/templates/emptyData.js'
@@ -125,4 +159,45 @@ export default ({
             },
         ],
     },
+]
+
+export const pivotTableOptionNames = () => [
+    // Data tab
+    OPTION_CUMULATIVE_VALUES,
+    OPTION_SHOW_DIMENSION_LABELS,
+    OPTION_SKIP_ROUNDING,
+    OPTION_COL_SUB_TOTALS,
+    OPTION_COL_TOTALS,
+    OPTION_ROW_TOTALS,
+    OPTION_ROW_SUB_TOTALS,
+    OPTION_HIDE_EMPTY_COLUMNS,
+    OPTION_HIDE_EMPTY_ROWS,
+    OPTION_AGGREGATION_TYPE,
+    OPTION_NUMBER_TYPE,
+    OPTION_COMPLETED_ONLY,
+    OPTION_APPROVAL_LEVEL,
+    // Legend tab
+    OPTION_LEGEND,
+    // Series tab
+    OPTION_SERIES,
+    // Style tab
+    OPTION_TITLE,
+    OPTION_SUBTITLE,
+    OPTION_DISPLAY_DENSITY,
+    OPTION_FONT_SIZE,
+    OPTION_DIGIT_GROUP_SEPARATOR,
+    OPTION_FIX_COLUMN_HEADERS,
+    OPTION_FIX_ROW_HEADERS,
+    OPTION_SHOW_HIERARCHY,
+    // Limit values tab
+    OPTION_MEASURE_CRITERIA,
+    // Parameters tab
+    OPTION_REPORTING_PERIOD,
+    OPTION_ORGANISATION_UNIT,
+    OPTION_PARENT_ORGANISATION_UNIT,
+    OPTION_GRAND_PARENT_ORGANISATION_UNIT,
+    OPTION_REGRESSION,
+    OPTION_CUMULATIVE,
+    OPTION_SORT_ORDER,
+    OPTION_TOP_LIMIT,
 ]

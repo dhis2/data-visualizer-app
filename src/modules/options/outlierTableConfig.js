@@ -6,6 +6,14 @@ import Outliers from '../../components/VisualizationOptions/Options/OutliersForO
 import OutliersMaxResults from '../../components/VisualizationOptions/Options/OutliersMaxResults.js'
 import ShowHierarchy from '../../components/VisualizationOptions/Options/ShowHierarchy.js'
 import SkipRounding from '../../components/VisualizationOptions/Options/SkipRounding.js'
+import {
+    OPTION_DIGIT_GROUP_SEPARATOR,
+    OPTION_DISPLAY_DENSITY,
+    OPTION_FONT_SIZE,
+    OPTION_OUTLIER_ANALYSIS,
+    OPTION_SHOW_HIERARCHY,
+    OPTION_SKIP_ROUNDING,
+} from '../options.js'
 import getDisplayTemplate from './sections/templates/display.js'
 import getDataTab from './tabs/data.js'
 import getOutliersTab from './tabs/outliers.js'
@@ -37,4 +45,16 @@ export default () => [
             content: React.Children.toArray([<Outliers />]),
         },
     ]),
+]
+
+export const outlierTableOptionNames = () => [
+    // Data tab
+    OPTION_SKIP_ROUNDING,
+    // Style tab
+    OPTION_DISPLAY_DENSITY,
+    OPTION_FONT_SIZE,
+    OPTION_DIGIT_GROUP_SEPARATOR,
+    OPTION_SHOW_HIERARCHY,
+    // Outliers tab
+    OPTION_OUTLIER_ANALYSIS,
 ]

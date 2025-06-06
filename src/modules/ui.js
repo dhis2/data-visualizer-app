@@ -19,14 +19,17 @@ import {
     DEFAULT_STATE as OUTLIER_METHOD_THRESHOLD_DEFAULT_STATE,
     METHOD_MODIFIED_Z_SCORE,
     METHOD_STANDARD_Z_SCORE,
-    OUTLIER_ANALYSIS_OPTION_NAME,
     OUTLIER_METHOD_PROP,
 } from '../components/VisualizationOptions/Options/OutliersForOutlierTable.js'
 import { DEFAULT_STATE as OUTLIER_MAX_RESULTS_DEFAULT_STATE } from '../components/VisualizationOptions/Options/OutliersMaxResults.js'
 import { getDisabledOptions } from './disabledOptions.js'
 import { BASE_FIELD_YEARLY_SERIES } from './fields/baseFields.js'
 import { getInverseLayout } from './layout.js'
-import { getOptionsFromVisualization } from './options.js'
+import {
+    getOptionsFromVisualization,
+    OPTION_MEASURE_CRITERIA,
+    OPTION_OUTLIER_ANALYSIS,
+} from './options.js'
 import { removeLastPathSegment } from './orgUnit.js'
 
 export const SERIES_ITEM_TYPE_PROP = 'type'
@@ -87,7 +90,7 @@ const yearOverYearUiAdapter = (ui) => {
 
 const singleValueUiAdapter = (ui) => {
     const adaptedUi = defaultUiAdapter(ui)
-    adaptedUi.options.measureCriteria = undefined
+    adaptedUi.options[OPTION_MEASURE_CRITERIA] = undefined
     return adaptedUi
 }
 
@@ -115,7 +118,7 @@ const scatterUiAdapter = (ui) => {
 
     adaptedUi.itemsByDimension = items
 
-    adaptedUi.options.measureCriteria = undefined
+    adaptedUi.options[OPTION_MEASURE_CRITERIA] = undefined
 
     return adaptedUi
 }
@@ -124,7 +127,7 @@ const scatterUiAdapter = (ui) => {
 const outlierTableUiAdapter = (ui) => {
     const adaptedUi = defaultUiAdapter(ui)
 
-    const outlierAnalysis = ui.options?.[OUTLIER_ANALYSIS_OPTION_NAME]
+    const outlierAnalysis = ui.options?.[OPTION_OUTLIER_ANALYSIS]
 
     if (
         !outlierAnalysis ||
@@ -132,7 +135,7 @@ const outlierTableUiAdapter = (ui) => {
             outlierAnalysis[OUTLIER_METHOD_PROP]
         )
     ) {
-        adaptedUi.options[OUTLIER_ANALYSIS_OPTION_NAME] = {
+        adaptedUi.options[OPTION_OUTLIER_ANALYSIS] = {
             ...OUTLIER_METHOD_THRESHOLD_DEFAULT_STATE,
             ...OUTLIER_MAX_RESULTS_DEFAULT_STATE,
         }

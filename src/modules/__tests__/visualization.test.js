@@ -1,4 +1,10 @@
-import { getSaveableVisualization } from '../visualization.js'
+import { getOptionNamesByType } from '../options/config.js'
+import { default as options } from '../options.js'
+import {
+    getSaveableVisualization,
+    getVisualizationWithFilteredOptionsByType,
+    visTypes,
+} from '../visualization.js'
 
 describe('getSaveableVisualization', () => {
     it('removes non-savable options from the visualization object', () => {
@@ -44,6 +50,33 @@ describe('getSaveableVisualization', () => {
             approvalLevel: 'value2',
             fontSize: 'value3',
             name: 'my visualization',
+        })
+    })
+})
+
+describe('getVisualizationWithFilteredOptionsByType', () => {
+    it('filters the visualization leaving only the supported options by type', () => {
+        visTypes.forEach((visType) => {
+            const vis = {
+                type: visType,
+                __other: 'just for testing',
+                ...Object.entries(options).reduce(
+                    (acc, [optionName, { defaultValue }]) => {
+                        acc[optionName] = defaultValue
+                        return acc
+                    },
+                    {}
+                ),
+            }
+
+            const filteredVis = getVisualizationWithFilteredOptionsByType(vis)
+            const sortFn = (a, b) => a.localeCompare(b)
+
+            expect(Object.keys(filteredVis).sort(sortFn)).toEqual(
+                ['type', '__other', ...getOptionNamesByType(vis.type)].sort(
+                    sortFn
+                )
+            )
         })
     })
 })

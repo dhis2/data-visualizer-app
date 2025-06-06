@@ -1,6 +1,7 @@
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { OPTION_SUBTITLE } from '../../../modules/options.js'
 import { TextBaseOption } from './TextBaseOption.js'
 
 const Subtitle = ({ dataTest, label }) => (
@@ -10,7 +11,7 @@ const Subtitle = ({ dataTest, label }) => (
         placeholder={i18n.t('Add a subtitle')}
         label={label}
         option={{
-            name: 'subtitle',
+            name: OPTION_SUBTITLE,
         }}
         dataTest={dataTest}
     />
