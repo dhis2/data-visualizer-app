@@ -1,158 +1,195 @@
-import {
-    DIMENSION_ID_DATA,
-    DIMENSION_ID_PERIOD,
-    DIMENSION_ID_ORGUNIT,
-} from '@dhis2/analytics'
-import { shallow } from 'enzyme'
+import * as analytics from '@dhis2/analytics'
+import { screen, fireEvent, act } from '@testing-library/react'
 import React from 'react'
-import HideButton from '../../../HideButton/HideButton.jsx'
-import { DialogManager } from '../DialogManager.jsx'
+import { setupTestStore } from '../../../../configureStore.js'
+import { renderWithProviders } from '../../../../../config/testsContext.js'
+import { DEFAULT_UI } from '../../../../reducers/ui.js'
+import DialogManager from '../DialogManager.jsx'
 
-jest.mock('@dhis2/analytics', () => {
-    const dataId = 'dx'
-    const periodId = 'pe'
-    const ouId = 'ou'
+jest.mock('@dhis2/analytics', () => ({
+    ...jest.requireActual('@dhis2/analytics'),
+    DataDimension: () => <div data-test="DataDimension" />,
+    DynamicDimension: () => <div data-test="DynamicDimension" />,
+    PeriodDimension: () => <div data-test="PeriodDimension" />,
+    OrgUnitDimension: () => <div data-test="OrgUnitDimension" />,
+    apiFetchRecommendedIds: jest.fn(() => Promise.resolve(['mockId'])),
+}))
 
-    return {
-        DataDimension: () => <div />,
-        DynamicDimension: () => <div />,
-        PeriodDimension: () => <div />,
-        OrgUnitDimension: () => <div />,
-        isSingleValue: () => true,
-        DIMENSION_ID_DATA: dataId,
-        DIMENSION_ID_PERIOD: periodId,
-        DIMENSION_ID_ORGUNIT: ouId,
-        dataTypeMap: {},
-        getAxisMaxNumberOfItems: () => {},
-        getDimensionMaxNumberOfItems: () => 1,
-        filterOutPredefinedDimensions: () => [],
-        getPredefinedDimensions: () => {},
-        getPredefinedDimensionProp: () => {},
-    }
-})
-
-describe('The DialogManager component', () => {
-    let props
-    let shallowDialog
-
-    const dialogManager = (customProps = {}) => {
-        props = {
-            ...props,
-            ...customProps,
-        }
-
-        if (!shallowDialog) {
-            shallowDialog = shallow(<DialogManager {...props} />)
-        }
-        return shallowDialog
-    }
+describe('DialogManager (connected)', () => {
+    let store
+    let initialState
 
     beforeEach(() => {
-        props = {
-            dataEngine: {},
-            dialogId: null,
-            dimensions: {
-                test: {},
-                [DIMENSION_ID_ORGUNIT]: { name: 'Organisation units' },
-                [DIMENSION_ID_DATA]: { name: 'Data' },
-                [DIMENSION_ID_PERIOD]: { name: 'Period' },
+        jest.clearAllMocks()
+        initialState = {
+            settings: {
+                displayNameProperty: 'displayName',
+                settings: {},
             },
-            dxIds: ['test'],
-            ouIds: [],
-            selectedItems: (dialogId) => {
-                return dialogId === 'dx' ? ['test'] : []
+            ui: {
+                ...DEFAULT_UI,
+                activeModalDialog: null,
+                itemsByDimension: {
+                    dx: ['test'],
+                    ou: [],
+                    pe: [],
+                },
+                parentGraphMap: {},
+                type: 'BAR',
+                dimensionIdsInLayout: [],
+                itemsByAttribute: {},
             },
-            metadata: {},
-            changeDialog: jest.fn(),
-            setRecommendedIds: jest.fn(),
-            getAxisIdByDimensionId: () => {},
-            dimensionIdsInLayout: [],
-            getItemsByAttribute: jest.fn(),
         }
-        shallowDialog = undefined
     })
 
     it('renders a closed dialog', () => {
-        expect(dialogManager()).toMatchSnapshot()
-    })
-
-    it('should add the dialogId of fixed dimensions to state "mounted" on first time render', () => {
-        const dialog = dialogManager().setProps({
-            dialogId: DIMENSION_ID_ORGUNIT,
-        })
-
-        expect(dialog.state().ouMounted).toBe(true)
+        store = setupTestStore(initialState)
+        renderWithProviders(<DialogManager dataEngine={{}} />, store)
+        expect(screen.queryByTestId('DataDimension')).not.toBeInTheDocument()
+        expect(screen.queryByTestId('OrgUnitDimension')).not.toBeInTheDocument()
+        expect(screen.queryByTestId('PeriodDimension')).not.toBeInTheDocument()
     })
 
     it('renders the DataDimension content in dialog', () => {
-        const dialog = dialogManager().setProps({
-            dialogId: DIMENSION_ID_DATA,
+        store = setupTestStore({
+            ...initialState,
+            ui: {
+                ...initialState.ui,
+                activeModalDialog: 'dx',
+            },
         })
-
-        expect(dialog).toMatchSnapshot()
+        renderWithProviders(<DialogManager dataEngine={{}} />, store)
+        expect(screen.getByTestId('DataDimension')).toBeInTheDocument()
     })
 
     it('renders the OrgUnitDimension content in dialog', () => {
-        const dialog = dialogManager().setProps({
-            dialogId: DIMENSION_ID_ORGUNIT,
+        store = setupTestStore({
+            ...initialState,
+            ui: {
+                ...initialState.ui,
+                activeModalDialog: 'ou',
+            },
         })
-
-        expect(dialog).toMatchSnapshot()
+        renderWithProviders(<DialogManager dataEngine={{}} />, store)
+        expect(
+            screen.getByRole('heading', {
+                level: 1,
+                name: /Organisation unit/i,
+            })
+        ).toBeInTheDocument()
+        expect(
+            screen.queryByRole('heading', {
+                level: 1,
+                name: /Period/i,
+            })
+        ).not.toBeInTheDocument()
     })
 
     it('renders the PeriodDimension content in dialog', () => {
-        const dialog = dialogManager().setProps({
-            dialogId: DIMENSION_ID_PERIOD,
+        store = setupTestStore({
+            ...initialState,
+            ui: {
+                ...initialState.ui,
+                activeModalDialog: 'pe',
+            },
         })
+        renderWithProviders(<DialogManager dataEngine={{}} />, store)
+        expect(
+            screen.getByRole('heading', {
+                level: 1,
+                name: /Period/i,
+            })
+        ).toBeInTheDocument()
 
-        expect(dialog).toMatchSnapshot()
+        expect(
+            screen.queryByRole('heading', {
+                level: 1,
+                name: /Organisation unit/i,
+            })
+        ).not.toBeInTheDocument()
     })
 
-    it('renders OUDimension content with display:none when previously mounted', () => {
-        const dialog = dialogManager().setProps({
-            dialogId: DIMENSION_ID_ORGUNIT,
+    it('sets the recommended Ids (with debounced delay) when a change in dx (Data) or ou (Organisation Unit) occurs', async () => {
+        jest.useFakeTimers()
+        // 1. Setup initial state
+        store = setupTestStore({
+            ...initialState,
+            ui: {
+                ...initialState.ui,
+                itemsByDimension: {
+                    ...initialState.ui.itemsByDimension,
+                    dx: ['DX-A'],
+                    ou: ['OU-A'],
+                },
+            },
+        })
+        // jest.spyOn(store, 'dispatch')
+        renderWithProviders(<DialogManager dataEngine={{}} />, store)
+
+        // 2. Dispatch an action that changes itemsByDimension.dx
+        act(() => {
+            store.dispatch({
+                type: 'SET_UI_ITEMS',
+                value: { dimensionId: 'dx', itemIds: ['DX-A', 'DX-B'] },
+            })
+            jest.advanceTimersByTime(1001)
         })
 
-        expect(dialog).toMatchSnapshot()
+        // Advance timers to flush debounce
+        act(() => {
+            jest.advanceTimersByTime(1001)
+        })
 
-        dialog.setProps({ dialogId: null })
-        expect(dialog).toMatchSnapshot()
+        // Await any pending promises
+        await act(async () => {
+            await Promise.resolve()
+        })
 
-        dialog.setProps({ dialogId: DIMENSION_ID_DATA })
-        expect(dialog).toMatchSnapshot()
-    })
-
-    it('sets the recommended Ids (with debounced delay) when a change in dx (Data) or ou (Organisation Unit) occurs', () => {
-        const dialog = dialogManager()
-        dialog.setProps({ ouIds: ['TEST_OU_ID'] })
-        dialog.setProps({ ouIds: ['OTHER_ID'] })
-
-        setTimeout(
-            () => expect(props.setRecommendedIds).toHaveBeenCalledTimes(1),
-            1001
+        expect(analytics.apiFetchRecommendedIds).toHaveBeenCalledWith(
+            expect.anything(),
+            ['DX-A', 'DX-B'],
+            expect.anything()
         )
     })
 
-    it('does not update recommendedIds if other selected ids are udpdated', () => {
-        const dialog = dialogManager()
-        dialog.setProps({ dimensionIdA: ['itemsByDimensionIdA'] })
-        dialog.setProps({
-            dimensionIdB: ['itemsByDimensionIdB', 'itemsByDimensionIdC'],
+    it('does not update recommendedIds if other selected ids are updated', async () => {
+        jest.useFakeTimers()
+        store = setupTestStore(initialState)
+        jest.spyOn(store, 'dispatch')
+        renderWithProviders(<DialogManager dataEngine={{}} />, store)
+        // No change in dxIds or ouIds, so setRecommendedIds should not be called
+        act(() => {
+            jest.advanceTimersByTime(1001)
         })
-
-        setTimeout(
-            () => expect(props.setRecommendedIds).toHaveBeenCalledTimes(0),
-            1001
+        // setRecommendedIds is not dispatched
+        const calls = store.dispatch.mock.calls.map(([action]) => action)
+        const wasSetRecommendedIdsDispatched = calls.some(
+            (action) => action.type === 'SET_RECOMMENDED_IDS'
         )
+        expect(wasSetRecommendedIdsDispatched).toBe(false)
+        jest.useRealTimers()
     })
 
-    it('calls the changeDialog function', () => {
-        const dialog = dialogManager().setProps({
-            dialogId: DIMENSION_ID_DATA,
+    it('dispatches action to close modal when HideButton is clicked', () => {
+        store = setupTestStore({
+            ...initialState,
+            ui: {
+                ...initialState.ui,
+                activeModalDialog: 'dx',
+            },
         })
-
-        dialog.find(HideButton).simulate('click')
-
-        expect(props.changeDialog).toHaveBeenCalledTimes(1)
+        jest.spyOn(store, 'dispatch')
+        renderWithProviders(<DialogManager dataEngine={{}} />, store)
+        fireEvent.click(
+            screen.getByTestId('dialog-manager-modal-action-cancel')
+        )
+        const calls = store.dispatch.mock.calls.map(([action]) => action)
+        const wasChangeDialogDispatched = calls.some(
+            (action) =>
+                typeof action === 'object' &&
+                action.type === 'SET_UI_ACTIVE_MODAL_DIALOG' &&
+                action.value === null
+        )
+        expect(wasChangeDialogDispatched).toBe(true)
     })
 })

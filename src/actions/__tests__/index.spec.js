@@ -44,7 +44,7 @@ jest.mock('@dhis2/analytics', () => ({
 }))
 /* eslint-enable no-import-assign, import/namespace */
 
-describe.skip('index', () => {
+describe('index', () => {
     beforeEach(() => {
         jest.clearAllMocks()
         jest.resetAllMocks()

@@ -99,7 +99,6 @@ const getExcludedPeriodTypes = (settings = {}) => {
     return types
 }
 export class DialogManager extends Component {
-    // TODO: Convert to functional component
     state = {
         onMounted: false,
     }

@@ -4,7 +4,7 @@ import styles from './styles/LoadingMask.module.css'
 
 function LoadingMask() {
     return (
-        <div className={styles.outer}>
+        <div className={styles.outer} data-test="loading-mask">
             <CircularLoader className={styles.progress} />
         </div>
     )

@@ -104,8 +104,7 @@ const isYearOverYearMockResponse = (visType) => {
     return visType === analytics.VIS_TYPE_YEAR_OVER_YEAR_LINE
 }
 
-describe.only('VisualizationPlugin', () => {
-    // eslint-disable-next-line no-import-assign, import/namespace
+describe('VisualizationPlugin', () => {
     options.getOptionsForRequest = () => [
         ['option1', { defaultValue: 'abc' }],
         ['option2', { defaultValue: null }],
@@ -127,9 +126,7 @@ describe.only('VisualizationPlugin', () => {
         let renderResult
 
         renderResult = render(<VisualizationPlugin {...combinedProps} />)
-        // Wait for async effects if needed
         await waitFor(() => {
-            // Example: check for a plugin render or API call
             expect(api.apiFetchAnalytics).toHaveBeenCalled()
         })
 
@@ -141,7 +138,6 @@ describe.only('VisualizationPlugin', () => {
         VisualizationErrorInfo.mockClear()
         defaultProps.onResponsesReceived.mockClear()
 
-        // eslint-disable-next-line no-import-assign, import/namespace
         api.apiFetchAnalytics = jest
             .fn()
             .mockResolvedValue([new MockAnalyticsResponse()])
@@ -177,7 +173,6 @@ describe.only('VisualizationPlugin', () => {
         })
 
         it('renders the error component when an exception is thrown', async () => {
-            // eslint-disable-next-line no-import-assign, import/namespace
             api.apiFetchAnalytics = jest.fn().mockRejectedValue('error')
 
             await canvas({
@@ -206,55 +201,56 @@ describe.only('VisualizationPlugin', () => {
             )
         })
 
-        describe('Year-on-year chart', () => {
-            beforeEach(() => {
-                ChartPlugin.mockClear()
+        it('Year-on-year chart makes year-on-year analytics request', async () => {
+            moduleAnalytics.getRelativePeriodTypeUsed = jest
+                .fn()
+                .mockReturnValue(undefined)
 
-                /* eslint-disable no-import-assign, import/namespace */
-                moduleAnalytics.getRelativePeriodTypeUsed = jest
-                    .fn()
-                    .mockReturnValue(undefined)
+            analytics.layoutGetDimensionItems = jest
+                .fn()
+                .mockReturnValue(peMock.items)
 
-                analytics.layoutGetDimensionItems = jest
-                    .fn()
-                    .mockReturnValue(peMock.items)
+            api.apiFetchAnalyticsForYearOverYear = jest
+                .fn()
+                .mockResolvedValue(new MockYoYAnalyticsResponse())
 
-                api.apiFetchAnalyticsForYearOverYear = jest
-                    .fn()
-                    .mockResolvedValue(new MockYoYAnalyticsResponse())
+            analytics.isYearOverYear = jest.fn(isYearOverYearMockResponse)
 
-                analytics.isYearOverYear = jest.fn(isYearOverYearMockResponse)
-                /* eslint-enable no-import-assign, import/namespace */
-            })
-
-            it.skip('makes year-on-year analytics request', async () => {
-                await canvas({
-                    visualization: {
-                        ...yearOverYearCurrentMock,
-                        option1: 'def',
-                    },
-                })
-
-                expect(api.apiFetchAnalyticsForYearOverYear).toHaveBeenCalled()
-                expect(
-                    api.apiFetchAnalyticsForYearOverYear.mock.calls[0][1]
-                ).toEqual({
+            const props = {
+                visualization: {
                     ...yearOverYearCurrentMock,
                     option1: 'def',
-                })
+                },
+            }
 
-                expect(ChartPlugin).toHaveBeenCalled()
+            const combinedProps = {
+                ...defaultProps,
+                ...props,
+            }
 
-                const expectedExtraOptions = {
-                    yearlySeries: mockYoYSeriesLabels,
-                    xAxisLabels: ['period 1', 'period 2'],
-                    periodKeyAxisIndexMap: { p1: 0, p2: 1 },
-                }
+            render(<VisualizationPlugin {...combinedProps} />)
+            await waitFor(() => {
+                expect(api.apiFetchAnalyticsForYearOverYear).toHaveBeenCalled()
+            })
 
-                expect(ChartPlugin.mock.calls[0][0].extraOptions).toEqual({
-                    dashboard: false,
-                    ...expectedExtraOptions,
-                })
+            expect(
+                api.apiFetchAnalyticsForYearOverYear.mock.calls[0][1]
+            ).toEqual({
+                ...yearOverYearCurrentMock,
+                option1: 'def',
+            })
+
+            expect(ChartPlugin).toHaveBeenCalled()
+
+            const expectedExtraOptions = {
+                yearlySeries: mockYoYSeriesLabels,
+                xAxisLabels: ['period 1', 'period 2'],
+                periodKeyAxisIndexMap: { p1: 0, p2: 1 },
+            }
+
+            expect(ChartPlugin.mock.calls[0][0].extraOptions).toEqual({
+                dashboard: false,
+                ...expectedExtraOptions,
             })
         })
     })

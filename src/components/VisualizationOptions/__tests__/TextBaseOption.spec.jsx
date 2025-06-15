@@ -1,137 +1,135 @@
-import { render, screen, queryByAttribute } from '@testing-library/react'
 import React from 'react'
-import { UnconnectedTextBaseOption as TextBaseOption } from '../Options/TextBaseOption.jsx'
+import { render, screen, queryByAttribute } from '@testing-library/react'
+import { TextBaseOption } from '../Options/TextBaseOption.jsx'
+import { setupTestStore } from '../../../configureStore.js'
+import { renderWithProviders } from '../../../../config/testsContext.js'
+import { DEFAULT_UI } from '../../../reducers/ui.js'
+import {
+    OPTION_FONT_SIZE,
+    OPTION_TARGET_LINE_ENABLED,
+} from '../../../modules/options.js'
 
-describe('DV > Options > TextBaseOption', () => {
-    test('renders an <InputField /> for input type "text"', () => {
-        const props = {
-            value: 'Romeo and Juliet',
-            type: 'text',
-            label: 'Your favorite tragedy',
-            onChange: jest.fn(),
-            option: {
-                name: 'tragedy',
+jest.mock('@dhis2/ui', () => ({
+    ...jest.requireActual('@dhis2/ui'),
+    Input: ({ name, value }) => <div id="input" name={name} value={value} />,
+    InputField: ({ name, value }) => (
+        <div id="inputfield" name={name} value={value} />
+    ),
+    Checkbox: ({ name, value }) => (
+        <div id="checkbox" name={name} value={value} />
+    ),
+    Box: ({ children }) => <div id="box">{children}</div>,
+}))
+
+test('TextBaseOption renders an <InputField />', () => {
+    const option = { name: 'title' }
+    const initialState = {
+        ui: {
+            ...DEFAULT_UI,
+            options: {
+                ...DEFAULT_UI.options,
+                title: 'hello',
             },
-            helpText: 'a tragedy',
-            placeholder: 'Suggest one of the tragedies',
-            width: '100px',
-        }
+        },
+    }
+    const store = setupTestStore(initialState)
 
-        render(<TextBaseOption {...props} />)
+    const { container } = renderWithProviders(
+        <TextBaseOption option={option} />,
+        store
+    )
 
-        const inputNode = screen.getByLabelText('Your favorite tragedy', {
-            selector: 'input',
-        })
+    expect(container).toMatchSnapshot()
+})
 
-        expect(inputNode.disabled).toBeFalsy()
-        expect(inputNode.type).toEqual('text')
-        expect(inputNode.value).toEqual('Romeo and Juliet')
-        expect(inputNode.placeholder).toEqual('Suggest one of the tragedies')
-        // expect(inputNode.helpText).toEqual('a tragedy')
-        // expect(inputNode.style.width).toEqual('100px')
-
-        // userEvent.type(inputNode, 'King Lear')
-        // expect(props.onChange).toHaveBeenCalledWith('King Lear')
-    })
-
-    test('renders a <Input /> field when inline is passed', () => {
-        const props = {
-            type: 'text',
-            onChange: jest.fn(),
-            option: {
-                name: 'tragedy',
+test('TextBaseOption renders a <Input /> field when inline is true', () => {
+    const option = { name: 'title' }
+    const initialState = {
+        ui: {
+            ...DEFAULT_UI,
+            options: {
+                ...DEFAULT_UI.options,
+                title: 'hello',
             },
-            value: 'Romeo and Juliet',
-            placeholder: 'Suggest one of the tragedies',
-            inline: true,
-            disabled: false,
-            dataTest: 'tragedy-input',
-        }
+        },
+    }
+    const store = setupTestStore(initialState)
 
-        const getByDataTest = queryByAttribute.bind(null, 'data-test')
-        const { container } = render(<TextBaseOption {...props} />)
+    const { container } = renderWithProviders(
+        <TextBaseOption option={option} inline={true} toggleable={false} />,
+        store
+    )
 
-        const containerDiv = getByDataTest(container, 'tragedy-input-input')
-        expect(containerDiv).toBeInTheDocument()
+    expect(container).toMatchSnapshot()
+})
 
-        const inputNode = containerDiv.firstChild
+test('TextBaseOption renders a <Checkbox /> when toggleable is set to true', () => {
+    const option = { name: 'title' }
+    const store = setupTestStore({})
 
-        expect(inputNode.disabled).toBeFalsy()
-        expect(inputNode.type).toEqual('text')
-        expect(inputNode.value).toEqual('Romeo and Juliet')
-        expect(inputNode.placeholder).toEqual('Suggest one of the tragedies')
-    })
+    const { container } = renderWithProviders(
+        <TextBaseOption label="The label" option={option} toggleable={true} />,
+        store
+    )
 
-    test('renders a <Checkbox />', () => {
-        const props = {
-            checked: false,
-            label: 'Your favorite tragedy',
-            option: {
-                name: 'input1',
+    expect(container).toMatchSnapshot()
+})
+
+test('TextBaseOption renders a <InputField /> when the checkbox is checked', () => {
+    const option = { enabledId: 'targetLineEnabled', axisId: 'x_0' }
+    const initialState = {
+        ui: {
+            ...DEFAULT_UI,
+            options: {
+                ...DEFAULT_UI.options,
+                axes: [
+                    {
+                        index: 0,
+                        type: 'x',
+                        targetLine: { enabled: true },
+                    },
+                ],
             },
-            toggleable: true,
-            onToggle: jest.fn(),
-        }
+        },
+    }
+    const store = setupTestStore(initialState)
 
-        render(<TextBaseOption {...props} />)
+    const { container } = renderWithProviders(
+        <TextBaseOption label="The label" option={option} toggleable={false} />,
+        store
+    )
 
-        const checkbox = screen.getByRole('checkbox', {
-            name: 'Your favorite tragedy',
-        })
-        expect(checkbox).toBeInTheDocument()
-        expect(checkbox.checked).toBe(false)
-        expect(checkbox).toHaveAttribute('name', 'input1-toggle')
-        expect(checkbox).toHaveAttribute('type', 'checkbox')
-    })
+    expect(container).toMatchSnapshot()
+})
 
-    test('does render a <InputField /> when the checkbox is checked', () => {
-        const props = {
-            checked: true,
-            label: 'Your favorite tragedy',
-            option: {
-                name: 'input1',
+test('TextBaseOption renders a TextStyle component when fontStyleKey is passed', () => {
+    const option = { id: OPTION_FONT_SIZE, name: OPTION_FONT_SIZE }
+    const helpText = 'Font size help'
+    const initialState = {
+        ui: {
+            ...DEFAULT_UI,
+            options: {
+                ...DEFAULT_UI.options,
+                [OPTION_FONT_SIZE]: 'LARGE',
             },
-            toggleable: true,
-            onToggle: jest.fn(),
-        }
+        },
+    }
+    const store = setupTestStore(initialState)
 
-        render(<TextBaseOption {...props} />)
+    const getByDataTest = queryByAttribute.bind(null, 'data-test')
 
-        const checkbox = screen.getByRole('checkbox', {
-            name: 'Your favorite tragedy',
-        })
+    const { container } = renderWithProviders(
+        <TextBaseOption
+            option={option}
+            helpText={helpText}
+            fontStyleKey={OPTION_FONT_SIZE}
+            dataTest="font-size-input"
+        />,
+        store
+    )
 
-        expect(checkbox).toBeInTheDocument()
-        expect(checkbox.checked).toBe(true)
-        expect(checkbox).toHaveAttribute('name', 'input1-toggle')
-        expect(checkbox).toHaveAttribute('type', 'checkbox')
-    })
+    expect(container).toMatchSnapshot()
 
-    // Need to add redux store to test this
-    test.skip('renders a TextStyle component when fontStyleKey is passed', () => {
-        const props = {
-            value: 'Arial',
-            type: 'text',
-            label: 'Font Style',
-            onChange: jest.fn(),
-            option: {
-                name: 'fontStyle',
-            },
-            fontStyleKey: 'fontStyle',
-            helpText: 'Select a font style',
-            placeholder: 'Choose a font style',
-            width: '100px',
-            dataTest: 'font-style-input',
-        }
-
-        const getByDataTest = queryByAttribute.bind(null, 'data-test')
-
-        const { container } = render(<TextBaseOption {...props} />)
-
-        const containerDiv = getByDataTest(
-            container,
-            'font-style-input-text-style'
-        )
-        expect(containerDiv).toBeInTheDocument()
-    })
+    const containerDiv = getByDataTest(container, 'font-size-input-text-style')
+    expect(containerDiv).toBeInTheDocument()
 })

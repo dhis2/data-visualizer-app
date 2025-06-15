@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware, compose } from 'redux'
+import thunk from 'redux-thunk'
 import { createLogger } from 'redux-logger'
 import reducer from './reducers/index.js'
 
@@ -28,7 +29,8 @@ const configureStore = (middleware) => {
 }
 
 // for testing purposes only
-export const setupTestStore = (preloadedState = {}) =>
-    createStore(reducer, preloadedState)
+export const setupTestStore = (preloadedState = {}) => {
+    return createStore(reducer, preloadedState, applyMiddleware(thunk))
+}
 
 export default configureStore

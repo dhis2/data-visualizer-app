@@ -7,13 +7,13 @@ import { sGetUiOption, sGetUiDisabledOption } from '../../../reducers/ui.js'
 import styles from '../styles/VisualizationOptions.module.css'
 import TextStyle from './TextStyle.jsx'
 
-export const UnconnectedTextBaseOption = ({
+const UnconnectedTextBaseOption = ({
     type,
     label,
     placeholder,
     helpText,
     width,
-    option,
+    option = {},
     value,
     onChange,
     onToggle,
@@ -82,10 +82,6 @@ export const UnconnectedTextBaseOption = ({
         ) : null}
     </div>
 )
-
-UnconnectedTextBaseOption.defaultProps = {
-    option: {},
-}
 
 UnconnectedTextBaseOption.propTypes = {
     checked: PropTypes.bool,

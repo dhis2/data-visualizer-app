@@ -1,49 +1,63 @@
-import { CheckboxField } from '@dhis2/ui'
-import { shallow } from 'enzyme'
+import { screen, fireEvent } from '@testing-library/react'
 import React from 'react'
-import { UnconnectedCheckboxBaseOption as CheckboxBaseOption } from '../Options/CheckboxBaseOption.jsx'
+import { renderWithProviders } from '../../../../config/testsContext.js'
+import { setupTestStore } from '../../../configureStore.js'
+import { DEFAULT_UI } from '../../../reducers/ui.js'
+import { CheckboxBaseOption } from '../Options/CheckboxBaseOption.jsx'
 
-describe('DV > Options > CheckboxBaseOption', () => {
-    let props
-    let shallowCheckboxBaseOption
-    let onChange
-
-    const checkboxBaseOption = (props) => {
-        shallowCheckboxBaseOption = shallow(<CheckboxBaseOption {...props} />)
-
-        return shallowCheckboxBaseOption
+test('CheckboxBaseOption renders a label for checkbox', () => {
+    const reduxState = {
+        ui: {
+            ...DEFAULT_UI,
+            options: {
+                completedOnly: true,
+            },
+        },
     }
 
-    beforeEach(() => {
-        onChange = jest.fn()
+    const store = setupTestStore(reduxState)
+    const label = 'Show only completed tasks'
 
-        props = {
-            value: false,
-            label: 'text',
-            option: { name: 'checkbox1' },
-            onChange,
-        }
+    renderWithProviders(
+        <CheckboxBaseOption
+            label={label}
+            option={{
+                name: 'completedOnly',
+            }}
+        />,
+        store
+    )
+    expect(screen.getByLabelText(label)).toBeInTheDocument()
 
-        shallowCheckboxBaseOption = undefined
-    })
+    const checkbox = screen.getByRole('checkbox', { name: label })
+    expect(checkbox.checked).toEqual(true)
+})
 
-    it('renders a label for checkbox', () => {
-        expect(
-            checkboxBaseOption(props).find(CheckboxField).props().label
-        ).toEqual(props.label)
-    })
+test('CheckboxBaseOption dispatches an action on checkbox change', () => {
+    const reduxState = {
+        ui: {
+            ...DEFAULT_UI,
+            options: {
+                completedOnly: true,
+            },
+        },
+    }
 
-    it('renders the checkbox with the correct checked state', () => {
-        expect(
-            checkboxBaseOption(props).find(CheckboxField).props().checked
-        ).toBe(props.value)
-    })
+    const store = setupTestStore(reduxState)
+    jest.spyOn(store, 'dispatch')
+    const label = 'Show only completed tasks'
 
-    it('should trigger the onChange callback on checkbox change', () => {
-        const checkbox = checkboxBaseOption(props).find(CheckboxField)
+    renderWithProviders(
+        <CheckboxBaseOption
+            label={label}
+            option={{
+                name: 'completedOnly',
+            }}
+        />,
+        store
+    )
 
-        checkbox.simulate('change', { checked: true })
-
-        expect(onChange).toHaveBeenCalled()
-    })
+    const checkbox = screen.getByRole('checkbox', { name: label })
+    fireEvent.click(checkbox)
+    expect(store.dispatch.mock.calls.length).toBe(1)
 })

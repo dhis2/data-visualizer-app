@@ -1,18 +1,23 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, act } from '@testing-library/react'
 import React from 'react'
-// import LoadingMask from '../../../widgets/LoadingMask.jsx'
-import { VisualizationErrorInfo } from '../../VisualizationErrorInfo/VisualizationErrorInfo.jsx'
 import { VisualizationPlugin } from '../../VisualizationPlugin/VisualizationPlugin.jsx'
-import StartScreen from '../StartScreen.jsx'
-import { UnconnectedVisualization as Visualization } from '../Visualization.jsx'
+import { Visualization } from '../Visualization.jsx'
+import { setupTestStore } from '../../../configureStore.js'
+import { renderWithProviders } from '../../../../config/testsContext.js'
+import { __setChart as setChart } from '../../ChartProvider.jsx'
 
-// mock the LoadingMask component
-jest.mock('../../../widgets/LoadingMask.jsx', () => {
+jest.mock('../../ChartProvider.jsx', () => {
+    const setChart = jest.fn()
     return {
-        __esModule: true,
-        default: jest.fn(() => (
-            <div data-testid="loading-mask">Loading...</div>
-        )),
+        ...jest.requireActual('../../ChartProvider.jsx'),
+        useChartContext: () => ({
+            setChart,
+            getChart: jest.fn(),
+        }),
+        ChartProvider: ({ children }) => (
+            <div data-testid="chart-provider">{children}</div>
+        ),
+        __setChart: setChart,
     }
 })
 
@@ -21,7 +26,7 @@ jest.mock('../StartScreen.jsx', () => {
     return {
         __esModule: true,
         default: jest.fn(() => (
-            <div data-testid="start-screen">Start Screen</div>
+            <div data-test="start-screen">Start Screen</div>
         )),
     }
 })
@@ -29,81 +34,97 @@ jest.mock('../StartScreen.jsx', () => {
 // mock the VisualizationPlugin component which is a named export
 jest.mock('../../VisualizationErrorInfo/VisualizationErrorInfo.jsx', () => ({
     VisualizationErrorInfo: jest.fn(() => (
-        <div data-testid="visualization-error-info">Error Info</div>
+        <div data-test="visualization-error-info">Error Info</div>
     )),
 }))
 jest.mock('../../VisualizationPlugin/VisualizationPlugin.jsx', () => ({
-    VisualizationPlugin: jest.fn(({ id }) => (
-        <div data-testid="visualization-plugin" id={id}>
+    VisualizationPlugin: jest.fn((props) => (
+        <div data-test="visualization-plugin" id={props.id}>
             Visualization Plugin
         </div>
     )),
 }))
 
 describe('Visualization', () => {
-    const setChart = jest.fn()
+    // const setChart = jest.fn()
 
-    test('renders the loading indicator when loading', () => {
-        const props = {
-            error: undefined,
-            visualization: {},
-            userSettings: {
-                displayProperty: 'shortName',
-            },
-            rightSidebarOpen: false,
-            addMetadata: jest.fn(),
-            clearLoadError: jest.fn(),
-            setLoadError: jest.fn(),
-            onLoadingComplete: jest.fn(),
-        }
-        props.isLoading = true
-        render(<Visualization {...props} setChart={setChart} />)
-        const loadingMask = screen.getByTestId('loading-mask')
-        expect(loadingMask).toBeInTheDocument()
+    beforeEach(() => {
+        jest.clearAllMocks()
     })
 
-    test('Visualizationhides the loading indicator when not loading', () => {
-        const props = {
-            error: undefined,
-            visualization: {},
-            userSettings: {
-                displayProperty: 'shortName',
+    test('renders the loading indicator and plugin when loading', () => {
+        const reduxState = {
+            loader: {
+                isLoading: true,
+                loadingError: null,
+                isPluginLoading: true,
             },
-            rightSidebarOpen: false,
-            addMetadata: jest.fn(),
-            clearLoadError: jest.fn(),
-            setLoadError: jest.fn(),
-            onLoadingComplete: jest.fn(),
-            isLoading: false,
+            current: {
+                id: 'test-visualization',
+            },
         }
-        render(<Visualization {...props} />)
+        const store = setupTestStore(reduxState)
+        renderWithProviders(<Visualization />, store)
+
+        const loadingMask = screen.getByTestId('loading-mask')
+        expect(loadingMask).toBeInTheDocument()
+        const vis = screen.getByTestId('visualization-plugin')
+        expect(vis).toBeInTheDocument()
+    })
+
+    test('renders the plugin and not loading indicator when not loading', () => {
+        const reduxState = {
+            loader: {
+                isLoading: false,
+                loadingError: null,
+                isPluginLoading: false,
+            },
+            current: {
+                id: 'test-visualization',
+            },
+        }
+        const store = setupTestStore(reduxState)
+        renderWithProviders(<Visualization />, store)
+
         const loadingMask = screen.queryByTestId('loading-mask')
         expect(loadingMask).not.toBeInTheDocument()
+        const vis = screen.getByTestId('visualization-plugin')
+        expect(vis).toBeInTheDocument()
     })
 
     test('renders a StartScreen when there is no visualization', () => {
-        const props = {
-            error: undefined,
-            visualization: null,
-            userSettings: {
-                displayProperty: 'shortName',
+        const reduxState = {
+            loader: {
+                isLoading: false,
+                loadingError: null,
+                isPluginLoading: false,
             },
-            rightSidebarOpen: false,
-            addMetadata: jest.fn(),
-            clearLoadError: jest.fn(),
-            setLoadError: jest.fn(),
-            onLoadingComplete: jest.fn(),
         }
-        render(<Visualization {...props} setChart={setChart} />)
+        const store = setupTestStore(reduxState)
+        renderWithProviders(<Visualization />, store)
+
+        const loadingMask = screen.queryByTestId('loading-mask')
+        expect(loadingMask).not.toBeInTheDocument()
+        const vis = screen.queryByTestId('visualization-plugin')
+        expect(vis).not.toBeInTheDocument()
         const startScreen = screen.getByTestId('start-screen')
         expect(startScreen).toBeInTheDocument()
     })
 
     test('renders a VisualizationErrorInfo when there is an error', () => {
-        const props = {
-            error: new Error('some error'),
+        const reduxState = {
+            loader: {
+                isLoading: false,
+                loadingError: { message: 'An error occurred' },
+                isPluginLoading: false,
+            },
+            current: {
+                id: 'test-visualization',
+            },
         }
-        render(<Visualization {...props} setChart={setChart} />)
+        const store = setupTestStore(reduxState)
+        renderWithProviders(<Visualization />, store)
+
         const errorInfo = screen.getByTestId('visualization-error-info')
         expect(errorInfo).toBeInTheDocument()
         const startScreen = screen.queryByTestId('start-screen')
@@ -113,52 +134,127 @@ describe('Visualization', () => {
     })
 
     test('renders a VisualizationPlugin when visualization available', () => {
-        const props = {
-            visualization: { id: 'test-visualization' },
-            userSettings: {
-                displayProperty: 'shortName',
+        const reduxState = {
+            loader: {
+                isLoading: false,
+                loadingError: null,
+                isPluginLoading: false,
             },
-            rightSidebarOpen: false,
-            addMetadata: jest.fn(),
-            clearLoadError: jest.fn(),
-            setLoadError: jest.fn(),
-            onLoadingComplete: jest.fn(),
+            current: {
+                id: 'test-visualization',
+            },
         }
-        render(<Visualization {...props} setChart={setChart} />)
+        const store = setupTestStore(reduxState)
+        renderWithProviders(<Visualization />, store)
         const visualizationPlugin = screen.getByTestId('visualization-plugin')
         expect(visualizationPlugin).toBeInTheDocument()
         const startScreen = screen.queryByTestId('start-screen')
         expect(startScreen).not.toBeInTheDocument()
     })
 
-    test.skip('triggers addMetadata action when responses received from chart plugin', () => {})
+    test('triggers addMetadata action when responses received from chart plugin', () => {
+        const reduxState = {
+            loader: {
+                isLoading: false,
+                loadingError: null,
+                isPluginLoading: false,
+            },
+            current: {
+                id: 'test-visualization',
+            },
+        }
+        const store = setupTestStore(reduxState)
+        jest.spyOn(store, 'dispatch')
+        renderWithProviders(<Visualization />, store)
 
-    test.skip('triggers setChart action when chart has been generated', () => {})
+        // Find the last call to the VisualizationPlugin mock
+        const lastCall =
+            VisualizationPlugin.mock.calls[
+                VisualizationPlugin.mock.calls.length - 1
+            ]
+        const props = lastCall[0]
+
+        // Mock responses array
+        const items = {
+            a: { id: 'a', name: 'a' },
+            b: { id: 'b', name: 'b' },
+            c: { id: 'c', name: 'c' },
+        }
+        const mockResponses = [{ metaData: { items }, rows: [1, 2, 3] }]
+
+        // Spy on store.dispatch to check for addMetadata action
+
+        // Simulate chart plugin sending responses
+        props.onResponsesReceived(mockResponses)
+
+        // Assert that addMetadata was dispatched with the correct items
+        const calls = store.dispatch.mock.calls.map(([action]) => action)
+        const wasAddMetadataDispatched = calls.some(
+            (action) => action.type === 'ADD_METADATA'
+        )
+        expect(wasAddMetadataDispatched).toBe(true)
+    })
+
+    test('triggers setChart action when chart has been generated', () => {
+        const reduxState = {
+            loader: {
+                isLoading: false,
+                loadingError: null,
+                isPluginLoading: false,
+            },
+            current: {
+                id: 'test-visualization',
+            },
+        }
+        const store = setupTestStore(reduxState)
+
+        renderWithProviders(<Visualization />, store)
+
+        // Find the last call to the VisualizationPlugin mock
+        const lastCall =
+            VisualizationPlugin.mock.calls[
+                VisualizationPlugin.mock.calls.length - 1
+            ]
+        const props = lastCall[0]
+
+        // Simulate chart generation
+        const fakeChart = { id: 'chart-123' }
+        props.onChartGenerated(fakeChart)
+
+        expect(setChart).toHaveBeenCalledWith(fakeChart)
+    })
 
     test('renders visualization with new id when rightSidebarOpen prop changes', () => {
-        const props = {
-            visualization: { id: 'test-visualization' },
-            userSettings: {
-                displayProperty: 'shortName',
+        // Set up initial redux state
+        const reduxState = {
+            loader: {
+                isLoading: false,
+                loadingError: null,
+                isPluginLoading: false,
             },
-            rightSidebarOpen: false,
-            addMetadata: jest.fn(),
-            clearLoadError: jest.fn(),
-            setLoadError: jest.fn(),
-            onLoadingComplete: jest.fn(),
+            current: {
+                id: 'test-visualization',
+            },
+            ui: {
+                rightSidebarOpen: false,
+            },
         }
-        const vis = (additionalProps = {}) => {
-            return render(<Visualization {...props} {...additionalProps} />)
-        }
-        // Initial render
-        const { rerender } = vis()
+        const store = setupTestStore(reduxState)
+        renderWithProviders(<Visualization />, store)
+
         const initialPlugin = screen.getByTestId('visualization-plugin')
         expect(initialPlugin).toBeInTheDocument()
         const initialId = initialPlugin.getAttribute('id')
         expect(initialId).toBe(null)
 
-        // re-render with rightSidebarOpen prop changed
-        rerender(<Visualization {...props} rightSidebarOpen={true} />)
+        act(() => {
+            store.dispatch({
+                type: 'SET_UI_RIGHT_SIDEBAR_OPEN',
+                value: true,
+            })
+        })
+
+        // The component should update automatically via react-redux
         const updatedPlugin = screen.getByTestId('visualization-plugin')
         expect(updatedPlugin).toBeInTheDocument()
         const updatedId = updatedPlugin.getAttribute('id')

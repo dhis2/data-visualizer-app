@@ -5,6 +5,7 @@ import {
 } from '@dhis2/analytics'
 import React from 'react'
 import { renderWithProviders } from '../../../../config/testsContext.js'
+import { setupTestStore } from '../../../configureStore.js'
 import DimensionsPanel from '../DimensionsPanel.jsx'
 
 jest.mock('@dhis2/app-runtime', () => ({
@@ -53,10 +54,9 @@ test('renders component containing a list item for each dimension', () => {
             },
         },
     }
+    const store = setupTestStore(reduxState)
 
-    const { container } = renderWithProviders(<DimensionsPanel />, {
-        preloadedState: reduxState,
-    })
+    const { container } = renderWithProviders(<DimensionsPanel />, store)
 
     const items = Array.from(container.querySelectorAll('li'))
 
