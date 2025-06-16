@@ -3,6 +3,7 @@ import {
     VIS_TYPE_OUTLIER_TABLE,
     HoverMenuList,
 } from '@dhis2/analytics'
+import { useConfig } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { FlyoutMenu, MenuSectionHeader } from '@dhis2/ui'
 import PropTypes from 'prop-types'
@@ -11,6 +12,7 @@ import { AdvancedSubMenu } from './AdvancedSubMenu.js'
 import {
     FILE_FORMAT_CSV,
     FILE_FORMAT_XLS,
+    FILE_FORMAT_XLSX,
     FILE_FORMAT_JSON,
     FILE_FORMAT_XML,
 } from './constants.js'
@@ -24,6 +26,7 @@ const DownloadMenu = ({
     onDownloadImage,
     hoverable,
 }) => {
+    const config = useConfig()
     const MenuComponent = hoverable ? HoverMenuList : FlyoutMenu
 
     return (
@@ -59,7 +62,12 @@ const DownloadMenu = ({
                 hoverable={hoverable}
                 onDownload={onDownloadData}
                 label={i18n.t('Microsoft Excel')}
-                format={FILE_FORMAT_XLS}
+                format={
+                    // VERSION-TOGGLE: remove when 42 is the lowest supported version
+                    config.serverVersion.minor >= 42
+                        ? FILE_FORMAT_XLSX
+                        : FILE_FORMAT_XLS
+                }
             />
             <PlainDataSourceSubMenu
                 hoverable={hoverable}

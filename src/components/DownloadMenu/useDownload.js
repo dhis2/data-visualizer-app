@@ -23,6 +23,7 @@ import {
     FILE_FORMAT_HTML_CSS,
     FILE_FORMAT_CSV,
     FILE_FORMAT_XLS,
+    FILE_FORMAT_XLSX,
     FILE_FORMAT_PDF,
 } from './constants.js'
 
@@ -109,7 +110,11 @@ const useDownload = (relativePeriodDate) => {
             if (visType === VIS_TYPE_OUTLIER_TABLE) {
                 // only DOWNLOAD_TYPE_PLAIN is enabled
                 // open JSON in new tab
-                target = [FILE_FORMAT_CSV, FILE_FORMAT_XLS].includes(format)
+                target = [
+                    FILE_FORMAT_CSV,
+                    FILE_FORMAT_XLS,
+                    FILE_FORMAT_XLSX,
+                ].includes(format)
                     ? '_top'
                     : '_blank'
 
@@ -189,9 +194,11 @@ const useDownload = (relativePeriodDate) => {
                             req = req.withOutputIdScheme(idScheme)
                         }
 
-                        target = [FILE_FORMAT_CSV, FILE_FORMAT_XLS].includes(
-                            format
-                        )
+                        target = [
+                            FILE_FORMAT_CSV,
+                            FILE_FORMAT_XLS,
+                            FILE_FORMAT_XLSX,
+                        ].includes(format)
                             ? '_top'
                             : '_blank'
                         break
