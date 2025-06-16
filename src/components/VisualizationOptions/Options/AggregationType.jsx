@@ -1,7 +1,7 @@
 import i18n from '@dhis2/d2-i18n'
 import React from 'react'
-import { SelectBaseOption } from './SelectBaseOption.jsx'
 import { OPTION_AGGREGATION_TYPE } from '../../../modules/options.js'
+import { SelectBaseOption } from './SelectBaseOption.jsx'
 
 const AggregationType = () => (
     <SelectBaseOption

@@ -18,7 +18,7 @@ import {
     OPTION_HIDE_SUBTITLE,
     OPTION_FONT_STYLE,
 } from '../options.js'
-import getAdvancedSection from './sections/advanced.js'
+import getAdvancedSection from './sections/advanced.jsx'
 import getDisplayTemplate from './sections/templates/display.js'
 import getLinesTemplate from './sections/templates/lines.js'
 import getVerticalAxisTemplate from './sections/templates/verticalAxis.js'

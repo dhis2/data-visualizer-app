@@ -13,8 +13,8 @@ import {
     OPTION_SUBTITLE,
     OPTION_TITLE,
 } from '../options.js'
-import getAdvancedSection from './sections/advanced.js'
-import getColorSetSection from './sections/colorSet.js'
+import getAdvancedSection from './sections/advanced.jsx'
+import getColorSetSection from './sections/colorSet.jsx'
 import getDisplayTemplate from './sections/templates/display.js'
 import getTitlesSection from './sections/titles.jsx'
 import getDataTab from './tabs/data.js'

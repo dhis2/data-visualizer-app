@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import * as api from '../../api/visualization.js'
-import { VARIANT_SUCCESS } from '../../components/Snackbar/Snackbar.js'
+import { VARIANT_SUCCESS } from '../../components/Snackbar/Snackbar.jsx'
 import { SET_CURRENT } from '../../reducers/current.js'
 import * as selectors from '../../reducers/settings.js'
 import { RECEIVED_SNACKBAR_MESSAGE } from '../../reducers/snackbar.js'

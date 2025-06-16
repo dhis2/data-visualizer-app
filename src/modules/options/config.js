@@ -13,7 +13,7 @@ import {
     isVerticalType,
 } from '@dhis2/analytics'
 import cloneDeep from 'lodash-es/cloneDeep'
-import { default as options } from '../options.jsx'
+import { default as options } from '../options.js'
 import defaultConfig, { defaultOptionNames } from './defaultConfig.js'
 import gaugeConfig, { gaugeOptionNames } from './gaugeConfig.jsx'
 import outlierTableConfig, {

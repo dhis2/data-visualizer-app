@@ -16,8 +16,8 @@ import {
     OPTION_SUBTITLE,
     OPTION_TITLE,
 } from '../options.js'
-import getAdvancedSection from './sections/advanced.js'
-import getRangeAxisSection from './sections/rangeAxis.js'
+import getAdvancedSection from './sections/advanced.jsx'
+import getRangeAxisSection from './sections/rangeAxis.jsx'
 import getDisplayTemplate from './sections/templates/display.js'
 import getLinesTemplate from './sections/templates/lines.js'
 import getTitlesSection from './sections/titles.jsx'

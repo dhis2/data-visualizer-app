@@ -26,12 +26,12 @@ import {
     AxisThree,
     AxisFour,
 } from '../../../assets/AxisIcons.jsx'
-import { OPTION_SERIES } from '../../../modules/options.js'
 import {
     EmptySeries,
     EmptyBox,
     GenericError,
 } from '../../../assets/ErrorIcons.jsx'
+import { OPTION_SERIES } from '../../../modules/options.js'
 import {
     SERIES_ITEM_TYPE_PROP,
     SERIES_ITEM_AXIS_PROP,
