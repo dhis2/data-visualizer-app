@@ -26,6 +26,7 @@ import {
     AxisThree,
     AxisFour,
 } from '../../../assets/AxisIcons.jsx'
+import { OPTION_SERIES } from '../../../modules/options.js'
 import {
     EmptySeries,
     EmptyBox,
@@ -289,7 +290,7 @@ SeriesTable.defaultProps = {
 const mapStateToProps = (state) => ({
     layoutItems: sGetSeriesSetupItems(state),
     columns: sGetUiLayout(state).columns,
-    optionItems: sGetUiOptions(state).series,
+    optionItems: sGetUiOptions(state)[OPTION_SERIES],
     visType: sGetUiType(state),
 })
 

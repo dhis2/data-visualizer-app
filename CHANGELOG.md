@@ -1,3 +1,17 @@
+## [101.2.4](https://github.com/dhis2/data-visualizer-app/compare/v101.2.3...v101.2.4) (2025-06-06)
+
+
+### Bug Fixes
+
+* avoid crash when switching vis type due to unsupported options (DHIS2-19611) ([#3396](https://github.com/dhis2/data-visualizer-app/issues/3396)) ([5a3837f](https://github.com/dhis2/data-visualizer-app/commit/5a3837f9b216eb086685b27d3049825762591168))
+
+## [101.2.3](https://github.com/dhis2/data-visualizer-app/compare/v101.2.2...v101.2.3) (2025-06-02)
+
+
+### Bug Fixes
+
+* do not overwrite newer changes to a visualization by another user when renaming ([#3386](https://github.com/dhis2/data-visualizer-app/issues/3386)) ([3188154](https://github.com/dhis2/data-visualizer-app/commit/31881547540f23ccc1c7b5714ebbf789cb04554c))
+
 ## [101.2.2](https://github.com/dhis2/data-visualizer-app/compare/v101.2.1...v101.2.2) (2025-05-26)
 
 

@@ -1,10 +1,10 @@
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { options } from '../../../modules/options.js'
+import { options, OPTION_REGRESSION_TYPE } from '../../../modules/options.js'
 import { SelectBaseOption } from './SelectBaseOption.jsx'
 
-const optionName = 'regressionType'
+const optionName = OPTION_REGRESSION_TYPE
 const defaultValue = options[optionName].defaultValue
 
 const RegressionType = ({ disabled }) => (

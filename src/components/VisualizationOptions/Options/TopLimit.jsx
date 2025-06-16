@@ -1,12 +1,13 @@
 import i18n from '@dhis2/d2-i18n'
 import React from 'react'
+import { OPTION_TOP_LIMIT } from '../../../modules/options.js'
 import { SelectBaseOption } from './SelectBaseOption.jsx'
 
 const TopLimit = () => (
     <SelectBaseOption
         label={i18n.t('Top limit')}
         option={{
-            name: 'topLimit',
+            name: OPTION_TOP_LIMIT,
             items: [
                 { value: '0', label: i18n.t('None') },
                 { value: '5', label: '5' },

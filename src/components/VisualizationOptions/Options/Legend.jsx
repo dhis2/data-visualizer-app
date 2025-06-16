@@ -11,6 +11,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { acSetUiOption } from '../../../actions/ui.js'
 import {
+    OPTION_LEGEND,
     OPTION_LEGEND_DISPLAY_STRATEGY,
     OPTION_LEGEND_DISPLAY_STYLE,
     OPTION_LEGEND_SET,
@@ -21,7 +22,7 @@ import LegendDisplayStrategy from './LegendDisplayStrategy.jsx'
 import LegendDisplayStyle from './LegendDisplayStyle.jsx'
 import ShowLegendKey from './ShowLegendKey.jsx'
 
-const optionName = 'legend'
+const optionName = OPTION_LEGEND
 
 const Legend = ({
     legendSet,

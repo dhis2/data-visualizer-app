@@ -18,8 +18,10 @@ import {
 } from '@dhis2/analytics'
 import { useConfig } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
+import cloneDeep from 'lodash-es/cloneDeep'
 import { DEFAULT_CURRENT } from '../reducers/current.js'
 import { DEFAULT_VISUALIZATION } from '../reducers/visualization.js'
+import { getOptionNamesByType } from './options/config.js'
 import { default as options } from './options.js'
 
 export const visTypes = [
@@ -163,4 +165,23 @@ export const useVisTypesFilterByVersion = () => {
             : true
 
     return filterVisTypesByVersion
+}
+
+export const getVisualizationWithFilteredOptionsByType = (visualization) => {
+    const visualizationClone = cloneDeep(visualization)
+
+    if (visualizationClone) {
+        const supportedOptions = new Set(
+            getOptionNamesByType(visualizationClone.type)
+        )
+        const unsupportedOptions = Object.keys(options).filter(
+            (optionName) => !supportedOptions.has(optionName)
+        )
+
+        unsupportedOptions.forEach(
+            (optionName) => delete visualizationClone[optionName]
+        )
+    }
+
+    return visualizationClone
 }

@@ -6,7 +6,11 @@ import {
     VIS_TYPE_COLUMN,
 } from '@dhis2/analytics'
 import { getOptionsFromUi } from '../../modules/current.js'
-import { default as options } from '../../modules/options.js'
+import {
+    default as options,
+    OPTION_AXES,
+    OPTION_SERIES,
+} from '../../modules/options.js'
 import reducer, {
     DEFAULT_CURRENT,
     SET_CURRENT,
@@ -56,8 +60,8 @@ describe('reducer: current', () => {
             options,
         }
 
-        ui.options.axes = []
-        ui.options.series = []
+        ui.options[OPTION_AXES] = []
+        ui.options[OPTION_SERIES] = []
 
         const expectedState = {
             ...getOptionsFromUi(ui),
@@ -108,8 +112,8 @@ describe('reducer: current', () => {
             yearOverYearCategory: ['MONTHS_THIS_YEAR'],
         }
 
-        ui.options.axes = []
-        ui.options.series = []
+        ui.options[OPTION_AXES] = []
+        ui.options[OPTION_SERIES] = []
 
         const expectedState = {
             ...getOptionsFromUi(ui),

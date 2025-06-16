@@ -1,6 +1,6 @@
 {
     "name": "data-visualizer-app",
-    "version": "101.2.2",
+    "version": "101.2.4",
     "description": "DHIS2 Data Visualizer",
     "license": "BSD-3-Clause",
     "private": true,
@@ -46,7 +46,7 @@
         "typescript": "^4.8.4"
     },
     "dependencies": {
-        "@dhis2/analytics": "^28.0.1",
+        "@dhis2/analytics": "^28.0.3",
         "@dhis2/app-runtime": "^3.14.1",
         "@dhis2/app-service-datastore": "^1.0.0-beta.3",
         "@dhis2/d2-i18n": "^1.1.0",

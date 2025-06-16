@@ -1,9 +1,9 @@
 import i18n from '@dhis2/d2-i18n'
 import React from 'react'
-import { options } from '../../../modules/options.js'
+import { options, OPTION_SORT_ORDER } from '../../../modules/options.js'
 import { SelectBaseOption } from './SelectBaseOption.jsx'
 
-const optionName = 'sortOrder'
+const optionName = OPTION_SORT_ORDER
 const defaultValue = options[optionName].defaultValue
 
 const SortOrder = () => (

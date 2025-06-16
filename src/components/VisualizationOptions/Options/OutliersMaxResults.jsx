@@ -3,11 +3,11 @@ import { InputField } from '@dhis2/ui'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { acSetUiOptions } from '../../../actions/ui.js'
+import { OPTION_OUTLIER_ANALYSIS } from '../../../modules/options.js'
 import { sGetUiOptions } from '../../../reducers/ui.js'
 import styles from '../styles/VisualizationOptions.module.css'
 import { DEFAULT_STATE as OUTLIER_METHOD_THRESHOLD_DEFAULT_STATE } from './OutliersForOutlierTable.jsx'
 
-const OUTLIER_ANALYSIS_OPTION_NAME = 'outlierAnalysis'
 const MIN_VALUE = 1
 const MAX_VALUE = 500
 
@@ -20,7 +20,7 @@ const OutliersMaxResults = () => {
     const dispatch = useDispatch()
 
     const outlierAnalysis = useSelector(sGetUiOptions)[
-        OUTLIER_ANALYSIS_OPTION_NAME
+        OPTION_OUTLIER_ANALYSIS
     ] || {
         ...OUTLIER_METHOD_THRESHOLD_DEFAULT_STATE,
         ...DEFAULT_STATE,
@@ -31,7 +31,7 @@ const OutliersMaxResults = () => {
 
         dispatch(
             acSetUiOptions({
-                [OUTLIER_ANALYSIS_OPTION_NAME]: {
+                [OPTION_OUTLIER_ANALYSIS]: {
                     ...outlierAnalysis,
                     [OUTLIER_MAX_RESULTS_PROP]:
                         parsedValue > MAX_VALUE

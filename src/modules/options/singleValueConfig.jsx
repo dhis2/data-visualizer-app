@@ -2,7 +2,21 @@ import React from 'react'
 import DataIcon from '../../components/VisualizationOptions/Options/DataIcon.jsx'
 import DigitGroupSeparator from '../../components/VisualizationOptions/Options/DigitGroupSeparator.jsx'
 import SkipRounding from '../../components/VisualizationOptions/Options/SkipRounding.jsx'
-import getAdvancedSection from './sections/advanced.jsx'
+import {
+    OPTION_AGGREGATION_TYPE,
+    OPTION_COMPLETED_ONLY,
+    OPTION_DIGIT_GROUP_SEPARATOR,
+    OPTION_FONT_STYLE,
+    OPTION_HIDE_SUBTITLE,
+    OPTION_HIDE_TITLE,
+    OPTION_ICONS,
+    OPTION_LEGEND,
+    OPTION_SERIES,
+    OPTION_SKIP_ROUNDING,
+    OPTION_SUBTITLE,
+    OPTION_TITLE,
+} from '../options.js'
+import getAdvancedSection from './sections/advanced.js'
 import getDisplayTemplate from './sections/templates/display.js'
 import getTitlesSection from './sections/titles.jsx'
 import getDataTab from './tabs/data.js'
@@ -29,4 +43,23 @@ export default () => [
         },
         getTitlesSection(),
     ]),
+]
+
+export const singleValueOptionNames = () => [
+    // Data tab
+    OPTION_SKIP_ROUNDING,
+    OPTION_AGGREGATION_TYPE,
+    OPTION_COMPLETED_ONLY,
+    // Legend tab
+    OPTION_LEGEND,
+    // Series tab
+    OPTION_SERIES,
+    // Style tab
+    OPTION_DIGIT_GROUP_SEPARATOR,
+    OPTION_ICONS,
+    OPTION_FONT_STYLE,
+    OPTION_TITLE,
+    OPTION_HIDE_TITLE,
+    OPTION_SUBTITLE,
+    OPTION_HIDE_SUBTITLE,
 ]

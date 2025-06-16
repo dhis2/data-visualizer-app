@@ -1,6 +1,7 @@
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { OPTION_FIX_COLUMN_HEADERS } from '../../../modules/options.js'
 import { CheckboxBaseOption } from './CheckboxBaseOption.jsx'
 
 const FixColumnHeaders = ({ columnsHasItems }) => (
@@ -14,7 +15,7 @@ const FixColumnHeaders = ({ columnsHasItems }) => (
                 : null
         }
         option={{
-            name: 'fixColumnHeaders',
+            name: OPTION_FIX_COLUMN_HEADERS,
         }}
     />
 )

@@ -12,13 +12,19 @@ import {
     isColumnBasedType,
     isVerticalType,
 } from '@dhis2/analytics'
-import defaultConfig from './defaultConfig.js'
-import gaugeConfig from './gaugeConfig.jsx'
-import outlierTableConfig from './outlierTableConfig.jsx'
-import pieConfig from './pieConfig.jsx'
-import pivotTableConfig from './pivotTableConfig.jsx'
-import scatterConfig from './scatterConfig.jsx'
-import singleValueConfig from './singleValueConfig.jsx'
+import cloneDeep from 'lodash-es/cloneDeep'
+import { default as options } from '../options.jsx'
+import defaultConfig, { defaultOptionNames } from './defaultConfig.js'
+import gaugeConfig, { gaugeOptionNames } from './gaugeConfig.jsx'
+import outlierTableConfig, {
+    outlierTableOptionNames,
+} from './outlierTableConfig.jsx'
+import pieConfig, { pieOptionNames } from './pieConfig.jsx'
+import pivotTableConfig, { pivotTableOptionNames } from './pivotTableConfig.jsx'
+import scatterConfig, { scatterOptionNames } from './scatterConfig.jsx'
+import singleValueConfig, {
+    singleValueOptionNames,
+} from './singleValueConfig.jsx'
 
 export const getOptionsByType = ({
     type,
@@ -63,8 +69,46 @@ export const getOptionsByType = ({
         case VIS_TYPE_SCATTER:
             return scatterConfig()
         case VIS_TYPE_OUTLIER_TABLE:
-            return outlierTableConfig(defaultProps)
+            return outlierTableConfig()
         default:
             return defaultConfig(defaultProps)
     }
+}
+
+export const getOptionNamesByType = (type) => {
+    const isColumnBased = isColumnBasedType(type)
+    const isStacked = isStackedType(type)
+    const supportsLegends = isLegendSetType(type)
+
+    switch (type) {
+        case VIS_TYPE_GAUGE:
+            return gaugeOptionNames()
+        case VIS_TYPE_PIE:
+            return pieOptionNames()
+        case VIS_TYPE_SINGLE_VALUE:
+            return singleValueOptionNames()
+        case VIS_TYPE_PIVOT_TABLE:
+            return pivotTableOptionNames()
+        case VIS_TYPE_SCATTER:
+            return scatterOptionNames()
+        case VIS_TYPE_OUTLIER_TABLE:
+            return outlierTableOptionNames()
+        default:
+            return defaultOptionNames({
+                supportsLegends,
+                isColumnBased,
+                isStacked,
+            })
+    }
+}
+
+export const filterVisualizationOptionsByType = (visualization) => {
+    const visualizationClone = cloneDeep(visualization)
+
+    visualizationClone &&
+        new Set(Object.keys(options))
+            .difference(new Set(getOptionNamesByType(visualizationClone.type)))
+            .forEach((optionName) => delete visualizationClone[optionName])
+
+    return visualizationClone
 }

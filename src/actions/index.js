@@ -13,6 +13,8 @@ import { apiPostDataStatistics } from '../api/dataStatistics.js'
 import {
     apiFetchVisualization,
     apiSaveVisualization,
+    apiFetchVisualizationNameDesc,
+    apiFetchVisualizationSubscribers,
 } from '../api/visualization.js'
 import {
     VARIANT_SUCCESS,
@@ -148,58 +150,59 @@ export const clearAll =
     }
 
 export const tDoRenameVisualization =
-    ({ name, description }) =>
+    ({ name, description }, onRenameComplete) =>
     async (dispatch, getState, engine) => {
-        const onSuccess = (res) => {
-            if (res.status === 'OK' && res.response.uid) {
-                const state = getState()
+        const onSuccess = (updatedVis) => {
+            const state = getState()
 
-                const visualization = sGetVisualization(state)
-                const current = sGetCurrent(state)
+            const visualization = sGetVisualization(state)
+            const current = sGetCurrent(state)
 
-                const updatedVisualization = { ...visualization }
-                const updatedCurrent = { ...current }
+            const updatedVisualization = { ...visualization, ...updatedVis }
+            const updatedCurrent = { ...current, ...updatedVis }
 
-                if (name) {
-                    updatedVisualization.name = updatedCurrent.name = name
-                }
+            dispatch(fromVisualization.acSetVisualization(updatedVisualization))
 
-                updatedVisualization.description = updatedCurrent.description =
-                    description
-
-                dispatch(
-                    fromVisualization.acSetVisualization(updatedVisualization)
-                )
-
-                // keep the same reference for current if there are no changes
-                // other than the name/description
-                if (visualization === current) {
-                    dispatch(fromCurrent.acSetCurrent(updatedVisualization))
-                } else {
-                    dispatch(fromCurrent.acSetCurrent(updatedCurrent))
-                }
-
-                dispatch(
-                    fromSnackbar.acReceivedSnackbarMessage({
-                        variant: VARIANT_SUCCESS,
-                        message: i18n.t('Rename successful'),
-                        duration: 2000,
-                    })
-                )
+            // keep the same reference for current if there are no changes
+            // other than the name/description
+            if (visualization === current) {
+                dispatch(fromCurrent.acSetCurrent(updatedVisualization))
+            } else {
+                dispatch(fromCurrent.acSetCurrent(updatedCurrent))
             }
+
+            dispatch(
+                fromSnackbar.acReceivedSnackbarMessage({
+                    variant: VARIANT_SUCCESS,
+                    message: i18n.t('Rename successful'),
+                    duration: 2000,
+                })
+            )
         }
 
         try {
-            const visToSave = await preparePayloadForSave({
-                visualization: getSaveableVisualization(
-                    sGetVisualization(getState())
-                ),
+            const { visualization } = await apiFetchVisualization(
+                engine,
+                sGetVisualization(getState()).id
+            )
+
+            const visToSave = preparePayloadForSave({
+                visualization: getSaveableVisualization(visualization),
                 name,
                 description,
                 engine,
             })
 
-            return onSuccess(await apiSaveVisualization(engine, visToSave))
+            const res = await apiSaveVisualization(engine, visToSave)
+            if (res.status === 'OK' && res.response.uid) {
+                onRenameComplete()
+                const { visualization: updatedVisualization } =
+                    await apiFetchVisualizationNameDesc(
+                        engine,
+                        res.response.uid
+                    )
+                onSuccess(updatedVisualization)
+            }
         } catch (error) {
             logError('tDoRenameVisualization', error)
 
@@ -238,14 +241,28 @@ export const tDoSaveVisualization =
             )
 
             if (copy) {
+                // remove subscribers from the visualization object
+                // eslint-disable-next-line no-unused-vars
+                const { subscribers, ...visualizationWithoutSubscribers } =
+                    visualization
+
                 visualization = preparePayloadForSaveAs({
-                    visualization,
+                    visualization: visualizationWithoutSubscribers,
                     name,
                     description,
                 })
             } else {
-                visualization = await preparePayloadForSave({
-                    visualization,
+                const { visualizationSubscribers } =
+                    await apiFetchVisualizationSubscribers(
+                        engine,
+                        visualization.id
+                    )
+
+                visualization = preparePayloadForSave({
+                    visualization: {
+                        ...visualization,
+                        ...visualizationSubscribers,
+                    },
                     name,
                     description,
                     engine,
