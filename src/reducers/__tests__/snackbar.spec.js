@@ -1,7 +1,7 @@
 import {
     VARIANT_ERROR,
     VARIANT_WARNING,
-} from '../../components/Snackbar/Snackbar.js'
+} from '../../components/Snackbar/Snackbar.jsx'
 import reducer, {
     DEFAULT_SNACKBAR,
     RECEIVED_SNACKBAR_MESSAGE,
