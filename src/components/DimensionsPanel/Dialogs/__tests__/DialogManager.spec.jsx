@@ -1,8 +1,8 @@
 import * as analytics from '@dhis2/analytics'
 import { screen, fireEvent, act } from '@testing-library/react'
 import React from 'react'
-import { setupTestStore } from '../../../../configureStore.js'
 import { renderWithProviders } from '../../../../../config/testsContext.js'
+import { setupTestStore } from '../../../../configureStore.js'
 import { DEFAULT_UI } from '../../../../reducers/ui.js'
 import DialogManager from '../DialogManager.jsx'
 

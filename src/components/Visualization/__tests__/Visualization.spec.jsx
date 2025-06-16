@@ -1,10 +1,10 @@
 import { render, screen, act } from '@testing-library/react'
 import React from 'react'
+import { renderWithProviders } from '../../../../config/testsContext.js'
+import { setupTestStore } from '../../../configureStore.js'
+import { __setChart as setChart } from '../../ChartProvider.jsx'
 import { VisualizationPlugin } from '../../VisualizationPlugin/VisualizationPlugin.jsx'
 import { Visualization } from '../Visualization.jsx'
-import { setupTestStore } from '../../../configureStore.js'
-import { renderWithProviders } from '../../../../config/testsContext.js'
-import { __setChart as setChart } from '../../ChartProvider.jsx'
 
 jest.mock('../../ChartProvider.jsx', () => {
     const setChart = jest.fn()

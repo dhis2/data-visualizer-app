@@ -1,13 +1,13 @@
-import React from 'react'
 import { render, screen, queryByAttribute } from '@testing-library/react'
-import { TextBaseOption } from '../Options/TextBaseOption.jsx'
-import { setupTestStore } from '../../../configureStore.js'
+import React from 'react'
 import { renderWithProviders } from '../../../../config/testsContext.js'
-import { DEFAULT_UI } from '../../../reducers/ui.js'
+import { setupTestStore } from '../../../configureStore.js'
 import {
     OPTION_FONT_SIZE,
     OPTION_TARGET_LINE_ENABLED,
 } from '../../../modules/options.js'
+import { DEFAULT_UI } from '../../../reducers/ui.js'
+import { TextBaseOption } from '../Options/TextBaseOption.jsx'
 
 jest.mock('@dhis2/ui', () => ({
     ...jest.requireActual('@dhis2/ui'),
