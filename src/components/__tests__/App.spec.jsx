@@ -2,10 +2,7 @@ import { useSetting } from '@dhis2/app-service-datastore'
 import { waitFor, act } from '@testing-library/react'
 import React from 'react'
 import { renderWithProviders } from '../../../config/testsContext.js'
-// import { USER_DATASTORE_CURRENT_AO_KEY } from '../../modules/currentAnalyticalObject.js'
-// import history from '../../modules/history.js'
-// import * as ui from '../../modules/ui.js'
-import * as fromActions from '../../actions/index.js'
+// import * as fromActions from '../../actions/index.js'
 import { apiFetchVisualization } from '../../api/visualization.js'
 import { setupTestStore } from '../../configureStore.js'
 import { USER_DATASTORE_CURRENT_AO_KEY } from '../../modules/currentAnalyticalObject.js'
@@ -16,8 +13,6 @@ import { App } from '../App.jsx'
 
 jest.mock('@dhis2/analytics', () => ({
     ...jest.requireActual('@dhis2/analytics'),
-    // apiFetchOrganisationUnitLevels: jest.fn(),
-    // getPredefinedDimensions: () => {},
     visTypeDisplayNames: {},
     Toolbar: () => <div>Toolbar</div>,
     useCachedDataQuery: jest.fn(() => ({
@@ -38,7 +33,7 @@ jest.mock('@dhis2/analytics', () => ({
 
 jest.mock('@dhis2/app-service-datastore', () => ({
     ...jest.requireActual('@dhis2/app-service-datastore'),
-    useSetting: jest.fn(() => [{}]), // default: empty object
+    useSetting: jest.fn(() => [{}]),
 }))
 
 jest.mock('../../api/visualization.js', () => ({
@@ -64,7 +59,7 @@ jest.mock('@dhis2/ui', () => {
     const original = jest.requireActual('@dhis2/ui')
     return {
         ...original,
-        Modal: (props) => <div {...props}>Modal</div>,
+        Modal: () => <div>Modal</div>,
     }
 })
 

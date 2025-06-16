@@ -12,9 +12,9 @@ jest.mock('@dhis2/ui', () => {
     return {
         ...originalModule,
         SingleSelectOption: ({ value, label }) => (
-            <div value={value} data-test={`option-${value}`}>
+            <option value={value} data-test={`option-${value}`}>
                 {label}
-            </div>
+            </option>
         ),
         SingleSelectField: ({ children, ...props }) => (
             <select {...props} data-test={`${props.dataTest}-select`}>

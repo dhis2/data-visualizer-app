@@ -35,7 +35,7 @@ import './scrollbar.css'
 // Used to avoid repeating `history` listener calls -- see below
 let lastLocation
 
-export class UnconnectedApp extends Component {
+class UnconnectedApp extends Component {
     unlisten = null
 
     apiObjectName = 'visualization'

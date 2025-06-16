@@ -59,24 +59,24 @@ exports[`DV > Options > SelectBaseOption renders a <Checkbox /> and <SingleSelec
         label=""
         name="toggleable-select-select"
       >
-        <div
+        <option
           data-test="option-opt1"
           value="opt1"
         >
           Option 1
-        </div>
-        <div
+        </option>
+        <option
           data-test="option-opt2"
           value="opt2"
         >
           Option 2
-        </div>
-        <div
+        </option>
+        <option
           data-test="option-opt3"
           value="opt3"
         >
           Option 3
-        </div>
+        </option>
       </select>
     </div>
   </div>
@@ -96,24 +96,24 @@ exports[`DV > Options > SelectBaseOption renders a <SingleSelectField /> when no
         label="toggleable test"
         name="toggleable-select-select"
       >
-        <div
+        <option
           data-test="option-opt1"
           value="opt1"
         >
           Option 1
-        </div>
-        <div
+        </option>
+        <option
           data-test="option-opt2"
           value="opt2"
         >
           Option 2
-        </div>
-        <div
+        </option>
+        <option
           data-test="option-opt3"
           value="opt3"
         >
           Option 3
-        </div>
+        </option>
       </select>
     </div>
   </div>

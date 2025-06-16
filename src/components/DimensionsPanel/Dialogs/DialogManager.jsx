@@ -98,7 +98,8 @@ const getExcludedPeriodTypes = (settings = {}) => {
     }
     return types
 }
-export class DialogManager extends Component {
+
+class DialogManager extends Component {
     state = {
         onMounted: false,
     }
@@ -245,11 +246,13 @@ export class DialogManager extends Component {
 
             const display = DIMENSION_ID_ORGUNIT === dialogId ? 'block' : 'none'
 
+            const rootOrgUnits = this.props.rootOrgUnits || []
+
             return (
                 <div key={DIMENSION_ID_ORGUNIT} style={{ display }}>
                     <OrgUnitDimension
                         selected={selected}
-                        roots={this.props.rootOrgUnits.map(
+                        roots={rootOrgUnits.map(
                             (rootOrgUnit) => rootOrgUnit.id
                         )}
                         displayNameProp={displayNameProperty}
@@ -556,19 +559,15 @@ DialogManager.propTypes = {
     type: PropTypes.string,
 }
 
-DialogManager.defaultProps = {
-    dialogId: null,
-    dxIds: [],
-    rootOrgUnits: [],
-}
+const EMPTY_DX_IDS = []
 
 const mapStateToProps = (state) => ({
     displayNameProperty: sGetSettingsDisplayNameProperty(state),
-    dialogId: sGetUiActiveModalDialog(state),
+    dialogId: sGetUiActiveModalDialog(state) || null,
     dimensions: sGetDimensions(state),
     metadata: sGetMetadata(state),
     parentGraphMap: sGetUiParentGraphMap(state),
-    dxIds: sGetUiItemsByDimension(state, DIMENSION_ID_DATA),
+    dxIds: sGetUiItemsByDimension(state, DIMENSION_ID_DATA) || EMPTY_DX_IDS,
     ouIds: sGetUiItemsByDimension(state, DIMENSION_ID_ORGUNIT),
     selectedItems: (dimensionId) => sGetUiItemsByDimension(state, dimensionId),
     settings: sGetSettings(state),

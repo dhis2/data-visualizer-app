@@ -1,3 +1,5 @@
+/* eslint-disable no-import-assign, import/namespace */
+
 import * as analytics from '@dhis2/analytics'
 import { render, waitFor } from '@testing-library/react'
 import React from 'react'
@@ -123,9 +125,7 @@ describe('VisualizationPlugin', () => {
             ...props,
         }
 
-        let renderResult
-
-        renderResult = render(<VisualizationPlugin {...combinedProps} />)
+        const renderResult = render(<VisualizationPlugin {...combinedProps} />)
         await waitFor(() => {
             expect(api.apiFetchAnalytics).toHaveBeenCalled()
         })

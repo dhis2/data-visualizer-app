@@ -1,11 +1,8 @@
-import { render, screen, queryByAttribute } from '@testing-library/react'
+import { queryByAttribute } from '@testing-library/react'
 import React from 'react'
 import { renderWithProviders } from '../../../../config/testsContext.js'
 import { setupTestStore } from '../../../configureStore.js'
-import {
-    OPTION_FONT_SIZE,
-    OPTION_TARGET_LINE_ENABLED,
-} from '../../../modules/options.js'
+import { OPTION_FONT_SIZE } from '../../../modules/options.js'
 import { DEFAULT_UI } from '../../../reducers/ui.js'
 import { TextBaseOption } from '../Options/TextBaseOption.jsx'
 

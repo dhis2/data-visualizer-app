@@ -1,5 +1,6 @@
 import { VIS_TYPE_COLUMN } from '@dhis2/analytics'
 import { render } from '@testing-library/react'
+import React from 'react'
 import VisualizationTypeListItem from '../VisualizationTypeListItem.jsx'
 
 test('VisualizationTypeListItem renders Column item', () => {
