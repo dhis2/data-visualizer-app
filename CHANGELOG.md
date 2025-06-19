@@ -1,3 +1,10 @@
+# [101.3.0](https://github.com/dhis2/data-visualizer-app/compare/v101.2.4...v101.3.0) (2025-06-19)
+
+
+### Features
+
+* support xlsx downloads (DHIS2-19748) ([#3415](https://github.com/dhis2/data-visualizer-app/issues/3415)) ([581faef](https://github.com/dhis2/data-visualizer-app/commit/581faefae25a173284553098bdcd33d5a463742c))
+
 ## [101.2.4](https://github.com/dhis2/data-visualizer-app/compare/v101.2.3...v101.2.4) (2025-06-06)
 
 
