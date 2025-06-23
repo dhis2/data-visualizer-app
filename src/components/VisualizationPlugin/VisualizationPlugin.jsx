@@ -20,7 +20,7 @@ import { Button, IconLegend24, Layer } from '@dhis2/ui'
 import cx from 'classnames'
 import cloneDeep from 'lodash-es/cloneDeep'
 import PropTypes from 'prop-types'
-import React, { useEffect, useState, useCallback } from 'react'
+import React, { useEffect, useState, useCallback, useRef } from 'react'
 import { apiFetchLegendSets } from '../../api/legendSets.js'
 import { ensureAnalyticsResponsesContainData } from '../../modules/analytics.js'
 import { getDisabledOptions } from '../../modules/disabledOptions.js'
@@ -48,10 +48,12 @@ import OutlierTablePlugin from './OutlierTablePlugin.jsx'
 import PivotPlugin from './PivotPlugin.jsx'
 import styles from './styles/VisualizationPlugin.module.css'
 
+const DEFAULT_FILTERS = {}
+
 export const VisualizationPlugin = ({
     visualization: originalVisualization = {},
     displayProperty = 'name',
-    filters = {},
+    filters = DEFAULT_FILTERS,
     forDashboard = false,
     id,
     isInModal,
@@ -72,28 +74,28 @@ export const VisualizationPlugin = ({
     const [showLegendKey, setShowLegendKey] = useState(false)
     const [renderId, setRenderId] = useState(id)
     const [size, setSize] = useState({ width: 0, height: 0 })
+    const resizeObserverRef = useRef(null)
+
+    useEffect(() => {
+        resizeObserverRef.current = new window.ResizeObserver((entries) => {
+            const { target, contentRect } = entries[0] ?? {}
+            const width = contentRect?.width ?? 0
+            const height = contentRect?.height ?? 0
+            if (target && width > 0 && height > 0) {
+                setSize((currentSize) =>
+                    currentSize.width === width && currentSize.height === height
+                        ? currentSize
+                        : { width, height }
+                )
+            }
+        })
+        return resizeObserverRef.current.disconnect
+    }, [])
 
     const containerCallbackRef = useCallback((node) => {
-        if (
-            node === null ||
-            // This avoids a state update when closing the intepretations modal
-            (node.clientWidth === 0 && node.clientHeight === 0)
-        ) {
-            return
+        if (node instanceof Element) {
+            resizeObserverRef.current.observe(node)
         }
-
-        const adjustSize = () =>
-            setSize({
-                width: node.clientWidth,
-                height: node.clientHeight,
-            })
-
-        const sizeObserver = new window.ResizeObserver(adjustSize)
-        sizeObserver.observe(node)
-
-        adjustSize()
-
-        return sizeObserver.disconnect
     }, [])
 
     useEffect(() => setRenderId(id), [id])
@@ -197,7 +199,7 @@ export const VisualizationPlugin = ({
         } else {
             error = new GenericServerError()
         }
-
+        console.error(error)
         return error
     }
 
@@ -385,8 +387,6 @@ export const VisualizationPlugin = ({
             .catch((error) => setError(error))
             // since errors are rendered here, always call loading complete
             .finally(() => onLoadingComplete())
-
-        /* eslint-disable-next-line react-hooks/exhaustive-deps */
     }, [originalVisualization, filters, forDashboard])
 
     useEffect(() => {
