@@ -1,4 +1,5 @@
 import { HoverMenuListItem } from '@dhis2/analytics'
+import { useConfig } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import { MenuItem, MenuSectionHeader } from '@dhis2/ui'
 import PropTypes from 'prop-types'
@@ -6,11 +7,13 @@ import React from 'react'
 import {
     DOWNLOAD_TYPE_TABLE,
     FILE_FORMAT_XLS,
+    FILE_FORMAT_XLSX,
     FILE_FORMAT_CSV,
     FILE_FORMAT_HTML_CSS,
 } from './constants.js'
 
 export const TableMenu = ({ hoverable, onDownload }) => {
+    const config = useConfig()
     const MenuItemComponent = hoverable ? HoverMenuListItem : MenuItem
 
     return (
@@ -23,11 +26,18 @@ export const TableMenu = ({ hoverable, onDownload }) => {
             />
             <MenuItemComponent
                 key="xls"
-                label={i18n.t('Excel (.xls)')}
+                label={
+                    config.serverVersion.minor >= 42
+                        ? i18n.t('Excel (.xlsx)')
+                        : i18n.t('Excel (.xls)')
+                }
                 onClick={() =>
                     onDownload({
                         type: DOWNLOAD_TYPE_TABLE,
-                        format: FILE_FORMAT_XLS,
+                        format:
+                            config.serverVersion.minor >= 42
+                                ? FILE_FORMAT_XLSX
+                                : FILE_FORMAT_XLS,
                     })
                 }
             />
