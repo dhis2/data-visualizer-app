@@ -199,7 +199,6 @@ export const VisualizationPlugin = ({
         } else {
             error = new GenericServerError()
         }
-        console.error(error)
         return error
     }
 
