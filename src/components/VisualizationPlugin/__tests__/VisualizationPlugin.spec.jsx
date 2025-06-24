@@ -26,6 +26,11 @@ jest.mock('@dhis2/analytics', () => ({
             },
         ]),
 }))
+global.ResizeObserver = jest.fn().mockImplementation(() => ({
+    observe: jest.fn(),
+    unobserve: jest.fn(),
+    disconnect: jest.fn(),
+}))
 
 const dxMock = {
     dimension: 'dx',
