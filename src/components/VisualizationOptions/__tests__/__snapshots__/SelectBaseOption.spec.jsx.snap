@@ -10,7 +10,7 @@ exports[`DV > Options > SelectBaseOption renders a <Checkbox /> and <SingleSelec
       <input
         checked=""
         class="jsx-1193297444"
-        name="toggleable-select-toggle"
+        name="toggleable-toggle"
         type="checkbox"
         value=""
       />
@@ -53,11 +53,9 @@ exports[`DV > Options > SelectBaseOption renders a <Checkbox /> and <SingleSelec
       class="undefined"
     >
       <select
-        data-test="hello-select-select"
-        datatest="hello-select"
-        inputwidth="280px"
+        data-test="hello-select"
         label=""
-        name="toggleable-select-select"
+        name="toggleable-select"
       >
         <option
           data-test="option-opt1"
@@ -90,11 +88,9 @@ exports[`DV > Options > SelectBaseOption renders a <SingleSelectField /> when no
       class=""
     >
       <select
-        data-test="hello-select-select"
-        datatest="hello-select"
-        inputwidth="280px"
+        data-test="hello-select"
         label="toggleable test"
-        name="toggleable-select-select"
+        name="toggleable-select"
       >
         <option
           data-test="option-opt1"

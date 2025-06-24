@@ -1,9 +1,4 @@
-import {
-    render,
-    screen,
-    queryByAttribute,
-    fireEvent,
-} from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import React from 'react'
 import { UnconnectedSelectBaseOption as SelectBaseOption } from '../Options/SelectBaseOption.jsx'
 
@@ -16,8 +11,13 @@ jest.mock('@dhis2/ui', () => {
                 {label}
             </option>
         ),
-        SingleSelectField: ({ children, ...props }) => (
-            <select {...props} data-test={`${props.dataTest}-select`}>
+        SingleSelectField: ({ children, dataTest, label, name, onChange }) => (
+            <select
+                label={label}
+                name={name}
+                data-test={dataTest}
+                onChange={onChange}
+            >
                 {children}
             </select>
         ),
@@ -31,7 +31,7 @@ describe('DV > Options > SelectBaseOption', () => {
         value: '',
         label: 'toggleable test',
         option: {
-            name: 'toggleable-select',
+            name: 'toggleable',
             defaultValue: '',
             items: [
                 { value: 'opt1', label: 'Option 1' },
@@ -45,22 +45,23 @@ describe('DV > Options > SelectBaseOption', () => {
     }
 
     test('renders a <Checkbox />', () => {
-        const { container } = render(<SelectBaseOption {...props} />)
+        const { queryByTestId } = render(<SelectBaseOption {...props} />)
         const checkbox = screen.getByRole('checkbox', {
             name: props.label,
         })
         expect(checkbox).toBeInTheDocument()
         expect(checkbox).toHaveProperty('checked', false)
 
-        const getByDataTest = queryByAttribute.bind(null, 'data-test')
-        const select = getByDataTest(container, 'hello-select-select')
+        const select = queryByTestId('hello-select')
         expect(select).not.toBeInTheDocument()
     })
 
     test('renders a <Checkbox /> and <SingleSelectField /> when the checkbox is enabled', () => {
         props.value = 'opt1'
 
-        const { container } = render(<SelectBaseOption {...props} />)
+        const { container, queryByTestId } = render(
+            <SelectBaseOption {...props} />
+        )
         expect(container).toMatchSnapshot()
 
         const checkbox = screen.getByRole('checkbox', {
@@ -68,18 +69,18 @@ describe('DV > Options > SelectBaseOption', () => {
         })
         expect(checkbox).toBeInTheDocument()
 
-        const getByDataTest = queryByAttribute.bind(null, 'data-test')
-        const select = getByDataTest(container, 'hello-select-select')
+        const select = queryByTestId('hello-select')
         expect(select).toBeInTheDocument()
     })
 
     test('renders a <SingleSelectField /> when not toggleable', () => {
         props.toggleable = false
-        const { container } = render(<SelectBaseOption {...props} />)
+        const { container, queryByTestId } = render(
+            <SelectBaseOption {...props} />
+        )
         expect(container).toMatchSnapshot()
 
-        const getByDataTest = queryByAttribute.bind(null, 'data-test')
-        const select = getByDataTest(container, 'hello-select-select')
+        const select = queryByTestId('hello-select')
         expect(select).toBeInTheDocument()
 
         const options = Array.from(select.children)
@@ -91,10 +92,9 @@ describe('DV > Options > SelectBaseOption', () => {
 
     test('should trigger the onChange callback on select change', () => {
         props.toggleable = false
-        const { container } = render(<SelectBaseOption {...props} />)
+        const { queryByTestId } = render(<SelectBaseOption {...props} />)
 
-        const getByDataTest = queryByAttribute.bind(null, 'data-test')
-        const select = getByDataTest(container, 'hello-select-select')
+        const select = queryByTestId('hello-select')
         expect(select).toBeInTheDocument()
 
         fireEvent.change(select, { target: { value: 'opt2' } })
