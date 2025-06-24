@@ -89,7 +89,12 @@ export const VisualizationPlugin = ({
                 )
             }
         })
-        return resizeObserverRef.current.disconnect
+        return () => {
+            /* When the intepretation modal closes the resizeObserver
+             * is detroyed before this cleanup effect runs, so
+             * `disconnect` needs to be called conditionally */
+            resizeObserverRef.current?.disconnect()
+        }
     }, [])
 
     const containerCallbackRef = useCallback((node) => {
