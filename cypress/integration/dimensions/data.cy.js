@@ -108,7 +108,7 @@ describe('Data dimension', () => {
         cy.intercept('GET', DATA_ITEMS_URL).as('request')
         selectAllItemsByButton()
         expectSelectedItemsAmountToBeLeast(PAGE_SIZE)
-        cy.wait('@request').then(({ request, response }) => {
+        cy.wait('@request').should(({ request, response }) => {
             expect(request.url).to.contain('page=2')
             expect(response.statusCode).to.eq(200)
             expect(response.body.dataItems.length).to.eq(PAGE_SIZE)
@@ -126,7 +126,7 @@ describe('Data dimension', () => {
         // more items are fetched when scrolling down
         cy.intercept('GET', DATA_ITEMS_URL).as('request')
         scrollSourceToBottom()
-        cy.wait('@request').then(({ request, response }) => {
+        cy.wait('@request').should(({ request, response }) => {
             expect(request.url).to.contain('page=3')
             expect(response.statusCode).to.eq(200)
             expect(response.body.dataItems.length).to.eq(PAGE_SIZE)
