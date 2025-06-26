@@ -3,14 +3,16 @@ import PropTypes from 'prop-types'
 import React, { useRef, useCallback, useEffect } from 'react'
 import styles from './styles/ChartPlugin.module.css'
 
+const VISUALIZATION_PROP_DEFAULT = {}
+
 const ChartPlugin = ({
-    visualization,
+    visualization = VISUALIZATION_PROP_DEFAULT,
     responses,
     extraOptions,
     legendSets,
-    id: renderCounter,
-    onChartGenerated,
-    animation: defaultAnimation,
+    id: renderCounter = null,
+    onChartGenerated = Function.prototype,
+    animation: defaultAnimation = 200,
     onToggleContextualMenu,
 }) => {
     const canvasRef = useRef(undefined)
@@ -62,14 +64,6 @@ const ChartPlugin = ({
     }, [renderCounter])
 
     return <div ref={canvasRef} className={styles.container} />
-}
-
-ChartPlugin.defaultProps = {
-    visualization: {},
-    filters: {},
-    animation: 200,
-    id: null,
-    onChartGenerated: Function.prototype,
 }
 
 ChartPlugin.propTypes = {

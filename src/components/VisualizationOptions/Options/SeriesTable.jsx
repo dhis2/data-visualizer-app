@@ -47,15 +47,18 @@ import styles from '../styles/SeriesTable.module.css'
 const availableAxes = [0, 1, 2, 3]
 const allTypes = [VIS_TYPE_COLUMN, VIS_TYPE_LINE]
 
+const LAYOUT_ITEMS_PROP_DEFAULT = []
+const OPTION_ITEMS_PROP_DEFAULT = []
+
 const SeriesTable = ({
     columns,
-    layoutItems,
-    optionItems,
+    layoutItems = LAYOUT_ITEMS_PROP_DEFAULT,
+    optionItems = OPTION_ITEMS_PROP_DEFAULT,
     onChange,
     onItemChange,
     visType,
-    showAxisOptions,
-    showTypeOptions,
+    showAxisOptions = false,
+    showTypeOptions = false,
 }) => {
     const availableTypes = [
         visType,
@@ -278,13 +281,6 @@ SeriesTable.propTypes = {
     optionItems: PropTypes.array,
     showAxisOptions: PropTypes.bool,
     showTypeOptions: PropTypes.bool,
-}
-
-SeriesTable.defaultProps = {
-    layoutItems: [],
-    optionItems: [],
-    showAxisOptions: false,
-    showTypeOptions: false,
 }
 
 const mapStateToProps = (state) => ({

@@ -48,12 +48,12 @@ import OutlierTablePlugin from './OutlierTablePlugin.jsx'
 import PivotPlugin from './PivotPlugin.jsx'
 import styles from './styles/VisualizationPlugin.module.css'
 
-const DEFAULT_FILTERS = {}
+const FILTERS_PROP_DEFAULT = {}
 
 export const VisualizationPlugin = ({
     visualization: originalVisualization = {},
     displayProperty = 'name',
-    filters = DEFAULT_FILTERS,
+    filters = FILTERS_PROP_DEFAULT,
     forDashboard = false,
     id,
     isInModal,

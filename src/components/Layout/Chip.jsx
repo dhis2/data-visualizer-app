@@ -32,12 +32,14 @@ import { sGetUiType } from '../../reducers/ui.js'
 import styles from './styles/Chip.module.css'
 import { default as TooltipContent } from './TooltipContent.jsx'
 
+const ITEMS_PROP_DEFAULT = []
+
 const Chip = ({
     type,
     dimensionId,
     dimensionName,
     axisId,
-    items,
+    items = ITEMS_PROP_DEFAULT,
     onClick,
     isLocked,
     axisName,
@@ -245,10 +247,6 @@ Chip.propTypes = {
     axisName: PropTypes.string,
     contextMenu: PropTypes.object,
     items: PropTypes.array,
-}
-
-Chip.defaultProps = {
-    items: [],
 }
 
 const mapStateToProps = (state, ownProps) => ({

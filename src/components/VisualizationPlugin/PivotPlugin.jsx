@@ -2,11 +2,13 @@ import { PivotTable } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 import React from 'react'
 
+const STYLE_PROP_DEFAULT = {}
+
 const PivotPlugin = ({
     responses,
     legendSets,
     visualization,
-    style,
+    style = STYLE_PROP_DEFAULT,
     id: renderCounter,
     onToggleContextualMenu,
 }) => {
@@ -21,10 +23,6 @@ const PivotPlugin = ({
             />
         </div>
     )
-}
-
-PivotPlugin.defaultProps = {
-    style: {},
 }
 
 PivotPlugin.propTypes = {
