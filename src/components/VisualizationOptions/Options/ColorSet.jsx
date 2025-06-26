@@ -95,7 +95,7 @@ const ColorSetPreview = ({ colorSet, disabled }) => (
             opacity: disabled ? 0.3 : 1,
         }}
     >
-        {colorSet?.patterns.map((pattern, index) => (
+        {colorSet.patterns?.map((pattern, index) => (
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width={14}
@@ -120,7 +120,7 @@ const ColorSetPreview = ({ colorSet, disabled }) => (
                 <rect height="14" width="14" fill={`url(#bg${index})`}></rect>
             </svg>
         ))}
-        {colorSet?.colors.map((color) => (
+        {colorSet.colors?.map((color) => (
             <div
                 key={color}
                 style={{ backgroundColor: color, width: 14, height: 14 }}
