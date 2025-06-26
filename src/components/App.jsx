@@ -66,14 +66,9 @@ class UnconnectedApp extends Component {
         const id = location.pathname.slice(1).split('/')[0]
         const prevId = this.state.previousLocation.slice(1).split('/')[0]
 
-        if (
-            id !== prevId ||
-            this.state.previousLocation === location.pathname
-        ) {
-            return true
-        }
-
-        return false
+        return (
+            id !== prevId || this.state.previousLocation === location.pathname
+        )
     }
 
     parseLocation = (location) => {
@@ -220,6 +215,9 @@ class UnconnectedApp extends Component {
                 ) === STATE_DIRTY
             ) {
                 event.preventDefault()
+                // Required for triggering the unload confirmation dialog
+                // See: https://developer.mozilla.org/en-US/docs/Web/API/Window/beforeunload_event
+                // NOSONAR
                 event.returnValue = i18n.t('You have unsaved changes.')
             }
         })

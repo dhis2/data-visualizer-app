@@ -78,7 +78,7 @@ const ApprovalLevel = ({ value, onChange }) => {
         return null
     }
 
-    if (value && value.id) {
+    if (value?.id) {
         if (!options.find((option) => option.value === value.id)) {
             setOptions([
                 ...options,

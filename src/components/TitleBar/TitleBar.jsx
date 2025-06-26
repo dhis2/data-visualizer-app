@@ -32,31 +32,21 @@ const getTitleText = (titleState, visualization) => {
     }
 }
 
-const getCustomTitleStyle = (titleState) => {
-    switch (titleState) {
-        case STATE_UNSAVED:
-            return styles.titleUnsaved
-        default:
-            return null
-    }
-}
+const getCustomTitleStyle = (titleState) =>
+    titleState === STATE_UNSAVED ? styles.titleUnsaved : null
 
-const getSuffix = (titleState) => {
-    switch (titleState) {
-        case STATE_DIRTY:
-            return (
-                <div
-                    style={{
-                        ...styles.suffix,
-                        ...styles.titleDirty,
-                    }}
-                    data-test="titlebar-dirty"
-                >{`- ${getTitleDirty()}`}</div>
-            )
-        default:
-            return ''
-    }
-}
+const getSuffix = (titleState) =>
+    titleState === STATE_DIRTY ? (
+        <div
+            style={{
+                ...styles.suffix,
+                ...styles.titleDirty,
+            }}
+            data-test="titlebar-dirty"
+        >{`- ${getTitleDirty()}`}</div>
+    ) : (
+        ''
+    )
 
 export const UnconnectedTitleBar = ({ titleState, titleText }) => {
     const titleStyle = {

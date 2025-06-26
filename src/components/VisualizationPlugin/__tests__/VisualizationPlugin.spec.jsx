@@ -91,21 +91,7 @@ const analyticsResponse = {
     rows: ['data'],
 }
 
-class MockAnalyticsResponse {
-    constructor() {
-        return analyticsResponse
-    }
-}
-
 const mockYoYSeriesLabels = ['rainbow', 'rarity']
-class MockYoYAnalyticsResponse {
-    constructor() {
-        return {
-            responses: [analyticsResponse],
-            yearlySeriesLabels: mockYoYSeriesLabels,
-        }
-    }
-}
 
 const isYearOverYearMockResponse = (visType) => {
     return visType === analytics.VIS_TYPE_YEAR_OVER_YEAR_LINE
@@ -143,9 +129,7 @@ describe('VisualizationPlugin', () => {
         VisualizationErrorInfo.mockClear()
         defaultProps.onResponsesReceived.mockClear()
 
-        api.apiFetchAnalytics = jest
-            .fn()
-            .mockResolvedValue([new MockAnalyticsResponse()])
+        api.apiFetchAnalytics = jest.fn().mockResolvedValue([analyticsResponse])
     })
 
     describe('API Data Fetch', () => {
@@ -215,9 +199,10 @@ describe('VisualizationPlugin', () => {
                 .fn()
                 .mockReturnValue(peMock.items)
 
-            api.apiFetchAnalyticsForYearOverYear = jest
-                .fn()
-                .mockResolvedValue(new MockYoYAnalyticsResponse())
+            api.apiFetchAnalyticsForYearOverYear = jest.fn().mockResolvedValue({
+                responses: [analyticsResponse],
+                yearlySeriesLabels: mockYoYSeriesLabels,
+            })
 
             analytics.isYearOverYear = jest.fn(isYearOverYearMockResponse)
 

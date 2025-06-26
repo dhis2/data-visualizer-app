@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react'
+import PropTypes from 'prop-types'
 import React from 'react'
 import { Provider } from 'react-redux'
 
@@ -17,6 +18,10 @@ export const renderWithProviders = (ui, store, renderOptions = {}) => {
     const Wrapper = ({ children }) => (
         <Provider store={store}>{children}</Provider>
     )
+
+    Wrapper.propTypes = {
+        children: PropTypes.node,
+    }
 
     return {
         store,

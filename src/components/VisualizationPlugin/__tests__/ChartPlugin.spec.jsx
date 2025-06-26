@@ -30,12 +30,6 @@ const analyticsResponse = {
     metaData: metaDataMock,
 }
 
-class MockAnalyticsResponse {
-    constructor() {
-        return analyticsResponse
-    }
-}
-
 const createVisualizationMock = {
     visualization: {
         exportChartLocal: jest.fn(),
@@ -61,12 +55,14 @@ describe('ChartPlugin', () => {
             responses: [],
             extraOptions: mockExtraOptions,
             legendSets: [],
+            visualization: {},
         }
 
         // eslint-disable-next-line no-import-assign, import/namespace
         api.apiFetchAnalytics = jest
             .fn()
-            .mockResolvedValue([new MockAnalyticsResponse()])
+            //.mockResolvedValue([new MockAnalyticsResponse()])
+            .mockResolvedValue([analyticsResponse])
 
         // eslint-disable-next-line no-import-assign, import/namespace
         analytics.createVisualization = jest

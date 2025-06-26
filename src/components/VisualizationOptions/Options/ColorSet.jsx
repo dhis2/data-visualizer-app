@@ -95,43 +95,37 @@ const ColorSetPreview = ({ colorSet, disabled }) => (
             opacity: disabled ? 0.3 : 1,
         }}
     >
-        {colorSet?.patterns &&
-            colorSet.patterns.map((pattern, index) => (
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width={14}
-                    height={14}
-                    key={`pattern-${index}`}
-                >
-                    <defs>
-                        <pattern
-                            id={`bg${index}`}
-                            patternUnits="userSpaceOnUse"
-                            width={pattern.width}
-                            height={pattern.height}
-                        >
-                            <path
-                                d={pattern.path}
-                                stroke={pattern.color}
-                                strokeWidth={2}
-                                fill="none"
-                            />
-                        </pattern>
-                    </defs>
-                    <rect
-                        height="14"
-                        width="14"
-                        fill={`url(#bg${index})`}
-                    ></rect>
-                </svg>
-            ))}
-        {colorSet?.colors &&
-            colorSet.colors.map((color) => (
-                <div
-                    key={color}
-                    style={{ backgroundColor: color, width: 14, height: 14 }}
-                />
-            ))}
+        {colorSet?.patterns.map((pattern, index) => (
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={14}
+                height={14}
+                key={`pattern-${index}`}
+            >
+                <defs>
+                    <pattern
+                        id={`bg${index}`}
+                        patternUnits="userSpaceOnUse"
+                        width={pattern.width}
+                        height={pattern.height}
+                    >
+                        <path
+                            d={pattern.path}
+                            stroke={pattern.color}
+                            strokeWidth={2}
+                            fill="none"
+                        />
+                    </pattern>
+                </defs>
+                <rect height="14" width="14" fill={`url(#bg${index})`}></rect>
+            </svg>
+        ))}
+        {colorSet?.colors.map((color) => (
+            <div
+                key={color}
+                style={{ backgroundColor: color, width: 14, height: 14 }}
+            />
+        ))}
     </div>
 )
 

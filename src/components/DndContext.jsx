@@ -34,21 +34,19 @@ class DndContext extends Component {
                 ...layout,
                 [sourceAxisId]: sourceList,
             })
-        } else {
-            if (
-                canDimensionBeAddedToAxis(
-                    this.props.type,
-                    layout[destinationAxisId],
-                    destinationAxisId
-                )
-            ) {
-                this.props.onAddDimensions({
-                    [moved]: {
-                        axisId: destinationAxisId,
-                        index: destinationIndex,
-                    },
-                })
-            }
+        } else if (
+            canDimensionBeAddedToAxis(
+                this.props.type,
+                layout[destinationAxisId],
+                destinationAxisId
+            )
+        ) {
+            this.props.onAddDimensions({
+                [moved]: {
+                    axisId: destinationAxisId,
+                    index: destinationIndex,
+                },
+            })
         }
     }
 
@@ -62,7 +60,7 @@ class DndContext extends Component {
         this.props.onAddDimensions({ [dimensionId]: { axisId, index } })
 
         const items = this.props.itemsByDimension[dimensionId]
-        const hasNoItems = Boolean(!items || !items.length)
+        const hasNoItems = Boolean(!items?.length)
 
         if (
             hasNoItems &&

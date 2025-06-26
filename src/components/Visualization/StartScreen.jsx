@@ -23,7 +23,7 @@ const StartScreen = () => {
                     currentUser.username
                 )
             const visualizations = mostViewedVisualizationsResult.visualization // {position: int, views: int, id: string, created: string}
-            if (visualizations && visualizations.length) {
+            if (visualizations?.length) {
                 const visualizationsResult = await apiFetchVisualizations(
                     engine,
                     visualizations.map((visualization) => visualization.id)
@@ -80,32 +80,28 @@ const StartScreen = () => {
                             >
                                 {i18n.t('Your most viewed charts and tables')}
                             </h3>
-                            {mostViewedVisualizations.map(
-                                (visualization, index) => {
-                                    const VisualizationIcon =
-                                        visTypeIcons[visualization.type]
+                            {mostViewedVisualizations.map((visualization) => {
+                                const VisualizationIcon =
+                                    visTypeIcons[visualization.type]
 
-                                    return (
-                                        <p
-                                            key={index}
-                                            className={styles.visualization}
-                                            onClick={() =>
-                                                history.push(
-                                                    `/${visualization.id}`
-                                                )
-                                            }
-                                            data-test="start-screen-most-viewed-list-item"
-                                        >
-                                            <span className={styles.visIcon}>
-                                                <VisualizationIcon
-                                                    color={colors.grey600}
-                                                />
-                                            </span>
-                                            <span>{visualization.name}</span>
-                                        </p>
-                                    )
-                                }
-                            )}
+                                return (
+                                    <p
+                                        key={visualization.id}
+                                        className={styles.visualization}
+                                        onClick={() =>
+                                            history.push(`/${visualization.id}`)
+                                        }
+                                        data-test="start-screen-most-viewed-list-item"
+                                    >
+                                        <span className={styles.visIcon}>
+                                            <VisualizationIcon
+                                                color={colors.grey600}
+                                            />
+                                        </span>
+                                        <span>{visualization.name}</span>
+                                    </p>
+                                )
+                            })}
                         </div>
                     )}
                 </div>

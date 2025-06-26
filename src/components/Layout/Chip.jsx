@@ -250,7 +250,7 @@ Chip.propTypes = {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    dimensionName: (sGetDimensions(state)[ownProps.dimensionId] || {}).name,
+    dimensionName: sGetDimensions(state)[ownProps.dimensionId]?.name,
     type: sGetUiType(state),
     metadata: sGetMetadata(state),
 })

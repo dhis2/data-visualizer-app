@@ -145,50 +145,45 @@ class DialogManager extends Component {
             })
         }
 
-        switch (dimensionId) {
-            case DIMENSION_ID_ORGUNIT: {
-                const forMetadata = {}
-                const forParentGraphMap = {}
+        if (dimensionId === DIMENSION_ID_ORGUNIT) {
+            const forMetadata = {}
+            const forParentGraphMap = {}
 
-                items.forEach((ou) => {
-                    const id = ouIdHelper.removePrefix(ou.id)
-                    forMetadata[id] = {
-                        id,
-                        name: ou.name || ou.displayName,
-                        displayName: ou.displayName,
+            items.forEach((ou) => {
+                const id = ouIdHelper.removePrefix(ou.id)
+                forMetadata[id] = {
+                    id,
+                    name: ou.name || ou.displayName,
+                    displayName: ou.displayName,
+                }
+
+                if (ou.path) {
+                    const path = removeLastPathSegment(ou.path)
+
+                    forParentGraphMap[ou.id] =
+                        path === `/${ou.id}` ? '' : path.replace(/^\//, '')
+                }
+            })
+
+            this.props.addMetadata(forMetadata)
+            this.props.addParentGraphMap(forParentGraphMap)
+        } else {
+            this.props.addMetadata(
+                items.reduce((obj, item) => {
+                    obj[item.id] = {
+                        id: item.id,
+                        name: item.name || item.displayName,
+                        displayName: item.displayName,
+                        dimensionItemType: item.type,
+                        optionSetId: item.optionSetId,
+                        ...(item.expression
+                            ? { expression: item.expression }
+                            : {}),
                     }
 
-                    if (ou.path) {
-                        const path = removeLastPathSegment(ou.path)
-
-                        forParentGraphMap[ou.id] =
-                            path === `/${ou.id}` ? '' : path.replace(/^\//, '')
-                    }
-                })
-
-                this.props.addMetadata(forMetadata)
-                this.props.addParentGraphMap(forParentGraphMap)
-
-                break
-            }
-            default: {
-                this.props.addMetadata(
-                    items.reduce((obj, item) => {
-                        obj[item.id] = {
-                            id: item.id,
-                            name: item.name || item.displayName,
-                            displayName: item.displayName,
-                            dimensionItemType: item.type,
-                            optionSetId: item.optionSetId,
-                            ...(item.expression
-                                ? { expression: item.expression }
-                                : {}),
-                        }
-
-                        return obj
-                    }, {})
-                )
-            }
+                    return obj
+                }, {})
+            )
         }
     }
 

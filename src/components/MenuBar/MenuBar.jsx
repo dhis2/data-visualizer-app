@@ -46,10 +46,10 @@ const getOnRename = (props, cb) => (details) =>
     props.onRenameVisualization(details, cb)
 
 const getOnSave = (props) => (details) =>
-    props.onSaveVisualization(details, false)
+    props.onSaveVisualization(false, details)
 
 const getOnSaveAs = (props) => (details) =>
-    props.onSaveVisualization(details, true)
+    props.onSaveVisualization(true, details)
 
 const getOnDelete = (props) => () => props.onDeleteVisualization()
 
@@ -127,7 +127,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
     onRenameVisualization: (details, onRenameComplete) =>
         dispatch(fromActions.tDoRenameVisualization(details, onRenameComplete)),
-    onSaveVisualization: (details = {}, copy) =>
+    onSaveVisualization: (copy, details = {}) =>
         dispatch(fromActions.tDoSaveVisualization(details, copy)),
     onDeleteVisualization: () => dispatch(fromActions.tDoDeleteVisualization()),
     onError: (error) => {
