@@ -105,10 +105,16 @@ describe('Data dimension', () => {
 
         const secondPageItemName = 'BCG doses'
         // all items can be selected
-        cy.intercept('GET', DATA_ITEMS_URL).as('request')
+        cy.intercept({
+            method: 'GET',
+            pathname: DATA_ITEMS_URL,
+            query: {
+                page: '2',
+            },
+        }).as('pageTwoRequest')
         selectAllItemsByButton()
         expectSelectedItemsAmountToBeLeast(PAGE_SIZE)
-        cy.wait('@request').then(({ request, response }) => {
+        cy.wait('@pageTwoRequest').should(({ request, response }) => {
             expect(request.url).to.contain('page=2')
             expect(response.statusCode).to.eq(200)
             expect(response.body.dataItems.length).to.eq(PAGE_SIZE)
@@ -124,9 +130,15 @@ describe('Data dimension', () => {
         expectNoDataItemsToBeSelected()
 
         // more items are fetched when scrolling down
-        cy.intercept('GET', DATA_ITEMS_URL).as('request')
+        cy.intercept({
+            method: 'GET',
+            pathname: DATA_ITEMS_URL,
+            query: {
+                page: '3',
+            },
+        }).as('pageThreeRequest')
         scrollSourceToBottom()
-        cy.wait('@request').then(({ request, response }) => {
+        cy.wait('@pageThreeRequest').should(({ request, response }) => {
             expect(request.url).to.contain('page=3')
             expect(response.statusCode).to.eq(200)
             expect(response.body.dataItems.length).to.eq(PAGE_SIZE)
