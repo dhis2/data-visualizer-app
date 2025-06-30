@@ -5,7 +5,6 @@ import {
 } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Droppable, Draggable } from 'react-beautiful-dnd'
 import { connect } from 'react-redux'
 import { acSetUiActiveModalDialog } from '../../../actions/ui.js'
 import {
@@ -13,6 +12,7 @@ import {
     sGetUiLayout,
     sGetUiType,
 } from '../../../reducers/ui.js'
+import { Droppable, Draggable } from '../../DNDMocks.jsx'
 import Chip from '../Chip.jsx'
 import ChipMenu from '../ChipMenu.jsx'
 import stylesModule from './styles/DefaultAxis.module.css'

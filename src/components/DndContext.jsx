@@ -5,7 +5,6 @@ import {
 } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { DragDropContext } from 'react-beautiful-dnd'
 import { connect } from 'react-redux'
 import {
     acAddUiLayoutDimensions,
@@ -14,6 +13,7 @@ import {
 } from '../actions/ui.js'
 import { SOURCE_DIMENSIONS } from '../modules/layout.js'
 import { sGetUiLayout, sGetUiItems, sGetUiType } from '../reducers/ui.js'
+import { DragDropContext } from './DNDMocks.jsx'
 
 class DndContext extends Component {
     rearrangeLayoutDimensions = ({

@@ -9,11 +9,11 @@ import {
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { Droppable } from 'react-beautiful-dnd'
 import { connect } from 'react-redux'
 import { createSelector } from 'reselect'
 import { SOURCE_DIMENSIONS } from '../../modules/layout.js'
 import * as fromReducers from '../../reducers/index.js'
+import { Droppable } from '../DNDMocks.jsx'
 import { default as DndDimensionItem } from './DndDimensionItem.jsx'
 import styles from './styles/DndDimensionList.module.css'
 
