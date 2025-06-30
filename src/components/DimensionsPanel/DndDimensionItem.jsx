@@ -40,31 +40,28 @@ export class DndDimensionItem extends Component {
                 index={index}
                 isDragDisabled={isSelected || isDeactivated || isLocked}
             >
-                {(provided, snapshot = {}) => {
-                    console.log(provided, snapshot)
-                    return (
-                        <>
-                            <DimensionItem
-                                innerRef={provided.innerRef}
-                                {...provided.draggableProps}
-                                {...provided.dragHandleProps}
-                                className={cx({
-                                    [styles.dragging]: snapshot.isDragging,
-                                    [styles.notDragging]: !snapshot.isDragging,
-                                    [styles.active]: isActive,
-                                    [styles.assignedCategories]:
-                                        id === DIMENSION_ID_ASSIGNED_CATEGORIES,
-                                })}
-                                onClick={onClick}
-                                onOptionsClick={onOptionsClick}
-                                {...itemCommonProps}
-                            />
-                            {snapshot.isDragging && (
-                                <DimensionItem {...itemCommonProps} />
-                            )}
-                        </>
-                    )
-                }}
+                {(provided, snapshot = {}) => (
+                    <>
+                        <DimensionItem
+                            innerRef={provided.innerRef}
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                            className={cx({
+                                [styles.dragging]: snapshot.isDragging,
+                                [styles.notDragging]: !snapshot.isDragging,
+                                [styles.active]: isActive,
+                                [styles.assignedCategories]:
+                                    id === DIMENSION_ID_ASSIGNED_CATEGORIES,
+                            })}
+                            onClick={onClick}
+                            onOptionsClick={onOptionsClick}
+                            {...itemCommonProps}
+                        />
+                        {snapshot.isDragging && (
+                            <DimensionItem {...itemCommonProps} />
+                        )}
+                    </>
+                )}
             </Draggable>
         )
     }
