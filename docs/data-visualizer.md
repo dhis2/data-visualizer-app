@@ -64,8 +64,11 @@ Just like in the dimensions menu, in the layout area you can also change the sel
 
 A dimension refers to the elements that describe the data values in the system. There are three main dimensions in the system:
 
--   **Data**: Includes data elements, indicators and datasets (reporting
-    rates), describing the phenomena or event of the data.
+-   **Data**: Includes data elements, indicators, datasets (reporting
+    rates), event data items, program indicators and calculations, describing the phenomena or event of the data.
+
+       > **_NOTE:_**
+        For a reporting rate, it will distinguish whether a report is expected but not yet submitted (Showing 0) or if a report is not expected because it's before start or after an end date of any of the data set's metadata like category option or organisation unit (Showing blank).
 
 <!-- end list -->
 
