@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextBaseOption renders a <Checkbox /> when toggleable is set to true 1`] = `
+<div>
+  <div>
+    <div
+      id="checkbox"
+      name="title-toggle"
+    />
+  </div>
+</div>
+`;
+
+exports[`TextBaseOption renders a <Input /> field when inline is true 1`] = `
+<div>
+  <div
+    class=""
+  >
+    <div
+      class=""
+    >
+      <div
+        id="box"
+      >
+        <div
+          id="input"
+          name="title"
+          value="hello"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextBaseOption renders a <InputField /> when the checkbox is checked 1`] = `
+<div>
+  <div>
+    <div
+      class=""
+    >
+      <div
+        id="inputfield"
+        value=""
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextBaseOption renders a TextStyle component when fontStyleKey is passed 1`] = `
+<div>
+  <div>
+    <div
+      class=""
+    >
+      <div
+        id="inputfield"
+        name="fontSize"
+        value="LARGE"
+      />
+      <div
+        data-test="font-size-input-text-style"
+      >
+        <div
+          class=""
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextBaseOption renders an <InputField /> 1`] = `
+<div>
+  <div>
+    <div
+      class=""
+    >
+      <div
+        id="inputfield"
+        name="title"
+        value="hello"
+      />
+    </div>
+  </div>
+</div>
+`;

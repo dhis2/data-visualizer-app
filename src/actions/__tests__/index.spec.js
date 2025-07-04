@@ -1,7 +1,7 @@
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import * as api from '../../api/visualization.js'
-import { VARIANT_SUCCESS } from '../../components/Snackbar/Snackbar.js'
+import { VARIANT_SUCCESS } from '../../components/Snackbar/Snackbar.jsx'
 import { GenericServerError } from '../../modules/error.js'
 import * as history from '../../modules/history.js'
 import { SET_CURRENT, CLEAR_CURRENT } from '../../reducers/current.js'

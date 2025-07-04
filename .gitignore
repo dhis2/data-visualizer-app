@@ -13,3 +13,6 @@ cypress/downloads
 .vscode
 .gitignore
 .DS_Store
+
+# Logs
+yarn-error.log

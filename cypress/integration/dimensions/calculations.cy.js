@@ -345,13 +345,16 @@ describe('Calculations', () => {
             expectItemToBeSelected(label)
         })
 
-        // edit
+        // edit the calcuation label
         clickEDIEditButton(TEST_LABELS[0])
+        expectFormulaFieldToContainItem(TEST_DATA_ELEMENTS[0])
         inputCalculationLabel(getEditedLabel(TEST_LABELS[0]))
         clickSaveButton()
         expectItemToBeSelected(getEditedLabel(TEST_LABELS[0]))
         expectItemToBeSelected(TEST_LABELS[1])
         clickDimensionModalUpdateButton()
+
+        // confirm changes in the visualization layout
         expectVisualizationToBeVisible(VIS_TYPE_COLUMN)
         cy.getBySel(dataChipEl).trigger('mouseover')
         cy.getBySelLike(tooltipContentEl).should(
