@@ -67,11 +67,11 @@ A dimension refers to the elements that describe the data values in the system. 
 -   **Data**: Includes data elements, indicators, datasets (reporting
     rates), event data items, program indicators and calculations, describing the phenomena or event of the data.
 
-       > **_NOTE:_**
-       > Clarification of display of reporting rates:
-       > 
-       > 1. If a report is expected but not yet submitted, then "0" will be displayed.
-       > 2. If a report is not expected because the metadata (e.g. category option, OU) date is outside of the start-end date range, then no value is displayed. (e.g. "blank")
+    > **_NOTE:_**
+    > Clarification of display of reporting rates:
+    >
+    > 1.  If a report is expected but not yet submitted, then "0" will be displayed.
+    > 2.  If a report is not expected because the metadata (e.g. category option, OU) date is outside of the start-end date range, then no value is displayed. (e.g. "blank")
 
 <!-- end list -->
 
