@@ -68,7 +68,10 @@ A dimension refers to the elements that describe the data values in the system. 
     rates), event data items, program indicators and calculations, describing the phenomena or event of the data.
 
        > **_NOTE:_**
-        For a reporting rate, it will distinguish whether a report is expected but not yet submitted (Showing 0) or if a report is not expected because it's before start or after an end date of any of the data set's metadata like category option or organisation unit (Showing blank).
+       > Clarification of display of reporting rates:
+       > 
+       > 1. If a report is expected but not yet submitted, then "0" will be displayed.
+       > 2. If a report is not expected because the metadata (e.g. category option, OU) date is outside of the start-end date range, then no value is displayed. (e.g. "blank")
 
 <!-- end list -->
 
