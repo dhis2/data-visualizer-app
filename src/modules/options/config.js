@@ -15,16 +15,16 @@ import {
 import cloneDeep from 'lodash-es/cloneDeep'
 import { default as options } from '../options.js'
 import defaultConfig, { defaultOptionNames } from './defaultConfig.js'
-import gaugeConfig, { gaugeOptionNames } from './gaugeConfig.js'
+import gaugeConfig, { gaugeOptionNames } from './gaugeConfig.jsx'
 import outlierTableConfig, {
     outlierTableOptionNames,
-} from './outlierTableConfig.js'
-import pieConfig, { pieOptionNames } from './pieConfig.js'
-import pivotTableConfig, { pivotTableOptionNames } from './pivotTableConfig.js'
-import scatterConfig, { scatterOptionNames } from './scatterConfig.js'
+} from './outlierTableConfig.jsx'
+import pieConfig, { pieOptionNames } from './pieConfig.jsx'
+import pivotTableConfig, { pivotTableOptionNames } from './pivotTableConfig.jsx'
+import scatterConfig, { scatterOptionNames } from './scatterConfig.jsx'
 import singleValueConfig, {
     singleValueOptionNames,
-} from './singleValueConfig.js'
+} from './singleValueConfig.jsx'
 
 export const getOptionsByType = ({
     type,

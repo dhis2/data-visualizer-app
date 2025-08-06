@@ -16,11 +16,11 @@ import {
     DataError,
     GenericError,
     EmptyBox,
-} from '../assets/ErrorIcons.js'
+} from '../assets/ErrorIcons.jsx'
 import {
     VARIANT_ERROR,
     VARIANT_WARNING,
-} from '../components/Snackbar/Snackbar.js'
+} from '../components/Snackbar/Snackbar.jsx'
 
 export class VisualizationError {
     constructor(icon, title, description) {

@@ -31,6 +31,7 @@ import {
 } from '../../elements/dimensionModal/index.js'
 import { openDimension } from '../../elements/dimensionsPanel.js'
 import { goToStartPage } from '../../elements/startScreen.js'
+import { getApiBaseUrl } from '../../utils/baseUrl.js'
 
 const defaultRelativePeriod = 'Last 3 months'
 const systemSettingsBody = {
@@ -50,11 +51,12 @@ const systemSettingsInterceptFn = (responseBody) => (req) => {
         res.send({ body: responseBody })
     })
 }
+const apiBaseUrl = getApiBaseUrl()
 
 describe('Period dimension', () => {
     it('has the expected initial state', () => {
         cy.intercept(
-            /systemSettings/,
+            `${apiBaseUrl}/systemSettings`,
             systemSettingsInterceptFn(systemSettingsBody)
         )
 
