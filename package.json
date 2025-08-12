@@ -1,6 +1,6 @@
 {
     "name": "data-visualizer-app",
-    "version": "101.3.0",
+    "version": "101.3.1",
     "description": "DHIS2 Data Visualizer",
     "license": "BSD-3-Clause",
     "private": true,
