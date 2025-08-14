@@ -1,3 +1,10 @@
+## [101.3.1](https://github.com/dhis2/data-visualizer-app/compare/v101.3.0...v101.3.1) (2025-08-12)
+
+
+### Bug Fixes
+
+* update cli-app-scripts to open links in same tab [DHIS2-19973] ([#3434](https://github.com/dhis2/data-visualizer-app/issues/3434)) ([4c81537](https://github.com/dhis2/data-visualizer-app/commit/4c815376c835d854be44ad2bd6628b8315c4247b))
+
 # [101.3.0](https://github.com/dhis2/data-visualizer-app/compare/v101.2.4...v101.3.0) (2025-06-19)
 
 
