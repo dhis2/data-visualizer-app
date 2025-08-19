@@ -49,7 +49,7 @@
     },
     "dependencies": {
         "@dhis2/analytics": "^28.0.4",
-        "@dhis2/app-runtime": "^3.14.1",
+        "@dhis2/app-runtime": "^3.14.5",
         "@dhis2/app-service-datastore": "^1.0.0-beta.3",
         "@dhis2/d2-i18n": "^1.1.0",
         "@dhis2/ui": "^10.7.7",
