@@ -40,11 +40,6 @@ class UnconnectedApp extends Component {
 
     apiObjectName = 'visualization'
 
-    interpretationsUnitRef = React.createRef()
-
-    onInterpretationUpdate = () =>
-        this.interpretationsUnitRef.current?.refresh()
-
     state = {
         previousLocation: null,
         initialLoadIsComplete: false,
@@ -265,11 +260,7 @@ class UnconnectedApp extends Component {
                                         <Visualization />
                                     )}
                                     {this.props.current && (
-                                        <InterpretationModal
-                                            onInterpretationUpdate={
-                                                this.onInterpretationUpdate
-                                            }
-                                        />
+                                        <InterpretationModal />
                                     )}
                                 </div>
                             </div>
@@ -277,9 +268,6 @@ class UnconnectedApp extends Component {
                         {this.props.ui.rightSidebarOpen && this.props.current && (
                             <div className="main-right">
                                 <DetailsPanel
-                                    interpretationsUnitRef={
-                                        this.interpretationsUnitRef
-                                    }
                                     aboutAORenderCount={
                                         this.state.aboutAORenderCount
                                     }
