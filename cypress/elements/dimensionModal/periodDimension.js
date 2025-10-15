@@ -13,7 +13,7 @@ const optionContentEl = 'period-dimension-transfer-option-content'
 const selectableItemsEl = 'period-dimension-transfer-sourceoptions'
 const selectedItemsEl = 'period-dimension-transfer-pickedoptions'
 const relativePeriodTypeSelectOptionEl =
-    'period-dimension-relative-period-filter-option'
+    'period-dimension-relative-period-filter-period-type-option'
 const fixedPeriodTypeSelectOptionEl =
     'period-dimension-fixed-period-filter-period-type-option'
 const rightHeaderEl = 'period-dimension-transfer-rightheader'
