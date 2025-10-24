@@ -4,7 +4,7 @@ import { expectDimensionModalToBeVisible } from './index.js'
 const relativePeriodsButtonEl = 'period-dimension-relative-periods-button'
 const fixedPeriodsButtonEl = 'period-dimension-fixed-periods-button'
 const relativePeriodsPeriodTypeButtonEl =
-    'period-dimension-relative-period-filter-content'
+    'period-dimension-relative-period-filter-period-type-content'
 const fixedPeriodsPeriodTypeButtonEl =
     'period-dimension-fixed-period-filter-period-type-content'
 const periodTypeMenuEl = 'dhis2-uicore-select-menu-menuwrapper'
@@ -13,7 +13,7 @@ const optionContentEl = 'period-dimension-transfer-option-content'
 const selectableItemsEl = 'period-dimension-transfer-sourceoptions'
 const selectedItemsEl = 'period-dimension-transfer-pickedoptions'
 const relativePeriodTypeSelectOptionEl =
-    'period-dimension-relative-period-filter-option'
+    'period-dimension-relative-period-filter-period-type-option'
 const fixedPeriodTypeSelectOptionEl =
     'period-dimension-fixed-period-filter-period-type-option'
 const rightHeaderEl = 'period-dimension-transfer-rightheader'
