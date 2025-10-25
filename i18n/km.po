@@ -3,13 +3,14 @@
 # Viktor Varland <viktor@dhis2.org>, 2020
 # Philip Larsen Donnelly, 2020
 # channara rin, 2023
+# Em Le <em.hispvietnam@gmail.com>, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2023-05-30T12:32:59.044Z\n"
+"POT-Creation-Date: 2025-07-03T09:34:39.575Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: channara rin, 2023\n"
+"Last-Translator: Em Le <em.hispvietnam@gmail.com>, 2025\n"
 "Language-Team: Khmer (https://app.transifex.com/hisp-uio/teams/100509/km/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,40 +19,42 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "All items"
-msgstr ""
+msgstr "គ្រប់ធាតុ"
 
 msgid "Rename successful"
-msgstr ""
+msgstr "ការផ្លាស់ប្តូរឈ្មោះ បានជោគជ័យ"
 
-msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr ""
+msgid "Rename failed"
+msgstr "ការផ្លាស់ប្តូរឈ្មោះ បរាជ័យ"
 
 msgid "\"{{- deletedObject}}\" successfully deleted."
-msgstr ""
+msgstr "{{- deletedObject}}លុបបានជោគជ័យ។"
 
 msgid "You have unsaved changes."
-msgstr ""
+msgstr "អ្នកមានការកែប្រែដែលមិនទាន់បានរក្សាទុក។"
 
 msgid "Discard unsaved changes?"
-msgstr ""
+msgstr "តើអ្នកចង់បោះបង់ការកែប្រែនេះឬ?"
 
 msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
 "be lost."
 msgstr ""
+"តើអ្នកពិតជាចង់ចាកចេញពីផ្ទាំងទិន្នន័យនេះឬ? "
+"រាល់ការកែប្រែដែលមិនទាន់បានរក្សាទុកនឹងត្រូវបាត់បង។"
 
 msgid "No, cancel"
-msgstr ""
+msgstr "ទេ, បោះបង់ចោល"
 
 msgid "Yes, leave"
-msgstr ""
+msgstr "បាទ/ចាស, ចាកចេញ"
 
 msgid "Add to {{axisName}}"
-msgstr ""
+msgstr "បន្ថែមទៅកាន់ {{axisName}}"
 
 msgid ""
-"'{{visualizationType}}' is intended to show a single data item. Only the "
-"first item will be used and saved."
+"'{{visualizationType}}' is intended to show a single item for this type of "
+"dimension. Only the first item will be used and saved."
 msgstr ""
 
 msgid ""
@@ -64,26 +67,31 @@ msgid ""
 "item will be used and saved."
 msgstr ""
 
-msgid "Vertical"
+msgid ""
+"'Outlier table' shows values from data elements only. Only data elements "
+"will be used and saved."
 msgstr ""
+
+msgid "Vertical"
+msgstr "បញ្ឈរ"
 
 msgid "Horizontal"
-msgstr ""
+msgstr "ផ្ដេក"
 
 msgid "Main dimensions"
-msgstr ""
+msgstr "វិមាត្រសំខាន់ៗ"
 
 msgid "Other dimensions"
-msgstr ""
+msgstr "វិមាត្រសផ្សេងៗទៀត"
 
 msgid "Your dimensions"
-msgstr ""
+msgstr "វិមាត្ររបស់អ្នក"
 
 msgid "Filter dimensions"
-msgstr ""
+msgstr "វិមាត្រសម្រាប់ច្រោះ"
 
 msgid "Data value set"
-msgstr ""
+msgstr "ការកំណត់តម្លៃនៃទិន្នន័យ"
 
 msgid "JSON"
 msgstr ""
@@ -92,7 +100,7 @@ msgid "XML"
 msgstr ""
 
 msgid "Other formats"
-msgstr ""
+msgstr "ទម្រង់ផ្សេងៗ"
 
 msgid "JRXML"
 msgstr ""
@@ -113,7 +121,7 @@ msgid "Advanced"
 msgstr ""
 
 msgid "Graphics"
-msgstr ""
+msgstr "ក្រាហ្វិក"
 
 msgid "Image (.png)"
 msgstr ""
@@ -122,7 +130,7 @@ msgid "PDF (.pdf)"
 msgstr ""
 
 msgid "Download data from this date"
-msgstr ""
+msgstr "ទាយយកទិន្នន័យចាប់ពីកាលបរិច្ឆេទនេះ"
 
 msgid "Metadata ID scheme"
 msgstr ""
@@ -131,12 +139,15 @@ msgid "ID"
 msgstr "​លេខ​សម្គាល់"
 
 msgid "Code"
-msgstr ""
+msgstr "លេខកូដ"
 
 msgid "Name"
 msgstr "ឈ្មោះ"
 
 msgid "Table layout"
+msgstr "ប្លង់របស់តារាង"
+
+msgid "Excel (.xlsx)"
 msgstr ""
 
 msgid "Excel (.xls)"
@@ -149,107 +160,108 @@ msgid "HTML (.html)"
 msgstr ""
 
 msgid "Download"
-msgstr ""
+msgstr "ទាយយក"
 
 msgid "Hide"
-msgstr ""
+msgstr "លាក់"
 
-msgid "All"
+msgid "all"
 msgstr "ទាំងអស់"
-
-msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr ""
-
-msgid "{{total}} selected"
-msgstr ""
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
+"{{dimensionName}}ត្រូបានភ្ជាប់ទៅកាន់ {{axisName}}សម្រាប់ {{visTypeName}}"
 
 msgid "Not available for Scatter"
-msgstr ""
+msgstr "មិនសមស្របសម្រាប់ Scatter"
 
 msgid "Add Assigned Categories"
-msgstr ""
+msgstr "បន្ថែម Assigned Cateogries"
 
 msgid "Swap with {{axisName}} axis"
-msgstr ""
+msgstr "ផ្លាស់ប្តូរ {{axisName}}axis"
 
 msgid "vertical"
-msgstr ""
+msgstr "បញ្ឈរ"
 
 msgid "horizontal"
-msgstr ""
+msgstr "ផ្ដេក"
 
 msgid "None selected"
-msgstr ""
+msgstr "មិនត្រូវបានជ្រើសរើស"
+
+msgid "None in use"
+msgstr "មិនកំពុងត្រូវបានប្រើប្រាស់"
 
 msgid "Only '{{- name}}' in use"
-msgstr ""
+msgstr "មានតែ {{- name}} កំពុងត្រូវបានប្រើប្រាស់"
 
-msgid "Only '{{number}}' in use"
-msgstr ""
+msgid "Only {{number}} in use"
+msgstr "មានតែ {{number}}កំពុងត្រូវបានប្រើប្រាស់"
 
 msgid "All items are selected"
-msgstr ""
+msgstr "គ្រប់ធាតុត្រូវបានជ្រើសរើស"
 
 msgid "Levels"
-msgstr ""
+msgstr "កម្រិត"
 
 msgid "Groups"
-msgstr ""
+msgstr "ក្រុម"
 
 msgid "And 1 other..."
-msgstr ""
+msgstr "និង ១​ផ្សេងទៀត..."
 
 msgid "And {{numberOfItems}} others..."
 msgstr ""
 
 msgid "Select a period"
-msgstr ""
+msgstr "ជ្រើសរើសរយៈពេល"
 
 msgid "Select years"
-msgstr ""
+msgstr "ជ្រើសរើសឆ្នាំ"
 
 msgid ""
 "This visualization can't be deleted because it is used on one or more "
 "dashboards"
 msgstr ""
+"ផ្ទាំងទិន្នន័យនេះមិនអាចលុបចេញបានទេ "
+"ព្រោះកំពុងត្រូវបានប្រើប្រាស់នៅលើផ្ទាំងប៉ាណ្ណូបរិធាន ១​ ឬច្រើន"
 
 msgid "Unsaved visualization"
-msgstr ""
+msgstr "ផ្ទាំងទិន្នន័យមិនទាន់រក្សាទុក"
 
 msgid "Edited"
-msgstr ""
+msgstr "ក្រែប្រែ"
 
 msgid "Update"
 msgstr "ធ្វើ​បច្ចុប្បន្នភាព"
 
 msgid "Getting started"
-msgstr ""
+msgstr "ចាប់ផ្ដើម"
 
 msgid ""
 "All dimensions that you can use to build visualizations are shown in the "
 "left sidebar"
 msgstr ""
+"គ្រប់វិមាត្រដែលអ្នកអាចប្រើប្រាស់សម្រាប់បង្កើតផ្ទាំងទិន្នន័យគឺត្រូវបានបង្ហាញក្នុងផ្ទាំងផ្នែកខាងឆ្វេង"
 
 msgid "Add dimensions to the layout above"
-msgstr ""
+msgstr "បន្ថែមវិមាត្រចូលប្លង់ខាងលើ"
 
 msgid "Click a dimension to add or remove items"
-msgstr ""
+msgstr "ចុចលើវិមាត្រណាមួយដើម្បីបន្ថែម ឬលុបចេញ"
 
 msgid "Your most viewed charts and tables"
-msgstr ""
+msgstr "ក្រាប និងតារាងដែលអ្នកបានមើលច្រើនបំផុត"
 
 msgid "Aggregation type"
-msgstr ""
+msgstr "ប្រភេទទិន្នន័យសរុប"
 
 msgid "Overrides aggregation type for all data values."
-msgstr ""
+msgstr "ជំនួសប្រភេទទិន្នន័យសរុបចំពោះគ្រប់តម្លៃនៃទិន្នន័យ"
 
 msgid "By data element"
-msgstr ""
+msgstr "ទៅតាមធាតុនៃទិន្នន័យ"
 
 msgid "Count"
 msgstr "ផលរាប់"
@@ -258,16 +270,16 @@ msgid "Average"
 msgstr "ផលមធ្យម"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr ""
+msgstr "មធ្យមភាគ (សរុបក្នុងរចនាសម្ព័ន្ធនៃមូលដ្ឋានសុខាភិបាល)"
 
 msgid "Sum"
 msgstr "ផល​បូក"
 
 msgid "Last value"
-msgstr ""
+msgstr "តម្លៃចុងក្រោយ"
 
 msgid "Last value (average in org unit hierarchy)"
-msgstr ""
+msgstr "តម្លៃចុងក្រោយ (មធ្យមភាគក្នុងរចនាសម្ព័ន្ធនៃមូលដ្ឋានសុខាភិបាល)"
 
 msgid "Min"
 msgstr "អប្បបរមា"
@@ -276,34 +288,34 @@ msgid "Max"
 msgstr "អតិបរមា"
 
 msgid "Standard deviation"
-msgstr ""
+msgstr "គំលាតគំរូ"
 
 msgid "Variance"
-msgstr ""
+msgstr "ភាពប្រែប្រួល"
 
 msgid "Data approved at level"
-msgstr ""
+msgstr "ទិន្នន័យត្រូវបានអនុម័តនៅកម្រិត"
 
 msgid "Select from predefined levels"
-msgstr ""
+msgstr "ជ្រើសរើសពីកម្រិតដែលបានកំណត់ទុក"
 
 msgid "Loading data approval levels"
-msgstr ""
+msgstr "ទាយយកកម្រិតននៃការអនុម័តលើទិន្នន័យ"
 
 msgid "Decimals"
-msgstr ""
+msgstr "ទសភាគ"
 
 msgid "Auto"
-msgstr ""
+msgstr "ស្វ័យប្រវត្តិ"
 
 msgid "Labels"
-msgstr ""
+msgstr "ស្លាក"
 
 msgid "Axis range"
-msgstr ""
+msgstr "ចន្លោះអ័ក្ស"
 
 msgid "Values outside of the range will not be displayed"
-msgstr ""
+msgstr "តម្លៃស្ថិតនៅក្រៅចន្លោះនឹងមិនត្រូវបានបង្ហាញទេ"
 
 msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
@@ -311,232 +323,243 @@ msgid ""
 msgstr ""
 
 msgid "Steps"
-msgstr ""
+msgstr "ជំហ៊ាន"
 
 msgid "Axis title"
-msgstr ""
+msgstr "ចំណងជើងអ័ក្ស"
 
 msgid "Auto generated from axis items"
-msgstr ""
+msgstr "បង្កើតដោយស្វ័យប្រវត្តិពីធាតុនៃអ័ក្ស"
 
 msgid "None"
 msgstr "គ្មាន"
 
 msgid "Custom"
-msgstr ""
+msgstr "កែសម្រួលផ្ទាល់ខ្លួន"
 
 msgid "Add a title"
-msgstr ""
+msgstr "បន្ថែមចំណងជើង"
 
 msgid "Reset style to default"
-msgstr ""
+msgstr "កំណត់រចនាបថឡើងវិញដូចសភាពដើម"
 
 msgid "Base line"
-msgstr ""
+msgstr "បន្ទាត់មូលដ្ឋាន"
 
 msgid "Column sub-totals"
-msgstr ""
+msgstr "សរុបតាមផ្នែកនៃជួរឈរ"
 
 msgid "Columns totals"
-msgstr ""
+msgstr "សរុបនៃជួរឈរ"
 
 msgid "Default"
 msgstr "​លំនាំដើម"
 
 msgid "Basic"
-msgstr ""
+msgstr "មូលដ្ឋាន"
 
 msgid "Extended"
-msgstr ""
+msgstr "ពង្រីក"
 
 msgid "Bright"
-msgstr ""
+msgstr "ភ្លឺ"
 
 msgid "Dark"
-msgstr ""
+msgstr "ងងឹត"
 
 msgid "Gray"
-msgstr ""
+msgstr "ប្រផេះ"
 
 msgid "Color blind"
-msgstr ""
+msgstr "មិនមានពណ៌"
 
 msgid "Patterns"
-msgstr ""
+msgstr "លំនាំ"
 
 msgid "Event data"
-msgstr ""
+msgstr "ទិន្នន័យជាករណី"
 
 msgid "Only include completed events"
-msgstr ""
+msgstr "រួមបញ្ចូលតែទិន្នន័យករណីដែលបានបញ្ចប់"
 
 msgid "Include cumulative"
-msgstr ""
+msgstr "រួមបញ្ចូលការសរុបតគ្នា"
 
 msgid "Cumulative values"
-msgstr ""
+msgstr "តម្លៃបូកសរុបតគ្នា"
+
+msgid "Accumulate cell values along rows"
+msgstr "សរុបតម្លៃក្នុងប្រអប់តាមជួរដេក"
 
 msgid "Show data item icon"
-msgstr ""
+msgstr "បង្ហាញរូបតំណាងរបស់តម្លៃនៃទិន្នន័យ"
 
 msgid "If the data item has an icon, display it next to the value"
-msgstr ""
+msgstr "ប្រសិនបើតម្លៃនៃទិន្នន័យមានរូបតំណាង, ធ្វើការបង្ហាញក្បែរតម្លៃ"
 
 msgid "Digit group separator"
-msgstr ""
+msgstr "សញ្ញាបំបែកក្រុមលេខ"
 
 msgid "Space"
-msgstr ""
+msgstr "ដកឃ្លា"
 
 msgid "Comma"
-msgstr ""
+msgstr "សញ្ញាក្បៀស"
 
 msgid "Display density"
-msgstr ""
+msgstr "បង្ហាញដង់ស៊ីតេ"
 
 msgid "Comfortable"
-msgstr ""
+msgstr "សមរម្យ"
 
 msgid "Normal"
-msgstr ""
+msgstr "ធម្មតា"
 
 msgid "Compact"
-msgstr ""
+msgstr "បង្រួម"
 
 msgid "Extreme lines"
-msgstr ""
+msgstr "បន្ទាត់ដិតក្រាស់"
 
 msgid "Calculated as a percent, usually 1%, of the total values along an axis"
-msgstr ""
+msgstr "គណនាជាភាគរយ ជាធម្មតា 1% នៃតម្លៃសរុបតាមអ័ក្ស"
 
 msgid "Extreme line % detection"
-msgstr ""
+msgstr "ការកំណត់ % បន្ទាត់ដិតក្រាស់"
 
 msgid "Number"
 msgstr "តួរលេខ"
 
 msgid "Fix column headers to top of table"
-msgstr ""
+msgstr "កំណត់ក្បាលជួរឈរអោយនៅខាងលើតារាង"
 
 msgid "There aren’t any column headers because Columns is empty."
-msgstr ""
+msgstr "មិនមានក្បាលជួរឈរទេព្រោះជួរឈរនេះគឺទទេ។"
 
 msgid "Fix row headers to left of table"
-msgstr ""
+msgstr "កំណត់ក្បាលជួរដេកអោយនៅខាងឆ្វេងតារាង"
 
 msgid "There aren’t any row headers because Rows is empty."
-msgstr ""
+msgstr "មិនមានក្បាលជួរដេកទេព្រោះជួរដេកនេះគឺទទេ។"
 
 msgid "Font size"
-msgstr ""
+msgstr "ទំហំពុម្ពអក្សរ"
 
 msgid "Large"
-msgstr ""
+msgstr "ធំ"
 
 msgid "Small"
-msgstr ""
+msgstr "តូច"
 
 msgid "Hide empty columns"
-msgstr ""
+msgstr "លាក់ជួរឈរទទេ"
 
 msgid "Hide empty categories"
-msgstr ""
+msgstr "លាក់ប្រភេទទទេ"
 
 msgid "Before first"
-msgstr ""
+msgstr "មុនដំបូង"
 
 msgid "After last"
-msgstr ""
+msgstr "បន្ទាប់ចុងក្រោយ"
 
 msgid "Before first and after last"
-msgstr ""
+msgstr "មុនដំបូង និងបន្ទាប់ចុងក្រោយ"
+
+msgid "All"
+msgstr "ទាំងអស់"
 
 msgid "Hide empty rows"
-msgstr ""
+msgstr "លាក់ជួរដេកទទេ"
 
 msgid "Table subtitle"
-msgstr ""
+msgstr "ចំណងជើងរងនៃតារាង"
 
 msgid "Chart subtitle"
-msgstr ""
+msgstr "ចំណងជើងរងនៃក្រាប"
 
 msgid "Auto generated"
-msgstr ""
+msgstr "បង្កើតដោយស្វ័យប្រវត្តិ"
 
 msgid "Chart title"
-msgstr ""
+msgstr "ចំណងជើងនៃក្រាប"
 
 msgid "Use legend for chart colors"
-msgstr ""
+msgstr "ការប្រើប្រាស់រូបតំណាងសម្រាប់ពណ៌នៃក្រាប"
 
 msgid "Legend style"
-msgstr ""
+msgstr "រចនាបថនៃរូបតំណាង"
 
 msgid "Legend type"
-msgstr ""
+msgstr "ប្រភេទនៃរូបតំណាង"
 
-msgid "Use pre-defined legend per data item"
-msgstr ""
+msgid "Use pre-defined legend by data item"
+msgstr "ការប្រើប្រាស់រូបតំណាងដែលបានកំណត់ទុកជាមុនទៅតាមទិន្នន័យ"
 
-msgid "Select a single legend for the entire visualization"
-msgstr ""
+msgid "Select a legend"
+msgstr "ជ្រើសរើសរូបតំណាង"
 
 msgid "Legend changes background color"
-msgstr ""
+msgstr "រូបតំណាងប្តូរពណ៌ផ្ទៃខាងក្រោយ"
 
 msgid "Legend changes text color"
-msgstr ""
+msgstr "រូបតំណាងប្តូរពណ៌អក្សរ"
 
 msgid "Legend"
-msgstr ""
+msgstr "រូបតំណាង"
 
 msgid "Select from legends"
-msgstr ""
+msgstr "ជ្រើសរើសពីរូបតំណាង"
 
 msgid "Loading legends"
-msgstr ""
+msgstr "ទាញយកពីរូបតំណាង"
 
 msgid ""
 "You can set a minimum or maximum value. This will apply to the entire "
 "visualization, all values outside of the minimum/maximum range will not be "
 "displayed"
 msgstr ""
+"អ្នកអាចកំណត់តម្លៃអប្បបរិមា និងអតិបរមា។ "
+"ការកំណត់នេះនឹងត្រូវបានអនុវត្តន៍ផ្ទាំងទិន្នន័យទាំងមូល, "
+"តម្លៃនៅក្រៅចន្លោះតម្លៃអប្បបរិមា/អតិបរមា នឹងមិនបង្ហាញទេ"
 
 msgid "Minimum data value"
-msgstr ""
+msgstr "តម្លៃទិន្នន័យអប្បបរិមា"
 
 msgid "Maximum data value"
-msgstr ""
+msgstr "តម្លៃទិន្នន័យអតិបរមា"
 
 msgid "Clear min/max limits"
-msgstr ""
+msgstr "លុបការកំណត់តម្លៃអប្បបរិមា/អតិបរមា"
 
 msgid "No space between bars/columns"
-msgstr ""
+msgstr "មិនមានចន្លោះរវាងរបារ/បង្គោល"
 
 msgid "Number type"
-msgstr ""
+msgstr "ប្រភេទលេខ"
 
 msgid "Display the value of percentages of the total"
-msgstr ""
+msgstr "បង្ហាញតម្លៃជាភាគរយនៃតម្លៃសរុប"
 
 msgid "Value"
 msgstr "តម្លៃ"
 
 msgid "Percentage of row"
-msgstr ""
+msgstr "ភាគរយនៃជួរដេក"
 
 msgid "Percentage of column"
-msgstr ""
+msgstr "ភាគរយនៃជួរឈរ"
 
 msgid ""
 "Each detection method identifies outliers in different ways and suits "
 "different data. Check the documentation for help to choose the right outlier"
 " detection method"
 msgstr ""
+"វិធីសាស្រ្តកំណត់តម្លៃលើសគេគឺមានច្រើនរបៀប និងស្របទៅតាមទិន្នន័យផ្សេងៗគ្នា។ "
+"សូមពិនិត្យឯកសារសម្រាប់ជំនួយក្នុងការជ្រើសរើសវិធីសាស្ត្រកំណត់តម្លៃលើសដែលត្រឹមត្រូវ។"
 
 msgid "Threshold factor"
-msgstr ""
+msgstr "កត្តាកម្រិត"
 
 msgid ""
 "A high value is more sensitive so fewer data items will be identified as "
@@ -553,27 +576,37 @@ msgid "Modified Z-score"
 msgstr ""
 
 msgid "Outlier analysis"
-msgstr ""
+msgstr "ការវិភាគចំណែកលើសគេ"
 
 msgid ""
 "Outlier analysis detects and highlights data items that are markedly "
 "different from the rest of the data"
 msgstr ""
+"ការវិភាគចំណែកលើសគេគឺជាការស្វែងរក និងបន្លិច "
+"នូវទិន្នន័យដែលត្រូវបានសម្គាល់ថាលើសគេក្នុងចំណោមទិន្នន័យនានា"
 
 msgid "Outlier detection method"
+msgstr "វិធីសាស្រ្តកំណត់តម្លៃលើសគេ"
+
+msgid "Max results"
+msgstr "លទ្ធផលអតិបរិមា"
+
+msgid ""
+"The maximum number of outlier values to show in the table. Must be between "
+"1-500."
 msgstr ""
 
 msgid "Organisation unit"
 msgstr "ផ្នែក​នៃ​អង្គការ"
 
 msgid "Parent organisation unit"
-msgstr "Parent organisation unit"
+msgstr "ថ្នាក់លើនៃមូលដ្ឋានសុខាភិបាល"
 
 msgid "Reporting period"
-msgstr ""
+msgstr "រយៈពេលរបាយការណ៍"
 
 msgid "Stacked values add up to 100%"
-msgstr ""
+msgstr "តម្លៃនៃរបារត្រួតត្រូវបានបន្ថែមរហូតដល់១០០%"
 
 msgid "Include regression"
 msgstr ""
@@ -582,10 +615,10 @@ msgid "Title"
 msgstr "ចំណងជើង"
 
 msgid "Trend line"
-msgstr ""
+msgstr "បន្ទាត់និន្នាការ"
 
 msgid "Linear"
-msgstr ""
+msgstr "លីនេអ៊ែរ"
 
 msgid "Polynomial"
 msgstr ""
@@ -594,34 +627,34 @@ msgid "Loess"
 msgstr ""
 
 msgid "Row sub-totals"
-msgstr ""
+msgstr "សរុបរងនៃជួរដេក"
 
 msgid "Row totals"
-msgstr ""
+msgstr "សរុបនៃជួរដេក"
 
 msgid "Data item"
-msgstr ""
+msgstr "ទិន្នន័យ"
 
 msgid "Visualization type"
-msgstr ""
+msgstr "ប្រភេទផ្ទាំងទិន្នន័យ"
 
 msgid "Axis {{axisId}}"
-msgstr ""
+msgstr "អ័ក្ស {{axisId}}"
 
 msgid "Series is empty"
-msgstr ""
+msgstr "ស៊េរី គឺទទេ"
 
 msgid "Options for selected items will be available here"
-msgstr ""
+msgstr "ជម្រើសសម្រាប់ធាតុដែលបានជ្រើសរើសនឹងបង្ហាញនៅទីនេះ។"
 
 msgid "No Series options"
-msgstr ""
+msgstr "មិនមានជម្រើសស៊េរីទេ"
 
 msgid "There aren't any Series options for this visualization type"
-msgstr ""
+msgstr "មិនមានជម្រើសស៊េរីណាផ្សេងសម្រាប់ប្រភេទផ្ទាំងទិន្នន័យនេះទេ"
 
 msgid "Series options unavailable"
-msgstr ""
+msgstr "ជម្រើសស៊េរីមិនអាចប្រើបាន"
 
 msgid ""
 "Series options are not available when using relative selections for periods,"
@@ -632,439 +665,587 @@ msgid ""
 "Series options are not available when a series item has an \"All items\" "
 "selection"
 msgstr ""
+"ជម្រើសស៊េរីមិនអាចប្រើបាននៅពេលមានធាតុនៃស៊េរីត្រូវបានជ្រើសរើស «គ្រប់ធាតុ»"
 
 msgid "Value labels"
-msgstr ""
+msgstr "ស្លាកនៃតម្លៃ"
 
 msgid "Dimension labels"
-msgstr ""
+msgstr "ស្លាកនៃវិមាត្រ"
 
 msgid "Display organisation unit hierarchy"
-msgstr ""
+msgstr "បង្ហាញរចនាសម្ព័ន្ធនៃមូលដ្ឋានសុខាភិបាល"
 
 msgid "Show legend key"
-msgstr ""
+msgstr "បង្ហាញរូបតំណាងគន្លឹះ"
 
 msgid "Show series key"
-msgstr ""
+msgstr "បង្ហាញស៊េរីគន្លឹះ"
 
 msgid "Skip rounding"
-msgstr ""
+msgstr "រំលងការបង្គត់"
 
 msgid "Custom sort order"
-msgstr ""
+msgstr "លំដាប់តម្រៀបផ្ទាល់ខ្លួន"
 
 msgid "Low to high"
-msgstr ""
+msgstr "ទាបទៅខ្ពស់"
 
 msgid "High to low"
-msgstr ""
+msgstr "ខ្ពស់ទៅទាប"
 
 msgid "Add a subtitle"
-msgstr ""
+msgstr "បន្ថែមចំណងជើងរង"
 
 msgid "Target line"
-msgstr ""
+msgstr "បន្ទាត់គោលទិសដៅ"
 
 msgid "Size"
-msgstr ""
+msgstr "ទំហំ"
 
 msgid "Position"
-msgstr ""
+msgstr "ទីតាំង"
 
 msgid "Top limit"
-msgstr ""
+msgstr "ដែនកំណត់ខ្ពស់ជាងគេ"
 
 msgid "Options"
-msgstr ""
+msgstr "ជម្រើស"
 
 msgid "Change org unit"
-msgstr ""
+msgstr "ផ្តាស់ប្តូរមូលដ្ឋានសុខាភិបាល"
 
 msgid "{{level}} level in {{orgunit}}"
 msgstr ""
 
+msgid "Sort ascending by {{columnName}} and update"
+msgstr "តម្រៀបពីតូចទៅធំចំពោះ {{columnName}} និងធ្វើបច្ចុបន្នភាព"
+
+msgid "Sort descending by {{columnName}} and update"
+msgstr "តម្រៀបពីធំទៅតូចចំពោះ {{columnName}} និងធ្វើបច្ចុបន្នភាព"
+
 msgid "Open as Map"
-msgstr ""
+msgstr "បើកជាផែនទី"
 
 msgid ""
 "Visually plot data on a world map. Data elements use separate map layers."
 msgstr ""
+"គ្រោងទិន្នន័យដែលមើលឃើញនៅលើផែនទីពិភពលោក។ "
+"ធាតុទិន្នន័យប្រើស្រទាប់ផែនទីដាច់ដោយឡែក។"
+
+msgid "Category option combination"
+msgstr ""
+
+msgid "Absolute deviation"
+msgstr "គម្លាតដាច់ខាត"
+
+msgid ""
+"A measure of the absolute difference between each data point and a central "
+"value, usually the mean or median, providing a straightforward understanding"
+" of dispersion in the dataset."
+msgstr ""
+
+msgid ""
+"A measure of how far a data point deviates from the median, using the median"
+" absolute deviation instead of the standard deviation, making it robust "
+"against outliers."
+msgstr ""
+
+msgid "Median"
+msgstr "ម៉េឌីយ៉ាន"
+
+msgid ""
+"The middle value in a dataset when the values are arranged in ascending or "
+"descending order. It's a robust measure of central tendency that is less "
+"affected by outliers compared to the mean."
+msgstr ""
+
+msgid "Median absolute deviation"
+msgstr "ម៉េឌីយ៉ានគម្លាតដាច់ខាត"
+
+msgid ""
+"A robust measure of variability, found by calculating the median of the "
+"absolute differences between each data point and the overall median. It's "
+"less influenced by outliers compared to other measures like the standard "
+"deviation."
+msgstr ""
+
+msgid "Z-score"
+msgstr ""
+
+msgid ""
+"A measure of how many standard deviations a data point is from the mean of a"
+" dataset, providing insight into how unusual or typical that data point is "
+"relative to the rest of the distribution."
+msgstr ""
+
+msgid "Mean"
+msgstr "មធ្យម"
+
+msgid "Average of the value over time."
+msgstr "មធ្យមភាគនៃតម្លៃតាមពេលវេលា"
+
+msgid ""
+"A measure of how dispersed the data is in relation to the mean. Low standard"
+" deviation indicates data are clustered tightly around the mean, and high "
+"standard deviation indicates data are more spread out."
+msgstr ""
+
+msgid "Minimum score threshold"
+msgstr "កម្រិតពិន្ទុជាអប្បបរិមា"
+
+msgid "Maximum score threshold"
+msgstr "កម្រិតពិន្ទុជាអតិបរិមា"
+
+msgid "Not supported when using cumulative values"
+msgstr "មិនអាចប្រើបាននៅពេលប្រើប្រាស់តម្លៃសរុបតគ្នា"
 
 msgid "No data available"
-msgstr ""
+msgstr "មិនមានទិន្នន័យទេ"
 
 msgid ""
 "The selected dimensions didn’t return any data. There may be no data, or you"
 " may not have access to it."
 msgstr ""
+"វិមាត្រដែលបានជ្រើសរើសមិនអាចផ្តល់ទិន្នន័យបានទេ។ ប្រហែលជាមិនមានទិន្នន័យ "
+"ឬអ្នកមប្រហែលជាគ្មានសិទ្ធិក្នុងការប្រើប្រាស់វិមាត្រនេះបានទេ។"
 
 msgid "{{axisName}} is empty"
-msgstr ""
+msgstr "{{axisName}}គឺទទេ"
 
 msgid "Add at least one item to {{axisName}}."
-msgstr ""
+msgstr "បន្ថែមយ៉ាងហោចណាស់ធាតុមួយទៅកាន់ {{axisName}}"
 
 msgid "{{columnsAxisName}} and {{rowsAxisName}} are empty"
-msgstr ""
+msgstr "{{columnsAxisName}} និង {{rowsAxisName}} គឺទទេ"
 
 msgid ""
 "Add at least one item to {{columnsAxisName}} or {{rowsAxisName}} to create a"
 " {{visualizationType}}."
 msgstr ""
+"បន្ថែមយ៉ាងហោចណាស់ធាតុមួយទៅកាន់ {{columnsAxisName}} ឬ {{rowsAxisName}} "
+"ដើម្បីបង្កើតនូវ {{visualizationType}} មួយ។"
 
 msgid "No period selected"
-msgstr ""
+msgstr "មិនមានរយៈពេលត្រូវបានជ្រើសរើស"
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
 msgstr ""
+"{{visualizationType}}ត្រូវតែមានយ៉ាងហោចណាស់រយៈពេលមួយត្រូវបានជ្រើសរើសក្នុង "
+"{{axes}}"
 
 msgid "Add organisation units to {{axisName}}."
-msgstr ""
+msgstr "បន្ថែមមូលដ្ឋានសុខាភិបាលចូលទៅ {{axisName}}"
 
 msgid "Vertical is empty"
-msgstr ""
+msgstr "បញ្ឈរគឺទទេ"
 
 msgid "Add a data item to the vertical axis."
-msgstr ""
+msgstr "បន្ថែមទិន្នន័យចូលទៅកាន់អ័ក្សបញ្ឈរ"
 
 msgid "Horizontal is empty"
-msgstr ""
+msgstr "ផ្តេកគឺទទេ"
 
 msgid "Add a data item to the horizontal axis."
-msgstr ""
+msgstr "បន្ថែមទិន្នន័យចូលទៅកាន់អ័ក្សផ្តេក"
 
 msgid "Axes data items are the same"
-msgstr ""
+msgstr "អ័ក្សទិន្នន័យគឺដូចគ្នា"
 
 msgid ""
 "The horizontal and vertical axes have the same data item. Scatter chart axes"
 " must have different data for each axis."
 msgstr ""
+"អ័ក្សផ្ដេក និងអ័ក្សបញ្ឈរមានទិន្នន័យដូចគ្នា។ អ័ក្សនៃក្រាប Scatter "
+"ត្រូវតែមានទិន្នន័យខុសគ្នាសម្រាប់អ័ក្សនិមួយៗ។"
 
 msgid "No data selected"
-msgstr ""
+msgstr "មិនមានទិន្នន័យត្រូវបានជ្រើសរើស"
 
 msgid ""
 "{{visualizationType}} must have at least one data item or data element group"
 " set item in {{axes}}."
 msgstr ""
+"{{visualizationType}}ត្រូវតែមានយ៉ាងហោចណាស់ទិន្នន័យមួយ "
+"ឬសំណុំក្រុមធាតុនៃទិន្នន័យក្នុង {{axes}}។"
 
 msgid "{{visualizationType}} must have at least one data item in {{axes}}."
-msgstr ""
+msgstr "{{visualizationType}}ត្រូវតែមានយ៉ាងហោចណាស់ទិន្នន័យមួយក្នុង {{axes}}។"
 
 msgid "There's a problem with the layout"
-msgstr ""
+msgstr "មានបញ្ហាកើតឡើងជាមួយប្លង់"
 
 msgid ""
 "A single indicator or calculation must be the only data item when using "
 "indicators or calculations as Data in Filter."
 msgstr ""
+"សូចនាករ ឬការគណនាណាមួយ ត្រូវតែជាទិន្នន័យ "
+"ដើម្បីអាចប្រើប្រាស់ជាទិន្នន័យសម្រាប់ច្រោះ។"
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
 msgstr ""
+"សំណុំក្រុមធាតុនៃទិន្នន័យ និងអត្រារាយការណ៍ មិនអាចប្រើប្រាស់ជាមួយគ្នាទេ។"
 
 msgid "There is a problem with this {{visualizationType}} visualization."
-msgstr ""
+msgstr "មានបញ្ហាមួយកើតឡើងជាមួយប្រភេទ {{visualizationType}} នេះ។."
 
 msgid "There was a problem getting the data from the server."
-msgstr ""
+msgstr "មានបញ្ហាជាមួយនឹងការទាញយកទិន្នន័យពីម៉ាស៊ីនមេ។"
 
 msgid "Assigned Categories can only be used with data elements"
-msgstr ""
+msgstr "ប្រភេទដែលបានកំណត់អាចត្រូវបានប្រើប្រាស់ជាមួយធាតុនៃទិន្នន័យ"
 
 msgid ""
 "Fix this problem by selecting data elements or removing Assigned Categories."
-msgstr ""
+msgstr "សូមដោះស្រាយបញ្ហានេះ ដោយជ្រើសរើសធាតុនៃទិន្នន័យ ឬដកចេញប្រភេទ"
 
 msgid "Assigned Categories cannot be used as Filter"
-msgstr ""
+msgstr "ប្រភេទដែលបានកំណត់មិនអាចត្រូវបានប្រើប្រាស់សម្រាប់ច្រោះបានទេ"
 
 msgid "Fix this problem by moving or removing Assigned Categories."
-msgstr ""
+msgstr "សូមដោះស្រាយបញ្ហានេះ ដោយដកចេញប្រភេទដែលបានកំណត់នេះចេញ"
 
 msgid "Visualization not found"
-msgstr ""
+msgstr "ផ្ទាំងទិន្នន័យរកមិនឃើញទេ"
 
 msgid ""
 "The visualization you are trying to view could not be found, the ID could be"
 " incorrect or it could have been deleted."
 msgstr ""
+"ផ្ទាំងទិន្នន័យដែលអ្នកព្យាយាមបង្ហាញ មិនអាចរកឃើញទេ, លេខសម្គាល់មិនត្រឹមត្រូវ "
+"ឬក៏ត្រូវបានលុបចេញ។"
+
+msgid "Restricted access"
+msgstr "ការចូលប្រើប្រាស់មានកម្រិត"
+
+msgid "You don't have access to one or more of the chosen organisation units."
+msgstr ""
+"អ្នកមិនមានសិទ្ធិចូលប្រើប្រាស់មូលដ្ឋានសុខាភិបាលដែលបានជ្រើសរើសមួយ ឬច្រើន។"
 
 msgid "No organization units found"
-msgstr ""
+msgstr "រកមិនឃើញមូលដ្ឋានសុខាភិបាលទេ"
 
 msgid "The level or group selections didn't return any organization units."
 msgstr ""
+"កម្រិត ឬក្រុមដែលបានជ្រើសរើសមិនអាចផ្តល់នូវឈ្មោះមូលដ្ឋានសុខភិបាលមកវិញទេ។"
 
 msgid "Invalid data type"
-msgstr ""
+msgstr "ប្រភេទទិន្នន័យមិនត្រឺមត្រូវ"
 
 msgid ""
 "The selected data dimensions didn't return any valid data. This "
 "visualization type can only display numerical data."
 msgstr ""
+"វិមាត្រទិន្នន័យដែលបានជ្រើសរើសមិនអាចផ្តល់ទិន្នន័យដែលត្រឹមត្រូវមកវិញបានទេ។ "
+"ប្រភេទផ្ទាំងទិន្នន័យនេះអាចត្រឹមតែបង្ហាញទិន្នន័យជាលេខប៉ុណ្ណោះ។"
 
 msgid "Something went wrong"
+msgstr "មានអ្វីមួយខុសប្រក្រតី"
+
+msgid ""
+"There's a problem with the generated analytics. Contact a system "
+"administrator."
 msgstr ""
+"មានបញ្ញាកើតឡើងជាមួយដំណើរការវិភាគទិន្នន័យ។ "
+"សូមធ្វើការទាក់ទងអ្នកគ្រប់គ្រងប្រព័ន្ធ។"
+
+msgid "There's a syntax problem with the analytics request."
+msgstr "មានបញ្ហារូបមន្តនៃការសរសេរ ចំពោះសំណើរនៃការវិភាគទិន្នន័យ។"
+
+msgid "No outliers found"
+msgstr "រកមិនឃើញចំណែកលើសគេទេ"
+
+msgid "There were no outliers found for the selected data items and options."
+msgstr "មិនមានចំណែកលើកគេត្រូវបានរកឃើញសម្រាប់ទិន្នន័យ ឬជម្រើសដែលបានជ្រើសរើស។"
 
 msgid "or"
-msgstr ""
+msgstr "ឬ"
 
 msgid "Today"
-msgstr ""
+msgstr "ថ្ងៃនេះ"
 
 msgid "Yesterday"
 msgstr "កាលពីម្សិលមិញ"
 
 msgid "Last 3 days"
-msgstr ""
+msgstr "៣ថ្ងៃចុងក្រោយ"
 
 msgid "Last 7 days"
-msgstr ""
+msgstr "៧ថ្ងៃចុងក្រោយ"
 
 msgid "Last 14 days"
-msgstr ""
+msgstr "១៤ថ្ងៃចុងក្រោយ"
 
 msgid "This week"
-msgstr ""
+msgstr "សប្តាហ៍នេះ"
 
 msgid "Last week"
-msgstr ""
+msgstr "សប្តាហ៍មុន"
 
 msgid "Last 4 weeks"
-msgstr ""
+msgstr "៤សប្តាហ៍ចុងក្រោយ"
 
 msgid "Last 12 weeks"
-msgstr ""
+msgstr "១២សប្តាហ៍ចុងក្រោយ"
 
 msgid "Last 52 weeks"
-msgstr ""
+msgstr "៥២សប្តាហ៍ចុងក្រោយ"
 
 msgid "Weeks this year"
-msgstr ""
+msgstr "ជាសប្ដាហ៍ក្នុងឆ្នាំនេះ"
 
 msgid "This month"
-msgstr ""
+msgstr "ខែនេះ"
 
 msgid "Last month"
-msgstr ""
+msgstr "ខែមុន"
 
 msgid "Last 3 months"
-msgstr ""
+msgstr "៣ខែចុងក្រោយ"
 
 msgid "Last 6 months"
-msgstr ""
+msgstr "៦ខែចុងក្រោយ"
 
 msgid "Last 12 months"
-msgstr ""
+msgstr "១២ខែចុងក្រោយ"
 
 msgid "Months this year"
-msgstr ""
+msgstr "ជាខែក្នុងឆ្នាំនេះ"
 
 msgid "This bimonth"
-msgstr ""
+msgstr "រយៈពេល២ខែនេះ"
 
 msgid "Last bimonth"
-msgstr ""
+msgstr "រយៈពេល២ខែមុន"
 
 msgid "Last 6 bimonths"
-msgstr ""
+msgstr "រយៈពេល២ខែ៦ដងមុន"
 
 msgid "Bimonths this year"
-msgstr ""
+msgstr "ជារយៈពេល២ខែម្តងក្នុងឆ្នាំនេះ"
 
 msgid "This quarter"
-msgstr ""
+msgstr "ត្រីមាសនេះ"
 
 msgid "Last quarter"
-msgstr ""
+msgstr "ត្រីមាសចុងក្រោយ"
 
 msgid "Last 4 quarters"
-msgstr ""
+msgstr "៤ត្រីមាសចុងក្រោយ"
 
 msgid "Quarters this year"
-msgstr ""
+msgstr "ជាត្រីមាសក្នុងឆ្នាំនេះ"
 
 msgid "This six-month"
-msgstr ""
+msgstr "ឆមាសនេះ"
 
 msgid "Last six-month"
-msgstr ""
+msgstr "ឆមាសមុន"
 
 msgid "Last 2 six-months"
-msgstr ""
+msgstr "២ឆមាសចុងក្រោយ"
 
 msgid "This financial year"
-msgstr ""
+msgstr "ឆ្នាំហិរញ្ញវត្ថុនេះ"
 
 msgid "Last financial year"
-msgstr ""
+msgstr "ឆ្នាំហិរញ្ញវត្ថុមុន"
 
 msgid "Last 5 financial years"
-msgstr ""
+msgstr "៥ឆ្នាំហិរញ្ញវត្ថុចុងក្រោយ"
 
 msgid "This year"
-msgstr ""
+msgstr "ឆ្នាំនេះ"
 
 msgid "Last year"
-msgstr ""
+msgstr "ឆ្នាំមុន"
 
 msgid "Last 5 years"
-msgstr ""
+msgstr "៥ឆ្នាំចុងក្រោយ"
 
 msgid "User organisation unit"
-msgstr ""
+msgstr "មូលដ្ឋានសុខាភិបាល របស់អ្នកប្រើប្រាស់"
 
 msgid "User sub-units"
-msgstr ""
+msgstr "User sub-units"
 
 msgid "User sub-x2-units"
-msgstr ""
+msgstr "User sub-x2-units"
 
 msgid "Table title"
-msgstr ""
+msgstr "ចំណងជើងតារាង"
 
 msgid "Parameters"
-msgstr ""
+msgstr "ប៉ារ៉ាម៉ែត្រ"
 
 msgid ""
 "These options only apply to legacy tables like standard reports. Options set"
 " here will have no effect on tables made in Data Visualizer."
 msgstr ""
+"ជម្រើសទាំងនេះអនុវត្តន៍ចំពោះតែតារាងដើមដូចជារបាយការណ៍ស្ដង់ដារ។ "
+"ជម្រើសដែលបានកំណត់នៅទីនេះ នឹងមិនមានឥទ្ធិពលលើតារាងដែលបានបង្កើតនៅក្នុងកម្មវិធី "
+"Data Visualizer នោះទេ។"
 
 msgid "Applies to standard reports only"
-msgstr ""
+msgstr "អនុវត្តន៍ចំពោះតែរបាយការណ៍ស្តង់ដាប៉ុណ្ណោះ"
 
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr ""
+"បន្ទាត់មូលដ្ឋាន និងបន្ទាត់គោលដៅគឺអាចប្រើប្រាស់ចំពោះផ្ទាំងអ័ក្សសម្រាប់ក្រាប "
+"Scatter បាន"
 
 msgid "Color set"
-msgstr ""
+msgstr "សំណុំនៃពណ៌"
 
 msgid "Color sets are not supported yet when using multiple axes"
-msgstr ""
+msgstr "សំណុំនៃពណ៌មិនងអាចប្រើប្រាស់នៅពេល មានការប្រើប្រាស់អ័ក្សច្រីនទេ"
 
 msgid ""
 "Base and target lines are available on the Axes tab for multi-axis charts"
 msgstr ""
+"បន្ទាត់មូលដ្ឋាន និងបន្ទាត់គោលដៅគឺអាចប្រើប្រាស់ចំពោះផ្ទាំងអ័ក្សសម្រាប់ក្រាប "
+"ដែលអ័ក្សច្រើនបាន"
 
 msgid "Chart style"
-msgstr ""
+msgstr "រចនាបថនៃក្រាប"
 
 msgid "Display"
-msgstr ""
+msgstr "បង្ហាញ"
 
 msgid "Empty data"
-msgstr ""
+msgstr "ទិន្នន័យទទេ"
 
 msgid "Horizontal (x) axis {{axisId}}"
-msgstr ""
+msgstr "អ័ក្សផ្តេក (x) {{axisId}}"
 
 msgid "Horizontal (x) axis"
-msgstr ""
+msgstr "អ័ក្សផ្តេក (x)"
 
 msgid "Lines"
-msgstr ""
+msgstr "គំនូសតាង ជាខ្សែបន្ទាត់"
 
 msgid "Totals"
-msgstr ""
+msgstr "តម្លៃសរុប"
+
+msgid "Totals are not supported when using cumulative values"
+msgstr "តម្លៃសរុបមិននឹងសមស្រប នៅពេលប្រើប្រាស់តម្លៃសរុបតគ្នា"
 
 msgid "Vertical (y) axis {{axisId}}"
-msgstr ""
+msgstr "អ័ក្សបញ្ឈរ (y) {{axisId}}"
 
 msgid "Vertical (y) axis"
-msgstr ""
+msgstr "អ័ក្សបញ្ឈរ (y)"
 
 msgid "Titles"
-msgstr ""
+msgstr "ចំណងជើង"
 
 msgid "Axes"
-msgstr ""
+msgstr "អ័ក្ស"
 
 msgid "Data"
 msgstr "Data"
 
 msgid "Limit values"
-msgstr ""
+msgstr "ការកំណត់តម្លៃ"
 
 msgid "Limit number of values"
-msgstr ""
+msgstr "ការកំណត់ចំនួននៃតម្លៃ"
 
 msgid "Limit minimum/maximum values"
-msgstr ""
+msgstr "ការកំណត់តម្លៃ អប្បបរមា/អតិបរមា"
 
 msgid "Outliers"
-msgstr ""
+msgstr "ចំណែកលើកគេ"
 
 msgid "Series"
-msgstr ""
+msgstr "ស៊េរី"
 
 msgid "Style"
 msgstr "​រចនាបទ"
 
 msgid "View data and indicators in a manipulatable table."
-msgstr ""
+msgstr "ការមើលទិន្នន័យ និងសូចនាករនៅក្នុងតារាងដែលអាចរៀបចំបាន។"
 
 msgid ""
 "Compare sizes of related elements vertically. Recommend period as filter."
 msgstr ""
+"ការប្រៀបធៀបទំហំនៃធាតុដែលស្ថិតនៅជួរបញ្ឈរ។ "
+"សូមណែនាំអោយប្រើរយៈពេលសម្រាប់ធ្វើការច្រោះ។"
 
 msgid ""
 "Compare parts of a whole against related elements vertically. Recommend data"
 " or org. unit as series."
 msgstr ""
+"ការប្រៀបធៀបតាមផ្នែកទាំងអស់ធៀបនឹងធាតុដែលស្ថិតនៅជួរបញ្ឈរ។ "
+"សូមណែនាំអោយប្រើទិន្នន័យ ឬមូលដ្ឋានសុខាភិបាលធ្វើជាស៊េរី។"
 
 msgid ""
 "Compare sizes of related elements horizontally. Recommend period as filter."
 msgstr ""
+"ការប្រៀបធៀបទំហំនៃធាតុដែលស្ថិតនៅជួរផ្ដេក។ "
+"សូមណែនាំអោយប្រើរយៈពេលសម្រាប់ធ្វើការច្រោះ។"
 
 msgid ""
 "Compare parts of a whole against related elements horizontally. Recommend "
 "data or org. unit as series."
 msgstr ""
+"ការប្រៀបធៀបតាមផ្នែកទាំងអស់ធៀបនឹងធាតុដែលស្ថិតនៅជួរផ្ដេក។ "
+"សូមណែនាំអោយប្រើទិន្នន័យ ឬមូលដ្ឋានសុខាភិបាលធ្វើជាស៊េរី។"
 
 msgid "Track or compare changes over time. Recommend period as category."
 msgstr ""
+"ការតាមដាន ឬប្រៀបធៀបការផ្លាស់ប្ដូរតាមពេលវេលា។ សូមណែនាំអោយប្រើរយៈពេលជាប្រភេទ។"
 
 msgid ""
 "Track or compare parts of a whole over time. Recommend data as series and "
 "period as category."
 msgstr ""
+"ការតាមដាន ឬប្រៀបធៀបផ្នែកទាំងអស់តាមពេលវេលា។ សូមណែនាំអោយប្រើទិន្នន័យជាស៊េរី "
+"និងរយៈពេលជាប្រភេទ។"
 
 msgid ""
 "Compare parts of a whole at a single point in time. Recommend period as "
 "filter."
 msgstr ""
+"ការប្រៀបធៀបផ្នែកទាំងអស់នៃពេលវេលាជាក់លាក់មួយ។ "
+"សូមណែនាំអោយប្រើរយៈពេលសម្រាប់ធ្វើការច្រោះ។"
 
 msgid "Compare several items against multiple variables."
-msgstr ""
+msgstr "ការប្រៀបធៀបធាតុជាច្រើនធៀបនឹងអញ្ញាតច្រើន។"
 
 msgid ""
 "Compare a percentage indicator against a 100% scale. Recommend period as "
 "filter."
 msgstr ""
+"ការប្រៀបធៀបសូចនាករភាគរយធៀបនឹងមាត្រដ្ឋាន១០០%។ "
+"សូមណែនាំអោយប្រើរយៈពេលសម្រាប់ធ្វើការច្រោះ។"
 
 msgid "Compare changes over time between multiple time periods."
-msgstr ""
+msgstr "ការប្រៀបធៀបកាផ្តាស់ប្ដូរតាមពេលវេលារវាងរយៈពេលជាច្រើនផ្សេងគ្នា។"
 
 msgid "Display a single value. Recommend relative period to show latest data."
 msgstr ""
+"ការបង្ហាញជាតម្លៃលេខតែមួយ។ "
+"សូមណែនាំអោយប្រើរយៈពេលយោងដើម្បីបង្ហាញទិន្នន័យចុងក្រោយ។"
 
 msgid ""
-"View the relationship between two data items at a place or time. Recommended"
-" for finding outliers."
+"Compare the relationship between two data items across multiple places. "
+"Recommended for visualizing outliers."
+msgstr "ការប្រៀបធៀបទំនាក់ទំនងរវាងទិន្នន័យ២ក្រុមចំពោះកន្លែជាច្រើនផ្សេងគ្នា។"
+
+msgid "Automatically identify extreme outliers based on historical data."
 msgstr ""
+"ធ្វើការកំណត់សម្គាល់ជាស្វ័យប្រវត្តិនូវចំណែកលើកគេដោយអាស្រ័យទៅលើប្រវត្តិនៃទិន្នន័យ។"
 
 msgid "Weeks per year"
-msgstr ""
+msgstr "ជាសប្ដាហ៍ក្នុងមួយឆ្នាំ"
 
 msgid "Months per year"
-msgstr ""
+msgstr "ជាខែក្នុងមួយឆ្នាំ"
 
 msgid "Bimonths per year"
-msgstr ""
+msgstr "ជារយៈពេល២ខែម្តងក្នុងមួយឆ្នាំ"
 
 msgid "Quarters per year"
-msgstr ""
+msgstr "ជាត្រីមាសក្នុងមួយឆ្នាំ"
