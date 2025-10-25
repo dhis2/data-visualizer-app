@@ -5,16 +5,17 @@
 # Karoline Tufte Lien <karoline@dhis2.org>, 2021
 # Djibril Dione <dione.djibril@gmail.com>, 2021
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2021
-# Yayra Gomado <ygomado@hispwca.org>, 2022
+# Yayra Gomado <ygomado@hispwca.org>, 2021
 # Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2022
 # Philip Larsen Donnelly, 2024
+# Esther Tokouli, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-06-07T08:29:46.003Z\n"
 "PO-Revision-Date: 2021-09-03 23:49+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Last-Translator: Esther Tokouli, 2025\n"
 "Language-Team: French (https://app.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +36,7 @@ msgid "\"{{deletedObject}}\" successfully deleted."
 msgstr "\"{{deletedObject}}\" supprimé avec succès."
 
 msgid "You have unsaved changes."
-msgstr "Vous avez des changements non enregistrés."
+msgstr "Vous avez des modifications non enregistrés."
 
 msgid "Discard unsaved changes?"
 msgstr "Abandonner les modifications non enregistrées?"
@@ -91,7 +92,7 @@ msgid "Other dimensions"
 msgstr "Autres dimensions"
 
 msgid "Your dimensions"
-msgstr "Votre dimensions"
+msgstr "Vos dimensions"
 
 msgid "Filter dimensions"
 msgstr "Filtrer les dimensions"
@@ -118,10 +119,10 @@ msgid "HTML (.html)"
 msgstr "HTML (.html)"
 
 msgid "Metadata ID scheme"
-msgstr "Schéma ID des métadata"
+msgstr "Schéma d'Identification des métadonnées"
 
 msgid "ID"
-msgstr "Id"
+msgstr "ID"
 
 msgid "Code"
 msgstr "Code"
@@ -246,7 +247,7 @@ msgid "Update"
 msgstr "Mettre à jour"
 
 msgid "Getting started"
-msgstr "Commencer"
+msgstr "Pour commencer"
 
 msgid ""
 "All dimensions that you can use to build visualizations are shown in the "
@@ -274,7 +275,7 @@ msgid "By data element"
 msgstr "Par élément de donnée"
 
 msgid "Count"
-msgstr "Décompte"
+msgstr "Compte"
 
 msgid "Average"
 msgstr "Moyenne"
@@ -326,7 +327,7 @@ msgid "Axis range"
 msgstr "Plage de l'axe"
 
 msgid "Values outside of the range will not be displayed"
-msgstr "Valeurs en dehors de la plage ne seront pas affichées"
+msgstr "Les valeurs en dehors de la plage ne seront pas affichées"
 
 msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
@@ -369,10 +370,10 @@ msgid "Default"
 msgstr "Par défaut"
 
 msgid "Basic"
-msgstr "De base"
+msgstr "Basique"
 
 msgid "Extended"
-msgstr "Agrandi"
+msgstr "Etendue"
 
 msgid "Bright"
 msgstr "Clair"
@@ -396,7 +397,7 @@ msgid "Only include completed events"
 msgstr "Inclure uniquement les événements terminés"
 
 msgid "Include cumulative"
-msgstr "Inclure cumulatif"
+msgstr "Inclure le cumulatif"
 
 msgid "Cumulative values"
 msgstr "Valeurs cumulées"
@@ -411,7 +412,7 @@ msgid "Comma"
 msgstr "Virgule"
 
 msgid "Display density"
-msgstr "Afficher densité"
+msgstr "Afficher la densité"
 
 msgid "Comfortable"
 msgstr "Confortable"
@@ -467,7 +468,7 @@ msgid "Before first and after last"
 msgstr "Avant la première et après la dernière"
 
 msgid "Hide empty rows"
-msgstr "Cacher lignes vides"
+msgstr "Masquer les lignes vides"
 
 msgid "Table subtitle"
 msgstr "Sous-titre du tableau"
@@ -476,7 +477,7 @@ msgid "Chart subtitle"
 msgstr "Sous-titre du graphique"
 
 msgid "Auto generated"
-msgstr "Genere automatiquement"
+msgstr "Généré automatiquement"
 
 msgid "Chart title"
 msgstr "Titre du graphique"
@@ -577,13 +578,13 @@ msgid "Modified Z-score"
 msgstr "Z-score modifié"
 
 msgid "Outlier analysis"
-msgstr "Analyse valeurs atypiques"
+msgstr "Analyse des valeurs atypiques"
 
 msgid ""
 "Outlier analysis detects and highlights data items that are markedly "
 "different from the rest of the data"
 msgstr ""
-"L'analyse des valeurs aberrantes détecte et met en évidence les données qui "
+"L'analyse des valeurs atypiques détecte et met en évidence les données qui "
 "sont nettement différents du reste des données"
 
 msgid "Outlier detection method"
@@ -596,7 +597,7 @@ msgid "Parent organisation unit"
 msgstr "Unité d'organisation parent"
 
 msgid "Reporting period"
-msgstr "Période de rapportage"
+msgstr "Période de déclaration"
 
 msgid "Stacked values add up to 100%"
 msgstr "Les valeurs empilées s'additionnent à 100%"
@@ -723,13 +724,13 @@ msgid "Reporting rate"
 msgstr "Taux de déclaration"
 
 msgid "Reporting rate on time"
-msgstr "Taux de notification à temps"
+msgstr "Taux de déclaration dans les délais"
 
 msgid "Actual reports"
 msgstr "Rapports réels"
 
 msgid "Actual reports on time"
-msgstr "Rapports réels à temps"
+msgstr "Rapports réels dans les délais"
 
 msgid "Expected reports"
 msgstr "Rapports attendus"
@@ -741,8 +742,8 @@ msgid ""
 "The selected dimensions didn’t return any data. There may be no data, or you"
 " may not have access to it."
 msgstr ""
-"The selected dimensions didn’t return any data. Il peut ne pas y avoir de "
-"données, ou vous pourriez ne pas y avoir accès."
+"Les dimensions sélectionnées n'ont renvoyé aucune donnée. Il se peut qu'il "
+"n'y ait aucune donnée ou que vous n'y ayez pas accès."
 
 msgid "{{axisName}} is empty"
 msgstr "{{axisName}} est vide"
@@ -761,7 +762,7 @@ msgstr ""
 "un {{visualizationType}}."
 
 msgid "No period selected"
-msgstr "Aucune période n'est sélectionné"
+msgstr "Aucune période sélectionnée"
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
@@ -826,7 +827,7 @@ msgstr ""
 " peuvent pas être utilisés simultanément."
 
 msgid "There is a problem with this {{visualizationType}} visualization."
-msgstr "Il y a un problème avec cela {{visualizationType}} visualisation."
+msgstr "Il y a un problème avec cette {{visualizationType}} visualisation."
 
 msgid "There was a problem getting the data from the server."
 msgstr "Un problème est survenu lors de l'obtention des données du serveur."
@@ -839,16 +840,15 @@ msgstr ""
 msgid ""
 "Fix this problem by selecting data elements or removing Assigned Categories."
 msgstr ""
-"Résoudre ce problème en sélectionnant des éléments de données ou supprimer "
-"des Catégories Attribuées."
+"Résoudre ce problème en sélectionnant des éléments de données ou en "
+"supprimant des Catégories Assignées."
 
 msgid "Assigned Categories cannot be used as Filter"
-msgstr "Catégories Attribuées ne peuvent pas être utilisées comme Filtre"
+msgstr "Les Catégories Assignées ne peuvent pas être utilisées comme Filtre"
 
 msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
-"Résoudre ce problème en déplaçant ou en supprimant les Catégories "
-"Attribuées."
+"Résoudre ce problème en déplaçant ou en supprimant les Catégories Assignées."
 
 msgid "Visualization not found"
 msgstr "Visualisation introuvable"
@@ -867,7 +867,7 @@ msgid "The level or group selections didn't return any organization units."
 msgstr "Le niveau ou groupe choisi n'a retourné aucune unité d'organisation"
 
 msgid "Something went wrong"
-msgstr "Quelque chose a mal tourné"
+msgstr "Un problème est survenu"
 
 msgid "or"
 msgstr "ou"
@@ -939,7 +939,7 @@ msgid "This quarter"
 msgstr "Ce trimestre"
 
 msgid "Last quarter"
-msgstr "Trimestre précédent"
+msgstr "Dernier trimestre"
 
 msgid "Last 4 quarters"
 msgstr "4 derniers trimestres"
@@ -960,13 +960,13 @@ msgid "This financial year"
 msgstr "Année fiscale en cours"
 
 msgid "Last financial year"
-msgstr "Dernière année financière"
+msgstr "Année fiscale précédente"
 
 msgid "Last 5 financial years"
-msgstr "5 dernières années financières"
+msgstr "5 dernières années fiscales"
 
 msgid "This year"
-msgstr "Année en cours"
+msgstr "Cette année"
 
 msgid "Last year"
 msgstr "L'année passée"
