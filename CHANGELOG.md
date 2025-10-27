@@ -1,3 +1,10 @@
+## [101.3.2](https://github.com/dhis2/data-visualizer-app/compare/v101.3.1...v101.3.2) (2025-10-16)
+
+
+### Bug Fixes
+
+* turn off chart animations in dashboards, hide SV factor 1 subtext (DHIS2-20293) (DHIS2-20299) ([#3443](https://github.com/dhis2/data-visualizer-app/issues/3443)) ([0757efc](https://github.com/dhis2/data-visualizer-app/commit/0757efcecdf802117465fca3f924b2b91e8d0171))
+
 ## [101.3.1](https://github.com/dhis2/data-visualizer-app/compare/v101.3.0...v101.3.1) (2025-08-12)
 
 
