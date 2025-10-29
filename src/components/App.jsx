@@ -10,6 +10,7 @@ import {
     ButtonStrip,
     Button,
 } from '@dhis2/ui'
+import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -26,6 +27,7 @@ import DndContext from './DndContext.jsx'
 import { InterpretationModal } from './InterpretationModal/index.js'
 import Layout from './Layout/Layout.jsx'
 import { MenuBar } from './MenuBar/MenuBar.jsx'
+import classes from './styles/App.module.css'
 import { TitleBar } from './TitleBar/TitleBar.jsx'
 import { Visualization } from './Visualization/Visualization.jsx'
 import { VisualizationTypeSelector } from './VisualizationTypeSelector/VisualizationTypeSelector.jsx'
@@ -50,6 +52,7 @@ class UnconnectedApp extends Component {
         initialLoadIsComplete: false,
         locationToConfirm: false,
         aboutAORenderCount: 0,
+        mainCenterWidth: null,
     }
 
     /**
@@ -274,18 +277,24 @@ class UnconnectedApp extends Component {
                                 </div>
                             </div>
                         </DndContext>
-                        {this.props.ui.rightSidebarOpen && this.props.current && (
-                            <div className="main-right">
-                                <DetailsPanel
-                                    interpretationsUnitRef={
-                                        this.interpretationsUnitRef
-                                    }
-                                    aboutAORenderCount={
-                                        this.state.aboutAORenderCount
-                                    }
-                                />
-                            </div>
-                        )}
+                        <div
+                            className={cx(classes.mainRight, {
+                                [classes.hidden]:
+                                    !this.props.ui.rightSidebarOpen,
+                            })}
+                        >
+                            {this.props.ui.rightSidebarOpen &&
+                                this.props.current && (
+                                    <DetailsPanel
+                                        interpretationsUnitRef={
+                                            this.interpretationsUnitRef
+                                        }
+                                        aboutAORenderCount={
+                                            this.state.aboutAORenderCount
+                                        }
+                                    />
+                                )}
+                        </div>
                     </div>
                 </div>
                 {this.state.locationToConfirm && (

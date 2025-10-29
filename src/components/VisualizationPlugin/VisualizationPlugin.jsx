@@ -49,6 +49,7 @@ import PivotPlugin from './PivotPlugin.jsx'
 import styles from './styles/VisualizationPlugin.module.css'
 
 const FILTERS_PROP_DEFAULT = {}
+const RIGHT_SIDEBAR_WIDTH = 380
 
 export const VisualizationPlugin = ({
     visualization: originalVisualization = {},
@@ -63,6 +64,7 @@ export const VisualizationPlugin = ({
     onDataSorted = Function.prototype,
     onResponsesReceived = Function.prototype,
     onDrill,
+    rightSidebarOpen = false,
 }) => {
     const engine = useDataEngine()
     const [error, setError] = useState(null)
@@ -75,6 +77,8 @@ export const VisualizationPlugin = ({
     const [renderId, setRenderId] = useState(id)
     const [size, setSize] = useState({ width: 0, height: 0 })
     const resizeObserverRef = useRef(null)
+    const containerElementRef = useRef(null)
+    const [availableWidth, setAvailableWidth] = useState(null)
 
     useEffect(() => {
         resizeObserverRef.current = new window.ResizeObserver((entries) => {
@@ -98,10 +102,29 @@ export const VisualizationPlugin = ({
     }, [])
 
     const containerCallbackRef = useCallback((node) => {
-        if (node instanceof Element) {
+        // If there was a previous element, stop observing it
+        if (containerElementRef.current && resizeObserverRef.current) {
+            resizeObserverRef.current.unobserve(containerElementRef.current)
+        }
+
+        // Store reference to the new element
+        containerElementRef.current = node
+
+        // Start observing the new element
+        if (node instanceof Element && resizeObserverRef.current) {
             resizeObserverRef.current.observe(node)
         }
     }, [])
+
+    useEffect(() => {
+        if (rightSidebarOpen && !forDashboard && containerElementRef.current) {
+            setAvailableWidth(
+                containerElementRef.current.offsetWidth - RIGHT_SIDEBAR_WIDTH
+            )
+        } else {
+            setAvailableWidth(null)
+        }
+    }, [rightSidebarOpen, forDashboard, setAvailableWidth])
 
     useEffect(() => setRenderId(id), [id])
 
@@ -563,6 +586,7 @@ export const VisualizationPlugin = ({
                     }
                     id={id}
                     style={transformedStyle}
+                    availableWidth={availableWidth}
                 />
             )
         } else if (fetchResult.visualization.type === VIS_TYPE_OUTLIER_TABLE) {
@@ -627,6 +651,7 @@ VisualizationPlugin.propTypes = {
     forDashboard: PropTypes.bool,
     id: PropTypes.number,
     isInModal: PropTypes.bool,
+    rightSidebarOpen: PropTypes.bool,
     style: PropTypes.object,
     onChartGenerated: PropTypes.func,
     onDataSorted: PropTypes.func,

@@ -1,0 +1,12 @@
+.mainRight {
+    width: 380px;
+    background-color: var(--colors-grey100);
+    border-inline-start: 1px solid var(--colors-grey400);
+    box-shadow: 1px 0 -2px 0 rgba(0, 0, 0, 0.03);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.mainRight.hidden {
+    width: 0;
+}
