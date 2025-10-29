@@ -3,17 +3,20 @@
 exports[`App renders the app skeleton 1`] = `
 <div>
   <div
-    class="data-visualizer-app flex-ct flex-dir-col"
+    class=""
   >
     <div>
       Toolbar
     </div>
     <div
-      class="section-main flex-grow-1 flex-ct"
+      class=""
     >
       <div>
         DndContext
       </div>
+      <div
+        class="undefined"
+      />
     </div>
   </div>
 </div>

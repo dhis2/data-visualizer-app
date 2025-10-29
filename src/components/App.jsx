@@ -235,7 +235,13 @@ class UnconnectedApp extends Component {
     render() {
         return (
             <>
-                <div className="data-visualizer-app flex-ct flex-dir-col">
+                <div
+                    className={cx(
+                        classes.app,
+                        classes.flexCt,
+                        classes.flexDirCol
+                    )}
+                >
                     <Toolbar>
                         <VisualizationTypeSelector />
                         <MenuBar
@@ -251,19 +257,37 @@ class UnconnectedApp extends Component {
                             }}
                         />
                     </Toolbar>
-                    <div className="section-main flex-grow-1 flex-ct">
+                    <div
+                        className={cx(
+                            classes.sectionMain,
+                            classes.flexGrow1,
+                            classes.flexCt
+                        )}
+                    >
                         <DndContext>
-                            <div className="main-left">
+                            <div className={classes.mainLeft}>
                                 <DimensionsPanel />
                             </div>
-                            <div className="main-center flex-grow-1 flex-basis-0 flex-ct flex-dir-col">
-                                <div className="main-center-layout">
+                            <div
+                                className={cx(
+                                    classes.flexGrow1,
+                                    classes.flexBasis0,
+                                    classes.flexCt,
+                                    classes.flexDirCol
+                                )}
+                            >
+                                <div className={classes.mainCenterLayout}>
                                     <Layout />
                                 </div>
                                 <div className="main-center-titlebar">
                                     <TitleBar />
                                 </div>
-                                <div className="main-center-canvas flex-grow-1">
+                                <div
+                                    className={cx(
+                                        classes.mainCenterCanvas,
+                                        classes.flexGrow1
+                                    )}
+                                >
                                     {this.state.initialLoadIsComplete && (
                                         <Visualization />
                                     )}
