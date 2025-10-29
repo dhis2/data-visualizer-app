@@ -1,3 +1,10 @@
+## [101.3.3](https://github.com/dhis2/data-visualizer-app/compare/v101.3.2...v101.3.3) (2025-10-29)
+
+
+### Bug Fixes
+
+* use interpretations provider from analytics [DHIS2-19822] ([#3438](https://github.com/dhis2/data-visualizer-app/issues/3438)) ([2ab40fc](https://github.com/dhis2/data-visualizer-app/commit/2ab40fce55d06a24639fed73c04991bdb4424fbe))
+
 ## [101.3.2](https://github.com/dhis2/data-visualizer-app/compare/v101.3.1...v101.3.2) (2025-10-16)
 
 
