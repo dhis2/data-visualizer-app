@@ -1,5 +1,71 @@
-/* Global styles */
+/* App */
+
+.data-visualizer-app {
+    block-size: 100%;
+    background-color: var(--colors-grey300);
+    overflow: hidden;
+}
+.data-visualizer-app * {
+    outline: none;
+}
 
 body {
     font-family: 'Roboto', sans-serif;
+}
+
+/* Flex */
+
+.flex-ct {
+    display: flex;
+}
+
+.flex-dir-col {
+    flex-direction: column;
+}
+
+.flex-grow-1 {
+    flex-grow: 1;
+}
+
+.flex-basis-0 {
+    flex-basis: 0%;
+}
+
+/* Headerbar */
+
+.section-headerbar {
+    block-size: 48px;
+}
+
+/* Main */
+.section-main {
+    overflow: hidden;
+}
+
+.main-left {
+    min-inline-size: 260px;
+}
+
+.main-right {
+    flex: 1 1 0%;
+    max-inline-size: 380px;
+    background-color: var(--colors-grey100);
+    border-inline-start: 1px solid var(--colors-grey400);
+    box-shadow: 1px 0 -2px 0 rgba(0, 0, 0, 0.03);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Main center */
+
+.main-center-canvas {
+    display: flex;
+    justify-content: center;
+    block-size: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.main-center-layout {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
 }

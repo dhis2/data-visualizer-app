@@ -10,7 +10,6 @@ import {
     ButtonStrip,
     Button,
 } from '@dhis2/ui'
-import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -27,7 +26,6 @@ import DndContext from './DndContext.jsx'
 import { InterpretationModal } from './InterpretationModal/index.js'
 import Layout from './Layout/Layout.jsx'
 import { MenuBar } from './MenuBar/MenuBar.jsx'
-import classes from './styles/App.module.css'
 import { TitleBar } from './TitleBar/TitleBar.jsx'
 import { Visualization } from './Visualization/Visualization.jsx'
 import { VisualizationTypeSelector } from './VisualizationTypeSelector/VisualizationTypeSelector.jsx'
@@ -42,17 +40,11 @@ class UnconnectedApp extends Component {
 
     apiObjectName = 'visualization'
 
-    interpretationsUnitRef = React.createRef()
-
-    onInterpretationUpdate = () =>
-        this.interpretationsUnitRef.current?.refresh()
-
     state = {
         previousLocation: null,
         initialLoadIsComplete: false,
         locationToConfirm: false,
         aboutAORenderCount: 0,
-        mainCenterWidth: null,
     }
 
     /**
@@ -235,13 +227,7 @@ class UnconnectedApp extends Component {
     render() {
         return (
             <>
-                <div
-                    className={cx(
-                        classes.app,
-                        classes.flexCt,
-                        classes.flexDirCol
-                    )}
-                >
+                <div className="data-visualizer-app flex-ct flex-dir-col">
                     <Toolbar>
                         <VisualizationTypeSelector />
                         <MenuBar
@@ -257,68 +243,37 @@ class UnconnectedApp extends Component {
                             }}
                         />
                     </Toolbar>
-                    <div
-                        className={cx(
-                            classes.sectionMain,
-                            classes.flexGrow1,
-                            classes.flexCt
-                        )}
-                    >
+                    <div className="section-main flex-grow-1 flex-ct">
                         <DndContext>
-                            <div className={classes.mainLeft}>
+                            <div className="main-left">
                                 <DimensionsPanel />
                             </div>
-                            <div
-                                className={cx(
-                                    classes.flexGrow1,
-                                    classes.flexBasis0,
-                                    classes.flexCt,
-                                    classes.flexDirCol
-                                )}
-                            >
-                                <div className={classes.mainCenterLayout}>
+                            <div className="main-center flex-grow-1 flex-basis-0 flex-ct flex-dir-col">
+                                <div className="main-center-layout">
                                     <Layout />
                                 </div>
                                 <div className="main-center-titlebar">
                                     <TitleBar />
                                 </div>
-                                <div
-                                    className={cx(
-                                        classes.mainCenterCanvas,
-                                        classes.flexGrow1
-                                    )}
-                                >
+                                <div className="main-center-canvas flex-grow-1">
                                     {this.state.initialLoadIsComplete && (
                                         <Visualization />
                                     )}
                                     {this.props.current && (
-                                        <InterpretationModal
-                                            onInterpretationUpdate={
-                                                this.onInterpretationUpdate
-                                            }
-                                        />
+                                        <InterpretationModal />
                                     )}
                                 </div>
                             </div>
                         </DndContext>
-                        <div
-                            className={cx(classes.mainRight, {
-                                [classes.hidden]:
-                                    !this.props.ui.rightSidebarOpen,
-                            })}
-                        >
-                            {this.props.ui.rightSidebarOpen &&
-                                this.props.current && (
-                                    <DetailsPanel
-                                        interpretationsUnitRef={
-                                            this.interpretationsUnitRef
-                                        }
-                                        aboutAORenderCount={
-                                            this.state.aboutAORenderCount
-                                        }
-                                    />
-                                )}
-                        </div>
+                        {this.props.ui.rightSidebarOpen && this.props.current && (
+                            <div className="main-right">
+                                <DetailsPanel
+                                    aboutAORenderCount={
+                                        this.state.aboutAORenderCount
+                                    }
+                                />
+                            </div>
+                        )}
                     </div>
                 </div>
                 {this.state.locationToConfirm && (
