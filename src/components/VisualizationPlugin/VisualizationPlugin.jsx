@@ -15,7 +15,7 @@ import {
     USER_ORG_UNIT_CHILDREN,
     USER_ORG_UNIT_GRANDCHILDREN,
 } from '@dhis2/analytics'
-import { useDataEngine } from '@dhis2/app-runtime'
+import { useConfig, useDataEngine } from '@dhis2/app-runtime'
 import { Button, IconLegend24, Layer } from '@dhis2/ui'
 import cx from 'classnames'
 import cloneDeep from 'lodash-es/cloneDeep'
@@ -39,6 +39,7 @@ import {
     ValueTypeError,
 } from '../../modules/error.js'
 import { fetchData } from '../../modules/fetchData.js'
+import { getIconUrl } from '../../modules/icon.js'
 import getDefaultMetadata from '../../modules/metadata.js'
 import { getOptionsFromVisualization } from '../../modules/options.js'
 import { VisualizationErrorInfo } from '../VisualizationErrorInfo/VisualizationErrorInfo.jsx'
@@ -75,6 +76,7 @@ export const VisualizationPlugin = ({
     const [renderId, setRenderId] = useState(id)
     const [size, setSize] = useState({ width: 0, height: 0 })
     const resizeObserverRef = useRef(null)
+    const { baseUrl } = useConfig()
 
     useEffect(() => {
         resizeObserverRef.current = new window.ResizeObserver((entries) => {
@@ -334,8 +336,14 @@ export const VisualizationPlugin = ({
                 responses[0].metaData.items[dxIds[0]]?.style?.icon
             ) {
                 const originalIcon = await fetch(
-                    responses[0].metaData.items[dxIds[0]].style.icon,
-                    { method: 'GET', credentials: 'include' }
+                    getIconUrl(
+                        responses[0].metaData.items[dxIds[0]]?.style?.icon,
+                        baseUrl
+                    ),
+                    {
+                        method: 'GET',
+                        credentials: 'include',
+                    }
                 ).then((dxIconResponse) => {
                     if (dxIconResponse.status !== 200) {
                         return '<svg></svg>'
