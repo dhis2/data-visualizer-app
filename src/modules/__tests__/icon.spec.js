@@ -32,34 +32,35 @@ describe('getIconName', () => {
         expect(getIconName('3g_positive')).toBe('3g_positive')
     })
 
-    test('does NOT strip .svg if the raw input is a name with an extension (documenting current behavior)', () => {
+    test('does not strip .svg if the raw input is a name with an extension', () => {
         expect(getIconName('3g_positive.svg')).toBe('3g_positive.svg')
     })
 
-    test('returns the input unchanged if URL does not end with /icon.svg (e.g., has a query) — documenting behavior', () => {
-        const input = 'https://example.com/api/icons/airplane/icon.svg?cache=1'
+    test('returns the input unchanged if URL does not end with /icon.svg', () => {
+        const input =
+            'https://example.com/api/icons/3g_positive/icon.svg?cache=1'
         // Regex won’t match because it requires string end ($); function falls back to returning input
         expect(getIconName(input)).toBe(input)
     })
 })
 
 describe('getIconUrl', () => {
-    const baseUrl = 'https://test.e2e.dhis2.org/anly-42'
+    const baseUrl = 'https://play.im.dhis2.org/dev'
 
     test('reconstructs URL from a plain icon name', () => {
         expect(getIconUrl('3g_positive', baseUrl)).toBe(
-            'https://test.e2e.dhis2.org/anly-42/api/icons/3g_positive/icon.svg'
+            'https://play.im.dhis2.org/dev/api/icons/3g_positive/icon.svg'
         )
     })
 
     test('reconstructs URL from a full URL by extracting the name', () => {
-        const input = 'https://host/anything/icons/airplane/icon.svg'
+        const input = 'https://host/anything/icons/3g_positive/icon.svg'
         expect(getIconUrl(input, baseUrl)).toBe(
-            'https://test.e2e.dhis2.org/anly-42/api/icons/airplane/icon.svg'
+            'https://play.im.dhis2.org/dev/api/icons/3g_positive/icon.svg'
         )
     })
 
-    test('returns null when getIconName returns null (e.g., blank input)', () => {
+    test('returns null when getIconName returns null', () => {
         expect(getIconUrl('   ', baseUrl)).toBeNull()
         expect(getIconUrl(null, baseUrl)).toBeNull()
     })
@@ -67,17 +68,17 @@ describe('getIconUrl', () => {
     test('documents behavior when baseUrl has a trailing slash (double slash before api)', () => {
         const baseWithSlash = 'https://test.e2e.dhis2.org/anly-42/'
         // Current implementation does not normalize; this test documents that behavior.
-        expect(getIconUrl('airplane', baseWithSlash)).toBe(
-            'https://test.e2e.dhis2.org/anly-42//api/icons/airplane/icon.svg'
+        expect(getIconUrl('3g_positive', baseWithSlash)).toBe(
+            'https://test.e2e.dhis2.org/anly-42//api/icons/3g_positive/icon.svg'
         )
     })
 
-    test('passes through unexpected values from getIconName (documenting current behavior)', () => {
+    test('passes through unexpected values from getIconName', () => {
         // Because getIconName returns input if it doesn't match /<name>/icon.svg$, an odd input like this
         // will be treated as the "name" and interpolated.
-        const odd = 'airplane.svg'
+        const odd = '3g_positive.svg'
         expect(getIconUrl(odd, baseUrl)).toBe(
-            'https://test.e2e.dhis2.org/anly-42/api/icons/airplane.svg/icon.svg'
+            'https://play.im.dhis2.org/dev/api/icons/3g_positive.svg/icon.svg'
         )
     })
 })

@@ -335,21 +335,23 @@ export const VisualizationPlugin = ({
                 dxIds[0] &&
                 responses[0].metaData.items[dxIds[0]]?.style?.icon
             ) {
-                const iconUrl = getIconUrl(
-                    responses[0].metaData.items[dxIds[0]]?.style?.icon,
-                    baseUrl
-                )
-                const originalIcon = await fetch(iconUrl, {
-                    method: 'GET',
-                    credentials: 'include',
-                }).then((dxIconResponse) => {
+                const originalIcon = await fetch(
+                    getIconUrl(
+                        responses[0].metaData.items[dxIds[0]]?.style?.icon,
+                        baseUrl
+                    ),
+                    {
+                        method: 'GET',
+                        credentials: 'include',
+                    }
+                ).then((dxIconResponse) => {
                     if (dxIconResponse.status !== 200) {
                         return '<svg></svg>'
                     } else {
                         return dxIconResponse.text()
                     }
                 })
-                console.log('iconUrl', iconUrl)
+
                 // This allows for color override of the icon using the parent color
                 // needed when a legend color or contrast color is applied
                 const adaptedIcon = originalIcon.replaceAll(
