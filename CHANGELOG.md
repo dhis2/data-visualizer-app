@@ -1,3 +1,10 @@
+## [101.3.4](https://github.com/dhis2/data-visualizer-app/compare/v101.3.3...v101.3.4) (2025-10-30)
+
+
+### Bug Fixes
+
+* upgrade analytics to get interpretations fixes ([#3446](https://github.com/dhis2/data-visualizer-app/issues/3446)) ([5cb25ff](https://github.com/dhis2/data-visualizer-app/commit/5cb25ff01ec6c28fa6f23ec9f0f2539297cb65a4))
+
 ## [101.3.3](https://github.com/dhis2/data-visualizer-app/compare/v101.3.2...v101.3.3) (2025-10-29)
 
 
