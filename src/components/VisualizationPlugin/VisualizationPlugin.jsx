@@ -117,14 +117,19 @@ export const VisualizationPlugin = ({
     }, [])
 
     useEffect(() => {
-        if (rightSidebarOpen && !forDashboard && containerElementRef.current) {
+        if (
+            rightSidebarOpen &&
+            !forDashboard &&
+            containerElementRef.current &&
+            visualization?.type === VIS_TYPE_PIVOT_TABLE
+        ) {
             setAvailableWidth(
                 containerElementRef.current.offsetWidth - RIGHT_SIDEBAR_WIDTH
             )
         } else {
             setAvailableWidth(null)
         }
-    }, [rightSidebarOpen, forDashboard, setAvailableWidth])
+    }, [rightSidebarOpen, forDashboard, setAvailableWidth, visualization?.type])
 
     useEffect(() => setRenderId(id), [id])
 
