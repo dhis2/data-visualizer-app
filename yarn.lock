@@ -1906,7 +1906,7 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^29.0.3":
+"@dhis2/analytics@29.0.3":
   version "29.0.3"
   resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-29.0.3.tgz#03fbd240716bbb41c9b395bba004c0613a55a23c"
   integrity sha512-w3z2acQdtiw1Awr2YDbbMDSVOvswD9rFCIn/SS0yvor51gA0YPoaFrVxd0w7lbEaFWgxVReUY7kADrKaounDMQ==
