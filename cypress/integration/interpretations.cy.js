@@ -20,7 +20,7 @@ describe('Interpretations', () => {
         expectVisualizationToBeVisible(ao.type)
 
         // Open the interpretations panel
-        cy.getBySel('dhis2-analytics-interpretationsanddetailstoggler').click()
+        cy.get('button').contains('Interpretations and details').click()
 
         cy.getBySel('interpretations-list')
             .find('button')
@@ -52,7 +52,7 @@ describe('Interpretations', () => {
         expectVisualizationToBeVisible(ao.type)
 
         // Open the interpretations panel
-        cy.getBySel('dhis2-analytics-interpretationsanddetailstoggler').click()
+        cy.get('button').contains('Interpretations and details').click()
 
         cy.getBySel('interpretations-list')
             .find('button')
