@@ -156,7 +156,6 @@ export class UnconnectedVisualization extends Component {
                         onDrill={this.onDrill}
                         style={styles.chartCanvas}
                         displayProperty={displayProperty}
-                        rightSidebarOpen={this.props.rightSidebarOpen}
                     />
                 </Fragment>
             )

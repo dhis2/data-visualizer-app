@@ -11,7 +11,6 @@ const PivotPlugin = ({
     style = STYLE_PROP_DEFAULT,
     id: renderCounter,
     onToggleContextualMenu,
-    availableWidth,
 }) => {
     return (
         <div style={style}>
@@ -21,7 +20,6 @@ const PivotPlugin = ({
                 legendSets={legendSets}
                 renderCounter={renderCounter}
                 onToggleContextualMenu={onToggleContextualMenu}
-                availableWidth={availableWidth}
             />
         </div>
     )
@@ -31,7 +29,6 @@ PivotPlugin.propTypes = {
     legendSets: PropTypes.arrayOf(PropTypes.object).isRequired,
     responses: PropTypes.arrayOf(PropTypes.object).isRequired,
     visualization: PropTypes.object.isRequired,
-    availableWidth: PropTypes.number,
     id: PropTypes.number,
     style: PropTypes.object,
     onToggleContextualMenu: PropTypes.func,
