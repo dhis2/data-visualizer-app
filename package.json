@@ -48,7 +48,7 @@
         "typescript-eslint": "^8.35.0"
     },
     "dependencies": {
-        "@dhis2/analytics": "git+https://github.com/d2-ci/analytics.git#b02701590045cff6837d4a6d1d846ec1cc82f93e",
+        "@dhis2/analytics": "^29.0.3",
         "@dhis2/app-runtime": "^3.14.1",
         "@dhis2/app-service-datastore": "^1.0.0-beta.3",
         "@dhis2/d2-i18n": "^1.1.0",
