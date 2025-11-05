@@ -4,6 +4,7 @@ import {
     expectVisualizationToBeVisible,
 } from '../elements/chart.js'
 import { openAOByName } from '../elements/fileMenu/index.js'
+import { expectTableToBeVisible } from '../elements/pivotTable.js'
 import { goToStartPage } from '../elements/startScreen.js'
 
 describe('Interpretations', () => {
@@ -41,7 +42,7 @@ describe('Interpretations', () => {
 
     it('opens the interpretations modal on a saved pivot table', () => {
         const ao = {
-            name: 'ANC: ANC at facilities in Bo this month with hidden empty columns',
+            name: 'ANC: ANC visits 1-3 last 12 months',
             type: VIS_TYPE_PIVOT_TABLE,
         }
 
@@ -49,7 +50,7 @@ describe('Interpretations', () => {
         goToStartPage()
         openAOByName(ao.name)
         expectAOTitleToBeValue(ao.name)
-        expectVisualizationToBeVisible(ao.type)
+        expectTableToBeVisible()
 
         // Open the interpretations panel
         cy.get('button').contains('Interpretations and details').click()
@@ -61,7 +62,9 @@ describe('Interpretations', () => {
 
         cy.getBySel('interpretation-modal').should('be.visible')
 
-        cy.get('.highcharts-container').should('be.visible')
+        cy.getBySel('interpretation-modal')
+            .find('.pivot-table-container')
+            .should('be.visible')
 
         cy.getBySel('interpretation-modal')
             .find('button')
