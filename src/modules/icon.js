@@ -1,16 +1,16 @@
-// "getIconName" extracts and returns the icon name regardless of input being a name or a an absolute url"
-export const getIconName = (input) => {
-    if (typeof input !== 'string' || !input.trim()) {
+// "getIconName" extracts and returns the icon name regardless of "iconStr" being a name or a an absolute url"
+export const getIconName = (iconStr) => {
+    if (typeof iconStr !== 'string' || !iconStr.trim()) {
         return null
     }
-    const match = input.match(/\/([^/]+)\/icon\.svg$/)
-    return match ? match[1] : input
+    const match = iconStr.match(/\/([^/]+)\/icon\.svg$/)
+    return match ? match[1] : iconStr
 }
 
-// "getIconUrl" gets the icon name and returns a reconstructed absolute url
-// We want to always return a reconstructed url because the url provided by the api was sometimes wrong
-// DHIS2-20388: From 2.42 the analytics api will start to return icon names instead of absolute urls as an agreed breaking change
-export const getIconUrl = (input, baseUrl) => {
-    const iconName = getIconName(input)
+// "iconStr" parameter can be either an icon name or an absolute url
+// "getIconUrl" always returns a reconstructed url because the url provided by the api was sometimes wrong before 42.4
+// DHIS2-20388: From 42.4 the analytics api will start to return icon names instead of absolute urls as an agreed breaking change
+export const getIconUrl = (iconStr, baseUrl) => {
+    const iconName = getIconName(iconStr)
     return iconName ? `${baseUrl}/api/icons/${iconName}/icon.svg` : null
 }

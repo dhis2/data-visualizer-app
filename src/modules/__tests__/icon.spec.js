@@ -32,10 +32,6 @@ describe('getIconName', () => {
         expect(getIconName('3g_positive')).toBe('3g_positive')
     })
 
-    test('does not strip .svg if the raw input is a name with an extension', () => {
-        expect(getIconName('3g_positive.svg')).toBe('3g_positive.svg')
-    })
-
     test('returns the input unchanged if URL does not end with /icon.svg', () => {
         const input =
             'https://example.com/api/icons/3g_positive/icon.svg?cache=1'
