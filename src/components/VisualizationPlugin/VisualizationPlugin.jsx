@@ -14,6 +14,7 @@ import {
     USER_ORG_UNIT,
     USER_ORG_UNIT_CHILDREN,
     USER_ORG_UNIT_GRANDCHILDREN,
+    VIS_TYPE_SINGLE_VALUE,
 } from '@dhis2/analytics'
 import { useConfig, useDataEngine } from '@dhis2/app-runtime'
 import { Button, IconLegend24, Layer } from '@dhis2/ui'
@@ -330,21 +331,21 @@ export const VisualizationPlugin = ({
 
             // DHIS2-10496: show icon on the side of the single value if an icon is assigned in Maintenance app and
             // the "Show data item icon" option is set in DV options
-            if (
-                Boolean(filteredVisualization.icons?.length) &&
+            const iconUrl =
+                filteredVisualization.type === VIS_TYPE_SINGLE_VALUE &&
+                Boolean(
+                    filteredVisualization.icons?.find(
+                        (icon) => icon.type === 'DATA_ITEM'
+                    )
+                ) &&
                 dxIds[0] &&
                 responses[0].metaData.items[dxIds[0]]?.style?.icon
-            ) {
-                const originalIcon = await fetch(
-                    getIconUrl(
-                        responses[0].metaData.items[dxIds[0]]?.style?.icon,
-                        baseUrl
-                    ),
-                    {
-                        method: 'GET',
-                        credentials: 'include',
-                    }
-                ).then((dxIconResponse) => {
+
+            if (iconUrl) {
+                const originalIcon = await fetch(iconUrl, {
+                    method: 'GET',
+                    credentials: 'include',
+                }).then((dxIconResponse) => {
                     if (dxIconResponse.status !== 200) {
                         return '<svg></svg>'
                     } else {
