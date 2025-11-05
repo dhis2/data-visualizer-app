@@ -51,6 +51,7 @@ import PivotPlugin from './PivotPlugin.jsx'
 import styles from './styles/VisualizationPlugin.module.css'
 
 const FILTERS_PROP_DEFAULT = {}
+const ICON_TYPE_DATA_ITEM = 'DATA_ITEM'
 
 export const VisualizationPlugin = ({
     visualization: originalVisualization = {},
@@ -335,7 +336,7 @@ export const VisualizationPlugin = ({
                 filteredVisualization.type === VIS_TYPE_SINGLE_VALUE &&
                 Boolean(
                     filteredVisualization.icons?.find(
-                        (icon) => icon.type === 'DATA_ITEM'
+                        (icon) => icon.type === ICON_TYPE_DATA_ITEM
                     )
                 ) &&
                 dxIds[0] &&
