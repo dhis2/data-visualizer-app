@@ -1,3 +1,10 @@
+## [101.3.5](https://github.com/dhis2/data-visualizer-app/compare/v101.3.4...v101.3.5) (2025-11-05)
+
+
+### Bug Fixes
+
+* interpretations panel not displaying for pivot tables ([#3445](https://github.com/dhis2/data-visualizer-app/issues/3445)) ([d50cf53](https://github.com/dhis2/data-visualizer-app/commit/d50cf533e576533923494415e1e03e8429de5638))
+
 ## [101.3.4](https://github.com/dhis2/data-visualizer-app/compare/v101.3.3...v101.3.4) (2025-10-30)
 
 
