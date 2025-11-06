@@ -3,7 +3,8 @@ export const getIconName = (iconStr) => {
     if (typeof iconStr !== 'string' || !iconStr.trim()) {
         return null
     }
-    const match = iconStr.match(/\/([^/]+)\/icon\.svg$/)
+    const regex = /\/([^/]+)\/icon\.svg$/
+    const match = regex.exec(iconStr)
     return match ? match[1] : iconStr
 }
 
