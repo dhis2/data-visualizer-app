@@ -340,7 +340,10 @@ export const VisualizationPlugin = ({
                     )
                 ) &&
                 dxIds[0] &&
-                responses[0].metaData.items[dxIds[0]]?.style?.icon
+                getIconUrl(
+                    responses[0].metaData.items[dxIds[0]]?.style?.icon,
+                    baseUrl
+                )
 
             if (iconUrl) {
                 const originalIcon = await fetch(iconUrl, {
