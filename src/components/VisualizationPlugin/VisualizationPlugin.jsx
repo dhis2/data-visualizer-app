@@ -354,7 +354,7 @@ export const VisualizationPlugin = ({
 
                     if (!iconResponse.ok) {
                         throw new Error(
-                            `Failed to fetch icon: ${iconResponse.status}`
+                            `Failed to fetch icon (${iconResponse.status} ${iconResponse.statusText})`
                         )
                     }
 
@@ -365,7 +365,7 @@ export const VisualizationPlugin = ({
                         'currentColor'
                     )
                 } catch (error) {
-                    console.error('Error loading icon:', error)
+                    console.error(`Error loading icon: ${error}`)
                     extraOptions.icon = '<svg></svg>'
                 }
             }
