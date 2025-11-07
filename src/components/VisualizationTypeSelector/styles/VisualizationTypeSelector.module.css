@@ -42,7 +42,9 @@
 }
 
 .listContainer {
-    max-inline-size: 888px;
+    max-block-size: 85vh;
+    overflow: scroll;
+    max-inline-size: 896px;
     box-shadow: var(--elevations-e400);
     border-radius: 3px;
     padding-block-start: 12px;
