@@ -1,3 +1,10 @@
+## [101.3.6](https://github.com/dhis2/data-visualizer-app/compare/v101.3.5...v101.3.6) (2025-11-07)
+
+
+### Bug Fixes
+
+* reconstructed single value icon url (DHIS2-20389) ([#3447](https://github.com/dhis2/data-visualizer-app/issues/3447)) ([ec9768f](https://github.com/dhis2/data-visualizer-app/commit/ec9768f01e8d16286e08280c25f601ca8c532fa0))
+
 ## [101.3.5](https://github.com/dhis2/data-visualizer-app/compare/v101.3.4...v101.3.5) (2025-11-05)
 
 
