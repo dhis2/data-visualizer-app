@@ -1,3 +1,10 @@
+## [101.3.7](https://github.com/dhis2/data-visualizer-app/compare/v101.3.6...v101.3.7) (2025-11-07)
+
+
+### Bug Fixes
+
+* allow scrolling in viz type selector [DHIS2-16790] ([#3439](https://github.com/dhis2/data-visualizer-app/issues/3439)) ([07aad84](https://github.com/dhis2/data-visualizer-app/commit/07aad8480dff20bd5fd9e8d98dbfcd8ababbbb30))
+
 ## [101.3.6](https://github.com/dhis2/data-visualizer-app/compare/v101.3.5...v101.3.6) (2025-11-07)
 
 
