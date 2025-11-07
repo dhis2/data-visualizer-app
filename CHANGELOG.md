@@ -1,3 +1,31 @@
+## [101.3.6](https://github.com/dhis2/data-visualizer-app/compare/v101.3.5...v101.3.6) (2025-11-07)
+
+
+### Bug Fixes
+
+* reconstructed single value icon url (DHIS2-20389) ([#3447](https://github.com/dhis2/data-visualizer-app/issues/3447)) ([ec9768f](https://github.com/dhis2/data-visualizer-app/commit/ec9768f01e8d16286e08280c25f601ca8c532fa0))
+
+## [101.3.5](https://github.com/dhis2/data-visualizer-app/compare/v101.3.4...v101.3.5) (2025-11-05)
+
+
+### Bug Fixes
+
+* interpretations panel not displaying for pivot tables ([#3445](https://github.com/dhis2/data-visualizer-app/issues/3445)) ([d50cf53](https://github.com/dhis2/data-visualizer-app/commit/d50cf533e576533923494415e1e03e8429de5638))
+
+## [101.3.4](https://github.com/dhis2/data-visualizer-app/compare/v101.3.3...v101.3.4) (2025-10-30)
+
+
+### Bug Fixes
+
+* upgrade analytics to get interpretations fixes ([#3446](https://github.com/dhis2/data-visualizer-app/issues/3446)) ([5cb25ff](https://github.com/dhis2/data-visualizer-app/commit/5cb25ff01ec6c28fa6f23ec9f0f2539297cb65a4))
+
+## [101.3.3](https://github.com/dhis2/data-visualizer-app/compare/v101.3.2...v101.3.3) (2025-10-29)
+
+
+### Bug Fixes
+
+* use interpretations provider from analytics [DHIS2-19822] ([#3438](https://github.com/dhis2/data-visualizer-app/issues/3438)) ([2ab40fc](https://github.com/dhis2/data-visualizer-app/commit/2ab40fce55d06a24639fed73c04991bdb4424fbe))
+
 ## [101.3.2](https://github.com/dhis2/data-visualizer-app/compare/v101.3.1...v101.3.2) (2025-10-16)
 
 
