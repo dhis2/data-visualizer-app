@@ -42,7 +42,7 @@
 }
 
 .listContainer {
-    max-height: 85vh;
+    max-block-size: 85vh;
     overflow: scroll;
     max-inline-size: 896px;
     box-shadow: var(--elevations-e400);
