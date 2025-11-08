@@ -10,13 +10,14 @@
 # Janeth Cruz, 2024
 # Enzo Nicolas Rossi <enzo@dhis2.org>, 2025
 # Pablo Del Médico, 2025
+# Bruno Raimbault, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-04-15T09:09:07.966Z\n"
+"POT-Creation-Date: 2025-10-28T16:10:03.307Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Pablo Del Médico, 2025\n"
+"Last-Translator: Bruno Raimbault, 2025\n"
 "Language-Team: Spanish (https://app.transifex.com/hisp-uio/teams/100509/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,7 +32,7 @@ msgid "Rename successful"
 msgstr "Nombre actualizado"
 
 msgid "Rename failed"
-msgstr ""
+msgstr "Error al renombrar"
 
 msgid "\"{{- deletedObject}}\" successfully deleted."
 msgstr "\"{{- deletedObject}}\" se eliminó con éxito."
@@ -161,6 +162,9 @@ msgstr "Nombre"
 
 msgid "Table layout"
 msgstr "Disposición de la tabla"
+
+msgid "Excel (.xlsx)"
+msgstr "Excel (.xlsx)"
 
 msgid "Excel (.xls)"
 msgstr "Excel (.xls)"
