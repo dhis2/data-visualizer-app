@@ -5,20 +5,21 @@
 # Djibril Dione <dione.djibril@gmail.com>, 2020
 # Gabriela Rodriguez <grodriguezcoronado@gmail.com>, 2020
 # Viktor Varland <viktor@dhis2.org>, 2021
+# Yayra Gomado <ygomado@hispwca.org>, 2022
 # Edem Kossi <ekossi@hispwca.org>, 2023
 # Philip Larsen Donnelly, 2024
-# Yayra Gomado <ygomado@hispwca.org>, 2024
 # Karoline Tufte Lien <karoline@dhis2.org>, 2024
 # Yury Rogachev <yury@dhis2.org>, 2024
 # Elise Desailly, 2025
 # Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2025
+# Esther Tokouli, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-04-15T09:09:07.966Z\n"
+"POT-Creation-Date: 2025-10-28T16:10:03.307Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Yao Selom SAKA (HISP WCA) <ysaka@hispwca.org>, 2025\n"
+"Last-Translator: Esther Tokouli, 2025\n"
 "Language-Team: French (https://app.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,7 +34,7 @@ msgid "Rename successful"
 msgstr "Renommer avec succès"
 
 msgid "Rename failed"
-msgstr ""
+msgstr "Échec du renommage"
 
 msgid "\"{{- deletedObject}}\" successfully deleted."
 msgstr "\"{{- deletedObject}}\" supprimé avec succès."
@@ -64,6 +65,8 @@ msgid ""
 "'{{visualizationType}}' is intended to show a single item for this type of "
 "dimension. Only the first item will be used and saved."
 msgstr ""
+"'{{visualizationType}}' est destiné à afficher un seul élément pour ce type "
+"de dimension. Seul le premier élément sera utilisé et enregistré."
 
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
@@ -84,6 +87,8 @@ msgid ""
 "'Outlier table' shows values from data elements only. Only data elements "
 "will be used and saved."
 msgstr ""
+"Le \"tableau des valeurs atypiques\" ne montre que les valeurs des éléments "
+"de données. Seuls les éléments de données seront utilisés et enregistrés."
 
 msgid "Vertical"
 msgstr "Vertical"
@@ -160,6 +165,9 @@ msgstr "Nom"
 msgid "Table layout"
 msgstr "Disposition du tableau"
 
+msgid "Excel (.xlsx)"
+msgstr "Excel (.xlsx)"
+
 msgid "Excel (.xls)"
 msgstr "Excel (.xls)"
 
@@ -201,13 +209,13 @@ msgid "None selected"
 msgstr "Aucune sélection"
 
 msgid "None in use"
-msgstr ""
+msgstr "Aucun utilisé"
 
 msgid "Only '{{- name}}' in use"
 msgstr "Uniquement '{{- name}}' utilisé"
 
 msgid "Only {{number}} in use"
-msgstr ""
+msgstr "Uniquement {{number}} utilisé"
 
 msgid "All items are selected"
 msgstr "Tous les éléments sont sélectionnés"
@@ -403,13 +411,14 @@ msgid "Cumulative values"
 msgstr "Valeurs cumulées"
 
 msgid "Accumulate cell values along rows"
-msgstr ""
+msgstr "Accumuler les valeurs des cellules le long des lignes"
 
 msgid "Show data item icon"
-msgstr ""
+msgstr "Afficher l'icône de l'item de donnée "
 
 msgid "If the data item has an icon, display it next to the value"
 msgstr ""
+"Si l'item de données comporte une icône, affichez-la à côté de la valeur."
 
 msgid "Digit group separator"
 msgstr "Séparateur de millier"
@@ -510,10 +519,10 @@ msgid "Legend type"
 msgstr "Type de légende"
 
 msgid "Use pre-defined legend by data item"
-msgstr ""
+msgstr "Utiliser une légende prédéfinie par item de donnée "
 
 msgid "Select a legend"
-msgstr ""
+msgstr "Sélectionner un légende"
 
 msgid "Legend changes background color"
 msgstr "La légende change la couleur d'arrière-plan"
@@ -609,12 +618,14 @@ msgid "Outlier detection method"
 msgstr "Méthode de détection des valeurs atypiques"
 
 msgid "Max results"
-msgstr "Max résultats"
+msgstr "Résultats maximaux"
 
 msgid ""
 "The maximum number of outlier values to show in the table. Must be between "
 "1-500."
 msgstr ""
+"Le nombre maximum de valeurs atypiques à afficher dans le tableau. Il doit "
+"être compris entre 1-500."
 
 msgid "Organisation unit"
 msgstr "Unité d'organisation"
@@ -626,7 +637,7 @@ msgid "Reporting period"
 msgstr "Période de rapportage"
 
 msgid "Stacked values add up to 100%"
-msgstr "Les valeurs empilées totalisent jusqu'à 100%"
+msgstr "Les valeurs cumulées augmentent jusqu'à 100 %"
 
 msgid "Include regression"
 msgstr "Inclure régression"
@@ -744,10 +755,10 @@ msgid "{{level}} level in {{orgunit}}"
 msgstr "{{level}} niveau dans {{orgunit}}"
 
 msgid "Sort ascending by {{columnName}} and update"
-msgstr ""
+msgstr "Trier par ordre croissant par {{columnName}} et mettre à jour"
 
 msgid "Sort descending by {{columnName}} and update"
-msgstr ""
+msgstr "Trier par ordre décroissant par {{columnName}} et mettre à jour"
 
 msgid "Open as Map"
 msgstr "Ouvrir comme carte"
@@ -769,21 +780,31 @@ msgid ""
 "value, usually the mean or median, providing a straightforward understanding"
 " of dispersion in the dataset."
 msgstr ""
+"La mesure de la différence absolue entre chaque point de données et une "
+"valeur centrale, généralement la moyenne ou la médiane, permet de comprendre"
+" facilement la dispersion dans l'ensemble de données."
 
 msgid ""
 "A measure of how far a data point deviates from the median, using the median"
 " absolute deviation instead of the standard deviation, making it robust "
 "against outliers."
 msgstr ""
+"La mesure de l'écart d'un point de données par rapport à la médiane, utilise"
+" l'écart absolu médian au lieu de l'écart type, ce qui la rend robuste face "
+"aux valeurs atypiques."
 
 msgid "Median"
-msgstr "Médian"
+msgstr "Médiane"
 
 msgid ""
 "The middle value in a dataset when the values are arranged in ascending or "
 "descending order. It's a robust measure of central tendency that is less "
 "affected by outliers compared to the mean."
 msgstr ""
+"La valeur médiane d'un ensemble de données lorsque les valeurs sont classées"
+" par ordre croissant ou décroissant. Il s'agit d'une mesure robuste de la "
+"tendance centrale qui est moins affectée par les valeurs atypiques par "
+"rapport à la moyenne."
 
 msgid "Median absolute deviation"
 msgstr "Écart médian absolu"
@@ -794,6 +815,10 @@ msgid ""
 "less influenced by outliers compared to other measures like the standard "
 "deviation."
 msgstr ""
+"Une mesure robuste de la variabilité, obtenue en calculant la médiane des "
+"différences absolues entre chaque point de données et la médiane globale. "
+"Elle est moins influencée par les valeurs atypiques que les autres mesures "
+"telles que l'écart type."
 
 msgid "Z-score"
 msgstr "Z-score"
@@ -803,18 +828,26 @@ msgid ""
 " dataset, providing insight into how unusual or typical that data point is "
 "relative to the rest of the distribution."
 msgstr ""
+"Une mesure de l'écart type d'un point de données par rapport à la moyenne "
+"d'un ensemble de données, permet de déterminer dans quelle mesure ce point "
+"de données est inhabituel ou typique par rapport au reste de la "
+"distribution."
 
 msgid "Mean"
 msgstr "Moyenne"
 
 msgid "Average of the value over time."
-msgstr ""
+msgstr "Moyenne de la valeur dans le temps."
 
 msgid ""
 "A measure of how dispersed the data is in relation to the mean. Low standard"
 " deviation indicates data are clustered tightly around the mean, and high "
 "standard deviation indicates data are more spread out."
 msgstr ""
+"Une mesure de la dispersion des données par rapport à la moyenne. Un écart "
+"type faible indique que les données sont regroupées étroitement autour de la"
+" moyenne, tandis qu'un écart type élevé indique que les données sont plus "
+"dispersées."
 
 msgid "Minimum score threshold"
 msgstr "Seuil de score minimum"
@@ -823,7 +856,7 @@ msgid "Maximum score threshold"
 msgstr "Seuil de score maximum"
 
 msgid "Not supported when using cumulative values"
-msgstr ""
+msgstr "N'est pas pris en charge lors de l'utilisation de valeurs cumulées"
 
 msgid "No data available"
 msgstr "Pas de données disponibles"
@@ -852,7 +885,7 @@ msgstr ""
 "un {{visualizationType}}."
 
 msgid "No period selected"
-msgstr "Aucune période n'est sélectionné"
+msgstr "Aucune période sélectionnée"
 
 msgid ""
 "{{visualizationType}} must have at least one period selected in {{axes}}."
@@ -908,6 +941,9 @@ msgid ""
 "A single indicator or calculation must be the only data item when using "
 "indicators or calculations as Data in Filter."
 msgstr ""
+"Un indicateur ou un calcul unique doit être le seul élément de données "
+"lorsque vous utilisez des indicateurs ou des calculs comme Données dans le "
+"filtre."
 
 msgid "Data Element Group Sets and Reporting Rates cannot be used together."
 msgstr ""
@@ -915,7 +951,7 @@ msgstr ""
 " peuvent pas être utilisés simultanément."
 
 msgid "There is a problem with this {{visualizationType}} visualization."
-msgstr "Il y a un problème avec cela {{visualizationType}} visualisation."
+msgstr "Il y a un problème avec cette {{visualizationType}} visualisation."
 
 msgid "There was a problem getting the data from the server."
 msgstr "Un problème est survenu lors de l'obtention des données du serveur."
@@ -928,16 +964,15 @@ msgstr ""
 msgid ""
 "Fix this problem by selecting data elements or removing Assigned Categories."
 msgstr ""
-"Résoudre ce problème en sélectionnant des éléments de données ou supprimer "
-"des Catégories Attribuées."
+"Résoudre ce problème en sélectionnant des éléments de données ou en "
+"supprimant des Catégories Assignées."
 
 msgid "Assigned Categories cannot be used as Filter"
-msgstr "Catégories Attribuées ne peuvent pas être utilisées comme Filtre"
+msgstr "Les Catégories Assignées ne peuvent pas être utilisées comme Filtre"
 
 msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
-"Résoudre ce problème en déplaçant ou en supprimant les Catégories "
-"Attribuées."
+"Résoudre ce problème en déplaçant ou en supprimant les Catégories Assignées."
 
 msgid "Visualization not found"
 msgstr "Visualisation introuvable"
@@ -954,6 +989,8 @@ msgstr "Accès restreint"
 
 msgid "You don't have access to one or more of the chosen organisation units."
 msgstr ""
+"Vous n'avez pas accès à une ou plusieurs des unités d'organisation "
+"sélectionnées."
 
 msgid "No organization units found"
 msgstr "Aucune unité d'organisation trouvée"
@@ -968,23 +1005,29 @@ msgid ""
 "The selected data dimensions didn't return any valid data. This "
 "visualization type can only display numerical data."
 msgstr ""
+"Les dimensions de données sélectionnées n'ont renvoyé aucune donnée valide. "
+"Ce type de visualisation ne peut afficher que des données numériques."
 
 msgid "Something went wrong"
-msgstr "Quelque chose a mal tourné"
+msgstr "Un problème est survenu"
 
 msgid ""
 "There's a problem with the generated analytics. Contact a system "
 "administrator."
 msgstr ""
+"Un problème est survenu avec les analyses générées. Contactez un "
+"administrateur système."
 
 msgid "There's a syntax problem with the analytics request."
-msgstr "Il y a un problème de syntaxe dans la demande d'analyse."
+msgstr "Un problème de syntaxe est survenue dans la demande d'analyse."
 
 msgid "No outliers found"
 msgstr "Aucune valeur atypique n'a été trouvée"
 
 msgid "There were no outliers found for the selected data items and options."
 msgstr ""
+"Aucune valeur atypique n'a été détectée pour les éléments de données et les "
+"options sélectionnés."
 
 msgid "or"
 msgstr "ou"
@@ -1112,7 +1155,7 @@ msgid ""
 msgstr ""
 "Ces options s'appliquent uniquement aux tableaux préexistants tels que les "
 "rapports standard. Les options définies ici n'auront aucun effet sur les "
-"tables créées dans le Visualiseur de données."
+"tableaux créées dans le Visualiseur de données."
 
 msgid "Applies to standard reports only"
 msgstr "S'applique uniquement aux rapports standard"
@@ -1159,6 +1202,8 @@ msgstr "Totaux"
 
 msgid "Totals are not supported when using cumulative values"
 msgstr ""
+"Les totaux ne sont pas pris en charge lors de l'utilisation de valeurs "
+"cumulées."
 
 msgid "Vertical (y) axis {{axisId}}"
 msgstr "Axe vertical (y) {{axisId}}"
@@ -1264,9 +1309,13 @@ msgid ""
 "Compare the relationship between two data items across multiple places. "
 "Recommended for visualizing outliers."
 msgstr ""
+"Comparez la relation entre deux éléments de données à plusieurs endroits. Il"
+" est recommandé pour la visualisation des valeurs atypiques."
 
 msgid "Automatically identify extreme outliers based on historical data."
 msgstr ""
+"Identifiez automatiquement les valeurs atypiques extrêmes à partir des "
+"données historiques."
 
 msgid "Weeks per year"
 msgstr "Semaines par an"

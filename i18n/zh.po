@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-02-04T13:29:02.138Z\n"
+"POT-Creation-Date: 2025-06-16T12:59:51.831Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: easylin <lin_xd@126.com>, 2025\n"
 "Language-Team: Chinese (https://app.transifex.com/hisp-uio/teams/100509/zh/)\n"
@@ -24,8 +24,8 @@ msgstr "所有条目"
 msgid "Rename successful"
 msgstr "重命名成功"
 
-msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr "无标题的{{visualizationType}}可视化，{{date}}"
+msgid "Rename failed"
+msgstr "重命名失败"
 
 msgid "\"{{- deletedObject}}\" successfully deleted."
 msgstr "“{{- deletedObject}}”已成功删除。"
@@ -146,6 +146,9 @@ msgstr "名称"
 
 msgid "Table layout"
 msgstr "表布局"
+
+msgid "Excel (.xlsx)"
+msgstr "Excel (.xlsx)"
 
 msgid "Excel (.xls)"
 msgstr "Excel (.xls)"
