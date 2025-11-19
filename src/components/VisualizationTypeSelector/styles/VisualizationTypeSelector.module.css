@@ -57,6 +57,7 @@
 .listSection {
     display: flex;
     flex-wrap: wrap;
+    gap: var(--spacers-dp8);
 }
 
 .listItem {
@@ -67,16 +68,7 @@
     padding: var(--spacers-dp8);
     display: flex;
     align-items: flex-start;
-    margin-block-end: var(--spacers-dp8);
     cursor: pointer;
-}
-
-.listItem:nth-child(3n + 1) {
-    margin-inline-end: var(--spacers-dp8);
-}
-
-.listItem:nth-child(3n + 3) {
-    margin-inline-start: var(--spacers-dp8);
 }
 
 .listItem:hover {
