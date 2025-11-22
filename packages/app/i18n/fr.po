@@ -281,7 +281,7 @@ msgid "Average"
 msgstr "Moyenne"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr "Moyenne (somme dans l'arborescence d'org unit)"
+msgstr "Moyenne (somme dans la hiérarchie des unités d'organisation)"
 
 msgid "Sum"
 msgstr "Somme"
@@ -453,16 +453,16 @@ msgid "Small"
 msgstr "Petit"
 
 msgid "Hide empty columns"
-msgstr "Cacher les colonnes vides"
+msgstr "Masquer les colonnes vides"
 
 msgid "Hide empty categories"
 msgstr "Masquer les catégories vides"
 
 msgid "Before first"
-msgstr "Avant la première"
+msgstr "Avant premier"
 
 msgid "After last"
-msgstr "Après la dernière"
+msgstr "Après dernier"
 
 msgid "Before first and after last"
 msgstr "Avant la première et après la dernière"
@@ -534,7 +534,7 @@ msgid "No space between bars/columns"
 msgstr "Pas d'espace entre les barres/colonnes"
 
 msgid "Number type"
-msgstr "Type numérique"
+msgstr "Type de nombre"
 
 msgid "Display the value of percentages of the total"
 msgstr "Afficher la valeur des pourcentages du total"
@@ -554,9 +554,9 @@ msgid ""
 " detection method"
 msgstr ""
 "Chaque méthode de détection identifie les valeurs atypiques de différentes "
-"manières et convient à différentes données. Consultez la documentation pour "
-"obtenir de l'aide pour choisir la bonne méthode de détection des valeurs "
-"atypiques"
+"manières et convient à différents types de données. Consultez la "
+"documentation afin de vous aider à choisir la méthode de détection des "
+"valeurs atypiques la plus appropriée."
 
 msgid "Threshold factor"
 msgstr "Le facteur seuil"
@@ -600,10 +600,10 @@ msgid "Reporting period"
 msgstr "Période de déclaration"
 
 msgid "Stacked values add up to 100%"
-msgstr "Les valeurs empilées s'additionnent à 100%"
+msgstr "Les valeurs cumulées augmentent jusqu'à 100 %"
 
 msgid "Include regression"
-msgstr "Inclure régression"
+msgstr "Inclure la régression"
 
 msgid "Title"
 msgstr "Titre"
@@ -975,13 +975,13 @@ msgid "Last 5 years"
 msgstr "5 dernières années"
 
 msgid "User org unit"
-msgstr "Org unit de l'utilisateur"
+msgstr "Unité d'organisation de l'utilisateur"
 
 msgid "User org unit children"
-msgstr "Org unit filles de l'utilisateur"
+msgstr "Unité d'organisation filles de l'utilisateur"
 
 msgid "User org unit grand children"
-msgstr "Org unit petites-filles de l'utilisateur"
+msgstr "Unité d'organisation petites-filles de l'utilisateur"
 
 msgid "Table title"
 msgstr "Titre du tableau"
@@ -995,7 +995,7 @@ msgid ""
 msgstr ""
 "Ces options s'appliquent uniquement aux tableaux préexistants tels que les "
 "rapports standard. Les options définies ici n'auront aucun effet sur les "
-"tables créées dans le Visualiseur de données."
+"tableaux créées dans le Visualiseur de données."
 
 msgid "Applies to standard reports only"
 msgstr "S'applique uniquement aux rapports standard"

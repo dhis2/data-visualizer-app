@@ -1,15 +1,15 @@
 # 
 # Translators:
 # Siddharth Agarwal, 2025
-# Rohit Wadhwani, 2025
 # AkashJindal, 2025
+# Rohit Wadhwani, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2022-06-07T08:29:46.003Z\n"
 "PO-Revision-Date: 2021-09-03 23:49+0000\n"
-"Last-Translator: AkashJindal, 2025\n"
+"Last-Translator: Rohit Wadhwani, 2025\n"
 "Language-Team: Hindi (India) (https://app.transifex.com/hisp-uio/teams/100509/hi_IN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,7 +41,7 @@ msgid ""
 msgstr ""
 
 msgid "No, cancel"
-msgstr ""
+msgstr "नहीं, कैंसल"
 
 msgid "Yes, leave"
 msgstr ""
@@ -182,7 +182,7 @@ msgid "horizontal"
 msgstr ""
 
 msgid "None selected"
-msgstr ""
+msgstr "कुछ भी चयनित नहीं"
 
 msgid "Only '{{- name}}' in use"
 msgstr ""
@@ -838,13 +838,13 @@ msgid "Weeks this year"
 msgstr ""
 
 msgid "This month"
-msgstr ""
+msgstr "इस महीने"
 
 msgid "Last month"
-msgstr ""
+msgstr "पिछला महीना"
 
 msgid "Last 3 months"
-msgstr ""
+msgstr "पिछले 3 महीने"
 
 msgid "Last 6 months"
 msgstr ""
