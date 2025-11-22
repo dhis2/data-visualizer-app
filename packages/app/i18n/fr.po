@@ -281,7 +281,7 @@ msgid "Average"
 msgstr "Moyenne"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr "Moyenne (somme dans l'arborescence d'org unit)"
+msgstr "Moyenne (somme dans la hiérarchie des unités d'organisation)"
 
 msgid "Sum"
 msgstr "Somme"
@@ -394,7 +394,7 @@ msgid "Event data"
 msgstr "Données d'événement"
 
 msgid "Only include completed events"
-msgstr "Afficher uniquement les événements terminés"
+msgstr "Inclure uniquement les événements terminés"
 
 msgid "Include cumulative"
 msgstr "Inclure le cumulatif"
@@ -465,10 +465,10 @@ msgid "Hide empty categories"
 msgstr "Masquer les catégories vides"
 
 msgid "Before first"
-msgstr "Avant la première"
+msgstr "Avant premier"
 
 msgid "After last"
-msgstr "Après la dernière"
+msgstr "Après dernier"
 
 msgid "Before first and after last"
 msgstr "Avant la première et après la dernière"
@@ -606,7 +606,7 @@ msgid "Reporting period"
 msgstr "Période de déclaration"
 
 msgid "Stacked values add up to 100%"
-msgstr "Les valeurs empilées s'additionnent à 100%"
+msgstr "Les valeurs cumulées augmentent jusqu'à 100 %"
 
 msgid "Include regression"
 msgstr "Inclure la régression"
@@ -1011,7 +1011,7 @@ msgid ""
 msgstr ""
 "Ces options s'appliquent uniquement aux tableaux préexistants tels que les "
 "rapports standard. Les options définies ici n'auront aucun effet sur les "
-"tables créées dans le Visualiseur de données."
+"tableaux créées dans le Visualiseur de données."
 
 msgid "Applies to standard reports only"
 msgstr "S'applique uniquement aux rapports standard"
