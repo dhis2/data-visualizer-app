@@ -635,7 +635,7 @@ msgid "Top limit"
 msgstr ""
 
 msgid "Options"
-msgstr ""
+msgstr "ऑप्शन्स"
 
 msgid "Open as Map"
 msgstr ""
