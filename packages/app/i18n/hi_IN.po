@@ -512,7 +512,7 @@ msgid "Display the value of percentages of the total"
 msgstr ""
 
 msgid "Value"
-msgstr ""
+msgstr "वैल्यू"
 
 msgid "Percentage of row"
 msgstr ""
@@ -850,7 +850,7 @@ msgid "Last 6 months"
 msgstr ""
 
 msgid "Last 12 months"
-msgstr ""
+msgstr "पिछले 12 महीने"
 
 msgid "Months this year"
 msgstr ""
@@ -883,10 +883,10 @@ msgid "This six-month"
 msgstr ""
 
 msgid "Last six-month"
-msgstr ""
+msgstr "पिछला छः-मासिक"
 
 msgid "Last 2 six-months"
-msgstr ""
+msgstr "पिछले 2 छः-मासिक"
 
 msgid "This financial year"
 msgstr ""
@@ -898,13 +898,13 @@ msgid "Last 5 financial years"
 msgstr ""
 
 msgid "This year"
-msgstr ""
+msgstr "इस वर्ष"
 
 msgid "Last year"
-msgstr ""
+msgstr "पिछला वर्ष"
 
 msgid "Last 5 years"
-msgstr ""
+msgstr "पिछले 5 वर्ष"
 
 msgid "User org unit"
 msgstr ""
@@ -976,7 +976,7 @@ msgid "Axes"
 msgstr ""
 
 msgid "Data"
-msgstr ""
+msgstr "डेटा"
 
 msgid "Limit values"
 msgstr ""
