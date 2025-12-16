@@ -8,13 +8,14 @@
 # Yayra Gomado <ygomado@hispwca.org>, 2021
 # Edem Kossi <ekossi@hispwca.org>, 2021
 # Philip Larsen Donnelly, 2024
+# Esther Tokouli, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-04-23T09:26:03.770Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: Philip Larsen Donnelly, 2024\n"
+"Last-Translator: Esther Tokouli, 2025\n"
 "Language-Team: French (https://app.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +24,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
 msgid "Rename successful"
-msgstr "Renomear com êxito"
+msgstr "Renommer avec succès"
 
 msgid "Untitled {{visualizationType}} visualization, {{date}}"
 msgstr "Visualisation {{visualizationType}} sans titre, {{date}}"
@@ -88,10 +89,10 @@ msgid "Other dimensions"
 msgstr "Autres dimensions"
 
 msgid "Your dimensions"
-msgstr "Votre dimensions"
+msgstr "Vos dimensions"
 
 msgid "Filter dimensions"
-msgstr "Dimensions du filtre"
+msgstr "Filtrer les dimensions"
 
 msgid "Graphics"
 msgstr "Graphisme"
@@ -115,10 +116,10 @@ msgid "HTML (.html)"
 msgstr "HTML (.html)"
 
 msgid "Metadata ID scheme"
-msgstr "Schéma ID des métadata"
+msgstr "Schéma d'Identification des métadonnées"
 
 msgid "ID"
-msgstr "Id"
+msgstr "ID"
 
 msgid "Code"
 msgstr "Code"
@@ -166,7 +167,7 @@ msgid "Interpretations"
 msgstr "interprétations"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr "{{total}} de {{axisMaxNumberOfItems}} choisi"
+msgstr "{{total}} de {{axisMaxNumberOfItems}} choisis"
 
 msgid "{{total}} selected"
 msgstr "{{total}} choisis"
@@ -176,10 +177,10 @@ msgstr ""
 "{{dimensionName}} est verrouillé sur {{axisName}} pour {{visTypeName}}"
 
 msgid "Not available for Scatter"
-msgstr "Non disponible pour Scatter"
+msgstr "Non disponible pour Dispersion"
 
 msgid "Add Assigned Categories"
-msgstr "Ajouter des Catégories Affectées"
+msgstr "Ajouter des Catégories assignées"
 
 msgid "Swap with {{axisName}} axis"
 msgstr "Intervertir avec l'axe {{axisName}}"
@@ -228,10 +229,10 @@ msgid "Unsaved visualization"
 msgstr "Visualisation non enregistrée"
 
 msgid "Edited"
-msgstr "Édité"
+msgstr "Modifié"
 
 msgid "Viewing interpretation from {{interpretationDate}}"
-msgstr "Affichage de l'interprétation de {{interpretationDate}}"
+msgstr "Affichage de l'interprétation à partir de {{interpretationDate}}"
 
 msgid "Update"
 msgstr "Mettre à jour"
@@ -271,7 +272,7 @@ msgid "Average"
 msgstr "Moyenne"
 
 msgid "Average (sum in org unit hierarchy)"
-msgstr "Moyenne (somme dans l'arborescence d'org unit)"
+msgstr "Moyenne (somme dans la hiérarchie des unités d'organisation)"
 
 msgid "Sum"
 msgstr "Somme"
@@ -707,8 +708,8 @@ msgid ""
 "The selected dimensions didn’t return any data. There may be no data, or you"
 " may not have access to it."
 msgstr ""
-"The selected dimensions didn’t return any data. Il peut ne pas y avoir de "
-"données, ou vous pourriez ne pas y avoir accès."
+"Les dimensions sélectionnées n'ont renvoyé aucune donnée. Il se peut qu'il "
+"n'y ait aucune donnée ou que vous n'y ayez pas accès."
 
 msgid "{{axisName}} is empty"
 msgstr "{{axisName}} est vide"
@@ -792,7 +793,7 @@ msgstr ""
 " peuvent pas être utilisés simultanément."
 
 msgid "There is a problem with this {{visualizationType}} visualization."
-msgstr "Il y a un problème avec cela {{visualizationType}} visualisation."
+msgstr "Il y a un problème avec cette {{visualizationType}} visualisation."
 
 msgid "There was a problem getting the data from the server."
 msgstr "Un problème est survenu lors de l'obtention des données du serveur."
@@ -805,16 +806,15 @@ msgstr ""
 msgid ""
 "Fix this problem by selecting data elements or removing Assigned Categories."
 msgstr ""
-"Résoudre ce problème en sélectionnant des éléments de données ou supprimer "
-"des Catégories Attribuées."
+"Résoudre ce problème en sélectionnant des éléments de données ou en "
+"supprimant des Catégories Assignées."
 
 msgid "Assigned Categories cannot be used as Filter"
-msgstr "Catégories Attribuées ne peuvent pas être utilisées comme Filtre"
+msgstr "Les Catégories Assignées ne peuvent pas être utilisées comme Filtre"
 
 msgid "Fix this problem by moving or removing Assigned Categories."
 msgstr ""
-"Résoudre ce problème en déplaçant ou en supprimant les Catégories "
-"Attribuées."
+"Résoudre ce problème en déplaçant ou en supprimant les Catégories Assignées."
 
 msgid "Visualization not found"
 msgstr "Visualisation introuvable"
@@ -833,7 +833,7 @@ msgid "The level or group selections didn't return any organization units."
 msgstr "Le niveau ou groupe choisi n'a retourné aucune unité d'organisation"
 
 msgid "Something went wrong"
-msgstr "Quelque chose a mal tourné"
+msgstr "Un problème est survenu"
 
 msgid "or"
 msgstr "ou"

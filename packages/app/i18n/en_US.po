@@ -1,7 +1,5 @@
 # 
 # Translators:
-# Siddharth Agarwal, 2025
-# AkashJindal, 2025
 # Rohit Wadhwani, 2025
 # 
 msgid ""
@@ -10,11 +8,11 @@ msgstr ""
 "POT-Creation-Date: 2021-04-23T09:26:03.770Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
 "Last-Translator: Rohit Wadhwani, 2025\n"
-"Language-Team: Hindi (India) (https://app.transifex.com/hisp-uio/teams/100509/hi_IN/)\n"
+"Language-Team: English (United States) (https://app.transifex.com/hisp-uio/teams/100509/en_US/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hi_IN\n"
+"Language: en_US\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Rename successful"
@@ -104,16 +102,16 @@ msgid "Metadata ID scheme"
 msgstr ""
 
 msgid "ID"
-msgstr "आईडी"
+msgstr ""
 
 msgid "Code"
 msgstr ""
 
 msgid "Name"
-msgstr "नाम"
+msgstr ""
 
 msgid "Download"
-msgstr "डाउनलोड"
+msgstr ""
 
 msgid "Plain data source"
 msgstr ""
@@ -176,7 +174,7 @@ msgid "horizontal"
 msgstr ""
 
 msgid "None selected"
-msgstr "कुछ भी चयनित नहीं"
+msgstr ""
 
 msgid "Only '{{- name}}' in use"
 msgstr ""
@@ -217,7 +215,7 @@ msgid "Viewing interpretation from {{interpretationDate}}"
 msgstr ""
 
 msgid "Update"
-msgstr "अपडेट करें"
+msgstr ""
 
 msgid "Getting started"
 msgstr ""
@@ -371,7 +369,7 @@ msgid "Comfortable"
 msgstr ""
 
 msgid "Normal"
-msgstr "सामान्य"
+msgstr ""
 
 msgid "Compact"
 msgstr ""
@@ -491,7 +489,7 @@ msgid "Display the value of percentages of the total"
 msgstr ""
 
 msgid "Value"
-msgstr "वैल्यू"
+msgstr ""
 
 msgid "Percentage of row"
 msgstr ""
@@ -635,7 +633,7 @@ msgid "Top limit"
 msgstr ""
 
 msgid "Options"
-msgstr "ऑप्शन्स"
+msgstr ""
 
 msgid "Open as Map"
 msgstr ""
@@ -767,16 +765,16 @@ msgid "The level or group selections didn't return any organization units."
 msgstr ""
 
 msgid "Something went wrong"
-msgstr "कुछ गलत हुआ"
+msgstr ""
 
 msgid "or"
-msgstr "या"
+msgstr ""
 
 msgid "Today"
 msgstr "आज"
 
 msgid "Yesterday"
-msgstr "कल (बिता हुआ)"
+msgstr ""
 
 msgid "Last 3 days"
 msgstr ""
@@ -818,7 +816,7 @@ msgid "Last 6 months"
 msgstr ""
 
 msgid "Last 12 months"
-msgstr "पिछले 12 महीने"
+msgstr ""
 
 msgid "Months this year"
 msgstr ""
@@ -851,10 +849,10 @@ msgid "This six-month"
 msgstr ""
 
 msgid "Last six-month"
-msgstr "पिछला छः-मासिक"
+msgstr ""
 
 msgid "Last 2 six-months"
-msgstr "पिछले 2 छः-मासिक"
+msgstr ""
 
 msgid "This financial year"
 msgstr ""
@@ -866,13 +864,13 @@ msgid "Last 5 financial years"
 msgstr ""
 
 msgid "This year"
-msgstr "इस वर्ष"
+msgstr ""
 
 msgid "Last year"
-msgstr "पिछला वर्ष"
+msgstr ""
 
 msgid "Last 5 years"
-msgstr "पिछले 5 वर्ष"
+msgstr ""
 
 msgid "User org unit"
 msgstr ""
@@ -931,7 +929,7 @@ msgid "Lines"
 msgstr ""
 
 msgid "Totals"
-msgstr "कुल"
+msgstr ""
 
 msgid "Vertical (y) axis"
 msgstr ""
@@ -946,7 +944,7 @@ msgid "Axes"
 msgstr ""
 
 msgid "Data"
-msgstr "डेटा"
+msgstr ""
 
 msgid "Limit values"
 msgstr ""
