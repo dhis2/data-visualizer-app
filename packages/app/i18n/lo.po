@@ -5,15 +5,15 @@
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Thuy Nguyen <thuynguyen@hispvietnam.org>, 2022
 # Namwan Chanthavisouk, 2024
-# Saysamone Sibounma, 2024
 # Em Le <em.hispvietnam@gmail.com>, 2025
+# Saysamone Sibounma, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-04-23T09:26:03.770Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: Em Le <em.hispvietnam@gmail.com>, 2025\n"
+"Last-Translator: Saysamone Sibounma, 2026\n"
 "Language-Team: Lao (https://app.transifex.com/hisp-uio/teams/100509/lo/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -806,13 +806,13 @@ msgid "No organization units found"
 msgstr "ບໍ່ພົບຫົວໜ່ວຍການຈັດຕັ້ງ"
 
 msgid "The level or group selections didn't return any organization units."
-msgstr "ການເືອກລະດັບ ຫຼື ກຸ່ມ ບໍ່ໄດ້ສົ່ງຄືນໃຫ້ ຫົວໜ່ວຍການຈັດຕັ້ງໃດໆ."
+msgstr "ການເລືອກລະດັບ ຫຼື ກຸ່ມ ບໍ່ໄດ້ສົ່ງຄືນໃຫ້ ຫົວໜ່ວຍການຈັດຕັ້ງໃດໆ."
 
 msgid "Something went wrong"
 msgstr "ມີບາງຢ່າງຜິດພາດ"
 
 msgid "or"
-msgstr "or"
+msgstr "ຫຼື"
 
 msgid "Today"
 msgstr "ມື້ນີ້"
@@ -821,13 +821,13 @@ msgid "Yesterday"
 msgstr "ມື້ວານນີ"
 
 msgid "Last 3 days"
-msgstr "3 ມື້ກ່ອນ"
+msgstr "3 ມື້ຜ່ານມາ"
 
 msgid "Last 7 days"
-msgstr "7 ມື້ກ່ອນ"
+msgstr "7 ມື້ຜ່ານມາ"
 
 msgid "Last 14 days"
-msgstr "14 ມື້ກ່ອນ"
+msgstr "14 ມື້ຜ່ານມາ"
 
 msgid "This week"
 msgstr "ທິດນີ້"
@@ -845,7 +845,7 @@ msgid "Last 52 weeks"
 msgstr "52 ອາທິດຜ່ານມາ"
 
 msgid "Weeks this year"
-msgstr "ອາທິດ ຂອງປີນີ້"
+msgstr "ອາທິດຂອງປີນີ້"
 
 msgid "This month"
 msgstr "ເດືອນນີ້"
@@ -920,16 +920,16 @@ msgid "User org unit"
 msgstr "ໜ່ວຍງານທີ່ຂຶ້ນກັບຕົນເອງ"
 
 msgid "User org unit children"
-msgstr ""
+msgstr "ຫົວໜ່ວຍການຈັດຕັ້ງຍ່ອຍຂອງໜ່ວຍງານຜູ້ໃຊ້"
 
 msgid "User org unit grand children"
-msgstr ""
+msgstr "ຫົວໜ່ວຍການຈັດຕັ້ງລຸ່ມສຸດຂອງໜ່ວຍງານຜູ້ໃຊ້"
 
 msgid "Table title"
 msgstr "ຊື່ຂອງຕາຕະລາງ"
 
 msgid "Parameters"
-msgstr "ຂອບເຂດ"
+msgstr "ຕົວປ່ຽນ"
 
 msgid ""
 "These options only apply to legacy tables like standard reports. Options set"
@@ -973,7 +973,7 @@ msgid "Display"
 msgstr "ສະແດງ"
 
 msgid "Empty data"
-msgstr "ຂໍ້ມູນວ່າງເປົ່າ"
+msgstr "ບໍ່ມີຂໍ້ມູນ"
 
 msgid "Lines"
 msgstr "ເສັ້ນ"
