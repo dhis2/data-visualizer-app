@@ -9,16 +9,17 @@
 # Edem Kossi <ekossi@hispwca.org>, 2021
 # Philip Larsen Donnelly, 2024
 # Esther Tokouli, 2025
+# Cyrille Kabrane, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
 "POT-Creation-Date: 2021-04-23T09:26:03.770Z\n"
 "PO-Revision-Date: 2019-09-01 20:50+0000\n"
-"Last-Translator: Esther Tokouli, 2025\n"
+"Last-Translator: Cyrille Kabrane, 2026\n"
 "Language-Team: French (https://app.transifex.com/hisp-uio/teams/100509/fr/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
@@ -33,23 +34,23 @@ msgid "\"{{deletedObject}}\" successfully deleted."
 msgstr "\"{{deletedObject}}\" supprimé avec succès."
 
 msgid "You have unsaved changes."
-msgstr "Vous avez des changements non enregistrés."
+msgstr "Vous avez des modifications non enregistrées."
 
 msgid "Discard unsaved changes?"
-msgstr "Abandonner les modifications non enregistrées?"
+msgstr "Voulez-vous abandonner les modifications non enregistrées ?"
 
 msgid ""
 "Are you sure you want to leave this visualization? Any unsaved changes will "
 "be lost."
 msgstr ""
-"Voulez-vous vraiment quitter cette visualisation? Toutes les modifications "
+"Voulez-vous vraiment quitter cette visualisation ? Toutes les modifications "
 "non enregistrées seront perdues."
 
 msgid "No, cancel"
 msgstr "Non, annuler"
 
 msgid "Yes, leave"
-msgstr "Oui, abandon"
+msgstr "Oui, quitter"
 
 msgid "Add to {{axisName}}"
 msgstr "Ajouter à {{axisName}} "
@@ -58,23 +59,23 @@ msgid ""
 "'{{visualizationType}}' is intended to show a single data item. Only the "
 "first item will be used and saved."
 msgstr ""
-"'{{visualizationType}}' est destiné à afficher un seul élément de données. "
-"Seul le premier élément sera utilisé et enregistré."
+"'{{visualizationType}}' est destiné à afficher un seul item de données. Seul"
+" le premier item sera utilisé et enregistré."
 
 msgid ""
 "'{{visualiationType}}' is intended to show maximum {{maxNumber}} number of "
 "items. Only the first {{maxNumber}} items will be used and saved."
 msgstr ""
-"'{{visualiationType}}' est destiné à montrer le maximum {{maxNumber}} nombre"
-" d'éléments  . Seul le premier {{maxNumber}} les éléments seront utilisés et"
-" enregistrés."
+"'{{visualiationType}}' est destiné à afficher maximum {{maxNumber}} nombre "
+"d'items. Seul les premiers {{maxNumber}} items seront utilisés et "
+"enregistrés."
 
 msgid ""
 "'Scatter' is intended to show a single data item per axis. Only the first "
 "item will be used and saved."
 msgstr ""
-"La 'Dispersion' est destinée à afficher un seul élément de données par axe. "
-"Seul le premier élément sera utilisé et enregistré."
+"La 'Dispersion' est destinée à afficher un seul item de données par axe. "
+"Seul le premier item sera utilisé et enregistré."
 
 msgid "Vertical"
 msgstr "Vertical"
@@ -104,7 +105,7 @@ msgid "PDF (.pdf)"
 msgstr "PDF (.pdf)"
 
 msgid "Table layout"
-msgstr "Mise en page du tableau"
+msgstr "Disposition du tableau"
 
 msgid "Excel (.xls)"
 msgstr "Excel (.xls)"
@@ -119,7 +120,7 @@ msgid "Metadata ID scheme"
 msgstr "Schéma d'Identification des métadonnées"
 
 msgid "ID"
-msgstr "ID"
+msgstr "Identifiant"
 
 msgid "Code"
 msgstr "Code"
@@ -167,20 +168,20 @@ msgid "Interpretations"
 msgstr "interprétations"
 
 msgid "{{total}} of {{axisMaxNumberOfItems}} selected"
-msgstr "{{total}} de {{axisMaxNumberOfItems}} choisis"
+msgstr "{{total}} de {{axisMaxNumberOfItems}} sélectionnés"
 
 msgid "{{total}} selected"
-msgstr "{{total}} choisis"
+msgstr "{{total}} sélectionnés"
 
 msgid "{{dimensionName}} is locked to {{axisName}} for {{visTypeName}}"
 msgstr ""
 "{{dimensionName}} est verrouillé sur {{axisName}} pour {{visTypeName}}"
 
 msgid "Not available for Scatter"
-msgstr "Non disponible pour Dispersion"
+msgstr "Non disponible pour la dispersion"
 
 msgid "Add Assigned Categories"
-msgstr "Ajouter des Catégories assignées"
+msgstr "Ajouter des catégories assignées"
 
 msgid "Swap with {{axisName}} axis"
 msgstr "Intervertir avec l'axe {{axisName}}"
@@ -195,10 +196,10 @@ msgid "None selected"
 msgstr "Aucune sélection"
 
 msgid "Only '{{- name}}' in use"
-msgstr "Uniquement '{{- name}}' utilisé"
+msgstr "Seulement '{{- name}}' utilisé"
 
 msgid "Only '{{number}}' in use"
-msgstr "Uniquement '{{number}}' utilisé"
+msgstr "Seulement '{{number}}' utilisés"
 
 msgid "Levels"
 msgstr "Niveaux"
@@ -238,7 +239,7 @@ msgid "Update"
 msgstr "Mettre à jour"
 
 msgid "Getting started"
-msgstr "Commencer"
+msgstr "Pour commencer"
 
 msgid ""
 "All dimensions that you can use to build visualizations are shown in the "
@@ -251,7 +252,7 @@ msgid "Add dimensions to the layout above"
 msgstr "Ajouter des dimensions à la disposition ci-dessus"
 
 msgid "Click a dimension to add or remove items"
-msgstr "Cliquez sur une dimension pour ajouter ou supprimer des éléments"
+msgstr "Cliquer sur une dimension pour ajouter ou supprimer des items"
 
 msgid "Your most viewed charts and tables"
 msgstr "Vos graphiques et tableaux les plus vus"
@@ -300,7 +301,7 @@ msgid "Data approved at level"
 msgstr "Données approuvées au niveau"
 
 msgid "Select from predefined levels"
-msgstr "Sélectionnez parmi les niveaux prédéfinis"
+msgstr "Sélectionner parmi les niveaux prédéfinis"
 
 msgid "Loading data approval levels"
 msgstr "Chargement des niveaux d'approbation des données"
@@ -309,26 +310,26 @@ msgid "Decimals"
 msgstr "Décimales"
 
 msgid "Auto"
-msgstr "Auto"
+msgstr "Automatique"
 
 msgid "Labels"
 msgstr "Étiquettes"
 
 msgid "Axis range"
-msgstr "Gamme d'axes"
+msgstr "Plage de l'axe"
 
 msgid "Values outside of the range will not be displayed"
-msgstr "Valeurs en dehors de la plage ne seront pas affichées"
+msgstr "Les valeurs hors de la plage ne seront pas affichées"
 
 msgid ""
 "Number of axis tick steps, including the min and max. A value of 2 or lower "
 "will be ignored."
 msgstr ""
-"Nombre de pas de cochage des axes, y compris le min et le max. Une valeur "
-"inférieure ou égale à 2 sera ignorée."
+"Nombre de graduations principales de l'axe, y compris le min et le max. Une "
+"valeur inférieure ou égale à 2 sera ignorée."
 
 msgid "Steps"
-msgstr "Étapes"
+msgstr "Stades"
 
 msgid "Axis title"
 msgstr "Titre de l'axe"
@@ -337,7 +338,7 @@ msgid "Add a title"
 msgstr "Ajouter un titre"
 
 msgid "Base line"
-msgstr "Ligne de base"
+msgstr "Ligne de référence"
 
 msgid "Column sub-totals"
 msgstr "Sous-totaux de colonne"
@@ -370,13 +371,13 @@ msgid "Only include completed events"
 msgstr "Inclure uniquement les événements terminés"
 
 msgid "Include cumulative"
-msgstr "Inclure cumulatif"
+msgstr "Inclure le cumul"
 
 msgid "Cumulative values"
 msgstr "Valeurs cumulées"
 
 msgid "Digit group separator"
-msgstr "Séparateur des groupe de chiffres"
+msgstr "Séparateur de groupes de chiffres"
 
 msgid "None"
 msgstr "Aucun"
@@ -388,7 +389,7 @@ msgid "Comma"
 msgstr "Virgule"
 
 msgid "Display density"
-msgstr "Afficher densité"
+msgstr "Afficher la densité"
 
 msgid "Comfortable"
 msgstr "Confortable"
@@ -403,12 +404,10 @@ msgid "Extreme lines"
 msgstr "Lignes extrêmes"
 
 msgid "Calculated as a percent, usually 1%, of the total values along an axis"
-msgstr ""
-"Calculé en pourcentage, généralement 1%, des valeurs totales le long d'un "
-"axe"
+msgstr "Cumul en pourcentage, généralement 1%, des valeurs totales sur un axe"
 
 msgid "Extreme line % detection"
-msgstr "Détection de% de ligne extrême"
+msgstr "Détection du pourcentage de la ligne extrême"
 
 msgid "Number"
 msgstr "Nombre"
@@ -417,31 +416,31 @@ msgid "Font size"
 msgstr "Taille de la police"
 
 msgid "Large"
-msgstr "Grand"
+msgstr "Grande"
 
 msgid "Small"
-msgstr "Petit"
+msgstr "Petite"
 
 msgid "Hide empty columns"
-msgstr "Cacher les colonnes vides"
+msgstr "Masquer les colonnes vides"
 
 msgid "Hide empty categories"
 msgstr "Masquer les catégories vides"
 
 msgid "Before first"
-msgstr "Avant le premier"
+msgstr "Avant la première"
 
 msgid "After last"
 msgstr "Après la dernière"
 
 msgid "Before first and after last"
-msgstr "Avant premier et après dernier "
+msgstr "Avant la première et après la dernière"
 
 msgid "All"
 msgstr "Tout"
 
 msgid "Hide empty rows"
-msgstr "Cacher lignes vides"
+msgstr "Masquer les lignes vides"
 
 msgid "Show legend key"
 msgstr "Afficher la clé de légende"
@@ -453,7 +452,7 @@ msgid "Chart subtitle"
 msgstr "Sous-titre du graphique"
 
 msgid "Auto generated"
-msgstr "Genere automatiquement"
+msgstr "Généré automatiquement"
 
 msgid "Custom"
 msgstr "Personnalisé"
@@ -474,10 +473,10 @@ msgid "Use pre-defined legend per data item"
 msgstr "Utiliser une légende prédéfinie par élément de données"
 
 msgid "Select a single legend for the entire visualization"
-msgstr "Sélectionnez une seule légende pour l'ensemble de la visualisation"
+msgstr "Sélectionner une seule légende pour toute la visualisation"
 
 msgid "Legend changes background color"
-msgstr "La légende change la couleur d'arrière-plan"
+msgstr "La légende change la couleur de l'arrière-plan"
 
 msgid "Legend changes text color"
 msgstr "La légende change la couleur du texte"
@@ -486,7 +485,7 @@ msgid "Legend"
 msgstr "Légende"
 
 msgid "Select from legends"
-msgstr "Choisissez parmi les légendes"
+msgstr "Sélectionner parmi les légendes"
 
 msgid "Loading legends"
 msgstr "Chargement des légendes"
