@@ -87,7 +87,7 @@ To select items for a dimension, open the dimension modal window by clicking on 
 
 #### Select data items
 
-When selecting data items, there are different ways to filter the displayed items. By using the search field at the top, a global search by item name is performed across the currently selected **Data Type**. By selecting a **Data Type** from the dropdown, items can be filtered by type and subtype, where the subtype available depends on the selected data type. The name search and the type/subtype filtering can be combined as well for a more detailed filter. The type of each displayed item is indicated on the right and a corresponding icon is shown on the left of the item.
+When selecting data items, there are different ways to filter the displayed items. By using the search field at the top, a global search by item name, id or code is performed across the currently selected **Data Type**. By selecting a **Data Type** from the dropdown, items can be filtered by type and subtype, where the subtype available depends on the selected data type. The name search and the type/subtype filtering can be combined as well for a more detailed filter. The type of each displayed item is indicated on the right and a corresponding icon is shown on the left of the item.
 
 ![](resources/images/data-visualizer-cc-data-modal.png)
 
