@@ -73,7 +73,11 @@ describe('Options - Column totals', () => {
         openDimension(DIMENSION_ID_PERIOD)
         unselectAllItemsByButton()
         selectFixedPeriods(
-            [monthYearPattern('May', year), monthYearPattern('June', year), monthYearPattern('July', year)],
+            [
+                monthYearPattern('May', year),
+                monthYearPattern('June', year),
+                monthYearPattern('July', year),
+            ],
             'Monthly'
         )
         clickDimensionModalHideButton()

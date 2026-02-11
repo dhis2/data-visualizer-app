@@ -181,7 +181,11 @@ describe('Options - Cumulative values', () => {
             openDimension(DIMENSION_ID_PERIOD)
             unselectAllItemsByButton()
             selectFixedPeriods(
-                [monthYearPattern('October', year), monthYearPattern('November', year), monthYearPattern('December', year)],
+                [
+                    monthYearPattern('October', year),
+                    monthYearPattern('November', year),
+                    monthYearPattern('December', year),
+                ],
                 'Monthly'
             )
             clickDimensionModalHideButton()
