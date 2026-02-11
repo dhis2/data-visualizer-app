@@ -1,3 +1,10 @@
+# [101.4.0](https://github.com/dhis2/data-visualizer-app/compare/v101.3.7...v101.4.0) (2026-02-11)
+
+
+### Features
+
+* use identifiable token in data item search + ui upgrade (DHIS2-6568) (DHIS2-20698) ([#3454](https://github.com/dhis2/data-visualizer-app/issues/3454)) ([6c81d96](https://github.com/dhis2/data-visualizer-app/commit/6c81d9658e0950a9350873d2a68c7371536001e6))
+
 ## [101.3.7](https://github.com/dhis2/data-visualizer-app/compare/v101.3.6...v101.3.7) (2025-11-07)
 
 
