@@ -54,6 +54,7 @@ import {
 import { goToStartPage } from '../../elements/startScreen.js'
 import { changeVisType } from '../../elements/visualizationTypeSelector.js'
 import { TEST_DATA_ELEMENTS } from '../../utils/data.js'
+import { monthYearPattern } from '../../utils/period.js'
 
 const cumulativeValuesOptionEl = 'option-cumulative-values'
 
@@ -180,7 +181,7 @@ describe('Options - Cumulative values', () => {
             openDimension(DIMENSION_ID_PERIOD)
             unselectAllItemsByButton()
             selectFixedPeriods(
-                [`October ${year}`, `November ${year}`, `December ${year}`],
+                [monthYearPattern('October', year), monthYearPattern('November', year), monthYearPattern('December', year)],
                 'Monthly'
             )
             clickDimensionModalHideButton()
@@ -203,7 +204,7 @@ describe('Options - Cumulative values', () => {
             expectTableValueCellToContainValue(2, '6 000')
             expectTableValueCellToContainValue(5, '5 266')
 
-            clickTableHeaderCell(`December ${year}`)
+            clickTableHeaderCell(monthYearPattern('December', year))
 
             expectTableValueCellToContainValue(2, '5 266')
             expectTableValueCellToContainValue(5, '6 000')
@@ -216,7 +217,7 @@ describe('Options - Cumulative values', () => {
             expectTableValueCellToContainValue(2, '18 000')
             expectTableValueCellToContainValue(5, '18 488')
 
-            clickTableHeaderCell(`December ${year}`)
+            clickTableHeaderCell(monthYearPattern('December', year))
 
             expectTableValueCellToContainValue(2, '18 000')
             expectTableValueCellToContainValue(5, '18 488')
@@ -254,7 +255,7 @@ describe('Options - Cumulative values', () => {
             const year = new Date().getFullYear().toString()
             openDimension(DIMENSION_ID_PERIOD)
             unselectAllItemsByButton()
-            selectFixedPeriods([`October ${year}`], 'Monthly')
+            selectFixedPeriods([monthYearPattern('October', year)], 'Monthly')
 
             clickDimensionModalHideButton()
 

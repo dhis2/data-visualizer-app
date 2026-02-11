@@ -43,6 +43,7 @@ import {
 import { goToStartPage } from '../../elements/startScreen.js'
 import { changeVisType } from '../../elements/visualizationTypeSelector.js'
 import { TEST_CUSTOM_DIMENSIONS } from '../../utils/data.js'
+import { monthYearPattern } from '../../utils/period.js'
 
 const AREA_DIMENSION = TEST_CUSTOM_DIMENSIONS.find((dim) => dim.name === 'Area')
 
@@ -72,7 +73,7 @@ describe('Options - Column totals', () => {
         openDimension(DIMENSION_ID_PERIOD)
         unselectAllItemsByButton()
         selectFixedPeriods(
-            [`May ${year}`, `June ${year}`, `July ${year}`],
+            [monthYearPattern('May', year), monthYearPattern('June', year), monthYearPattern('July', year)],
             'Monthly'
         )
         clickDimensionModalHideButton()
@@ -100,10 +101,10 @@ describe('Options - Column totals', () => {
         unselectAllItemsByButton()
         selectFixedPeriods(
             [
-                `January ${year}`,
-                `February ${year}`,
-                `March ${year}`,
-                `April ${year}`,
+                monthYearPattern('January', year),
+                monthYearPattern('February', year),
+                monthYearPattern('March', year),
+                monthYearPattern('April', year),
             ],
             'Monthly'
         )
@@ -161,7 +162,7 @@ describe('Options - Row totals', () => {
             const year = new Date().getFullYear().toString()
             openDimension(DIMENSION_ID_PERIOD)
             unselectAllItemsByButton()
-            selectFixedPeriods([`October ${year}`], 'Monthly')
+            selectFixedPeriods([monthYearPattern('October', year)], 'Monthly')
 
             clickDimensionModalUpdateButton()
 
