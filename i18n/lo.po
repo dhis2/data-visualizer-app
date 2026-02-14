@@ -4,19 +4,19 @@
 # Somkhit Bouavong <bouavongk@gmail.com>, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Thuy Nguyen <thuynguyen@hispvietnam.org>, 2022
-# Saysamone Sibounma, 2024
 # Namwan Chanthavisouk, 2025
 # Em Le <em.hispvietnam@gmail.com>, 2025
+# Saysamone Sibounma, 2026
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-07-03T09:34:39.575Z\n"
+"POT-Creation-Date: 2025-10-28T16:10:03.307Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
-"Last-Translator: Em Le <em.hispvietnam@gmail.com>, 2025\n"
+"Last-Translator: Saysamone Sibounma, 2026\n"
 "Language-Team: Lao (https://app.transifex.com/hisp-uio/teams/100509/lo/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lo\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -90,16 +90,16 @@ msgid "Horizontal"
 msgstr "ລວງນອນ"
 
 msgid "Main dimensions"
-msgstr "ຕົວຕອງທີ່ສຳຄັນ"
+msgstr "ຂອບເຂດຫຼັກ"
 
 msgid "Other dimensions"
-msgstr "ຂະໜາດອື່ນໆ"
+msgstr "ຂອບເຂດອື່ນໆ"
 
 msgid "Your dimensions"
-msgstr "ຂະໜາດຂອງທ່ານ"
+msgstr "ຂອບເຂດຂອງທ່ານ"
 
 msgid "Filter dimensions"
-msgstr "ຂະໜາດຕົວຕອງ"
+msgstr "ຂອບເຂດຕົວກອງ"
 
 msgid "Data value set"
 msgstr "ການຕັ້ງຄ່າຂໍ້ມູນ"
@@ -156,10 +156,10 @@ msgid "Name"
 msgstr "ຊື່"
 
 msgid "Table layout"
-msgstr "ເຄົ້າໂຄງຕາຕະລາງ"
+msgstr "ການຈັດຕຳແໜ່ງຂໍ້ມູນໃນຕາຕະລາງ"
 
 msgid "Excel (.xlsx)"
-msgstr ""
+msgstr "Excel (.xlsx)"
 
 msgid "Excel (.xls)"
 msgstr "Excel (.xls)"
@@ -353,10 +353,10 @@ msgid "Add a title"
 msgstr "ເພີ່ມຫົວຂໍ໊"
 
 msgid "Reset style to default"
-msgstr "ປັບລະບົບຮູບແບບເປັນຄ່າເລີ່ມຕົ້ນ"
+msgstr "ຕັ້ງຄ່າຮູບແບບຄືນໃໝ່ເປັນຄ່າເລີ່ມຕົ້ນ"
 
 msgid "Base line"
-msgstr "ຟື້ນຖານ"
+msgstr "ຄ່າພື້ນຖານ"
 
 msgid "Column sub-totals"
 msgstr "ຖັນຍ່ອຍທັງໝົດ"
@@ -365,7 +365,7 @@ msgid "Columns totals"
 msgstr "ຖັນທັງໝົດ"
 
 msgid "Default"
-msgstr "ຄ່າຕັ້ງຕົ້ນ"
+msgstr "ຄ່າເລີ່ມຕົ້ນ"
 
 msgid "Basic"
 msgstr "ຟື້ນຖານ"
@@ -404,7 +404,7 @@ msgid "Accumulate cell values along rows"
 msgstr "ສະສົມຄ່າເຊລຕາມແຖວ"
 
 msgid "Show data item icon"
-msgstr "ໄອຄອນສະແດງລາຍການຂໍ້ມູນ"
+msgstr "ສະແດງໄອຄອນຂອງລາຍການຂໍ້ມູນ"
 
 msgid "If the data item has an icon, display it next to the value"
 msgstr "ຖ້າລາຍການຂໍ້ມູນມີໄອຄອນ, ໃຫ້ສະແດງມັນໃວ້ຂ້າງໆຄ່າຂອງຂໍ້ມູນ"
@@ -618,7 +618,7 @@ msgid "Organisation unit"
 msgstr "​ຫົວ​ໜ່ວຍ​ການ​ຈັດ​ຕັ້ງ"
 
 msgid "Parent organisation unit"
-msgstr "ໂຄງຮ່າງການຈັດຕັ້ງຂັ້ນສູງ"
+msgstr "ໂຄງຮ່າງການຈັດຕັ້ງຂັ້ນເທີງ"
 
 msgid "Reporting period"
 msgstr "​ໄລ​ຍະ​ເວ​ລາ​ການ​ລາຍ​ງານ"
@@ -772,6 +772,10 @@ msgid ""
 " absolute deviation instead of the standard deviation, making it robust "
 "against outliers."
 msgstr ""
+"ການວັດແທກໄລຍະຫ່າງຂອງຂໍ້ມູນທີ່ຫຼຸດອອກຈາກຄ່າກາງ (Median), "
+"ໂດຍນຳໃຊ້ຄ່າຜັນປ່ຽນສົມບູນທຽບໃສ່ຄ່າກາງ (Median Absolute Deviation) "
+"ແທນຄ່າຜັນປ່ຽນມາດຕະຖານ, ເພື່ອເຮັດໃຫ້ການຄິດໄລ່ມີຄວາມຊັດເຈນ ແລະ "
+"ບໍ່ໄດ້ຮັບຜົນກະທົບຈາກຄ່າທີ່ຜິດປົກກະຕິ (Outliers)."
 
 msgid "Median"
 msgstr "ເສັ້ນຈອມກາງ"
@@ -781,6 +785,10 @@ msgid ""
 "descending order. It's a robust measure of central tendency that is less "
 "affected by outliers compared to the mean."
 msgstr ""
+"ແມ່ນຄ່າທີ່ຢູ່ຈຸດເຄິ່ງກາງຂອງຊຸດຂໍ້ມູນ ເມື່ອມີການຈັດລຽງຂໍ້ມູນຈາກໜ້ອຍຫາຫຼາຍ ຫຼື"
+" ຫຼາຍຫາໜ້ອຍ. ມັນແມ່ນການວັດແທກຈຸດໃຈກາງທີ່ມີຄວາມຊັດເຈນ "
+"ເຊິ່ງຈະໄດ້ຮັບຜົນກະທົບຈາກຄ່າທີ່ຜິດປົກກະຕິ (Outliers) "
+"ໜ້ອຍກວ່າການນຳໃຊ້ຄ່າສະເລ່ຍ (Mean)."
 
 msgid "Median absolute deviation"
 msgstr "ຄ່າຜັນປ່ຽນສຳບູນສະເລ່ຍ \"Median Absolute deviation\""
@@ -791,6 +799,10 @@ msgid ""
 "less influenced by outliers compared to other measures like the standard "
 "deviation."
 msgstr ""
+"ແມ່ນການວັດແທກການຜັນແປຂອງຂໍ້ມູນທີ່ມີຄວາມຊັດເຈນ, ຄິດໄລ່ໂດຍການຫາຄ່າກາງ (Median)"
+" ຂອງຜົນຕ່າງສົມບູນ ລະຫວ່າງ ແຕ່ລະຈຸດຂໍ້ມູນ ແລະ ຄ່າກາງລວມ. "
+"ມັນຈະໄດ້ຮັບຜົນກະທົບຈາກຄ່າທີ່ຜິດປົກກະຕິ (Outliers) ໜ້ອຍກວ່າການວັດແທກແບບອື່ນໆ "
+"ເຊັ່ນ: ຄ່າຜັນປ່ຽນມາດຕະຖານ (Standard Deviation)."
 
 msgid "Z-score"
 msgstr "Z- ຄະແນນ"
@@ -800,6 +812,10 @@ msgid ""
 " dataset, providing insight into how unusual or typical that data point is "
 "relative to the rest of the distribution."
 msgstr ""
+"ແມ່ນການວັດແທກເພື່ອໃຫ້ຮູ້ວ່າ ຄ່າຂອງຂໍ້ມູນໃດໜຶ່ງຢູ່ຫ່າງຈາກຄ່າສະເລ່ຍ (Mean) "
+"ເປັນຈັກເທົ່າຂອງຄ່າຜັນປ່ຽນມາດຕະຖານ (Standard Deviation), "
+"ເຊິ່ງຊ່ວຍໃຫ້ເຫັນວ່າຂໍ້ມູນດັ່ງກ່າວມີຄວາມຜິດປົກກະຕິ ຫຼື ເປັນຂໍ້ມູນທົ່ວໄປ "
+"ເມື່ອທຽບໃສ່ກັບການກະຈາຍຂອງຂໍ້ມູນທັງໝົດ."
 
 msgid "Mean"
 msgstr "ຄ່າສະເລ່ຍ"
@@ -812,6 +828,10 @@ msgid ""
 " deviation indicates data are clustered tightly around the mean, and high "
 "standard deviation indicates data are more spread out."
 msgstr ""
+"ແມ່ນການວັດແທກລະດັບການກະຈາຍຂອງຂໍ້ມູນທຽບໃສ່ຄ່າສະເລ່ຍ (Mean). "
+"ຖ້າຄ່າຜັນປ່ຽນມາດຕະຖານຕໍ່າ ໝາຍເຖິງຂໍ້ມູນມີການເກາະກຸ່ມກັນຢູ່ໃກ້ກັບຄ່າສະເລ່ຍ, "
+"ແຕ່ຖ້າຄ່າຜັນປ່ຽນມາດຕະຖານສູງ "
+"ໝາຍເຖິງຂໍ້ມູນມີການກະຈາຍຕົວອອກຫ່າງຈາກຄ່າສະເລ່ຍຫຼາຍ."
 
 msgid "Minimum score threshold"
 msgstr "ຄະແນນຂັ້ນຕ່ຳ ຕົວເລກເປີເຊັນທີ່ຖືກຕັ້ງຄ່າໃວ້"
