@@ -258,7 +258,7 @@ msgid "Sum"
 msgstr ""
 
 msgid "Last value"
-msgstr ""
+msgstr "अंतिम मान"
 
 msgid "Last value (average in org unit hierarchy)"
 msgstr ""
@@ -404,16 +404,16 @@ msgid "Hide empty categories"
 msgstr ""
 
 msgid "Before first"
-msgstr ""
+msgstr "पहले से पहले"
 
 msgid "After last"
-msgstr ""
+msgstr "आख़िरी के बाद"
 
 msgid "Before first and after last"
-msgstr ""
+msgstr "पहले से पहले और आख़िरी के बाद"
 
 msgid "All"
-msgstr ""
+msgstr "सभी"
 
 msgid "Hide empty rows"
 msgstr ""
