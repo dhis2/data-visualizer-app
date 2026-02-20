@@ -1,10 +1,11 @@
 import debounce from 'lodash-es/debounce'
+import { useDataOutputPeriodTypes } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
-import React, { Component, Fragment, useCallback, useMemo } from 'react'
+import React, { Component, Fragment, useCallback, useEffect, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { tSetCurrentFromUi } from '../../actions/current.js'
 import { acSetPluginLoading } from '../../actions/loader.js'
-import { acAddMetadata } from '../../actions/metadata.js'
+import { acAddMetadata, acOverrideMetadata } from '../../actions/metadata.js'
 import {
     acSetUiItems,
     acSetUiDataSorting,
@@ -215,6 +216,13 @@ export const Visualization = (props) => {
         [dispatch]
     )
     const { setChart } = useChartContext()
+
+    const { enabledPeriodTypesData } = useDataOutputPeriodTypes()
+    useEffect(() => {
+        if (enabledPeriodTypesData?.metaData) {
+            dispatch(acOverrideMetadata(enabledPeriodTypesData.metaData))
+        }
+    }, [dispatch, enabledPeriodTypesData])
 
     const visualization = useMemo(
         () => getVisualizationWithFilteredOptionsByType(current),
