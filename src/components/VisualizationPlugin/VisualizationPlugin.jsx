@@ -15,6 +15,7 @@ import {
     USER_ORG_UNIT_CHILDREN,
     USER_ORG_UNIT_GRANDCHILDREN,
     VIS_TYPE_SINGLE_VALUE,
+    useDataOutputPeriodTypes
 } from '@dhis2/analytics'
 import { useConfig, useDataEngine } from '@dhis2/app-runtime'
 import { Button, IconLegend24, Layer } from '@dhis2/ui'
@@ -79,6 +80,8 @@ export const VisualizationPlugin = ({
     const [size, setSize] = useState({ width: 0, height: 0 })
     const resizeObserverRef = useRef(null)
     const { baseUrl } = useConfig()
+    const { supportsEnabledPeriodTypes, enabledPeriodTypesData } =
+        useDataOutputPeriodTypes()
 
     useEffect(() => {
         resizeObserverRef.current = new window.ResizeObserver((entries) => {
@@ -278,6 +281,11 @@ export const VisualizationPlugin = ({
     }, [engine])
 
     useEffect(() => {
+        // Wait for period type data to load when supported
+        if (supportsEnabledPeriodTypes && !enabledPeriodTypesData) {
+            return
+        }
+
         setError(null)
         setFetchResult(null)
         setVisualization(null)
@@ -393,6 +401,15 @@ export const VisualizationPlugin = ({
             }
 
             const legendSets = await doFetchLegendSets(legendSetIds)
+            console.log("enabledPeriodTypesData", enabledPeriodTypesData)
+            if (enabledPeriodTypesData?.metaData) {
+                responses.forEach((response) => {
+                    Object.assign(
+                        response.metaData.items,
+                        enabledPeriodTypesData.metaData
+                    )
+                })
+            }
 
             setFetchResult({
                 visualization: filteredVisualization,
@@ -407,7 +424,7 @@ export const VisualizationPlugin = ({
             .catch((error) => setError(error))
             // since errors are rendered here, always call loading complete
             .finally(() => onLoadingComplete())
-    }, [originalVisualization, filters, forDashboard])
+    }, [originalVisualization, filters, forDashboard, supportsEnabledPeriodTypes, enabledPeriodTypesData])
 
     useEffect(() => {
         if (fetchResult?.visualization && ouLevels) {
