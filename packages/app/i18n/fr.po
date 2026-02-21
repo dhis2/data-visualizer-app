@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Edem Kossi <ekossi@hispwca.org>, 2021
 # Viktor Varland <viktor@dhis2.org>, 2021
