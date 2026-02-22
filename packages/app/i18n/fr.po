@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Viktor Varland <viktor@dhis2.org>, 2021
 # Karoline Tufte Lien <karoline@dhis2.org>, 2021
@@ -470,7 +469,7 @@ msgid "Legend type"
 msgstr "Type de légende"
 
 msgid "Use pre-defined legend per data item"
-msgstr "Utiliser une légende prédéfinie par item de donnée "
+msgstr "Utiliser une légende prédéfinie par item de données "
 
 msgid "Select a single legend for the entire visualization"
 msgstr "Sélectionner une seule légende pour toute la visualisation"
