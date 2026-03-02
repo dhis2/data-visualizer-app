@@ -223,6 +223,39 @@ describe('Data dimension', () => {
         expectSourceToNotBeLoading()
         expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
     })
+    it('can search by uid in global search', () => {
+        goToStartPage()
+        openDimension(DIMENSION_ID_DATA)
+        expectDataDimensionModalToBeVisible()
+        expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
+
+        const testUid = 'Uvn6LCg7dVU'
+        const expectedItemName = 'ANC 1 Coverage'
+
+        // searching for a uid returns the matching item
+        cy.intercept('GET', DATA_ITEMS_URL).as('uidSearchRequest')
+        inputSearchTerm(testUid)
+        cy.wait('@uidSearchRequest').then(({ request, response }) => {
+            expect(request.url).to.contain('page=1')
+            expect(request.url).to.contain(testUid)
+            expect(response.statusCode).to.eq(200)
+            expect(response.body.dataItems.length).to.eq(1)
+        })
+        expectSourceToNotBeLoading()
+        expectSelectableDataItemsAmountToBe(1)
+        expectItemToBeSelectable(expectedItemName)
+
+        // clear the search
+        cy.intercept('GET', DATA_ITEMS_URL).as('uidSearchClear')
+        clearSearchTerm()
+        cy.wait('@uidSearchClear').then(({ request, response }) => {
+            expect(request.url).to.contain('page=1')
+            expect(response.statusCode).to.eq(200)
+            expect(response.body.dataItems.length).to.be.eq(PAGE_SIZE)
+        })
+        expectSourceToNotBeLoading()
+        expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
+    })
     // VERSION-TOGGLE: remove when 42 is lowest supported version
     it(['>=42'], 'can toggle option view mode', () => {
         goToStartPage()

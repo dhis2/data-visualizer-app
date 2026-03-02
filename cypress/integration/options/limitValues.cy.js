@@ -37,6 +37,7 @@ import {
     goToStartPage,
 } from '../../elements/startScreen.js'
 import { changeVisType } from '../../elements/visualizationTypeSelector.js'
+import { monthYearPattern } from '../../utils/period.js'
 
 const TEST_INDICATOR = 'ANC visits total'
 const currentYear = new Date().getFullYear().toString()
@@ -63,11 +64,11 @@ describe('limit values', () => {
         unselectAllItemsByButton()
         selectFixedPeriods(
             [
-                `January ${currentYear}`,
-                `February ${currentYear}`,
-                `March ${currentYear}`,
-                `April ${currentYear}`,
-                `May ${currentYear}`,
+                monthYearPattern('January', currentYear),
+                monthYearPattern('February', currentYear),
+                monthYearPattern('March', currentYear),
+                monthYearPattern('April', currentYear),
+                monthYearPattern('May', currentYear),
             ],
             'Monthly'
         )
