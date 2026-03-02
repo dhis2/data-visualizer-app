@@ -401,7 +401,7 @@ export const VisualizationPlugin = ({
             }
 
             const legendSets = await doFetchLegendSets(legendSetIds)
-            console.log("enabledPeriodTypesData", enabledPeriodTypesData)
+
             if (enabledPeriodTypesData?.metaData) {
                 responses.forEach((response) => {
                     Object.assign(
