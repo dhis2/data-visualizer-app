@@ -151,8 +151,8 @@ describe('Period dimension', () => {
             selectPeriodType(type.name)
             type.amountOfChildren > 50
                 ? expectSelectablePeriodItemsAmountToBeLeast(
-                    type.amountOfChildren
-                )
+                      type.amountOfChildren
+                  )
                 : expectSelectablePeriodItemsAmountToBe(type.amountOfChildren)
         })
     })
