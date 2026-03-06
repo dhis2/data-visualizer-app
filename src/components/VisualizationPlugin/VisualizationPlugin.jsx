@@ -15,7 +15,7 @@ import {
     USER_ORG_UNIT_CHILDREN,
     USER_ORG_UNIT_GRANDCHILDREN,
     VIS_TYPE_SINGLE_VALUE,
-    useDataOutputPeriodTypes
+    useDataOutputPeriodTypes,
 } from '@dhis2/analytics'
 import { useConfig, useDataEngine } from '@dhis2/app-runtime'
 import { Button, IconLegend24, Layer } from '@dhis2/ui'
@@ -424,7 +424,13 @@ export const VisualizationPlugin = ({
             .catch((error) => setError(error))
             // since errors are rendered here, always call loading complete
             .finally(() => onLoadingComplete())
-    }, [originalVisualization, filters, forDashboard, supportsEnabledPeriodTypes, enabledPeriodTypesData])
+    }, [
+        originalVisualization,
+        filters,
+        forDashboard,
+        supportsEnabledPeriodTypes,
+        enabledPeriodTypesData,
+    ])
 
     useEffect(() => {
         if (fetchResult?.visualization && ouLevels) {
