@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2025-10-28T16:10:03.307Z\n"
-"PO-Revision-Date: 2025-10-28T16:10:03.308Z\n"
+"POT-Creation-Date: 2026-03-06T16:43:42.204Z\n"
+"PO-Revision-Date: 2026-03-06T16:43:42.205Z\n"
 
 msgid "All items"
 msgstr "All items"
@@ -1252,3 +1252,11 @@ msgstr "Bimonths per year"
 
 msgid "Quarters per year"
 msgstr "Quarters per year"
+
+msgctxt "Application title"
+msgid "__MANIFEST_APP_TITLE"
+msgstr "Data Visualizer"
+
+msgctxt "Application description"
+msgid "__MANIFEST_APP_DESCRIPTION"
+msgstr "DHIS2 Data Visualizer"

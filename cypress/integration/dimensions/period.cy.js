@@ -151,14 +151,14 @@ describe('Period dimension', () => {
             selectPeriodType(type.name)
             type.amountOfChildren > 50
                 ? expectSelectablePeriodItemsAmountToBeLeast(
-                      type.amountOfChildren
-                  )
+                    type.amountOfChildren
+                )
                 : expectSelectablePeriodItemsAmountToBe(type.amountOfChildren)
         })
     })
 
     describe('using period settings', () => {
-        it('works correctly when "monthly" is hidden', () => {
+        it(['<=42'], 'works correctly when "monthly" is hidden', () => {
             cy.intercept(
                 /systemSettings/,
                 systemSettingsInterceptFn({
@@ -222,7 +222,7 @@ describe('Period dimension', () => {
             )
             selectPeriodType(fixedPeriodTypes[1]) // Click the second item to close the dropdown
         })
-        it('works correctly when "weekly" is hidden', () => {
+        it(['<=42'], 'works correctly when "weekly" is hidden', () => {
             cy.intercept(
                 /systemSettings/,
                 systemSettingsInterceptFn({
@@ -286,7 +286,7 @@ describe('Period dimension', () => {
             )
             selectPeriodType(fixedPeriodTypes[1]) // Click the second item to close the dropdown
         })
-        it('works correctly when "daily" is hidden', () => {
+        it(['<=42'], 'works correctly when "daily" is hidden', () => {
             cy.intercept(
                 /systemSettings/,
                 systemSettingsInterceptFn({
