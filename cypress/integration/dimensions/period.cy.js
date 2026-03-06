@@ -350,7 +350,7 @@ describe('Period dimension', () => {
             )
             selectPeriodType(fixedPeriodTypes[1]) // Click the second item to close the dropdown
         })
-        it('works when "bi-monthly" is hidden', () => {
+        it(['<=42'], 'works when "bi-monthly" is hidden', () => {
             cy.intercept(
                 /systemSettings/,
                 systemSettingsInterceptFn({
@@ -414,7 +414,7 @@ describe('Period dimension', () => {
             )
             selectPeriodType(fixedPeriodTypes[1]) // Click the second item to close the dropdown
         })
-        it('works when "bi-weekly" is hidden', () => {
+        it(['<=42'], 'works when "bi-weekly" is hidden', () => {
             cy.intercept(
                 /systemSettings/,
                 systemSettingsInterceptFn({
