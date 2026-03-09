@@ -130,6 +130,7 @@ describe('Period dimension', () => {
             { name: 'Weekly', amountOfChildren: 52 },
             { name: 'Weekly (Start Wednesday)', amountOfChildren: 52 },
             { name: 'Weekly (Start Thursday)', amountOfChildren: 52 },
+            { name: 'Weekly (Start Friday)', amountOfChildren: 52 },
             { name: 'Weekly (Start Saturday)', amountOfChildren: 52 },
             { name: 'Weekly (Start Sunday)', amountOfChildren: 52 },
             { name: 'Bi-weekly', amountOfChildren: 26 },
@@ -204,6 +205,7 @@ describe('Period dimension', () => {
                 'Weekly',
                 'Weekly (Start Wednesday)',
                 'Weekly (Start Thursday)',
+                'Weekly (Start Friday)',
                 'Weekly (Start Saturday)',
                 'Weekly (Start Sunday)',
                 'Bi-weekly',
@@ -263,6 +265,7 @@ describe('Period dimension', () => {
             expectFixedPeriodTypeSelectToNotContain('Weekly')
             expectFixedPeriodTypeSelectToNotContain('Weekly (Start Wednesday)')
             expectFixedPeriodTypeSelectToNotContain('Weekly (Start Thursday)')
+            expectFixedPeriodTypeSelectToNotContain('Weekly (Start Friday)')
             expectFixedPeriodTypeSelectToNotContain('Weekly (Start Saturday)')
             expectFixedPeriodTypeSelectToNotContain('Weekly (Start Sunday)')
 
@@ -331,6 +334,7 @@ describe('Period dimension', () => {
                 'Weekly',
                 'Weekly (Start Wednesday)',
                 'Weekly (Start Thursday)',
+                'Weekly (Start Friday)',
                 'Weekly (Start Saturday)',
                 'Weekly (Start Sunday)',
                 'Bi-weekly',
@@ -396,6 +400,7 @@ describe('Period dimension', () => {
                 'Weekly',
                 'Weekly (Start Wednesday)',
                 'Weekly (Start Thursday)',
+                'Weekly (Start Friday)',
                 'Weekly (Start Saturday)',
                 'Weekly (Start Sunday)',
                 'Bi-weekly',
@@ -460,6 +465,7 @@ describe('Period dimension', () => {
                 'Weekly',
                 'Weekly (Start Wednesday)',
                 'Weekly (Start Thursday)',
+                'Weekly (Start Friday)',
                 'Weekly (Start Saturday)',
                 'Weekly (Start Sunday)',
                 'Monthly',
