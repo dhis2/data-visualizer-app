@@ -31,7 +31,6 @@ import {
 } from '../../elements/dimensionModal/index.js'
 import { openDimension } from '../../elements/dimensionsPanel.js'
 import { goToStartPage } from '../../elements/startScreen.js'
-import { getApiBaseUrl } from '../../utils/baseUrl.js'
 
 const defaultRelativePeriod = 'Last 3 months'
 const systemSettingsBody = {
@@ -51,14 +50,157 @@ const systemSettingsInterceptFn = (responseBody) => (req) => {
         res.send({ body: responseBody })
     })
 }
-const apiBaseUrl = getApiBaseUrl()
+
+const allEnabledPeriodTypes = [
+    { name: 'Daily' },
+    { name: 'Weekly' },
+    { name: 'WeeklyWednesday' },
+    { name: 'WeeklyThursday' },
+    { name: 'WeeklyFriday' },
+    { name: 'WeeklySaturday' },
+    { name: 'WeeklySunday' },
+    { name: 'BiWeekly' },
+    { name: 'Monthly' },
+    { name: 'BiMonthly' },
+    { name: 'Quarterly' },
+    { name: 'SixMonthly' },
+    { name: 'SixMonthlyApril' },
+    { name: 'Yearly' },
+    { name: 'FinancialNov' },
+    { name: 'FinancialOct' },
+    { name: 'FinancialSep' },
+    { name: 'FinancialAug' },
+    { name: 'FinancialJuly' },
+    { name: 'FinancialApril' },
+    { name: 'FinancialFeb' },
+]
+
+const setupV43Intercepts = (enabledPeriodTypes) => {
+    // Bulk systemSettings for Redux store
+    cy.intercept(
+        /systemSettings/,
+        systemSettingsInterceptFn(systemSettingsBody)
+    )
+    // v43+ endpoints used by @dhis2/analytics PeriodDimension
+    cy.intercept(/dataOutputPeriodTypes/, {
+        body: enabledPeriodTypes,
+    })
+    cy.intercept(/keyAnalysisRelativePeriod/, {
+        body: { keyAnalysisRelativePeriod: 'LAST_3_MONTHS' },
+    })
+    cy.intercept(/analyticsFinancialYearStart/, {
+        body: { analyticsFinancialYearStart: 'FINANCIAL_YEAR_APRIL' },
+    })
+    cy.intercept(/analyticsWeeklyStart/, {
+        body: { analyticsWeeklyStart: 'WEEKLY' },
+    })
+}
 
 describe('Period dimension', () => {
-    it('has the expected initial state', () => {
+    it(['<=42'], 'has the expected initial state', () => {
         cy.intercept(
-            `${apiBaseUrl}/systemSettings`,
+            /systemSettings/,
             systemSettingsInterceptFn(systemSettingsBody)
         )
+
+        goToStartPage()
+
+        openDimension(DIMENSION_ID_PERIOD)
+        expectPeriodDimensionModalToBeVisible()
+        expectDimensionModalToContain('Period')
+        expectSelectedItemsAmountToBe(1)
+        expectItemToBeSelected(defaultRelativePeriod)
+        expectRelativeToBeSelected()
+        expectRelativePeriodTypeToBe('Months')
+
+        unselectItemByDoubleClick(defaultRelativePeriod)
+        expectNoPeriodsToBeSelected()
+
+        selectItemByDoubleClick(defaultRelativePeriod)
+        expectItemToBeSelected(defaultRelativePeriod)
+
+        unselectItemByButton(defaultRelativePeriod)
+        expectNoPeriodsToBeSelected()
+
+        selectItemByButton(defaultRelativePeriod)
+        expectItemToBeSelected(defaultRelativePeriod)
+
+        selectAllItemsByButton()
+        expectSelectedItemsAmountToBe(6)
+
+        unselectAllItemsByButton()
+        expectNoPeriodsToBeSelected()
+
+        // periods can be reordered
+        const itemA = 'This month'
+        const itemB = 'Last month'
+        selectItemByDoubleClick(itemA)
+        selectItemByDoubleClick(itemB)
+        expectFirstSelectedItemToBe(itemA)
+        singleClickSelectedItem(itemB)
+        clickMoveUpButton(itemB)
+        expectFirstSelectedItemToBe(itemB)
+        clickMoveDownButton(itemB)
+        expectFirstSelectedItemToBe(itemA)
+        unselectAllItemsByButton()
+
+        // relative periods
+        const relativePeriodTypes = [
+            { name: 'Days', amountOfChildren: 9 },
+            { name: 'Weeks', amountOfChildren: 6 },
+            { name: 'Bi-weeks', amountOfChildren: 3 },
+            { name: 'Months', amountOfChildren: 6 },
+            { name: 'Bi-months', amountOfChildren: 4 },
+            { name: 'Quarters', amountOfChildren: 4 },
+            { name: 'Six-months', amountOfChildren: 3 },
+            { name: 'Financial Years', amountOfChildren: 3 },
+            { name: 'Years', amountOfChildren: 4 },
+        ]
+
+        // relative period types have the correct amount of items
+        relativePeriodTypes.forEach((type) => {
+            openRelativePeriodsTypeSelect()
+            selectPeriodType(type.name)
+            expectSelectablePeriodItemsAmountToBe(type.amountOfChildren)
+        })
+
+        // fixed periods
+        switchToFixedPeriods()
+        expectFixedPeriodTypeToBe('Monthly')
+
+        const fixedPeriodTypes = [
+            { name: 'Daily', amountOfChildren: 365 },
+            { name: 'Weekly', amountOfChildren: 52 },
+            { name: 'Weekly (Start Wednesday)', amountOfChildren: 52 },
+            { name: 'Weekly (Start Thursday)', amountOfChildren: 52 },
+            { name: 'Weekly (Start Saturday)', amountOfChildren: 52 },
+            { name: 'Weekly (Start Sunday)', amountOfChildren: 52 },
+            { name: 'Bi-weekly', amountOfChildren: 26 },
+            { name: 'Monthly', amountOfChildren: 12 },
+            { name: 'Bi-monthly', amountOfChildren: 6 },
+            { name: 'Quarterly', amountOfChildren: 4 },
+            { name: 'Six-monthly', amountOfChildren: 2 },
+            { name: 'Six-monthly April', amountOfChildren: 2 },
+            { name: 'Yearly', amountOfChildren: 10 },
+            { name: 'Financial year (Start November)', amountOfChildren: 10 },
+            { name: 'Financial year (Start October)', amountOfChildren: 10 },
+            { name: 'Financial year (Start July)', amountOfChildren: 10 },
+            { name: 'Financial year (Start April)', amountOfChildren: 10 },
+        ]
+
+        // fixed period types have the correct amount of items
+        fixedPeriodTypes.forEach((type) => {
+            openFixedPeriodsTypeSelect()
+            selectPeriodType(type.name)
+            type.amountOfChildren > 50
+                ? expectSelectablePeriodItemsAmountToBeLeast(
+                      type.amountOfChildren
+                  )
+                : expectSelectablePeriodItemsAmountToBe(type.amountOfChildren)
+        })
+    })
+    it(['>=43'], 'has the expected initial state', () => {
+        setupV43Intercepts(allEnabledPeriodTypes)
 
         goToStartPage()
 
@@ -142,8 +284,11 @@ describe('Period dimension', () => {
             { name: 'Yearly', amountOfChildren: 10 },
             { name: 'Financial year (Start November)', amountOfChildren: 10 },
             { name: 'Financial year (Start October)', amountOfChildren: 10 },
+            { name: 'Financial year (Start September)', amountOfChildren: 10 },
+            { name: 'Financial year (Start August)', amountOfChildren: 10 },
             { name: 'Financial year (Start July)', amountOfChildren: 10 },
             { name: 'Financial year (Start April)', amountOfChildren: 10 },
+            { name: 'Financial year (Start February)', amountOfChildren: 10 },
         ]
 
         // fixed period types have the correct amount of items
@@ -205,7 +350,6 @@ describe('Period dimension', () => {
                 'Weekly',
                 'Weekly (Start Wednesday)',
                 'Weekly (Start Thursday)',
-                'Weekly (Start Friday)',
                 'Weekly (Start Saturday)',
                 'Weekly (Start Sunday)',
                 'Bi-weekly',
@@ -334,7 +478,6 @@ describe('Period dimension', () => {
                 'Weekly',
                 'Weekly (Start Wednesday)',
                 'Weekly (Start Thursday)',
-                'Weekly (Start Friday)',
                 'Weekly (Start Saturday)',
                 'Weekly (Start Sunday)',
                 'Bi-weekly',
@@ -400,7 +543,6 @@ describe('Period dimension', () => {
                 'Weekly',
                 'Weekly (Start Wednesday)',
                 'Weekly (Start Thursday)',
-                'Weekly (Start Friday)',
                 'Weekly (Start Saturday)',
                 'Weekly (Start Sunday)',
                 'Bi-weekly',
@@ -465,7 +607,6 @@ describe('Period dimension', () => {
                 'Weekly',
                 'Weekly (Start Wednesday)',
                 'Weekly (Start Thursday)',
-                'Weekly (Start Friday)',
                 'Weekly (Start Saturday)',
                 'Weekly (Start Sunday)',
                 'Monthly',
@@ -478,6 +619,342 @@ describe('Period dimension', () => {
                 'Financial year (Start October)',
                 'Financial year (Start July)',
                 'Financial year (Start April)',
+            ]
+            fixedPeriodTypes.forEach((type) =>
+                expectFixedPeriodTypeSelectToContain(type)
+            )
+            selectPeriodType(fixedPeriodTypes[1]) // Click the second item to close the dropdown
+        })
+    })
+
+    describe('using dataOutputPeriodTypes', () => {
+        it(['>=43'], 'works correctly when "monthly" is not enabled', () => {
+            const enabledPeriodTypes = allEnabledPeriodTypes.filter(
+                (pt) => pt.name !== 'Monthly'
+            )
+            setupV43Intercepts(enabledPeriodTypes)
+            goToStartPage()
+
+            openDimension(DIMENSION_ID_PERIOD)
+            expectPeriodDimensionModalToBeVisible()
+            expectRelativePeriodTypeToBe('Quarters')
+
+            // relative periods
+            openRelativePeriodsTypeSelect()
+            expectRelativePeriodTypeSelectToNotContain('Months')
+
+            // all other relative types are shown
+            const relativePeriodTypes = [
+                'Days',
+                'Weeks',
+                'Bi-weeks',
+                'Bi-months',
+                'Quarters',
+                'Six-months',
+                'Financial Years',
+                'Years',
+            ]
+            relativePeriodTypes.forEach((type) =>
+                expectRelativePeriodTypeSelectToContain(type)
+            )
+            selectPeriodType(relativePeriodTypes.slice(-1)[0]) // Click the last item to close the dropdown
+
+            // fixed periods
+            switchToFixedPeriods()
+            expectFixedPeriodTypeToBe('Quarterly')
+            openFixedPeriodsTypeSelect()
+            expectFixedPeriodTypeSelectToNotContain('Monthly')
+
+            // all other fixed types are shown
+            const fixedPeriodTypes = [
+                'Daily',
+                'Weekly',
+                'Weekly (Start Wednesday)',
+                'Weekly (Start Thursday)',
+                'Weekly (Start Friday)',
+                'Weekly (Start Saturday)',
+                'Weekly (Start Sunday)',
+                'Bi-weekly',
+                'Bi-monthly',
+                'Quarterly',
+                'Six-monthly',
+                'Six-monthly April',
+                'Yearly',
+                'Financial year (Start November)',
+                'Financial year (Start October)',
+                'Financial year (Start September)',
+                'Financial year (Start August)',
+                'Financial year (Start July)',
+                'Financial year (Start April)',
+                'Financial year (Start February)',
+            ]
+            fixedPeriodTypes.forEach((type) =>
+                expectFixedPeriodTypeSelectToContain(type)
+            )
+            selectPeriodType(fixedPeriodTypes[1]) // Click the second item to close the dropdown
+        })
+        it(['>=43'], 'works correctly when "weekly" is not enabled', () => {
+            const weeklyTypes = [
+                'Weekly',
+                'WeeklyWednesday',
+                'WeeklyThursday',
+                'WeeklyFriday',
+                'WeeklySaturday',
+                'WeeklySunday',
+            ]
+            const enabledPeriodTypes = allEnabledPeriodTypes.filter(
+                (pt) => !weeklyTypes.includes(pt.name)
+            )
+            setupV43Intercepts(enabledPeriodTypes)
+            goToStartPage()
+
+            openDimension(DIMENSION_ID_PERIOD)
+            expectPeriodDimensionModalToBeVisible()
+            expectRelativePeriodTypeToBe('Months')
+
+            // relative periods
+            openRelativePeriodsTypeSelect()
+            expectRelativePeriodTypeSelectToNotContain('Weeks')
+
+            // all other relative types are shown
+            const relativePeriodTypes = [
+                'Days',
+                'Bi-weeks',
+                'Months',
+                'Bi-months',
+                'Quarters',
+                'Six-months',
+                'Financial Years',
+                'Years',
+            ]
+            relativePeriodTypes.forEach((type) =>
+                expectRelativePeriodTypeSelectToContain(type)
+            )
+            selectPeriodType(relativePeriodTypes.slice(-1)[0]) // Click the last item to close the dropdown
+
+            // fixed periods
+            switchToFixedPeriods()
+            expectFixedPeriodTypeToBe('Monthly')
+            openFixedPeriodsTypeSelect()
+            expectFixedPeriodTypeSelectToNotContain('Weekly')
+            expectFixedPeriodTypeSelectToNotContain('Weekly (Start Wednesday)')
+            expectFixedPeriodTypeSelectToNotContain('Weekly (Start Thursday)')
+            expectFixedPeriodTypeSelectToNotContain('Weekly (Start Friday)')
+            expectFixedPeriodTypeSelectToNotContain('Weekly (Start Saturday)')
+            expectFixedPeriodTypeSelectToNotContain('Weekly (Start Sunday)')
+
+            // all other fixed types are shown
+            const fixedPeriodTypes = [
+                'Daily',
+                'Bi-weekly',
+                'Monthly',
+                'Bi-monthly',
+                'Quarterly',
+                'Six-monthly',
+                'Six-monthly April',
+                'Yearly',
+                'Financial year (Start November)',
+                'Financial year (Start October)',
+                'Financial year (Start September)',
+                'Financial year (Start August)',
+                'Financial year (Start July)',
+                'Financial year (Start April)',
+                'Financial year (Start February)',
+            ]
+            fixedPeriodTypes.forEach((type) =>
+                expectFixedPeriodTypeSelectToContain(type)
+            )
+            selectPeriodType(fixedPeriodTypes[1]) // Click the second item to close the dropdown
+        })
+        it(['>=43'], 'works correctly when "daily" is not enabled', () => {
+            const enabledPeriodTypes = allEnabledPeriodTypes.filter(
+                (pt) => pt.name !== 'Daily'
+            )
+            setupV43Intercepts(enabledPeriodTypes)
+            goToStartPage()
+
+            openDimension(DIMENSION_ID_PERIOD)
+            expectPeriodDimensionModalToBeVisible()
+            expectRelativePeriodTypeToBe('Months')
+
+            // relative periods
+            openRelativePeriodsTypeSelect()
+            expectRelativePeriodTypeSelectToNotContain('Days')
+
+            // all other relative types are shown
+            const relativePeriodTypes = [
+                'Weeks',
+                'Bi-weeks',
+                'Months',
+                'Bi-months',
+                'Quarters',
+                'Six-months',
+                'Financial Years',
+                'Years',
+            ]
+            relativePeriodTypes.forEach((type) =>
+                expectRelativePeriodTypeSelectToContain(type)
+            )
+            selectPeriodType(relativePeriodTypes.slice(-1)[0]) // Click the last item to close the dropdown
+
+            // fixed periods
+            switchToFixedPeriods()
+            expectFixedPeriodTypeToBe('Monthly')
+            openFixedPeriodsTypeSelect()
+            expectFixedPeriodTypeSelectToNotContain('Daily')
+
+            // all other fixed types are shown
+            const fixedPeriodTypes = [
+                'Weekly',
+                'Weekly (Start Wednesday)',
+                'Weekly (Start Thursday)',
+                'Weekly (Start Friday)',
+                'Weekly (Start Saturday)',
+                'Weekly (Start Sunday)',
+                'Bi-weekly',
+                'Monthly',
+                'Bi-monthly',
+                'Quarterly',
+                'Six-monthly',
+                'Six-monthly April',
+                'Yearly',
+                'Financial year (Start November)',
+                'Financial year (Start October)',
+                'Financial year (Start September)',
+                'Financial year (Start August)',
+                'Financial year (Start July)',
+                'Financial year (Start April)',
+                'Financial year (Start February)',
+            ]
+            fixedPeriodTypes.forEach((type) =>
+                expectFixedPeriodTypeSelectToContain(type)
+            )
+            selectPeriodType(fixedPeriodTypes[1]) // Click the second item to close the dropdown
+        })
+        it(['>=43'], 'works when "bi-monthly" is not enabled', () => {
+            const enabledPeriodTypes = allEnabledPeriodTypes.filter(
+                (pt) => pt.name !== 'BiMonthly'
+            )
+            setupV43Intercepts(enabledPeriodTypes)
+            goToStartPage()
+
+            openDimension(DIMENSION_ID_PERIOD)
+            expectPeriodDimensionModalToBeVisible()
+            expectRelativePeriodTypeToBe('Months')
+
+            // relative periods
+            openRelativePeriodsTypeSelect()
+            expectRelativePeriodTypeSelectToNotContain('Bi-months')
+
+            // all other relative types are shown
+            const relativePeriodTypes = [
+                'Days',
+                'Weeks',
+                'Bi-weeks',
+                'Months',
+                'Quarters',
+                'Six-months',
+                'Financial Years',
+                'Years',
+            ]
+            relativePeriodTypes.forEach((type) =>
+                expectRelativePeriodTypeSelectToContain(type)
+            )
+            selectPeriodType(relativePeriodTypes.slice(-1)[0]) // Click the last item to close the dropdown
+
+            // fixed periods
+            switchToFixedPeriods()
+            expectFixedPeriodTypeToBe('Monthly')
+            openFixedPeriodsTypeSelect()
+            expectFixedPeriodTypeSelectToNotContain('Bi-monthly')
+
+            // all other fixed types are shown
+            const fixedPeriodTypes = [
+                'Daily',
+                'Weekly',
+                'Weekly (Start Wednesday)',
+                'Weekly (Start Thursday)',
+                'Weekly (Start Friday)',
+                'Weekly (Start Saturday)',
+                'Weekly (Start Sunday)',
+                'Bi-weekly',
+                'Monthly',
+                'Quarterly',
+                'Six-monthly',
+                'Six-monthly April',
+                'Yearly',
+                'Financial year (Start November)',
+                'Financial year (Start October)',
+                'Financial year (Start September)',
+                'Financial year (Start August)',
+                'Financial year (Start July)',
+                'Financial year (Start April)',
+                'Financial year (Start February)',
+            ]
+            fixedPeriodTypes.forEach((type) =>
+                expectFixedPeriodTypeSelectToContain(type)
+            )
+            selectPeriodType(fixedPeriodTypes[1]) // Click the second item to close the dropdown
+        })
+        it(['>=43'], 'works when "bi-weekly" is not enabled', () => {
+            const enabledPeriodTypes = allEnabledPeriodTypes.filter(
+                (pt) => pt.name !== 'BiWeekly'
+            )
+            setupV43Intercepts(enabledPeriodTypes)
+            goToStartPage()
+
+            openDimension(DIMENSION_ID_PERIOD)
+            expectPeriodDimensionModalToBeVisible()
+            expectRelativePeriodTypeToBe('Months')
+
+            // relative periods
+            openRelativePeriodsTypeSelect()
+            expectRelativePeriodTypeSelectToNotContain('Bi-weeks')
+
+            // all other relative types are shown
+            const relativePeriodTypes = [
+                'Days',
+                'Weeks',
+                'Months',
+                'Bi-months',
+                'Quarters',
+                'Six-months',
+                'Financial Years',
+                'Years',
+            ]
+            relativePeriodTypes.forEach((type) =>
+                expectRelativePeriodTypeSelectToContain(type)
+            )
+            selectPeriodType(relativePeriodTypes.slice(-1)[0]) // Click the last item to close the dropdown
+
+            // fixed periods
+            switchToFixedPeriods()
+            expectFixedPeriodTypeToBe('Monthly')
+            openFixedPeriodsTypeSelect()
+            expectFixedPeriodTypeSelectToNotContain('Bi-weekly')
+
+            // all other fixed types are shown
+            const fixedPeriodTypes = [
+                'Daily',
+                'Weekly',
+                'Weekly (Start Wednesday)',
+                'Weekly (Start Thursday)',
+                'Weekly (Start Friday)',
+                'Weekly (Start Saturday)',
+                'Weekly (Start Sunday)',
+                'Monthly',
+                'Bi-monthly',
+                'Quarterly',
+                'Six-monthly',
+                'Six-monthly April',
+                'Yearly',
+                'Financial year (Start November)',
+                'Financial year (Start October)',
+                'Financial year (Start September)',
+                'Financial year (Start August)',
+                'Financial year (Start July)',
+                'Financial year (Start April)',
+                'Financial year (Start February)',
             ]
             fixedPeriodTypes.forEach((type) =>
                 expectFixedPeriodTypeSelectToContain(type)
