@@ -336,7 +336,7 @@ describe('Period dimension', () => {
             relativePeriodTypes.forEach((type) =>
                 expectRelativePeriodTypeSelectToContain(type)
             )
-            selectPeriodType(relativePeriodTypes.slice(-1)[0]) // Click the last item to close the dropdown
+            selectPeriodType(relativePeriodTypes.at(-1)) // Click the last item to close the dropdown
 
             // fixed periods
             switchToFixedPeriods()
@@ -400,7 +400,7 @@ describe('Period dimension', () => {
             relativePeriodTypes.forEach((type) =>
                 expectRelativePeriodTypeSelectToContain(type)
             )
-            selectPeriodType(relativePeriodTypes.slice(-1)[0]) // Click the last item to close the dropdown
+            selectPeriodType(relativePeriodTypes.at(-1)) // Click the last item to close the dropdown
 
             // fixed periods
             switchToFixedPeriods()
@@ -465,7 +465,7 @@ describe('Period dimension', () => {
             relativePeriodTypes.forEach((type) =>
                 expectRelativePeriodTypeSelectToContain(type)
             )
-            selectPeriodType(relativePeriodTypes.slice(-1)[0]) // Click the last item to close the dropdown
+            selectPeriodType(relativePeriodTypes.at(-1)) // Click the last item to close the dropdown
 
             // fixed periods
             switchToFixedPeriods()
@@ -529,7 +529,7 @@ describe('Period dimension', () => {
             relativePeriodTypes.forEach((type) =>
                 expectRelativePeriodTypeSelectToContain(type)
             )
-            selectPeriodType(relativePeriodTypes.slice(-1)[0]) // Click the last item to close the dropdown
+            selectPeriodType(relativePeriodTypes.at(-1)) // Click the last item to close the dropdown
 
             // fixed periods
             switchToFixedPeriods()
@@ -593,7 +593,7 @@ describe('Period dimension', () => {
             relativePeriodTypes.forEach((type) =>
                 expectRelativePeriodTypeSelectToContain(type)
             )
-            selectPeriodType(relativePeriodTypes.slice(-1)[0]) // Click the last item to close the dropdown
+            selectPeriodType(relativePeriodTypes.at(-1)) // Click the last item to close the dropdown
 
             // fixed periods
             switchToFixedPeriods()
@@ -657,7 +657,7 @@ describe('Period dimension', () => {
             relativePeriodTypes.forEach((type) =>
                 expectRelativePeriodTypeSelectToContain(type)
             )
-            selectPeriodType(relativePeriodTypes.slice(-1)[0]) // Click the last item to close the dropdown
+            selectPeriodType(relativePeriodTypes.at(-1)) // Click the last item to close the dropdown
 
             // fixed periods
             switchToFixedPeriods()
@@ -694,16 +694,16 @@ describe('Period dimension', () => {
             selectPeriodType(fixedPeriodTypes[1]) // Click the second item to close the dropdown
         })
         it(['>=43'], 'works correctly when "weekly" is not enabled', () => {
-            const weeklyTypes = [
+            const weeklyTypes = new Set([
                 'Weekly',
                 'WeeklyWednesday',
                 'WeeklyThursday',
                 'WeeklyFriday',
                 'WeeklySaturday',
                 'WeeklySunday',
-            ]
+            ])
             const enabledPeriodTypes = allEnabledPeriodTypes.filter(
-                (pt) => !weeklyTypes.includes(pt.name)
+                (pt) => !weeklyTypes.has(pt.name)
             )
             setupV43Intercepts(enabledPeriodTypes)
             goToStartPage()
@@ -730,7 +730,7 @@ describe('Period dimension', () => {
             relativePeriodTypes.forEach((type) =>
                 expectRelativePeriodTypeSelectToContain(type)
             )
-            selectPeriodType(relativePeriodTypes.slice(-1)[0]) // Click the last item to close the dropdown
+            selectPeriodType(relativePeriodTypes.at(-1)) // Click the last item to close the dropdown
 
             // fixed periods
             switchToFixedPeriods()
@@ -795,7 +795,7 @@ describe('Period dimension', () => {
             relativePeriodTypes.forEach((type) =>
                 expectRelativePeriodTypeSelectToContain(type)
             )
-            selectPeriodType(relativePeriodTypes.slice(-1)[0]) // Click the last item to close the dropdown
+            selectPeriodType(relativePeriodTypes.at(-1)) // Click the last item to close the dropdown
 
             // fixed periods
             switchToFixedPeriods()
@@ -860,7 +860,7 @@ describe('Period dimension', () => {
             relativePeriodTypes.forEach((type) =>
                 expectRelativePeriodTypeSelectToContain(type)
             )
-            selectPeriodType(relativePeriodTypes.slice(-1)[0]) // Click the last item to close the dropdown
+            selectPeriodType(relativePeriodTypes.at(-1)) // Click the last item to close the dropdown
 
             // fixed periods
             switchToFixedPeriods()
@@ -925,7 +925,7 @@ describe('Period dimension', () => {
             relativePeriodTypes.forEach((type) =>
                 expectRelativePeriodTypeSelectToContain(type)
             )
-            selectPeriodType(relativePeriodTypes.slice(-1)[0]) // Click the last item to close the dropdown
+            selectPeriodType(relativePeriodTypes.at(-1)) // Click the last item to close the dropdown
 
             // fixed periods
             switchToFixedPeriods()
