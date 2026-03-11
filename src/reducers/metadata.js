@@ -1,6 +1,7 @@
 import getDefaultMetadata from '../modules/metadata.js'
 
 export const ADD_METADATA = 'ADD_METADATA'
+export const OVERRIDE_METADATA = 'OVERRIDE_METADATA'
 
 export const DEFAULT_METADATA = getDefaultMetadata()
 
@@ -14,6 +15,13 @@ export default (state = DEFAULT_METADATA, action) => {
                     return
                 }
 
+                result[key] = { ...result[key], ...value }
+            })
+            return result
+        }
+        case OVERRIDE_METADATA: {
+            const result = { ...state }
+            Object.entries(action.value).forEach(([key, value]) => {
                 result[key] = { ...result[key], ...value }
             })
             return result

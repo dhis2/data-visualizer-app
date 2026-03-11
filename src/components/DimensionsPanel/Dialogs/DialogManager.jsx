@@ -19,6 +19,7 @@ import {
     WEEKLY,
     WEEKLYWED,
     WEEKLYTHU,
+    WEEKLYFRI,
     WEEKLYSAT,
     WEEKLYSUN,
     BIWEEKLY,
@@ -85,7 +86,14 @@ const getExcludedPeriodTypes = (settings = {}) => {
         types.push(DAILY)
     }
     if (settings['keyHideWeeklyPeriods']) {
-        types.push(WEEKLY, WEEKLYWED, WEEKLYTHU, WEEKLYSAT, WEEKLYSUN)
+        types.push(
+            WEEKLY,
+            WEEKLYWED,
+            WEEKLYTHU,
+            WEEKLYFRI,
+            WEEKLYSAT,
+            WEEKLYSUN
+        )
     }
     if (settings['keyHideBiWeeklyPeriods']) {
         types.push(BIWEEKLY)
