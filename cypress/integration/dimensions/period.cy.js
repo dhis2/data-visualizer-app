@@ -78,7 +78,7 @@ const allEnabledPeriodTypes = [
 const setupV43Intercepts = (enabledPeriodTypes) => {
     // Bulk systemSettings for Redux store
     cy.intercept(
-        /systemSettings/,
+        /api\/.*\/api\/.*\/systemSettings/,
         systemSettingsInterceptFn(systemSettingsBody)
     )
     // v43+ endpoints used by @dhis2/analytics PeriodDimension
@@ -99,7 +99,7 @@ const setupV43Intercepts = (enabledPeriodTypes) => {
 describe('Period dimension', () => {
     it(['<=42'], 'has the expected initial state', () => {
         cy.intercept(
-            /systemSettings/,
+            /api\/.*\/systemSettings/,
             systemSettingsInterceptFn(systemSettingsBody)
         )
 
@@ -306,7 +306,7 @@ describe('Period dimension', () => {
     describe('using period settings', () => {
         it(['<=42'], 'works correctly when "monthly" is hidden', () => {
             cy.intercept(
-                /systemSettings/,
+                /api\/.*\/systemSettings/,
                 systemSettingsInterceptFn({
                     ...systemSettingsBody,
                     keyHideMonthlyPeriods: true,
@@ -370,7 +370,7 @@ describe('Period dimension', () => {
         })
         it(['<=42'], 'works correctly when "weekly" is hidden', () => {
             cy.intercept(
-                /systemSettings/,
+                /api\/.*\/systemSettings/,
                 systemSettingsInterceptFn({
                     ...systemSettingsBody,
                     keyHideWeeklyPeriods: true,
@@ -435,7 +435,7 @@ describe('Period dimension', () => {
         })
         it(['<=42'], 'works correctly when "daily" is hidden', () => {
             cy.intercept(
-                /systemSettings/,
+                /api\/.*\/systemSettings/,
                 systemSettingsInterceptFn({
                     ...systemSettingsBody,
                     keyHideDailyPeriods: true,
@@ -499,7 +499,7 @@ describe('Period dimension', () => {
         })
         it(['<=42'], 'works when "bi-monthly" is hidden', () => {
             cy.intercept(
-                /systemSettings/,
+                /api\/.*\/systemSettings/,
                 systemSettingsInterceptFn({
                     ...systemSettingsBody,
                     keyHideBiMonthlyPeriods: true,
@@ -563,7 +563,7 @@ describe('Period dimension', () => {
         })
         it(['<=42'], 'works when "bi-weekly" is hidden', () => {
             cy.intercept(
-                /systemSettings/,
+                /api\/.*\/systemSettings/,
                 systemSettingsInterceptFn({
                     ...systemSettingsBody,
                     keyHideBiWeeklyPeriods: true,
