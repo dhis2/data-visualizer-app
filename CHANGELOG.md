@@ -1,3 +1,17 @@
+# [101.5.0](https://github.com/dhis2/data-visualizer-app/compare/v101.4.1...v101.5.0) (2026-03-11)
+
+
+### Features
+
+* data output period types (DHIS2-21001) ([#3458](https://github.com/dhis2/data-visualizer-app/issues/3458)) ([fcc3370](https://github.com/dhis2/data-visualizer-app/commit/fcc33707b50af8719919663248183a02d54e39d3))
+
+## [101.4.1](https://github.com/dhis2/data-visualizer-app/compare/v101.4.0...v101.4.1) (2026-03-02)
+
+
+### Bug Fixes
+
+* misaligned vis types in the selector ([#3448](https://github.com/dhis2/data-visualizer-app/issues/3448)) ([3cfb176](https://github.com/dhis2/data-visualizer-app/commit/3cfb176a14cdfc3d5306e043b68f889e4b0bbb59))
+
 # [101.4.0](https://github.com/dhis2/data-visualizer-app/compare/v101.3.7...v101.4.0) (2026-02-11)
 
 

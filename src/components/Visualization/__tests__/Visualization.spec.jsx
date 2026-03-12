@@ -6,6 +6,14 @@ import { __setChart as setChart } from '../../ChartProvider.jsx' // eslint-disab
 import { VisualizationPlugin } from '../../VisualizationPlugin/VisualizationPlugin.jsx'
 import { Visualization } from '../Visualization.jsx'
 
+jest.mock('@dhis2/analytics', () => ({
+    ...jest.requireActual('@dhis2/analytics'),
+    useDataOutputPeriodTypes: () => ({
+        supportsEnabledPeriodTypes: false,
+        enabledPeriodTypesData: null,
+    }),
+}))
+
 jest.mock('../../ChartProvider.jsx', () => {
     const setChart = jest.fn()
     return {

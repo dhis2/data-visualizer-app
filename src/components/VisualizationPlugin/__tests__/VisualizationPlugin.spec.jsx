@@ -25,6 +25,10 @@ jest.mock('@dhis2/analytics', () => ({
                 id: '2nd-floor',
             },
         ]),
+    useDataOutputPeriodTypes: () => ({
+        supportsEnabledPeriodTypes: false,
+        enabledPeriodTypesData: null,
+    }),
 }))
 global.ResizeObserver = jest.fn().mockImplementation(() => ({
     observe: jest.fn(),
