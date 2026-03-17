@@ -20,7 +20,7 @@
         "postinstall": "cp ./node_modules/jspdf/dist/jspdf.umd.min.js ./public/vendor/jspdf.js && cp ./node_modules/svg2pdf.js/dist/svg2pdf.umd.min.js ./public/vendor/svg2pdf.js"
     },
     "devDependencies": {
-        "@dhis2/cli-app-scripts": "^12.7.2",
+        "@dhis2/cli-app-scripts": "^12.11.0",
         "@dhis2/cli-style": "^10.7.6",
         "@dhis2/cypress-commands": "^10.1.0",
         "@dhis2/cypress-plugins": "^10.1.0",
@@ -48,7 +48,7 @@
         "typescript-eslint": "^8.35.0"
     },
     "dependencies": {
-        "@dhis2/analytics": "^29.3.2",
+        "@dhis2/analytics": "^29.4.1",
         "@dhis2/app-runtime": "^3.14.1",
         "@dhis2/app-service-datastore": "^1.0.0-beta.3",
         "@dhis2/d2-i18n": "^1.1.0",
