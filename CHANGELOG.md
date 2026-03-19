@@ -1,3 +1,10 @@
+## [101.5.1](https://github.com/dhis2/data-visualizer-app/compare/v101.5.0...v101.5.1) (2026-03-17)
+
+
+### Bug Fixes
+
+* **app-platform:** support for loading custom translations from the data store ([#3459](https://github.com/dhis2/data-visualizer-app/issues/3459)) ([2da191a](https://github.com/dhis2/data-visualizer-app/commit/2da191a1958a9388952e8a669fbc19dcdb399e15))
+
 # [101.5.0](https://github.com/dhis2/data-visualizer-app/compare/v101.4.1...v101.5.0) (2026-03-11)
 
 
