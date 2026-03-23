@@ -265,15 +265,16 @@ class UnconnectedApp extends Component {
                                 </div>
                             </div>
                         </DndContext>
-                        {this.props.ui.rightSidebarOpen && this.props.current && (
-                            <div className="main-right">
-                                <DetailsPanel
-                                    aboutAORenderCount={
-                                        this.state.aboutAORenderCount
-                                    }
-                                />
-                            </div>
-                        )}
+                        {this.props.ui.rightSidebarOpen &&
+                            this.props.current && (
+                                <div className="main-right">
+                                    <DetailsPanel
+                                        aboutAORenderCount={
+                                            this.state.aboutAORenderCount
+                                        }
+                                    />
+                                </div>
+                            )}
                     </div>
                 </div>
                 {this.state.locationToConfirm && (
