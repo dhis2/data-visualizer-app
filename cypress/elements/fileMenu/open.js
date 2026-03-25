@@ -5,7 +5,6 @@ import { FILE_MENU_BUTTON_OPEN, clickFileMenuButton } from './index.js'
 
 const openModalEl = 'open-file-dialog-modal'
 const openModalNameFilterEl = 'open-file-dialog-modal-name-filter'
-const openModalFooterEl = '*[class^="MuiTableFooter"]'
 const openModalToolbarEl = '*[class^="MuiToolbar-root"]'
 const createdByOthersEl = '[data-value=byothers]'
 const openModalItemContainerEl = '*[class^="MuiTableBody"]'
@@ -27,12 +26,11 @@ export const openRandomAO = () => {
     clickMenuBarFileButton()
     clickFileMenuButton(FILE_MENU_BUTTON_OPEN)
     searchAOByName(generateRandomChar())
-    // eslint-disable-next-line
-    cy.wait(500) // FIXME: This is a hack
-    /* 
-                Without the wait Cypress will race the DOM to update the list of available AOs 
-                Hopefully this can be solved once the Open dialog is changed to @dhis2/ui instead)
-            */
+    // Wait for the list to update before clicking a random AO
+    cy.getBySel(openModalEl)
+        .find(openModalItemContainerEl)
+        .children()
+        .should('have.length.greaterThan', 0)
     clickRandomAO()
 }
 
@@ -48,13 +46,11 @@ export const openRandomAOCreatedByOthers = () => {
         .as('owner')
         .click()
     cy.get(createdByOthersEl).click()
-    cy.getBySel(openModalEl).find(openModalFooterEl).should('contain', '241') // FIXME: This is a hack
-    /*
-        Without the wait Cypress will race the DOM to update the list of available AOs
-        Hopefully this can be solved once the Open dialog is changed to @dhis2(ui instead)
-        Otherwise one possible solution is to fetch the amount of AOs (241) from the server before
-        starting the tests
-    */
+    // Wait for the list to update after switching owner filter
+    cy.getBySel(openModalEl)
+        .find(openModalItemContainerEl)
+        .children()
+        .should('have.length.greaterThan', 0)
     clickRandomAO()
 }
 
