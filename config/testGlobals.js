@@ -1,3 +1,4 @@
+/* eslint-env es2020 */
 if (typeof CSS === 'undefined') {
-    global.CSS = { supports: () => false }
+    globalThis.CSS = { supports: () => true }
 }
