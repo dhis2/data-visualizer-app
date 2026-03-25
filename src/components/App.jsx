@@ -333,10 +333,6 @@ class UnconnectedApp extends Component {
     }
 }
 
-UnconnectedApp.contextTypes = {
-    store: PropTypes.object,
-}
-
 UnconnectedApp.propTypes = {
     addMetadata: PropTypes.func,
     addParentGraphMap: PropTypes.func,
