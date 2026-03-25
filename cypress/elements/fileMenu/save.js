@@ -35,10 +35,8 @@ export const saveAOAs = (name, description) => {
         typeInput(saveModalNameEl, name)
     }
     if (description) {
-        cy.getBySel(saveModalDescriptionEl)
-            .find('textarea')
-            .clear()
-            .type(description)
+        cy.getBySel(saveModalDescriptionEl).find('textarea').clear()
+        cy.getBySel(saveModalDescriptionEl).find('textarea').type(description)
     }
     cy.getBySel(saveModalSaveButtonEl).click()
 }

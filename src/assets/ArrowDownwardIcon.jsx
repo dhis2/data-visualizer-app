@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const ArrowDownwardIcon = ({ style = { width: 18, height: 18 } }) => (
+const defaultStyle = { width: 18, height: 18 }
+
+const ArrowDownwardIcon = ({ style = defaultStyle }) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style={style}>
         <path d="M0 0h24v24H0V0z" fill="none" />
         <path

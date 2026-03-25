@@ -64,20 +64,14 @@ export const openOrgUnitTreeItem = (itemName) =>
 
 export const toggleOrgUnitLevel = (name) => {
     cy.getBySel(levelSelectEl).click()
-    cy.getBySelLike(levelSelectOptionEl)
-        .contains(name)
-        .click()
-        .closest('[data-test=dhis2-uicore-layer]')
-        .click('center')
+    cy.getBySelLike(levelSelectOptionEl).contains(name).click()
+    cy.get('[data-test=dhis2-uicore-layer]').click('center')
 }
 
 export const toggleOrgUnitGroup = (name) => {
     cy.getBySel(groupSelectEl).click()
-    cy.getBySelLike(groupSelectOptionEl)
-        .contains(name)
-        .click()
-        .closest('[data-test=dhis2-uicore-layer]')
-        .click('center')
+    cy.getBySelLike(groupSelectOptionEl).contains(name).click()
+    cy.get('[data-test=dhis2-uicore-layer]').click('center')
 }
 
 export const selectUserOrgUnit = (name) => {

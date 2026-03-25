@@ -12,15 +12,15 @@ const loadingEl = 'dhis2-uicore-circularloader'
 export const expectAppToNotBeLoading = () =>
     cy.getBySel(loadingEl, { timeout: 15000 }).should('not.exist')
 
-export const checkCheckbox = (target) =>
-    cy.getBySel(target).click().find('[type="checkbox"]').should('be.checked')
+export const checkCheckbox = (target) => {
+    cy.getBySel(target).click()
+    cy.getBySel(target).find('[type="checkbox"]').should('be.checked')
+}
 
-export const uncheckCheckbox = (target) =>
-    cy
-        .getBySel(target)
-        .click()
-        .find('[type="checkbox"]')
-        .should('not.be.checked')
+export const uncheckCheckbox = (target) => {
+    cy.getBySel(target).click()
+    cy.getBySel(target).find('[type="checkbox"]').should('not.be.checked')
+}
 
 export const typeInput = (target, text) =>
     cy.getBySel(target).find('input').type(text)
