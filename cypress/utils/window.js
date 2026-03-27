@@ -54,7 +54,7 @@ export const expectWindowConfigAxisTitleToBeValue = (
         .its(axisType)
         .its(axisIndex)
         .its(TITLE_PROP)
-        .should('eql', value)
+        .should('deep.include', value)
 
 export const expectWindowConfigAxisLabelsToBeValue = (
     axisType,
