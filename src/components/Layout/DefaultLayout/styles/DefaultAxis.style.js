@@ -4,6 +4,7 @@ import * as layoutStyle from '../../styles/style.js'
 export default {
     axisContainer: {
         display: 'flex',
+        flexDirection: 'column',
         backgroundColor: layoutStyle.AXIS_BACKGROUND_COLOR,
         borderColor: layoutStyle.AXIS_BORDER_COLOR,
         borderStyle: layoutStyle.AXIS_BORDER_STYLE,
@@ -17,10 +18,11 @@ export default {
         minWidth: 55,
         maxWidth: 55,
         padding: '2px 0px 0px 0px',
-        fontSize: 11,
-        color: colors.grey700,
+        fontSize: 10,
+        color: colors.grey600,
         userSelect: 'none',
-        letterSpacing: '0.2px',
+        fontFamily: `'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace`,
+        textTransform: 'uppercase',
     },
 }
 // TODO: Refactor this file and all other affected files (DefaultLayout + everything in ../../styles/) to css modules
