@@ -19,63 +19,39 @@ import {
     sGetUiYearOverYearCategory,
 } from '../../../reducers/ui.js'
 import DefaultAxis from '../DefaultLayout/DefaultAxis.jsx'
-import defaultAxisStyles from '../DefaultLayout/styles/DefaultAxis.style.js'
 import defaultLayoutStyles from '../DefaultLayout/styles/DefaultLayout.style.js'
-import YearOverYearLayoutStyles from './styles/YearOverYearLayout.style.js'
 import YearOverYearAxis from './YearOverYearAxis.jsx'
 import YearOverYearSelect from './YearOverYearSelect.jsx'
 
 const Layout = (props) => (
     <div id="layout-ct" style={defaultLayoutStyles.ct}>
-        <div
-            id="axis-group-1"
-            style={{
-                ...defaultLayoutStyles.axisGroup,
-                ...YearOverYearLayoutStyles.axisGroupLeft,
-            }}
+        <YearOverYearAxis
+            axisId={AXIS_ID_COLUMNS}
+            style={defaultLayoutStyles.firstAxis}
         >
-            <YearOverYearAxis
-                axisId={AXIS_ID_COLUMNS}
-                style={{
-                    ...defaultLayoutStyles.columns,
-                    ...defaultAxisStyles.axisContainerLeft,
-                }}
-            >
-                <YearOverYearSelect
-                    multiple="true"
-                    value={props.yearOverYearSeries}
-                    onChange={props.onSeriesChange}
-                    options={seriesOptions}
-                    dataTest={`yoy-layout-${AXIS_ID_COLUMNS}-select`}
-                />
-            </YearOverYearAxis>
-            <YearOverYearAxis
-                axisId={AXIS_ID_ROWS}
-                style={{
-                    ...defaultLayoutStyles.rows,
-                    ...defaultAxisStyles.axisContainerLeft,
-                }}
-            >
-                <YearOverYearSelect
-                    value={props.yearOverYearCategory[0]}
-                    onChange={props.onCategoryChange}
-                    options={categoryOptions}
-                    dataTest={`yoy-layout-${AXIS_ID_ROWS}-select`}
-                />
-            </YearOverYearAxis>
-        </div>
-        <div
-            id="axis-group-2"
-            style={{
-                ...defaultLayoutStyles.axisGroup,
-                ...YearOverYearLayoutStyles.axisGroupRight,
-            }}
-        >
-            <DefaultAxis
-                axisId={AXIS_ID_FILTERS}
-                style={defaultLayoutStyles.filters}
+            <YearOverYearSelect
+                multiple="true"
+                value={props.yearOverYearSeries}
+                onChange={props.onSeriesChange}
+                options={seriesOptions}
+                dataTest={`yoy-layout-${AXIS_ID_COLUMNS}-select`}
             />
-        </div>
+        </YearOverYearAxis>
+        <YearOverYearAxis
+            axisId={AXIS_ID_ROWS}
+            style={defaultLayoutStyles.axis}
+        >
+            <YearOverYearSelect
+                value={props.yearOverYearCategory[0]}
+                onChange={props.onCategoryChange}
+                options={categoryOptions}
+                dataTest={`yoy-layout-${AXIS_ID_ROWS}-select`}
+            />
+        </YearOverYearAxis>
+        <DefaultAxis
+            axisId={AXIS_ID_FILTERS}
+            style={defaultLayoutStyles.axis}
+        />
     </div>
 )
 

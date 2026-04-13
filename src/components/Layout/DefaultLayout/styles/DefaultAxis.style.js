@@ -11,9 +11,6 @@ export default {
         borderWidth: layoutStyle.AXIS_BORDER_WIDTH,
         padding: layoutStyle.AXIS_PADDING,
     },
-    axisContainerLeft: {
-        borderInlineStartWidth: 0,
-    },
     label: {
         minWidth: 55,
         maxWidth: 55,
