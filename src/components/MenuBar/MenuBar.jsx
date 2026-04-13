@@ -1,14 +1,16 @@
 import {
     FileMenu,
     HoverMenuBar,
-    UpdateButton,
+    OpenFileDialog,
+    SaveAsDialog,
     VIS_TYPE_GROUP_ALL,
     VIS_TYPE_GROUP_CHARTS,
     useCachedDataQuery,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
+import { IconAdd16, IconFolderOpen16, IconSave16 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import * as fromActions from '../../actions/index.js'
 import { getErrorVariantByStatusCode } from '../../modules/error.js'
@@ -23,9 +25,9 @@ import {
 import { sGetCurrent } from '../../reducers/current.js'
 import { sGetVisualization } from '../../reducers/visualization.js'
 import { ToolbarDownloadDropdown } from '../DownloadMenu/ToolbarDownloadDropdown.jsx'
-import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer.js'
-import VisualizationOptionsManager from '../VisualizationOptions/VisualizationOptionsManager.jsx'
+import { TitleBar } from '../TitleBar/TitleBar.jsx'
 import { InterpretationsButton } from './InterpretationsButton.jsx'
+import styles from './MenuBar.module.css'
 
 const onOpen = (id) => {
     const path = `/${id}`
@@ -55,7 +57,8 @@ const getOnDelete = (props) => () => props.onDeleteVisualization()
 
 const getOnError = (props) => (error) => props.onError(error)
 
-const UnconnectedMenuBar = ({ dataTest, onFileMenuAction, ...props }) => {
+const UnconnectedMenuBar = ({ onFileMenuAction, ...props }) => {
+    const [dialog, setDialog] = useState(null)
     const { currentUser } = useCachedDataQuery()
 
     const filterVisTypesByVersion = useVisTypesFilterByVersion()
@@ -68,16 +71,39 @@ const UnconnectedMenuBar = ({ dataTest, onFileMenuAction, ...props }) => {
         })),
     ]
 
+    const canSave = [STATE_UNSAVED, STATE_DIRTY].includes(
+        getVisualizationState(props.visualization, props.current)
+    )
+
+    const onSaveClick = () => {
+        if (props.current?.id) {
+            getOnSave(props)()
+        } else {
+            setDialog('saveas')
+        }
+    }
+
     return (
         <>
-            <UpdateVisualizationContainer
-                renderComponent={(handler) => (
-                    <UpdateButton
-                        onClick={handler}
-                        dataTest={`${dataTest}-update-button`}
-                    />
-                )}
-            />
+            <button className={styles.menuButton} onClick={onNew}>
+                <IconAdd16 />
+                {i18n.t('New')}
+            </button>
+            <button
+                className={styles.menuButton}
+                onClick={() => setDialog('open')}
+            >
+                <IconFolderOpen16 />
+                {i18n.t('Open')}
+            </button>
+            <button
+                className={styles.menuButton}
+                disabled={!canSave}
+                onClick={onSaveClick}
+            >
+                <IconSave16 />
+                {i18n.t('Save')}
+            </button>
             <HoverMenuBar>
                 <FileMenu
                     currentUser={currentUser}
@@ -102,11 +128,40 @@ const UnconnectedMenuBar = ({ dataTest, onFileMenuAction, ...props }) => {
                     onDelete={getOnDelete(props)}
                     onError={getOnError(props)}
                 />
-                <VisualizationOptionsManager />
-
                 <ToolbarDownloadDropdown />
+                <TitleBar />
             </HoverMenuBar>
             <InterpretationsButton />
+
+            {dialog === 'open' && (
+                <OpenFileDialog
+                    open
+                    type={props.apiObjectName}
+                    filterVisTypes={filterVisTypes}
+                    defaultFilterVisType={VIS_TYPE_GROUP_ALL}
+                    currentUser={currentUser}
+                    onClose={() => setDialog(null)}
+                    onFileSelect={(id) => {
+                        onOpen(id)
+                        setDialog(null)
+                    }}
+                    onNew={() => {
+                        onNew()
+                        setDialog(null)
+                    }}
+                />
+            )}
+            {dialog === 'saveas' && (
+                <SaveAsDialog
+                    type={props.apiObjectName}
+                    object={props.current}
+                    onSaveAs={(details) => {
+                        getOnSaveAs(props)(details)
+                        setDialog(null)
+                    }}
+                    onClose={() => setDialog(null)}
+                />
+            )}
         </>
     )
 }
@@ -114,7 +169,6 @@ const UnconnectedMenuBar = ({ dataTest, onFileMenuAction, ...props }) => {
 UnconnectedMenuBar.propTypes = {
     apiObjectName: PropTypes.string,
     current: PropTypes.object,
-    dataTest: PropTypes.string,
     visualization: PropTypes.object,
     onFileMenuAction: PropTypes.func,
 }
