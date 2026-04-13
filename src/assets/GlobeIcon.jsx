@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const GlobeIcon = ({
-    style = { width: 24, height: 24, paddingRight: '8px' },
-}) => (
+const defaultStyle = { width: 24, height: 24, paddingRight: '8px' }
+
+const GlobeIcon = ({ style = defaultStyle }) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" style={style}>
         <g fill="none" fillRule="evenodd" transform="rotate(90 24 24)">
             <polygon points="0 0 48 0 48 48 0 48" />

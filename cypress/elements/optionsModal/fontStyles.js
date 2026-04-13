@@ -31,6 +31,8 @@ export const changeColor = (prefix, color) => {
         .find('input[type=color]')
         .invoke('val', color)
         .trigger('input', { force: true }) // use force as the input has style "pointer-events: none"
+    cy.getBySelLike(getColorButtonEl(prefix))
+        .find('input[type=color]')
         .invoke('attr', 'value')
         .should('eq', color)
 }

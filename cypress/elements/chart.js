@@ -111,7 +111,7 @@ export const expectChartItemsToHaveLength = (length) =>
     cy.get(highchartsChartItemEl).children().should('have.length', length)
 
 export const expectSVTitleToHaveColor = (color) =>
-    cy.get('text.highcharts-title').should('have.css', 'color', color)
+    cy.get('text.highcharts-title').should('have.css', 'fill', color)
 
 export const expectSVSubtitleToHaveColor = (color) =>
-    cy.get('text.highcharts-subtitle').should('have.css', 'color', color)
+    cy.get('text.highcharts-subtitle').should('have.css', 'fill', color)

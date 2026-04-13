@@ -51,17 +51,19 @@ import OutlierTablePlugin from './OutlierTablePlugin.jsx'
 import PivotPlugin from './PivotPlugin.jsx'
 import styles from './styles/VisualizationPlugin.module.css'
 
+const VISUALIZATION_PROP_DEFAULT = {}
 const FILTERS_PROP_DEFAULT = {}
+const STYLE_PROP_DEFAULT = {}
 const ICON_TYPE_DATA_ITEM = 'DATA_ITEM'
 
 export const VisualizationPlugin = ({
-    visualization: originalVisualization = {},
+    visualization: originalVisualization = VISUALIZATION_PROP_DEFAULT,
     displayProperty = 'name',
     filters = FILTERS_PROP_DEFAULT,
     forDashboard = false,
     id,
     isInModal,
-    style = {},
+    style = STYLE_PROP_DEFAULT,
     onChartGenerated = Function.prototype,
     onLoadingComplete = Function.prototype,
     onDataSorted = Function.prototype,
@@ -430,6 +432,10 @@ export const VisualizationPlugin = ({
         forDashboard,
         supportsEnabledPeriodTypes,
         enabledPeriodTypesData,
+        baseUrl,
+        doFetchData,
+        doFetchLegendSets,
+        onLoadingComplete,
     ])
 
     useEffect(() => {

@@ -76,10 +76,10 @@ export const expectDimensionToNotHaveSelectedStyle = (dimensionId) =>
         .parent()
         .should('not.have.css', 'background-color', dimSelectedBackgroundColor)
 
-export const expectRecommendedIconToBeVisible = (dimensionId) =>
-    cy
-        .getBySel(getDimensionButtonById(dimensionId))
-        .scrollIntoView()
+export const expectRecommendedIconToBeVisible = (dimensionId) => {
+    cy.getBySel(getDimensionButtonById(dimensionId)).scrollIntoView()
+    cy.getBySel(getDimensionButtonById(dimensionId))
         .findBySel(recommendedIconEl)
         .should('have.length', 1)
         .and('be.visible')
+}

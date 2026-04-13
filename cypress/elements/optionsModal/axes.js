@@ -19,13 +19,15 @@ export const setAxisTitleText = (axis, text) =>
 export const setAxisTitleTextModeTo = (textMode) =>
     cy.getBySel(axisTitleRadiosEl).contains(textMode).click()
 
-export const expectAxisTitleToBeValue = (axis, value) =>
-    cy
-        .getBySel(getAxisSelector(axis, titleInputEl))
+export const expectAxisTitleToBeValue = (axis, value) => {
+    cy.getBySel(getAxisSelector(axis, titleInputEl))
         .find('input')
         .scrollIntoView()
+    cy.getBySel(getAxisSelector(axis, titleInputEl))
+        .find('input')
         .should('be.visible')
         .and('have.value', value)
+}
 
 export const setAxisRangeMinValue = (axis, value) =>
     cy

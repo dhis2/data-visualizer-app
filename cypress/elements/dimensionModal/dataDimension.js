@@ -61,20 +61,25 @@ export const expectDataDimensionModalWarningToContain = (text) =>
 
 export const expectDataItemToShowDataType = (id, type) =>
     cy
-        .get(`[data-value="${id}"]`)
+        .getBySel(selectableItemsEl)
+        .find(`[data-value="${id}"]`)
         .findBySel(optionContentEl)
         .find('.type')
         .should('contain', type)
 
 export const expectDataItemToShowInfoTable = (id) => {
-    cy.get(`[data-value="${id}"]`).findBySel(optionInfoButtonEl).click()
+    cy.getBySel(selectableItemsEl)
+        .find(`[data-value="${id}"]`)
+        .findBySel(optionInfoButtonEl)
+        .click()
     cy.getBySel(optionInfoTableEl).contains('Name')
     cy.getBySel(optionInfoTableEl).closePopper()
 }
 
 export const expectDataItemToBeInactive = (id) =>
     cy
-        .get(`[data-value="${id}"]`)
+        .getBySel(selectableItemsEl)
+        .find(`[data-value="${id}"]`)
         .findBySel(optionContentEl)
         .should('have.class', 'inactive')
 
