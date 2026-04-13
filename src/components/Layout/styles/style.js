@@ -1,7 +1,7 @@
 import { colors } from '@dhis2/ui'
 
 // Layout
-export const LAYOUT_HEIGHT = '70px'
+export const LAYOUT_HEIGHT = '50px'
 
 // Axis
 export const AXIS_PADDING = '4px 4px 4px 6px'
