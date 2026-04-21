@@ -78,9 +78,9 @@ UnconnectedSelectBaseOption.propTypes = {
     dataTest: PropTypes.string,
     disabled: PropTypes.bool,
     helpText: PropTypes.string,
+    inputWidth: PropTypes.string,
     label: PropTypes.string,
     toggleable: PropTypes.bool,
-    inputWidth: PropTypes.string,
 }
 
 const mapStateToProps = (state, ownProps) => ({
