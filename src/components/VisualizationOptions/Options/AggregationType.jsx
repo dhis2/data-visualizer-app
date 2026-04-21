@@ -7,6 +7,7 @@ const AggregationType = () => (
     <SelectBaseOption
         label={i18n.t('Aggregation type')}
         helpText={i18n.t('Overrides aggregation type for all data values.')}
+        inputWidth="540px"
         option={{
             name: OPTION_AGGREGATION_TYPE,
             items: [
