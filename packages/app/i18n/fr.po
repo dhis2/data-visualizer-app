@@ -527,7 +527,7 @@ msgid "Maximum data value"
 msgstr "Valeur maximale des données"
 
 msgid "Clear min/max limits"
-msgstr ""
+msgstr "Effacer les limites min/max"
 
 msgid "No space between bars/columns"
 msgstr "Pas d'espace entre les barres/colonnes"
