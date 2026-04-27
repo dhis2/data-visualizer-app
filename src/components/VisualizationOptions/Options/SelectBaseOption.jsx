@@ -15,6 +15,7 @@ export const UnconnectedSelectBaseOption = ({
     onChange,
     disabled,
     dataTest,
+    inputWidth = '280px',
 }) => {
     const defaultValue = option.defaultValue
     const [checked, setChecked] = useState(value !== defaultValue)
@@ -50,7 +51,7 @@ export const UnconnectedSelectBaseOption = ({
                         onChange={({ selected }) => onChange(selected)}
                         selected={selected}
                         helpText={helpText}
-                        inputWidth="280px"
+                        inputWidth={inputWidth}
                         dense
                         dataTest={`${dataTest}-select`}
                         disabled={disabled}
@@ -77,6 +78,7 @@ UnconnectedSelectBaseOption.propTypes = {
     dataTest: PropTypes.string,
     disabled: PropTypes.bool,
     helpText: PropTypes.string,
+    inputWidth: PropTypes.string,
     label: PropTypes.string,
     toggleable: PropTypes.bool,
 }
