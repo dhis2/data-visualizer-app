@@ -1,3 +1,10 @@
+## [101.5.3](https://github.com/dhis2/data-visualizer-app/compare/v101.5.2...v101.5.3) (2026-04-27)
+
+
+### Bug Fixes
+
+* select option widths ([#3466](https://github.com/dhis2/data-visualizer-app/issues/3466)) ([b58e01d](https://github.com/dhis2/data-visualizer-app/commit/b58e01d40ac851a67502ab2a641d1429f66f742e))
+
 ## [101.5.2](https://github.com/dhis2/data-visualizer-app/compare/v101.5.1...v101.5.2) (2026-04-09)
 
 
