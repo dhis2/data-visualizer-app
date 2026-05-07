@@ -1,3 +1,10 @@
+# [101.6.0](https://github.com/dhis2/data-visualizer-app/compare/v101.5.3...v101.6.0) (2026-05-07)
+
+
+### Features
+
+* transfer multi-item ordering, AboutAO design fixes ([#3468](https://github.com/dhis2/data-visualizer-app/issues/3468)) ([5dbf260](https://github.com/dhis2/data-visualizer-app/commit/5dbf260dcff649a9cd2c8c3e2bd79b8a9966eb6a))
+
 ## [101.5.3](https://github.com/dhis2/data-visualizer-app/compare/v101.5.2...v101.5.3) (2026-04-27)
 
 
