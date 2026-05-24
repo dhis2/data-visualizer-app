@@ -1,4 +1,4 @@
-import { visTypeDisplayNames, ToolbarSidebar } from '@dhis2/analytics'
+import { visTypeDisplayNames } from '@dhis2/analytics'
 import { useConfig } from '@dhis2/app-runtime'
 import { useSetting } from '@dhis2/app-service-datastore'
 import i18n from '@dhis2/d2-i18n'
@@ -105,34 +105,32 @@ const UnconnectedVisualizationTypeSelector = ({
 
     return (
         <>
-            <ToolbarSidebar isHidden={false}>
-                <div
-                    onClick={toggleList}
-                    ref={buttonRef}
-                    className={cx(styles.button, {
+            <div
+                onClick={toggleList}
+                ref={buttonRef}
+                className={cx(styles.button, {
+                    [styles.listIsOpen]: listIsOpen,
+                })}
+                data-test={'visualization-type-selector-button'}
+            >
+                <ListItemIcon
+                    iconType={visualizationType}
+                    style={{ width: 24, height: 24 }}
+                />
+                <span
+                    className={styles.selectedVizTypeLabel}
+                    data-test="visualization-type-selector-currently-selected-text"
+                >
+                    {visTypeDisplayNames[visualizationType]}
+                </span>
+                <span
+                    className={cx(styles.arrowIcon, {
                         [styles.listIsOpen]: listIsOpen,
                     })}
-                    data-test={'visualization-type-selector-button'}
                 >
-                    <ListItemIcon
-                        iconType={visualizationType}
-                        style={{ width: 24, height: 24 }}
-                    />
-                    <span
-                        className={styles.selectedVizTypeLabel}
-                        data-test="visualization-type-selector-currently-selected-text"
-                    >
-                        {visTypeDisplayNames[visualizationType]}
-                    </span>
-                    <span
-                        className={cx(styles.arrowIcon, {
-                            [styles.listIsOpen]: listIsOpen,
-                        })}
-                    >
-                        <ArrowDown />
-                    </span>
-                </div>
-            </ToolbarSidebar>
+                    <ArrowDown />
+                </span>
+            </div>
             {listIsOpen && (
                 <Layer onClick={toggleList}>
                     <Popper reference={buttonRef} placement="bottom-start">

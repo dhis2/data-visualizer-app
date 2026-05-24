@@ -4,15 +4,12 @@ import {
     hasCustomAxes,
     hasRelativeItems,
     isDualAxisType,
-    HoverMenuDropdown,
-    HoverMenuList,
-    HoverMenuListItem,
-    VisualizationOptions,
     VIS_TYPE_PIVOT_TABLE,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
+import { OptionsIcon } from '../../assets/OptionsIcon.jsx'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect, useCallback } from 'react'
 import { connect } from 'react-redux'
 import { getOptionsByType } from '../../modules/options/config.js'
 import {
@@ -22,6 +19,8 @@ import {
     sGetUiLayout,
 } from '../../reducers/ui.js'
 import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer.js'
+import { OptionsPopover } from './OptionsPopover.jsx'
+import optionsStyles from './VisualizationOptionsManager.module.css'
 
 const VisualizationOptionsManager = ({
     visualizationType,
@@ -31,11 +30,22 @@ const VisualizationOptionsManager = ({
     series,
     cumulativeValues,
 }) => {
-    const [selectedOptionConfigKey, setSelectedOptionConfigKey] = useState(null)
-    const onOptionsUpdate = (handler) => {
-        handler()
-        setSelectedOptionConfigKey(null)
-    }
+    const [popoverOpen, setPopoverOpen] = useState(false)
+    const wrapperRef = useRef(null)
+
+    const handleClose = useCallback(() => setPopoverOpen(false), [])
+
+    useEffect(() => {
+        if (!popoverOpen) return
+        const handleClickOutside = (e) => {
+            if (wrapperRef.current && !wrapperRef.current.contains(e.target)) {
+                setPopoverOpen(false)
+            }
+        }
+        document.addEventListener('mousedown', handleClickOutside)
+        return () =>
+            document.removeEventListener('mousedown', handleClickOutside)
+    }, [popoverOpen])
 
     const filteredSeries = series.filter((seriesItem) =>
         columnDimensionItems.some(
@@ -61,36 +71,30 @@ const VisualizationOptionsManager = ({
     })
 
     return (
-        <>
-            <HoverMenuDropdown
-                label={i18n.t('Options')}
-                dataTest={'app-menubar-options-button'}
+        <div className={optionsStyles.wrapper} ref={wrapperRef}>
+            <button
+                className={optionsStyles.optionsButton}
+                onClick={() => setPopoverOpen((prev) => !prev)}
+                data-test="app-menubar-options-button"
             >
-                <HoverMenuList dataTest="options-menu-list">
-                    {optionsConfig.map(({ label, key }) => (
-                        <HoverMenuListItem
-                            key={key}
-                            label={label}
-                            onClick={() => {
-                                setSelectedOptionConfigKey(key)
-                            }}
-                        />
-                    ))}
-                </HoverMenuList>
-            </HoverMenuDropdown>
-            {selectedOptionConfigKey && (
+                <OptionsIcon />
+                {i18n.t('Options')}
+            </button>
+            {popoverOpen && (
                 <UpdateVisualizationContainer
                     renderComponent={(handler) => (
-                        <VisualizationOptions
+                        <OptionsPopover
                             optionsConfig={optionsConfig}
-                            onUpdate={() => onOptionsUpdate(handler)}
-                            onClose={() => setSelectedOptionConfigKey(null)}
-                            initiallyActiveTabKey={selectedOptionConfigKey}
+                            onUpdate={() => {
+                                handler()
+                                setPopoverOpen(false)
+                            }}
+                            onClose={handleClose}
                         />
                     )}
                 />
             )}
-        </>
+        </div>
     )
 }
 

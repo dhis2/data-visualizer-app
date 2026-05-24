@@ -6,11 +6,16 @@ import {
     LAYOUT_TYPE_SCATTER,
     LAYOUT_TYPE_OUTLIER_TABLE,
     getLayoutTypeByVisType,
+    UpdateButton,
 } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
 import { sGetUiType } from '../../reducers/ui.js'
+import UpdateVisualizationContainer from '../UpdateButton/UpdateVisualizationContainer.js'
+import VisualizationOptionsManager from '../VisualizationOptions/VisualizationOptionsManager.jsx'
+import { VisualizationTypeSelector } from '../VisualizationTypeSelector/VisualizationTypeSelector.jsx'
+import styles from './Layout.module.css'
 import DefaultLayout from './DefaultLayout/DefaultLayout.jsx'
 import OutlierTableLayout from './OutlierTable/OutlierTableLayout.jsx'
 import PieLayout from './PieLayout/PieLayout.jsx'
@@ -31,7 +36,24 @@ const Layout = ({ visType }) => {
     const layoutType = getLayoutTypeByVisType(visType)
     const LayoutComponent = componentMap[layoutType]
 
-    return <LayoutComponent visType={visType} />
+    return (
+        <div className={styles.layout}>
+            <div className={styles.topBar}>
+                <div className={styles.updateButtonWrapper}>
+                    <UpdateVisualizationContainer
+                        renderComponent={(handler) => (
+                            <UpdateButton onClick={handler} />
+                        )}
+                    />
+                </div>
+                <VisualizationTypeSelector />
+                <VisualizationOptionsManager />
+            </div>
+            <div className={styles.content}>
+                <LayoutComponent visType={visType} />
+            </div>
+        </div>
+    )
 }
 
 Layout.propTypes = {

@@ -26,11 +26,8 @@ import DndContext from './DndContext.jsx'
 import { InterpretationModal } from './InterpretationModal/index.js'
 import Layout from './Layout/Layout.jsx'
 import { MenuBar } from './MenuBar/MenuBar.jsx'
-import { TitleBar } from './TitleBar/TitleBar.jsx'
 import { Visualization } from './Visualization/Visualization.jsx'
-import { VisualizationTypeSelector } from './VisualizationTypeSelector/VisualizationTypeSelector.jsx'
 import './App.css'
-import './scrollbar.css'
 
 // Used to avoid repeating `history` listener calls -- see below
 let lastLocation
@@ -229,10 +226,8 @@ class UnconnectedApp extends Component {
             <>
                 <div className="data-visualizer-app flex-ct flex-dir-col">
                     <Toolbar>
-                        <VisualizationTypeSelector />
                         <MenuBar
                             apiObjectName={this.apiObjectName}
-                            dataTest={'app-menubar'}
                             onFileMenuAction={() => {
                                 if (this.props.ui.rightSidebarOpen) {
                                     this.setState((prevState) => ({
@@ -251,9 +246,6 @@ class UnconnectedApp extends Component {
                             <div className="main-center flex-grow-1 flex-basis-0 flex-ct flex-dir-col">
                                 <div className="main-center-layout">
                                     <Layout />
-                                </div>
-                                <div className="main-center-titlebar">
-                                    <TitleBar />
                                 </div>
                                 <div className="main-center-canvas flex-grow-1">
                                     {this.state.initialLoadIsComplete && (
