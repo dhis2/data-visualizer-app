@@ -50,6 +50,7 @@ export const OPTION_SORT_ORDER = 'sortOrder'
 export const OPTION_SUBTITLE = 'subtitle'
 export const OPTION_TITLE = 'title'
 export const OPTION_TOP_LIMIT = 'topLimit'
+export const OPTION_USE_ITEM_COLOR = 'useItemColor'
 
 export const OPTION_SHOW_SERIES_KEY = 'showSeriesKey'
 export const OPTION_SHOW_LEGEND_KEY = 'showLegendKey'
@@ -296,6 +297,11 @@ export const options = {
     },
     [OPTION_TOP_LIMIT]: {
         defaultValue: '0',
+        requestable: false,
+        savable: true,
+    },
+    [OPTION_USE_ITEM_COLOR]: {
+        defaultValue: false,
         requestable: false,
         savable: true,
     },
