@@ -54,6 +54,54 @@ import styles from './styles/VisualizationPlugin.module.css'
 const FILTERS_PROP_DEFAULT = {}
 const ICON_TYPE_DATA_ITEM = 'DATA_ITEM'
 
+// PROTOTYPE: apply configured per-item color from a data element / indicator
+// `style.color`, overriding the active color set. Legend (when on) still wins.
+const applyConfiguredItemColors = (visualization) => {
+    if (!visualization?.useItemColor) {
+        return visualization
+    }
+
+    const legend = visualization.legend
+    const legendActive =
+        legend?.strategy === LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM ||
+        Boolean(legend?.set?.id)
+    if (legendActive) {
+        return visualization
+    }
+
+    const itemColorById = {}
+    ;(visualization.dataDimensionItems || []).forEach((ddi) => {
+        Object.values(ddi).forEach((item) => {
+            if (
+                item &&
+                typeof item === 'object' &&
+                item.id &&
+                item.style?.color
+            ) {
+                itemColorById[item.id] = item.style.color
+            }
+        })
+    })
+
+    if (!Object.keys(itemColorById).length) {
+        return visualization
+    }
+
+    const existingSeries = visualization.series || []
+    const seriesByItem = new Map(
+        existingSeries.map((s) => [s.dimensionItem, s])
+    )
+    Object.entries(itemColorById).forEach(([id, color]) => {
+        // Preserve any existing series entry (keeps its axis/type); for items
+        // without one, create a well-formed entry with axis 0 so downstream
+        // axis maps never see an undefined axis.
+        const existing = seriesByItem.get(id) || { dimensionItem: id, axis: 0 }
+        seriesByItem.set(id, { ...existing, color })
+    })
+
+    return { ...visualization, series: Array.from(seriesByItem.values()) }
+}
+
 export const VisualizationPlugin = ({
     visualization: originalVisualization = {},
     displayProperty = 'name',
@@ -618,7 +666,7 @@ export const VisualizationPlugin = ({
         } else {
             return (
                 <ChartPlugin
-                    visualization={visualization}
+                    visualization={applyConfiguredItemColors(visualization)}
                     responses={fetchResult.responses}
                     extraOptions={fetchResult.extraOptions}
                     legendSets={legendSets}

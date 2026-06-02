@@ -53,6 +53,7 @@ export const fieldsByType = {
         getFieldObject('showData', { option: true }),
         getFieldObject('outlierAnalysis', { option: true }),
         getFieldObject(BASE_FIELD_TYPE, { option: true }),
+        getFieldObject('useItemColor', { option: true }),
     ],
     eventReport_eventChart: [
         getFieldObject('attributeValueDimension'),

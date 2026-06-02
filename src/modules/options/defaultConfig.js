@@ -20,6 +20,7 @@ import {
     OPTION_SORT_ORDER,
     OPTION_SUBTITLE,
     OPTION_TITLE,
+    OPTION_USE_ITEM_COLOR,
 } from '../options.js'
 import getAdvancedSection from './sections/advanced.jsx'
 import getChartStyleSection from './sections/chartStyle.jsx'
@@ -104,6 +105,7 @@ export const defaultOptionNames = ({
         OPTION_SUBTITLE,
         OPTION_HIDE_SUBTITLE,
         OPTION_COLOR_SET,
+        OPTION_USE_ITEM_COLOR,
         // Limit values tab
         OPTION_MEASURE_CRITERIA,
     ]

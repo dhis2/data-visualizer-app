@@ -1,0 +1,26 @@
+diff --git a/node_modules/@dhis2/analytics/build/cjs/visualizations/config/adapters/dhis_highcharts/series/index.js b/node_modules/@dhis2/analytics/build/cjs/visualizations/config/adapters/dhis_highcharts/series/index.js
+index 4d67c30..0ee8f21 100644
+--- a/node_modules/@dhis2/analytics/build/cjs/visualizations/config/adapters/dhis_highcharts/series/index.js
++++ b/node_modules/@dhis2/analytics/build/cjs/visualizations/config/adapters/dhis_highcharts/series/index.js
+@@ -132,7 +132,7 @@ function getDefault({
+       seriesObj.color = indexColorPatternMap[index];
+     } else {
+       // Default: Either generate colors or fetch from color sets
+-      seriesObj.color = idColorMap[seriesObj.id];
++      seriesObj.color = (matchedObject && matchedObject.color) ? matchedObject.color : idColorMap[seriesObj.id];
+     }
+ 
+     // axis number
+diff --git a/node_modules/@dhis2/analytics/build/es/visualizations/config/adapters/dhis_highcharts/series/index.js b/node_modules/@dhis2/analytics/build/es/visualizations/config/adapters/dhis_highcharts/series/index.js
+index f27a5d4..aad494b 100644
+--- a/node_modules/@dhis2/analytics/build/es/visualizations/config/adapters/dhis_highcharts/series/index.js
++++ b/node_modules/@dhis2/analytics/build/es/visualizations/config/adapters/dhis_highcharts/series/index.js
+@@ -125,7 +125,7 @@ function getDefault({
+       seriesObj.color = indexColorPatternMap[index];
+     } else {
+       // Default: Either generate colors or fetch from color sets
+-      seriesObj.color = idColorMap[seriesObj.id];
++      seriesObj.color = (matchedObject && matchedObject.color) ? matchedObject.color : idColorMap[seriesObj.id];
+     }
+ 
+     // axis number
