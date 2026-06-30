@@ -1,3 +1,11 @@
+## [101.6.1](https://github.com/dhis2/data-visualizer-app/compare/v101.6.0...v101.6.1) (2026-06-30)
+
+
+### Bug Fixes
+
+* stop flooding logs with warnings when opening the Data dimension panel [DHIS2-20499] ([d812fb7](https://github.com/dhis2/data-visualizer-app/commit/d812fb7c7a711e0ac8f18ab407a624c1b1e48f19))
+* **translations:** sync translations from transifex (master) ([d69f7d2](https://github.com/dhis2/data-visualizer-app/commit/d69f7d26b39c44953c56b59b2ea79440e4d11704))
+
 # [101.6.0](https://github.com/dhis2/data-visualizer-app/compare/v101.5.3...v101.6.0) (2026-05-07)
 
 
