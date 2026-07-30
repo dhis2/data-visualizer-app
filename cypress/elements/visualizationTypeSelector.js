@@ -10,6 +10,11 @@ export const changeVisType = (visTypeName) => {
     cy.getBySel(vstCardEl).contains(visTypeName).click()
 }
 
+export const clickOpenAsMap = () => {
+    clickVisTypeSelector()
+    cy.getBySel(vstCardEl).contains('Open as Map').click()
+}
+
 export const expectVisTypeToBeValue = (value) =>
     cy
         .getBySel(vstButtonTextEl)
