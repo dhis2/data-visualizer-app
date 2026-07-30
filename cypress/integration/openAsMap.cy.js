@@ -33,7 +33,9 @@ describe('open as map', () => {
             const features = stub.getCall(0).args[2]
 
             expect(url).to.satisfy((url) =>
-                url.endsWith(`/${MAPS_APP_URL}/#/${USER_DATASTORE_CURRENT_AO_KEY}`)
+                url.endsWith(
+                    `/${MAPS_APP_URL}/#/${USER_DATASTORE_CURRENT_AO_KEY}`
+                )
             )
             expect(target).to.equal('_blank')
             expect(features).to.equal('noopener')
