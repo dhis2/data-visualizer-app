@@ -64,11 +64,12 @@ const UnconnectedVisualizationTypeSelector = ({
             ui
         )
 
-        set(currentAnalyticalObject)
+        await set(currentAnalyticalObject)
 
         window.open(
             `${baseUrl}/${MAPS_APP_URL}/#/${USER_DATASTORE_CURRENT_AO_KEY}`,
-            '_blank'
+            '_blank',
+            'noopener'
         )
     }
 
