@@ -66,7 +66,10 @@ const UnconnectedVisualizationTypeSelector = ({
 
         set(currentAnalyticalObject)
 
-        window.location.href = `${baseUrl}/${MAPS_APP_URL}/#/${USER_DATASTORE_CURRENT_AO_KEY}`
+        window.open(
+            `${baseUrl}/${MAPS_APP_URL}/#/${USER_DATASTORE_CURRENT_AO_KEY}`,
+            '_blank'
+        )
     }
 
     const VisTypesList = (
