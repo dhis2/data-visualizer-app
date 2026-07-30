@@ -1,5 +1,3 @@
-import { MAPS_APP_URL } from '../../src/components/VisualizationTypeSelector/VisualizationTypeSelector.jsx'
-import { USER_DATASTORE_CURRENT_AO_KEY } from '../../src/modules/currentAnalyticalObject.js'
 import {
     expectAOTitleToBeValue,
     expectVisualizationToBeVisible,
@@ -7,6 +5,12 @@ import {
 import { openAOByName } from '../elements/fileMenu/open.js'
 import { goToStartPage } from '../elements/startScreen.js'
 import { clickOpenAsMap } from '../elements/visualizationTypeSelector.js'
+
+/* Duplicated from src instead of imported: importing app source pulls the
+ * React component and its CSS module into the Cypress browserify bundle,
+ * which cannot parse them */
+const MAPS_APP_URL = 'dhis-web-maps'
+const USER_DATASTORE_CURRENT_AO_KEY = 'currentAnalyticalObject'
 
 describe('open as map', () => {
     it('opens Maps in a new tab instead of navigating away', () => {
