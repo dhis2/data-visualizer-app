@@ -1,3 +1,10 @@
+## [101.6.2](https://github.com/dhis2/data-visualizer-app/compare/v101.6.1...v101.6.2) (2026-07-31)
+
+
+### Bug Fixes
+
+* open as map in new tab ([#3473](https://github.com/dhis2/data-visualizer-app/issues/3473)) ([f959a0c](https://github.com/dhis2/data-visualizer-app/commit/f959a0c2b548add6f55eaaa3136b7ad6e18cacb2))
+
 ## [101.6.1](https://github.com/dhis2/data-visualizer-app/compare/v101.6.0...v101.6.1) (2026-06-30)
 
 
