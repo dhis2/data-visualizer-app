@@ -78,7 +78,7 @@ const allEnabledPeriodTypes = [
 const setupV43Intercepts = (enabledPeriodTypes) => {
     // Bulk systemSettings for Redux store
     cy.intercept(
-        /api\/.*\/api\/.*\/systemSettings/,
+        /api\/.*\/systemSettings/,
         systemSettingsInterceptFn(systemSettingsBody)
     )
     // v43+ endpoints used by @dhis2/analytics PeriodDimension
