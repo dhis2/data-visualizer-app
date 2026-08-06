@@ -75,16 +75,13 @@ export const expectFixedLegendSetToBe = (legendSetName) =>
     cy.getBySel(fixedLegendSetSelectEl).should('contain', legendSetName)
 
 export const expectSingleValueToHaveTextColor = (color) =>
-    cy.getBySel(singleValueTextEl).should('have.css', 'color', color)
+    cy.getBySel(singleValueTextEl).should('have.attr', 'fill', color)
 
 export const expectSingleValueToHaveBackgroundColor = (color) =>
     cy.get('rect.highcharts-background').should('have.attr', 'fill', color)
 
 export const expectSingleValueToHaveIconColor = (color) =>
-    cy
-        .getBySel(singleValueIconEl)
-        .invoke('attr', 'style')
-        .should('contain', `color: ${color}`)
+    cy.getBySel(singleValueIconEl).should('have.attr', 'color', color)
 
 export const toggleLegendKeyOption = () =>
     cy.getBySel(optionsModalContentEl).contains('Show legend key').click()

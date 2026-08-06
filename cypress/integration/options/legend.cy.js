@@ -155,12 +155,13 @@ describe('Options - Legend', () => {
 
     it('applies different styles of legend to a Single Value chart', () => {
         const TEST_ITEM = TEST_ITEMS[0]
-        const EXPECTED_STANDARD_TEXT_COLOR = 'rgb(33, 41, 52)'
-        const EXPECTED_CONTRAST_TEXT_COLOR = 'rgb(255, 255, 255)'
+        const EXPECTED_STANDARD_TEXT_COLOR = '#212934'
+        const EXPECTED_CONTRAST_TEXT_COLOR = '#ffffff'
+        const EXPECTED_CONTRAST_TEXT_COLOR_RGB = 'rgb(255, 255, 255)'
         const EXPECTED_BACKGROUND_COLOR_1 = '#FFFFB2'
-        const EXPECTED_TEXT_COLOR_1 = 'rgb(255, 255, 178)'
+        const EXPECTED_TEXT_COLOR_1 = '#FFFFB2'
         const EXPECTED_BACKGROUND_COLOR_2 = '#B3402B'
-        const EXPECTED_TEXT_COLOR_2 = 'rgb(179, 64, 43)'
+        const EXPECTED_TEXT_COLOR_2 = '#B3402B'
         const EXPECTED_CUSTOM_TITLE_COLOR = '#ff7700'
         const EXPECTED_CUSTOM_TITLE_COLOR_RGB = 'rgb(255, 119, 0)'
         const EXPECTED_CUSTOM_SUBTITLE_COLOR = '#ffaa00'
@@ -245,8 +246,8 @@ describe('Options - Legend', () => {
         )
         expectSingleValueToHaveTextColor(EXPECTED_CONTRAST_TEXT_COLOR)
         expectSingleValueToHaveBackgroundColor(EXPECTED_BACKGROUND_COLOR_2)
-        expectSVTitleToHaveColor(EXPECTED_CONTRAST_TEXT_COLOR)
-        expectSVSubtitleToHaveColor(EXPECTED_CONTRAST_TEXT_COLOR)
+        expectSVTitleToHaveColor(EXPECTED_CONTRAST_TEXT_COLOR_RGB)
+        expectSVSubtitleToHaveColor(EXPECTED_CONTRAST_TEXT_COLOR_RGB)
 
         cy.log('changes title and subtitle colors')
         openOptionsModal(OPTIONS_TAB_STYLE)
@@ -606,7 +607,7 @@ describe('Options - Legend', () => {
         const TEST_ITEM = TEST_ITEMS[0]
         const EXPECTED_FIXED_COLOR = '#c7e9c0'
         const valueCellEl = 'visualization-value-cell'
-        const EXPECTED_SV_STANDARD_TEXT_COLOR = 'rgb(33, 41, 52)'
+        const EXPECTED_SV_STANDARD_TEXT_COLOR = '#212934'
         const EXPECTED_PT_STANDARD_TEXT_COLOR = 'color: rgb(33, 41, 52)'
 
         cy.log('navigates to the start page and adds data items')

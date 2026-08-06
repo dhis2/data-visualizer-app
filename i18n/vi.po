@@ -9,7 +9,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: i18next-conv\n"
-"POT-Creation-Date: 2025-02-04T13:29:02.138Z\n"
+"POT-Creation-Date: 2025-07-03T09:34:39.575Z\n"
 "PO-Revision-Date: 2019-06-25 18:46+0000\n"
 "Last-Translator: Em Le <em.hispvietnam@gmail.com>, 2025\n"
 "Language-Team: Vietnamese (https://app.transifex.com/hisp-uio/teams/100509/vi/)\n"
@@ -25,8 +25,8 @@ msgstr "Tất cả các mục"
 msgid "Rename successful"
 msgstr "Đổi tên thành công"
 
-msgid "Untitled {{visualizationType}} visualization, {{date}}"
-msgstr "Biểu đồ {{visualizationType}} không có tiêu đề, {{date}}"
+msgid "Rename failed"
+msgstr "Đổi tên thất bại"
 
 msgid "\"{{- deletedObject}}\" successfully deleted."
 msgstr "{{- deletedObject}}đã xóa thành công"
@@ -155,6 +155,9 @@ msgstr "Tên"
 
 msgid "Table layout"
 msgstr "Bảng bố trí"
+
+msgid "Excel (.xlsx)"
+msgstr "Excel (.xlsx)"
 
 msgid "Excel (.xls)"
 msgstr "Excel (.xls)"
@@ -958,7 +961,7 @@ msgid "Restricted access"
 msgstr "Giới hạn truy cập"
 
 msgid "You don't have access to one or more of the chosen organisation units."
-msgstr ""
+msgstr "Bạn không có quyền truy cập vào một hoặc nhiều đơn vị được chọn."
 
 msgid "No organization units found"
 msgstr "Không tìm thấy đơn vị nào"

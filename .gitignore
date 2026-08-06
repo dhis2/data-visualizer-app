@@ -7,8 +7,12 @@ coverage
 cypress.env.json
 cypress/screenshots
 cypress/videos
+cypress/downloads
 
 # Custom
 .vscode
 .gitignore
 .DS_Store
+
+# Logs
+yarn-error.log

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TitleBar renders "dirty" state 1`] = `
+<div>
+  <div
+    data-test="titlebar"
+    style="display: flex; justify-content: center;"
+  >
+    <div
+      style="display: flex; align-items: center; background: rgb(255, 255, 255); padding: 6px; border-radius: 5px; margin: 4px; font-size: 14px;"
+    >
+      Yall
+      <div
+        data-test="titlebar-dirty"
+        style="padding-inline-start: 4px; color: rgb(74, 87, 104);"
+      >
+        - Edited
+      </div>
+    </div>
+  </div>
+</div>
+`;

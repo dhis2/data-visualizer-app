@@ -15,12 +15,17 @@ const config = {
         enabled: true,
         caching: {
             patternsToOmitFromAppShell: [/.*/],
+            globsToOmitFromPrecache: [
+                'fonts/**',
+                'vendor/jspdf.js',
+                'vendor/svg2pdf.js',
+            ],
         },
     },
 
     entryPoints: {
-        app: './src/AppWrapper.js',
-        plugin: './src/PluginWrapper.js',
+        app: './src/AppWrapper.jsx',
+        plugin: './src/PluginWrapper.jsx',
     },
 }
 

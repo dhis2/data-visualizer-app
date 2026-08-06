@@ -5,6 +5,7 @@ import {
     DIMENSION_TYPE_DATA_SET,
     DIMENSION_TYPE_EVENT_DATA_ITEM,
     DIMENSION_TYPE_INDICATOR,
+    DIMENSION_TYPE_PROGRAM_INDICATOR,
     VIS_TYPE_SINGLE_VALUE,
     visTypeDisplayNames,
 } from '@dhis2/analytics'
@@ -55,22 +56,20 @@ const expectIconToBeHidden = () => {
     cy.getBySelLike('visualization-icon').should('not.exist')
 }
 
-// TODO: Remove the commented out types below once 2.40.1 has been released, as only indicators are supported in 2.40.0
-
 const TEST_TYPES = [
     DIMENSION_TYPE_INDICATOR,
-    // DIMENSION_TYPE_DATA_ELEMENT,
-    // DIMENSION_TYPE_DATA_SET,
-    // DIMENSION_TYPE_EVENT_DATA_ITEM,
-    // DIMENSION_TYPE_PROGRAM_INDICATOR,
+    DIMENSION_TYPE_DATA_ELEMENT,
+    DIMENSION_TYPE_DATA_SET,
+    DIMENSION_TYPE_EVENT_DATA_ITEM,
+    DIMENSION_TYPE_PROGRAM_INDICATOR,
 ]
 
 const TEST_ITEMS = {
     [DIMENSION_TYPE_INDICATOR]: 'ANC 2 Coverage',
-    // [DIMENSION_TYPE_DATA_ELEMENT]: 'ANC 2nd visit',
-    // [DIMENSION_TYPE_DATA_SET]: 'Child Health',
-    // [DIMENSION_TYPE_EVENT_DATA_ITEM]: 'MCH Weight (g)',
-    // [DIMENSION_TYPE_PROGRAM_INDICATOR]: 'Average weight (g)',
+    [DIMENSION_TYPE_DATA_ELEMENT]: 'ANC 2nd visit',
+    [DIMENSION_TYPE_DATA_SET]: 'Child Health',
+    [DIMENSION_TYPE_EVENT_DATA_ITEM]: 'MCH Weight (g)',
+    [DIMENSION_TYPE_PROGRAM_INDICATOR]: 'Average weight (g)',
 }
 
 const PAGE_SIZE = 50
@@ -125,8 +124,7 @@ describe('Icon', () => {
             expectIconToBeVisible()
         })
     })
-    // TODO: Skipped because of the same reason as the commented out tests above
-    it.skip('icon gets correct color when a legend is in use', () => {
+    it('icon gets correct color when a legend is in use', () => {
         // enable the icon
         openOptionsModal(OPTIONS_TAB_STYLE)
         checkCheckbox('option-show-data-item-icon')

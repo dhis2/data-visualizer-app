@@ -13,8 +13,8 @@ import {
     METHOD_STANDARD_Z_SCORE,
     OUTLIER_METHOD_PROP,
     OUTLIER_THRESHOLD_PROP,
-} from '../components/VisualizationOptions/Options/OutliersForOutlierTable.js'
-import { OUTLIER_MAX_RESULTS_PROP } from '../components/VisualizationOptions/Options/OutliersMaxResults.js'
+} from '../components/VisualizationOptions/Options/OutliersForOutlierTable.jsx'
+import { OUTLIER_MAX_RESULTS_PROP } from '../components/VisualizationOptions/Options/OutliersMaxResults.jsx'
 import {
     getRelativePeriodTypeUsed,
     getOutlierTableDimensionIdHeaderMap,

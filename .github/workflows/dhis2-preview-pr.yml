@@ -26,8 +26,8 @@ jobs:
               with:
                   node-version: 18.x
 
-            - uses: c-hive/gha-yarn-cache@v1
-            - run: yarn install --frozen-lockfile
+            - name: Install dependencies
+              run: yarn install --frozen-lockfile
 
             - name: Build
               run: yarn d2-app-scripts build --standalone

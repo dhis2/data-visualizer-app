@@ -1,1 +1,1 @@
-export { InterpretationModal } from './InterpretationModal.js'
+export { InterpretationModal } from './InterpretationModal.jsx'

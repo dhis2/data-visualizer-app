@@ -1,5 +1,5 @@
-import 'jest-enzyme'
-import Enzyme from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
+import '@testing-library/jest-dom'
+import { configure } from '@testing-library/react'
+import 'jest-webgl-canvas-mock'
 
-Enzyme.configure({ adapter: new Adapter() })
+configure({ testIdAttribute: 'data-test' })

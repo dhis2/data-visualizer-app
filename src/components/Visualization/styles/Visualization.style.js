@@ -12,6 +12,6 @@ export default {
         insetInlineStart: 0,
         insetBlockStart: 0,
         zIndex: 100,
-        background: '#ffffffab',
+        background: 'var(--colors-grey300)',
     },
 }

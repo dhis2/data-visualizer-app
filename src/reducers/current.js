@@ -92,17 +92,17 @@ export const sGetCurrentFromUi = (state) => {
 
     switch (ui.type) {
         case VIS_TYPE_PIE:
-            return getPieCurrentFromUi(state, ui)
+            return getPieCurrentFromUi(state.current, ui)
         case VIS_TYPE_SINGLE_VALUE:
         case VIS_TYPE_GAUGE:
-            return getSingleValueCurrentFromUi(state, ui)
+            return getSingleValueCurrentFromUi(state.current, ui)
         case VIS_TYPE_YEAR_OVER_YEAR_LINE:
         case VIS_TYPE_YEAR_OVER_YEAR_COLUMN:
-            return getYearOverYearCurrentFromUi(state, ui)
+            return getYearOverYearCurrentFromUi(state.current, ui)
         case VIS_TYPE_SCATTER:
-            return getScatterCurrentFromUi(state, ui)
+            return getScatterCurrentFromUi(state.current, ui)
         default: {
-            return getDefaultFromUi(state, ui)
+            return getDefaultFromUi(state.current, ui)
         }
     }
 }

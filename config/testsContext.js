@@ -1,23 +1,30 @@
-const userSettings = {
-    keyDbLocale: 'ponyLang',
-}
+import { render } from '@testing-library/react'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { Provider } from 'react-redux'
 
 export function getStubContext() {
     return {
         i18n: {
             t: () => {},
         },
-        d2: {
-            currentUser: {
-                firstName: 'Rainbow',
-                surname: 'Dash',
-                userSettings: {
-                    get: (key) => userSettings[key],
-                },
-            },
-        },
         store: {
             dispatch: () => {},
         },
+    }
+}
+
+export const renderWithProviders = (ui, store, renderOptions = {}) => {
+    const Wrapper = ({ children }) => (
+        <Provider store={store}>{children}</Provider>
+    )
+
+    Wrapper.propTypes = {
+        children: PropTypes.node,
+    }
+
+    return {
+        store,
+        ...render(ui, { wrapper: Wrapper, ...renderOptions }),
     }
 }

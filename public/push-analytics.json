@@ -120,8 +120,7 @@
                 "PIVOT_TABLE",
                 "OUTLIER_TABLE"
             ],
-            "strategy": "screenShotImgOnDownloadPage",
-            "htmlSelector": "img"
+            "strategy": "interceptFileDownload"
         }
     ]
 }

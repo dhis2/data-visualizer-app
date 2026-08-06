@@ -16,8 +16,12 @@ const dimSelectedBackgroundColor = 'rgb(224, 242, 241)'
 
 const getDimensionButtonById = (dimensionId) => `${dimButtonEl}-${dimensionId}`
 
-export const openContextMenu = (dimensionId) =>
-    cy.getBySel(`${dimContextMenuButtonEl}-${dimensionId}`).click()
+export const openContextMenu = (dimensionId) => {
+    const selector = `${dimContextMenuButtonEl}-${dimensionId}`
+    cy.getBySel(selector).trigger('mouseover')
+    // Wait for the button to appear and click that
+    cy.getBySel(selector).find('button').click()
+}
 
 export const openDimension = (dimensionId) =>
     cy.getBySel(getDimensionButtonById(dimensionId)).click()

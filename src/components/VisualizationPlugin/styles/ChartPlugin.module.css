@@ -1,0 +1,10 @@
+.container {
+    inline-size: 100%;
+}
+
+/* This forces all SVG descendants to have the same
+ * font-family as the SVG root element, which is required
+ * for offline export to PNG to work correctly. */
+:global(svg.highcharts-root *) {
+    font-family: inherit;
+}

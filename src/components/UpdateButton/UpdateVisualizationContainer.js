@@ -10,11 +10,13 @@ import { GenericClientError } from '../../modules/error.js'
 import history from '../../modules/history.js'
 import { validateLayout } from '../../modules/layoutValidation.js'
 import { sGetCurrent, sGetCurrentFromUi } from '../../reducers/current.js'
+import { sGetUi } from '../../reducers/ui.js'
 
 const UpdateVisualizationContainer = ({
     renderComponent,
     getCurrent,
     getCurrentFromUi,
+    getUi,
     onUpdate,
     acSetLoadError,
     acClearLoadError,
@@ -25,7 +27,7 @@ const UpdateVisualizationContainer = ({
 
     const onClick = () => {
         try {
-            validateLayout(getCurrentFromUi())
+            validateLayout(getCurrentFromUi(), getUi())
             acClearLoadError()
         } catch (error) {
             acSetLoadError(error || new GenericClientError())
@@ -58,6 +60,7 @@ const mapDispatchToProps = {
     getCurrent: () => (dispatch, getState) => sGetCurrent(getState()),
     getCurrentFromUi: () => (dispatch, getState) =>
         sGetCurrentFromUi(getState()),
+    getUi: () => (dispatch, getState) => sGetUi(getState()),
     onUpdate: fromActions.fromCurrent.tSetCurrentFromUi,
     acSetLoadError,
     acClearLoadError,

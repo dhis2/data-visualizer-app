@@ -18,8 +18,10 @@ import {
 } from '@dhis2/analytics'
 import { useConfig } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
+import cloneDeep from 'lodash-es/cloneDeep'
 import { DEFAULT_CURRENT } from '../reducers/current.js'
 import { DEFAULT_VISUALIZATION } from '../reducers/visualization.js'
+import { getOptionNamesByType } from './options/config.js'
 import { default as options } from './options.js'
 
 export const visTypes = [
@@ -92,8 +94,8 @@ export const getVisTypeDescriptions = () => ({
     ),
 })
 
-export const getVisualizationFromCurrent = (current) => {
-    const visualization = Object.assign({}, current)
+export const getSaveableVisualization = (vis) => {
+    const visualization = Object.assign({}, vis)
     const nonSavableOptions = Object.keys(options).filter(
         (option) => !options[option].savable
     )
@@ -128,6 +130,8 @@ export const dimensionMetadataProps = [
     'programAttribute',
     'programIndicator',
     'indicator',
+    'programDataElement',
+    'programDataElementOption',
 ]
 
 // Loop through and collect dimension metadata from the visualization
@@ -137,6 +141,13 @@ export const getDimensionMetadataFromVisualization = (visualization) => {
     visualization.dataDimensionItems?.forEach((dimensionItem) => {
         Object.entries(dimensionItem)?.forEach(([key, object]) => {
             if (dimensionMetadataProps.includes(key)) {
+                // extract option set id so it's saved in the same place as when it's added by the Data dimension modal
+                if (key === 'programAttribute') {
+                    object.optionSetId = object.attribute?.optionSet?.id
+                } else if (key === 'programDataElement') {
+                    object.optionSetId = object.dataElement?.optionSet?.id
+                }
+
                 metadata.push({ [object.id]: object })
             }
         })
@@ -154,4 +165,23 @@ export const useVisTypesFilterByVersion = () => {
             : true
 
     return filterVisTypesByVersion
+}
+
+export const getVisualizationWithFilteredOptionsByType = (visualization) => {
+    const visualizationClone = cloneDeep(visualization)
+
+    if (visualizationClone) {
+        const supportedOptions = new Set(
+            getOptionNamesByType(visualizationClone.type)
+        )
+        const unsupportedOptions = Object.keys(options).filter(
+            (optionName) => !supportedOptions.has(optionName)
+        )
+
+        unsupportedOptions.forEach(
+            (optionName) => delete visualizationClone[optionName]
+        )
+    }
+
+    return visualizationClone
 }

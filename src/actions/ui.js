@@ -34,7 +34,7 @@ export const acSetUi = (value) => ({
     value,
 })
 
-export const acClear = (value) => ({
+export const acClearUi = (value) => ({
     type: CLEAR_UI,
     value,
 })

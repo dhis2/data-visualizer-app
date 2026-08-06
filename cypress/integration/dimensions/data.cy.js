@@ -1,8 +1,11 @@
 import { DIMENSION_ID_DATA } from '@dhis2/analytics'
 import {
     clickDimensionModalHideButton,
+    clickOptionViewModeButton,
+    clickOptionViewModeBackButton,
     expectDimensionModalToContain,
     expectDimensionModalToNotBeVisible,
+    selectOptionByDoubleClick,
     unselectItemByDoubleClick,
     selectItemByDoubleClick,
     expectDataDimensionModalToBeVisible,
@@ -35,6 +38,7 @@ import {
     unselectAllItemsByButton,
     selectAllItemsByButton,
     expectDataItemsToBeInSource,
+    expectDataItemsToBeInOptionViewModeSource,
     expectDataItemToShowDataType,
     expectDataItemToShowInfoTable,
 } from '../../elements/dimensionModal/index.js'
@@ -101,10 +105,16 @@ describe('Data dimension', () => {
 
         const secondPageItemName = 'BCG doses'
         // all items can be selected
-        cy.intercept('GET', DATA_ITEMS_URL).as('request')
+        cy.intercept({
+            method: 'GET',
+            pathname: DATA_ITEMS_URL,
+            query: {
+                page: '2',
+            },
+        }).as('pageTwoRequest')
         selectAllItemsByButton()
         expectSelectedItemsAmountToBeLeast(PAGE_SIZE)
-        cy.wait('@request').then(({ request, response }) => {
+        cy.wait('@pageTwoRequest').should(({ request, response }) => {
             expect(request.url).to.contain('page=2')
             expect(response.statusCode).to.eq(200)
             expect(response.body.dataItems.length).to.eq(PAGE_SIZE)
@@ -120,9 +130,15 @@ describe('Data dimension', () => {
         expectNoDataItemsToBeSelected()
 
         // more items are fetched when scrolling down
-        cy.intercept('GET', DATA_ITEMS_URL).as('request')
+        cy.intercept({
+            method: 'GET',
+            pathname: DATA_ITEMS_URL,
+            query: {
+                page: '3',
+            },
+        }).as('pageThreeRequest')
         scrollSourceToBottom()
-        cy.wait('@request').then(({ request, response }) => {
+        cy.wait('@pageThreeRequest').should(({ request, response }) => {
             expect(request.url).to.contain('page=3')
             expect(response.statusCode).to.eq(200)
             expect(response.body.dataItems.length).to.eq(PAGE_SIZE)
@@ -206,6 +222,73 @@ describe('Data dimension', () => {
         })
         expectSourceToNotBeLoading()
         expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
+    })
+    it('can search by uid in global search', () => {
+        goToStartPage()
+        openDimension(DIMENSION_ID_DATA)
+        expectDataDimensionModalToBeVisible()
+        expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
+
+        const testUid = 'Uvn6LCg7dVU'
+        const expectedItemName = 'ANC 1 Coverage'
+
+        // searching for a uid returns the matching item
+        cy.intercept('GET', DATA_ITEMS_URL).as('uidSearchRequest')
+        inputSearchTerm(testUid)
+        cy.wait('@uidSearchRequest').then(({ request, response }) => {
+            expect(request.url).to.contain('page=1')
+            expect(request.url).to.contain(testUid)
+            expect(response.statusCode).to.eq(200)
+            expect(response.body.dataItems.length).to.eq(1)
+        })
+        expectSourceToNotBeLoading()
+        expectSelectableDataItemsAmountToBe(1)
+        expectItemToBeSelectable(expectedItemName)
+
+        // clear the search
+        cy.intercept('GET', DATA_ITEMS_URL).as('uidSearchClear')
+        clearSearchTerm()
+        cy.wait('@uidSearchClear').then(({ request, response }) => {
+            expect(request.url).to.contain('page=1')
+            expect(response.statusCode).to.eq(200)
+            expect(response.body.dataItems.length).to.be.eq(PAGE_SIZE)
+        })
+        expectSourceToNotBeLoading()
+        expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
+    })
+    // VERSION-TOGGLE: remove when 42 is lowest supported version
+    it(['>=42'], 'can toggle option view mode', () => {
+        goToStartPage()
+        openDimension(DIMENSION_ID_DATA)
+        expectDataDimensionModalToBeVisible()
+        expectSelectableDataItemsAmountToBeLeast(PAGE_SIZE)
+
+        switchDataTypeTo('Event data items')
+
+        const testSearchTerm = 'gender'
+        inputSearchTerm(testSearchTerm)
+
+        const testOption = 'Female (Gender, Child Programme)'
+
+        expectSourceToNotBeLoading()
+
+        clickOptionViewModeButton('Child Programme Gender')
+
+        expectSourceToNotBeLoading()
+
+        expectDataItemsToBeInOptionViewModeSource([
+            testOption,
+            'Male (Gender, Child Programme)',
+        ])
+
+        selectOptionByDoubleClick(testOption)
+        expectItemToBeSelected(testOption)
+
+        clickOptionViewModeBackButton()
+
+        expectSourceToNotBeLoading()
+
+        expectItemToBeSelected(testOption)
     })
     const testDataTypes = [
         {
