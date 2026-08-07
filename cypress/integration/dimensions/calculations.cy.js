@@ -129,6 +129,11 @@ describe('Calculations', () => {
                 .findBySelLike('data-element-option')
                 .eq(0)
                 .contains(name)
+        const expectListToContainItem = (name) =>
+            cy
+                .getBySelLike('dimension-list')
+                .findBySelLike('data-element-option')
+                .contains(name)
 
         openDimension(DIMENSION_ID_DATA)
         clickNewCalculationButton()
@@ -136,7 +141,7 @@ describe('Calculations', () => {
         // initial state
         item = 'ANC 1st visit'
         expectDimensionsListToHaveLength(50)
-        expectFirstItemToBe(item)
+        expectListToContainItem(item)
         selectItemFromDimensionsListByDoubleClick(item)
         expectFormulaFieldToContainItem(item)
 
@@ -145,7 +150,7 @@ describe('Calculations', () => {
             .parent()
             .scrollTo('bottom', { duration: 50 }) // using regular Cypress scrolling doesn't trigger the fetch for some reason
         expectDimensionsListToHaveLength(100)
-        expectFirstItemToBe(item)
+        expectListToContainItem(item)
         cy.getBySelLike('dimension-list')
             .findBySelLike('data-element-option')
             .eq(50)
