@@ -404,10 +404,13 @@ export const VisualizationPlugin = ({
 
             if (enabledPeriodTypesData?.metaData) {
                 responses.forEach((response) => {
-                    Object.assign(
-                        response.metaData.items,
-                        enabledPeriodTypesData.metaData
-                    )
+                    // some endpoints (ie. outlierDetection) don't return items in metaData
+                    if (response.metaData?.items) {
+                        Object.assign(
+                            response.metaData.items,
+                            enabledPeriodTypesData.metaData
+                        )
+                    }
                 })
             }
 
