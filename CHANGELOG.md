@@ -1,3 +1,10 @@
+## [101.6.3](https://github.com/dhis2/data-visualizer-app/compare/v101.6.2...v101.6.3) (2026-08-07)
+
+
+### Bug Fixes
+
+* avoid crash for responses without metadata items ([#3476](https://github.com/dhis2/data-visualizer-app/issues/3476)) ([24e0b2b](https://github.com/dhis2/data-visualizer-app/commit/24e0b2b7cebd5b508dfd8185f47653a887735263))
+
 ## [101.6.2](https://github.com/dhis2/data-visualizer-app/compare/v101.6.1...v101.6.2) (2026-07-31)
 
 
