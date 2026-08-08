@@ -17,7 +17,7 @@
         "validate-push": "yarn test",
         "cy:open": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress open --e2e --env networkMode=live'",
         "cy:run": "start-server-and-test 'yarn start:nobrowser' http://localhost:3000 'yarn cypress run --browser chrome headless --env networkMode=live'",
-        "postinstall": "cp ./node_modules/jspdf/dist/jspdf.umd.min.js ./public/vendor/jspdf.js && cp ./node_modules/svg2pdf.js/dist/svg2pdf.umd.min.js ./public/vendor/svg2pdf.js"
+        "postinstall": "patch-package && cp ./node_modules/jspdf/dist/jspdf.umd.min.js ./public/vendor/jspdf.js && cp ./node_modules/svg2pdf.js/dist/svg2pdf.umd.min.js ./public/vendor/svg2pdf.js"
     },
     "devDependencies": {
         "@dhis2/cli-app-scripts": "^12.11.0",
@@ -39,6 +39,7 @@
         "jest-webgl-canvas-mock": "^2.5.3",
         "jspdf": "^3.0.1",
         "loglevel": "^1.8.1",
+        "patch-package": "^8.0.0",
         "postinstall-postinstall": "^2.1.0",
         "redux-mock-store": "^1.5.4",
         "semantic-release": "^20",
