@@ -9,11 +9,11 @@
     inline-size: 100%;
     block-size: 100%;
     overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #c7cfd6 transparent;
     margin-block-start: 0px;
-    padding: var(--spacers-dp8);
+    padding: 0 var(--spacers-dp8);
     background: var(--colors-white);
-    border-block-start: 1px solid var(--colors-grey300);
-    border-block-end: 1px solid var(--colors-grey300);
 }
 
 .list {
@@ -28,8 +28,8 @@
     text-transform: uppercase;
     font-size: 11px;
     color: var(--colors-grey600);
-    margin-block-start: 0;
-    margin-block-end: var(--spacers-dp8);
+    margin-block-start: var(--spacers-dp4);
+    margin-block-end: var(--spacers-dp4);
     margin-inline-start: 0;
     margin-inline-end: 0;
     letter-spacing: 0.3px;

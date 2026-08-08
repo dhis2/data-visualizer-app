@@ -1,0 +1,32 @@
+.layout {
+    margin: 4px 4px 4px 0;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--colors-grey400);
+    border-radius: 5px;
+    background-color: var(--colors-white);
+}
+
+.topBar {
+    display: flex;
+    align-items: stretch;
+    background-color: var(--colors-white);
+    border-radius: 5px 5px 0 0;
+}
+
+.topBar > button,
+.topBar > div > button {
+    border-radius: 0;
+}
+
+.updateButtonWrapper {
+    display: flex;
+    /* border-right: 1px solid var(--colors-grey300); */
+    margin-inline-end: 4px;
+}
+
+.content {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 0 0 5px 5px;
+}

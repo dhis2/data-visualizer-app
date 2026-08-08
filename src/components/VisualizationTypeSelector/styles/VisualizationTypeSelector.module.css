@@ -1,6 +1,6 @@
 .arrowIcon {
     display: flex;
-    margin-inline-start: auto;
+    margin-inline-start: 8px;
 }
 
 .arrowIcon.listIsOpen {
@@ -8,16 +8,17 @@
 }
 
 .button {
-    padding-block-start: 7px;
-    padding-block-end: 7px;
-    padding-inline-start: var(--spacers-dp8);
+    padding-block-start: 2px;
+    padding-block-end: 2px;
+    padding-inline-start: 6px;
     padding-inline-end: var(--spacers-dp8);
+    margin: 4px 0;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     background-color: var(--colors-white);
     cursor: pointer;
-    flex-grow: 1;
+    border-radius: 5px;
 }
 
 .button:hover,
@@ -26,8 +27,9 @@
 }
 
 .button > .selectedVizTypeLabel {
-    font-size: 14px;
-    padding-block-start: 1px;
+    font-size: 13px;
+    font-weight: 500;
+    padding-block-start: 2px;
     user-select: none;
     color: var(--colors-grey900);
     margin-inline-start: 4px;
