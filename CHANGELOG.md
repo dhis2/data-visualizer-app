@@ -1,3 +1,10 @@
+## [101.6.5](https://github.com/dhis2/data-visualizer-app/compare/v101.6.4...v101.6.5) (2026-10-04)
+
+
+### Bug Fixes
+
+* respect short name display property in org unit tree [DHIS2-21562] ([#3478](https://github.com/dhis2/data-visualizer-app/issues/3478)) ([9bcbbd9](https://github.com/dhis2/data-visualizer-app/commit/9bcbbd9e4f5ec992050d0fed2a56de97af197409))
+
 ## [101.6.4](https://github.com/dhis2/data-visualizer-app/compare/v101.6.3...v101.6.4) (2026-10-04)
 
 
