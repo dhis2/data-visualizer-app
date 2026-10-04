@@ -25,6 +25,10 @@ const query = {
             fields: 'id,username,displayName~rename(name),settings,authorities',
         },
     },
+    // userSettings applies user-over-system precedence, unlike me.settings
+    userSettings: {
+        resource: 'userSettings',
+    },
     systemSettings: {
         resource: 'systemSettings',
     },
@@ -47,31 +51,35 @@ const query = {
 
 const providerDataTransformation = ({
     currentUser,
+    userSettings,
     systemSettings,
     rootOrgUnits,
     orgUnitLevels,
-}) => ({
-    currentUser: {
-        ...currentUser,
-        settings: {
-            dbLocale: currentUser.settings.keyDbLocale,
-            uiLocale: currentUser.settings.keyUiLocale,
-            displayProperty:
-                currentUser.settings[USER_SETTINGS_DISPLAY_PROPERTY],
-            displayNameProperty:
-                currentUser.settings[USER_SETTINGS_DISPLAY_PROPERTY] === 'name'
-                    ? 'displayName'
-                    : 'displayShortName',
+}) => {
+    const settings = { ...currentUser.settings, ...userSettings }
+
+    return {
+        currentUser: {
+            ...currentUser,
+            settings: {
+                dbLocale: settings.keyDbLocale,
+                uiLocale: settings.keyUiLocale,
+                displayProperty: settings[USER_SETTINGS_DISPLAY_PROPERTY],
+                displayNameProperty:
+                    settings[USER_SETTINGS_DISPLAY_PROPERTY] === 'name'
+                        ? 'displayName'
+                        : 'displayShortName',
+            },
         },
-    },
-    // filter only the relevant settings to avoid storing all in Redux
-    systemSettings: systemSettingsKeys.reduce((obj, key) => {
-        obj[key] = systemSettings[key]
-        return obj
-    }, {}),
-    rootOrgUnits: rootOrgUnits.organisationUnits,
-    orgUnitLevels: orgUnitLevels.organisationUnitLevels,
-})
+        // filter only the relevant settings to avoid storing all in Redux
+        systemSettings: systemSettingsKeys.reduce((obj, key) => {
+            obj[key] = systemSettings[key]
+            return obj
+        }, {}),
+        rootOrgUnits: rootOrgUnits.organisationUnits,
+        orgUnitLevels: orgUnitLevels.organisationUnitLevels,
+    }
+}
 
 const InterpretationsProvider = ({ children }) => {
     const { currentUser } = useCachedDataQuery()
