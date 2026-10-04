@@ -2489,10 +2489,10 @@
     classnames "^2.3.1"
     prop-types "^15.7.2"
 
-"@dhis2/analytics@^29.5.5":
-  version "29.5.5"
-  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-29.5.5.tgz#7251df2e21996bec222718daf219bc4c9e185226"
-  integrity sha512-WuQe3EgUukLx9ZlO8/67LAAaBM0Lhy3IGtQrAh3Cq1VAZfX/FfmVNydeFJh77CSBvCOVnM7o36ngsQ+fL6aEBA==
+"@dhis2/analytics@^29.8.1":
+  version "29.8.1"
+  resolved "https://registry.yarnpkg.com/@dhis2/analytics/-/analytics-29.8.1.tgz#5789d3fea8013ec486bb6440993eec03618347c1"
+  integrity sha512-tPuT7LcUJ+PowDafx2+6edmk9ooPPc4ZeoRc3czZbBzVZ1AjCvlXc3Vst1TeDXy0diZRujoYl5TvJW1d/MENqQ==
   dependencies:
     "@dhis2/multi-calendar-dates" "^1.2.2"
     "@dnd-kit/core" "^6.0.7"
@@ -2504,7 +2504,7 @@
     d2-utilizr "^0.2.16"
     d3-color "^1.2.3"
     highcharts "^12.1.2"
-    lodash "^4.17.21"
+    lodash "^4.18.1"
     markdown-it "^13.0.1"
     mathjs "^9.4.2"
     react-beautiful-dnd "^10.1.1"
@@ -11222,6 +11222,11 @@ lodash@^4.0.0, lodash@^4.17.11, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.2
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
+
+lodash@^4.18.1:
+  version "4.18.1"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.18.1.tgz#ff2b66c1f6326d59513de2407bf881439812771c"
+  integrity sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q==
 
 log-symbols@^4.0.0:
   version "4.1.0"
