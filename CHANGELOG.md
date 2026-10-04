@@ -1,3 +1,10 @@
+## [101.6.4](https://github.com/dhis2/data-visualizer-app/compare/v101.6.3...v101.6.4) (2026-10-04)
+
+
+### Bug Fixes
+
+* do not apply metadata item style to pivot table dimension labels ([#3479](https://github.com/dhis2/data-visualizer-app/issues/3479)) ([eb8f923](https://github.com/dhis2/data-visualizer-app/commit/eb8f92376d06b5193a31e3544174cf867165283b))
+
 ## [101.6.3](https://github.com/dhis2/data-visualizer-app/compare/v101.6.2...v101.6.3) (2026-08-07)
 
 
