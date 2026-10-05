@@ -41,7 +41,7 @@ import {
     ValueTypeError,
 } from '../../modules/error.js'
 import { fetchData } from '../../modules/fetchData.js'
-import { getIconUrl } from '../../modules/icon.js'
+import { getIconSvgFromResponse, getIconUrl } from '../../modules/icon.js'
 import getDefaultMetadata from '../../modules/metadata.js'
 import { getOptionsFromVisualization } from '../../modules/options.js'
 import { VisualizationErrorInfo } from '../VisualizationErrorInfo/VisualizationErrorInfo.jsx'
@@ -366,11 +366,8 @@ export const VisualizationPlugin = ({
                         )
                     }
 
-                    const icon = await iconResponse.text()
-
-                    extraOptions.icon = icon.replaceAll(
-                        '#333333',
-                        'currentColor'
+                    extraOptions.icon = await getIconSvgFromResponse(
+                        iconResponse
                     )
                 } catch (error) {
                     console.error(`Error loading icon: ${error}`)
