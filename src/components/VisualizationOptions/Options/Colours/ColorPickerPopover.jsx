@@ -16,11 +16,11 @@ const ColorPickerPopover = ({
     reference,
     metadataColor,
     value,
+    currentColor,
     onChange,
     onClose,
 }) => {
     const labels = getPaletteLabels()
-    const hex = value === COLOR_AUTO ? metadataColor : value
 
     return (
         <Popover
@@ -86,12 +86,12 @@ const ColorPickerPopover = ({
                         {i18n.t('Custom')}
                     </div>
                     <HexColorPicker
-                        color={hex || '#000000'}
+                        color={currentColor || '#000000'}
                         onChange={onChange}
                     />
                     <HexColorInput
                         className={styles.hexInput}
-                        color={hex || ''}
+                        color={currentColor || ''}
                         onChange={onChange}
                         prefixed
                     />
@@ -105,6 +105,7 @@ ColorPickerPopover.propTypes = {
     reference: PropTypes.object.isRequired,
     onChange: PropTypes.func.isRequired,
     onClose: PropTypes.func.isRequired,
+    currentColor: PropTypes.string,
     metadataColor: PropTypes.string,
     value: PropTypes.string,
 }

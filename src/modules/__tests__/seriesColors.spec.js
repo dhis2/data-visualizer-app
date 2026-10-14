@@ -10,18 +10,22 @@ import {
 } from '@dhis2/analytics'
 import { FILL_TYPE_PATTERN, FILL_TYPE_SOLID } from '../options.js'
 import {
-    applyAxisPalette,
-    applyPalette,
     COLOR_AUTO,
-    getNextSeedColor,
     getPaletteColors,
     isLegendMode,
     isPositionalSeries,
     mergeSeriesItems,
-    resetToAuto,
-    resolveItemColor,
-    seedLegacyColors,
-    seedSeriesColors,
+    COLOR_MODE_PALETTE,
+    COLOR_MODE_SINGLE,
+    COLOR_SOURCE_AUTO,
+    COLOR_SOURCE_CUSTOM,
+    COLOR_SOURCE_PALETTE,
+    COLOR_SOURCE_SINGLE,
+    DEFAULT_SINGLE_COLOR,
+    getAxisColors,
+    getInitialColourOptions,
+    PALETTE_BY_AXIS,
+    resolveSeriesColors,
 } from '../seriesColors.js'
 
 const DEFAULT = colorSets[COLOR_SET_DEFAULT].colors
@@ -43,108 +47,6 @@ describe('getPaletteColors', () => {
     })
 })
 
-describe('getNextSeedColor', () => {
-    it('returns the first unused palette colour (case-insensitive)', () => {
-        expect(
-            getNextSeedColor(COLOR_SET_DEFAULT, [DEFAULT[0].toUpperCase()])
-        ).toBe(DEFAULT[1])
-    })
-    it('cycles when every palette colour is used', () => {
-        expect(getNextSeedColor(COLOR_SET_DEFAULT, [...DEFAULT])).toBe(
-            DEFAULT[DEFAULT.length % DEFAULT.length]
-        )
-        expect(
-            getNextSeedColor(COLOR_SET_DEFAULT, [...DEFAULT, DEFAULT[0]])
-        ).toBe(DEFAULT[1])
-    })
-})
-
-describe('resolveItemColor', () => {
-    it('resolves AUTO through metadata', () => {
-        expect(
-            resolveItemColor(
-                { dimensionItem: 'withColor', color: COLOR_AUTO },
-                getMetadataColor
-            )
-        ).toBe('#123456')
-    })
-    it('returns hex as is and undefined for missing', () => {
-        expect(
-            resolveItemColor(
-                { dimensionItem: 'x', color: '#abcdef' },
-                getMetadataColor
-            )
-        ).toBe('#abcdef')
-        expect(
-            resolveItemColor(
-                { dimensionItem: 'x', color: COLOR_AUTO },
-                getMetadataColor
-            )
-        ).toBeUndefined()
-    })
-})
-
-describe('seedSeriesColors', () => {
-    it('uses AUTO when metadata colour exists, otherwise next unused seed colour', () => {
-        const result = seedSeriesColors({
-            items: [
-                { dimensionItem: 'a' },
-                { dimensionItem: 'withColor' },
-                { dimensionItem: 'b' },
-            ],
-            paletteId: COLOR_SET_DEFAULT,
-            getMetadataColor,
-        })
-        expect(result.map((i) => i.color)).toEqual([
-            DEFAULT[0],
-            COLOR_AUTO,
-            DEFAULT[1],
-        ])
-    })
-    it('keeps existing colours and skips colours already in use', () => {
-        const result = seedSeriesColors({
-            items: [
-                { dimensionItem: 'a', color: DEFAULT[0] },
-                { dimensionItem: 'b' },
-            ],
-            paletteId: COLOR_SET_DEFAULT,
-            getMetadataColor,
-        })
-        expect(result.map((i) => i.color)).toEqual([DEFAULT[0], DEFAULT[1]])
-    })
-    it('does not hand out a seed colour equal to a later Auto colour', () => {
-        const result = seedSeriesColors({
-            items: [{ dimensionItem: 'a' }, { dimensionItem: 'm' }],
-            paletteId: COLOR_SET_DEFAULT,
-            getMetadataColor: (id) => (id === 'm' ? DEFAULT[0] : undefined),
-        })
-        expect(result.map((i) => i.color)).toEqual([DEFAULT[1], COLOR_AUTO])
-    })
-    it('re-seeds a removed and re-added item without shifting others', () => {
-        const merged = mergeSeriesItems(
-            [
-                { dimensionItem: 'a' },
-                { dimensionItem: 'c' },
-                { dimensionItem: 'b' },
-            ],
-            [
-                { dimensionItem: 'a', color: '#111111' },
-                { dimensionItem: 'c', color: '#333333' },
-            ]
-        )
-        const result = seedSeriesColors({
-            items: merged,
-            paletteId: COLOR_SET_DEFAULT,
-            getMetadataColor,
-        })
-        expect(result.map((i) => i.color)).toEqual([
-            '#111111',
-            '#333333',
-            DEFAULT[0],
-        ])
-    })
-})
-
 describe('mergeSeriesItems', () => {
     it('follows layout order, keeps option props, takes name from layout', () => {
         expect(
@@ -159,82 +61,6 @@ describe('mergeSeriesItems', () => {
             { dimensionItem: 'b', name: 'B', axis: 0 },
             { dimensionItem: 'a', name: 'A', axis: 1, color: '#fff000' },
         ])
-    })
-})
-
-describe('applyPalette', () => {
-    it('overwrites every row including AUTO, cycling the palette', () => {
-        const items = Array.from({ length: BRIGHT.length + 1 }, (_, i) => ({
-            dimensionItem: `i${i}`,
-            color: COLOR_AUTO,
-        }))
-        const result = applyPalette({ items, paletteId: COLOR_SET_BRIGHT })
-        expect(result[0].color).toBe(BRIGHT[0])
-        expect(result[BRIGHT.length].color).toBe(BRIGHT[0])
-    })
-})
-
-describe('applyAxisPalette', () => {
-    it('uses the main axis colour for single items and a gradient for several', () => {
-        const result = applyAxisPalette({
-            items: [
-                { dimensionItem: 'a', axis: 0 },
-                { dimensionItem: 'b', axis: 1 },
-                { dimensionItem: 'c', axis: 1 },
-            ],
-        })
-        expect(result[0].color).toBe('#4292c6')
-        expect(result[1].color).toBe('#67000d')
-        expect(result[2].color).toBe('#fcbba1')
-    })
-})
-
-describe('resetToAuto', () => {
-    it('drops all colours and seeds again', () => {
-        const result = resetToAuto({
-            items: [
-                { dimensionItem: 'withColor', color: '#000000' },
-                { dimensionItem: 'a', color: '#000000' },
-            ],
-            paletteId: COLOR_SET_BRIGHT,
-            getMetadataColor,
-        })
-        expect(result.map((i) => i.color)).toEqual([COLOR_AUTO, BRIGHT[0]])
-    })
-})
-
-describe('seedLegacyColors', () => {
-    it('freezes the chart colour set as hex, never AUTO', () => {
-        const result = seedLegacyColors({
-            items: [{ dimensionItem: 'withColor', axis: 0 }],
-            colorSet: COLOR_SET_BRIGHT,
-        })
-        expect(result).toEqual({
-            items: [{ dimensionItem: 'withColor', axis: 0, color: BRIGHT[0] }],
-            colorSeed: COLOR_SET_BRIGHT,
-            fillType: FILL_TYPE_SOLID,
-        })
-    })
-    it('turns on pattern fill for the patterns set', () => {
-        const result = seedLegacyColors({
-            items: [{ dimensionItem: 'a', axis: 0 }],
-            colorSet: COLOR_SET_PATTERNS,
-        })
-        expect(result.fillType).toBe(FILL_TYPE_PATTERN)
-        expect(result.colorSeed).toBe(COLOR_SET_DEFAULT)
-        expect(result.items[0].color).toBe(
-            getPaletteColors(COLOR_SET_PATTERNS)[0]
-        )
-    })
-    it('uses axis families when the chart uses custom axes', () => {
-        const result = seedLegacyColors({
-            items: [
-                { dimensionItem: 'a', axis: 0 },
-                { dimensionItem: 'b', axis: 1 },
-            ],
-            colorSet: COLOR_SET_BRIGHT,
-        })
-        expect(result.items.map((i) => i.color)).toEqual(['#4292c6', '#cb181d'])
     })
 })
 
@@ -297,5 +123,200 @@ describe('isPositionalSeries', () => {
                 itemIds: ['fbfJHSPpUQD'],
             })
         ).toBe(false)
+    })
+})
+
+describe('resolveSeriesColors', () => {
+    const resolve = (items, settings = {}) =>
+        resolveSeriesColors({ items, getMetadataColor, ...settings })
+
+    it('gives each series the palette colour at its position', () => {
+        expect(
+            resolve([{ dimensionItem: 'a' }, { dimensionItem: 'b' }], {
+                colorMode: COLOR_MODE_PALETTE,
+                colorPalette: COLOR_SET_BRIGHT,
+            })
+        ).toEqual([
+            {
+                color: BRIGHT[0],
+                source: COLOR_SOURCE_PALETTE,
+                isOverride: false,
+            },
+            {
+                color: BRIGHT[1],
+                source: COLOR_SOURCE_PALETTE,
+                isOverride: false,
+            },
+        ])
+    })
+
+    it('does not shift later palette colours when an earlier series is overridden', () => {
+        const result = resolve(
+            [{ dimensionItem: 'a', color: '#ff0000' }, { dimensionItem: 'b' }],
+            { colorPalette: COLOR_SET_BRIGHT }
+        )
+        expect(result[0]).toEqual({
+            color: '#ff0000',
+            source: COLOR_SOURCE_CUSTOM,
+            isOverride: true,
+        })
+        expect(result[1].color).toBe(BRIGHT[1])
+    })
+
+    it('uses metadata colours only when useItemColors is on in palette mode', () => {
+        const items = [{ dimensionItem: 'withColor' }, { dimensionItem: 'b' }]
+
+        expect(resolve(items, { useItemColors: true })).toEqual([
+            { color: '#123456', source: COLOR_SOURCE_AUTO, isOverride: false },
+            {
+                color: DEFAULT[1],
+                source: COLOR_SOURCE_PALETTE,
+                isOverride: false,
+            },
+        ])
+        expect(resolve(items, { useItemColors: false })[0].color).toBe(
+            DEFAULT[0]
+        )
+        expect(
+            resolve(items, {
+                colorMode: COLOR_MODE_SINGLE,
+                singleColor: '#00ff00',
+                useItemColors: true,
+            })[0]
+        ).toEqual({
+            color: '#00ff00',
+            source: COLOR_SOURCE_SINGLE,
+            isOverride: false,
+        })
+    })
+
+    it('applies overrides in every mode (switching modes keeps them)', () => {
+        const items = [
+            { dimensionItem: 'a', color: '#ff0000' },
+            { dimensionItem: 'withColor', color: COLOR_AUTO },
+            { dimensionItem: 'c' },
+        ]
+
+        for (const settings of [
+            { colorMode: COLOR_MODE_PALETTE },
+            { colorMode: COLOR_MODE_SINGLE, singleColor: '#00ff00' },
+        ]) {
+            const result = resolve(items, settings)
+            expect(result[0].color).toBe('#ff0000')
+            expect(result[1]).toEqual({
+                color: '#123456',
+                source: COLOR_SOURCE_AUTO,
+                isOverride: true,
+            })
+        }
+    })
+
+    it('falls back to the chart default when an AUTO override lost its metadata colour', () => {
+        expect(
+            resolve([{ dimensionItem: 'gone', color: COLOR_AUTO }], {
+                colorPalette: COLOR_SET_BRIGHT,
+            })[0]
+        ).toEqual({
+            color: BRIGHT[0],
+            source: COLOR_SOURCE_PALETTE,
+            isOverride: false,
+        })
+    })
+
+    it('uses the default single colour when none is chosen', () => {
+        expect(
+            resolve([{ dimensionItem: 'a' }], {
+                colorMode: COLOR_MODE_SINGLE,
+            })[0].color
+        ).toBe(DEFAULT_SINGLE_COLOR)
+    })
+
+    it('cycles the palette for more series than colours', () => {
+        const items = Array.from({ length: DEFAULT.length + 2 }, (_, i) => ({
+            dimensionItem: `i${i}`,
+        }))
+        const result = resolve(items)
+        expect(result.every(({ color }) => typeof color === 'string')).toBe(
+            true
+        )
+        expect(result[DEFAULT.length].color).toBe(DEFAULT[0])
+    })
+
+    it('colours by axis family for BY_AXIS, also when everything is on one axis', () => {
+        expect(
+            resolve(
+                [
+                    { dimensionItem: 'a', axis: 0 },
+                    { dimensionItem: 'b', axis: 1 },
+                ],
+                { colorPalette: PALETTE_BY_AXIS }
+            ).map(({ color }) => color)
+        ).toEqual(['#4292c6', '#cb181d'])
+
+        expect(
+            resolve([{ dimensionItem: 'a' }, { dimensionItem: 'b' }], {
+                colorPalette: PALETTE_BY_AXIS,
+            }).map(({ color }) => color)
+        ).toEqual(['#08306b', '#c6dbef'])
+    })
+})
+
+describe('getAxisColors', () => {
+    it('uses the main axis colour for single items and a gradient for several', () => {
+        expect(
+            getAxisColors([
+                { dimensionItem: 'a', axis: 0 },
+                { dimensionItem: 'b', axis: 1 },
+                { dimensionItem: 'c', axis: 1 },
+            ])
+        ).toEqual(['#4292c6', '#67000d', '#fcbba1'])
+    })
+})
+
+describe('getInitialColourOptions', () => {
+    it('gives new charts the default palette with item colours on', () => {
+        expect(getInitialColourOptions({ isSaved: false })).toEqual({
+            colorMode: COLOR_MODE_PALETTE,
+            colorPalette: COLOR_SET_DEFAULT,
+            useItemColors: true,
+            fillType: FILL_TYPE_SOLID,
+        })
+    })
+
+    it('keeps a saved chart looking as before', () => {
+        expect(
+            getInitialColourOptions({
+                isSaved: true,
+                colorSet: COLOR_SET_BRIGHT,
+                series: [],
+            })
+        ).toEqual({
+            colorMode: COLOR_MODE_PALETTE,
+            colorPalette: COLOR_SET_BRIGHT,
+            useItemColors: false,
+            fillType: FILL_TYPE_SOLID,
+        })
+    })
+
+    it('maps the Patterns colour set to the default palette with pattern fill', () => {
+        expect(
+            getInitialColourOptions({
+                isSaved: true,
+                colorSet: COLOR_SET_PATTERNS,
+            })
+        ).toMatchObject({
+            colorPalette: COLOR_SET_DEFAULT,
+            fillType: FILL_TYPE_PATTERN,
+        })
+    })
+
+    it('uses By axis for saved charts with custom axes', () => {
+        expect(
+            getInitialColourOptions({
+                isSaved: true,
+                colorSet: COLOR_SET_BRIGHT,
+                series: [{ dimensionItem: 'a', axis: 1 }],
+            }).colorPalette
+        ).toBe(PALETTE_BY_AXIS)
     })
 })

@@ -86,10 +86,16 @@ describe('getSaveableVisualization (series colours prototype)', () => {
         const result = getSaveableVisualization({
             series: [{ dimensionItem: 'a', axis: 1, color: '#ffffff' }],
             fillType: 'PATTERN',
-            colorSeed: 'BRIGHT',
+            colorMode: 'PALETTE',
+            colorPalette: 'BY_AXIS',
+            useItemColors: true,
+            singleColor: '#ff0000',
         })
         expect(result.series).toEqual([{ dimensionItem: 'a', axis: 1 }])
         expect(result).not.toHaveProperty('fillType')
-        expect(result).not.toHaveProperty('colorSeed')
+        expect(result).not.toHaveProperty('colorMode')
+        expect(result).not.toHaveProperty('colorPalette')
+        expect(result).not.toHaveProperty('useItemColors')
+        expect(result).not.toHaveProperty('singleColor')
     })
 })

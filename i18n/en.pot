@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-10-14T07:45:07.597Z\n"
-"PO-Revision-Date: 2026-10-14T07:45:07.597Z\n"
+"POT-Creation-Date: 2026-10-14T09:21:18.371Z\n"
+"PO-Revision-Date: 2026-10-14T09:21:18.371Z\n"
 
 msgid "All items"
 msgstr "All items"
@@ -376,26 +376,47 @@ msgstr "Color blind"
 msgid "Patterns"
 msgstr "Patterns"
 
-msgid "By axis"
-msgstr "By axis"
-
-msgid "Reset to Auto"
-msgstr "Reset to Auto"
-
-msgid "Reset colours"
-msgstr "Reset colours"
-
-msgid "Apply colours"
-msgstr "Apply colours"
-
 msgid "Use data item colour"
 msgstr "Use data item colour"
 
 msgid "Palettes"
 msgstr "Palettes"
 
+msgid "Legend"
+msgstr "Legend"
+
+msgid "Palette"
+msgstr "Palette"
+
+msgid "Single colour"
+msgstr "Single colour"
+
+msgid "Colour by"
+msgstr "Colour by"
+
+msgid "Use automatic data item colours where available"
+msgstr "Use automatic data item colours where available"
+
+msgid "Colour"
+msgstr "Colour"
+
+msgid "all series"
+msgstr "all series"
+
+msgid "Fill"
+msgstr "Fill"
+
+msgid "Solid"
+msgstr "Solid"
+
+msgid "Pattern"
+msgstr "Pattern"
+
 msgid "Change colour for {{name}}"
 msgstr "Change colour for {{name}}"
+
+msgid "Reset colour for {{name}}"
+msgstr "Reset colour for {{name}}"
 
 msgid "Event data"
 msgstr "Event data"
@@ -526,9 +547,6 @@ msgstr "Legend changes background color"
 msgid "Legend changes text color"
 msgstr "Legend changes text color"
 
-msgid "Legend"
-msgstr "Legend"
-
 msgid "Select from legends"
 msgstr "Select from legends"
 
@@ -658,35 +676,14 @@ msgstr "Row sub-totals"
 msgid "Row totals"
 msgstr "Row totals"
 
-msgid "Undo"
-msgstr "Undo"
+msgid "Colours are set by the legend in Legend & Colours"
+msgstr "Colours are set by the legend in Legend & Colours"
 
-msgid "Colours applied"
-msgstr "Colours applied"
-
-msgid "Colour by"
-msgstr "Colour by"
-
-msgid "Static"
-msgstr "Static"
-
-msgid ""
-"Series with relative selections change over time, so colours are assigned "
-"in order from a palette. Colour, type and axis can only be set per item for "
-"fixed selections."
-msgstr ""
-"Series with relative selections change over time, so colours are assigned "
-"in order from a palette. Colour, type and axis can only be set per item for "
-"fixed selections."
-
-msgid "Palette"
-msgstr "Palette"
+msgid "Set by legend"
+msgstr "Set by legend"
 
 msgid "Data item"
 msgstr "Data item"
-
-msgid "Colour"
-msgstr "Colour"
 
 msgid "Visualization type"
 msgstr "Visualization type"
@@ -707,20 +704,13 @@ msgid "Options for selected items will be available here"
 msgstr "Options for selected items will be available here"
 
 msgid ""
-"Series options are not available when using relative selections for "
-"periods, org units or categories"
+"Series with relative selections change over time, so colours follow the "
+"chart setting in order. Colour, type and axis can only be set per item for "
+"fixed selections."
 msgstr ""
-"Series options are not available when using relative selections for "
-"periods, org units or categories"
-
-msgid "Fill"
-msgstr "Fill"
-
-msgid "Solid"
-msgstr "Solid"
-
-msgid "Pattern"
-msgstr "Pattern"
+"Series with relative selections change over time, so colours follow the "
+"chart setting in order. Colour, type and axis can only be set per item for "
+"fixed selections."
 
 msgid "Value labels"
 msgstr "Value labels"
@@ -1204,6 +1194,9 @@ msgstr "Axes"
 msgid "Data"
 msgstr "Data"
 
+msgid "Legend & Colours"
+msgstr "Legend & Colours"
+
 msgid "Limit values"
 msgstr "Limit values"
 
@@ -1221,6 +1214,9 @@ msgstr "Series"
 
 msgid "Style"
 msgstr "Style"
+
+msgid "By axis"
+msgstr "By axis"
 
 msgid "View data and indicators in a manipulatable table."
 msgstr "View data and indicators in a manipulatable table."

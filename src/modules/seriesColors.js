@@ -20,7 +20,17 @@ import { FILL_TYPE_PATTERN, FILL_TYPE_SOLID } from './options.js'
 export const COLOR_AUTO = 'AUTO'
 export const PALETTE_BY_AXIS = 'BY_AXIS'
 
-// Palettes offered in "Apply colours" and the picker grid (Patterns is a fill, not a palette)
+export const COLOR_MODE_PALETTE = 'PALETTE'
+export const COLOR_MODE_SINGLE = 'SINGLE'
+
+export const COLOR_SOURCE_PALETTE = 'PALETTE'
+export const COLOR_SOURCE_SINGLE = 'SINGLE'
+export const COLOR_SOURCE_AUTO = 'AUTO'
+export const COLOR_SOURCE_CUSTOM = 'CUSTOM'
+
+export const DEFAULT_SINGLE_COLOR = colorSets[COLOR_SET_DEFAULT].colors[0]
+
+// Palettes offered in the Palette select and the picker grid (Patterns is a fill, not a palette)
 export const PALETTE_IDS = [
     COLOR_SET_DEFAULT,
     COLOR_SET_BASIC,
@@ -39,6 +49,7 @@ export const getPaletteLabels = () => ({
     [COLOR_SET_DARK]: i18n.t('Dark'),
     [COLOR_SET_GRAY]: i18n.t('Gray'),
     [COLOR_SET_COLOR_BLIND]: i18n.t('Color blind'),
+    [PALETTE_BY_AXIS]: i18n.t('By axis'),
 })
 
 // Copy of defaultMultiAxisTheme1 in @dhis2/analytics (not exported)
@@ -48,8 +59,6 @@ const AXIS_THEME = {
     2: { start: '#00441b', end: '#c7e9c0', main: '#41ab5d' },
     3: { start: '#3f007d', end: '#dadaeb', main: '#6c66b8' },
 }
-
-const normalize = (hex) => hex?.toLowerCase()
 
 const hexToRgb = (hex) =>
     [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16))
@@ -71,57 +80,105 @@ export const getPaletteColors = (paletteId) =>
         ? colorSets[COLOR_SET_PATTERNS].patterns.map((p) => p.color)
         : (colorSets[paletteId] || colorSets[COLOR_SET_DEFAULT]).colors
 
-export const getNextSeedColor = (paletteId, usedColors = []) => {
-    const palette = getPaletteColors(paletteId)
-    const used = new Set(usedColors.map(normalize))
+const getDefaultColors = ({ items, colorMode, colorPalette, singleColor }) => {
+    if (colorMode === COLOR_MODE_SINGLE) {
+        return items.map(() => singleColor || DEFAULT_SINGLE_COLOR)
+    }
 
-    return (
-        palette.find((color) => !used.has(normalize(color))) ??
-        palette[usedColors.length % palette.length]
-    )
+    if (colorPalette === PALETTE_BY_AXIS) {
+        return getAxisColors(items)
+    }
+
+    const palette = getPaletteColors(colorPalette)
+
+    return items.map((_, index) => palette[index % palette.length])
 }
 
-export const resolveItemColor = (item, getMetadataColor) =>
-    item.color === COLOR_AUTO
-        ? getMetadataColor(item.dimensionItem)
-        : item.color
+// Precedence: override > metadata colour (palette + useItemColors) > chart default by position
+export const resolveSeriesColors = ({
+    items,
+    colorMode = COLOR_MODE_PALETTE,
+    colorPalette = COLOR_SET_DEFAULT,
+    singleColor,
+    useItemColors = false,
+    getMetadataColor,
+}) => {
+    const defaults = getDefaultColors({
+        items,
+        colorMode,
+        colorPalette,
+        singleColor,
+    })
+    const defaultSource =
+        colorMode === COLOR_MODE_SINGLE
+            ? COLOR_SOURCE_SINGLE
+            : COLOR_SOURCE_PALETTE
 
-export const seedSeriesColors = ({ items, paletteId, getMetadataColor }) => {
-    // reserve every colour that is or will be shown, so seeds never duplicate it
-    const used = items
-        .map((item) =>
-            item.color
-                ? resolveItemColor(item, getMetadataColor)
-                : getMetadataColor(item.dimensionItem)
-        )
-        .filter(Boolean)
+    return items.map((item, index) => {
+        const metadataColor = getMetadataColor(item.dimensionItem)
 
-    return items.map((item) => {
-        if (item.color) {
-            return item
+        if (item.color === COLOR_AUTO && metadataColor) {
+            return {
+                color: metadataColor,
+                source: COLOR_SOURCE_AUTO,
+                isOverride: true,
+            }
         }
 
-        if (getMetadataColor(item.dimensionItem)) {
-            return { ...item, color: COLOR_AUTO }
+        if (item.color && item.color !== COLOR_AUTO) {
+            return {
+                color: item.color,
+                source: COLOR_SOURCE_CUSTOM,
+                isOverride: true,
+            }
         }
 
-        const color = getNextSeedColor(paletteId, used)
-        used.push(color)
+        if (
+            useItemColors &&
+            colorMode === COLOR_MODE_PALETTE &&
+            metadataColor
+        ) {
+            return {
+                color: metadataColor,
+                source: COLOR_SOURCE_AUTO,
+                isOverride: false,
+            }
+        }
 
-        return { ...item, color }
+        return {
+            color: defaults[index],
+            source: defaultSource,
+            isOverride: false,
+        }
     })
 }
 
-export const applyPalette = ({ items, paletteId }) => {
-    const palette = getPaletteColors(paletteId)
+// New charts get item colours; saved charts keep what analytics drew for them
+export const getInitialColourOptions = ({ colorSet, series = [], isSaved }) => {
+    if (!isSaved) {
+        return {
+            colorMode: COLOR_MODE_PALETTE,
+            colorPalette: COLOR_SET_DEFAULT,
+            useItemColors: true,
+            fillType: FILL_TYPE_SOLID,
+        }
+    }
 
-    return items.map((item, index) => ({
-        ...item,
-        color: palette[index % palette.length],
-    }))
+    const isPatterns = colorSet === COLOR_SET_PATTERNS
+
+    return {
+        colorMode: COLOR_MODE_PALETTE,
+        colorPalette: hasCustomAxes(series)
+            ? PALETTE_BY_AXIS
+            : isPatterns || !colorSet
+            ? COLOR_SET_DEFAULT
+            : colorSet,
+        useItemColors: false,
+        fillType: isPatterns ? FILL_TYPE_PATTERN : FILL_TYPE_SOLID,
+    }
 }
 
-export const applyAxisPalette = ({ items }) => {
+export const getAxisColors = (items) => {
     const counts = items.reduce((map, item) => {
         const axis = item.axis ?? 0
         map[axis] = (map[axis] || 0) + 1
@@ -133,47 +190,11 @@ export const applyAxisPalette = ({ items }) => {
         const axis = item.axis ?? 0
         const theme = AXIS_THEME[axis] ?? AXIS_THEME[0]
         const position = (positions[axis] = (positions[axis] ?? -1) + 1)
-        const color =
-            counts[axis] === 1
-                ? theme.main
-                : interpolateColors(theme.start, theme.end, counts[axis])[
-                      position
-                  ]
 
-        return { ...item, color }
+        return counts[axis] === 1
+            ? theme.main
+            : interpolateColors(theme.start, theme.end, counts[axis])[position]
     })
-}
-
-export const resetToAuto = ({ items, paletteId, getMetadataColor }) =>
-    seedSeriesColors({
-        // eslint-disable-next-line no-unused-vars
-        items: items.map(({ color, ...rest }) => rest),
-        paletteId,
-        getMetadataColor,
-    })
-
-// Old saved charts: freeze what analytics rendered so nothing visibly changes
-export const seedLegacyColors = ({ items, colorSet }) => {
-    if (hasCustomAxes(items)) {
-        return {
-            items: applyAxisPalette({ items }),
-            colorSeed: COLOR_SET_DEFAULT,
-            fillType: FILL_TYPE_SOLID,
-        }
-    }
-
-    const isPatterns = colorSet === COLOR_SET_PATTERNS
-
-    return {
-        items: applyPalette({
-            items,
-            paletteId: colorSet || COLOR_SET_DEFAULT,
-        }),
-        colorSeed: isPatterns
-            ? COLOR_SET_DEFAULT
-            : colorSet || COLOR_SET_DEFAULT,
-        fillType: isPatterns ? FILL_TYPE_PATTERN : FILL_TYPE_SOLID,
-    }
 }
 
 export const mergeSeriesItems = (layoutItems, optionItems = []) =>

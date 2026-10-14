@@ -1,4 +1,5 @@
 import {
+    COLOR_SET_BRIGHT,
     LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM,
     LEGEND_DISPLAY_STYLE_FILL,
     VIS_TYPE_COLUMN,
@@ -11,78 +12,111 @@ import rootReducer from '../../../reducers/index.js'
 import { DEFAULT_UI } from '../../../reducers/ui.js'
 import SeriesTable from '../Options/SeriesTable.jsx'
 
-const getStore = () =>
+const getStore = (options = {}, layout, itemsByDimension) =>
     createStore(rootReducer, {
         ui: {
             ...DEFAULT_UI,
             type: VIS_TYPE_COLUMN,
-            layout: { columns: ['dx'], rows: ['pe'], filters: [] },
-            itemsByDimension: { dx: ['a', 'b'] },
+            layout: layout || { columns: ['dx'], rows: ['pe'], filters: [] },
+            itemsByDimension: itemsByDimension || { dx: ['a', 'b'] },
             options: {
                 ...DEFAULT_UI.options,
-                legend: {
-                    strategy: LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM,
-                    style: LEGEND_DISPLAY_STYLE_FILL,
-                },
+                colorMode: 'PALETTE',
+                colorPalette: COLOR_SET_BRIGHT,
+                useItemColors: false,
+                ...options,
             },
         },
     })
 
-describe('SeriesTable colours', () => {
-    it('stays in Legend mode when switching to "Select a legend" before a set is picked', () => {
-        render(
-            <Provider store={getStore()}>
-                <SeriesTable showColours showModeSwitch showFill />
-            </Provider>
-        )
+const renderTable = (store, props = { showColours: true }) =>
+    render(
+        <Provider store={store}>
+            <SeriesTable {...props} />
+        </Provider>
+    )
 
-        fireEvent.click(screen.getByLabelText('Select a legend'))
+describe('SeriesTable overrides', () => {
+    it('shows each series with its inherited palette colour', () => {
+        renderTable(getStore())
 
-        expect(screen.queryByText('Colour')).not.toBeInTheDocument()
-        expect(screen.getByLabelText('Select a legend')).toBeInTheDocument()
+        expect(screen.getAllByText('Palette')).toHaveLength(2)
+        const swatches = screen
+            .getAllByTestId('series-colour-button')
+            .map((button) => button.firstChild.style.backgroundColor)
+        expect(swatches).toHaveLength(2)
+        expect(swatches[0]).not.toBe('')
+        expect(
+            screen.queryByLabelText(/^Reset colour for/)
+        ).not.toBeInTheDocument()
     })
 
-    it('shows a colour column for fixed items in Static mode', () => {
-        render(
-            <Provider store={getStore()}>
-                <SeriesTable showColours showModeSwitch showFill />
-            </Provider>
-        )
+    it('shows the single colour as the source in Single colour mode', () => {
+        renderTable(getStore({ colorMode: 'SINGLE', singleColor: '#00ff00' }))
 
-        fireEvent.click(screen.getByText('Static'))
-
-        expect(screen.getByText('Colour')).toBeInTheDocument()
-        expect(screen.getAllByTestId('series-colour-button')).toHaveLength(2)
+        expect(screen.getAllByText('Single colour')).toHaveLength(2)
     })
 
-    it('offers a palette instead of per-item colours for relative series', () => {
-        const store = getStore()
-        store.getState().ui.layout = {
-            columns: ['pe'],
-            rows: ['dx'],
-            filters: [],
-        }
-        store.getState().ui.itemsByDimension = { pe: ['LAST_12_MONTHS'] }
-        store.getState().ui.options.legend = {}
+    it('removes an override with the reset button', () => {
+        const store = getStore({
+            series: [
+                { dimensionItem: 'a', color: '#ff0000' },
+                { dimensionItem: 'b' },
+            ],
+        })
+        renderTable(store)
 
-        render(
-            <Provider store={store}>
-                <SeriesTable showColours showModeSwitch showFill />
-            </Provider>
+        expect(screen.getByText('#ff0000')).toBeInTheDocument()
+        fireEvent.click(screen.getAllByLabelText(/^Reset colour for/)[0])
+
+        const items = store.getState().ui.options.series
+        expect(items.find((item) => item.dimensionItem === 'a').color).toBe(
+            undefined
+        )
+        expect(screen.getAllByText('Palette')).toHaveLength(2)
+    })
+
+    it('shows "Set by legend" and no colour buttons in legend mode', () => {
+        renderTable(
+            getStore({
+                legend: {
+                    strategy: LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM,
+                    style: LEGEND_DISPLAY_STYLE_FILL,
+                },
+            })
         )
 
-        expect(screen.getByText('Palette')).toBeInTheDocument()
-        expect(screen.queryByText('Colour')).not.toBeInTheDocument()
+        expect(screen.getAllByText('Set by legend')).toHaveLength(2)
+        expect(screen.queryAllByTestId('series-colour-button')).toHaveLength(0)
+    })
+
+    it('hides per-item columns for relative series and explains why', () => {
+        renderTable(
+            getStore(
+                {},
+                { columns: ['pe'], rows: ['dx'], filters: [] },
+                { pe: ['LAST_12_MONTHS'] }
+            ),
+            { showColours: true, showTypeOptions: true, showAxisOptions: true }
+        )
+
+        expect(
+            screen.getByText(/colours follow the chart setting in order/)
+        ).toBeInTheDocument()
         expect(screen.queryAllByTestId('series-colour-button')).toHaveLength(0)
     })
 
     it('keeps "No Series options" for types without colours (gauge, pivot table)', () => {
-        render(
-            <Provider store={getStore()}>
-                <SeriesTable />
-            </Provider>
-        )
+        renderTable(getStore(), {})
 
         expect(screen.getByText('No Series options')).toBeInTheDocument()
+    })
+
+    it('no longer shows the mode switch, Apply colours or Fill', () => {
+        renderTable(getStore())
+
+        expect(screen.queryByText('Colour by')).not.toBeInTheDocument()
+        expect(screen.queryByText(/Apply colours/)).not.toBeInTheDocument()
+        expect(screen.queryByText('Fill')).not.toBeInTheDocument()
     })
 })

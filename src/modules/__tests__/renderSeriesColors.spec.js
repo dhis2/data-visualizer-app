@@ -15,112 +15,97 @@ import {
     applySeriesColorsToChart,
     getRenderColors,
 } from '../renderSeriesColors.js'
-import { COLOR_AUTO } from '../seriesColors.js'
+import {
+    COLOR_MODE_PALETTE,
+    COLOR_MODE_SINGLE,
+    PALETTE_BY_AXIS,
+} from '../seriesColors.js'
 
 const DEFAULT = colorSets[COLOR_SET_DEFAULT].colors
 const BRIGHT = colorSets[COLOR_SET_BRIGHT].colors
 const getMetadataColor = (id) => ({ m: '#123456' }[id])
 
 describe('getRenderColors', () => {
-    it('returns null in legend mode even with stored colours', () => {
+    const render = (
+        visualization,
+        seriesIds = ['a', 'm'],
+        positional = false
+    ) =>
+        getRenderColors({
+            visualization,
+            seriesIds,
+            positional,
+            getMetadataColor,
+        })
+
+    it('returns null in legend mode even with overrides', () => {
         expect(
-            getRenderColors({
-                visualization: {
-                    type: VIS_TYPE_COLUMN,
-                    legend: { strategy: LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM },
-                    series: [{ dimensionItem: 'a', color: '#ffffff' }],
-                },
-                seriesIds: ['a'],
-                positional: false,
-                getMetadataColor,
+            render({
+                type: VIS_TYPE_COLUMN,
+                colorMode: COLOR_MODE_PALETTE,
+                legend: { strategy: LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM },
+                series: [{ dimensionItem: 'a', color: '#ffffff' }],
             })
         ).toBeNull()
     })
-    it('returns null for a saved chart with no stored colours (legacy)', () => {
+
+    it('returns null for a saved chart whose colour options were never initialised', () => {
         expect(
-            getRenderColors({
-                visualization: {
-                    id: 'saved',
-                    colorSet: COLOR_SET_BRIGHT,
-                    series: [],
-                },
-                seriesIds: ['a', 'm'],
-                positional: false,
-                getMetadataColor,
-            })
+            render({ id: 'saved', colorSet: COLOR_SET_BRIGHT, series: [] })
         ).toBeNull()
     })
-    it('seeds on the fly for a new chart (Auto + seed palette)', () => {
+
+    it('matches the colour set by position once a saved chart is initialised', () => {
         expect(
-            getRenderColors({
-                visualization: { series: [] },
-                seriesIds: ['a', 'm'],
-                positional: false,
-                getMetadataColor,
-            })
-        ).toEqual([DEFAULT[0], '#123456'])
-    })
-    it('uses stored colours and seeds unknown series from colorSeed', () => {
-        expect(
-            getRenderColors({
-                visualization: {
-                    id: 'saved',
-                    colorSeed: COLOR_SET_BRIGHT,
-                    series: [{ dimensionItem: 'a', color: '#ffffff' }],
-                },
-                seriesIds: ['a', 'b'],
-                positional: false,
-                getMetadataColor,
-            })
-        ).toEqual(['#ffffff', BRIGHT[0]])
-    })
-    it('falls back to a seed colour when an Auto item lost its metadata colour', () => {
-        expect(
-            getRenderColors({
-                visualization: {
-                    series: [
-                        { dimensionItem: 'gone', color: COLOR_AUTO },
-                        { dimensionItem: 'b', color: DEFAULT[0] },
-                    ],
-                },
-                seriesIds: ['gone', 'b'],
-                positional: false,
-                getMetadataColor,
-            })
-        ).toEqual([DEFAULT[1], DEFAULT[0]])
-    })
-    it('colours relative series in order from the chosen palette', () => {
-        expect(
-            getRenderColors({
-                visualization: {
-                    colorSeed: COLOR_SET_BRIGHT,
-                    series: [{ dimensionItem: 'x', color: '#ffffff' }],
-                },
-                seriesIds: ['x', 'y'],
-                positional: true,
-                getMetadataColor,
+            render({
+                id: 'saved',
+                colorMode: COLOR_MODE_PALETTE,
+                colorPalette: COLOR_SET_BRIGHT,
+                useItemColors: false,
+                series: [],
             })
         ).toEqual([BRIGHT[0], BRIGHT[1]])
     })
-    it('cycles the palette for many relative series', () => {
-        const ids = Array.from({ length: BRIGHT.length + 1 }, (_, i) => `p${i}`)
-        const colors = getRenderColors({
-            visualization: { colorSeed: COLOR_SET_BRIGHT },
-            seriesIds: ids,
-            positional: true,
-            getMetadataColor,
-        })
-        expect(colors[BRIGHT.length]).toBe(BRIGHT[0])
+
+    it('uses new-chart defaults (Default palette, item colours on) before init', () => {
+        expect(render({ series: [] })).toEqual([DEFAULT[0], '#123456'])
     })
-    it('returns null for a saved relative chart with no palette chosen (legacy)', () => {
+
+    it('applies overrides over the single colour', () => {
         expect(
-            getRenderColors({
-                visualization: { id: 'saved', colorSet: COLOR_SET_BRIGHT },
-                seriesIds: ['x'],
-                positional: true,
-                getMetadataColor,
+            render({
+                colorMode: COLOR_MODE_SINGLE,
+                singleColor: '#00ff00',
+                series: [{ dimensionItem: 'a', color: '#ff0000' }],
             })
-        ).toBeNull()
+        ).toEqual(['#ff0000', '#00ff00'])
+    })
+
+    it('ignores stored overrides for relative series and colours them in order', () => {
+        expect(
+            render(
+                {
+                    colorMode: COLOR_MODE_PALETTE,
+                    colorPalette: COLOR_SET_BRIGHT,
+                    series: [{ dimensionItem: 'a', color: '#ff0000' }],
+                },
+                ['a', 'b', 'c'],
+                true
+            )
+        ).toEqual([BRIGHT[0], BRIGHT[1], BRIGHT[2]])
+    })
+
+    it('reads axes from stored series for By axis', () => {
+        expect(
+            render({
+                colorMode: COLOR_MODE_PALETTE,
+                colorPalette: PALETTE_BY_AXIS,
+                series: [
+                    { dimensionItem: 'a', axis: 0 },
+                    { dimensionItem: 'm', axis: 1 },
+                ],
+            })
+        ).toEqual(['#4292c6', '#cb181d'])
     })
 })
 
@@ -214,7 +199,8 @@ describe('applySeriesColorsToChart (review fixes)', () => {
 
         applySeriesColorsToChart(chart, {
             type: VIS_TYPE_YEAR_OVER_YEAR_LINE,
-            colorSeed: COLOR_SET_BRIGHT,
+            colorMode: COLOR_MODE_PALETTE,
+            colorPalette: COLOR_SET_BRIGHT,
         })
 
         expect(trend.update).not.toHaveBeenCalled()

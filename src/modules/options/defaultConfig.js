@@ -6,7 +6,8 @@ import {
 import {
     OPTION_AGGREGATION_TYPE,
     OPTION_AXES,
-    OPTION_COLOR_SEED,
+    OPTION_COLOR_MODE,
+    OPTION_COLOR_PALETTE,
     OPTION_COLOR_SET,
     OPTION_COMPLETED_ONLY,
     OPTION_CUMULATIVE_VALUES,
@@ -23,10 +24,12 @@ import {
     OPTION_SERIES,
     OPTION_SERIES_KEY,
     OPTION_SHOW_DATA,
+    OPTION_SINGLE_COLOR,
     OPTION_SKIP_ROUNDING,
     OPTION_SORT_ORDER,
     OPTION_SUBTITLE,
     OPTION_TITLE,
+    OPTION_USE_ITEM_COLORS,
 } from '../options.js'
 import getAdvancedSection from './sections/advanced.jsx'
 import getChartStyleSection from './sections/chartStyle.jsx'
@@ -37,6 +40,7 @@ import getRangeAxisSection from './sections/rangeAxis.jsx'
 import getTitlesSection from './sections/titles.jsx'
 import getAxesTab from './tabs/axes.jsx'
 import getDataTab from './tabs/data.js'
+import getLegendColoursTab from './tabs/legendColours.jsx'
 import getLimitValuesTab from './tabs/limitValues.jsx'
 import getSeriesTab from './tabs/series.jsx'
 import getStyleTab from './tabs/style.js'
@@ -57,6 +61,14 @@ export default ({
         getLinesSection(hasDisabledSections, 'RANGE_0'),
         getAdvancedSection(),
     ]),
+    getLegendColoursTab({
+        showLegend: supportsLegends,
+        showFill: ![
+            VIS_TYPE_LINE,
+            VIS_TYPE_YEAR_OVER_YEAR_LINE,
+            VIS_TYPE_RADAR,
+        ].includes(type),
+    }),
     getAxesTab([
         ...rangeAxisIds.map((id) =>
             getRangeAxisSection({
@@ -74,12 +86,6 @@ export default ({
         showAxisOptions: supportsMultiAxes,
         showTypeOptions: supportsMultiType,
         showColours: true,
-        showModeSwitch: supportsLegends,
-        showFill: ![
-            VIS_TYPE_LINE,
-            VIS_TYPE_YEAR_OVER_YEAR_LINE,
-            VIS_TYPE_RADAR,
-        ].includes(type),
     }),
     getStyleTab([getChartStyleSection(isColumnBased), getTitlesSection()]),
     getLimitValuesTab(),
@@ -113,7 +119,10 @@ export const defaultOptionNames = ({
         OPTION_HIDE_SUBTITLE,
         OPTION_COLOR_SET,
         // Series tab colours (prototype)
-        OPTION_COLOR_SEED,
+        OPTION_COLOR_MODE,
+        OPTION_COLOR_PALETTE,
+        OPTION_USE_ITEM_COLORS,
+        OPTION_SINGLE_COLOR,
         OPTION_FILL_TYPE,
         // Limit values tab
         OPTION_MEASURE_CRITERIA,

@@ -1,6 +1,5 @@
 import {
     colorSets,
-    COLOR_SET_DEFAULT,
     COLOR_SET_PATTERNS,
     isLegendSetType,
     VIS_TYPE_GAUGE,
@@ -11,14 +10,18 @@ import {
     VIS_TYPE_SINGLE_VALUE,
 } from '@dhis2/analytics'
 import { getMetadataColor as getMockMetadataColor } from './mockMetadataColors.js'
-import { FILL_TYPE_PATTERN } from './options.js'
 import {
-    getNextSeedColor,
-    getPaletteColors,
+    FILL_TYPE_PATTERN,
+    OPTION_COLOR_MODE,
+    OPTION_COLOR_PALETTE,
+    OPTION_SINGLE_COLOR,
+    OPTION_USE_ITEM_COLORS,
+} from './options.js'
+import {
+    getInitialColourOptions,
     isLegendMode,
     isPositionalSeries,
-    resolveItemColor,
-    seedSeriesColors,
+    resolveSeriesColors,
 } from './seriesColors.js'
 
 const PATTERNS = colorSets[COLOR_SET_PATTERNS].patterns
@@ -41,19 +44,6 @@ const isTrendLine = (series) =>
 const isDataSeries = (series) =>
     !isTrendLine(series) && !series.options.custom?.isTwoCategoryFakeSerie
 
-const fillSeedColors = (colors, paletteId) => {
-    const used = colors.filter(Boolean)
-
-    return colors.map((color) => {
-        if (color) {
-            return color
-        }
-        const seed = getNextSeedColor(paletteId, used)
-        used.push(seed)
-        return seed
-    })
-}
-
 export const getRenderColors = ({
     visualization,
     seriesIds,
@@ -67,41 +57,35 @@ export const getRenderColors = ({
         return null
     }
 
-    const paletteId = visualization.colorSeed || COLOR_SET_DEFAULT
-    const isSaved = Boolean(visualization.id)
+    const isInitialised = Boolean(visualization[OPTION_COLOR_MODE])
 
-    // Relative series can't own colours: the chosen palette is applied in order
-    if (positional) {
-        if (!visualization.colorSeed && isSaved) {
-            return null
-        }
-
-        const palette = getPaletteColors(paletteId)
-
-        return seriesIds.map((_, index) => palette[index % palette.length])
-    }
-
-    const stored = visualization.series || []
-
-    if (!stored.some((item) => item.color) && isSaved) {
+    // Saved charts nobody has touched keep the analytics colours
+    if (!isInitialised && visualization.id) {
         return null
     }
 
-    const items = seedSeriesColors({
+    const settings = isInitialised
+        ? {
+              colorMode: visualization[OPTION_COLOR_MODE],
+              colorPalette: visualization[OPTION_COLOR_PALETTE],
+              singleColor: visualization[OPTION_SINGLE_COLOR],
+              useItemColors: visualization[OPTION_USE_ITEM_COLORS],
+          }
+        : getInitialColourOptions({ isSaved: false })
+
+    // Relative series can't own colours: they follow the chart setting in order
+    const stored = positional ? [] : visualization.series || []
+
+    return resolveSeriesColors({
         items: seriesIds.map(
             (id) =>
                 stored.find((item) => item.dimensionItem === id) || {
                     dimensionItem: id,
                 }
         ),
-        paletteId,
+        ...settings,
         getMetadataColor,
-    })
-
-    return fillSeedColors(
-        items.map((item) => resolveItemColor(item, getMetadataColor)),
-        paletteId
-    )
+    }).map(({ color }) => color)
 }
 
 const getFill = ({ color, index, fillType, seriesType, currentColor }) => {

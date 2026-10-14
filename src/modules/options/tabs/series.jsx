@@ -2,13 +2,7 @@ import i18n from '@dhis2/d2-i18n'
 import React from 'react'
 import SeriesTable from '../../../components/VisualizationOptions/Options/SeriesTable.jsx'
 
-export default ({
-    showAxisOptions,
-    showTypeOptions,
-    showColours,
-    showModeSwitch,
-    showFill,
-} = {}) => ({
+export default ({ showAxisOptions, showTypeOptions, showColours } = {}) => ({
     key: 'series-tab',
     label: i18n.t('Series'),
     content: [
@@ -19,8 +13,6 @@ export default ({
                     showAxisOptions={showAxisOptions}
                     showTypeOptions={showTypeOptions}
                     showColours={showColours}
-                    showModeSwitch={showModeSwitch}
-                    showFill={showFill}
                 />,
             ]),
         },

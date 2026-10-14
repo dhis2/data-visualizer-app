@@ -2,7 +2,8 @@ import React from 'react'
 import SkipRounding from '../../components/VisualizationOptions/Options/SkipRounding.jsx'
 import {
     OPTION_AGGREGATION_TYPE,
-    OPTION_COLOR_SEED,
+    OPTION_COLOR_MODE,
+    OPTION_COLOR_PALETTE,
     OPTION_COLOR_SET,
     OPTION_COMPLETED_ONLY,
     OPTION_FILL_TYPE,
@@ -11,14 +12,17 @@ import {
     OPTION_HIDE_TITLE,
     OPTION_MEASURE_CRITERIA,
     OPTION_SERIES,
+    OPTION_SINGLE_COLOR,
     OPTION_SKIP_ROUNDING,
     OPTION_SUBTITLE,
     OPTION_TITLE,
+    OPTION_USE_ITEM_COLORS,
 } from '../options.js'
 import getAdvancedSection from './sections/advanced.jsx'
 import getDisplayTemplate from './sections/templates/display.js'
 import getTitlesSection from './sections/titles.jsx'
 import getDataTab from './tabs/data.js'
+import getLegendColoursTab from './tabs/legendColours.jsx'
 import getLimitValuesTab from './tabs/limitValues.jsx'
 import getSeriesTab from './tabs/series.jsx'
 import getStyleTab from './tabs/style.js'
@@ -30,6 +34,7 @@ export default () => [
         }),
         getAdvancedSection(),
     ]),
+    getLegendColoursTab({ showLegend: false, showFill: true }),
     getSeriesTab({ showColours: true }),
     getStyleTab([getTitlesSection()]),
     getLimitValuesTab(),
@@ -50,7 +55,10 @@ export const pieOptionNames = () => [
     OPTION_HIDE_SUBTITLE,
     OPTION_COLOR_SET,
     // Series tab colours (prototype)
-    OPTION_COLOR_SEED,
+    OPTION_COLOR_MODE,
+    OPTION_COLOR_PALETTE,
+    OPTION_USE_ITEM_COLORS,
+    OPTION_SINGLE_COLOR,
     OPTION_FILL_TYPE,
     // Limit values tab
     OPTION_MEASURE_CRITERIA,

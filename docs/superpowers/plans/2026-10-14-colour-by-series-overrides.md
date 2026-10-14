@@ -12,17 +12,17 @@
 
 ## Global Constraints
 
-- Prototype only: no `@dhis2/analytics` changes, no backend changes. Colour options are UI-only (`savable: false`). `series[].color` is already stripped on save in `src/modules/visualization.js`; leave that as it is.
-- Old saved chart with no colour state in the UI (`colorMode` undefined and `visualization.id` set): the renderer returns `null`, so analytics colours it exactly as today.
-- Precedence per series: Legend mode > override (hex or `AUTO`) > metadata colour (Palette mode with `useItemColors` only) > chart default (palette colour **at the series' index**, axis family for `BY_AXIS`, or the single colour).
-- Palette colours are positional: series *i* gets `palette[i % palette.length]` regardless of overrides before it.
-- `BY_AXIS` appears in the Palette select only when `hasCustomAxes(series)` is true, or when it is already the selected value.
-- Legend option is offered only where `isLegendSetType(type)` (column, bar, stacked column, stacked bar). Fill is hidden for `LINE`, `YEAR_OVER_YEAR_LINE` and `RADAR`.
-- New option keys: `colorMode` (`'PALETTE' | 'SINGLE'`), `colorPalette` (colour set id or `'BY_AXIS'`), `useItemColors` (bool), `singleColor` (hex). Defaults are `undefined` in `options.js`; "undefined colorMode" is how a not-yet-initialised chart is detected.
-- New chart init: `{ colorMode: 'PALETTE', colorPalette: 'DEFAULT', useItemColors: true, fillType: 'SOLID' }`. Saved chart init: palette = `BY_AXIS` if custom axes, else its `colorSet` (Patterns or missing → `DEFAULT`); `useItemColors: false`; `fillType: 'PATTERN'` only for the Patterns colour set.
-- UI strings (exact): "Legend & Colours", "Colour by", "Legend", "Palette", "Single colour", "Use automatic data item colours where available", "By axis", "Fill", "Solid", "Pattern", "Set by legend", "Colours are set by the legend in Legend & Colours", "Series with relative selections change over time, so colours follow the chart setting in order. Colour, type and axis can only be set per item for fixed selections.", "Reset colour for {{name}}".
-- Code style: match surrounding code (4-space indent, no semicolons, single quotes, `i18n.t()` for all user-facing strings, CSS modules). Run `yarn lint` before each commit.
-- **Commits are GPG-signed by the user.** In every Commit step: `git add` the listed files, then print the `git commit -S -m "..."` command for the user to run, and wait. Do not commit yourself. End each message with `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`.
+-   Prototype only: no `@dhis2/analytics` changes, no backend changes. Colour options are UI-only (`savable: false`). `series[].color` is already stripped on save in `src/modules/visualization.js`; leave that as it is.
+-   Old saved chart with no colour state in the UI (`colorMode` undefined and `visualization.id` set): the renderer returns `null`, so analytics colours it exactly as today.
+-   Precedence per series: Legend mode > override (hex or `AUTO`) > metadata colour (Palette mode with `useItemColors` only) > chart default (palette colour **at the series' index**, axis family for `BY_AXIS`, or the single colour).
+-   Palette colours are positional: series _i_ gets `palette[i % palette.length]` regardless of overrides before it.
+-   `BY_AXIS` appears in the Palette select only when `hasCustomAxes(series)` is true, or when it is already the selected value.
+-   Legend option is offered only where `isLegendSetType(type)` (column, bar, stacked column, stacked bar). Fill is hidden for `LINE`, `YEAR_OVER_YEAR_LINE` and `RADAR`.
+-   New option keys: `colorMode` (`'PALETTE' | 'SINGLE'`), `colorPalette` (colour set id or `'BY_AXIS'`), `useItemColors` (bool), `singleColor` (hex). Defaults are `undefined` in `options.js`; "undefined colorMode" is how a not-yet-initialised chart is detected.
+-   New chart init: `{ colorMode: 'PALETTE', colorPalette: 'DEFAULT', useItemColors: true, fillType: 'SOLID' }`. Saved chart init: palette = `BY_AXIS` if custom axes, else its `colorSet` (Patterns or missing → `DEFAULT`); `useItemColors: false`; `fillType: 'PATTERN'` only for the Patterns colour set.
+-   UI strings (exact): "Legend & Colours", "Colour by", "Legend", "Palette", "Single colour", "Use automatic data item colours where available", "By axis", "Fill", "Solid", "Pattern", "Set by legend", "Colours are set by the legend in Legend & Colours", "Series with relative selections change over time, so colours follow the chart setting in order. Colour, type and axis can only be set per item for fixed selections.", "Reset colour for {{name}}".
+-   Code style: match surrounding code (4-space indent, no semicolons, single quotes, `i18n.t()` for all user-facing strings, CSS modules). Run `yarn lint` before each commit.
+-   **Commits are GPG-signed by the user.** In every Commit step: `git add` the listed files, then print the `git commit -S -m "..."` command for the user to run, and wait. Do not commit yourself. End each message with `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`.
 
 ## Review Focus
 
@@ -36,47 +36,50 @@
 
 ## File Structure
 
-| File | Responsibility |
-|---|---|
-| `src/modules/options.js` (modify) | Register `colorMode`, `colorPalette`, `useItemColors`, `singleColor` (UI-only); remove `colorSeed` (Task 5) |
-| `src/modules/seriesColors.js` (modify) | Pure model: constants, `getAxisColors`, `resolveSeriesColors`, `getInitialColourOptions`; old seed/apply/reset helpers deleted in Task 5 |
-| `src/modules/renderSeriesColors.js` (modify) | `getRenderColors` becomes a thin wrapper around the resolver |
-| `src/components/VisualizationOptions/Options/Colours/useColourOptionsInit.js` (create) | Hook: write the initial colour options once if `colorMode` is undefined |
-| `src/components/VisualizationOptions/Options/Colours/SeriesColorButton.jsx` (modify) | Swatch button showing an inherited state (greyed source label) or an override (hex / Auto + ↺) |
-| `src/components/VisualizationOptions/Options/Colours/ColorPickerPopover.jsx` (modify) | Take `currentColor` for the custom picker instead of deriving it |
-| `src/components/VisualizationOptions/Options/Colours/ColourByControl.jsx` (create) | Connected Legend & Colours tab body: segmented control, palette/checkbox, single colour, legend settings, fill |
-| `src/modules/options/tabs/legendColours.jsx` (create) | Tab config `getLegendColoursTab({ showLegend, showFill })` |
-| `src/modules/options/defaultConfig.js`, `pieConfig.jsx` (modify) | Add the new tab, simplify the Series tab props, register option names |
-| `src/modules/options/tabs/series.jsx` (modify) | Drop `showModeSwitch` / `showFill` |
-| `src/components/VisualizationOptions/Options/SeriesTable.jsx` (rewrite) | Overrides table: resolved swatches, ↺ reset, legend-disabled cell, relative note |
-| `src/components/VisualizationOptions/Options/Colours/ApplyColorsMenu.jsx` (delete) | Removed with "Apply colours" |
-| `src/components/VisualizationOptions/styles/Colours.module.css` (modify) | Add `.inheritedLabel`, `.resetButton`, `.legendCell`, `.colourBy`, `.modeRow`; drop unused classes |
+| File                                                                                   | Responsibility                                                                                                                           |
+| -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `src/modules/options.js` (modify)                                                      | Register `colorMode`, `colorPalette`, `useItemColors`, `singleColor` (UI-only); remove `colorSeed` (Task 5)                              |
+| `src/modules/seriesColors.js` (modify)                                                 | Pure model: constants, `getAxisColors`, `resolveSeriesColors`, `getInitialColourOptions`; old seed/apply/reset helpers deleted in Task 5 |
+| `src/modules/renderSeriesColors.js` (modify)                                           | `getRenderColors` becomes a thin wrapper around the resolver                                                                             |
+| `src/components/VisualizationOptions/Options/Colours/useColourOptionsInit.js` (create) | Hook: write the initial colour options once if `colorMode` is undefined                                                                  |
+| `src/components/VisualizationOptions/Options/Colours/SeriesColorButton.jsx` (modify)   | Swatch button showing an inherited state (greyed source label) or an override (hex / Auto + ↺)                                           |
+| `src/components/VisualizationOptions/Options/Colours/ColorPickerPopover.jsx` (modify)  | Take `currentColor` for the custom picker instead of deriving it                                                                         |
+| `src/components/VisualizationOptions/Options/Colours/ColourByControl.jsx` (create)     | Connected Legend & Colours tab body: segmented control, palette/checkbox, single colour, legend settings, fill                           |
+| `src/modules/options/tabs/legendColours.jsx` (create)                                  | Tab config `getLegendColoursTab({ showLegend, showFill })`                                                                               |
+| `src/modules/options/defaultConfig.js`, `pieConfig.jsx` (modify)                       | Add the new tab, simplify the Series tab props, register option names                                                                    |
+| `src/modules/options/tabs/series.jsx` (modify)                                         | Drop `showModeSwitch` / `showFill`                                                                                                       |
+| `src/components/VisualizationOptions/Options/SeriesTable.jsx` (rewrite)                | Overrides table: resolved swatches, ↺ reset, legend-disabled cell, relative note                                                         |
+| `src/components/VisualizationOptions/Options/Colours/ApplyColorsMenu.jsx` (delete)     | Removed with "Apply colours"                                                                                                             |
+| `src/components/VisualizationOptions/styles/Colours.module.css` (modify)               | Add `.inheritedLabel`, `.resetButton`, `.legendCell`, `.colourBy`, `.modeRow`; drop unused classes                                       |
 
 ---
 
 ### Task 1: Resolver and colour options
 
 **Files:**
-- Modify: `src/modules/options.js`
-- Modify: `src/modules/seriesColors.js`
-- Modify: `src/modules/options/defaultConfig.js` (option names only)
-- Modify: `src/modules/options/pieConfig.jsx` (option names only)
-- Test: `src/modules/__tests__/seriesColors.spec.js`
+
+-   Modify: `src/modules/options.js`
+-   Modify: `src/modules/seriesColors.js`
+-   Modify: `src/modules/options/defaultConfig.js` (option names only)
+-   Modify: `src/modules/options/pieConfig.jsx` (option names only)
+-   Test: `src/modules/__tests__/seriesColors.spec.js`
 
 **Interfaces:**
-- Produces (`options.js`): `OPTION_COLOR_MODE = 'colorMode'`, `OPTION_COLOR_PALETTE = 'colorPalette'`, `OPTION_USE_ITEM_COLORS = 'useItemColors'`, `OPTION_SINGLE_COLOR = 'singleColor'`.
-- Produces (`seriesColors.js`):
-  - `COLOR_MODE_PALETTE = 'PALETTE'`, `COLOR_MODE_SINGLE = 'SINGLE'`
-  - `COLOR_SOURCE_PALETTE = 'PALETTE'`, `COLOR_SOURCE_SINGLE = 'SINGLE'`, `COLOR_SOURCE_AUTO = 'AUTO'`, `COLOR_SOURCE_CUSTOM = 'CUSTOM'`
-  - `DEFAULT_SINGLE_COLOR: string` (first colour of the Default set)
-  - `getAxisColors(items: Item[]): string[]`
-  - `resolveSeriesColors({ items, colorMode?, colorPalette?, singleColor?, useItemColors?, getMetadataColor }): { color: string, source: string, isOverride: boolean }[]`
-  - `getInitialColourOptions({ colorSet?, series?, isSaved }): { colorMode, colorPalette, useItemColors, fillType }` (keys are the option ids)
-  - `getPaletteLabels()` now also contains `[PALETTE_BY_AXIS]: 'By axis'`
-  - Unchanged and still used: `COLOR_AUTO`, `PALETTE_BY_AXIS`, `PALETTE_IDS`, `getPaletteColors`, `mergeSeriesItems`, `isLegendMode`, `isPositionalSeries`
-  - `Item = { dimensionItem: string, name?: string, axis?: number, type?: string, color?: 'AUTO' | string }`
 
-- [ ] **Step 1: Write the failing tests**
+-   Produces (`options.js`): `OPTION_COLOR_MODE = 'colorMode'`, `OPTION_COLOR_PALETTE = 'colorPalette'`, `OPTION_USE_ITEM_COLORS = 'useItemColors'`, `OPTION_SINGLE_COLOR = 'singleColor'`.
+-   Produces (`seriesColors.js`):
+
+    -   `COLOR_MODE_PALETTE = 'PALETTE'`, `COLOR_MODE_SINGLE = 'SINGLE'`
+    -   `COLOR_SOURCE_PALETTE = 'PALETTE'`, `COLOR_SOURCE_SINGLE = 'SINGLE'`, `COLOR_SOURCE_AUTO = 'AUTO'`, `COLOR_SOURCE_CUSTOM = 'CUSTOM'`
+    -   `DEFAULT_SINGLE_COLOR: string` (first colour of the Default set)
+    -   `getAxisColors(items: Item[]): string[]`
+    -   `resolveSeriesColors({ items, colorMode?, colorPalette?, singleColor?, useItemColors?, getMetadataColor }): { color: string, source: string, isOverride: boolean }[]`
+    -   `getInitialColourOptions({ colorSet?, series?, isSaved }): { colorMode, colorPalette, useItemColors, fillType }` (keys are the option ids)
+    -   `getPaletteLabels()` now also contains `[PALETTE_BY_AXIS]: 'By axis'`
+    -   Unchanged and still used: `COLOR_AUTO`, `PALETTE_BY_AXIS`, `PALETTE_IDS`, `getPaletteColors`, `mergeSeriesItems`, `isLegendMode`, `isPositionalSeries`
+    -   `Item = { dimensionItem: string, name?: string, axis?: number, type?: string, color?: 'AUTO' | string }`
+
+-   [ ] **Step 1: Write the failing tests**
 
 Append to `src/modules/__tests__/seriesColors.spec.js`. Add `COLOR_SET_DEFAULT`, `COLOR_SET_PATTERNS` and `COLOR_SET_BRIGHT` to the existing `@dhis2/analytics` import if they are missing, and add the new names to the `../seriesColors.js` import:
 
@@ -108,17 +111,22 @@ describe('resolveSeriesColors', () => {
                 colorPalette: COLOR_SET_BRIGHT,
             })
         ).toEqual([
-            { color: BRIGHT[0], source: COLOR_SOURCE_PALETTE, isOverride: false },
-            { color: BRIGHT[1], source: COLOR_SOURCE_PALETTE, isOverride: false },
+            {
+                color: BRIGHT[0],
+                source: COLOR_SOURCE_PALETTE,
+                isOverride: false,
+            },
+            {
+                color: BRIGHT[1],
+                source: COLOR_SOURCE_PALETTE,
+                isOverride: false,
+            },
         ])
     })
 
     it('does not shift later palette colours when an earlier series is overridden', () => {
         const result = resolve(
-            [
-                { dimensionItem: 'a', color: '#ff0000' },
-                { dimensionItem: 'b' },
-            ],
+            [{ dimensionItem: 'a', color: '#ff0000' }, { dimensionItem: 'b' }],
             { colorPalette: COLOR_SET_BRIGHT }
         )
         expect(result[0]).toEqual({
@@ -134,7 +142,11 @@ describe('resolveSeriesColors', () => {
 
         expect(resolve(items, { useItemColors: true })).toEqual([
             { color: '#123456', source: COLOR_SOURCE_AUTO, isOverride: false },
-            { color: DEFAULT[1], source: COLOR_SOURCE_PALETTE, isOverride: false },
+            {
+                color: DEFAULT[1],
+                source: COLOR_SOURCE_PALETTE,
+                isOverride: false,
+            },
         ])
         expect(resolve(items, { useItemColors: false })[0].color).toBe(
             DEFAULT[0]
@@ -284,12 +296,12 @@ describe('getInitialColourOptions', () => {
 })
 ```
 
-- [ ] **Step 2: Run the tests and check they fail**
+-   [ ] **Step 2: Run the tests and check they fail**
 
 Run: `yarn test src/modules/__tests__/seriesColors.spec.js`
 Expected: FAIL, because `resolveSeriesColors` / `getAxisColors` / `getInitialColourOptions` are not exported.
 
-- [ ] **Step 3: Register the options**
+-   [ ] **Step 3: Register the options**
 
 In `src/modules/options.js`, next to `OPTION_COLOR_SEED`, add the exports (keep the list alphabetical):
 
@@ -332,7 +344,7 @@ In the `options` object, after the `OPTION_FILL_TYPE` entry:
 
 In `src/modules/options/defaultConfig.js` (`defaultOptionNames`) and `src/modules/options/pieConfig.jsx` (`pieOptionNames`), add the four new ids under the `// Series tab colours (prototype)` comment, next to `OPTION_COLOR_SEED` and `OPTION_FILL_TYPE`, and import them from `../options.js`. Without this, `filterVisualizationOptionsByType` drops them before they reach the renderer.
 
-- [ ] **Step 4: Implement the resolver**
+-   [ ] **Step 4: Implement the resolver**
 
 In `src/modules/seriesColors.js`:
 
@@ -437,7 +449,11 @@ export const resolveSeriesColors = ({
             }
         }
 
-        if (useItemColors && colorMode === COLOR_MODE_PALETTE && metadataColor) {
+        if (
+            useItemColors &&
+            colorMode === COLOR_MODE_PALETTE &&
+            metadataColor
+        ) {
             return {
                 color: metadataColor,
                 source: COLOR_SOURCE_AUTO,
@@ -445,7 +461,11 @@ export const resolveSeriesColors = ({
             }
         }
 
-        return { color: defaults[index], source: defaultSource, isOverride: false }
+        return {
+            color: defaults[index],
+            source: defaultSource,
+            isOverride: false,
+        }
     })
 }
 
@@ -477,17 +497,18 @@ export const getInitialColourOptions = ({ colorSet, series = [], isSaved }) => {
 
 Note: the keys returned by `getInitialColourOptions` equal the option ids (`colorMode`, `colorPalette`, `useItemColors`, `fillType`), so callers can pass the result straight to `acSetUiOptions`.
 
-- [ ] **Step 5: Run the tests and check they pass**
+-   [ ] **Step 5: Run the tests and check they pass**
 
 Run: `yarn test src/modules/__tests__/seriesColors.spec.js`
 Expected: PASS (old tests for the seeding helpers still pass; they are removed in Task 5).
 
-- [ ] **Step 6: Commit**
+-   [ ] **Step 6: Commit**
 
 ```bash
 yarn lint
 git add src/modules/options.js src/modules/seriesColors.js src/modules/options/defaultConfig.js src/modules/options/pieConfig.jsx src/modules/__tests__/seriesColors.spec.js
 ```
+
 Hand the user: `git commit -S -m "feat: add series colour resolver and colour-by options" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"`
 
 ---
@@ -495,20 +516,26 @@ Hand the user: `git commit -S -m "feat: add series colour resolver and colour-by
 ### Task 2: Renderer uses the resolver
 
 **Files:**
-- Modify: `src/modules/renderSeriesColors.js`
-- Test: `src/modules/__tests__/renderSeriesColors.spec.js`
+
+-   Modify: `src/modules/renderSeriesColors.js`
+-   Test: `src/modules/__tests__/renderSeriesColors.spec.js`
 
 **Interfaces:**
-- Consumes: `resolveSeriesColors`, `getInitialColourOptions`, `isLegendMode`, `isPositionalSeries`, `COLOR_MODE_*` from Task 1; `OPTION_COLOR_MODE`, `OPTION_COLOR_PALETTE`, `OPTION_SINGLE_COLOR`, `OPTION_USE_ITEM_COLORS` from `options.js`.
-- Produces: `getRenderColors({ visualization, seriesIds, positional, getMetadataColor }): string[] | null` (same signature as before); `applySeriesColorsToChart(chart, visualization)` (unchanged signature).
 
-- [ ] **Step 1: Rewrite the `getRenderColors` tests**
+-   Consumes: `resolveSeriesColors`, `getInitialColourOptions`, `isLegendMode`, `isPositionalSeries`, `COLOR_MODE_*` from Task 1; `OPTION_COLOR_MODE`, `OPTION_COLOR_PALETTE`, `OPTION_SINGLE_COLOR`, `OPTION_USE_ITEM_COLORS` from `options.js`.
+-   Produces: `getRenderColors({ visualization, seriesIds, positional, getMetadataColor }): string[] | null` (same signature as before); `applySeriesColorsToChart(chart, visualization)` (unchanged signature).
+
+-   [ ] **Step 1: Rewrite the `getRenderColors` tests**
 
 In `src/modules/__tests__/renderSeriesColors.spec.js`, replace the whole `describe('getRenderColors', ...)` block with the block below, and import `COLOR_MODE_PALETTE`, `COLOR_MODE_SINGLE`, `PALETTE_BY_AXIS` from `../seriesColors.js` (keep `COLOR_AUTO`):
 
 ```js
 describe('getRenderColors', () => {
-    const render = (visualization, seriesIds = ['a', 'm'], positional = false) =>
+    const render = (
+        visualization,
+        seriesIds = ['a', 'm'],
+        positional = false
+    ) =>
         getRenderColors({
             visualization,
             seriesIds,
@@ -597,18 +624,19 @@ In the same file, in the test `'skips linear trend lines (type line) so position
 
 Remove `COLOR_AUTO` from the import if nothing else in the file uses it. The `applySeriesColorsToChart` tests need no other changes: they have no `id` and use hex overrides, so they resolve exactly as before.
 
-- [ ] **Step 2: Run the tests and check they fail**
+-   [ ] **Step 2: Run the tests and check they fail**
 
 Run: `yarn test src/modules/__tests__/renderSeriesColors.spec.js`
 Expected: FAIL (e.g. "matches the colour set by position once a saved chart is initialised" returns `null`, and the trend-line test uses the wrong palette).
 
-- [ ] **Step 3: Implement**
+-   [ ] **Step 3: Implement**
 
 In `src/modules/renderSeriesColors.js`:
-- Remove imports `COLOR_SET_DEFAULT`, `getNextSeedColor`, `getPaletteColors`, `resolveItemColor`, `seedSeriesColors`.
-- Delete `fillSeedColors`.
-- Import `OPTION_COLOR_MODE`, `OPTION_COLOR_PALETTE`, `OPTION_SINGLE_COLOR`, `OPTION_USE_ITEM_COLORS` (plus the existing `FILL_TYPE_PATTERN`) from `./options.js`, and `getInitialColourOptions`, `resolveSeriesColors` from `./seriesColors.js`.
-- Replace `getRenderColors` with:
+
+-   Remove imports `COLOR_SET_DEFAULT`, `getNextSeedColor`, `getPaletteColors`, `resolveItemColor`, `seedSeriesColors`.
+-   Delete `fillSeedColors`.
+-   Import `OPTION_COLOR_MODE`, `OPTION_COLOR_PALETTE`, `OPTION_SINGLE_COLOR`, `OPTION_USE_ITEM_COLORS` (plus the existing `FILL_TYPE_PATTERN`) from `./options.js`, and `getInitialColourOptions`, `resolveSeriesColors` from `./seriesColors.js`.
+-   Replace `getRenderColors` with:
 
 ```js
 export const getRenderColors = ({
@@ -658,17 +686,18 @@ export const getRenderColors = ({
 
 `applySeriesColorsToChart` and `getFill` stay as they are.
 
-- [ ] **Step 4: Run the tests and check they pass**
+-   [ ] **Step 4: Run the tests and check they pass**
 
 Run: `yarn test src/modules/__tests__/renderSeriesColors.spec.js src/components/VisualizationPlugin`
 Expected: PASS
 
-- [ ] **Step 5: Commit**
+-   [ ] **Step 5: Commit**
 
 ```bash
 yarn lint
 git add src/modules/renderSeriesColors.js src/modules/__tests__/renderSeriesColors.spec.js
 ```
+
 Hand the user: `git commit -S -m "feat: render series colours through the shared resolver" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"`
 
 ---
@@ -676,23 +705,25 @@ Hand the user: `git commit -S -m "feat: render series colours through the shared
 ### Task 3: Colour button shows inherited vs override, with reset
 
 **Files:**
-- Modify: `src/components/VisualizationOptions/Options/Colours/SeriesColorButton.jsx`
-- Modify: `src/components/VisualizationOptions/Options/Colours/ColorPickerPopover.jsx`
-- Modify: `src/components/VisualizationOptions/styles/Colours.module.css`
-- Test: `src/components/VisualizationOptions/Options/Colours/__tests__/SeriesColorButton.spec.jsx`
+
+-   Modify: `src/components/VisualizationOptions/Options/Colours/SeriesColorButton.jsx`
+-   Modify: `src/components/VisualizationOptions/Options/Colours/ColorPickerPopover.jsx`
+-   Modify: `src/components/VisualizationOptions/styles/Colours.module.css`
+-   Test: `src/components/VisualizationOptions/Options/Colours/__tests__/SeriesColorButton.spec.jsx`
 
 **Interfaces:**
-- Produces: `<SeriesColorButton name value color sourceLabel metadataColor onChange onReset />`
-  - `name: string` (required): used in aria-labels
-  - `value?: 'AUTO' | string`: the override; `undefined` means inherited
-  - `color: string` (required): the resolved colour to draw in the swatch
-  - `sourceLabel?: string`: greyed text shown when `value` is undefined
-  - `metadataColor?: string`: enables "Auto" in the picker
-  - `onChange(color: 'AUTO' | string)` (required)
-  - `onReset?()`: when given and `value` is set, a ↺ button is rendered
-- Produces: `<ColorPickerPopover reference metadataColor value currentColor onChange onClose />` (adds `currentColor`).
 
-- [ ] **Step 1: Write the failing tests**
+-   Produces: `<SeriesColorButton name value color sourceLabel metadataColor onChange onReset />`
+    -   `name: string` (required): used in aria-labels
+    -   `value?: 'AUTO' | string`: the override; `undefined` means inherited
+    -   `color: string` (required): the resolved colour to draw in the swatch
+    -   `sourceLabel?: string`: greyed text shown when `value` is undefined
+    -   `metadataColor?: string`: enables "Auto" in the picker
+    -   `onChange(color: 'AUTO' | string)` (required)
+    -   `onReset?()`: when given and `value` is set, a ↺ button is rendered
+-   Produces: `<ColorPickerPopover reference metadataColor value currentColor onChange onClose />` (adds `currentColor`).
+
+-   [ ] **Step 1: Write the failing tests**
 
 Replace the contents of `SeriesColorButton.spec.jsx` with:
 
@@ -776,12 +807,12 @@ describe('SeriesColorButton', () => {
 
 (CSS modules are mapped to identity class names in this Jest setup: the previous spec and `SeriesTable` already rely on that. If `toHaveClass('inheritedLabel')` fails because of the mapping, check `jest.config`/`moduleNameMapper` and assert on `data-test="series-colour-inherited"` instead, adding that attribute to the span.)
 
-- [ ] **Step 2: Run the tests and check they fail**
+-   [ ] **Step 2: Run the tests and check they fail**
 
 Run: `yarn test src/components/VisualizationOptions/Options/Colours`
 Expected: FAIL (no source label, no reset button).
 
-- [ ] **Step 3: Implement**
+-   [ ] **Step 3: Implement**
 
 `SeriesColorButton.jsx`, full contents:
 
@@ -905,17 +936,18 @@ export default SeriesColorButton
 
 Callers: `SeriesTable` still passes the old props (`value`, `metadataColor`, `onChange`) until Task 5. To keep it working in between, add `color={item.color === COLOR_AUTO ? getMetadataColor(item.dimensionItem) : item.color}` to its existing `<SeriesColorButton>` usage (import `COLOR_AUTO` there if needed). Task 5 replaces this.
 
-- [ ] **Step 4: Run the tests and check they pass**
+-   [ ] **Step 4: Run the tests and check they pass**
 
 Run: `yarn test src/components/VisualizationOptions`
 Expected: PASS
 
-- [ ] **Step 5: Commit**
+-   [ ] **Step 5: Commit**
 
 ```bash
 yarn lint
 git add src/components/VisualizationOptions/Options/Colours/SeriesColorButton.jsx src/components/VisualizationOptions/Options/Colours/ColorPickerPopover.jsx src/components/VisualizationOptions/styles/Colours.module.css src/components/VisualizationOptions/Options/Colours/__tests__/SeriesColorButton.spec.jsx src/components/VisualizationOptions/Options/SeriesTable.jsx
 ```
+
 Hand the user: `git commit -S -m "feat: show inherited vs overridden series colours with reset" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"`
 
 ---
@@ -923,22 +955,25 @@ Hand the user: `git commit -S -m "feat: show inherited vs overridden series colo
 ### Task 4: Legend & Colours tab
 
 **Files:**
-- Create: `src/components/VisualizationOptions/Options/Colours/useColourOptionsInit.js`
-- Create: `src/components/VisualizationOptions/Options/Colours/ColourByControl.jsx`
-- Create: `src/modules/options/tabs/legendColours.jsx`
-- Modify: `src/modules/options/defaultConfig.js`
-- Modify: `src/modules/options/pieConfig.jsx`
-- Modify: `src/components/VisualizationOptions/styles/Colours.module.css`
-- Test: `src/components/VisualizationOptions/Options/Colours/__tests__/ColourByControl.spec.jsx`
+
+-   Create: `src/components/VisualizationOptions/Options/Colours/useColourOptionsInit.js`
+-   Create: `src/components/VisualizationOptions/Options/Colours/ColourByControl.jsx`
+-   Create: `src/modules/options/tabs/legendColours.jsx`
+-   Modify: `src/modules/options/defaultConfig.js`
+-   Modify: `src/modules/options/pieConfig.jsx`
+-   Modify: `src/components/VisualizationOptions/styles/Colours.module.css`
+-   Test: `src/components/VisualizationOptions/Options/Colours/__tests__/ColourByControl.spec.jsx`
 
 **Interfaces:**
-- Consumes: `getInitialColourOptions`, `COLOR_MODE_*`, `PALETTE_IDS`, `PALETTE_BY_AXIS`, `getPaletteLabels`, `isLegendMode`, `DEFAULT_SINGLE_COLOR` (Task 1); `SeriesColorButton` (Task 3).
-- Produces:
-  - `useColourOptionsInit({ enabled = true } = {}): void`: on mount, if `options.colorMode` is undefined, dispatches `acSetUiOptions(getInitialColourOptions({ colorSet, series, isSaved }))`.
-  - `<ColourByControl showLegend showFill />` (connected default export).
-  - `getLegendColoursTab({ showLegend, showFill })` → tab config `{ key: 'legend-colours-tab', label: 'Legend & Colours', content }`.
 
-- [ ] **Step 1: Write the failing tests**
+-   Consumes: `getInitialColourOptions`, `COLOR_MODE_*`, `PALETTE_IDS`, `PALETTE_BY_AXIS`, `getPaletteLabels`, `isLegendMode`, `DEFAULT_SINGLE_COLOR` (Task 1); `SeriesColorButton` (Task 3).
+-   Produces:
+
+    -   `useColourOptionsInit({ enabled = true } = {}): void`: on mount, if `options.colorMode` is undefined, dispatches `acSetUiOptions(getInitialColourOptions({ colorSet, series, isSaved }))`.
+    -   `<ColourByControl showLegend showFill />` (connected default export).
+    -   `getLegendColoursTab({ showLegend, showFill })` → tab config `{ key: 'legend-colours-tab', label: 'Legend & Colours', content }`.
+
+-   [ ] **Step 1: Write the failing tests**
 
 Create `src/components/VisualizationOptions/Options/Colours/__tests__/ColourByControl.spec.jsx`:
 
@@ -1063,12 +1098,12 @@ describe('ColourByControl', () => {
 
 (The `SingleSelectField` with `dataTest="colour-palette-select"` exposes `colour-palette-select-content` for its trigger. If the trigger test id differs in this `@dhis2/ui` version, inspect with `screen.debug()` and use the id it renders.)
 
-- [ ] **Step 2: Run the tests and check they fail**
+-   [ ] **Step 2: Run the tests and check they fail**
 
 Run: `yarn test src/components/VisualizationOptions/Options/Colours/__tests__/ColourByControl.spec.jsx`
 Expected: FAIL ("Cannot find module '../ColourByControl.jsx'").
 
-- [ ] **Step 3: Implement the init hook**
+-   [ ] **Step 3: Implement the init hook**
 
 `useColourOptionsInit.js`:
 
@@ -1089,7 +1124,9 @@ import { sGetVisualization } from '../../../../reducers/visualization.js'
 export const useColourOptionsInit = ({ enabled = true } = {}) => {
     const dispatch = useDispatch()
     const options = useSelector(sGetUiOptions)
-    const isSaved = useSelector((state) => Boolean(sGetVisualization(state)?.id))
+    const isSaved = useSelector((state) =>
+        Boolean(sGetVisualization(state)?.id)
+    )
 
     useEffect(() => {
         if (enabled && !options[OPTION_COLOR_MODE]) {
@@ -1108,7 +1145,7 @@ export const useColourOptionsInit = ({ enabled = true } = {}) => {
 }
 ```
 
-- [ ] **Step 4: Implement `ColourByControl`**
+-   [ ] **Step 4: Implement `ColourByControl`**
 
 `ColourByControl.jsx`:
 
@@ -1367,7 +1404,7 @@ Note: the Single colour button passes no `metadataColor`, so the picker has no A
 
 Keep `.modeLabel`, `.legendSettings`, `.paletteSelect` and `.fill`.
 
-- [ ] **Step 5: Add the tab and wire the configs**
+-   [ ] **Step 5: Add the tab and wire the configs**
 
 `src/modules/options/tabs/legendColours.jsx`:
 
@@ -1407,17 +1444,18 @@ Leave the `getSeriesTab` props as they are for now; Task 5 simplifies them.
 
 `pieConfig.jsx`: import the same tab and insert `getLegendColoursTab({ showLegend: false, showFill: true }),` after `getDataTab(...)`.
 
-- [ ] **Step 6: Run the tests and check they pass**
+-   [ ] **Step 6: Run the tests and check they pass**
 
 Run: `yarn test src/components/VisualizationOptions src/modules`
 Expected: PASS. If an options-config snapshot changes because of the new tab, review the diff and update only that snapshot with `yarn test -u <that spec path>`.
 
-- [ ] **Step 7: Commit**
+-   [ ] **Step 7: Commit**
 
 ```bash
 yarn lint
 git add src/components/VisualizationOptions/Options/Colours/useColourOptionsInit.js src/components/VisualizationOptions/Options/Colours/ColourByControl.jsx src/components/VisualizationOptions/Options/Colours/__tests__/ColourByControl.spec.jsx src/modules/options/tabs/legendColours.jsx src/modules/options/defaultConfig.js src/modules/options/pieConfig.jsx src/components/VisualizationOptions/styles/Colours.module.css
 ```
+
 Hand the user: `git commit -S -m "feat: add Legend & Colours tab with colour by legend, palette or single colour" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"`
 
 ---
@@ -1425,21 +1463,23 @@ Hand the user: `git commit -S -m "feat: add Legend & Colours tab with colour by 
 ### Task 5: Series tab becomes overrides; delete the Apply model
 
 **Files:**
-- Rewrite: `src/components/VisualizationOptions/Options/SeriesTable.jsx`
-- Modify: `src/modules/options/tabs/series.jsx`
-- Modify: `src/modules/options/defaultConfig.js`, `src/modules/options/pieConfig.jsx` (Series tab props, remove `OPTION_COLOR_SEED`)
-- Modify: `src/modules/options.js` (remove `OPTION_COLOR_SEED`)
-- Modify: `src/modules/seriesColors.js` (delete old helpers)
-- Delete: `src/components/VisualizationOptions/Options/Colours/ApplyColorsMenu.jsx`
-- Modify: `src/components/VisualizationOptions/styles/Colours.module.css` (add `.legendCell`; delete `.menuPalettePreview`, `.relative`)
-- Test: `src/components/VisualizationOptions/__tests__/SeriesTable.spec.jsx`, `src/modules/__tests__/seriesColors.spec.js`
-- Modify: `i18n/en.pot` (regenerated)
+
+-   Rewrite: `src/components/VisualizationOptions/Options/SeriesTable.jsx`
+-   Modify: `src/modules/options/tabs/series.jsx`
+-   Modify: `src/modules/options/defaultConfig.js`, `src/modules/options/pieConfig.jsx` (Series tab props, remove `OPTION_COLOR_SEED`)
+-   Modify: `src/modules/options.js` (remove `OPTION_COLOR_SEED`)
+-   Modify: `src/modules/seriesColors.js` (delete old helpers)
+-   Delete: `src/components/VisualizationOptions/Options/Colours/ApplyColorsMenu.jsx`
+-   Modify: `src/components/VisualizationOptions/styles/Colours.module.css` (add `.legendCell`; delete `.menuPalettePreview`, `.relative`)
+-   Test: `src/components/VisualizationOptions/__tests__/SeriesTable.spec.jsx`, `src/modules/__tests__/seriesColors.spec.js`
+-   Modify: `i18n/en.pot` (regenerated)
 
 **Interfaces:**
-- Consumes: `resolveSeriesColors`, `COLOR_SOURCE_*` (Task 1); `SeriesColorButton` (Task 3); `useColourOptionsInit` (Task 4).
-- Produces: `getSeriesTab({ showAxisOptions, showTypeOptions, showColours })`; `<SeriesTable showAxisOptions showTypeOptions showColours />`.
 
-- [ ] **Step 1: Rewrite the SeriesTable tests**
+-   Consumes: `resolveSeriesColors`, `COLOR_SOURCE_*` (Task 1); `SeriesColorButton` (Task 3); `useColourOptionsInit` (Task 4).
+-   Produces: `getSeriesTab({ showAxisOptions, showTypeOptions, showColours })`; `<SeriesTable showAxisOptions showTypeOptions showColours />`.
+
+-   [ ] **Step 1: Rewrite the SeriesTable tests**
 
 Replace the contents of `src/components/VisualizationOptions/__tests__/SeriesTable.spec.jsx` with:
 
@@ -1537,9 +1577,7 @@ describe('SeriesTable overrides', () => {
         )
 
         expect(screen.getAllByText('Set by legend')).toHaveLength(2)
-        expect(
-            screen.queryAllByTestId('series-colour-button')
-        ).toHaveLength(0)
+        expect(screen.queryAllByTestId('series-colour-button')).toHaveLength(0)
     })
 
     it('hides per-item columns for relative series and explains why', () => {
@@ -1555,9 +1593,7 @@ describe('SeriesTable overrides', () => {
         expect(
             screen.getByText(/colours follow the chart setting in order/)
         ).toBeInTheDocument()
-        expect(
-            screen.queryAllByTestId('series-colour-button')
-        ).toHaveLength(0)
+        expect(screen.queryAllByTestId('series-colour-button')).toHaveLength(0)
     })
 
     it('keeps "No Series options" for types without colours (gauge, pivot table)', () => {
@@ -1578,12 +1614,12 @@ describe('SeriesTable overrides', () => {
 
 Remove the `void BRIGHT` line and the `BRIGHT` constant if lint complains about them. They are only there to keep the import used; dropping both, along with the `colorSets` import, is fine.
 
-- [ ] **Step 2: Run the tests and check they fail**
+-   [ ] **Step 2: Run the tests and check they fail**
 
 Run: `yarn test src/components/VisualizationOptions/__tests__/SeriesTable.spec.jsx`
 Expected: FAIL (the source labels, "Set by legend" and the relative note text are missing; the mode switch is still present).
 
-- [ ] **Step 3: Rewrite `SeriesTable.jsx`**
+-   [ ] **Step 3: Rewrite `SeriesTable.jsx`**
 
 Full contents:
 
@@ -1978,7 +2014,7 @@ Behaviour change to note: previously, a relative series with `showColours` false
 
 and delete `.header`, `.modeSwitch`, `.menuPalettePreview`, `.menuPalettePreview span` and `.relative`.
 
-- [ ] **Step 4: Simplify the Series tab and configs**
+-   [ ] **Step 4: Simplify the Series tab and configs**
 
 `src/modules/options/tabs/series.jsx`: remove the `showModeSwitch` and `showFill` params and props, so it takes `{ showAxisOptions, showTypeOptions, showColours }`.
 
@@ -1994,32 +2030,33 @@ and delete `.header`, `.modeSwitch`, `.menuPalettePreview`, `.menuPalettePreview
 
 Remove `OPTION_COLOR_SEED` from the imports and from `defaultOptionNames` in `defaultConfig.js` and `pieConfig.jsx`.
 
-- [ ] **Step 5: Delete the Apply model**
+-   [ ] **Step 5: Delete the Apply model**
 
-- `git rm src/components/VisualizationOptions/Options/Colours/ApplyColorsMenu.jsx`
-- `src/modules/options.js`: delete `OPTION_COLOR_SEED` and its `options` entry.
-- `src/modules/seriesColors.js`: delete `getNextSeedColor`, `resolveItemColor`, `seedSeriesColors`, `applyPalette`, `applyAxisPalette`, `resetToAuto` and `seedLegacyColors`. Remove imports that are now unused (`FILL_TYPE_*` are still used by `getInitialColourOptions`; keep `normalize` only if something still uses it, otherwise delete it).
-- `src/modules/__tests__/seriesColors.spec.js`: delete the `describe` blocks for `getNextSeedColor`, `resolveItemColor`, `seedSeriesColors`, `applyPalette`, `applyAxisPalette`, `resetToAuto` and `seedLegacyColors`, and clean up their imports.
-- Run `grep -rn "colorSeed\|OPTION_COLOR_SEED\|ApplyColorsMenu\|seedSeriesColors\|applyPalette\|resetToAuto\|seedLegacyColors\|getNextSeedColor\|resolveItemColor\|showModeSwitch" src`. Expected: no matches.
+-   `git rm src/components/VisualizationOptions/Options/Colours/ApplyColorsMenu.jsx`
+-   `src/modules/options.js`: delete `OPTION_COLOR_SEED` and its `options` entry.
+-   `src/modules/seriesColors.js`: delete `getNextSeedColor`, `resolveItemColor`, `seedSeriesColors`, `applyPalette`, `applyAxisPalette`, `resetToAuto` and `seedLegacyColors`. Remove imports that are now unused (`FILL_TYPE_*` are still used by `getInitialColourOptions`; keep `normalize` only if something still uses it, otherwise delete it).
+-   `src/modules/__tests__/seriesColors.spec.js`: delete the `describe` blocks for `getNextSeedColor`, `resolveItemColor`, `seedSeriesColors`, `applyPalette`, `applyAxisPalette`, `resetToAuto` and `seedLegacyColors`, and clean up their imports.
+-   Run `grep -rn "colorSeed\|OPTION_COLOR_SEED\|ApplyColorsMenu\|seedSeriesColors\|applyPalette\|resetToAuto\|seedLegacyColors\|getNextSeedColor\|resolveItemColor\|showModeSwitch" src`. Expected: no matches.
 
-- [ ] **Step 6: Regenerate translations**
+-   [ ] **Step 6: Regenerate translations**
 
 Run: `yarn d2-app-scripts i18n extract`
 Expected: `i18n/en.pot` gains the new strings and drops "Apply colours", "Colours applied", "Reset to Auto", "Static" and the old relative note.
 
-- [ ] **Step 7: Run the full suite and lint**
+-   [ ] **Step 7: Run the full suite and lint**
 
 Run: `yarn test`
 Expected: PASS.
 Run: `yarn lint`
 Expected: clean.
 
-- [ ] **Step 8: Commit**
+-   [ ] **Step 8: Commit**
 
 ```bash
 git add -A src i18n/en.pot
 git status --short
 ```
+
 Check that the staged list only includes the files named in this task, then hand the user: `git commit -S -m "feat: series tab shows colour overrides; remove apply colours" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"`
 
 ---
@@ -2028,15 +2065,15 @@ Check that the staged list only includes the files named in this task, then hand
 
 **Files:** none (verification only; fix in the owning task's files if something is wrong).
 
-- [ ] **Step 1: Start the app**
+-   [ ] **Step 1: Start the app**
 
 Use the `run` skill, or run `yarn start` against the usual play/dev instance, and log in.
 
-- [ ] **Step 2: Walk the scenarios and note each result**
+-   [ ] **Step 2: Walk the scenarios and note each result**
 
-1. **New column chart** with data elements ANC 1st visit (mock metadata colour) plus one without. Legend & Colours shows Palette = Default with the checkbox on. The Series tab shows ANC 1st visit with greyed *Auto* in blue and the other with greyed *Palette*. The chart matches.
+1. **New column chart** with data elements ANC 1st visit (mock metadata colour) plus one without. Legend & Colours shows Palette = Default with the checkbox on. The Series tab shows ANC 1st visit with greyed _Auto_ in blue and the other with greyed _Palette_. The chart matches.
 2. **Override** the second series to red in the Series tab: the hex and ↺ appear and the chart updates. Change Palette to Bright: the overridden series stays red and the others change. Press ↺: the series goes back to the Bright colour at its position.
-3. **Single colour**: all non-overridden series use it; *Auto* inherited labels disappear (checkbox hidden); overrides remain.
+3. **Single colour**: all non-overridden series use it; _Auto_ inherited labels disappear (checkbox hidden); overrides remain.
 4. **Legend**: the Series tab shows "Set by legend" with a tooltip; Type and Axis still work; switch back to Palette and the overrides are still there.
 5. **Multi-axis**: move one series to axis 2. "By axis" appears in Palette; selecting it gives blue and red families. Move it back to axis 1: "By axis" stays selected and the colours become the blue gradient.
 6. **Relative periods as series**: the Series tab shows the note only, and the chart follows the palette in order.
@@ -2044,6 +2081,6 @@ Use the `run` skill, or run `yarn start` against the usual play/dev instance, an
 8. **Pie chart**: the Legend & Colours tab has no Legend option; the Series tab has a Colour column only.
 9. **Line chart**: no Fill option.
 
-- [ ] **Step 3: Report**
+-   [ ] **Step 3: Report**
 
 Summarise pass/fail per scenario to the user with screenshots of scenarios 2 and 5. Fix any failures in the owning task's files, re-run `yarn test`, then stage and hand over a commit command.

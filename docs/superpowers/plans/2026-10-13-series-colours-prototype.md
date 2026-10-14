@@ -12,14 +12,14 @@
 
 ## Global Constraints
 
-- Prototype only: no `@dhis2/analytics` changes; no backend/schema changes; colours are **not persisted** (stripped on save).
-- Old saved charts with no stored colours must render exactly as today (legacy `colorSet` path untouched).
-- Tab label: `Legend & Colours` for chart types with Static; gauge / single value / pivot table keep `Legend` (their configs are not touched).
-- Mode switch shown only for: column, bar, stacked column, stacked bar (i.e. `isLegendSetType(type)` among chart types handled by `defaultConfig`).
-- Fill: Pattern hidden for line-type charts: `LINE`, `YEAR_OVER_YEAR_LINE`, `RADAR`.
-- Row state values: `color === 'AUTO'` or a `#rrggbb` hex string.
-- Apply overwrites every row; after Apply, `colorSeed` = applied palette id (not changed by *By axis*).
-- Code style: match surrounding code — 4-space indent, no semicolons, single quotes, `i18n.t()` for all user-facing strings, CSS modules. Run `yarn lint` before each commit.
+-   Prototype only: no `@dhis2/analytics` changes; no backend/schema changes; colours are **not persisted** (stripped on save).
+-   Old saved charts with no stored colours must render exactly as today (legacy `colorSet` path untouched).
+-   Tab label: `Legend & Colours` for chart types with Static; gauge / single value / pivot table keep `Legend` (their configs are not touched).
+-   Mode switch shown only for: column, bar, stacked column, stacked bar (i.e. `isLegendSetType(type)` among chart types handled by `defaultConfig`).
+-   Fill: Pattern hidden for line-type charts: `LINE`, `YEAR_OVER_YEAR_LINE`, `RADAR`.
+-   Row state values: `color === 'AUTO'` or a `#rrggbb` hex string.
+-   Apply overwrites every row; after Apply, `colorSeed` = applied palette id (not changed by _By axis_).
+-   Code style: match surrounding code — 4-space indent, no semicolons, single quotes, `i18n.t()` for all user-facing strings, CSS modules. Run `yarn lint` before each commit.
 
 ## Review Focus
 
@@ -33,50 +33,53 @@
 
 ## File Structure
 
-| File | Responsibility |
-|---|---|
-| `src/modules/options.js` (modify) | Register `fillType`, `colorSeed`, `positionalColors` options (UI-only, `savable: false`) + `FILL_TYPE_*` constants |
-| `src/modules/seriesColors.js` (create) | Pure colour model: palettes, seeding, apply, reset, legacy seed, by-axis, positional detection, merge |
-| `src/modules/mockMetadataColors.js` (create) | PROTOTYPE: id → hex map standing in for metadata `style.color` |
-| `src/modules/renderSeriesColors.js` (create) | Pure `getRenderColors` + `applySeriesColorsToChart(chart, visualization)` |
-| `src/modules/visualization.js` (modify) | Strip `color` from series items in `getSaveableVisualization` |
-| `src/components/VisualizationPlugin/ChartPlugin.jsx` (modify) | Call `applySeriesColorsToChart` after `createVisualization` |
-| `src/components/VisualizationOptions/Options/Colours/ColorPickerPopover.jsx` (create) | Popover: Auto / palette grid / custom picker |
-| `src/components/VisualizationOptions/Options/Colours/SeriesColorRow.jsx` (create) | One row: name, swatch, "Auto" or hex label |
-| `src/components/VisualizationOptions/Options/Colours/ApplyColorsMenu.jsx` (create) | Dropdown: By axis / palettes / Reset; Undo alert |
-| `src/components/VisualizationOptions/Options/Colours/ColoursTab.jsx` (create) | Connected container: mode switch, legend settings, static list, fill, mount-time seeding |
-| `src/components/VisualizationOptions/styles/Colours.module.css` (create) | Styles for the above |
-| `src/modules/options/tabs/colours.jsx` (create) | Tab config `getColoursTab` |
-| `src/modules/options/defaultConfig.js`, `pieConfig.jsx` (modify) | Use Colours tab, drop Color set section, register option names |
+| File                                                                                  | Responsibility                                                                                                     |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `src/modules/options.js` (modify)                                                     | Register `fillType`, `colorSeed`, `positionalColors` options (UI-only, `savable: false`) + `FILL_TYPE_*` constants |
+| `src/modules/seriesColors.js` (create)                                                | Pure colour model: palettes, seeding, apply, reset, legacy seed, by-axis, positional detection, merge              |
+| `src/modules/mockMetadataColors.js` (create)                                          | PROTOTYPE: id → hex map standing in for metadata `style.color`                                                     |
+| `src/modules/renderSeriesColors.js` (create)                                          | Pure `getRenderColors` + `applySeriesColorsToChart(chart, visualization)`                                          |
+| `src/modules/visualization.js` (modify)                                               | Strip `color` from series items in `getSaveableVisualization`                                                      |
+| `src/components/VisualizationPlugin/ChartPlugin.jsx` (modify)                         | Call `applySeriesColorsToChart` after `createVisualization`                                                        |
+| `src/components/VisualizationOptions/Options/Colours/ColorPickerPopover.jsx` (create) | Popover: Auto / palette grid / custom picker                                                                       |
+| `src/components/VisualizationOptions/Options/Colours/SeriesColorRow.jsx` (create)     | One row: name, swatch, "Auto" or hex label                                                                         |
+| `src/components/VisualizationOptions/Options/Colours/ApplyColorsMenu.jsx` (create)    | Dropdown: By axis / palettes / Reset; Undo alert                                                                   |
+| `src/components/VisualizationOptions/Options/Colours/ColoursTab.jsx` (create)         | Connected container: mode switch, legend settings, static list, fill, mount-time seeding                           |
+| `src/components/VisualizationOptions/styles/Colours.module.css` (create)              | Styles for the above                                                                                               |
+| `src/modules/options/tabs/colours.jsx` (create)                                       | Tab config `getColoursTab`                                                                                         |
+| `src/modules/options/defaultConfig.js`, `pieConfig.jsx` (modify)                      | Use Colours tab, drop Color set section, register option names                                                     |
 
 ---
 
 ### Task 1: Pure colour model
 
 **Files:**
-- Modify: `src/modules/options.js`
-- Create: `src/modules/seriesColors.js`
-- Test: `src/modules/__tests__/seriesColors.spec.js`
+
+-   Modify: `src/modules/options.js`
+-   Create: `src/modules/seriesColors.js`
+-   Test: `src/modules/__tests__/seriesColors.spec.js`
 
 **Interfaces:**
-- Produces (in `options.js`): `OPTION_FILL_TYPE = 'fillType'`, `OPTION_COLOR_SEED = 'colorSeed'`, `OPTION_POSITIONAL_COLORS = 'positionalColors'`, `FILL_TYPE_SOLID = 'SOLID'`, `FILL_TYPE_PATTERN = 'PATTERN'`.
-- Produces (in `seriesColors.js`):
-  - `COLOR_AUTO = 'AUTO'`, `PALETTE_BY_AXIS = 'BY_AXIS'`, `PALETTE_IDS: string[]`, `POSITIONAL_SLOT_PREFIX = '__slot_'`, `DEFAULT_POSITIONAL_SLOT_COUNT = 4`
-  - `getPaletteColors(paletteId: string): string[]`
-  - `getNextSeedColor(paletteId: string, usedColors: string[]): string`
-  - `resolveItemColor(item: {dimensionItem, color?}, getMetadataColor: (id) => string|undefined): string|undefined`
-  - `seedSeriesColors({ items, paletteId, getMetadataColor }): Item[]`
-  - `applyPalette({ items, paletteId }): Item[]`
-  - `applyAxisPalette({ items }): Item[]`
-  - `resetToAuto({ items, paletteId, getMetadataColor }): Item[]`
-  - `seedLegacyColors({ items, colorSet }): { items: Item[], colorSeed: string, fillType: string }`
-  - `mergeSeriesItems(layoutItems: Item[], optionItems: Item[]): Item[]`
-  - `isLegendMode(legend?: { strategy?, set? }): boolean`
-  - `isPositionalSeries({ type, dimensionId, itemIds }): boolean`
-  - `positionalColorsToItems(colors: string[], count: number): Item[]` / `itemsToPositionalColors(items: Item[]): string[]`
-  - `Item` = `{ dimensionItem: string, name?: string, axis?: number, type?: string, color?: 'AUTO'|string }`
 
-- [ ] **Step 1: Register the options**
+-   Produces (in `options.js`): `OPTION_FILL_TYPE = 'fillType'`, `OPTION_COLOR_SEED = 'colorSeed'`, `OPTION_POSITIONAL_COLORS = 'positionalColors'`, `FILL_TYPE_SOLID = 'SOLID'`, `FILL_TYPE_PATTERN = 'PATTERN'`.
+-   Produces (in `seriesColors.js`):
+
+    -   `COLOR_AUTO = 'AUTO'`, `PALETTE_BY_AXIS = 'BY_AXIS'`, `PALETTE_IDS: string[]`, `POSITIONAL_SLOT_PREFIX = '__slot_'`, `DEFAULT_POSITIONAL_SLOT_COUNT = 4`
+    -   `getPaletteColors(paletteId: string): string[]`
+    -   `getNextSeedColor(paletteId: string, usedColors: string[]): string`
+    -   `resolveItemColor(item: {dimensionItem, color?}, getMetadataColor: (id) => string|undefined): string|undefined`
+    -   `seedSeriesColors({ items, paletteId, getMetadataColor }): Item[]`
+    -   `applyPalette({ items, paletteId }): Item[]`
+    -   `applyAxisPalette({ items }): Item[]`
+    -   `resetToAuto({ items, paletteId, getMetadataColor }): Item[]`
+    -   `seedLegacyColors({ items, colorSet }): { items: Item[], colorSeed: string, fillType: string }`
+    -   `mergeSeriesItems(layoutItems: Item[], optionItems: Item[]): Item[]`
+    -   `isLegendMode(legend?: { strategy?, set? }): boolean`
+    -   `isPositionalSeries({ type, dimensionId, itemIds }): boolean`
+    -   `positionalColorsToItems(colors: string[], count: number): Item[]` / `itemsToPositionalColors(items: Item[]): string[]`
+    -   `Item` = `{ dimensionItem: string, name?: string, axis?: number, type?: string, color?: 'AUTO'|string }`
+
+-   [ ] **Step 1: Register the options**
 
 In `src/modules/options.js`, add next to the other `OPTION_*` exports (keep alphabetical-ish placement near `OPTION_COLOR_SET`):
 
@@ -116,7 +119,7 @@ Inside the `options` object, after the `[OPTION_COLOR_SET]` entry:
 
 Note: `FILL_TYPE_SOLID` must be declared above the `options` object.
 
-- [ ] **Step 2: Write the failing tests**
+-   [ ] **Step 2: Write the failing tests**
 
 Create `src/modules/__tests__/seriesColors.spec.js`:
 
@@ -195,10 +198,16 @@ describe('resolveItemColor', () => {
     })
     it('returns hex as is and undefined for missing', () => {
         expect(
-            resolveItemColor({ dimensionItem: 'x', color: '#abcdef' }, getMetadataColor)
+            resolveItemColor(
+                { dimensionItem: 'x', color: '#abcdef' },
+                getMetadataColor
+            )
         ).toBe('#abcdef')
         expect(
-            resolveItemColor({ dimensionItem: 'x', color: COLOR_AUTO }, getMetadataColor)
+            resolveItemColor(
+                { dimensionItem: 'x', color: COLOR_AUTO },
+                getMetadataColor
+            )
         ).toBeUndefined()
     })
 })
@@ -241,7 +250,11 @@ describe('seedSeriesColors', () => {
     })
     it('re-seeds a removed and re-added item without shifting others', () => {
         const merged = mergeSeriesItems(
-            [{ dimensionItem: 'a' }, { dimensionItem: 'c' }, { dimensionItem: 'b' }],
+            [
+                { dimensionItem: 'a' },
+                { dimensionItem: 'c' },
+                { dimensionItem: 'b' },
+            ],
             [
                 { dimensionItem: 'a', color: '#111111' },
                 { dimensionItem: 'c', color: '#333333' },
@@ -337,7 +350,9 @@ describe('seedLegacyColors', () => {
         })
         expect(result.fillType).toBe(FILL_TYPE_PATTERN)
         expect(result.colorSeed).toBe(COLOR_SET_DEFAULT)
-        expect(result.items[0].color).toBe(getPaletteColors(COLOR_SET_PATTERNS)[0])
+        expect(result.items[0].color).toBe(
+            getPaletteColors(COLOR_SET_PATTERNS)[0]
+        )
     })
     it('uses axis families when the chart uses custom axes', () => {
         const result = seedLegacyColors({
@@ -354,12 +369,19 @@ describe('seedLegacyColors', () => {
 describe('isLegendMode', () => {
     it('is false for no legend, fixed without set', () => {
         expect(isLegendMode(undefined)).toBe(false)
-        expect(isLegendMode({ strategy: LEGEND_DISPLAY_STRATEGY_FIXED })).toBe(false)
+        expect(isLegendMode({ strategy: LEGEND_DISPLAY_STRATEGY_FIXED })).toBe(
+            false
+        )
     })
     it('is true for by data item or a fixed set', () => {
-        expect(isLegendMode({ strategy: LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM })).toBe(true)
         expect(
-            isLegendMode({ strategy: LEGEND_DISPLAY_STRATEGY_FIXED, set: { id: 'x' } })
+            isLegendMode({ strategy: LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM })
+        ).toBe(true)
+        expect(
+            isLegendMode({
+                strategy: LEGEND_DISPLAY_STRATEGY_FIXED,
+                set: { id: 'x' },
+            })
         ).toBe(true)
     })
 })
@@ -367,21 +389,41 @@ describe('isLegendMode', () => {
 describe('isPositionalSeries', () => {
     it('is true for year over year, relative items and ALL items', () => {
         expect(
-            isPositionalSeries({ type: VIS_TYPE_YEAR_OVER_YEAR_LINE, dimensionId: 'dx', itemIds: ['a'] })
+            isPositionalSeries({
+                type: VIS_TYPE_YEAR_OVER_YEAR_LINE,
+                dimensionId: 'dx',
+                itemIds: ['a'],
+            })
         ).toBe(true)
         expect(
-            isPositionalSeries({ type: VIS_TYPE_COLUMN, dimensionId: 'pe', itemIds: ['LAST_12_MONTHS'] })
+            isPositionalSeries({
+                type: VIS_TYPE_COLUMN,
+                dimensionId: 'pe',
+                itemIds: ['LAST_12_MONTHS'],
+            })
         ).toBe(true)
         expect(
-            isPositionalSeries({ type: VIS_TYPE_COLUMN, dimensionId: 'ou', itemIds: ['USER_ORGUNIT'] })
+            isPositionalSeries({
+                type: VIS_TYPE_COLUMN,
+                dimensionId: 'ou',
+                itemIds: ['USER_ORGUNIT'],
+            })
         ).toBe(true)
         expect(
-            isPositionalSeries({ type: VIS_TYPE_COLUMN, dimensionId: 'dx', itemIds: ['ALL_ITEMS'] })
+            isPositionalSeries({
+                type: VIS_TYPE_COLUMN,
+                dimensionId: 'dx',
+                itemIds: ['ALL_ITEMS'],
+            })
         ).toBe(true)
     })
     it('is false for fixed items', () => {
         expect(
-            isPositionalSeries({ type: VIS_TYPE_COLUMN, dimensionId: 'dx', itemIds: ['fbfJHSPpUQD'] })
+            isPositionalSeries({
+                type: VIS_TYPE_COLUMN,
+                dimensionId: 'dx',
+                itemIds: ['fbfJHSPpUQD'],
+            })
         ).toBe(false)
     })
 })
@@ -393,22 +435,24 @@ describe('positional conversion', () => {
             { dimensionItem: '__slot_0', name: 'Item 1', color: '#111111' },
             { dimensionItem: '__slot_1', name: 'Item 2' },
         ])
-        expect(itemsToPositionalColors([{ ...items[0] }, { ...items[1], color: '#222222' }])).toEqual([
-            '#111111',
-            '#222222',
-        ])
+        expect(
+            itemsToPositionalColors([
+                { ...items[0] },
+                { ...items[1], color: '#222222' },
+            ])
+        ).toEqual(['#111111', '#222222'])
     })
 })
 ```
 
-- [ ] **Step 3: Run tests to verify they fail**
+-   [ ] **Step 3: Run tests to verify they fail**
 
 Run: `yarn test src/modules/__tests__/seriesColors.spec.js`
 Expected: FAIL — `Cannot find module '../seriesColors.js'`.
 
 If `ALL_ITEMS` is not the value of `ALL_DYNAMIC_DIMENSION_ITEMS`, or `USER_ORGUNIT` is not detected by `hasRelativeItems`, check `node_modules/@dhis2/analytics/build/es/modules/relativeItems/index.js` and adjust the test inputs to real relative ids (not the implementation).
 
-- [ ] **Step 4: Implement `src/modules/seriesColors.js`**
+-   [ ] **Step 4: Implement `src/modules/seriesColors.js`**
 
 ```js
 import {
@@ -470,8 +514,7 @@ const hexToRgb = (hex) =>
     [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16))
 
 const rgbToHex = (rgb) =>
-    '#' +
-    rgb.map((v) => Math.round(v).toString(16).padStart(2, '0')).join('')
+    '#' + rgb.map((v) => Math.round(v).toString(16).padStart(2, '0')).join('')
 
 const interpolateColors = (start, end, steps) => {
     const [from, to] = [hexToRgb(start), hexToRgb(end)]
@@ -626,12 +669,12 @@ export const itemsToPositionalColors = (items) =>
     items.map((item) => item.color)
 ```
 
-- [ ] **Step 5: Run tests to verify they pass**
+-   [ ] **Step 5: Run tests to verify they pass**
 
 Run: `yarn test src/modules/__tests__/seriesColors.spec.js`
 Expected: PASS. If `getNextSeedColor` "cycles" test fails on the exact index, check the arithmetic in the test (19 used → index 0; 20 used incl. a duplicate → first-unused search finds none, `20 % 19 = 1`) — keep the implementation.
 
-- [ ] **Step 6: Lint and commit**
+-   [ ] **Step 6: Lint and commit**
 
 ```bash
 yarn lint
@@ -644,20 +687,22 @@ git commit -m "feat(prototype): series colour model"
 ### Task 2: Mock metadata colours and non-persistence
 
 **Files:**
-- Create: `src/modules/mockMetadataColors.js`
-- Modify: `src/modules/visualization.js` (`getSaveableVisualization`, ~line 97)
-- Test: `src/modules/__tests__/visualization.test.js` (append)
+
+-   Create: `src/modules/mockMetadataColors.js`
+-   Modify: `src/modules/visualization.js` (`getSaveableVisualization`, ~line 97)
+-   Test: `src/modules/__tests__/visualization.test.js` (append)
 
 **Interfaces:**
-- Produces: `getMetadataColor(id: string): string | undefined`, `MOCK_METADATA_COLORS: Record<string, string>`
 
-- [ ] **Step 1: Verify demo ids**
+-   Produces: `getMetadataColor(id: string): string | undefined`, `MOCK_METADATA_COLORS: Record<string, string>`
+
+-   [ ] **Step 1: Verify demo ids**
 
 Against the dev instance DV is pointed at (Sierra Leone demo), confirm the names of these ids (open each `/api/identifiableObjects/<id>?fields=id,name` in the browser while logged in):
 `fbfJHSPpUQD` (ANC 1st visit), `cYeuwXTCPkU` (ANC 2nd visit), `Jtf34kNZhzP` (ANC 3rd visit), `hfdmMSPBgLG` (ANC 4th or more visits), `Uvn6LCg7dVU` (ANC 1 Coverage), `OdiHJayrsKo` (ANC 2 Coverage), `sB79w2hiLp8` (ANC 3 Coverage).
 Replace any id that doesn't resolve with one that does (same kind). Deliberately leave ANC 3rd and ANC 4th visits **without** a colour so the "no Auto" case is easy to demo.
 
-- [ ] **Step 2: Create `src/modules/mockMetadataColors.js`**
+-   [ ] **Step 2: Create `src/modules/mockMetadataColors.js`**
 
 ```js
 // PROTOTYPE ONLY: stands in for the `style.color` property on data items.
@@ -673,7 +718,7 @@ export const MOCK_METADATA_COLORS = {
 export const getMetadataColor = (id) => MOCK_METADATA_COLORS[id]
 ```
 
-- [ ] **Step 3: Write the failing test** (append to `src/modules/__tests__/visualization.test.js`; add `getSaveableVisualization` to its existing import from `../visualization.js` if not present)
+-   [ ] **Step 3: Write the failing test** (append to `src/modules/__tests__/visualization.test.js`; add `getSaveableVisualization` to its existing import from `../visualization.js` if not present)
 
 ```js
 describe('getSaveableVisualization (series colours prototype)', () => {
@@ -692,24 +737,24 @@ describe('getSaveableVisualization (series colours prototype)', () => {
 })
 ```
 
-- [ ] **Step 4: Run to verify it fails**
+-   [ ] **Step 4: Run to verify it fails**
 
 Run: `yarn test src/modules/__tests__/visualization.test.js`
 Expected: FAIL on `result.series` still containing `color` (the three options are already stripped because they're `savable: false`).
 
-- [ ] **Step 5: Implement** — in `getSaveableVisualization`, after the `nonSavableOptions.forEach(...)` line:
+-   [ ] **Step 5: Implement** — in `getSaveableVisualization`, after the `nonSavableOptions.forEach(...)` line:
 
 ```js
-    // PROTOTYPE: per-item series colours are not persisted yet
-    if (Array.isArray(visualization.series)) {
-        visualization.series = visualization.series.map(
-            // eslint-disable-next-line no-unused-vars
-            ({ color, ...item }) => item
-        )
-    }
+// PROTOTYPE: per-item series colours are not persisted yet
+if (Array.isArray(visualization.series)) {
+    visualization.series = visualization.series.map(
+        // eslint-disable-next-line no-unused-vars
+        ({ color, ...item }) => item
+    )
+}
 ```
 
-- [ ] **Step 6: Run to verify it passes, lint, commit**
+-   [ ] **Step 6: Run to verify it passes, lint, commit**
 
 Run: `yarn test src/modules/__tests__/visualization.test.js` → PASS
 
@@ -724,17 +769,20 @@ git commit -m "feat(prototype): mock metadata colours, do not persist series col
 ### Task 3: Render colours on the chart
 
 **Files:**
-- Create: `src/modules/renderSeriesColors.js`
-- Modify: `src/components/VisualizationPlugin/ChartPlugin.jsx`
-- Test: `src/modules/__tests__/renderSeriesColors.spec.js`
+
+-   Create: `src/modules/renderSeriesColors.js`
+-   Modify: `src/components/VisualizationPlugin/ChartPlugin.jsx`
+-   Test: `src/modules/__tests__/renderSeriesColors.spec.js`
 
 **Interfaces:**
-- Consumes: Task 1 exports; `getMetadataColor` from Task 2; `OPTION_*`/`FILL_TYPE_*` from `options.js`.
-- Produces:
-  - `getRenderColors({ visualization, seriesIds, positional, getMetadataColor }): string[] | null` — `null` means "leave analytics colours untouched".
-  - `applySeriesColorsToChart(chart, visualization): void`
 
-- [ ] **Step 1: Write the failing tests**
+-   Consumes: Task 1 exports; `getMetadataColor` from Task 2; `OPTION_*`/`FILL_TYPE_*` from `options.js`.
+-   Produces:
+
+    -   `getRenderColors({ visualization, seriesIds, positional, getMetadataColor }): string[] | null` — `null` means "leave analytics colours untouched".
+    -   `applySeriesColorsToChart(chart, visualization): void`
+
+-   [ ] **Step 1: Write the failing tests**
 
 Create `src/modules/__tests__/renderSeriesColors.spec.js`:
 
@@ -756,7 +804,7 @@ import { COLOR_AUTO } from '../seriesColors.js'
 
 const DEFAULT = colorSets[COLOR_SET_DEFAULT].colors
 const BRIGHT = colorSets[COLOR_SET_BRIGHT].colors
-const getMetadataColor = (id) => ({ m: '#123456' })[id]
+const getMetadataColor = (id) => ({ m: '#123456' }[id])
 
 describe('getRenderColors', () => {
     it('returns null in legend mode even with stored colours', () => {
@@ -775,7 +823,11 @@ describe('getRenderColors', () => {
     it('returns null for a saved chart with no stored colours (legacy)', () => {
         expect(
             getRenderColors({
-                visualization: { id: 'saved', colorSet: COLOR_SET_BRIGHT, series: [] },
+                visualization: {
+                    id: 'saved',
+                    colorSet: COLOR_SET_BRIGHT,
+                    series: [],
+                },
                 seriesIds: ['a', 'm'],
                 positional: false,
                 getMetadataColor,
@@ -852,7 +904,10 @@ const fakeSeries = (options, type = 'column') => ({
 describe('applySeriesColorsToChart', () => {
     it('recolours data series by id, skips trend lines, redraws', () => {
         const a = fakeSeries({ id: 'a' })
-        const trend = fakeSeries({ type: 'spline', dashStyle: 'solid', lineWidth: 1 }, 'spline')
+        const trend = fakeSeries(
+            { type: 'spline', dashStyle: 'solid', lineWidth: 1 },
+            'spline'
+        )
         const chart = { series: [a, trend], redraw: jest.fn() }
 
         applySeriesColorsToChart(chart, {
@@ -883,7 +938,14 @@ describe('applySeriesColorsToChart', () => {
     it('recolours pie points', () => {
         const point = { options: { id: 'a' }, update: jest.fn() }
         const chart = {
-            series: [{ options: {}, type: 'pie', points: [point], update: jest.fn() }],
+            series: [
+                {
+                    options: {},
+                    type: 'pie',
+                    points: [point],
+                    update: jest.fn(),
+                },
+            ],
             redraw: jest.fn(),
         }
 
@@ -912,12 +974,12 @@ describe('applySeriesColorsToChart', () => {
 })
 ```
 
-- [ ] **Step 2: Run to verify it fails**
+-   [ ] **Step 2: Run to verify it fails**
 
 Run: `yarn test src/modules/__tests__/renderSeriesColors.spec.js`
 Expected: FAIL — module not found.
 
-- [ ] **Step 3: Implement `src/modules/renderSeriesColors.js`**
+-   [ ] **Step 3: Implement `src/modules/renderSeriesColors.js`**
 
 ```js
 import {
@@ -1011,7 +1073,10 @@ export const getRenderColors = ({
 }
 
 const getFill = (color, index, fillType, seriesType) => {
-    if (fillType !== FILL_TYPE_PATTERN || LINE_SERIES_TYPES.includes(seriesType)) {
+    if (
+        fillType !== FILL_TYPE_PATTERN ||
+        LINE_SERIES_TYPES.includes(seriesType)
+    ) {
         return color
     }
 
@@ -1067,11 +1132,11 @@ export const applySeriesColorsToChart = (chart, visualization) => {
 }
 ```
 
-- [ ] **Step 4: Run tests to verify they pass**
+-   [ ] **Step 4: Run tests to verify they pass**
 
 Run: `yarn test src/modules/__tests__/renderSeriesColors.spec.js` → PASS
 
-- [ ] **Step 5: Wire into `ChartPlugin.jsx`**
+-   [ ] **Step 5: Wire into `ChartPlugin.jsx`**
 
 Add import:
 
@@ -1082,27 +1147,24 @@ import { applySeriesColorsToChart } from '../../modules/renderSeriesColors.js'
 In `renderVisualization`, replace
 
 ```js
-            onChartGenerated(visualizationConfig.visualization)
+onChartGenerated(visualizationConfig.visualization)
 ```
 
 with
 
 ```js
-            // PROTOTYPE: series colours applied on top of the analytics chart
-            applySeriesColorsToChart(
-                visualizationConfig.visualization,
-                visualization
-            )
+// PROTOTYPE: series colours applied on top of the analytics chart
+applySeriesColorsToChart(visualizationConfig.visualization, visualization)
 
-            onChartGenerated(visualizationConfig.visualization)
+onChartGenerated(visualizationConfig.visualization)
 ```
 
-- [ ] **Step 6: Manual check**
+-   [ ] **Step 6: Manual check**
 
 Run `yarn start`, create a new Column chart with ANC 1st visit, ANC 2nd visit, ANC 3rd visit as series (Data in Columns), Period in Rows, click Update.
 Expected: bars are `#1565c0`, `#2e7d32`, and Default palette first colour `#a8bf24`. Open a saved chart from the favourites list → colours identical to `master` (spot-check one with Bright and one with Patterns colour set if available, or save one from `master` first).
 
-- [ ] **Step 7: Lint, run full suite, commit**
+-   [ ] **Step 7: Lint, run full suite, commit**
 
 ```bash
 yarn lint
@@ -1118,25 +1180,28 @@ If any existing `ChartPlugin`/`VisualizationPlugin` test fails because its mocke
 ### Task 4: Picker popover and colour row
 
 **Files:**
-- Modify: `package.json` / `yarn.lock` (add `react-colorful`)
-- Create: `src/components/VisualizationOptions/Options/Colours/ColorPickerPopover.jsx`
-- Create: `src/components/VisualizationOptions/Options/Colours/SeriesColorRow.jsx`
-- Create: `src/components/VisualizationOptions/styles/Colours.module.css`
-- Test: `src/components/VisualizationOptions/Options/Colours/__tests__/SeriesColorRow.spec.jsx`
+
+-   Modify: `package.json` / `yarn.lock` (add `react-colorful`)
+-   Create: `src/components/VisualizationOptions/Options/Colours/ColorPickerPopover.jsx`
+-   Create: `src/components/VisualizationOptions/Options/Colours/SeriesColorRow.jsx`
+-   Create: `src/components/VisualizationOptions/styles/Colours.module.css`
+-   Test: `src/components/VisualizationOptions/Options/Colours/__tests__/SeriesColorRow.spec.jsx`
 
 **Interfaces:**
-- Consumes: `COLOR_AUTO`, `PALETTE_IDS`, `getPaletteColors`, `getPaletteLabels` (Task 1).
-- Produces:
-  - `<ColorPickerPopover reference={ref} metadataColor={string|undefined} value={'AUTO'|hex} onChange={(value) => void} onClose={() => void} />`
-  - `<SeriesColorRow name={string} value={'AUTO'|hex|undefined} metadataColor={string|undefined} onChange={(value) => void} />`
 
-- [ ] **Step 1: Add dependency**
+-   Consumes: `COLOR_AUTO`, `PALETTE_IDS`, `getPaletteColors`, `getPaletteLabels` (Task 1).
+-   Produces:
+
+    -   `<ColorPickerPopover reference={ref} metadataColor={string|undefined} value={'AUTO'|hex} onChange={(value) => void} onClose={() => void} />`
+    -   `<SeriesColorRow name={string} value={'AUTO'|hex|undefined} metadataColor={string|undefined} onChange={(value) => void} />`
+
+-   [ ] **Step 1: Add dependency**
 
 ```bash
 yarn add react-colorful@5.6.1
 ```
 
-- [ ] **Step 2: Write the failing test**
+-   [ ] **Step 2: Write the failing test**
 
 Create `src/components/VisualizationOptions/Options/Colours/__tests__/SeriesColorRow.spec.jsx`:
 
@@ -1171,33 +1236,46 @@ describe('SeriesColorRow', () => {
 
     it('offers Auto in the popover only when a metadata colour exists', () => {
         const { unmount } = render(
-            <SeriesColorRow name="A" value="#a8bf24" metadataColor="#1565c0" onChange={jest.fn()} />
+            <SeriesColorRow
+                name="A"
+                value="#a8bf24"
+                metadataColor="#1565c0"
+                onChange={jest.fn()}
+            />
         )
-        fireEvent.click(screen.getByRole('button', { name: /change colour for A/i }))
+        fireEvent.click(
+            screen.getByRole('button', { name: /change colour for A/i })
+        )
         expect(screen.getByText('Use data item colour')).toBeInTheDocument()
         unmount()
 
         render(<SeriesColorRow name="B" value="#a8bf24" onChange={jest.fn()} />)
-        fireEvent.click(screen.getByRole('button', { name: /change colour for B/i }))
-        expect(screen.queryByText('Use data item colour')).not.toBeInTheDocument()
+        fireEvent.click(
+            screen.getByRole('button', { name: /change colour for B/i })
+        )
+        expect(
+            screen.queryByText('Use data item colour')
+        ).not.toBeInTheDocument()
     })
 
     it('picking a palette swatch calls onChange with its hex', () => {
         const onChange = jest.fn()
         render(<SeriesColorRow name="A" value="#000000" onChange={onChange} />)
-        fireEvent.click(screen.getByRole('button', { name: /change colour for A/i }))
+        fireEvent.click(
+            screen.getByRole('button', { name: /change colour for A/i })
+        )
         fireEvent.click(screen.getAllByRole('button', { name: '#a8bf24' })[0])
         expect(onChange).toHaveBeenCalledWith('#a8bf24')
     })
 })
 ```
 
-- [ ] **Step 3: Run to verify it fails**
+-   [ ] **Step 3: Run to verify it fails**
 
 Run: `yarn test src/components/VisualizationOptions/Options/Colours`
 Expected: FAIL — module not found.
 
-- [ ] **Step 4: Create `Colours.module.css`**
+-   [ ] **Step 4: Create `Colours.module.css`**
 
 ```css
 .header {
@@ -1360,7 +1438,7 @@ Expected: FAIL — module not found.
 }
 ```
 
-- [ ] **Step 5: Create `ColorPickerPopover.jsx`**
+-   [ ] **Step 5: Create `ColorPickerPopover.jsx`**
 
 ```jsx
 import i18n from '@dhis2/d2-i18n'
@@ -1479,7 +1557,7 @@ export default ColorPickerPopover
 
 Note: `HexColorPicker` fires `onChange` continuously while dragging; that's fine for a prototype (the chart only re-renders on Update).
 
-- [ ] **Step 6: Create `SeriesColorRow.jsx`**
+-   [ ] **Step 6: Create `SeriesColorRow.jsx`**
 
 ```jsx
 import i18n from '@dhis2/d2-i18n'
@@ -1538,12 +1616,12 @@ SeriesColorRow.propTypes = {
 export default SeriesColorRow
 ```
 
-- [ ] **Step 7: Run tests to verify they pass**
+-   [ ] **Step 7: Run tests to verify they pass**
 
 Run: `yarn test src/components/VisualizationOptions/Options/Colours` → PASS.
 If `react-colorful` fails to import under Jest (ESM), add `react-colorful` to the existing `transformIgnorePatterns` exception list in the Jest config (check `package.json`/`jest.config.js` for where `@dhis2` exceptions live) rather than mocking it.
 
-- [ ] **Step 8: Lint and commit**
+-   [ ] **Step 8: Lint and commit**
 
 ```bash
 yarn lint
@@ -1556,19 +1634,22 @@ git commit -m "feat(prototype): series colour row and picker popover"
 ### Task 5: Apply menu, Colours tab container, and tab wiring
 
 **Files:**
-- Create: `src/components/VisualizationOptions/Options/Colours/ApplyColorsMenu.jsx`
-- Create: `src/components/VisualizationOptions/Options/Colours/ColoursTab.jsx`
-- Create: `src/modules/options/tabs/colours.jsx`
-- Modify: `src/modules/options/defaultConfig.js`
-- Modify: `src/modules/options/pieConfig.jsx`
+
+-   Create: `src/components/VisualizationOptions/Options/Colours/ApplyColorsMenu.jsx`
+-   Create: `src/components/VisualizationOptions/Options/Colours/ColoursTab.jsx`
+-   Create: `src/modules/options/tabs/colours.jsx`
+-   Modify: `src/modules/options/defaultConfig.js`
+-   Modify: `src/modules/options/pieConfig.jsx`
 
 **Interfaces:**
-- Consumes: Task 1 functions/constants, `getMetadataColor` (Task 2), `SeriesColorRow` (Task 4), existing `acSetUiOptions`, `acSetUiOption`, `sGetSeriesSetupItems`, `sGetUiOptions`, `sGetUiLayout`, `sGetUiItems`, `sGetUiType`, `sGetVisualization`, `LegendDisplayStrategy`, `ShowLegendKey`.
-- Produces:
-  - `<ApplyColorsMenu showByAxis={bool} showResetToAuto={bool} onApply={(paletteId) => void} onReset={() => void} />` — By axis is only shown (and always first) when the chart uses more than one axis
-  - `getColoursTab({ showModeSwitch: bool, showFill: bool }): TabConfig`
 
-- [ ] **Step 1: Create `ApplyColorsMenu.jsx`**
+-   Consumes: Task 1 functions/constants, `getMetadataColor` (Task 2), `SeriesColorRow` (Task 4), existing `acSetUiOptions`, `acSetUiOption`, `sGetSeriesSetupItems`, `sGetUiOptions`, `sGetUiLayout`, `sGetUiItems`, `sGetUiType`, `sGetVisualization`, `LegendDisplayStrategy`, `ShowLegendKey`.
+-   Produces:
+
+    -   `<ApplyColorsMenu showByAxis={bool} showResetToAuto={bool} onApply={(paletteId) => void} onReset={() => void} />` — By axis is only shown (and always first) when the chart uses more than one axis
+    -   `getColoursTab({ showModeSwitch: bool, showFill: bool }): TabConfig`
+
+-   [ ] **Step 1: Create `ApplyColorsMenu.jsx`**
 
 ```jsx
 import i18n from '@dhis2/d2-i18n'
@@ -1595,12 +1676,7 @@ const PalettePreview = ({ paletteId }) => (
 
 PalettePreview.propTypes = { paletteId: PropTypes.string.isRequired }
 
-const ApplyColorsMenu = ({
-    showByAxis,
-    showResetToAuto,
-    onApply,
-    onReset,
-}) => {
+const ApplyColorsMenu = ({ showByAxis, showResetToAuto, onApply, onReset }) => {
     const [open, setOpen] = useState(false)
     const labels = getPaletteLabels()
     const apply = (paletteId) => {
@@ -1665,7 +1741,7 @@ ApplyColorsMenu.propTypes = {
 export default ApplyColorsMenu
 ```
 
-- [ ] **Step 2: Create `ColoursTab.jsx`**
+-   [ ] **Step 2: Create `ColoursTab.jsx`**
 
 ```jsx
 import {
@@ -1792,9 +1868,7 @@ const ColoursTab = ({
                 [OPTION_FILL_TYPE]: legacy.fillType,
             })
         } else {
-            writeItems(
-                seedSeriesColors({ items, paletteId, getMetadataColor })
-            )
+            writeItems(seedSeriesColors({ items, paletteId, getMetadataColor }))
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
@@ -1815,7 +1889,10 @@ const ColoursTab = ({
                 value: LEGEND_DISPLAY_STRATEGY_FIXED,
             })
             setOption({ optionId: OPTION_LEGEND_SET, value: undefined })
-            setOption({ optionId: OPTION_LEGEND_DISPLAY_STYLE, value: undefined })
+            setOption({
+                optionId: OPTION_LEGEND_DISPLAY_STYLE,
+                value: undefined,
+            })
         }
     }
 
@@ -1848,9 +1925,7 @@ const ColoursTab = ({
     const onItemChange = (dimensionItem, color) =>
         writeItems(
             items.map((item) =>
-                item.dimensionItem === dimensionItem
-                    ? { ...item, color }
-                    : item
+                item.dimensionItem === dimensionItem ? { ...item, color } : item
             )
         )
 
@@ -1999,7 +2074,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(ColoursTab)
 
 Verify while implementing: `sGetUiItems` is exported from `src/reducers/ui.js` (it's used by `sGetAxisSetup`); `acSetUiOptions` merges into `ui.options` (check the `SET_UI_OPTIONS` reducer case — if it replaces instead of merges, spread `options` in `setOptions`). `LegendDisplayStrategy` and `ShowLegendKey` take an optional `disabled` prop and are default exports.
 
-- [ ] **Step 3: Create `src/modules/options/tabs/colours.jsx`**
+-   [ ] **Step 3: Create `src/modules/options/tabs/colours.jsx`**
 
 ```jsx
 import i18n from '@dhis2/d2-i18n'
@@ -2023,11 +2098,11 @@ export default ({ showModeSwitch = false, showFill = true } = {}) => ({
 })
 ```
 
-- [ ] **Step 4: Wire `defaultConfig.js`**
+-   [ ] **Step 4: Wire `defaultConfig.js`**
 
-- Replace the `getLegendTab` and `getColorSetSection` imports with `import getColoursTab from './tabs/colours.jsx'` and add `VIS_TYPE_LINE, VIS_TYPE_YEAR_OVER_YEAR_LINE, VIS_TYPE_RADAR` imports from `@dhis2/analytics`.
-- Add a `type` param to the default export's destructured props, and pass `type` from `getOptionsByType` in `config.js` (`defaultProps` gets `type`).
-- Replace `...(supportsLegends ? [getLegendTab({ hideStyleOptions: true })] : []),` with:
+-   Replace the `getLegendTab` and `getColorSetSection` imports with `import getColoursTab from './tabs/colours.jsx'` and add `VIS_TYPE_LINE, VIS_TYPE_YEAR_OVER_YEAR_LINE, VIS_TYPE_RADAR` imports from `@dhis2/analytics`.
+-   Add a `type` param to the default export's destructured props, and pass `type` from `getOptionsByType` in `config.js` (`defaultProps` gets `type`).
+-   Replace `...(supportsLegends ? [getLegendTab({ hideStyleOptions: true })] : []),` with:
 
 ```js
     getColoursTab({
@@ -2040,13 +2115,13 @@ export default ({ showModeSwitch = false, showFill = true } = {}) => ({
     }),
 ```
 
-- Remove `getColorSetSection(hasDisabledSections),` from the Style tab.
-- In `defaultOptionNames`, keep `OPTION_COLOR_SET` (hidden legacy fallback) and add `OPTION_COLOR_SEED, OPTION_FILL_TYPE, OPTION_POSITIONAL_COLORS` (import them from `../options.js`).
+-   Remove `getColorSetSection(hasDisabledSections),` from the Style tab.
+-   In `defaultOptionNames`, keep `OPTION_COLOR_SET` (hidden legacy fallback) and add `OPTION_COLOR_SEED, OPTION_FILL_TYPE, OPTION_POSITIONAL_COLORS` (import them from `../options.js`).
 
-- [ ] **Step 5: Wire `pieConfig.jsx`**
+-   [ ] **Step 5: Wire `pieConfig.jsx`**
 
-- Import `getColoursTab from './tabs/colours.jsx'` and `OPTION_COLOR_SEED, OPTION_FILL_TYPE, OPTION_POSITIONAL_COLORS` from `../options.js`; drop the `getColorSetSection` import.
-- Config becomes:
+-   Import `getColoursTab from './tabs/colours.jsx'` and `OPTION_COLOR_SEED, OPTION_FILL_TYPE, OPTION_POSITIONAL_COLORS` from `../options.js`; drop the `getColorSetSection` import.
+-   Config becomes:
 
 ```js
 export default () => [
@@ -2063,14 +2138,14 @@ export default () => [
 ]
 ```
 
-- Add `OPTION_COLOR_SEED, OPTION_FILL_TYPE, OPTION_POSITIONAL_COLORS` to `pieOptionNames` (keep `OPTION_COLOR_SET`).
+-   Add `OPTION_COLOR_SEED, OPTION_FILL_TYPE, OPTION_POSITIONAL_COLORS` to `pieOptionNames` (keep `OPTION_COLOR_SET`).
 
-- [ ] **Step 6: Run the full test suite and lint**
+-   [ ] **Step 6: Run the full test suite and lint**
 
 Run: `yarn test` → PASS (update any snapshot that legitimately changed because the Legend tab/Color set section moved: `yarn test -u` only for snapshots under `src/modules/options` or `VisualizationOptions`, and eyeball the diff).
 Run: `yarn lint` → clean. Also run `yarn d2-app-scripts i18n extract` if the repo's lint checks for missing translation keys (check `package.json` scripts).
 
-- [ ] **Step 7: Commit**
+-   [ ] **Step 7: Commit**
 
 ```bash
 git add src/components/VisualizationOptions/Options/Colours src/modules/options
@@ -2083,25 +2158,25 @@ git commit -m "feat(prototype): Legend & Colours options tab"
 
 **Files:** none (verification only; fix bugs found in the owning task's files and commit with `fix(prototype): …`)
 
-- [ ] **Step 1:** `yarn start`, log in to the demo instance.
-- [ ] **Step 2: New column chart.** Series: ANC 1st, 2nd, 3rd visit. Options → Legend & Colours. Expect: mode switch on Static; rows show `Auto` (blue), `Auto` (green), `#a8bf24`. Update → bars match.
-- [ ] **Step 3: Picker.** Click ANC 3rd swatch: no Auto option; pick Bright first colour → row shows `#fd7f6f`. Click ANC 1st swatch: Auto option present and selected; drag custom picker → row becomes hex.
-- [ ] **Step 4: Apply + Undo.** Apply colours ▸ Color blind → all three rows hex from Color blind (Auto rows overwritten). Snackbar Undo → previous state restored. Re-apply Color blind, close, add ANC 4th visit to series, reopen → new row gets the next unused Color blind colour.
-- [ ] **Step 5: Reset to Auto.** → ANC 1st/2nd back to Auto, others re-seeded from Color blind.
-- [ ] **Step 6: Legend mode.** Switch to Legend → legend strategy + key options appear; Update → legend colours (stored static colours not applied). Switch back to Static → rows still there.
-- [ ] **Step 7: Fill pattern.** Fill: Pattern → Update → hatched bars in each row's colour.
-- [ ] **Step 8: Multi-axis.** Series tab: put ANC 2nd on axis 2. Legend & Colours ▸ Apply colours shows *By axis* first; apply → axis-1 rows blue family, axis-2 red. Axis labels stay grey.
-- [ ] **Step 9: Line + pie.** Switch to Line → no mode switch, no Fill. Switch to Pie → slices coloured from rows.
-- [ ] **Step 10: Positional.** Column chart with Period (Last 4 quarters) as series → rows "Item 1…4" with note; change Item 2; Update → second series uses it. Add item → Item 5.
-- [ ] **Step 11: Year over year.** Year-over-year line → positional rows, no mode switch, no Fill.
-- [ ] **Step 12: Legacy charts.** Open a saved chart with Bright colour set → renders identical to `master`; open Legend & Colours → rows frozen Bright hex (no Auto even for ANC 1st). Saved Patterns chart (save one from `master` if none) → Fill: Pattern pre-selected. Saved multi-axis chart → axis families frozen.
-- [ ] **Step 13: Gauge / single value / pivot table** → tab still called "Legend", unchanged.
-- [ ] **Step 14: Save.** Save a chart with custom colours → no error; reopen → legacy behaviour (expected: colours are not persisted in the prototype).
-- [ ] **Step 15:** Commit any fixes; push the branch if asked.
+-   [ ] **Step 1:** `yarn start`, log in to the demo instance.
+-   [ ] **Step 2: New column chart.** Series: ANC 1st, 2nd, 3rd visit. Options → Legend & Colours. Expect: mode switch on Static; rows show `Auto` (blue), `Auto` (green), `#a8bf24`. Update → bars match.
+-   [ ] **Step 3: Picker.** Click ANC 3rd swatch: no Auto option; pick Bright first colour → row shows `#fd7f6f`. Click ANC 1st swatch: Auto option present and selected; drag custom picker → row becomes hex.
+-   [ ] **Step 4: Apply + Undo.** Apply colours ▸ Color blind → all three rows hex from Color blind (Auto rows overwritten). Snackbar Undo → previous state restored. Re-apply Color blind, close, add ANC 4th visit to series, reopen → new row gets the next unused Color blind colour.
+-   [ ] **Step 5: Reset to Auto.** → ANC 1st/2nd back to Auto, others re-seeded from Color blind.
+-   [ ] **Step 6: Legend mode.** Switch to Legend → legend strategy + key options appear; Update → legend colours (stored static colours not applied). Switch back to Static → rows still there.
+-   [ ] **Step 7: Fill pattern.** Fill: Pattern → Update → hatched bars in each row's colour.
+-   [ ] **Step 8: Multi-axis.** Series tab: put ANC 2nd on axis 2. Legend & Colours ▸ Apply colours shows _By axis_ first; apply → axis-1 rows blue family, axis-2 red. Axis labels stay grey.
+-   [ ] **Step 9: Line + pie.** Switch to Line → no mode switch, no Fill. Switch to Pie → slices coloured from rows.
+-   [ ] **Step 10: Positional.** Column chart with Period (Last 4 quarters) as series → rows "Item 1…4" with note; change Item 2; Update → second series uses it. Add item → Item 5.
+-   [ ] **Step 11: Year over year.** Year-over-year line → positional rows, no mode switch, no Fill.
+-   [ ] **Step 12: Legacy charts.** Open a saved chart with Bright colour set → renders identical to `master`; open Legend & Colours → rows frozen Bright hex (no Auto even for ANC 1st). Saved Patterns chart (save one from `master` if none) → Fill: Pattern pre-selected. Saved multi-axis chart → axis families frozen.
+-   [ ] **Step 13: Gauge / single value / pivot table** → tab still called "Legend", unchanged.
+-   [ ] **Step 14: Save.** Save a chart with custom colours → no error; reopen → legacy behaviour (expected: colours are not persisted in the prototype).
+-   [ ] **Step 15:** Commit any fixes; push the branch if asked.
 
 ## Known prototype gaps (do not fix)
 
-- Trend lines keep analytics' colours.
-- Two-category charts and stacked trend lines are not specially handled.
-- Colours aren't persisted; metadata colours are mocked.
-- `HexColorPicker` dispatches on every drag frame.
+-   Trend lines keep analytics' colours.
+-   Two-category charts and stacked trend lines are not specially handled.
+-   Colours aren't persisted; metadata colours are mocked.
+-   `HexColorPicker` dispatches on every drag frame.
