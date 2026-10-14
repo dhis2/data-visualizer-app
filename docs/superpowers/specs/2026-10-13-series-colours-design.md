@@ -46,3 +46,61 @@ Users want to set the colour of each series ("first bar red, second green, third
 - **Merged into the Series tab.** The separate "Legend & Colours" tab is gone; colour lives in the Series tab next to type and axis. Top of the tab: *Colour by: Legend | Static* (legend-capable types only) and *Apply colours ▾*. The table gets a Colour column in Static mode. Legend settings appear above the table in Legend mode. Fill sits below the table. Gauge, single value and pivot table keep their "Legend" tab and the "No Series options" Series tab.
 - **Relative series use a palette, not per-item colours (replaces positional slots).** If the series has any relative item, "All items", or is year-over-year, the Colour/Type/Axis columns are hidden and Static offers a persistent *Palette* select (the chart's seed palette) applied in order. Per-item colours stored for fixed items are kept but unused while the series is relative.
 - **No "use auto colours" toggle for relative series in the MVP** — periods and org units have no metadata colours, so it would rarely do anything.
+
+## Revision 2026-10-14 (b): chart-level "Colour by", Series tab as overrides
+
+Supersedes points 1, 2, 5, 6, 7, 9, 11 and the first bullet of the previous revision. Points 3, 4, 8, 10 and "relative series use a palette" still hold, as amended below.
+
+### Legend & Colours tab (chart-level, series-agnostic)
+
+- The tab returns for every type that had colour options in the prototype. Gauge, single value and pivot table keep their unchanged "Legend" tab.
+- **Colour by: Legend | Palette | Single colour**, as a segmented control at the top of the tab.
+  - *Legend*: the existing legend settings. Offered only for column, bar, stacked column and stacked bar.
+  - *Palette*: a select with Default, Basic, Extended, Bright, Dark, Gray, Color blind, and **By axis** (shown only when the chart uses more than one axis). Below it, a checkbox: **"Use automatic data item colours where available"**.
+  - *Single colour*: one colour picker. Every series uses it.
+- **Fill: Solid | Pattern** sits below, for Palette and Single colour. It is hidden for line, year-over-year line and radar. Pattern shapes are assigned by position and drawn in each series' resolved colour.
+- **Apply colours is removed.** The palette is now a live setting, not a one-time action.
+- Style → Color set stays removed.
+
+### Colour precedence (per series)
+
+1. **Legend mode**: the legend decides, and nothing below applies.
+2. **Override** set in the Series tab: a hex value, or *Auto* (the item's metadata colour).
+3. **Metadata colour**: applies only in Palette mode with the checkbox on, and only if the item has one.
+4. **Chart default**: in Palette mode, the palette colour **at the series' position**, whatever the series before it use (overriding one series never changes another); *By axis* takes the axis colour family at the series' position within its axis. In Single colour mode, the single colour.
+
+Overrides are kept when switching between Palette and Single colour. In Legend mode they are kept but not used.
+
+### Series tab ("series overrides")
+
+- Columns: Series | Colour | Type | Axis. Type and Axis appear only where they do today. Line, area, radar and pie have Series and Colour only.
+- What the Colour cell shows:
+
+    | State | Cell | Interaction |
+    |---|---|---|
+    | Inherited | swatch + greyed text naming the source (*Palette*, *Auto*, *Single colour*) | opens the picker |
+    | Overridden (hex) | swatch + hex in normal text + ↺ | opens the picker; ↺ removes the override |
+    | Overridden (Auto) | swatch + **Auto** in normal text + ↺ | as above |
+    | Legend mode | greyed "Set by legend", no swatch | disabled, with a tooltip |
+
+- The swatch always shows the colour that will be drawn.
+- Picker: Auto (only if the item has a metadata colour), then the palette grid, then a custom picker. Choosing any of these creates an override.
+- Relative series (relative periods or org units, "All items", year-over-year): the Colour, Type and Axis columns are hidden, with the note "Colours follow the chart setting in order for relative items."
+- The mode switch, Apply menu, legend settings and Fill are removed from this tab.
+
+### Defaults
+
+- New chart: Palette = Default, checkbox on, Fill = Solid.
+- Old saved chart (no colour state in the UI): rendered by analytics exactly as today. When the options are opened, Palette = its `colorSet`, or *By axis* if it uses custom axes; checkbox off; no overrides. A `colorSet` of Patterns becomes Palette = Default with Fill = Pattern.
+
+### Implementation notes (prototype)
+
+- UI-only options (not saved): `colorMode` (`PALETTE` | `SINGLE`; Legend is still derived from the legend settings), `palette` (a colour set ID or `BY_AXIS`; replaces `colorSeed`), `useItemColors`, `singleColor`, `fillType`. Per-series overrides go in `series[].color` (a hex or `AUTO`). The palette is not stored in `colorSet`, because analytics does not recognise `BY_AXIS`.
+- A single pure resolver, `resolveSeriesColors(...)`, returns `[{ color, source }]`. Both the Series tab and the renderer use it. The seeding, apply and reset helpers are deleted; the by-axis interpolation becomes the colour source for `BY_AXIS`.
+- `ApplyColorsMenu.jsx` is deleted. `ColorPickerPopover` and `SeriesColorButton` are reused.
+
+### Riskiest assumptions (updated)
+
+- Users can tell an inherited colour from an override (greyed source label versus hex/Auto with ↺).
+- Users find chart-level colour in Legend & Colours and per-series exceptions in Series.
+- Palette assigned by position (which can occasionally duplicate an auto colour) is acceptable.
