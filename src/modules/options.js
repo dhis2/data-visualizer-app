@@ -6,12 +6,14 @@ export const OPTION_APPROVAL_LEVEL = 'approvalLevel'
 export const OPTION_AXES = 'axes'
 export const OPTION_COL_SUB_TOTALS = 'colSubTotals'
 export const OPTION_COL_TOTALS = 'colTotals'
+export const OPTION_COLOR_SEED = 'colorSeed'
 export const OPTION_COLOR_SET = 'colorSet'
 export const OPTION_COMPLETED_ONLY = 'completedOnly'
 export const OPTION_CUMULATIVE = 'cumulative'
 export const OPTION_CUMULATIVE_VALUES = 'cumulativeValues'
 export const OPTION_DIGIT_GROUP_SEPARATOR = 'digitGroupSeparator'
 export const OPTION_DISPLAY_DENSITY = 'displayDensity'
+export const OPTION_FILL_TYPE = 'fillType'
 export const OPTION_EMPTY_COLUMNS = 'hideEmptyColumns'
 export const OPTION_EMPTY_ROW_ITEMS = 'hideEmptyRowItems'
 export const OPTION_EMPTY_ROWS = 'hideEmptyRows'
@@ -74,6 +76,8 @@ export const OPTION_LEGEND_SET = 'legendSet'
 export const DISPLAY_DENSITY_COMFORTABLE = 'COMFORTABLE'
 export const DISPLAY_DENSITY_NORMAL = 'NORMAL'
 export const DISPLAY_DENSITY_COMPACT = 'COMPACT'
+export const FILL_TYPE_SOLID = 'SOLID'
+export const FILL_TYPE_PATTERN = 'PATTERN'
 export const FONT_SIZE_LARGE = 'LARGE'
 export const FONT_SIZE_NORMAL = 'NORMAL'
 export const FONT_SIZE_SMALL = 'SMALL'
@@ -84,6 +88,17 @@ export const options = {
         defaultValue: COLOR_SET_DEFAULT,
         requestable: false,
         savable: true,
+    },
+    // PROTOTYPE: series colours are UI-only for now (not saved)
+    [OPTION_COLOR_SEED]: {
+        defaultValue: undefined,
+        requestable: false,
+        savable: false,
+    },
+    [OPTION_FILL_TYPE]: {
+        defaultValue: FILL_TYPE_SOLID,
+        requestable: false,
+        savable: false,
     },
     [OPTION_CUMULATIVE_VALUES]: {
         defaultValue: false,

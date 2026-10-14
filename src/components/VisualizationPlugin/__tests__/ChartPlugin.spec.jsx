@@ -33,6 +33,8 @@ const analyticsResponse = {
 const createVisualizationMock = {
     visualization: {
         exportChartLocal: jest.fn(),
+        series: [],
+        redraw: jest.fn(),
     },
     config: {
         getConfig: () => {},

@@ -86,3 +86,8 @@
     margin-inline-start: auto;
     margin-inline-end: auto;
 }
+
+.tableBody .itemColor {
+    padding-inline: var(--spacers-dp8);
+    white-space: nowrap;
+}

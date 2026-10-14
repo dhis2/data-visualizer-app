@@ -1,6 +1,7 @@
 import { createVisualization } from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 import React, { useRef, useCallback, useEffect } from 'react'
+import { applySeriesColorsToChart } from '../../modules/renderSeriesColors.js'
 import styles from './styles/ChartPlugin.module.css'
 
 const VISUALIZATION_PROP_DEFAULT = {}
@@ -33,6 +34,12 @@ const ChartPlugin = ({
                 undefined,
                 undefined,
                 'highcharts' // output format
+            )
+
+            // PROTOTYPE: series colours applied on top of the analytics chart
+            applySeriesColorsToChart(
+                visualizationConfig.visualization,
+                visualization
             )
 
             onChartGenerated(visualizationConfig.visualization)

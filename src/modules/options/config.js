@@ -51,6 +51,7 @@ export const getOptionsByType = ({
         supportsMultiType,
         rangeAxisIds,
         isVertical,
+        type,
     }
 
     switch (type) {

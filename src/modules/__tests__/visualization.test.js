@@ -80,3 +80,16 @@ describe('getVisualizationWithFilteredOptionsByType', () => {
         })
     })
 })
+
+describe('getSaveableVisualization (series colours prototype)', () => {
+    it('strips per-item colours and UI-only colour options', () => {
+        const result = getSaveableVisualization({
+            series: [{ dimensionItem: 'a', axis: 1, color: '#ffffff' }],
+            fillType: 'PATTERN',
+            colorSeed: 'BRIGHT',
+        })
+        expect(result.series).toEqual([{ dimensionItem: 'a', axis: 1 }])
+        expect(result).not.toHaveProperty('fillType')
+        expect(result).not.toHaveProperty('colorSeed')
+    })
+})

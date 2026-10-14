@@ -1,9 +1,16 @@
 import {
+    VIS_TYPE_LINE,
+    VIS_TYPE_RADAR,
+    VIS_TYPE_YEAR_OVER_YEAR_LINE,
+} from '@dhis2/analytics'
+import {
     OPTION_AGGREGATION_TYPE,
     OPTION_AXES,
+    OPTION_COLOR_SEED,
     OPTION_COLOR_SET,
     OPTION_COMPLETED_ONLY,
     OPTION_CUMULATIVE_VALUES,
+    OPTION_FILL_TYPE,
     OPTION_FONT_STYLE,
     OPTION_HIDE_EMPTY_ROW_ITEMS,
     OPTION_HIDE_SUBTITLE,
@@ -23,7 +30,6 @@ import {
 } from '../options.js'
 import getAdvancedSection from './sections/advanced.jsx'
 import getChartStyleSection from './sections/chartStyle.jsx'
-import getColorSetSection from './sections/colorSet.jsx'
 import getDisplaySection from './sections/display.jsx'
 import getDomainAxisSection from './sections/domainAxis.jsx'
 import getLinesSection from './sections/lines.jsx'
@@ -31,7 +37,6 @@ import getRangeAxisSection from './sections/rangeAxis.jsx'
 import getTitlesSection from './sections/titles.jsx'
 import getAxesTab from './tabs/axes.jsx'
 import getDataTab from './tabs/data.js'
-import getLegendTab from './tabs/legend.jsx'
 import getLimitValuesTab from './tabs/limitValues.jsx'
 import getSeriesTab from './tabs/series.jsx'
 import getStyleTab from './tabs/style.js'
@@ -45,13 +50,13 @@ export default ({
     supportsLegends,
     rangeAxisIds = [],
     isVertical,
+    type,
 } = {}) => [
     getDataTab([
         getDisplaySection(isStacked),
         getLinesSection(hasDisabledSections, 'RANGE_0'),
         getAdvancedSection(),
     ]),
-    ...(supportsLegends ? [getLegendTab({ hideStyleOptions: true })] : []),
     getAxesTab([
         ...rangeAxisIds.map((id) =>
             getRangeAxisSection({
@@ -68,12 +73,15 @@ export default ({
     getSeriesTab({
         showAxisOptions: supportsMultiAxes,
         showTypeOptions: supportsMultiType,
+        showColours: true,
+        showModeSwitch: supportsLegends,
+        showFill: ![
+            VIS_TYPE_LINE,
+            VIS_TYPE_YEAR_OVER_YEAR_LINE,
+            VIS_TYPE_RADAR,
+        ].includes(type),
     }),
-    getStyleTab([
-        getChartStyleSection(isColumnBased),
-        getTitlesSection(),
-        getColorSetSection(hasDisabledSections),
-    ]),
+    getStyleTab([getChartStyleSection(isColumnBased), getTitlesSection()]),
     getLimitValuesTab(),
 ]
 
@@ -104,6 +112,9 @@ export const defaultOptionNames = ({
         OPTION_SUBTITLE,
         OPTION_HIDE_SUBTITLE,
         OPTION_COLOR_SET,
+        // Series tab colours (prototype)
+        OPTION_COLOR_SEED,
+        OPTION_FILL_TYPE,
         // Limit values tab
         OPTION_MEASURE_CRITERIA,
     ]

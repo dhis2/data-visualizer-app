@@ -2,8 +2,10 @@ import React from 'react'
 import SkipRounding from '../../components/VisualizationOptions/Options/SkipRounding.jsx'
 import {
     OPTION_AGGREGATION_TYPE,
+    OPTION_COLOR_SEED,
     OPTION_COLOR_SET,
     OPTION_COMPLETED_ONLY,
+    OPTION_FILL_TYPE,
     OPTION_FONT_STYLE,
     OPTION_HIDE_SUBTITLE,
     OPTION_HIDE_TITLE,
@@ -14,7 +16,6 @@ import {
     OPTION_TITLE,
 } from '../options.js'
 import getAdvancedSection from './sections/advanced.jsx'
-import getColorSetSection from './sections/colorSet.jsx'
 import getDisplayTemplate from './sections/templates/display.js'
 import getTitlesSection from './sections/titles.jsx'
 import getDataTab from './tabs/data.js'
@@ -29,8 +30,8 @@ export default () => [
         }),
         getAdvancedSection(),
     ]),
-    getSeriesTab(),
-    getStyleTab([getTitlesSection(), getColorSetSection()]),
+    getSeriesTab({ showColours: true }),
+    getStyleTab([getTitlesSection()]),
     getLimitValuesTab(),
 ]
 
@@ -48,6 +49,9 @@ export const pieOptionNames = () => [
     OPTION_SUBTITLE,
     OPTION_HIDE_SUBTITLE,
     OPTION_COLOR_SET,
+    // Series tab colours (prototype)
+    OPTION_COLOR_SEED,
+    OPTION_FILL_TYPE,
     // Limit values tab
     OPTION_MEASURE_CRITERIA,
 ]

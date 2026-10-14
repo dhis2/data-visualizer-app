@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-03-11T11:54:22.309Z\n"
-"PO-Revision-Date: 2026-03-11T11:54:22.310Z\n"
+"POT-Creation-Date: 2026-10-14T07:45:07.597Z\n"
+"PO-Revision-Date: 2026-10-14T07:45:07.597Z\n"
 
 msgid "All items"
 msgstr "All items"
@@ -376,6 +376,27 @@ msgstr "Color blind"
 msgid "Patterns"
 msgstr "Patterns"
 
+msgid "By axis"
+msgstr "By axis"
+
+msgid "Reset to Auto"
+msgstr "Reset to Auto"
+
+msgid "Reset colours"
+msgstr "Reset colours"
+
+msgid "Apply colours"
+msgstr "Apply colours"
+
+msgid "Use data item colour"
+msgstr "Use data item colour"
+
+msgid "Palettes"
+msgstr "Palettes"
+
+msgid "Change colour for {{name}}"
+msgstr "Change colour for {{name}}"
+
 msgid "Event data"
 msgstr "Event data"
 
@@ -637,8 +658,35 @@ msgstr "Row sub-totals"
 msgid "Row totals"
 msgstr "Row totals"
 
+msgid "Undo"
+msgstr "Undo"
+
+msgid "Colours applied"
+msgstr "Colours applied"
+
+msgid "Colour by"
+msgstr "Colour by"
+
+msgid "Static"
+msgstr "Static"
+
+msgid ""
+"Series with relative selections change over time, so colours are assigned "
+"in order from a palette. Colour, type and axis can only be set per item for "
+"fixed selections."
+msgstr ""
+"Series with relative selections change over time, so colours are assigned "
+"in order from a palette. Colour, type and axis can only be set per item for "
+"fixed selections."
+
+msgid "Palette"
+msgstr "Palette"
+
 msgid "Data item"
 msgstr "Data item"
+
+msgid "Colour"
+msgstr "Colour"
 
 msgid "Visualization type"
 msgstr "Visualization type"
@@ -646,20 +694,17 @@ msgstr "Visualization type"
 msgid "Axis {{axisId}}"
 msgstr "Axis {{axisId}}"
 
-msgid "Series is empty"
-msgstr "Series is empty"
-
-msgid "Options for selected items will be available here"
-msgstr "Options for selected items will be available here"
-
 msgid "No Series options"
 msgstr "No Series options"
 
 msgid "There aren't any Series options for this visualization type"
 msgstr "There aren't any Series options for this visualization type"
 
-msgid "Series options unavailable"
-msgstr "Series options unavailable"
+msgid "Series is empty"
+msgstr "Series is empty"
+
+msgid "Options for selected items will be available here"
+msgstr "Options for selected items will be available here"
 
 msgid ""
 "Series options are not available when using relative selections for "
@@ -668,12 +713,14 @@ msgstr ""
 "Series options are not available when using relative selections for "
 "periods, org units or categories"
 
-msgid ""
-"Series options are not available when a series item has an \"All items\" "
-"selection"
-msgstr ""
-"Series options are not available when a series item has an \"All items\" "
-"selection"
+msgid "Fill"
+msgstr "Fill"
+
+msgid "Solid"
+msgstr "Solid"
+
+msgid "Pattern"
+msgstr "Pattern"
 
 msgid "Value labels"
 msgstr "Value labels"

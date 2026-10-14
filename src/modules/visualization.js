@@ -102,6 +102,14 @@ export const getSaveableVisualization = (vis) => {
 
     nonSavableOptions.forEach((option) => delete visualization[option])
 
+    // PROTOTYPE: per-item series colours are not persisted yet
+    if (Array.isArray(visualization.series)) {
+        visualization.series = visualization.series.map(
+            // eslint-disable-next-line no-unused-vars
+            ({ color, ...item }) => item
+        )
+    }
+
     return visualization
 }
 
