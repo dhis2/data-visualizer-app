@@ -3,18 +3,23 @@ import { colors } from '@dhis2/ui'
 export default {
     titleBar: {
         display: 'flex',
-        justifyContent: 'center',
+        alignItems: 'center',
+        paddingInlineStart: '12px',
+        marginInlineStart: '8px',
+        borderInlineStart: '1px solid var(--colors-grey400)',
     },
     cell: {
         display: 'flex',
         alignItems: 'center',
-        background: colors.white,
-        padding: '6px',
-        borderRadius: '5px',
-        margin: '4px',
     },
     title: {
-        fontSize: '14px',
+        fontSize: '13px',
+        fontWeight: '500',
+        lineHeight: '16px',
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        maxWidth: '360px',
     },
     suffix: {
         paddingInlineStart: '4px',
