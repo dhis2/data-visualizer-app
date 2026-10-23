@@ -33,7 +33,6 @@ const attachSeriesClick = (chart, onSeriesClick) => {
                         onSeriesClick({
                             element: point.graphic?.element,
                             index: isPie ? point.index : seriesIndex,
-                            name: isPie ? point.name : series.name,
                             color:
                                 typeof target.color === 'string'
                                     ? target.color

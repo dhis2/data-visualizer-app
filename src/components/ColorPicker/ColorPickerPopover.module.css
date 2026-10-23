@@ -1,0 +1,56 @@
+.popover {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacers-dp12);
+    inline-size: 248px;
+    padding: var(--spacers-dp12);
+}
+
+.title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--colors-grey900);
+}
+
+.sectionTitle {
+    font-size: 12px;
+    color: var(--colors-grey700);
+    margin-block-end: var(--spacers-dp4);
+}
+
+.paletteRow {
+    display: flex;
+    gap: 2px;
+    margin-block-end: 2px;
+}
+
+.paletteSwatch {
+    inline-size: 18px;
+    block-size: 18px;
+    padding: 0;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+
+.paletteSwatchSelected {
+    outline: 2px solid var(--colors-blue600);
+    outline-offset: 1px;
+}
+
+.custom :global(.react-colorful) {
+    inline-size: 100%;
+    block-size: 140px;
+}
+
+.hexInput {
+    inline-size: 100%;
+    margin-block-start: var(--spacers-dp8);
+    padding: var(--spacers-dp4) var(--spacers-dp8);
+    border: 1px solid var(--colors-grey500);
+    border-radius: 3px;
+    font-family: Menlo, monospace;
+    font-size: 13px;
+    box-sizing: border-box;
+}

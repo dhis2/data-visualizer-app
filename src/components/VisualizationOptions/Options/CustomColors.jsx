@@ -1,9 +1,9 @@
 import i18n from '@dhis2/d2-i18n'
-import { Button, Popover } from '@dhis2/ui'
+import { Button } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useRef, useState } from 'react'
-import { HexColorInput, HexColorPicker } from 'react-colorful'
 import { CUSTOM_COLOR_SLOTS } from '../../../modules/customColors.js'
+import ColorPickerPopover from '../../ColorPicker/ColorPickerPopover.jsx'
 import styles from '../styles/CustomColors.module.css'
 
 
@@ -49,22 +49,12 @@ const Slot = ({ index, color, onChange }) => {
                 <span className={styles.slotNumber}>{index + 1}</span>
             </button>
             {open && (
-                <Popover
+                <ColorPickerPopover
                     reference={ref}
-                    placement="bottom-start"
-                    arrow={false}
-                    onClickOutside={() => setOpen(false)}
-                >
-                    <div className={styles.popover}>
-                        <HexColorPicker color={color} onChange={onChange} />
-                        <HexColorInput
-                            className={styles.hexInput}
-                            color={color}
-                            onChange={onChange}
-                            prefixed
-                        />
-                    </div>
-                </Popover>
+                    color={color}
+                    onChange={onChange}
+                    onClose={() => setOpen(false)}
+                />
             )}
         </>
     )
