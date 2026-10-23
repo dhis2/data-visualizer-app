@@ -16,13 +16,18 @@ import {
     acSetUiItems,
     acSetUiDataSorting,
     acAddParentGraphMap,
+    acSetUiOptions,
 } from '../../actions/ui.js'
+import { getOptionsWithSlotColor } from '../../modules/customColors.js'
 import { removeLastPathSegment } from '../../modules/orgUnit.js'
 import { getVisualizationWithFilteredOptionsByType } from '../../modules/visualization.js'
 import { sGetCurrent } from '../../reducers/current.js'
 import { sGetIsPluginLoading, sGetLoadError } from '../../reducers/loader.js'
 import { sGetSettingsDisplayProperty } from '../../reducers/settings.js'
-import { sGetUiRightSidebarOpen } from '../../reducers/ui.js'
+import {
+    sGetUiOptions,
+    sGetUiRightSidebarOpen,
+} from '../../reducers/ui.js'
 import LoadingMask from '../../widgets/LoadingMask.jsx'
 import { useChartContext } from '../ChartProvider.jsx'
 import { VisualizationErrorInfo } from '../VisualizationErrorInfo/VisualizationErrorInfo.jsx'
@@ -161,6 +166,8 @@ export class UnconnectedVisualization extends Component {
                         onDataSorted={this.onDataSorted}
                         onResponsesReceived={this.onResponsesReceived}
                         onDrill={this.onDrill}
+                        onSeriesColorChange={this.props.onSeriesColorChange}
+                        onSeriesColorClose={this.props.setCurrent}
                         style={styles.chartCanvas}
                         displayProperty={displayProperty}
                     />
@@ -184,6 +191,7 @@ UnconnectedVisualization.propTypes = {
     visualization: PropTypes.object,
     onLoadingComplete: PropTypes.func,
     onLoadingStart: PropTypes.func,
+    onSeriesColorChange: PropTypes.func,
 }
 
 export const Visualization = (props) => {
@@ -221,6 +229,14 @@ export const Visualization = (props) => {
         () => dispatch(tSetCurrentFromUi()),
         [dispatch]
     )
+    const uiOptions = useSelector(sGetUiOptions)
+    const onSeriesColorChange = useCallback(
+        (index, color) =>
+            dispatch(
+                acSetUiOptions(getOptionsWithSlotColor(uiOptions, index, color))
+            ),
+        [dispatch, uiOptions]
+    )
     const { setChart } = useChartContext()
 
     const { enabledPeriodTypesData } = useDataOutputPeriodTypes()
@@ -251,6 +267,7 @@ export const Visualization = (props) => {
             setUiDataSorting={setUiDataSorting}
             setCurrent={setCurrent}
             setChart={setChart}
+            onSeriesColorChange={onSeriesColorChange}
         />
     )
 }

@@ -3,9 +3,9 @@ import { Button, Popover } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { useRef, useState } from 'react'
 import { HexColorInput, HexColorPicker } from 'react-colorful'
+import { CUSTOM_COLOR_SLOTS } from '../../../modules/customColors.js'
 import styles from '../styles/CustomColors.module.css'
 
-export const CUSTOM_COLOR_SLOTS = 12
 
 const hslToHex = (h, s, l) => {
     const a = s * Math.min(l, 1 - l)

@@ -52,3 +52,15 @@
     border: 1px solid var(--colors-grey400);
     border-radius: 3px;
 }
+
+.popoverTitle {
+    max-width: 200px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--colors-grey900);
+}
+
+.popoverHelp {
+    font-size: 12px;
+    color: var(--colors-grey700);
+}

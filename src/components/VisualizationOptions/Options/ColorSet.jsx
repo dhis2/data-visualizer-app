@@ -15,6 +15,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
 import { acSetUiOptions } from '../../../actions/ui.js'
+import { getInitialCustomColors } from '../../../modules/customColors.js'
 import {
     COLOR_SET_CUSTOM,
     OPTION_COLOR_SET,
@@ -22,20 +23,7 @@ import {
 } from '../../../modules/options.js'
 import { sGetUiOptions } from '../../../reducers/ui.js'
 import styles from '../styles/VisualizationOptions.module.css'
-import CustomColors, { CUSTOM_COLOR_SLOTS } from './CustomColors.jsx'
-
-const getSetColors = (id) =>
-    colorSets[id]?.colors || colorSets[id]?.patterns?.map(({ color }) => color)
-
-// Start the slots from the set the chart was using, so nothing changes until edited
-const getInitialCustomColors = (previousSet) => {
-    const colors =
-        getSetColors(previousSet) || getSetColors(COLOR_SET_DEFAULT)
-    return Array.from(
-        { length: CUSTOM_COLOR_SLOTS },
-        (_, i) => colors[i % colors.length]
-    )
-}
+import CustomColors from './CustomColors.jsx'
 
 const ColorSet = ({
     value,

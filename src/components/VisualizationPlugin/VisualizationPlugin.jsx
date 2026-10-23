@@ -15,6 +15,8 @@ import {
     USER_ORG_UNIT_CHILDREN,
     USER_ORG_UNIT_GRANDCHILDREN,
     VIS_TYPE_SINGLE_VALUE,
+    VIS_TYPE_GAUGE,
+    VIS_TYPE_SCATTER,
     useDataOutputPeriodTypes,
 } from '@dhis2/analytics'
 import { useConfig, useDataEngine } from '@dhis2/app-runtime'
@@ -49,10 +51,16 @@ import ChartPlugin from './ChartPlugin.jsx'
 import ContextualMenu from './ContextualMenu.jsx'
 import OutlierTablePlugin from './OutlierTablePlugin.jsx'
 import PivotPlugin from './PivotPlugin.jsx'
+import SeriesColorPopover from './SeriesColorPopover.jsx'
 import styles from './styles/VisualizationPlugin.module.css'
 
 const FILTERS_PROP_DEFAULT = {}
 const ICON_TYPE_DATA_ITEM = 'DATA_ITEM'
+const SERIES_COLOR_UNSUPPORTED_TYPES = [
+    VIS_TYPE_GAUGE,
+    VIS_TYPE_SCATTER,
+    VIS_TYPE_SINGLE_VALUE,
+]
 
 export const VisualizationPlugin = ({
     visualization: originalVisualization = {},
@@ -67,6 +75,8 @@ export const VisualizationPlugin = ({
     onDataSorted = Function.prototype,
     onResponsesReceived = Function.prototype,
     onDrill,
+    onSeriesColorChange,
+    onSeriesColorClose,
 }) => {
     const engine = useDataEngine()
     const [error, setError] = useState(null)
@@ -76,6 +86,7 @@ export const VisualizationPlugin = ({
     const [contextualMenuRef, setContextualMenuRef] = useState(undefined)
     const [contextualMenuConfig, setContextualMenuConfig] = useState({})
     const [showLegendKey, setShowLegendKey] = useState(false)
+    const [seriesColorTarget, setSeriesColorTarget] = useState(null)
     const [renderId, setRenderId] = useState(id)
     const [size, setSize] = useState({ width: 0, height: 0 })
     const resizeObserverRef = useRef(null)
@@ -619,6 +630,13 @@ export const VisualizationPlugin = ({
                 />
             )
         } else {
+            // PROTOTYPE: in the app, clicking a series sets its colour instead of drilling
+            const canSetSeriesColor =
+                onSeriesColorChange &&
+                !SERIES_COLOR_UNSUPPORTED_TYPES.includes(
+                    fetchResult.visualization.type
+                )
+
             return (
                 <ChartPlugin
                     visualization={visualization}
@@ -626,7 +644,12 @@ export const VisualizationPlugin = ({
                     extraOptions={fetchResult.extraOptions}
                     legendSets={legendSets}
                     onToggleContextualMenu={
-                        onDrill ? onToggleContextualMenu : undefined
+                        onDrill && !canSetSeriesColor
+                            ? onToggleContextualMenu
+                            : undefined
+                    }
+                    onSeriesClick={
+                        canSetSeriesColor ? setSeriesColorTarget : undefined
                     }
                     id={forDashboard ? renderId : id}
                     onChartGenerated={onChartGenerated}
@@ -644,6 +667,16 @@ export const VisualizationPlugin = ({
         >
             <div className={styles.chartWrapper}>{renderPlugin()}</div>
             {getLegendKey()}
+            {seriesColorTarget && (
+                <SeriesColorPopover
+                    target={seriesColorTarget}
+                    onChange={onSeriesColorChange}
+                    onClose={(changed) => {
+                        setSeriesColorTarget(null)
+                        changed && onSeriesColorClose()
+                    }}
+                />
+            )}
             {contextualMenuRect && (
                 <Layer
                     onClick={closeContextualMenu}
@@ -675,4 +708,6 @@ VisualizationPlugin.propTypes = {
     onDrill: PropTypes.func,
     onLoadingComplete: PropTypes.func,
     onResponsesReceived: PropTypes.func,
+    onSeriesColorChange: PropTypes.func,
+    onSeriesColorClose: PropTypes.func,
 }
