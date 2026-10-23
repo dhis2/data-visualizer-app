@@ -159,13 +159,9 @@ const ColorSet = ({
                         id: COLOR_SET_CUSTOM,
                         label: i18n.t('Custom'),
                         className: styles.optionWide,
-                        preview: !isCustom && (
-                            <PalettePreview
-                                colors={
-                                    customColors ||
-                                    getInitialCustomColors(value)
-                                }
-                            />
+                        // Only preview custom colours once some exist
+                        preview: !isCustom && customColors && (
+                            <PalettePreview colors={customColors} />
                         ),
                         children: isCustom && customColors && !disabled && (
                             <CustomColors
