@@ -1,4 +1,5 @@
 import {
+    COLOR_SET_DEFAULT,
     VIS_TYPE_PIVOT_TABLE,
     VIS_TYPE_COLUMN,
     VIS_TYPE_STACKED_COLUMN,
@@ -22,7 +23,7 @@ import cloneDeep from 'lodash-es/cloneDeep'
 import { DEFAULT_CURRENT } from '../reducers/current.js'
 import { DEFAULT_VISUALIZATION } from '../reducers/visualization.js'
 import { getOptionNamesByType } from './options/config.js'
-import { default as options } from './options.js'
+import { COLOR_SET_CUSTOM, default as options } from './options.js'
 
 export const visTypes = [
     VIS_TYPE_PIVOT_TABLE,
@@ -101,6 +102,11 @@ export const getSaveableVisualization = (vis) => {
     )
 
     nonSavableOptions.forEach((option) => delete visualization[option])
+
+    // PROTOTYPE: the API doesn't know the custom colour set yet
+    if (visualization.colorSet === COLOR_SET_CUSTOM) {
+        visualization.colorSet = COLOR_SET_DEFAULT
+    }
 
     return visualization
 }

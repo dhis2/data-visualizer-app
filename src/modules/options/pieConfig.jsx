@@ -3,6 +3,7 @@ import SkipRounding from '../../components/VisualizationOptions/Options/SkipRoun
 import {
     OPTION_AGGREGATION_TYPE,
     OPTION_COLOR_SET,
+    OPTION_CUSTOM_COLORS,
     OPTION_COMPLETED_ONLY,
     OPTION_FONT_STYLE,
     OPTION_HIDE_SUBTITLE,
@@ -48,6 +49,7 @@ export const pieOptionNames = () => [
     OPTION_SUBTITLE,
     OPTION_HIDE_SUBTITLE,
     OPTION_COLOR_SET,
+    OPTION_CUSTOM_COLORS,
     // Limit values tab
     OPTION_MEASURE_CRITERIA,
 ]

@@ -7,6 +7,7 @@ export const OPTION_AXES = 'axes'
 export const OPTION_COL_SUB_TOTALS = 'colSubTotals'
 export const OPTION_COL_TOTALS = 'colTotals'
 export const OPTION_COLOR_SET = 'colorSet'
+export const OPTION_CUSTOM_COLORS = 'customColors'
 export const OPTION_COMPLETED_ONLY = 'completedOnly'
 export const OPTION_CUMULATIVE = 'cumulative'
 export const OPTION_CUMULATIVE_VALUES = 'cumulativeValues'
@@ -74,6 +75,8 @@ export const OPTION_LEGEND_SET = 'legendSet'
 export const DISPLAY_DENSITY_COMFORTABLE = 'COMFORTABLE'
 export const DISPLAY_DENSITY_NORMAL = 'NORMAL'
 export const DISPLAY_DENSITY_COMPACT = 'COMPACT'
+// PROTOTYPE: not a colour set analytics knows, so it falls back to extraOptions.colors
+export const COLOR_SET_CUSTOM = 'CUSTOM'
 export const FONT_SIZE_LARGE = 'LARGE'
 export const FONT_SIZE_NORMAL = 'NORMAL'
 export const FONT_SIZE_SMALL = 'SMALL'
@@ -84,6 +87,12 @@ export const options = {
         defaultValue: COLOR_SET_DEFAULT,
         requestable: false,
         savable: true,
+    },
+    // PROTOTYPE: custom colours are UI-only for now (not saved)
+    [OPTION_CUSTOM_COLORS]: {
+        defaultValue: undefined,
+        requestable: false,
+        savable: false,
     },
     [OPTION_CUMULATIVE_VALUES]: {
         defaultValue: false,

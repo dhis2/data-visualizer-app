@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-03-11T11:54:22.309Z\n"
-"PO-Revision-Date: 2026-03-11T11:54:22.310Z\n"
+"POT-Creation-Date: 2026-10-23T10:10:53.196Z\n"
+"PO-Revision-Date: 2026-10-23T10:10:53.197Z\n"
 
 msgid "All items"
 msgstr "All items"
@@ -390,6 +390,12 @@ msgstr "Cumulative values"
 
 msgid "Accumulate cell values along rows"
 msgstr "Accumulate cell values along rows"
+
+msgid "Colour {{number}}"
+msgstr "Colour {{number}}"
+
+msgid "Randomise"
+msgstr "Randomise"
 
 msgid "Show data item icon"
 msgstr "Show data item icon"

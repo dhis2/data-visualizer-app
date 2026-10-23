@@ -1,6 +1,14 @@
-import { createVisualization } from '@dhis2/analytics'
+import {
+    colorSets,
+    COLOR_SET_DEFAULT,
+    createVisualization,
+} from '@dhis2/analytics'
 import PropTypes from 'prop-types'
 import React, { useRef, useCallback, useEffect } from 'react'
+import {
+    COLOR_SET_CUSTOM,
+    OPTION_CUSTOM_COLORS,
+} from '../../modules/options.js'
 import styles from './styles/ChartPlugin.module.css'
 
 const VISUALIZATION_PROP_DEFAULT = {}
@@ -26,6 +34,11 @@ const ChartPlugin = ({
                 canvasRef.current,
                 {
                     ...extraOptions,
+                    ...(visualization.colorSet === COLOR_SET_CUSTOM && {
+                        colors:
+                            visualization[OPTION_CUSTOM_COLORS] ||
+                            colorSets[COLOR_SET_DEFAULT].colors,
+                    }),
                     animation,
                     legendSets,
                     onToggleContextualMenu,

@@ -15,11 +15,35 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
 import { acSetUiOptions } from '../../../actions/ui.js'
-import { OPTION_COLOR_SET } from '../../../modules/options.js'
+import {
+    COLOR_SET_CUSTOM,
+    OPTION_COLOR_SET,
+    OPTION_CUSTOM_COLORS,
+} from '../../../modules/options.js'
 import { sGetUiOptions } from '../../../reducers/ui.js'
 import styles from '../styles/VisualizationOptions.module.css'
+import CustomColors, { CUSTOM_COLOR_SLOTS } from './CustomColors.jsx'
 
-const ColorSet = ({ value, onChange, disabled }) => (
+const getSetColors = (id) =>
+    colorSets[id]?.colors || colorSets[id]?.patterns?.map(({ color }) => color)
+
+// Start the slots from the set the chart was using, so nothing changes until edited
+const getInitialCustomColors = (previousSet) => {
+    const colors =
+        getSetColors(previousSet) || getSetColors(COLOR_SET_DEFAULT)
+    return Array.from(
+        { length: CUSTOM_COLOR_SLOTS },
+        (_, i) => colors[i % colors.length]
+    )
+}
+
+const ColorSet = ({
+    value,
+    customColors,
+    onChange,
+    onCustomColorsChange,
+    disabled,
+}) => (
     <div className={styles.tabSectionOption}>
         <Field name="colorSet-selector" dense>
             {[
@@ -56,21 +80,37 @@ const ColorSet = ({ value, onChange, disabled }) => (
                         id: COLOR_SET_PATTERNS,
                         label: i18n.t('Patterns'),
                     },
+                    {
+                        id: COLOR_SET_CUSTOM,
+                        label: i18n.t('Custom'),
+                    },
                 ].map(({ id, label }) => (
                     <span key={id}>
                         <Radio
                             label={
                                 <>
                                     {label}
-                                    <ColorSetPreview
-                                        colorSet={colorSets[id]}
-                                        disabled={disabled}
-                                    />
+                                    {id !== COLOR_SET_CUSTOM && (
+                                        <ColorSetPreview
+                                            colorSet={colorSets[id]}
+                                            disabled={disabled}
+                                        />
+                                    )}
                                 </>
                             }
                             value={id}
                             dense
-                            onChange={({ value }) => onChange(value)}
+                            onChange={({ value: newValue }) => {
+                                if (
+                                    newValue === COLOR_SET_CUSTOM &&
+                                    !customColors
+                                ) {
+                                    onCustomColorsChange(
+                                        getInitialCustomColors(value)
+                                    )
+                                }
+                                onChange(newValue)
+                            }}
                             checked={value === id}
                             disabled={disabled}
                         />
@@ -78,12 +118,20 @@ const ColorSet = ({ value, onChange, disabled }) => (
                 )),
             ]}
         </Field>
+        {value === COLOR_SET_CUSTOM && customColors && !disabled && (
+            <CustomColors
+                colors={customColors}
+                onChange={onCustomColorsChange}
+            />
+        )}
     </div>
 )
 
 ColorSet.propTypes = {
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
+    onCustomColorsChange: PropTypes.func.isRequired,
+    customColors: PropTypes.arrayOf(PropTypes.string),
     disabled: PropTypes.bool,
 }
 
@@ -136,11 +184,14 @@ ColorSetPreview.propTypes = {
 
 const mapStateToProps = (state) => ({
     value: sGetUiOptions(state)[OPTION_COLOR_SET],
+    customColors: sGetUiOptions(state)[OPTION_CUSTOM_COLORS],
 })
 
 const mapDispatchToProps = (dispatch) => ({
     onChange: (colorSet) =>
         dispatch(acSetUiOptions({ [OPTION_COLOR_SET]: colorSet })),
+    onCustomColorsChange: (colors) =>
+        dispatch(acSetUiOptions({ [OPTION_CUSTOM_COLORS]: colors })),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ColorSet)

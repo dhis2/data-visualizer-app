@@ -2,6 +2,7 @@ import {
     OPTION_AGGREGATION_TYPE,
     OPTION_AXES,
     OPTION_COLOR_SET,
+    OPTION_CUSTOM_COLORS,
     OPTION_COMPLETED_ONLY,
     OPTION_CUMULATIVE_VALUES,
     OPTION_FONT_STYLE,
@@ -104,6 +105,7 @@ export const defaultOptionNames = ({
         OPTION_SUBTITLE,
         OPTION_HIDE_SUBTITLE,
         OPTION_COLOR_SET,
+        OPTION_CUSTOM_COLORS,
         // Limit values tab
         OPTION_MEASURE_CRITERIA,
     ]
