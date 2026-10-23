@@ -57,9 +57,6 @@ const ColorPickerPopover = ({
             <div className={styles.popover}>
                 {title && <div className={styles.title}>{title}</div>}
                 <div>
-                    <div className={styles.sectionTitle}>
-                        {i18n.t('Color sets')}
-                    </div>
                     {PALETTE_IDS.map((paletteId) => (
                         <div
                             key={paletteId}
@@ -88,9 +85,6 @@ const ColorPickerPopover = ({
                     ))}
                 </div>
                 <div className={styles.custom}>
-                    <div className={styles.sectionTitle}>
-                        {i18n.t('Custom')}
-                    </div>
                     <HexColorPicker
                         color={color || '#000000'}
                         onChange={onChange}

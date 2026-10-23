@@ -12,12 +12,6 @@
     color: var(--colors-grey900);
 }
 
-.sectionTitle {
-    font-size: 12px;
-    color: var(--colors-grey700);
-    margin-block-end: var(--spacers-dp4);
-}
-
 .paletteRow {
     display: flex;
     gap: 2px;
