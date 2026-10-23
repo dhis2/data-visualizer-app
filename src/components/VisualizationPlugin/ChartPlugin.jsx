@@ -64,6 +64,7 @@ const ChartPlugin = ({
 }) => {
     const canvasRef = useRef(undefined)
     const prevRenderCounter = useRef(renderCounter)
+    const prevResponses = useRef(undefined)
 
     const renderVisualization = useCallback(
         (animation) => {
@@ -109,7 +110,11 @@ const ChartPlugin = ({
     )
 
     useEffect(() => {
-        renderVisualization(defaultAnimation)
+        // Only animate when new data arrives, not when options are restyled
+        renderVisualization(
+            responses === prevResponses.current ? 0 : defaultAnimation
+        )
+        prevResponses.current = responses
 
         /* eslint-disable-next-line react-hooks/exhaustive-deps */
     }, [visualization, responses, extraOptions])

@@ -23,6 +23,9 @@ import { useConfig, useDataEngine } from '@dhis2/app-runtime'
 import { Button, IconLegend24, Layer } from '@dhis2/ui'
 import cx from 'classnames'
 import cloneDeep from 'lodash-es/cloneDeep'
+import isEqual from 'lodash-es/isEqual'
+import omit from 'lodash-es/omit'
+import pick from 'lodash-es/pick'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState, useCallback, useRef } from 'react'
 import { apiFetchLegendSets } from '../../api/legendSets.js'
@@ -45,7 +48,11 @@ import {
 import { fetchData } from '../../modules/fetchData.js'
 import { getIconUrl } from '../../modules/icon.js'
 import getDefaultMetadata from '../../modules/metadata.js'
-import { getOptionsFromVisualization } from '../../modules/options.js'
+import {
+    getOptionsFromVisualization,
+    OPTION_COLOR_SET,
+    OPTION_CUSTOM_COLORS,
+} from '../../modules/options.js'
 import { VisualizationErrorInfo } from '../VisualizationErrorInfo/VisualizationErrorInfo.jsx'
 import ChartPlugin from './ChartPlugin.jsx'
 import ContextualMenu from './ContextualMenu.jsx'
@@ -56,6 +63,11 @@ import styles from './styles/VisualizationPlugin.module.css'
 
 const FILTERS_PROP_DEFAULT = {}
 const ICON_TYPE_DATA_ITEM = 'DATA_ITEM'
+const COLOR_OPTIONS = [OPTION_COLOR_SET, OPTION_CUSTOM_COLORS]
+const isColorOnlyChange = (prev, next) =>
+    Boolean(prev) &&
+    !isEqual(pick(prev, COLOR_OPTIONS), pick(next, COLOR_OPTIONS)) &&
+    isEqual(omit(prev, COLOR_OPTIONS), omit(next, COLOR_OPTIONS))
 const SERIES_COLOR_UNSUPPORTED_TYPES = [
     VIS_TYPE_GAUGE,
     VIS_TYPE_SCATTER,
@@ -90,6 +102,7 @@ export const VisualizationPlugin = ({
     const [renderId, setRenderId] = useState(id)
     const [size, setSize] = useState({ width: 0, height: 0 })
     const resizeObserverRef = useRef(null)
+    const lastFetchedVisualizationRef = useRef(null)
     const { baseUrl } = useConfig()
     const { supportsEnabledPeriodTypes, enabledPeriodTypesData } =
         useDataOutputPeriodTypes()
@@ -296,6 +309,27 @@ export const VisualizationPlugin = ({
         if (supportsEnabledPeriodTypes && !enabledPeriodTypesData) {
             return
         }
+
+        // PROTOTYPE: colour-only changes keep the data and redraw in place
+        if (
+            fetchResult &&
+            isColorOnlyChange(
+                lastFetchedVisualizationRef.current,
+                originalVisualization
+            )
+        ) {
+            lastFetchedVisualizationRef.current = originalVisualization
+            setFetchResult({
+                ...fetchResult,
+                visualization: {
+                    ...fetchResult.visualization,
+                    ...pick(originalVisualization, COLOR_OPTIONS),
+                },
+            })
+            onLoadingComplete()
+            return
+        }
+        lastFetchedVisualizationRef.current = originalVisualization
 
         setError(null)
         setFetchResult(null)

@@ -9,7 +9,7 @@ import React, {
     useMemo,
 } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { tSetCurrentFromUi } from '../../actions/current.js'
+import { acSetCurrent, tSetCurrentFromUi } from '../../actions/current.js'
 import { acSetPluginLoading } from '../../actions/loader.js'
 import { acAddMetadata, acOverrideMetadata } from '../../actions/metadata.js'
 import {
@@ -19,6 +19,10 @@ import {
     acSetUiOptions,
 } from '../../actions/ui.js'
 import { getOptionsWithSlotColor } from '../../modules/customColors.js'
+import {
+    OPTION_COLOR_SET,
+    OPTION_CUSTOM_COLORS,
+} from '../../modules/options.js'
 import { removeLastPathSegment } from '../../modules/orgUnit.js'
 import { getVisualizationWithFilteredOptionsByType } from '../../modules/visualization.js'
 import { sGetCurrent } from '../../reducers/current.js'
@@ -167,7 +171,7 @@ export class UnconnectedVisualization extends Component {
                         onResponsesReceived={this.onResponsesReceived}
                         onDrill={this.onDrill}
                         onSeriesColorChange={this.props.onSeriesColorChange}
-                        onSeriesColorClose={this.props.setCurrent}
+                        onSeriesColorClose={this.props.onSeriesColorClose}
                         style={styles.chartCanvas}
                         displayProperty={displayProperty}
                     />
@@ -192,6 +196,7 @@ UnconnectedVisualization.propTypes = {
     onLoadingComplete: PropTypes.func,
     onLoadingStart: PropTypes.func,
     onSeriesColorChange: PropTypes.func,
+    onSeriesColorClose: PropTypes.func,
 }
 
 export const Visualization = (props) => {
@@ -237,6 +242,18 @@ export const Visualization = (props) => {
             ),
         [dispatch, uiOptions]
     )
+    // Patch only the colours onto current so the plugin can redraw without refetching
+    const onSeriesColorClose = useCallback(
+        () =>
+            dispatch(
+                acSetCurrent({
+                    ...current,
+                    [OPTION_COLOR_SET]: uiOptions[OPTION_COLOR_SET],
+                    [OPTION_CUSTOM_COLORS]: uiOptions[OPTION_CUSTOM_COLORS],
+                })
+            ),
+        [dispatch, current, uiOptions]
+    )
     const { setChart } = useChartContext()
 
     const { enabledPeriodTypesData } = useDataOutputPeriodTypes()
@@ -268,6 +285,7 @@ export const Visualization = (props) => {
             setCurrent={setCurrent}
             setChart={setChart}
             onSeriesColorChange={onSeriesColorChange}
+            onSeriesColorClose={onSeriesColorClose}
         />
     )
 }
