@@ -25,13 +25,16 @@ const attachSeriesClick = (chart, onSeriesClick) => {
         series.update(
             {
                 cursor: 'pointer',
+                // Area fills only take clicks on their top edge otherwise
+                trackByArea: true,
                 events: {
-                    click: ({ point }) => {
+                    click: ({ point, clientX, clientY }) => {
                         const isPie = series.type === 'pie'
                         const target = isPie ? point : series
 
                         onSeriesClick({
-                            element: point.graphic?.element,
+                            // Lines have no point graphic, so anchor on the click itself
+                            position: { x: clientX, y: clientY },
                             index: isPie ? point.index : seriesIndex,
                             color:
                                 typeof target.color === 'string'

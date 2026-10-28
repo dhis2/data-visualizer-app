@@ -7,9 +7,8 @@ import ColorPickerPopover from '../ColorPicker/ColorPickerPopover.jsx'
 const SeriesColorPopover = ({ target, onChange, onClose }) => {
     const [color, setColor] = useState(target.color)
 
-    // Freeze the position: the clicked graphic is redrawn while previewing
     const reference = useMemo(() => {
-        const rect = target.element.getBoundingClientRect()
+        const rect = new DOMRect(target.position.x, target.position.y, 0, 0)
         return { getBoundingClientRect: () => rect }
     }, [target])
 
@@ -36,8 +35,9 @@ const SeriesColorPopover = ({ target, onChange, onClose }) => {
 SeriesColorPopover.propTypes = {
     target: PropTypes.shape({
         color: PropTypes.string.isRequired,
-        element: PropTypes.object.isRequired,
         index: PropTypes.number.isRequired,
+        position: PropTypes.shape({ x: PropTypes.number, y: PropTypes.number })
+            .isRequired,
         preview: PropTypes.func.isRequired,
     }).isRequired,
     onChange: PropTypes.func.isRequired,
