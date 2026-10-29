@@ -3,7 +3,7 @@ import {
     FONT_STYLE_OPTION_TEXT_COLOR,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
-import { Label, Field, Radio, InputField, Button } from '@dhis2/ui'
+import { Field, Radio, InputField, Button } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { connect } from 'react-redux'
@@ -15,6 +15,7 @@ import {
 import { sGetUiOption } from '../../../reducers/ui.js'
 import styles from '../styles/VisualizationOptions.module.css'
 import TextStyle from './TextStyle.jsx'
+import { OptionLabel } from './OptionLabel.jsx'
 
 export const TITLE_AUTO = 'AUTO'
 export const TITLE_NONE = 'NONE'
@@ -70,7 +71,7 @@ const AxisTitle = ({
             className={styles.tabSectionOption}
             data-test={'option-chart-title'}
         >
-            <Label>{i18n.t('Axis title')}</Label>
+            <OptionLabel>{i18n.t('Axis title')}</OptionLabel>
             <Field name="title-selector" dense>
                 {[
                     ...(showAutoOption

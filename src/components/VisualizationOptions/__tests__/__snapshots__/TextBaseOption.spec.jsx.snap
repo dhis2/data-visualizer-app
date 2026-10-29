@@ -39,6 +39,12 @@ exports[`TextBaseOption renders a <InputField /> when the checkbox is checked 1`
     <div
       class=""
     >
+      <label
+        class=""
+        data-test="option-label"
+      >
+        The label
+      </label>
       <div
         id="inputfield"
         value=""

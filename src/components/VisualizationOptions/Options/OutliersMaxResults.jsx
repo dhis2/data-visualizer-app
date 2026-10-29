@@ -7,6 +7,7 @@ import { OPTION_OUTLIER_ANALYSIS } from '../../../modules/options.js'
 import { sGetUiOptions } from '../../../reducers/ui.js'
 import styles from '../styles/VisualizationOptions.module.css'
 import { DEFAULT_STATE as OUTLIER_METHOD_THRESHOLD_DEFAULT_STATE } from './OutliersForOutlierTable.jsx'
+import { OptionLabel } from './OptionLabel.jsx'
 
 const MIN_VALUE = 1
 const MAX_VALUE = 500
@@ -47,9 +48,9 @@ const OutliersMaxResults = () => {
     return (
         <div className={styles.tabSectionOption}>
             <div>
+                <OptionLabel>{i18n.t('Max results')}</OptionLabel>
                 <InputField
                     type="number"
-                    label={i18n.t('Max results')}
                     value={outlierAnalysis[
                         OUTLIER_MAX_RESULTS_PROP
                     ]?.toString()}

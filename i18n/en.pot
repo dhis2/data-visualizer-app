@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-10-14T09:21:18.371Z\n"
-"PO-Revision-Date: 2026-10-14T09:21:18.371Z\n"
+"POT-Creation-Date: 2026-10-23T10:12:30.905Z\n"
+"PO-Revision-Date: 2026-10-23T10:12:30.905Z\n"
 
 msgid "All items"
 msgstr "All items"
@@ -376,17 +376,20 @@ msgstr "Color blind"
 msgid "Patterns"
 msgstr "Patterns"
 
-msgid "Use data item colour"
-msgstr "Use data item colour"
+msgid "Auto from data item"
+msgstr "Auto from data item"
 
-msgid "Palettes"
-msgstr "Palettes"
+msgid "Auto from color set"
+msgstr "Auto from color set"
+
+msgid "Color sets"
+msgstr "Color sets"
+
+msgid "Color set"
+msgstr "Color set"
 
 msgid "Legend"
 msgstr "Legend"
-
-msgid "Palette"
-msgstr "Palette"
 
 msgid "Single colour"
 msgstr "Single colour"
@@ -1146,9 +1149,6 @@ msgstr "Applies to standard reports only"
 msgid "Base and target lines are available on the Axes tab for scatter charts"
 msgstr "Base and target lines are available on the Axes tab for scatter charts"
 
-msgid "Color set"
-msgstr "Color set"
-
 msgid "Color sets are not supported yet when using multiple axes"
 msgstr "Color sets are not supported yet when using multiple axes"
 
@@ -1209,8 +1209,8 @@ msgstr "Limit minimum/maximum values"
 msgid "Outliers"
 msgstr "Outliers"
 
-msgid "Series"
-msgstr "Series"
+msgid "Series overrides"
+msgstr "Series overrides"
 
 msgid "Style"
 msgstr "Style"

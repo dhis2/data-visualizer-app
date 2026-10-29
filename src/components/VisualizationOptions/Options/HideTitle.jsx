@@ -1,6 +1,6 @@
 import { FONT_STYLE_VISUALIZATION_TITLE } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
-import { Label, Field, Radio } from '@dhis2/ui'
+import { Field, Radio } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
@@ -11,6 +11,7 @@ import { sGetUiOptions } from '../../../reducers/ui.js'
 import styles from '../styles/VisualizationOptions.module.css'
 import TextStyle from './TextStyle.jsx'
 import Title from './Title.jsx'
+import { OptionLabel } from './OptionLabel.jsx'
 
 const HIDE_TITLE_AUTO = 'AUTO'
 const HIDE_TITLE_NONE = 'NONE'
@@ -43,7 +44,7 @@ class HideTitle extends Component {
                 className={styles.tabSectionOption}
                 data-test={'option-chart-title'}
             >
-                <Label>{i18n.t('Chart title')}</Label>
+                <OptionLabel>{i18n.t('Chart title')}</OptionLabel>
                 <Field name="hideTitle-selector" dense>
                     {[
                         {

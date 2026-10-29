@@ -40,6 +40,20 @@
     margin-block-start: var(--spacers-dp8);
 }
 
+.optionLabel {
+    display: block;
+    margin-block-end: var(--spacers-dp4);
+    font-size: 13px;
+    line-height: 16px;
+    font-weight: 500;
+    color: var(--colors-grey700);
+}
+
+.optionLabelDisabled {
+    color: var(--colors-grey500);
+    cursor: not-allowed;
+}
+
 .tabSectionOption:not(:last-child):not(.inline) {
     padding-block-end: var(--spacers-dp16);
 }

@@ -1,5 +1,5 @@
 import i18n from '@dhis2/d2-i18n'
-import { Checkbox, Label } from '@dhis2/ui'
+import { Checkbox } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -9,6 +9,7 @@ import { sGetUiOption } from '../../../reducers/ui.js'
 import styles from '../styles/VisualizationOptions.module.css'
 import RegressionLineTitle from './RegressionLineTitle.jsx'
 import RegressionLineValue from './RegressionLineValue.jsx'
+import { OptionLabel } from './OptionLabel.jsx'
 
 export const RegressionLine = ({
     checked,
@@ -40,7 +41,7 @@ export const RegressionLine = ({
                 )}
             >
                 <div style={{ marginRight: '8px' }}>
-                    <Label>{i18n.t('Value')}</Label>
+                    <OptionLabel>{i18n.t('Value')}</OptionLabel>
                     <RegressionLineValue
                         dataTest={`${dataTest}-value`}
                         axisId={axisId}
@@ -48,7 +49,7 @@ export const RegressionLine = ({
                     />
                 </div>
                 <div>
-                    <Label>{i18n.t('Title')}</Label>
+                    <OptionLabel>{i18n.t('Title')}</OptionLabel>
                     <RegressionLineTitle
                         dataTest={`${dataTest}-label`}
                         axisId={axisId}

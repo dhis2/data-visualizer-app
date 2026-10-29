@@ -73,7 +73,7 @@ describe('ColourByControl', () => {
 
         fireEvent.click(screen.getByText('Single colour'))
         expect(store.getState().ui.options.colorMode).toBe('SINGLE')
-        fireEvent.click(screen.getByText('Palette'))
+        fireEvent.click(screen.getByText('Color set'))
         expect(store.getState().ui.options.colorMode).toBe('PALETTE')
         expect(store.getState().ui.options.colorPalette).toBe(COLOR_SET_BRIGHT)
         expect(store.getState().ui.options.series).toEqual(series)
@@ -89,7 +89,7 @@ describe('ColourByControl', () => {
         )
         expect(screen.queryByText('Fill')).not.toBeInTheDocument()
 
-        fireEvent.click(screen.getByText('Palette'))
+        fireEvent.click(screen.getByText('Color set'))
         expect(store.getState().ui.options.legend.strategy).toBe('FIXED')
     })
 
@@ -105,15 +105,49 @@ describe('ColourByControl', () => {
 
     it('offers By axis only for multi-axis charts, or when already selected', () => {
         const { unmount } = renderControl(getStore({ colorMode: 'PALETTE' }))
-        fireEvent.click(screen.getByTestId('colour-palette-select-content'))
-        expect(screen.queryByText('By axis')).not.toBeInTheDocument()
+        expect(screen.getByLabelText('Default')).toBeChecked()
+        expect(screen.queryByLabelText('By axis')).not.toBeInTheDocument()
         unmount()
 
         renderControl(
             getStore({ colorMode: 'PALETTE', colorPalette: 'BY_AXIS' })
         )
-        expect(screen.getByText('By axis')).toBeInTheDocument()
+        expect(screen.getByLabelText('By axis')).toBeChecked()
     })
+
+    it('selects a palette when clicking anywhere on its card', () => {
+        const store = getStore({ colorMode: 'PALETTE' })
+        const { container } = renderControl(store)
+
+        const card = container.querySelectorAll('[role="radiogroup"] > div')[3]
+        fireEvent.click(card.firstChild)
+        expect(store.getState().ui.options.colorPalette).not.toBe('DEFAULT')
+    })
+
+    it('shows palette previews as patterns when Fill is Pattern', () => {
+        const { container } = renderControl(
+            getStore({ colorMode: 'PALETTE', fillType: 'PATTERN' })
+        )
+        expect(
+            container.querySelector('[role="radiogroup"] pattern')
+        ).toBeTruthy()
+
+        fireEvent.click(screen.getByLabelText('Solid'))
+        expect(
+            container.querySelector('[role="radiogroup"] pattern')
+        ).not.toBeInTheDocument()
+    })
+
+    it('selects a palette from the radio list', () => {
+        const store = getStore({ colorMode: 'PALETTE' })
+        renderControl(store)
+
+        fireEvent.click(screen.getByLabelText('Bright'))
+        expect(store.getState().ui.options.colorPalette).toBe('BRIGHT')
+        expect(screen.getByLabelText('Bright')).toBeChecked()
+        expect(screen.getByLabelText('Default')).not.toBeChecked()
+    })
+
     it('initialises again when another chart is loaded while the tab is open', () => {
         const store = getStore({ colorMode: 'SINGLE' })
         renderControl(store)

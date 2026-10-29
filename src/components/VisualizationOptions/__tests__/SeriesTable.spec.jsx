@@ -40,7 +40,7 @@ describe('SeriesTable overrides', () => {
     it('shows each series with its inherited palette colour', () => {
         renderTable(getStore())
 
-        expect(screen.getAllByText('Palette')).toHaveLength(2)
+        expect(screen.getAllByText('Color set')).toHaveLength(2)
         const swatches = screen
             .getAllByTestId('series-colour-button')
             .map((button) => button.firstChild.style.backgroundColor)
@@ -73,7 +73,7 @@ describe('SeriesTable overrides', () => {
         expect(items.find((item) => item.dimensionItem === 'a').color).toBe(
             undefined
         )
-        expect(screen.getAllByText('Palette')).toHaveLength(2)
+        expect(screen.getAllByText('Color set')).toHaveLength(2)
     })
 
     it('shows "Set by legend" and no colour buttons in legend mode', () => {

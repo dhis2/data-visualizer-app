@@ -8,6 +8,7 @@ import {
     sGetUiOptions,
     sGetUiDisabledOption,
 } from '../../../reducers/ui.js'
+import { OptionLabel } from './OptionLabel.jsx'
 
 export const RadioBaseOption = ({
     option,
@@ -17,20 +18,23 @@ export const RadioBaseOption = ({
     disabled,
     dataTest,
 }) => (
-    <Field name={option.name} label={label} dense>
-        {option.items.map(({ id, label }) => (
-            <Radio
-                key={id}
-                label={label}
-                value={id}
-                checked={value === id}
-                onChange={({ value }) => onChange(value)}
-                disabled={disabled}
-                dense
-                dataTest={`${dataTest}-option-${id}`}
-            />
-        ))}
-    </Field>
+    <>
+        {label ? <OptionLabel disabled={disabled}>{label}</OptionLabel> : null}
+        <Field name={option.name} dense>
+            {option.items.map(({ id, label }) => (
+                <Radio
+                    key={id}
+                    label={label}
+                    value={id}
+                    checked={value === id}
+                    onChange={({ value }) => onChange(value)}
+                    disabled={disabled}
+                    dense
+                    dataTest={`${dataTest}-option-${id}`}
+                />
+            ))}
+        </Field>
+    </>
 )
 
 RadioBaseOption.propTypes = {

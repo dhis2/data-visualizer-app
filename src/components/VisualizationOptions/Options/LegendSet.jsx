@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import { acSetUiOption } from '../../../actions/ui.js'
 import { OPTION_LEGEND_SET } from '../../../modules/options.js'
 import { sGetUiOption } from '../../../reducers/ui.js'
+import { OptionLabel } from './OptionLabel.jsx'
 
 const query = {
     legendSets: {
@@ -31,35 +32,38 @@ const LegendSetSelect = ({
     dataTest,
     disabled,
 }) => (
-    <SingleSelectField
-        name="legendSetSelect"
-        label={i18n.t('Legend')}
-        disabled={disabled}
-        selected={value?.id}
-        inputWidth="540px"
-        placeholder={i18n.t('Select from legends')}
-        loadingText={i18n.t('Loading legends')}
-        loading={loading}
-        dense
-        onFocus={onFocus}
-        onChange={({ selected }) =>
-            onChange({
-                id: selected,
-                displayName: options.find((option) => option.value === selected)
-                    .label,
-            })
-        }
-        dataTest={`${dataTest}-select`}
-    >
-        {options.map(({ value, label }) => (
-            <SingleSelectOption
-                key={value}
-                value={value}
-                label={label}
-                dataTest={`${dataTest}-option`}
-            />
-        ))}
-    </SingleSelectField>
+    <>
+        <OptionLabel disabled={disabled}>{i18n.t('Legend')}</OptionLabel>
+        <SingleSelectField
+            name="legendSetSelect"
+            disabled={disabled}
+            selected={value?.id}
+            inputWidth="540px"
+            placeholder={i18n.t('Select from legends')}
+            loadingText={i18n.t('Loading legends')}
+            loading={loading}
+            dense
+            onFocus={onFocus}
+            onChange={({ selected }) =>
+                onChange({
+                    id: selected,
+                    displayName: options.find(
+                        (option) => option.value === selected
+                    ).label,
+                })
+            }
+            dataTest={`${dataTest}-select`}
+        >
+            {options.map(({ value, label }) => (
+                <SingleSelectOption
+                    key={value}
+                    value={value}
+                    label={label}
+                    dataTest={`${dataTest}-option`}
+                />
+            ))}
+        </SingleSelectField>
+    </>
 )
 
 LegendSetSelect.propTypes = {

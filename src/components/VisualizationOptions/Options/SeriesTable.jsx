@@ -36,12 +36,14 @@ import {
     OPTION_USE_ITEM_COLORS,
 } from '../../../modules/options.js'
 import {
+    COLOR_MODE_SINGLE,
     COLOR_SOURCE_AUTO,
     COLOR_SOURCE_PALETTE,
     COLOR_SOURCE_SINGLE,
     isLegendMode,
     isPositionalSeries,
     mergeSeriesItems,
+    getDefaultColors,
     resolveSeriesColors,
 } from '../../../modules/seriesColors.js'
 import {
@@ -66,7 +68,7 @@ const allTypes = [VIS_TYPE_COLUMN, VIS_TYPE_LINE]
 const LAYOUT_ITEMS_PROP_DEFAULT = []
 
 const getSourceLabels = () => ({
-    [COLOR_SOURCE_PALETTE]: i18n.t('Palette'),
+    [COLOR_SOURCE_PALETTE]: i18n.t('Color set'),
     [COLOR_SOURCE_SINGLE]: i18n.t('Single colour'),
     [COLOR_SOURCE_AUTO]: i18n.t('Auto'),
 })
@@ -114,6 +116,16 @@ const SeriesTable = ({
         useItemColors: options[OPTION_USE_ITEM_COLORS],
         getMetadataColor,
     })
+    const colorMode = options[OPTION_COLOR_MODE]
+    const paletteColors =
+        colorMode === COLOR_MODE_SINGLE
+            ? []
+            : getDefaultColors({
+                  items,
+                  colorMode,
+                  colorPalette: options[OPTION_COLOR_PALETTE],
+                  singleColor: options[OPTION_SINGLE_COLOR],
+              })
     const sourceLabels = getSourceLabels()
     const availableTypes = [
         visType,
@@ -174,8 +186,10 @@ const SeriesTable = ({
                 name={item.name || item.dimensionItem}
                 value={item.color}
                 color={color}
+                source={source}
                 sourceLabel={sourceLabels[source]}
                 metadataColor={getMetadataColor(item.dimensionItem)}
+                paletteColor={paletteColors[index]}
                 onChange={(newColor) =>
                     onColorChange(item.dimensionItem, newColor)
                 }

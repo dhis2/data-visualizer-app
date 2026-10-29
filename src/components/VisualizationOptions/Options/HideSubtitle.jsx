@@ -3,7 +3,7 @@ import {
     FONT_STYLE_VISUALIZATION_SUBTITLE,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
-import { Label, Radio, Field } from '@dhis2/ui'
+import { Radio, Field } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
@@ -17,6 +17,7 @@ import { sGetUiOptions, sGetUiType } from '../../../reducers/ui.js'
 import styles from '../styles/VisualizationOptions.module.css'
 import Subtitle from './Subtitle.jsx'
 import TextStyle from './TextStyle.jsx'
+import { OptionLabel } from './OptionLabel.jsx'
 
 const HIDE_SUBTITLE_AUTO = 'AUTO'
 const HIDE_SUBTITLE_NONE = 'NONE'
@@ -47,11 +48,11 @@ class HideSubtitle extends Component {
 
         return (
             <div className={styles.tabSectionOption}>
-                <Label>
+                <OptionLabel>
                     {visualizationType === VIS_TYPE_PIVOT_TABLE
                         ? i18n.t('Table subtitle')
                         : i18n.t('Chart subtitle')}
-                </Label>
+                </OptionLabel>
                 <Field
                     name="hideSubtitle-selector"
                     dense

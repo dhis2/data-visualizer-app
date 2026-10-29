@@ -1,21 +1,16 @@
 import {
+    colorSets,
     COLOR_SET_DEFAULT,
+    COLOR_SET_PATTERNS,
     hasCustomAxes,
     LEGEND_DISPLAY_STRATEGY_BY_DATA_ITEM,
     LEGEND_DISPLAY_STRATEGY_FIXED,
     LEGEND_DISPLAY_STYLE_FILL,
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
-import {
-    Checkbox,
-    Field,
-    Radio,
-    SegmentedControl,
-    SingleSelectField,
-    SingleSelectOption,
-} from '@dhis2/ui'
+import { Checkbox, Field, Radio, SegmentedControl } from '@dhis2/ui'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { useId, useState } from 'react'
 import { connect } from 'react-redux'
 import { acSetUiOption, acSetUiOptions } from '../../../../actions/ui.js'
 import {
@@ -37,6 +32,7 @@ import {
     COLOR_MODE_SINGLE,
     DEFAULT_SINGLE_COLOR,
     getPaletteLabels,
+    getPalettePreviewColors,
     isLegendMode,
     PALETTE_BY_AXIS,
     PALETTE_IDS,
@@ -48,8 +44,57 @@ import LegendDisplayStrategy from '../LegendDisplayStrategy.jsx'
 import ShowLegendKey from '../ShowLegendKey.jsx'
 import SeriesColorButton from './SeriesColorButton.jsx'
 import { useColourOptionsInit } from './useColourOptionsInit.js'
+import { OptionLabel } from '../OptionLabel.jsx'
 
 const MODE_LEGEND = 'LEGEND'
+
+const PATTERNS = colorSets[COLOR_SET_PATTERNS].patterns
+
+// Mirrors how renderSeriesColors draws pattern fills: shape by position, in the palette colour
+const PalettePreview = ({ colors, pattern }) => {
+    const uid = useId().replace(/:/g, '')
+
+    return (
+        <div className={styles.palettePreview} aria-hidden="true">
+            {colors.map((color, i) => {
+                const shape = PATTERNS[i % PATTERNS.length]
+                const patternId = `${uid}-${i}`
+
+                return pattern ? (
+                    <svg key={i} width="100%" height="100%">
+                        <defs>
+                            <pattern
+                                id={patternId}
+                                patternUnits="userSpaceOnUse"
+                                width={shape.width}
+                                height={shape.height}
+                            >
+                                <path
+                                    d={shape.path}
+                                    stroke={color}
+                                    strokeWidth="2"
+                                    fill="none"
+                                />
+                            </pattern>
+                        </defs>
+                        <rect
+                            width="100%"
+                            height="100%"
+                            fill={`url(#${patternId})`}
+                        />
+                    </svg>
+                ) : (
+                    <span key={i} style={{ background: color }} />
+                )
+            })}
+        </div>
+    )
+}
+
+PalettePreview.propTypes = {
+    colors: PropTypes.arrayOf(PropTypes.string).isRequired,
+    pattern: PropTypes.bool,
+}
 
 const ColourByControl = ({
     options,
@@ -68,6 +113,8 @@ const ColourByControl = ({
     const selected = legendSelected ? MODE_LEGEND : colorMode
     const palette = options[OPTION_COLOR_PALETTE] || COLOR_SET_DEFAULT
     const singleColor = options[OPTION_SINGLE_COLOR] || DEFAULT_SINGLE_COLOR
+    const showPattern =
+        showFill && options[OPTION_FILL_TYPE] === FILL_TYPE_PATTERN
     const labels = getPaletteLabels()
     const paletteIds =
         hasCustomAxes(options[OPTION_SERIES] || []) ||
@@ -110,10 +157,10 @@ const ColourByControl = ({
     }
 
     const modeOptions = [
+        { label: i18n.t('Color set'), value: COLOR_MODE_PALETTE },
         ...(showLegend
             ? [{ label: i18n.t('Legend'), value: MODE_LEGEND }]
             : []),
-        { label: i18n.t('Palette'), value: COLOR_MODE_PALETTE },
         { label: i18n.t('Single colour'), value: COLOR_MODE_SINGLE },
     ]
 
@@ -139,25 +186,47 @@ const ColourByControl = ({
 
             {selected === COLOR_MODE_PALETTE && (
                 <>
-                    <div className={styles.paletteSelect}>
-                        <SingleSelectField
-                            dense
-                            label={i18n.t('Palette')}
-                            selected={palette}
-                            onChange={({ selected }) =>
-                                setOptions({ [OPTION_COLOR_PALETTE]: selected })
-                            }
-                            dataTest="colour-palette-select"
+                    <OptionLabel>{i18n.t('Color set')}</OptionLabel>
+                    <Field dense>
+                        <div
+                            className={styles.paletteGrid}
+                            role="radiogroup"
+                            data-test="colour-palette-options"
                         >
                             {paletteIds.map((id) => (
-                                <SingleSelectOption
+                                <div
                                     key={id}
-                                    value={id}
-                                    label={labels[id]}
-                                />
+                                    onClick={() =>
+                                        setOptions({
+                                            [OPTION_COLOR_PALETTE]: id,
+                                        })
+                                    }
+                                    className={
+                                        id === palette
+                                            ? `${styles.paletteOption} ${styles.paletteOptionSelected}`
+                                            : styles.paletteOption
+                                    }
+                                >
+                                    <PalettePreview
+                                        colors={getPalettePreviewColors(id)}
+                                        pattern={showPattern}
+                                    />
+                                    <Radio
+                                        dense
+                                        name="colour-palette"
+                                        label={labels[id]}
+                                        value={id}
+                                        checked={id === palette}
+                                        onChange={() =>
+                                            setOptions({
+                                                [OPTION_COLOR_PALETTE]: id,
+                                            })
+                                        }
+                                    />
+                                </div>
                             ))}
-                        </SingleSelectField>
-                    </div>
+                        </div>
+                    </Field>
                     <Checkbox
                         dense
                         label={i18n.t(
@@ -172,21 +241,25 @@ const ColourByControl = ({
             )}
 
             {selected === COLOR_MODE_SINGLE && (
-                <Field label={i18n.t('Colour')} dense>
-                    <SeriesColorButton
-                        name={i18n.t('all series')}
-                        value={singleColor}
-                        color={singleColor}
-                        onChange={(color) =>
-                            setOptions({ [OPTION_SINGLE_COLOR]: color })
-                        }
-                    />
-                </Field>
+                <>
+                    <OptionLabel>{i18n.t('Colour')}</OptionLabel>
+                    <Field dense>
+                        <SeriesColorButton
+                            name={i18n.t('all series')}
+                            value={singleColor}
+                            color={singleColor}
+                            onChange={(color) =>
+                                setOptions({ [OPTION_SINGLE_COLOR]: color })
+                            }
+                        />
+                    </Field>
+                </>
             )}
 
             {selected !== MODE_LEGEND && showFill && (
                 <div className={styles.fill}>
-                    <Field label={i18n.t('Fill')} dense>
+                    <OptionLabel>{i18n.t('Fill')}</OptionLabel>
+                    <Field dense>
                         {[
                             [FILL_TYPE_SOLID, i18n.t('Solid')],
                             [FILL_TYPE_PATTERN, i18n.t('Pattern')],

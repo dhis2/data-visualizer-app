@@ -3,6 +3,7 @@ import { Checkbox, Help, InputField } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styles from '../styles/VisualizationOptions.module.css'
+import { OptionLabel } from './OptionLabel.jsx'
 
 const ExtremeLines = ({
     isEnabled,
@@ -27,9 +28,11 @@ const ExtremeLines = ({
         {isEnabled && (
             <div className={styles.tabSectionToggleableSubsection}>
                 <div className={styles.tabSectionOption}>
+                    <OptionLabel>
+                        {i18n.t('Extreme line % detection')}
+                    </OptionLabel>
                     <InputField
                         type="number"
-                        label={i18n.t('Extreme line % detection')}
                         min="0.1"
                         step="0.1"
                         onChange={(input) => onValueChange(Number(input.value))}

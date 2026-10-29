@@ -18,6 +18,8 @@ import i18n from '@dhis2/d2-i18n'
 import { FILL_TYPE_PATTERN, FILL_TYPE_SOLID } from './options.js'
 
 export const COLOR_AUTO = 'AUTO'
+// Override meaning "use the chart palette colour at my position", even if an item colour exists
+export const COLOR_PALETTE = 'PALETTE'
 export const PALETTE_BY_AXIS = 'BY_AXIS'
 
 export const COLOR_MODE_PALETTE = 'PALETTE'
@@ -75,12 +77,23 @@ const interpolateColors = (start, end, steps) => {
     })
 }
 
+// Colours shown in the palette preview strip; By axis shows each axis' main colour
+export const getPalettePreviewColors = (paletteId) =>
+    paletteId === PALETTE_BY_AXIS
+        ? Object.values(AXIS_THEME).map(({ main }) => main)
+        : getPaletteColors(paletteId)
+
 export const getPaletteColors = (paletteId) =>
     paletteId === COLOR_SET_PATTERNS
         ? colorSets[COLOR_SET_PATTERNS].patterns.map((p) => p.color)
         : (colorSets[paletteId] || colorSets[COLOR_SET_DEFAULT]).colors
 
-const getDefaultColors = ({ items, colorMode, colorPalette, singleColor }) => {
+export const getDefaultColors = ({
+    items,
+    colorMode,
+    colorPalette,
+    singleColor,
+}) => {
     if (colorMode === COLOR_MODE_SINGLE) {
         return items.map(() => singleColor || DEFAULT_SINGLE_COLOR)
     }
@@ -94,7 +107,7 @@ const getDefaultColors = ({ items, colorMode, colorPalette, singleColor }) => {
     return items.map((_, index) => palette[index % palette.length])
 }
 
-// Precedence: override > metadata colour (palette + useItemColors) > chart default by position
+// Precedence: override (hex, Auto or Palette) > metadata colour (palette + useItemColors) > chart default by position
 export const resolveSeriesColors = ({
     items,
     colorMode = COLOR_MODE_PALETTE,
@@ -125,7 +138,19 @@ export const resolveSeriesColors = ({
             }
         }
 
-        if (item.color && item.color !== COLOR_AUTO) {
+        if (item.color === COLOR_PALETTE && colorMode === COLOR_MODE_PALETTE) {
+            return {
+                color: defaults[index],
+                source: COLOR_SOURCE_PALETTE,
+                isOverride: true,
+            }
+        }
+
+        if (
+            item.color &&
+            item.color !== COLOR_AUTO &&
+            item.color !== COLOR_PALETTE
+        ) {
             return {
                 color: item.color,
                 source: COLOR_SOURCE_CUSTOM,

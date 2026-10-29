@@ -1,11 +1,5 @@
 import i18n from '@dhis2/d2-i18n'
-import {
-    Button,
-    Input,
-    Label,
-    SingleSelect,
-    SingleSelectOption,
-} from '@dhis2/ui'
+import { Button, Input, SingleSelect, SingleSelectOption } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
@@ -13,6 +7,7 @@ import { acSetUiOptions } from '../../../actions/ui.js'
 import { OPTION_MEASURE_CRITERIA } from '../../../modules/options.js'
 import { sGetUiOptions } from '../../../reducers/ui.js'
 import styles from '../styles/VisualizationOptions.module.css'
+import { OptionLabel } from './OptionLabel.jsx'
 
 const EQUAL_OPERATOR_ID = 'EQ'
 const GREATER_THAN_OPERATOR_ID = 'GT'
@@ -149,7 +144,9 @@ class MeasureCriteria extends Component {
                 </p>
                 <div className={styles.tabSectionOptionComplexInline}>
                     <div style={{ width: '250px', marginRight: '8px' }}>
-                        <Label>{i18n.t('Minimum data value')}</Label>
+                        <OptionLabel>
+                            {i18n.t('Minimum data value')}
+                        </OptionLabel>
                         <div className={styles.tabSectionOptionComplexInline}>
                             <OperatorSelect
                                 name="op1"
@@ -167,7 +164,9 @@ class MeasureCriteria extends Component {
                         </div>
                     </div>
                     <div style={{ width: '250px' }}>
-                        <Label>{i18n.t('Maximum data value')}</Label>
+                        <OptionLabel>
+                            {i18n.t('Maximum data value')}
+                        </OptionLabel>
                         <div className={styles.tabSectionOptionComplexInline}>
                             <OperatorSelect
                                 name="op2"

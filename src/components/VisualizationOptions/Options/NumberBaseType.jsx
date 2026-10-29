@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { acSetUiOption } from '../../../actions/ui.js'
 import { sGetUiOption } from '../../../reducers/ui.js'
 import styles from '../styles/VisualizationOptions.module.css'
+import { OptionLabel } from './OptionLabel.jsx'
 
 const NumberBaseType = ({
     label,
@@ -34,19 +35,25 @@ const NumberBaseType = ({
                     />
                 </Box>
             ) : (
-                <InputField
-                    type="number"
-                    label={label}
-                    onChange={({ value }) => onChange(value)}
-                    name={option.name}
-                    value={value}
-                    helpText={disabled ? '' : helpText}
-                    placeholder={placeholder}
-                    inputWidth={width}
-                    dense
-                    disabled={disabled}
-                    dataTest={`${dataTest}-input`}
-                />
+                <>
+                    {label ? (
+                        <OptionLabel htmlFor={option.name} disabled={disabled}>
+                            {label}
+                        </OptionLabel>
+                    ) : null}
+                    <InputField
+                        type="number"
+                        onChange={({ value }) => onChange(value)}
+                        name={option.name}
+                        value={value}
+                        helpText={disabled ? '' : helpText}
+                        placeholder={placeholder}
+                        inputWidth={width}
+                        dense
+                        disabled={disabled}
+                        dataTest={`${dataTest}-input`}
+                    />
+                </>
             )}
         </div>
     </div>

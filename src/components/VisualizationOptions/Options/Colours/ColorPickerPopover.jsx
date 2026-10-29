@@ -6,6 +6,7 @@ import React from 'react'
 import { HexColorInput, HexColorPicker } from 'react-colorful'
 import {
     COLOR_AUTO,
+    COLOR_PALETTE,
     getPaletteColors,
     getPaletteLabels,
     PALETTE_IDS,
@@ -15,7 +16,9 @@ import styles from '../../styles/Colours.module.css'
 const ColorPickerPopover = ({
     reference,
     metadataColor,
+    paletteColor,
     value,
+    selectedOption = value,
     currentColor,
     onChange,
     onClose,
@@ -30,30 +33,42 @@ const ColorPickerPopover = ({
             onClickOutside={onClose}
         >
             <div className={styles.popover}>
-                {metadataColor && (
-                    <button
-                        type="button"
-                        className={cx(styles.autoOption, {
-                            [styles.autoOptionSelected]: value === COLOR_AUTO,
-                        })}
-                        onClick={() => onChange(COLOR_AUTO)}
-                    >
-                        <span
-                            className={styles.swatch}
-                            style={{ backgroundColor: metadataColor }}
-                        />
-                        <span>
-                            <span className={styles.autoLabel}>
-                                {i18n.t('Auto')}
-                            </span>
-                            {' · '}
-                            <span>{i18n.t('Use data item colour')}</span>
-                        </span>
-                    </button>
-                )}
+                {[
+                    {
+                        id: COLOR_AUTO,
+                        color: metadataColor,
+                        label: i18n.t('Auto from data item'),
+                    },
+                    {
+                        id: COLOR_PALETTE,
+                        color: paletteColor,
+                        label: i18n.t('Auto from color set'),
+                    },
+                ]
+                    .filter(({ color }) => color)
+                    .map(({ id, color, label }) => (
+                        <button
+                            key={id}
+                            type="button"
+                            aria-pressed={selectedOption === id}
+                            disabled={!value && selectedOption === id}
+                            data-test={`colour-option-${id.toLowerCase()}`}
+                            className={cx(styles.autoOption, {
+                                [styles.autoOptionSelected]:
+                                    selectedOption === id,
+                            })}
+                            onClick={() => onChange(id)}
+                        >
+                            <span
+                                className={styles.swatch}
+                                style={{ backgroundColor: color }}
+                            />
+                            <span className={styles.autoLabel}>{label}</span>
+                        </button>
+                    ))}
                 <div>
                     <div className={styles.popoverSectionTitle}>
-                        {i18n.t('Palettes')}
+                        {i18n.t('Color sets')}
                     </div>
                     {PALETTE_IDS.map((paletteId) => (
                         <div
@@ -71,6 +86,7 @@ const ColorPickerPopover = ({
                                         className={cx(styles.paletteSwatch, {
                                             [styles.paletteSwatchSelected]:
                                                 value !== COLOR_AUTO &&
+                                                value !== COLOR_PALETTE &&
                                                 color.toLowerCase() ===
                                                     value?.toLowerCase(),
                                         })}
@@ -107,6 +123,8 @@ ColorPickerPopover.propTypes = {
     onClose: PropTypes.func.isRequired,
     currentColor: PropTypes.string,
     metadataColor: PropTypes.string,
+    paletteColor: PropTypes.string,
+    selectedOption: PropTypes.string,
     value: PropTypes.string,
 }
 

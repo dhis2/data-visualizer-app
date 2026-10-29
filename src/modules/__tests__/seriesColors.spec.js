@@ -11,6 +11,7 @@ import {
 import { FILL_TYPE_PATTERN, FILL_TYPE_SOLID } from '../options.js'
 import {
     COLOR_AUTO,
+    COLOR_PALETTE,
     getPaletteColors,
     isLegendMode,
     isPositionalSeries,
@@ -209,6 +210,26 @@ describe('resolveSeriesColors', () => {
                 isOverride: true,
             })
         }
+    })
+
+    it('lets a Palette override beat the item colour, and is ignored in single colour mode', () => {
+        const items = [{ dimensionItem: 'withColor', color: COLOR_PALETTE }]
+
+        expect(resolve(items, { useItemColors: true })[0]).toEqual({
+            color: DEFAULT[0],
+            source: COLOR_SOURCE_PALETTE,
+            isOverride: true,
+        })
+        expect(
+            resolve(items, {
+                colorMode: COLOR_MODE_SINGLE,
+                singleColor: '#00ff00',
+            })[0]
+        ).toEqual({
+            color: '#00ff00',
+            source: COLOR_SOURCE_SINGLE,
+            isOverride: false,
+        })
     })
 
     it('falls back to the chart default when an AUTO override lost its metadata colour', () => {

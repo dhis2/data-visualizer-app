@@ -3,6 +3,7 @@ import { Field, Radio, InputField, Help } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 import styles from '../styles/VisualizationOptions.module.css'
+import { OptionLabel } from './OptionLabel.jsx'
 
 const OutlierDetectionMethod = ({
     methods,
@@ -33,9 +34,9 @@ const OutlierDetectionMethod = ({
                 )}
             </Help>
         </div>
+        <OptionLabel>{i18n.t('Threshold factor')}</OptionLabel>
         <InputField
             type="number"
-            label={i18n.t('Threshold factor')}
             min="0"
             step="0.5"
             onChange={({ value }) => onThresholdChange(value)}

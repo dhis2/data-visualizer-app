@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { acSetUiOption } from '../../../actions/ui.js'
 import { sGetUiOption } from '../../../reducers/ui.js'
 import styles from '../styles/VisualizationOptions.module.css'
+import { OptionLabel } from './OptionLabel.jsx'
 
 const UnconnectedPositiveNumberBaseType = ({
     label,
@@ -19,9 +20,13 @@ const UnconnectedPositiveNumberBaseType = ({
 }) => (
     <div className={styles.tabSectionOption}>
         <div>
+            {label ? (
+                <OptionLabel htmlFor={option.name} disabled={disabled}>
+                    {label}
+                </OptionLabel>
+            ) : null}
             <InputField
                 type="number"
-                label={label}
                 onChange={({ value }) => {
                     const parsedValue = parseInt(value, 10)
                     parsedValue >= 0

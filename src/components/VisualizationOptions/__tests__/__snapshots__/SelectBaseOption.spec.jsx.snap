@@ -54,7 +54,6 @@ exports[`DV > Options > SelectBaseOption renders a <Checkbox /> and <SingleSelec
     >
       <select
         data-test="hello-select"
-        label=""
         name="toggleable-select"
       >
         <option
@@ -87,9 +86,14 @@ exports[`DV > Options > SelectBaseOption renders a <SingleSelectField /> when no
     <div
       class=""
     >
+      <label
+        class=""
+        data-test="option-label"
+      >
+        toggleable test
+      </label>
       <select
         data-test="hello-select"
-        label="toggleable test"
         name="toggleable-select"
       >
         <option

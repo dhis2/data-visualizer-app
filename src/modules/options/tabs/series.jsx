@@ -4,7 +4,7 @@ import SeriesTable from '../../../components/VisualizationOptions/Options/Series
 
 export default ({ showAxisOptions, showTypeOptions, showColours } = {}) => ({
     key: 'series-tab',
-    label: i18n.t('Series'),
+    label: i18n.t('Series overrides'),
     content: [
         {
             key: 'series-table',

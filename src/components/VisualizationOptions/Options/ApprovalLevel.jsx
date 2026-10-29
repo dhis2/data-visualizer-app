@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 import { acSetUiOptions } from '../../../actions/ui.js'
 import { OPTION_APPROVAL_LEVEL } from '../../../modules/options.js'
 import { sGetUiOptions } from '../../../reducers/ui.js'
+import { OptionLabel } from './OptionLabel.jsx'
 
 export const APPROVAL_LEVEL_OPTION_AUTH = 'F_VIEW_UNAPPROVED_DATA'
 
@@ -31,28 +32,31 @@ const ApprovalLevelSelect = ({
     onFocus,
     onChange,
 }) => (
-    <SingleSelectField
-        name="approvalLevelSelect"
-        label={i18n.t('Data approved at level')}
-        selected={value?.id}
-        inputWidth="280px"
-        placeholder={i18n.t('Select from predefined levels')}
-        loadingText={i18n.t('Loading data approval levels')}
-        loading={loading}
-        dense
-        onFocus={onFocus}
-        onChange={({ selected }) =>
-            onChange({
-                id: selected,
-                displayName: options.find((option) => option.value === selected)
-                    .label,
-            })
-        }
-    >
-        {options.map(({ value, label }) => (
-            <SingleSelectOption key={value} value={value} label={label} />
-        ))}
-    </SingleSelectField>
+    <>
+        <OptionLabel>{i18n.t('Data approved at level')}</OptionLabel>
+        <SingleSelectField
+            name="approvalLevelSelect"
+            selected={value?.id}
+            inputWidth="280px"
+            placeholder={i18n.t('Select from predefined levels')}
+            loadingText={i18n.t('Loading data approval levels')}
+            loading={loading}
+            dense
+            onFocus={onFocus}
+            onChange={({ selected }) =>
+                onChange({
+                    id: selected,
+                    displayName: options.find(
+                        (option) => option.value === selected
+                    ).label,
+                })
+            }
+        >
+            {options.map(({ value, label }) => (
+                <SingleSelectOption key={value} value={value} label={label} />
+            ))}
+        </SingleSelectField>
+    </>
 )
 
 ApprovalLevelSelect.propTypes = {

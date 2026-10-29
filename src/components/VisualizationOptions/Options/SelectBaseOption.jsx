@@ -6,6 +6,8 @@ import { connect } from 'react-redux'
 import { acSetUiOptions } from '../../../actions/ui.js'
 import { sGetUiOption, sGetUiDisabledOption } from '../../../reducers/ui.js'
 import styles from '../styles/VisualizationOptions.module.css'
+import { OptionLabel } from './OptionLabel.jsx'
+
 export const UnconnectedSelectBaseOption = ({
     option,
     label,
@@ -45,9 +47,11 @@ export const UnconnectedSelectBaseOption = ({
                         [styles.tabSectionOptionToggleable]: toggleable,
                     })}
                 >
+                    {!toggleable && label ? (
+                        <OptionLabel disabled={disabled}>{label}</OptionLabel>
+                    ) : null}
                     <SingleSelectField
                         name={`${option.name}-select`}
-                        label={toggleable ? '' : label}
                         onChange={({ selected }) => onChange(selected)}
                         selected={selected}
                         helpText={helpText}

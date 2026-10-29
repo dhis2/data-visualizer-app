@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { acSetUiOption } from '../../../actions/ui.js'
 import { sGetUiOption, sGetUiDisabledOption } from '../../../reducers/ui.js'
 import styles from '../styles/VisualizationOptions.module.css'
+import { OptionLabel } from './OptionLabel.jsx'
 import TextStyle from './TextStyle.jsx'
 
 const OPTION_PROP_DEFAULT = {}
@@ -57,19 +58,28 @@ const UnconnectedTextBaseOption = ({
                         />
                     </Box>
                 ) : (
-                    <InputField
-                        type={type}
-                        label={toggleable ? '' : label}
-                        onChange={({ value }) => onChange(value)}
-                        name={option.name}
-                        value={value}
-                        helpText={disabled ? '' : helpText}
-                        placeholder={placeholder}
-                        inputWidth={width}
-                        dense
-                        disabled={disabled}
-                        dataTest={`${dataTest}-input`}
-                    />
+                    <>
+                        {!toggleable && label ? (
+                            <OptionLabel
+                                htmlFor={option.name}
+                                disabled={disabled}
+                            >
+                                {label}
+                            </OptionLabel>
+                        ) : null}
+                        <InputField
+                            type={type}
+                            onChange={({ value }) => onChange(value)}
+                            name={option.name}
+                            value={value}
+                            helpText={disabled ? '' : helpText}
+                            placeholder={placeholder}
+                            inputWidth={width}
+                            dense
+                            disabled={disabled}
+                            dataTest={`${dataTest}-input`}
+                        />
+                    </>
                 )}
                 {fontStyleKey ? (
                     <TextStyle
