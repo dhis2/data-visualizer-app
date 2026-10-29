@@ -12,8 +12,9 @@ import {
 } from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
+import { onOpenOptionsTab } from '../../modules/openOptionsTab.js'
 import { getOptionsByType } from '../../modules/options/config.js'
 import {
     sGetUiType,
@@ -32,6 +33,7 @@ const VisualizationOptionsManager = ({
     cumulativeValues,
 }) => {
     const [selectedOptionConfigKey, setSelectedOptionConfigKey] = useState(null)
+    useEffect(() => onOpenOptionsTab(setSelectedOptionConfigKey), [])
     const onOptionsUpdate = (handler) => {
         handler()
         setSelectedOptionConfigKey(null)

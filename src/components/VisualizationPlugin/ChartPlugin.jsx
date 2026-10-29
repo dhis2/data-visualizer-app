@@ -17,33 +17,49 @@ const VISUALIZATION_PROP_DEFAULT = {}
 const isDataSeries = (series) =>
     !series.options.linkedTo && !series.options.custom?.isTwoCategoryFakeSerie
 
-// PROTOTYPE: clicking a bar/slice opens a colour popover for its colour slot
+// The legend line sample is ~2px tall: accept clicks a few px above and below it.
+// Vertical only, so clicks on the label still toggle the series.
+const LEGEND_LINE_HIT_PADDING = 6
+const isNearLine = (line, { clientX, clientY }) => {
+    const rect = line.element.getBoundingClientRect()
+
+    return (
+        clientX >= rect.left &&
+        clientX <= rect.right &&
+        clientY >= rect.top - LEGEND_LINE_HIT_PADDING &&
+        clientY <= rect.bottom + LEGEND_LINE_HIT_PADDING
+    )
+}
+
+// PROTOTYPE: clicking a bar/slice/line or its legend symbol opens a colour popover for its colour slot
 const attachSeriesClick = (chart, onSeriesClick) => {
     const dataSeries = chart.series.filter(isDataSeries)
+    const isPie = dataSeries[0]?.type === 'pie'
+    // Read lazily: series.update recreates pie points
+    const getTargets = () => (isPie ? dataSeries[0].points : dataSeries)
+
+    const open = (index, { clientX, clientY }) => {
+        const target = getTargets()[index]
+
+        onSeriesClick({
+            // Lines have no point graphic, so anchor on the click itself
+            position: { x: clientX, y: clientY },
+            index,
+            color: typeof target.color === 'string' ? target.color : '#000000',
+            preview: (color) => target.update({ color }, true, false),
+        })
+    }
 
     dataSeries.forEach((series, seriesIndex) =>
         series.update(
             {
                 cursor: 'pointer',
-                // Area fills only take clicks on their top edge otherwise
-                trackByArea: true,
+                // Area fills only take clicks on their top edge otherwise.
+                // Lines have no area path, so their tracker would be empty.
+                trackByArea: series.type.startsWith('area'),
                 events: {
-                    click: ({ point, clientX, clientY }) => {
-                        const isPie = series.type === 'pie'
-                        const target = isPie ? point : series
-
-                        onSeriesClick({
-                            // Lines have no point graphic, so anchor on the click itself
-                            position: { x: clientX, y: clientY },
-                            index: isPie ? point.index : seriesIndex,
-                            color:
-                                typeof target.color === 'string'
-                                    ? target.color
-                                    : '#000000',
-                            preview: (color) =>
-                                target.update({ color }, true, false),
-                        })
-                    },
+                    click: (event) =>
+                        open(isPie ? event.point.index : seriesIndex, event),
                 },
             },
             false
@@ -51,6 +67,25 @@ const attachSeriesClick = (chart, onSeriesClick) => {
     )
 
     chart.redraw(false)
+
+    // Capture phase: runs before the legend item's show/hide toggle, so the
+    // symbol opens the picker while the label keeps toggling
+    chart.container.addEventListener(
+        'click',
+        (event) => {
+            const index = getTargets().findIndex(
+                ({ legendItem }) =>
+                    legendItem?.symbol?.element.contains(event.target) ||
+                    (legendItem?.line && isNearLine(legendItem.line, event))
+            )
+
+            if (index !== -1) {
+                event.stopPropagation()
+                open(index, event)
+            }
+        },
+        true
+    )
 }
 
 const ChartPlugin = ({

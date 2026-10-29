@@ -18,6 +18,9 @@ import {
     VIS_TYPE_GAUGE,
     VIS_TYPE_SCATTER,
     useDataOutputPeriodTypes,
+    hasCustomAxes,
+    hasRelativeItems,
+    isDualAxisType,
 } from '@dhis2/analytics'
 import { useConfig, useDataEngine } from '@dhis2/app-runtime'
 import { Button, IconLegend24, Layer } from '@dhis2/ui'
@@ -73,6 +76,20 @@ const SERIES_COLOR_UNSUPPORTED_TYPES = [
     VIS_TYPE_SCATTER,
     VIS_TYPE_SINGLE_VALUE,
 ]
+
+// Same test analytics uses: multi-axis charts get generated per-axis colours,
+// which ignore the colour set, so a picked colour wouldn't stick
+const isMultiAxis = ({ type, columns, series }) => {
+    const itemIds = columns?.[0]?.items?.map(({ id }) => id) || []
+
+    return (
+        isDualAxisType(type) &&
+        hasCustomAxes(
+            series?.filter((item) => itemIds.includes(item.dimensionItem))
+        ) &&
+        !hasRelativeItems(columns[0].dimension, itemIds)
+    )
+}
 
 export const VisualizationPlugin = ({
     visualization: originalVisualization = {},
@@ -669,7 +686,8 @@ export const VisualizationPlugin = ({
                 onSeriesColorChange &&
                 !SERIES_COLOR_UNSUPPORTED_TYPES.includes(
                     fetchResult.visualization.type
-                )
+                ) &&
+                !isMultiAxis(fetchResult.visualization)
 
             return (
                 <ChartPlugin

@@ -1,40 +1,22 @@
-import {
-    colorSets,
-    COLOR_SET_BASIC,
-    COLOR_SET_BRIGHT,
-    COLOR_SET_COLOR_BLIND,
-    COLOR_SET_DARK,
-    COLOR_SET_DEFAULT,
-    COLOR_SET_EXTENDED,
-    COLOR_SET_GRAY,
-} from '@dhis2/analytics'
 import i18n from '@dhis2/d2-i18n'
-import { Popover } from '@dhis2/ui'
+import { IconSettings16, Popover } from '@dhis2/ui'
 import cx from 'classnames'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { HexColorInput, HexColorPicker } from 'react-colorful'
 import styles from './ColorPickerPopover.module.css'
 
-const PALETTE_IDS = [
-    COLOR_SET_DEFAULT,
-    COLOR_SET_BASIC,
-    COLOR_SET_EXTENDED,
-    COLOR_SET_BRIGHT,
-    COLOR_SET_DARK,
-    COLOR_SET_GRAY,
-    COLOR_SET_COLOR_BLIND,
+// Generic spectrum like most pickers offer: 12 hues from mid to dark, then greys.
+// No white or pale colours: they vanish on the chart's white background.
+// prettier-ignore
+const SPECTRUM_ROWS = [
+    ['#f87171', '#fb923c', '#fbbf24', '#facc15', '#a3e635', '#4ade80', '#2dd4bf', '#22d3ee', '#60a5fa', '#818cf8', '#c084fc', '#f472b6'],
+    ['#ef4444', '#f97316', '#f59e0b', '#eab308', '#84cc16', '#22c55e', '#14b8a6', '#06b6d4', '#3b82f6', '#6366f1', '#a855f7', '#ec4899'],
+    ['#dc2626', '#ea580c', '#d97706', '#ca8a04', '#65a30d', '#16a34a', '#0d9488', '#0891b2', '#2563eb', '#4f46e5', '#9333ea', '#db2777'],
+    ['#b91c1c', '#c2410c', '#b45309', '#a16207', '#4d7c0f', '#15803d', '#0f766e', '#0e7490', '#1d4ed8', '#4338ca', '#7e22ce', '#be185d'],
+    ['#991b1b', '#9a3412', '#92400e', '#854d0e', '#3f6212', '#166534', '#115e59', '#155e75', '#1e40af', '#3730a3', '#6b21a8', '#9d174d'],
+    ['#9ca3af', '#6b7280', '#4b5563', '#374151', '#1f2937', '#111827', '#000000'],
 ]
-
-const getPaletteLabels = () => ({
-    [COLOR_SET_DEFAULT]: i18n.t('Default'),
-    [COLOR_SET_BASIC]: i18n.t('Basic'),
-    [COLOR_SET_EXTENDED]: i18n.t('Extended'),
-    [COLOR_SET_BRIGHT]: i18n.t('Bright'),
-    [COLOR_SET_DARK]: i18n.t('Dark'),
-    [COLOR_SET_GRAY]: i18n.t('Gray'),
-    [COLOR_SET_COLOR_BLIND]: i18n.t('Color blind'),
-})
 
 // Ported from the series colours prototype, minus the "Auto" options
 const ColorPickerPopover = ({
@@ -44,8 +26,25 @@ const ColorPickerPopover = ({
     placement = 'bottom-start',
     onChange,
     onClose,
+    onOpenStyleOptions,
 }) => {
-    const labels = getPaletteLabels()
+    const renderRow = (key, colors) => (
+        <div key={key} className={styles.paletteRow}>
+            {colors.map((swatchColor) => (
+                <button
+                    key={swatchColor}
+                    type="button"
+                    aria-label={swatchColor}
+                    className={cx(styles.paletteSwatch, {
+                        [styles.paletteSwatchSelected]:
+                            swatchColor.toLowerCase() === color?.toLowerCase(),
+                    })}
+                    style={{ backgroundColor: swatchColor }}
+                    onClick={() => onChange(swatchColor)}
+                />
+            ))}
+        </div>
+    )
 
     return (
         <Popover
@@ -55,34 +54,24 @@ const ColorPickerPopover = ({
             onClickOutside={onClose}
         >
             <div className={styles.popover}>
-                {title && <div className={styles.title}>{title}</div>}
+                {(title || onOpenStyleOptions) && (
+                    <div className={styles.header}>
+                        <span className={styles.title}>{title}</span>
+                        {onOpenStyleOptions && (
+                            <button
+                                type="button"
+                                className={styles.iconButton}
+                                aria-label={i18n.t('Edit all colours')}
+                                title={i18n.t('Edit all colours')}
+                                onClick={onOpenStyleOptions}
+                            >
+                                <IconSettings16 />
+                            </button>
+                        )}
+                    </div>
+                )}
                 <div>
-                    {PALETTE_IDS.map((paletteId) => (
-                        <div
-                            key={paletteId}
-                            className={styles.paletteRow}
-                            title={labels[paletteId]}
-                        >
-                            {colorSets[paletteId].colors
-                                .slice(0, 12)
-                                .map((paletteColor) => (
-                                    <button
-                                        key={paletteColor}
-                                        type="button"
-                                        aria-label={paletteColor}
-                                        className={cx(styles.paletteSwatch, {
-                                            [styles.paletteSwatchSelected]:
-                                                paletteColor.toLowerCase() ===
-                                                color?.toLowerCase(),
-                                        })}
-                                        style={{
-                                            backgroundColor: paletteColor,
-                                        }}
-                                        onClick={() => onChange(paletteColor)}
-                                    />
-                                ))}
-                        </div>
-                    ))}
+                    {SPECTRUM_ROWS.map((row, index) => renderRow(index, row))}
                 </div>
                 <div className={styles.custom}>
                     <HexColorPicker
@@ -108,6 +97,7 @@ ColorPickerPopover.propTypes = {
     color: PropTypes.string,
     placement: PropTypes.string,
     title: PropTypes.string,
+    onOpenStyleOptions: PropTypes.func,
 }
 
 export default ColorPickerPopover

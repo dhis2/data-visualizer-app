@@ -6,21 +6,44 @@
     padding: var(--spacers-dp12);
 }
 
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacers-dp8);
+}
+
+.iconButton {
+    display: inline-flex;
+    padding: 2px;
+    border: none;
+    border-radius: 3px;
+    background: none;
+    color: var(--colors-grey600);
+    cursor: pointer;
+}
+
+.iconButton:hover {
+    background: var(--colors-grey200);
+    color: var(--colors-grey900);
+}
+
 .title {
     font-size: 14px;
     font-weight: 500;
     color: var(--colors-grey900);
 }
 
+/* Fixed 12 columns, so short rows line up with full ones */
 .paletteRow {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
     gap: 2px;
     margin-block-end: 2px;
 }
 
 .paletteSwatch {
-    inline-size: 18px;
-    block-size: 18px;
+    aspect-ratio: 1;
     padding: 0;
     border: none;
     border-radius: 2px;

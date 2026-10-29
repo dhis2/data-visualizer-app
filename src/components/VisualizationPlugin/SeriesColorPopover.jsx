@@ -1,6 +1,7 @@
 import i18n from '@dhis2/d2-i18n'
 import PropTypes from 'prop-types'
 import React, { useMemo, useState } from 'react'
+import { openOptionsTab } from '../../modules/openOptionsTab.js'
 import ColorPickerPopover from '../ColorPicker/ColorPickerPopover.jsx'
 
 // PROTOTYPE: colour picker for the series/slice position that was clicked in the chart
@@ -28,6 +29,10 @@ const SeriesColorPopover = ({ target, onChange, onClose }) => {
             color={color}
             onChange={onColorChange}
             onClose={() => onClose(color !== target.color)}
+            onOpenStyleOptions={() => {
+                onClose(color !== target.color)
+                openOptionsTab('style-tab')
+            }}
         />
     )
 }

@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2026-10-28T08:49:31.388Z\n"
-"PO-Revision-Date: 2026-10-28T08:49:31.388Z\n"
+"POT-Creation-Date: 2026-10-29T08:07:04.558Z\n"
+"PO-Revision-Date: 2026-10-29T08:07:04.559Z\n"
 
 msgid "All items"
 msgstr "All items"
@@ -39,26 +39,8 @@ msgstr "No, cancel"
 msgid "Yes, leave"
 msgstr "Yes, leave"
 
-msgid "Default"
-msgstr "Default"
-
-msgid "Basic"
-msgstr "Basic"
-
-msgid "Extended"
-msgstr "Extended"
-
-msgid "Bright"
-msgstr "Bright"
-
-msgid "Dark"
-msgstr "Dark"
-
-msgid "Gray"
-msgstr "Gray"
-
-msgid "Color blind"
-msgstr "Color blind"
+msgid "Edit all colours"
+msgstr "Edit all colours"
 
 msgid "Add to {{axisName}}"
 msgstr "Add to {{axisName}}"
@@ -372,6 +354,27 @@ msgstr "Column sub-totals"
 
 msgid "Columns totals"
 msgstr "Columns totals"
+
+msgid "Default"
+msgstr "Default"
+
+msgid "Basic"
+msgstr "Basic"
+
+msgid "Extended"
+msgstr "Extended"
+
+msgid "Bright"
+msgstr "Bright"
+
+msgid "Dark"
+msgstr "Dark"
+
+msgid "Gray"
+msgstr "Gray"
+
+msgid "Color blind"
+msgstr "Color blind"
 
 msgid "Patterns"
 msgstr "Patterns"
