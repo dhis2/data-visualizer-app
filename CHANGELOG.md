@@ -1,3 +1,10 @@
+## [101.6.6](https://github.com/dhis2/data-visualizer-app/compare/v101.6.5...v101.6.6) (2026-11-24)
+
+
+### Bug Fixes
+
+* make data approved at level option clearable [DHIS2-22531] ([#3481](https://github.com/dhis2/data-visualizer-app/issues/3481)) ([7d2ce1f](https://github.com/dhis2/data-visualizer-app/commit/7d2ce1f7aa7968f10f6cd394044d83c86a4eb8ea))
+
 ## [101.6.5](https://github.com/dhis2/data-visualizer-app/compare/v101.6.4...v101.6.5) (2026-10-04)
 
 
