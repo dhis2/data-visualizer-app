@@ -40,13 +40,20 @@ const ApprovalLevelSelect = ({
         loadingText={i18n.t('Loading data approval levels')}
         loading={loading}
         dense
+        clearable
         onFocus={onFocus}
         onChange={({ selected }) =>
-            onChange({
-                id: selected,
-                displayName: options.find((option) => option.value === selected)
-                    .label,
-            })
+            // selected is an empty string when the selection is cleared
+            onChange(
+                selected
+                    ? {
+                          id: selected,
+                          displayName: options.find(
+                              (option) => option.value === selected
+                          ).label,
+                      }
+                    : undefined
+            )
         }
     >
         {options.map(({ value, label }) => (
@@ -63,7 +70,7 @@ ApprovalLevelSelect.propTypes = {
     onFocus: PropTypes.func,
 }
 
-const ApprovalLevel = ({ value, onChange }) => {
+export const UnconnectedApprovalLevel = ({ value, onChange }) => {
     const engine = useDataEngine()
     const { currentUser, systemSettings } = useCachedDataQuery()
 
@@ -117,7 +124,7 @@ const ApprovalLevel = ({ value, onChange }) => {
     )
 }
 
-ApprovalLevel.propTypes = {
+UnconnectedApprovalLevel.propTypes = {
     value: PropTypes.object,
     onChange: PropTypes.func,
 }
@@ -127,8 +134,11 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    onChange: ({ id, displayName }) =>
-        dispatch(acSetUiOptions({ [optionName]: { id, displayName } })),
+    // value is undefined (the option's default value) when the selection is cleared
+    onChange: (value) => dispatch(acSetUiOptions({ [optionName]: value })),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(ApprovalLevel)
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(UnconnectedApprovalLevel)
