@@ -38,6 +38,7 @@ const ApprovalLevelSelect = ({
         inputWidth="280px"
         placeholder={i18n.t('Select from predefined levels')}
         loadingText={i18n.t('Loading data approval levels')}
+        helpText={i18n.t('This selection is not saved with the visualization')}
         loading={loading}
         dense
         clearable

@@ -47,6 +47,11 @@ describe('DV > Options > ApprovalLevel', () => {
         render(<ApprovalLevel value={{}} onChange={onChange} />)
 
         expect(screen.getByText('Data approved at level')).toBeInTheDocument()
+        expect(
+            screen.getByText(
+                'This selection is not saved with the visualization'
+            )
+        ).toBeInTheDocument()
         expect(screen.queryByTestId(clearButtonTestId)).not.toBeInTheDocument()
     })
 
